@@ -17,11 +17,10 @@ const csp: PluginOption = {
       "img-src 'self' data: blob: https:",
       'connect-src https:',
       "worker-src 'self' blob:",
-      "font-src 'self'",
+      "font-src 'self' data:", // MapLibre ships a fallback glyph font as a data URI
       "base-uri 'self'",
       "form-action 'none'",
       "object-src 'none'",
-      "frame-ancestors 'none'",
     ].join('; ');
     return html.replace(
       '<head>',
