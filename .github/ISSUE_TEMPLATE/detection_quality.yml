@@ -1,0 +1,33 @@
+name: Detection quality report
+description: False positive, missed pool, or wildly wrong area estimate
+labels: [detection-quality]
+body:
+  - type: input
+    id: coords
+    attributes:
+      label: Coordinates
+      description: Centre of the problem area (lat, lon)
+      placeholder: "33.5940, -111.9260"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Problem type
+      options:
+        - False positive (detected something that isn't a pool)
+        - Missed pool
+        - Area estimate badly off
+        - Duplicate detection (merge failure)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: |
+        What is the object actually? What confidence did it get?
+        A screenshot of the detection + the harness output helps enormously:
+        `npx tsx src/dev/annotate.ts <lat> <lon> 3 19 out.png` (from packages/cli)
+    validations:
+      required: true

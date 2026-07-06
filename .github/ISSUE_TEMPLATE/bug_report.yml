@@ -1,0 +1,29 @@
+name: Bug report
+description: Something misbehaves — a crash, wrong geometry, broken UI
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Scan location & zoom (if detection-related)
+      placeholder: "37.0745, -8.1155 @ z19"
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: |
+        browser / OS / Node version
+        web app or CLI
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Console output / screenshots
