@@ -93,16 +93,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
           }}
         />
       </div>
-      <div className="row" title="Any XYZ template with {z}/{x}/{y}. Leave empty for Esri World Imagery.">
-        <span className="label">Imagery URL</span>
-      </div>
-      <input
-        className="field"
-        placeholder="default: Esri World Imagery"
-        value={settings.providerTemplate}
-        disabled={scanning}
-        onChange={(e) => update({ providerTemplate: e.target.value })}
-      />
+      <ProviderPicker scanning={scanning} />
       <div className="row">
         <button
           className="btn"
@@ -122,4 +113,87 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       </div>
     </div>
   );
+}
+
+type PresetId = 'esri' | 'maptiler' | 'mapbox' | 'custom';
+
+function presetOf(template: string): PresetId {
+  if (!template.trim()) return 'esri';
+  if (template.includes('api.maptiler.com')) return 'maptiler';
+  if (template.includes('api.mapbox.com')) return 'mapbox';
+  return 'custom';
+}
+
+const KEYED: Record<'maptiler' | 'mapbox', { keyLabel: string; make: (key: string) => string }> = {
+  maptiler: {
+    keyLabel: 'MapTiler key',
+    make: (k) => `https://api.maptiler.com/tiles/satellite-v2/{z}/{x}/{y}.jpg?key=${k}`,
+  },
+  mapbox: {
+    keyLabel: 'Mapbox token',
+    make: (k) => `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90?access_token=${k}`,
+  },
+};
+
+/**
+ * Imagery source picker. Default is keyless Esri World Imagery; MapTiler and
+ * Mapbox slots take the user's own API key (stored locally, embedded in the
+ * tile template); anything else fits the custom XYZ slot. Check the terms of
+ * whichever provider you point the scanner at — see docs/IMAGERY.md.
+ */
+function ProviderPicker({ scanning }: { scanning: boolean }) {
+  const settings = useStore((s) => s.settings);
+  const update = useStore((s) => s.updateSettings);
+  const [preset, setPreset] = useState<PresetId>(() => presetOf(settings.providerTemplate));
+
+  return (
+    <>
+      <div className="row">
+        <span className="label">Imagery</span>
+        <select
+          className="field"
+          style={{ width: 160 }}
+          value={preset}
+          disabled={scanning}
+          onChange={(e) => {
+            const p = e.target.value as PresetId;
+            setPreset(p);
+            if (p === 'esri') update({ providerTemplate: '' });
+          }}
+        >
+          <option value="esri">Esri World Imagery</option>
+          <option value="maptiler">MapTiler satellite · key</option>
+          <option value="mapbox">Mapbox satellite · key</option>
+          <option value="custom">Custom XYZ</option>
+        </select>
+      </div>
+      {(preset === 'maptiler' || preset === 'mapbox') && (
+        <input
+          className="field"
+          type="password"
+          placeholder={`${KEYED[preset].keyLabel} — stays on this device`}
+          disabled={scanning}
+          defaultValue={extractKey(settings.providerTemplate)}
+          onChange={(e) => {
+            const k = e.target.value.trim();
+            update({ providerTemplate: k ? KEYED[preset].make(k) : '' });
+          }}
+        />
+      )}
+      {preset === 'custom' && (
+        <input
+          className="field"
+          placeholder="https://…/{z}/{x}/{y}.jpg"
+          disabled={scanning}
+          value={settings.providerTemplate}
+          onChange={(e) => update({ providerTemplate: e.target.value })}
+        />
+      )}
+    </>
+  );
+}
+
+function extractKey(template: string): string {
+  const m = /(?:key|access_token)=([^&]+)/.exec(template);
+  return m ? m[1] : '';
 }

@@ -7,6 +7,7 @@ import { googleMapsUrl } from '../lib/links.js';
 import { fragKey } from '../lib/fragKey.js';
 import { download, toCSV, toGeoJSON } from '../lib/export.js';
 import { deleteScan, loadScan } from '../scan/persist.js';
+import { IconChevron, IconDownload, IconExternal } from './icons.js';
 
 const RENDER_CAP = 200;
 
@@ -16,6 +17,7 @@ export function ResultsPanel() {
   const settings = useStore((s) => s.settings);
   const archive = useStore((s) => s.archive);
   const [tab, setTab] = useState<'results' | 'archive'>('results');
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   const scanActive = phase === 'scanning' || phase === 'paused' || phase === 'complete';
   const open = scanActive || archive.length > 0;
@@ -29,24 +31,36 @@ export function ResultsPanel() {
   const totalArea = visible.reduce((a, d) => a + d.areaM2, 0);
 
   return (
-    <aside className="results panel fade-up">
-      <header>
+    <aside className={`results panel fade-up${sheetOpen ? ' open' : ''}`}>
+      <header onClick={() => setSheetOpen((v) => !v)}>
         <span className="title">
-          POLO <span style={{ color: 'var(--text-faint)' }}>/</span> ranked returns
+          POLO <span className="title-dim">/ returns</span>
         </span>
-        <span className="count">
+        <span className="count mono">
           {formatCount(visible.length)} · {formatArea(totalArea)}
         </span>
+        <button
+          className="sheet-toggle"
+          aria-label={sheetOpen ? 'Collapse results' : 'Expand results'}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSheetOpen((v) => !v);
+          }}
+        >
+          <IconChevron style={{ transform: sheetOpen ? 'rotate(0deg)' : 'rotate(180deg)' }} />
+        </button>
       </header>
-      <div className="tabs">
-        <button className={tab === 'results' ? 'active' : ''} onClick={() => setTab('results')}>
-          results
-        </button>
-        <button className={tab === 'archive' ? 'active' : ''} onClick={() => setTab('archive')}>
-          archive · {archive.length}
-        </button>
+      <div className="r-body">
+        <div className="tabs">
+          <button className={tab === 'results' ? 'active' : ''} onClick={() => setTab('results')}>
+            results
+          </button>
+          <button className={tab === 'archive' ? 'active' : ''} onClick={() => setTab('archive')}>
+            archive · {archive.length}
+          </button>
+        </div>
+        {tab === 'results' ? <ResultsTab visible={visible} /> : <ArchiveTab />}
       </div>
-      {tab === 'results' ? <ResultsTab visible={visible} /> : <ArchiveTab />}
     </aside>
   );
 }
@@ -59,7 +73,7 @@ function ResultsTab({ visible }: { visible: RankedDetection[] }) {
   return (
     <>
       <div className="filters">
-        <span className="label">min conf</span>
+        <span className="label">conf ≥</span>
         <input
           type="range"
           min={0}
@@ -67,14 +81,14 @@ function ResultsTab({ visible }: { visible: RankedDetection[] }) {
           step={0.05}
           value={settings.minConfidence}
           onChange={(e) => updateSettings({ minConfidence: Number(e.target.value) })}
+          aria-label="Minimum confidence"
         />
-        <span className="val mono" style={{ fontSize: 10, color: 'var(--accent)' }}>
-          {settings.minConfidence.toFixed(2)}
-        </span>
+        <span className="val mono">{settings.minConfidence.toFixed(2)}</span>
         <button
           className={`toggle ${settings.showHotTubs ? 'on' : ''}`}
           onClick={() => updateSettings({ showHotTubs: !settings.showHotTubs })}
           title="Include hot tubs"
+          aria-label="Include hot tubs"
         />
         <span className="label">tubs</span>
       </div>
@@ -85,21 +99,21 @@ function ResultsTab({ visible }: { visible: RankedDetection[] }) {
           disabled={visible.length === 0}
           onClick={() => download('marco-polo-pools.geojson', toGeoJSON(visible), 'application/geo+json')}
         >
-          ⇩ geojson
+          <IconDownload /> geojson
         </button>
         <button
           className="btn"
           disabled={visible.length === 0}
           onClick={() => download('marco-polo-pools.csv', toCSV(visible), 'text/csv')}
         >
-          ⇩ csv
+          <IconDownload /> csv
         </button>
       </div>
       {phase === 'complete' && visible.length === 0 && (
         <div className="empty-note">
-          No pools above the current confidence filter.
+          No returns above the confidence filter.
           <br />
-          Lower the threshold or scan a sunnier neighbourhood.
+          Lower the threshold or select a denser AOI.
         </div>
       )}
     </>
@@ -126,7 +140,7 @@ function DetectionList({ visible }: { visible: RankedDetection[] }) {
         <div className="empty-note">
           Listening for returns…
           <br />
-          Detections appear here the moment the sweep finds water.
+          Detections stream in as the sweep finds water.
         </div>
       )}
       <AnimatePresence initial={false}>
@@ -137,29 +151,29 @@ function DetectionList({ visible }: { visible: RankedDetection[] }) {
               key={d.id}
               data-id={d.id}
               layout="position"
-              initial={{ opacity: 0, x: 26 }}
+              initial={{ opacity: 0, x: 22 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 26 }}
-              transition={{ duration: 0.22 }}
+              exit={{ opacity: 0, x: 22 }}
+              transition={{ duration: 0.18 }}
               className={`det-row ${d.kind}${d.id === selectedId ? ' selected' : ''}`}
               onClick={() => select(d.id)}
             >
-              <span className="rank">{d.rank}</span>
+              <span className="rank mono">{d.rank}</span>
               {thumb ? (
-                <img className="thumb" src={thumb} alt="" />
+                <img className="thumb" src={thumb} alt="" loading="lazy" />
               ) : (
-                <span className="thumb empty">z{d.primary.tile.z}</span>
+                <span className="thumb empty mono">z{d.primary.tile.z}</span>
               )}
               <span className="meta">
-                <span className="area">
+                <span className="area mono">
                   {formatArea(d.areaM2)}
-                  {d.truncated ? ' ⌐' : ''}
+                  {d.truncated ? <span className="trunc" title="May extend beyond scanned imagery"> ⌐</span> : ''}
                 </span>
-                <span className="info">
+                <span className="info mono">
                   <span className="conf-bar">
                     <i style={{ width: `${Math.round(d.confidence * 100)}%` }} />
                   </span>
-                  {Math.round(d.confidence * 100)}%
+                  {Math.round(d.confidence * 100)}
                   {d.kind === 'hot_tub' ? ' · tub' : ''} · {approxDims(d.areaM2)}
                 </span>
               </span>
@@ -169,17 +183,18 @@ function DetectionList({ visible }: { visible: RankedDetection[] }) {
                 target="_blank"
                 rel="noreferrer"
                 title="Open in Google Maps"
+                aria-label="Open in Google Maps"
                 onClick={(e) => e.stopPropagation()}
               >
-                ↗
+                <IconExternal />
               </a>
             </motion.button>
           );
         })}
       </AnimatePresence>
       {visible.length > RENDER_CAP && (
-        <div className="more-note">
-          +{formatCount(visible.length - RENDER_CAP)} more — export to see everything
+        <div className="more-note mono">
+          +{formatCount(visible.length - RENDER_CAP)} more — export for the full set
         </div>
       )}
     </div>
@@ -197,15 +212,16 @@ function ArchiveTab() {
         <div className="empty-note">
           Completed scans are stored locally
           <br />
-          and reappear here after a reload.
+          and survive reloads.
         </div>
       )}
       {archive.map((a) => (
         <div className="arch-row" key={a.id}>
           <div>
-            <div className="name">{a.name}</div>
-            <div className="sub">
-              {new Date(a.savedAt).toLocaleString()} · {a.pools} pools · {formatArea(a.areaM2)} · z{a.zoom}
+            <div className="name mono">{a.name}</div>
+            <div className="sub mono">
+              {new Date(a.savedAt).toLocaleString()} · {a.pools} returns · {formatArea(a.areaM2)} · z
+              {a.zoom}
             </div>
           </div>
           <div className="actions">

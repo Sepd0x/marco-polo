@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useStore } from '../state/store.js';
+import { IconRect } from './icons.js';
 
 const SEEN_KEY = 'marco-polo:intro-seen';
 
@@ -19,32 +20,36 @@ export function IntroOverlay() {
   return (
     <div className="intro-backdrop" onClick={close}>
       <div className="intro panel" onClick={(e) => e.stopPropagation()}>
-        <div className="radar">
-          <div className="ring" />
-          <div className="ring r2" />
-          <div className="ring r3" />
-          <div className="beam" />
+        <div className="intro-head">
+          <div className="radar">
+            <div className="ring" />
+            <div className="ring r2" />
+            <div className="beam" />
+          </div>
+          <div>
+            <h1>
+              MARCO<span className="dot-sep">·</span>POLO
+            </h1>
+            <div className="label">satellite pool scanner · briefing</div>
+          </div>
         </div>
-        <h1>
-          MARCO<span className="dot-sep">·</span>POLO
-        </h1>
         <p className="tagline">
-          Draw an area anywhere on Earth. The scanner sweeps the satellite imagery tile by tile,
-          calls <em>marco</em> — and every swimming pool that answers <em>polo</em> gets found,
-          measured and ranked.
+          Select an area of interest anywhere on Earth. The scanner sweeps its satellite imagery
+          tile by tile — every swimming pool that answers is detected, measured, geolocated and
+          ranked, live.
         </p>
-        <div className="steps">
+        <div className="steps mono">
           <div className="step">
-            <div className="n">01</div>
-            <div className="t">Frame a neighbourhood with the rectangle or polygon tool</div>
+            <span className="n">01</span>
+            <span className="t">AOI — drag a rectangle or place a polygon</span>
           </div>
           <div className="step">
-            <div className="n">02</div>
-            <div className="t">Watch the sweep inspect imagery and pools ping in live</div>
+            <span className="n">02</span>
+            <span className="t">SWEEP — live detection, telemetry, ranking</span>
           </div>
           <div className="step">
-            <div className="n">03</div>
-            <div className="t">Inspect the ranking, open any pool in maps, export the data</div>
+            <span className="n">03</span>
+            <span className="t">EXPORT — GeoJSON · CSV · local archive</span>
           </div>
         </div>
         <div className="actions">
@@ -55,10 +60,10 @@ export function IntroOverlay() {
               setDrawMode('rect');
             }}
           >
-            ▭ draw an area
+            <IconRect /> select aoi
           </button>
           <button className="btn" onClick={close}>
-            explore first
+            skip
           </button>
         </div>
       </div>

@@ -18,11 +18,17 @@ function getCache(): Promise<Cache | null> {
   return cachePromise;
 }
 
-export async function fetchTileBlob(url: string, signal?: AbortSignal): Promise<Blob> {
+export interface TileResult {
+  blob: Blob;
+  /** True when served from the local cache — no network request was made. */
+  cached: boolean;
+}
+
+export async function fetchTileBlob(url: string, signal?: AbortSignal): Promise<TileResult> {
   const cache = await getCache();
   if (cache) {
     const hit = await cache.match(url);
-    if (hit) return hit.blob();
+    if (hit) return { blob: await hit.blob(), cached: true };
   }
 
   let lastError: unknown;
@@ -38,7 +44,7 @@ export async function fetchTileBlob(url: string, signal?: AbortSignal): Promise<
           // storage quota — carry on uncached
         }
       }
-      return await res.blob();
+      return { blob: await res.blob(), cached: false };
     } catch (err) {
       if (err instanceof FatalTileError) throw err;
       if (signal?.aborted) throw err;

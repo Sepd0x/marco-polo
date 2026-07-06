@@ -21,6 +21,18 @@ export function SearchBox() {
   async function search() {
     const q = query.trim();
     if (!q || busy) return;
+    // Direct coordinates ("lat, lon") skip geocoding entirely.
+    const coord = /^(-?\d{1,2}(?:\.\d+)?)[,\s]+(-?\d{1,3}(?:\.\d+)?)$/.exec(q);
+    if (coord) {
+      const lat = Number(coord[1]);
+      const lon = Number(coord[2]);
+      if (Math.abs(lat) <= 85 && Math.abs(lon) <= 180) {
+        emit('flyto', { center: [lon, lat], zoom: 16 });
+        setQuery('');
+        inputRef.current?.blur();
+        return;
+      }
+    }
     setBusy(true);
     try {
       const res = await fetch(
@@ -48,7 +60,7 @@ export function SearchBox() {
       <input
         ref={inputRef}
         className="field"
-        placeholder={busy ? 'searching…' : 'fly to a place ⏎'}
+        placeholder={busy ? 'searching…' : 'goto place / lat,lon ⏎'}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => {

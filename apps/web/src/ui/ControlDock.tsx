@@ -4,6 +4,17 @@ import { cancelScan, pauseScan, resumeScan, startScan } from '../scan/session.js
 import { DEMO_AREAS } from '../lib/demoAreas.js';
 import { formatArea, formatCount } from '../lib/format.js';
 import { emit } from '../lib/bus.js';
+import {
+  IconClear,
+  IconPause,
+  IconPlay,
+  IconPlus,
+  IconPolygon,
+  IconRect,
+  IconRefresh,
+  IconStop,
+  IconTarget,
+} from './icons.js';
 
 export function ControlDock() {
   const phase = useStore((s) => s.phase);
@@ -19,23 +30,23 @@ export function ControlDock() {
   if (phase === 'idle') {
     return (
       <div className="dock panel fade-up">
+        <span className="label dock-label">aoi</span>
         <button
           className={`btn ${drawMode === 'rect' ? 'active' : ''}`}
           onClick={() => setDrawMode(drawMode === 'rect' ? null : 'rect')}
           title="Drag a rectangle (R)"
         >
-          ▭ rectangle
+          <IconRect /> rect
         </button>
         <button
           className={`btn ${drawMode === 'polygon' ? 'active' : ''}`}
           onClick={() => setDrawMode(drawMode === 'polygon' ? null : 'polygon')}
-          title="Click vertices, Enter or double-click to close (P)"
+          title="Tap vertices; close on the first one (P)"
         >
-          ⬠ polygon
+          <IconPolygon /> poly
         </button>
         <div className="sep" />
         <div className="demo-chips">
-          <span className="label">try</span>
           {DEMO_AREAS.map((d) => (
             <button
               key={d.name}
@@ -60,21 +71,21 @@ export function ControlDock() {
     return (
       <div className="dock panel fade-up">
         <div className="area-info">
-          <span className="label">Area</span>
+          <span className="label">aoi</span>
           <span className="big">{formatArea(areaM2)}</span>
         </div>
         <div className="area-info">
-          <span className="label">Tiles @ z{settings.zoom}</span>
+          <span className="label">tiles z{settings.zoom}</span>
           <span className="big">
             {estimate ? `${formatCount(estimate.count)}${estimate.approximate ? '+' : ''}` : '—'}
           </span>
         </div>
         <div className="sep" />
         <button className="btn big primary" onClick={startScan}>
-          ▶ start scan
+          <IconPlay /> start scan
         </button>
-        <button className="btn" onClick={() => setArea(null)}>
-          clear
+        <button className="btn" onClick={() => setArea(null)} title="Discard AOI">
+          <IconClear /> clear
         </button>
       </div>
     );
@@ -85,23 +96,23 @@ export function ControlDock() {
       <div className="dock panel">
         {phase === 'scanning' ? (
           <button className="btn" onClick={pauseScan}>
-            ❚❚ pause
+            <IconPause /> hold
           </button>
         ) : (
           <button className="btn primary" onClick={resumeScan}>
-            ▶ resume
+            <IconPlay /> resume
           </button>
         )}
         <button className="btn danger" onClick={cancelScan}>
-          ■ abort
+          <IconStop /> abort
         </button>
         <div className="sep" />
         <button
           className={`btn ${settings.follow ? 'active' : ''}`}
           onClick={() => updateSettings({ follow: !settings.follow })}
-          title="Camera follows the sweep"
+          title="Camera tracks the sweep"
         >
-          ◎ follow
+          <IconTarget /> track
         </button>
       </div>
     );
@@ -111,16 +122,16 @@ export function ControlDock() {
   return (
     <div className="dock panel fade-up">
       <button className="btn big primary" onClick={resetScan}>
-        + new scan
+        <IconPlus /> new scan
       </button>
       <button
         className="btn"
         onClick={() => {
           if (useStore.getState().area) startScan();
         }}
-        title="Scan the same area again (tiles come from local cache)"
+        title="Re-run the same AOI (cached tiles → fast)"
       >
-        ↻ rescan area
+        <IconRefresh /> rescan
       </button>
     </div>
   );

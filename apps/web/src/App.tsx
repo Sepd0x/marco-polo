@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapView } from './map/MapView.js';
-import { HUD } from './ui/HUD.js';
+import { TopBar } from './ui/TopBar.js';
 import { ControlDock } from './ui/ControlDock.js';
 import { CursorReadout, TelemetryBar } from './ui/TelemetryBar.js';
 import { ResultsPanel } from './ui/ResultsPanel.js';
 import { SettingsPanel } from './ui/SettingsPanel.js';
-import { SearchBox } from './ui/SearchBox.js';
 import { IntroOverlay } from './ui/IntroOverlay.js';
+import { IconRefresh } from './ui/icons.js';
+import { estimateTileCount, ringBBox } from '@marco-polo/core';
 import { useStore } from './state/store.js';
 import { listScans } from './scan/persist.js';
 import { formatCount } from './lib/format.js';
+import { emit } from './lib/bus.js';
+import { decodeAoi, writeAoiToUrl } from './lib/permalink.js';
 import { applyAccent } from './lib/theme.js';
 import { startUpdateChecker } from './lib/updates.js';
-
-const REPO_URL = 'https://github.com/Sepd0x/marco-polo';
 
 export function App() {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -28,6 +29,22 @@ export function App() {
   useEffect(() => {
     applyAccent(useStore.getState().settings.accent);
     return useStore.subscribe((s) => s.settings.accent, applyAccent);
+  }, []);
+
+  // AOI permalinks: restore a shared area from the URL, keep the URL current.
+  useEffect(() => {
+    const shared = decodeAoi(window.location.hash);
+    if (shared) {
+      const s = useStore.getState();
+      s.updateSettings({ zoom: shared.zoom });
+      s.setArea(shared.ring, estimateTileCount(shared.ring, shared.zoom));
+      const b = ringBBox(shared.ring);
+      setTimeout(() => emit('flyto', { bbox: [b.west, b.south, b.east, b.north] }), 600);
+    }
+    return useStore.subscribe(
+      (s) => s.area,
+      (area) => writeAoiToUrl(area, useStore.getState().settings.zoom),
+    );
   }, []);
 
   // Keyboard shortcuts.
@@ -47,26 +64,7 @@ export function App() {
   return (
     <>
       <MapView />
-      <HUD />
-      <div className="top-right">
-        <SearchBox />
-        <button
-          className={`btn icon-btn panel ${settingsOpen ? 'active' : ''}`}
-          onClick={() => setSettingsOpen((v) => !v)}
-          title="Scanner settings"
-        >
-          ⚙
-        </button>
-        <a
-          className="btn icon-btn panel"
-          href={REPO_URL}
-          target="_blank"
-          rel="noreferrer"
-          title="Source on GitHub"
-        >
-          ⌥
-        </a>
-      </div>
+      <TopBar settingsOpen={settingsOpen} onToggleSettings={() => setSettingsOpen((v) => !v)} />
       {settingsOpen && <SettingsPanel onClose={() => setSettingsOpen(false)} />}
       <ResultsPanel />
       <TelemetryBar />
@@ -86,9 +84,9 @@ function UpdateToast() {
   if (!available) return null;
   return (
     <div className="update-toast panel fade-up">
-      <span className="label">new version deployed</span>
+      <span className="label">new build deployed</span>
       <button className="btn primary" onClick={() => location.reload()}>
-        ↻ reload
+        <IconRefresh /> reload
       </button>
     </div>
   );

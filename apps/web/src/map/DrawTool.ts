@@ -35,6 +35,9 @@ export class DrawTool {
     map.on('mousedown', this.onMouseDown);
     map.on('mousemove', this.onMouseMove);
     map.on('mouseup', this.onMouseUp);
+    map.on('touchstart', this.onTouchStart);
+    map.on('touchmove', this.onTouchMove);
+    map.on('touchend', this.onTouchEnd);
     map.on('click', this.onClick);
     map.on('dblclick', this.onDblClick);
     window.addEventListener('keydown', this.onKey);
@@ -56,6 +59,9 @@ export class DrawTool {
     this.map.off('mousedown', this.onMouseDown);
     this.map.off('mousemove', this.onMouseMove);
     this.map.off('mouseup', this.onMouseUp);
+    this.map.off('touchstart', this.onTouchStart);
+    this.map.off('touchmove', this.onTouchMove);
+    this.map.off('touchend', this.onTouchEnd);
     this.map.off('click', this.onClick);
     this.map.off('dblclick', this.onDblClick);
     window.removeEventListener('keydown', this.onKey);
@@ -104,6 +110,27 @@ export class DrawTool {
     ];
     this.reset();
     this.onCommit(ring);
+  };
+
+  // Touch: single-finger drag draws the rectangle (dragPan is disabled in
+  // rect mode, so the gesture is unambiguous). Polygon taps arrive as clicks.
+  private onTouchStart = (e: maplibregl.MapTouchEvent): void => {
+    if (this.mode !== 'rect' || e.points.length !== 1) return;
+    e.preventDefault();
+    this.rectStart = [e.lngLat.lng, e.lngLat.lat];
+    this.onDraftChange(true);
+  };
+
+  private onTouchMove = (e: maplibregl.MapTouchEvent): void => {
+    if (this.mode !== 'rect' || !this.rectStart || e.points.length !== 1) return;
+    e.preventDefault();
+    this.cursor = [e.lngLat.lng, e.lngLat.lat];
+    this.renderRect(this.rectStart, this.cursor);
+  };
+
+  private onTouchEnd = (e: maplibregl.MapTouchEvent): void => {
+    if (this.mode !== 'rect' || !this.rectStart) return;
+    this.onMouseUp(e as unknown as maplibregl.MapMouseEvent);
   };
 
   private onClick = (e: maplibregl.MapMouseEvent): void => {

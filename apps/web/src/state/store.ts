@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
 import {
+  estimateTileCount,
   rankDetections,
   type Detection,
   type MergerEvent,
@@ -176,7 +177,12 @@ export const useStore = create<AppState>()(subscribeWithSelector((set, get) => (
     set((s) => {
       const settings = { ...s.settings, ...patch };
       persistSettings(settings);
-      return { settings };
+      // A zoom change invalidates the tile estimate of a drawn-but-unscanned AOI.
+      const areaEstimate =
+        patch.zoom !== undefined && patch.zoom !== s.settings.zoom && s.area && s.phase === 'ready'
+          ? estimateTileCount(s.area, settings.zoom)
+          : s.areaEstimate;
+      return { settings, areaEstimate };
     }),
   select: (selectedId) => set({ selectedId }),
   setScanName: (scanName) => set({ scanName }),

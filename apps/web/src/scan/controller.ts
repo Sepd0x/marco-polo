@@ -37,7 +37,7 @@ export class ScanController {
 
   constructor(area: Ring, settings: Settings) {
     this.plan = buildScanPlan(area, settings.zoom, settings.order);
-    this.template = settings.providerTemplate.trim() || ESRI_WORLD_IMAGERY.urlTemplate;
+    this.template = validTemplate(settings.providerTemplate) ?? ESRI_WORLD_IMAGERY.urlTemplate;
     this.merger = new DetectionMerger({}, this.plan.tiles.map((t) => t.tile));
     this.scanId = `scan-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
   }
@@ -108,7 +108,10 @@ export class ScanController {
 
     try {
       const url = tileUrl(this.template, scanTile.tile);
-      const blob = await fetchTileBlob(url, ac.signal);
+      const { blob, cached } = await fetchTileBlob(url, ac.signal);
+      // Cache hits cost the imagery provider nothing — skip the rate limiter
+      // and pull the next tile immediately. Cached re-scans run at CPU speed.
+      if (cached && !this.stopped) queueMicrotask(() => this.pump());
       const bitmap = await createImageBitmap(blob);
       const res = await this.pool!.detect(scanTile.tile, bitmap, {});
       if (res.error) throw new Error(res.error);
@@ -184,6 +187,15 @@ export class ScanController {
       store().setArchive(archive);
     }
   }
+}
+
+/** Accept only https XYZ templates with all three placeholders. */
+export function validTemplate(template: string): string | null {
+  const t = template.trim();
+  if (!t) return null;
+  if (!/^https:\/\//i.test(t)) return null;
+  if (!t.includes('{z}') || !t.includes('{x}') || !t.includes('{y}')) return null;
+  return t;
 }
 
 /** Convert raw RGBA crops from the worker into data-URL thumbnails. */

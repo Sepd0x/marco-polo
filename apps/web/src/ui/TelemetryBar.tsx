@@ -3,6 +3,7 @@ import { useStore } from '../state/store.js';
 import { formatArea, formatCount, formatDuration } from '../lib/format.js';
 import { on } from '../lib/bus.js';
 
+/** Dense sweep telemetry — a fixed instrument block on desktop, a strip on mobile. */
 export function TelemetryBar() {
   const phase = useStore((s) => s.phase);
   const stats = useStore((s) => s.stats);
@@ -18,23 +19,26 @@ export function TelemetryBar() {
     <>
       <div className="progress-edge" style={{ width: `${pct}%` }} />
       <div className="telemetry panel">
-        <div className="cells">
-          <Cell label="tiles" value={`${formatCount(stats.tilesDone)}/${formatCount(stats.tilesTotal)}`} />
-          <Cell label="coverage" value={`${pct.toFixed(1)}%`} />
-          <Cell label="pools" value={formatCount(pools)} accent />
-          <Cell label="swept" value={formatArea(stats.scannedAreaM2)} />
-          <Cell label="elapsed" value={formatDuration(stats.elapsedMs)} />
-          <Cell
-            label="eta"
-            value={phase === 'scanning' && stats.etaMs != null ? formatDuration(stats.etaMs) : '—'}
+        <div className="tl-head">
+          <span className="label">sweep</span>
+          <span className="tl-pct mono">{pct.toFixed(1)}%</span>
+          <div className="tl-bar">
+            <i style={{ width: `${pct}%` }} />
+          </div>
+        </div>
+        <div className="tl-grid mono">
+          <Row k="tiles" v={`${formatCount(stats.tilesDone)}/${formatCount(stats.tilesTotal)}`} />
+          <Row k="returns" v={formatCount(pools)} accent />
+          <Row k="swept" v={formatArea(stats.scannedAreaM2)} />
+          <Row k="elapsed" v={formatDuration(stats.elapsedMs)} />
+          <Row
+            k="eta"
+            v={phase === 'scanning' && stats.etaMs != null ? formatDuration(stats.etaMs) : '—'}
           />
-          {stats.tilesFailed > 0 && <Cell label="failed" value={formatCount(stats.tilesFailed)} />}
-          {stats.waterFiltered > 0 && <Cell label="open water" value={formatCount(stats.waterFiltered)} />}
+          {stats.tilesFailed > 0 && <Row k="failed" v={formatCount(stats.tilesFailed)} />}
+          {stats.waterFiltered > 0 && <Row k="open water" v={formatCount(stats.waterFiltered)} />}
           {currentTile && (
-            <Cell
-              label="tile"
-              value={`z${currentTile.tile.z} ${currentTile.tile.x}/${currentTile.tile.y}`}
-            />
+            <Row k="tile" v={`z${currentTile.tile.z} ${currentTile.tile.x}/${currentTile.tile.y}`} />
           )}
         </div>
         {lastEvent && <div className="ticker">▸ {lastEvent}</div>}
@@ -43,22 +47,22 @@ export function TelemetryBar() {
   );
 }
 
-function Cell({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+function Row({ k, v, accent = false }: { k: string; v: string; accent?: boolean }) {
   return (
-    <div className="cell">
-      <span className="label">{label}</span>
-      <span className={`v${accent ? ' accent' : ''}`}>{value}</span>
+    <div className="tl-row">
+      <span className="k">{k}</span>
+      <span className={`v${accent ? ' accent' : ''}`}>{v}</span>
     </div>
   );
 }
 
-/** Live cursor coordinates, bottom-right. */
+/** Live cursor coordinates, bottom-right (desktop only). */
 export function CursorReadout() {
   const [pos, setPos] = useState<{ lon: number; lat: number } | null>(null);
   useEffect(() => on('cursor', setPos), []);
   if (!pos) return null;
   return (
-    <div className="cursor-readout panel">
+    <div className="cursor-readout panel mono">
       {pos.lat.toFixed(5)}, {pos.lon.toFixed(5)}
     </div>
   );

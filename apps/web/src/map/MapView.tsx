@@ -9,6 +9,7 @@ import {
 } from '@marco-polo/core';
 import { useStore, visibleRanked } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
+import { validTemplate } from '../scan/controller.js';
 import { DrawTool } from './DrawTool.js';
 import { ScanOverlay } from './overlay.js';
 import { DetectionMarkers } from './markers.js';
@@ -145,7 +146,21 @@ export function MapView() {
           (s) => s.settings.accent,
           (accent) => overlay.setAccent(accent),
         ),
+        // The basemap follows the configured imagery source, so what you see
+        // is what the detector analyses.
+        sub(
+          (s) => s.settings.providerTemplate,
+          (template) => {
+            const src = map.getSource('sat') as maplibregl.RasterTileSource | undefined;
+            src?.setTiles([validTemplate(template) ?? ESRI_WORLD_IMAGERY.urlTemplate]);
+          },
+        ),
       );
+      // Apply a persisted custom provider on boot.
+      const bootTemplate = validTemplate(useStore.getState().settings.providerTemplate);
+      if (bootTemplate) {
+        (map.getSource('sat') as maplibregl.RasterTileSource | undefined)?.setTiles([bootTemplate]);
+      }
 
       // Detection polygon click → select.
       map.on('click', 'det-fill', (e) => {
