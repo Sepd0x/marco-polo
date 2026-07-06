@@ -1,0 +1,235 @@
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import type { RankedDetection } from '@marco-polo/core';
+import { useStore, visibleRanked } from '../state/store.js';
+import { approxDims, formatArea, formatCount } from '../lib/format.js';
+import { googleMapsUrl } from '../lib/links.js';
+import { fragKey } from '../lib/fragKey.js';
+import { download, toCSV, toGeoJSON } from '../lib/export.js';
+import { deleteScan, loadScan } from '../scan/persist.js';
+
+const RENDER_CAP = 200;
+
+export function ResultsPanel() {
+  const phase = useStore((s) => s.phase);
+  const ranked = useStore((s) => s.ranked);
+  const settings = useStore((s) => s.settings);
+  const archive = useStore((s) => s.archive);
+  const [tab, setTab] = useState<'results' | 'archive'>('results');
+
+  const scanActive = phase === 'scanning' || phase === 'paused' || phase === 'complete';
+  const open = scanActive || archive.length > 0;
+  useEffect(() => {
+    if (scanActive) setTab('results');
+  }, [scanActive]);
+
+  if (!open) return null;
+
+  const visible = visibleRanked({ ranked, settings });
+  const totalArea = visible.reduce((a, d) => a + d.areaM2, 0);
+
+  return (
+    <aside className="results panel fade-up">
+      <header>
+        <span className="title">
+          POLO <span style={{ color: 'var(--text-faint)' }}>/</span> ranked returns
+        </span>
+        <span className="count">
+          {formatCount(visible.length)} · {formatArea(totalArea)}
+        </span>
+      </header>
+      <div className="tabs">
+        <button className={tab === 'results' ? 'active' : ''} onClick={() => setTab('results')}>
+          results
+        </button>
+        <button className={tab === 'archive' ? 'active' : ''} onClick={() => setTab('archive')}>
+          archive · {archive.length}
+        </button>
+      </div>
+      {tab === 'results' ? <ResultsTab visible={visible} /> : <ArchiveTab />}
+    </aside>
+  );
+}
+
+function ResultsTab({ visible }: { visible: RankedDetection[] }) {
+  const settings = useStore((s) => s.settings);
+  const updateSettings = useStore((s) => s.updateSettings);
+  const phase = useStore((s) => s.phase);
+
+  return (
+    <>
+      <div className="filters">
+        <span className="label">min conf</span>
+        <input
+          type="range"
+          min={0}
+          max={0.9}
+          step={0.05}
+          value={settings.minConfidence}
+          onChange={(e) => updateSettings({ minConfidence: Number(e.target.value) })}
+        />
+        <span className="val mono" style={{ fontSize: 10, color: 'var(--accent)' }}>
+          {settings.minConfidence.toFixed(2)}
+        </span>
+        <button
+          className={`toggle ${settings.showHotTubs ? 'on' : ''}`}
+          onClick={() => updateSettings({ showHotTubs: !settings.showHotTubs })}
+          title="Include hot tubs"
+        />
+        <span className="label">tubs</span>
+      </div>
+      <DetectionList visible={visible} />
+      <div className="footer">
+        <button
+          className="btn"
+          disabled={visible.length === 0}
+          onClick={() => download('marco-polo-pools.geojson', toGeoJSON(visible), 'application/geo+json')}
+        >
+          ⇩ geojson
+        </button>
+        <button
+          className="btn"
+          disabled={visible.length === 0}
+          onClick={() => download('marco-polo-pools.csv', toCSV(visible), 'text/csv')}
+        >
+          ⇩ csv
+        </button>
+      </div>
+      {phase === 'complete' && visible.length === 0 && (
+        <div className="empty-note">
+          No pools above the current confidence filter.
+          <br />
+          Lower the threshold or scan a sunnier neighbourhood.
+        </div>
+      )}
+    </>
+  );
+}
+
+function DetectionList({ visible }: { visible: RankedDetection[] }) {
+  const selectedId = useStore((s) => s.selectedId);
+  const select = useStore((s) => s.select);
+  const thumbs = useStore((s) => s.thumbs);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!selectedId || !listRef.current) return;
+    const el = listRef.current.querySelector(`[data-id="${selectedId}"]`);
+    el?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [selectedId]);
+
+  const shown = visible.slice(0, RENDER_CAP);
+
+  return (
+    <div className="list scroll" ref={listRef}>
+      {shown.length === 0 && (
+        <div className="empty-note">
+          Listening for returns…
+          <br />
+          Detections appear here the moment the sweep finds water.
+        </div>
+      )}
+      <AnimatePresence initial={false}>
+        {shown.map((d) => {
+          const thumb = thumbs[fragKey(d.primary.tile, d.primary.bboxPx)];
+          return (
+            <motion.button
+              key={d.id}
+              data-id={d.id}
+              layout="position"
+              initial={{ opacity: 0, x: 26 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 26 }}
+              transition={{ duration: 0.22 }}
+              className={`det-row ${d.kind}${d.id === selectedId ? ' selected' : ''}`}
+              onClick={() => select(d.id)}
+            >
+              <span className="rank">{d.rank}</span>
+              {thumb ? (
+                <img className="thumb" src={thumb} alt="" />
+              ) : (
+                <span className="thumb empty">z{d.primary.tile.z}</span>
+              )}
+              <span className="meta">
+                <span className="area">
+                  {formatArea(d.areaM2)}
+                  {d.truncated ? ' ⌐' : ''}
+                </span>
+                <span className="info">
+                  <span className="conf-bar">
+                    <i style={{ width: `${Math.round(d.confidence * 100)}%` }} />
+                  </span>
+                  {Math.round(d.confidence * 100)}%
+                  {d.kind === 'hot_tub' ? ' · tub' : ''} · {approxDims(d.areaM2)}
+                </span>
+              </span>
+              <a
+                className="ext"
+                href={googleMapsUrl(d.center.lat, d.center.lon)}
+                target="_blank"
+                rel="noreferrer"
+                title="Open in Google Maps"
+                onClick={(e) => e.stopPropagation()}
+              >
+                ↗
+              </a>
+            </motion.button>
+          );
+        })}
+      </AnimatePresence>
+      {visible.length > RENDER_CAP && (
+        <div className="more-note">
+          +{formatCount(visible.length - RENDER_CAP)} more — export to see everything
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ArchiveTab() {
+  const archive = useStore((s) => s.archive);
+  const setArchive = useStore((s) => s.setArchive);
+  const loadArchived = useStore((s) => s.loadArchived);
+
+  return (
+    <div className="list scroll">
+      {archive.length === 0 && (
+        <div className="empty-note">
+          Completed scans are stored locally
+          <br />
+          and reappear here after a reload.
+        </div>
+      )}
+      {archive.map((a) => (
+        <div className="arch-row" key={a.id}>
+          <div>
+            <div className="name">{a.name}</div>
+            <div className="sub">
+              {new Date(a.savedAt).toLocaleString()} · {a.pools} pools · {formatArea(a.areaM2)} · z{a.zoom}
+            </div>
+          </div>
+          <div className="actions">
+            <button
+              onClick={async () => {
+                const rec = await loadScan(a.id);
+                if (rec) {
+                  loadArchived({
+                    id: rec.id,
+                    name: rec.name,
+                    area: rec.area,
+                    detections: rec.detections,
+                    thumbs: rec.thumbs,
+                    stats: rec.stats,
+                  });
+                }
+              }}
+            >
+              open
+            </button>
+            <button onClick={async () => setArchive(await deleteScan(a.id))}>del</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
