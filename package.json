@@ -1,0 +1,29 @@
+{
+  "name": "marco-polo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A visual geospatial scanner that plays Marco Polo with satellite imagery — draw an area, and it finds, measures, and ranks every swimming pool.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @marco-polo/web run dev",
+    "build": "npm run typecheck && npm --workspace @marco-polo/web run build",
+    "preview": "npm --workspace @marco-polo/web run preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p packages/core && tsc --noEmit -p packages/cli && tsc --noEmit -p apps/web",
+    "scan": "npm --workspace @marco-polo/cli run scan --"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

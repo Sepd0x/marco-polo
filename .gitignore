@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+apps/web/dist/
+
+# caches
+.cache/
+.tile-cache/
+*.tsbuildinfo
+.vite/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# scan output (CLI default output dir)
+scans/
+
+# local tooling state
+.claude/
