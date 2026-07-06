@@ -312,6 +312,75 @@
   border-color: var(--accent-dim);
 }
 
+/* ══ Imagery hint ══════════════════════════════════════════════ */
+
+.imagery-hint {
+  position: fixed;
+  bottom: 66px;
+  left: 50%;
+  margin-left: -260px;
+  width: 520px;
+  max-width: calc(100vw - 24px);
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 12px;
+}
+
+.imagery-hint .ih-tag {
+  flex: none;
+  color: var(--accent);
+}
+
+.imagery-hint .ih-text {
+  flex: 1;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-dim);
+}
+
+.imagery-hint .ih-link {
+  flex: none;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.imagery-hint .ih-close {
+  flex: none;
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 2px;
+}
+
+.imagery-hint .ih-close:hover {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .imagery-hint {
+    left: 8px;
+    right: 8px;
+    margin-left: 0;
+    width: auto;
+    bottom: 110px;
+  }
+  .imagery-hint .ih-text {
+    font-size: 10px;
+  }
+}
+
 /* ══ Telemetry block (bottom-left) ═════════════════════════════ */
 
 .telemetry {

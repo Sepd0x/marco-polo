@@ -33,7 +33,7 @@ export const DEFAULT_SETTINGS: Settings = {
   order: 'serpentine',
   ratePerSec: 5,
   follow: true,
-  minConfidence: 0.45,
+  minConfidence: 0.55,
   showHotTubs: true,
   labels: true,
   accent: '#35e0ff',

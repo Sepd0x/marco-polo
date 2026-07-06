@@ -114,8 +114,17 @@ Each detection is scored 0–1 as a weighted blend:
 0.14 · satScore               saturation above the floor
 0.12 · shapeScore             bbox fill ratio (compactness)
 0.11 · sizeScore              plateau at 10–150 m², tapering outside
-× 0.9 if truncated
+× 0.9  if truncated
+× 0.78 if rough AND non-compact (texture > 0.10 and fill < 0.50)
 ```
+
+The final multiplier targets the dominant false-positive signature — solar-panel
+edges, blue tarps and roof furniture that clear the colour gate but are both
+textured *and* fail to fill their bounding box. Neither condition alone condemns
+a real pool (compact rough pools and smooth sprawling ones both exist), so it is
+a soft penalty, not a hard reject. The web UI's default display threshold is
+**0.55**; borderline real pools sit just under it and reappear the moment you
+lower the slider.
 
 The weights encode a simple prior: **colour evidence dominates**, shape and size
 adjust. In validation, unambiguous pools score 0.7–0.96; the classic false

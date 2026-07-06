@@ -6,6 +6,7 @@ import { ControlDock } from './ui/ControlDock.js';
 import { CursorReadout, TelemetryBar } from './ui/TelemetryBar.js';
 import { ResultsPanel } from './ui/ResultsPanel.js';
 import { SettingsPanel } from './ui/SettingsPanel.js';
+import { ImageryHint } from './ui/ImageryHint.js';
 import { IntroOverlay } from './ui/IntroOverlay.js';
 import { IconRefresh } from './ui/icons.js';
 import { estimateTileCount, ringBBox } from '@marco-polo/core';
@@ -70,6 +71,7 @@ export function App() {
       <TelemetryBar />
       <CursorReadout />
       <ControlDock />
+      <ImageryHint onOpenSettings={() => setSettingsOpen(true)} />
       <CompleteFlash />
       <UpdateToast />
       <IntroOverlay />

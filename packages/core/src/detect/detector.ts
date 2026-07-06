@@ -30,7 +30,7 @@ export const DEFAULT_DETECTOR_OPTIONS: DetectorOptions = {
   maxAreaM2: 2000,
   minPixels: 12,
   maxAspect: 8,
-  maxTexture: 0.15,
+  maxTexture: 0.14,
   simplifyEpsilonPx: 1.2,
 };
 
@@ -193,6 +193,10 @@ export function scoreConfidence(d: ConfidenceInput): number {
     0.12 * shapeScore +
     0.11 * sizeScore;
   if (d.truncated) c *= 0.9;
+  // Rough AND non-compact together is the classic false-positive signature
+  // (solar-panel edges, blue tarps, roof furniture that slipped the colour
+  // gate). Neither alone condemns a real pool, so this is a soft penalty.
+  if (d.texture > 0.1 && d.fillRatio < 0.5) c *= 0.78;
   return Math.round(clamp01(c) * 1000) / 1000;
 }
 
