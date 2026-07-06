@@ -41,10 +41,15 @@ to run a full geospatial survey pipeline entirely in your browser:
 - **Inspect**: every detection has a real imagery thumbnail, an estimated surface area
   in m², an approximate width × length, a confidence score, exact coordinates, and a
   one-click jump to Google Maps / the map itself.
-- **Export**: ranked GeoJSON and CSV, straight from the browser. Completed scans are
-  archived locally (IndexedDB) and survive reloads.
+- **Export & share**: ranked GeoJSON and CSV, straight from the browser. Completed
+  scans are archived locally (IndexedDB) and survive reloads, and the drawn area
+  lives in the URL — send a permalink and anyone reproduces your exact search area.
+- **Anywhere**: desktop instrument layout or a mobile bottom-sheet UI with touch
+  drawing. Re-scans run ~10× faster from the local tile cache. Imagery is pluggable —
+  keyless Esri World Imagery by default, or your own MapTiler/Mapbox key or any XYZ
+  endpoint.
 
-No backend. No API keys. No model weights to download. Clone, install, scan.
+No backend. No API keys required. No model weights to download. Clone, install, scan.
 
 ## Why it's technically interesting
 
@@ -156,12 +161,14 @@ marco-polo/
   on clear imagery. Confidence tells you how much to trust each detection —
   surface it, don't hide it.
 
-## Roadmap
+## Contributing & continuing the work
 
-- [ ] Optional ONNX detector plug-in (the `Detector` seam exists) for learned models
-- [ ] Hilbert-curve traversal & resumable scans
-- [ ] Multi-class water features (ponds, fountains) with separate rankings
-- [ ] Scan diffing — how a neighbourhood's pools change between imagery vintages
+- [CONTRIBUTING.md](CONTRIBUTING.md) — setup, code rules, the detection-evidence rule.
+- [CLAUDE.md](CLAUDE.md) — the agent/contributor field guide: architecture map,
+  commands, and every hard-won gotcha in this codebase.
+- [docs/ROADMAP.md](docs/ROADMAP.md) — prioritised, fully-specified next steps
+  (resumable scans, imagery time-travel via Esri Wayback, scan diffing, ONNX
+  detector plug-in, PWA…).
 
 ## License
 

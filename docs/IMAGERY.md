@@ -36,12 +36,23 @@ https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/til
 
 ## Swapping the imagery source
 
-Settings → *Imagery URL* (web) or `--template` (CLI) accepts any
-`{z}/{x}/{y}` template: your own tile server, a licensed provider (Mapbox,
-Maxar, Planet), or public regional orthophoto services (many national mapping
-agencies publish free high-resolution orthophotos — often *better* than the
-default for their country). Check the terms of whatever you point it at;
-requirements differ on attribution, caching and derived data.
+Settings → *Imagery* offers presets:
+
+- **Esri World Imagery** — default, keyless.
+- **MapTiler satellite / Mapbox satellite** — paste your own API key (free
+  tiers exist). The key is embedded in the tile template and stored only in
+  your browser's localStorage; it is never sent anywhere except to that
+  provider. Where Esri's mosaic is dated, these are often fresher and sharper.
+- **Custom XYZ** — any `https://…/{z}/{x}/{y}` template: your own tile server,
+  a licensed provider (Maxar, Planet), or public regional orthophoto services
+  (many national mapping agencies publish free high-resolution orthophotos —
+  often *better* than global mosaics for their country).
+
+The basemap follows the configured source, so what you see is exactly what the
+detector analyses. Templates must be `https://` — anything else falls back to
+the default. Check the terms of whatever you point the scanner at;
+requirements differ on attribution, caching and derived data. The CLI takes
+the same templates via `--template`.
 
 If you operate your own imagery, note the detector's assumptions: RGB truecolor,
 roughly 0.2–0.6 m/px (z18–z19 equivalents), reasonably colour-balanced. NIR bands
