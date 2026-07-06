@@ -164,8 +164,6 @@ marco-polo/
 ## Contributing & continuing the work
 
 - [CONTRIBUTING.md](CONTRIBUTING.md) — setup, code rules, the detection-evidence rule.
-- [CLAUDE.md](CLAUDE.md) — the agent/contributor field guide: architecture map,
-  commands, and every hard-won gotcha in this codebase.
 - [docs/ROADMAP.md](docs/ROADMAP.md) — prioritised, fully-specified next steps
   (resumable scans, imagery time-travel via Esri Wayback, scan diffing, ONNX
   detector plug-in, PWA…).
