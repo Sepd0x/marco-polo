@@ -3,9 +3,9 @@
  *
  * Fetches a grid of real satellite tiles around a coordinate, runs the pool
  * detector on each, and writes a single annotated mosaic PNG:
- *   · water-mask pixels tinted
- *   · detection outlines drawn (green = high confidence → red = low)
- *   · tile boundaries as thin grey lines
+ *   - water-mask pixels tinted
+ *   - detection outlines drawn (green = high confidence → red = low)
+ *   - tile boundaries as thin grey lines
  * Plus a stdout table of every detection. Used to validate and tune thresholds
  * against ground truth by eye.
  *
@@ -85,14 +85,12 @@ for (let dy = -half; dy < grid - half; dy++) {
 const merger = new DetectionMerger({}, tiles);
 const perTile = new Map<string, TileDetection[]>();
 
-console.log(`center tile z${zoom} (${center.x},${center.y}) — m/px ≈ ${metersPerPixel(lat, zoom).toFixed(3)}`);
+console.log(`center tile z${zoom} (${center.x},${center.y}), m/px ${metersPerPixel(lat, zoom).toFixed(3)}`);
 
 for (const tile of tiles) {
   const gx = tile.x - (center.x - half);
   const gy = tile.y - (center.y - half);
-  const { rgba, width, height } = await fetchTile(ESRI_WORLD_IMAGERY.template, tile, {
-    cacheDir: '.tile-cache',
-  });
+  const { rgba, width, height } = await fetchTile(ESRI_WORLD_IMAGERY.template, tile);
   blit(rgba, gx, gy);
 
   // Tint the raw and cleaned water masks so threshold behaviour is visible.
