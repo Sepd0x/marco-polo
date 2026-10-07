@@ -1,4 +1,4 @@
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
 import type { RankedDetection } from '@marco-polo/core';
 
 /** Cap on DOM markers to keep the map fluid on huge result sets. */

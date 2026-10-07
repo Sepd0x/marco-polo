@@ -90,7 +90,7 @@ console.log(`center tile z${zoom} (${center.x},${center.y}) — m/px ≈ ${meter
 for (const tile of tiles) {
   const gx = tile.x - (center.x - half);
   const gy = tile.y - (center.y - half);
-  const { rgba, width, height } = await fetchTile(ESRI_WORLD_IMAGERY.urlTemplate, tile, {
+  const { rgba, width, height } = await fetchTile(ESRI_WORLD_IMAGERY.template, tile, {
     cacheDir: '.tile-cache',
   });
   blit(rgba, gx, gy);

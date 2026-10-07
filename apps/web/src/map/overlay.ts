@@ -1,4 +1,4 @@
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
 import type { RankedDetection, Ring, ScanTile } from '@marco-polo/core';
 import { lighten } from '../lib/theme.js';
 
@@ -273,7 +273,7 @@ export class ScanOverlay {
   /** Re-colour every scan layer to the configured accent. */
   setAccent(hex: string): void {
     const bright = lighten(hex, 0.4);
-    const set = (layer: string, prop: string, value: unknown) => {
+    const set = (layer: string, prop: Parameters<maplibregl.Map['setPaintProperty']>[1], value: unknown) => {
       if (this.map.getLayer(layer)) {
         this.map.setPaintProperty(layer, prop, value as never);
       }

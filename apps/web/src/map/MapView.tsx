@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import {
-  ESRI_WORLD_IMAGERY,
   estimateTileCount,
   ringBBox,
   type RankedDetection,
@@ -9,13 +9,17 @@ import {
 } from '@marco-polo/core';
 import { useStore, visibleRanked } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
-import { validTemplate } from '../scan/controller.js';
+import { resolveImagery } from '../lib/imagery.js';
 import { DrawTool } from './DrawTool.js';
 import { ScanOverlay } from './overlay.js';
 import { DetectionMarkers } from './markers.js';
 
 const LABELS_URL =
   'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}';
+
+// MapLibre 6 loads its worker as a separate module file; point it at the
+// copy Vite emits so it resolves under any base path.
+maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
 export function MapView() {
   const container = useRef<HTMLDivElement>(null);
@@ -24,6 +28,7 @@ export function MapView() {
   useEffect(() => {
     if (!container.current) return;
 
+    const boot = resolveImagery(useStore.getState().settings.imagery);
     const map = new maplibregl.Map({
       container: container.current,
       style: {
@@ -31,10 +36,10 @@ export function MapView() {
         sources: {
           sat: {
             type: 'raster',
-            tiles: [ESRI_WORLD_IMAGERY.urlTemplate],
-            tileSize: 256,
-            maxzoom: 19,
-            attribution: ESRI_WORLD_IMAGERY.attribution,
+            tiles: [boot.template],
+            tileSize: boot.tileSize,
+            maxzoom: boot.maxZoom,
+            attribution: boot.attribution,
           },
           labels: {
             type: 'raster',
@@ -149,18 +154,13 @@ export function MapView() {
         // The basemap follows the configured imagery source, so what you see
         // is what the detector analyses.
         sub(
-          (s) => s.settings.providerTemplate,
-          (template) => {
+          (s) => s.settings.imagery,
+          (imagery) => {
             const src = map.getSource('sat') as maplibregl.RasterTileSource | undefined;
-            src?.setTiles([validTemplate(template) ?? ESRI_WORLD_IMAGERY.urlTemplate]);
+            src?.setTiles([resolveImagery(imagery).template]);
           },
         ),
       );
-      // Apply a persisted custom provider on boot.
-      const bootTemplate = validTemplate(useStore.getState().settings.providerTemplate);
-      if (bootTemplate) {
-        (map.getSource('sat') as maplibregl.RasterTileSource | undefined)?.setTiles([bootTemplate]);
-      }
 
       // Detection polygon click → select.
       map.on('click', 'det-fill', (e) => {

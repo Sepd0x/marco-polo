@@ -2,7 +2,7 @@
   "name": "marco-polo",
   "private": true,
   "version": "0.1.0",
-  "description": "A visual geospatial scanner that plays Marco Polo with satellite imagery — draw an area, and it finds, measures, and ranks every swimming pool.",
+  "description": "Draw an area on a map; it finds, measures and ranks the swimming pools in aerial and satellite imagery.",
   "license": "MIT",
   "type": "module",
   "workspaces": [
@@ -16,15 +16,22 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p packages/core && tsc --noEmit -p packages/cli && tsc --noEmit -p packages/eval && tsc --noEmit -p apps/web",
+    "e2e": "playwright test -c tests/e2e/playwright.config.ts",
+    "parity": "playwright test -c tests/parity/playwright.config.ts",
+    "bench": "playwright test -c tests/bench/playwright.config.ts",
+    "verify": "node scripts/verify.mjs",
     "scan": "npm --workspace @marco-polo/cli run scan --",
     "eval": "npm --workspace @marco-polo/eval run eval --"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "typescript": "^5.6.0",
-    "vitest": "^3.0.0"
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^24.19.1",
+    "jpeg-js": "^0.4.4",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.3"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   }
 }

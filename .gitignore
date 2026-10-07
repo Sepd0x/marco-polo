@@ -26,7 +26,3 @@ Thumbs.db
 scans/
 eval-out/
 
-# local tooling state and private working notes (never publish these)
-.claude/
-/CLAUDE.md
-/LOCAL_ROADMAP.md

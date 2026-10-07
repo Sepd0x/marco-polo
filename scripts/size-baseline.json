@@ -1,0 +1,11 @@
+{
+  "measured": "2026-10-07",
+  "build": "VITE_BASE=/marco-polo/ npm --workspace @marco-polo/web run build (vite 8.3.3, maplibre-gl 6.13.0)",
+  "method": "gzip level 9 of every .js and .mjs file in apps/web/dist/assets",
+  "gzipBytes": {
+    "app (index-*.js)": 382563,
+    "maplibre worker (maplibre-gl-worker-*.mjs)": 144488,
+    "detection worker (detect.worker-*.js)": 2993
+  },
+  "totalGzipBytes": 530044
+}

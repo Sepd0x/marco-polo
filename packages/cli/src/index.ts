@@ -38,7 +38,7 @@ function parseArgs(argv: string[]): Args {
     out: './scans/scan',
     rate: 5,
     order: 'serpentine',
-    template: ESRI_WORLD_IMAGERY.urlTemplate,
+    template: ESRI_WORLD_IMAGERY.template,
     quiet: false,
   };
   for (let i = 0; i < argv.length; i++) {
@@ -128,7 +128,7 @@ let failed = 0;
 
 if (!args.quiet) {
   console.log(`marco polo — scanning ${plan.tiles.length} tiles @ z${args.zoom} (${(plan.areaM2 / 1e6).toFixed(2)} km²)`);
-  console.log(`imagery: ${args.template === ESRI_WORLD_IMAGERY.urlTemplate ? ESRI_WORLD_IMAGERY.name : args.template}`);
+  console.log(`imagery: ${args.template === ESRI_WORLD_IMAGERY.template ? ESRI_WORLD_IMAGERY.name : args.template}`);
   console.log('');
 }
 

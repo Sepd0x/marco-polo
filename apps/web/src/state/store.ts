@@ -8,58 +8,13 @@ import {
   type RankedDetection,
   type Ring,
   type ScanTile,
-  type TraversalOrder,
 } from '@marco-polo/core';
+import { loadSettings, persistSettings, type Settings } from './settings.js';
 
 export type Phase = 'idle' | 'ready' | 'scanning' | 'paused' | 'complete';
 export type DrawMode = 'rect' | 'polygon' | null;
 
-export interface Settings {
-  zoom: number;
-  order: TraversalOrder;
-  ratePerSec: number;
-  follow: boolean;
-  minConfidence: number;
-  showHotTubs: boolean;
-  labels: boolean;
-  /** Accent colour over the OLED-black base, hex. */
-  accent: string;
-  /** Empty = default Esri World Imagery. */
-  providerTemplate: string;
-}
-
-export const DEFAULT_SETTINGS: Settings = {
-  zoom: 19,
-  order: 'serpentine',
-  ratePerSec: 5,
-  follow: true,
-  minConfidence: 0.55,
-  showHotTubs: true,
-  labels: true,
-  accent: '#35e0ff',
-  providerTemplate: '',
-};
-
-const SETTINGS_KEY = 'marco-polo:settings';
-
-function loadSettings(): Settings {
-  try {
-    const raw = localStorage.getItem(SETTINGS_KEY);
-    if (!raw) return DEFAULT_SETTINGS;
-    const parsed = JSON.parse(raw) as Partial<Settings>;
-    return { ...DEFAULT_SETTINGS, ...parsed };
-  } catch {
-    return DEFAULT_SETTINGS;
-  }
-}
-
-export function persistSettings(s: Settings): void {
-  try {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-  } catch {
-    // storage unavailable — settings stay session-local
-  }
-}
+export { DEFAULT_SETTINGS, persistSettings, type Settings } from './settings.js';
 
 export interface ScanStats {
   tilesTotal: number;

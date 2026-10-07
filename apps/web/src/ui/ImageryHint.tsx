@@ -1,32 +1,26 @@
 import { useState } from 'react';
 import { useStore } from '../state/store.js';
-
-const KEY = 'marco-polo:imagery-hint-dismissed';
+import { dismissImageryNotice, IMAGERY_NOTICE, imageryNoticePending } from '../state/settings.js';
 
 /**
- * One-time nudge, shown only while idle: the default Esri imagery is keyless
- * but dated in places; a free MapTiler/Mapbox key gives sharper, fresher tiles
- * and therefore better detections. Points the user at Settings → Imagery.
+ * Shown once, and only to people whose saved settings pointed at a
+ * Mapbox, MapTiler or custom template that this version removed.
  */
 export function ImageryHint({ onOpenSettings }: { onOpenSettings: () => void }) {
   const phase = useStore((s) => s.phase);
-  const usingCustom = useStore((s) => s.settings.providerTemplate.trim().length > 0);
-  const [dismissed, setDismissed] = useState(() => localStorage.getItem(KEY) === '1');
+  const [pending, setPending] = useState(imageryNoticePending);
 
-  if (dismissed || usingCustom || phase !== 'idle') return null;
+  if (!pending || phase !== 'idle') return null;
 
   const close = () => {
-    localStorage.setItem(KEY, '1');
-    setDismissed(true);
+    dismissImageryNotice();
+    setPending(false);
   };
 
   return (
-    <div className="imagery-hint panel fade-up">
+    <div className="imagery-hint panel fade-up" role="status">
       <span className="ih-tag label">imagery</span>
-      <span className="ih-text">
-        Default is keyless Esri. For sharper, more recent tiles — and cleaner detections —
-        add a free MapTiler or Mapbox key.
-      </span>
+      <span className="ih-text">{IMAGERY_NOTICE}</span>
       <button
         className="ih-link"
         onClick={() => {
@@ -34,7 +28,7 @@ export function ImageryHint({ onOpenSettings }: { onOpenSettings: () => void }) 
           close();
         }}
       >
-        settings →
+        settings
       </button>
       <button className="ih-close" onClick={close} aria-label="Dismiss">
         ✕

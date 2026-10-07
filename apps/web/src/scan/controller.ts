@@ -1,7 +1,6 @@
 import {
   buildScanPlan,
   DetectionMerger,
-  ESRI_WORLD_IMAGERY,
   metersPerPixel,
   tileUrl,
   type Ring,
@@ -12,6 +11,7 @@ import { useStore, type Settings } from '../state/store.js';
 import { fetchTileBlob } from './tileSource.js';
 import { WorkerPool } from './workerPool.js';
 import { saveScan } from './persist.js';
+import { resolveImagery } from '../lib/imagery.js';
 import { formatArea } from '../lib/format.js';
 import type { ThumbCrop } from './detect.worker.js';
 
@@ -37,7 +37,7 @@ export class ScanController {
 
   constructor(area: Ring, settings: Settings) {
     this.plan = buildScanPlan(area, settings.zoom, settings.order);
-    this.template = validTemplate(settings.providerTemplate) ?? ESRI_WORLD_IMAGERY.urlTemplate;
+    this.template = resolveImagery(settings.imagery).template;
     this.merger = new DetectionMerger({}, this.plan.tiles.map((t) => t.tile));
     this.scanId = `scan-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
   }
@@ -187,15 +187,6 @@ export class ScanController {
       store().setArchive(archive);
     }
   }
-}
-
-/** Accept only https XYZ templates with all three placeholders. */
-export function validTemplate(template: string): string | null {
-  const t = template.trim();
-  if (!t) return null;
-  if (!/^https:\/\//i.test(t)) return null;
-  if (!t.includes('{z}') || !t.includes('{x}') || !t.includes('{y}')) return null;
-  return t;
 }
 
 /** Convert raw RGBA crops from the worker into data-URL thumbnails. */

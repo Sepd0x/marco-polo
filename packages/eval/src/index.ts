@@ -48,7 +48,7 @@ function parse(argv: string[]): Opts {
     zones: 'all',
     detector: 'v1',
     minConf: 0.55,
-    template: ESRI_WORLD_IMAGERY.urlTemplate,
+    template: ESRI_WORLD_IMAGERY.template,
     cache: process.env.MARCO_POLO_CACHE ?? join(homedir(), '.cache', 'marco-polo', 'tiles'),
     rate: 4,
     out: resolve(process.env.INIT_CWD ?? process.cwd(), 'eval-out'),
