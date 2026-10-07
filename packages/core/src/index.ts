@@ -6,3 +6,4 @@ export * from './merge/index.js';
 export * from './rank/index.js';
 export * from './sources/index.js';
 export * from './imagery/index.js';
+export * from './export.js';
