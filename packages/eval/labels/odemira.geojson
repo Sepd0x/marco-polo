@@ -1,0 +1,56 @@
+{
+ "type": "FeatureCollection",
+ "zone": "odemira",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-07T19:18:03.396Z",
+ "bbox": [
+  -8.783619548168202,
+  37.53790202659001,
+  -8.769580451831798,
+  37.54909797340999
+ ],
+ "buildingsChecked": 49,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.7727699,
+        37.5484848
+       ],
+       [
+        -8.7727288,
+        37.5484805
+       ],
+       [
+        -8.7727421,
+        37.5484016
+       ],
+       [
+        -8.7727832,
+        37.5484059
+       ],
+       [
+        -8.7727699,
+        37.5484848
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/664182347",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  }
+ ]
+}

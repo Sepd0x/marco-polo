@@ -1,0 +1,39 @@
+{
+ "fn": {
+  "node/12603208167": "clear water, missed",
+  "node/12603210731": "dark or shaded water",
+  "visual/scottsdale/b1": "dark or shaded water",
+  "visual/scottsdale/b10": "dark or shaded water",
+  "visual/scottsdale/b11": "dark or shaded water",
+  "visual/scottsdale/b2": "dark or shaded water",
+  "visual/scottsdale/b3": "dark or shaded water",
+  "visual/scottsdale/b4": "dark or shaded water",
+  "visual/scottsdale/b5": "dark or shaded water",
+  "visual/scottsdale/b6": "dark or shaded water",
+  "visual/scottsdale/b7": "dark or shaded water",
+  "visual/scottsdale/b8": "dark or shaded water",
+  "visual/scottsdale/b9": "dark or shaded water",
+  "visual/scottsdale/c10": "deep blue or navy water",
+  "visual/scottsdale/c12": "in shadow or under trees",
+  "visual/scottsdale/c127": "dark or shaded water",
+  "visual/scottsdale/c145": "dark or shaded water",
+  "visual/scottsdale/c171": "dark or shaded water",
+  "visual/scottsdale/c182": "dark or shaded water",
+  "visual/scottsdale/c189": "dark or shaded water",
+  "visual/scottsdale/c191": "dark or shaded water",
+  "visual/scottsdale/c199": "dark or shaded water",
+  "visual/scottsdale/c30": "green or murky water",
+  "way/842724795": "merged with a neighbouring pool"
+ },
+ "fp": {
+  "p122": "solar panels",
+  "p123": "solar panels",
+  "p132": "shadow or dark roof",
+  "p32": "sport court",
+  "p33": "sport court",
+  "p34": "blue or teal object/roof",
+  "p64": "solar panels",
+  "p73": "solar panels",
+  "p74": "solar panels"
+ }
+}

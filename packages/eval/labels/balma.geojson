@@ -1,0 +1,5585 @@
+{
+ "type": "FeatureCollection",
+ "zone": "balma",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-07T19:18:54.265Z",
+ "bbox": [
+  1.492311192330616,
+  43.60440202659001,
+  1.507688807669384,
+  43.61559797340999
+ ],
+ "buildingsChecked": 3563,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5026098,
+        43.6080894
+       ],
+       [
+        1.5025031,
+        43.60811
+       ],
+       [
+        1.5024906,
+        43.6080762
+       ],
+       [
+        1.5025973,
+        43.6080556
+       ],
+       [
+        1.5026098,
+        43.6080894
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1176570686",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5026421,
+        43.608495
+       ],
+       [
+        1.5026838,
+        43.6084867
+       ],
+       [
+        1.502659,
+        43.6084216
+       ],
+       [
+        1.502653,
+        43.6084228
+       ],
+       [
+        1.5026492,
+        43.608419
+       ],
+       [
+        1.5026446,
+        43.6084173
+       ],
+       [
+        1.5026393,
+        43.6084171
+       ],
+       [
+        1.5026344,
+        43.6084179
+       ],
+       [
+        1.5026272,
+        43.6084212
+       ],
+       [
+        1.5026253,
+        43.6084256
+       ],
+       [
+        1.5026253,
+        43.6084303
+       ],
+       [
+        1.5026183,
+        43.6084323
+       ],
+       [
+        1.5026421,
+        43.608495
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1227761667",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5040184,
+        43.608331
+       ],
+       [
+        1.5040627,
+        43.6083156
+       ],
+       [
+        1.5040208,
+        43.6082525
+       ],
+       [
+        1.5039764,
+        43.608268
+       ],
+       [
+        1.5040184,
+        43.608331
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1227761668",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5039058,
+        43.6081741
+       ],
+       [
+        1.503951,
+        43.6081573
+       ],
+       [
+        1.503903,
+        43.6080898
+       ],
+       [
+        1.5038579,
+        43.6081066
+       ],
+       [
+        1.5039058,
+        43.6081741
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1227761669",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5043091,
+        43.6081608
+       ],
+       [
+        1.5043251,
+        43.6081634
+       ],
+       [
+        1.5043414,
+        43.6081619
+       ],
+       [
+        1.5043551,
+        43.608157
+       ],
+       [
+        1.5043661,
+        43.6081493
+       ],
+       [
+        1.5043731,
+        43.6081395
+       ],
+       [
+        1.5043756,
+        43.6081285
+       ],
+       [
+        1.5043732,
+        43.6081176
+       ],
+       [
+        1.5043661,
+        43.6081077
+       ],
+       [
+        1.5043552,
+        43.6081
+       ],
+       [
+        1.5043414,
+        43.6080951
+       ],
+       [
+        1.5043263,
+        43.6080936
+       ],
+       [
+        1.5043102,
+        43.6080958
+       ],
+       [
+        1.5042961,
+        43.6081019
+       ],
+       [
+        1.5042856,
+        43.608111
+       ],
+       [
+        1.5042799,
+        43.6081221
+       ],
+       [
+        1.5042797,
+        43.608134
+       ],
+       [
+        1.504285,
+        43.6081452
+       ],
+       [
+        1.5042952,
+        43.6081545
+       ],
+       [
+        1.5043091,
+        43.6081608
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1227761670",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4958844,
+        43.6112684
+       ],
+       [
+        1.4959194,
+        43.6112038
+       ],
+       [
+        1.4958728,
+        43.6111906
+       ],
+       [
+        1.4958378,
+        43.6112552
+       ],
+       [
+        1.4958844,
+        43.6112684
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1227865349",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.496666,
+        43.6052506
+       ],
+       [
+        1.4967046,
+        43.6051793
+       ],
+       [
+        1.4966561,
+        43.6051654
+       ],
+       [
+        1.4966176,
+        43.6052367
+       ],
+       [
+        1.496666,
+        43.6052506
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692532",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4970106,
+        43.6049187
+       ],
+       [
+        1.4970492,
+        43.6048474
+       ],
+       [
+        1.4970007,
+        43.6048335
+       ],
+       [
+        1.4969622,
+        43.6049048
+       ],
+       [
+        1.4970106,
+        43.6049187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692533",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.496356,
+        43.6058031
+       ],
+       [
+        1.4963542,
+        43.6057265
+       ],
+       [
+        1.496302,
+        43.6057271
+       ],
+       [
+        1.496304,
+        43.6058036
+       ],
+       [
+        1.496356,
+        43.6058031
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692534",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.495775,
+        43.6057007
+       ],
+       [
+        1.4958733,
+        43.6057291
+       ],
+       [
+        1.4958928,
+        43.605694
+       ],
+       [
+        1.4957946,
+        43.6056657
+       ],
+       [
+        1.495775,
+        43.6057007
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692535",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.498113,
+        43.6059061
+       ],
+       [
+        1.4981496,
+        43.6058364
+       ],
+       [
+        1.4981046,
+        43.605824
+       ],
+       [
+        1.498068,
+        43.6058937
+       ],
+       [
+        1.498113,
+        43.6059061
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692536",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4980218,
+        43.6064017
+       ],
+       [
+        1.4980604,
+        43.6063304
+       ],
+       [
+        1.4980119,
+        43.6063165
+       ],
+       [
+        1.4979734,
+        43.6063878
+       ],
+       [
+        1.4980218,
+        43.6064017
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692537",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4981851,
+        43.6066795
+       ],
+       [
+        1.4982237,
+        43.6066082
+       ],
+       [
+        1.4981752,
+        43.6065943
+       ],
+       [
+        1.4981367,
+        43.6066656
+       ],
+       [
+        1.4981851,
+        43.6066795
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692538",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4993832,
+        43.6064263
+       ],
+       [
+        1.4994653,
+        43.6064794
+       ],
+       [
+        1.4994962,
+        43.6064544
+       ],
+       [
+        1.4994142,
+        43.6064012
+       ],
+       [
+        1.4993832,
+        43.6064263
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692539",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4969326,
+        43.6059468
+       ],
+       [
+        1.4969262,
+        43.6059547
+       ],
+       [
+        1.4969238,
+        43.6059637
+       ],
+       [
+        1.4969256,
+        43.6059728
+       ],
+       [
+        1.4969315,
+        43.6059809
+       ],
+       [
+        1.4969408,
+        43.6059872
+       ],
+       [
+        1.4969524,
+        43.6059908
+       ],
+       [
+        1.496965,
+        43.6059915
+       ],
+       [
+        1.4969772,
+        43.6059891
+       ],
+       [
+        1.4969873,
+        43.6059842
+       ],
+       [
+        1.4969946,
+        43.6059772
+       ],
+       [
+        1.4969986,
+        43.6059689
+       ],
+       [
+        1.4969987,
+        43.6059602
+       ],
+       [
+        1.4969949,
+        43.6059518
+       ],
+       [
+        1.4969877,
+        43.6059448
+       ],
+       [
+        1.4969778,
+        43.6059398
+       ],
+       [
+        1.4969662,
+        43.6059373
+       ],
+       [
+        1.4969541,
+        43.6059376
+       ],
+       [
+        1.4969422,
+        43.6059409
+       ],
+       [
+        1.4969326,
+        43.6059468
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692540",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4930263,
+        43.6055064
+       ],
+       [
+        1.4930614,
+        43.6054207
+       ],
+       [
+        1.4930045,
+        43.6054085
+       ],
+       [
+        1.4929695,
+        43.6054943
+       ],
+       [
+        1.4930263,
+        43.6055064
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692541",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4936435,
+        43.6071634
+       ],
+       [
+        1.4935531,
+        43.6071236
+       ],
+       [
+        1.4935258,
+        43.6071558
+       ],
+       [
+        1.4936162,
+        43.6071956
+       ],
+       [
+        1.4936435,
+        43.6071634
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692542",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4976285,
+        43.6071893
+       ],
+       [
+        1.4976817,
+        43.6071104
+       ],
+       [
+        1.4976676,
+        43.6071055
+       ],
+       [
+        1.4976691,
+        43.6071008
+       ],
+       [
+        1.4976677,
+        43.6070962
+       ],
+       [
+        1.4976636,
+        43.6070924
+       ],
+       [
+        1.4976577,
+        43.6070903
+       ],
+       [
+        1.4976511,
+        43.6070903
+       ],
+       [
+        1.4976452,
+        43.6070923
+       ],
+       [
+        1.497641,
+        43.6070961
+       ],
+       [
+        1.4976274,
+        43.6070913
+       ],
+       [
+        1.4975743,
+        43.6071702
+       ],
+       [
+        1.4976285,
+        43.6071893
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692543",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4979625,
+        43.6073696
+       ],
+       [
+        1.498078,
+        43.6073394
+       ],
+       [
+        1.4980737,
+        43.6073308
+       ],
+       [
+        1.4980799,
+        43.6073282
+       ],
+       [
+        1.4980842,
+        43.607324
+       ],
+       [
+        1.4980859,
+        43.607319
+       ],
+       [
+        1.4980849,
+        43.6073138
+       ],
+       [
+        1.4980811,
+        43.6073094
+       ],
+       [
+        1.4980754,
+        43.6073063
+       ],
+       [
+        1.4980684,
+        43.6073051
+       ],
+       [
+        1.4980613,
+        43.6073059
+       ],
+       [
+        1.4980568,
+        43.6072969
+       ],
+       [
+        1.4979413,
+        43.6073271
+       ],
+       [
+        1.4979625,
+        43.6073696
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692544",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4974101,
+        43.607681
+       ],
+       [
+        1.4974396,
+        43.6076075
+       ],
+       [
+        1.4973896,
+        43.607597
+       ],
+       [
+        1.4973601,
+        43.6076705
+       ],
+       [
+        1.4974101,
+        43.607681
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692545",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.496217,
+        43.607583
+       ],
+       [
+        1.4962334,
+        43.6075592
+       ],
+       [
+        1.4961948,
+        43.6075452
+       ],
+       [
+        1.4961784,
+        43.6075691
+       ],
+       [
+        1.496217,
+        43.607583
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1276692546",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4936686,
+        43.6122107
+       ],
+       [
+        1.4937776,
+        43.612172
+       ],
+       [
+        1.4937523,
+        43.6121347
+       ],
+       [
+        1.4936434,
+        43.6121734
+       ],
+       [
+        1.4936686,
+        43.6122107
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221134",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4933791,
+        43.6121397
+       ],
+       [
+        1.493459,
+        43.6121312
+       ],
+       [
+        1.4934523,
+        43.6120979
+       ],
+       [
+        1.4933724,
+        43.6121063
+       ],
+       [
+        1.4933791,
+        43.6121397
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221135",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4942486,
+        43.612169
+       ],
+       [
+        1.4942643,
+        43.6121347
+       ],
+       [
+        1.4942792,
+        43.6121383
+       ],
+       [
+        1.4942886,
+        43.6121177
+       ],
+       [
+        1.4942726,
+        43.6121138
+       ],
+       [
+        1.494276,
+        43.6121064
+       ],
+       [
+        1.494225,
+        43.6120942
+       ],
+       [
+        1.4941965,
+        43.6121565
+       ],
+       [
+        1.4942486,
+        43.612169
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221136",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4942792,
+        43.6123443
+       ],
+       [
+        1.4942873,
+        43.6123547
+       ],
+       [
+        1.4943168,
+        43.6123574
+       ],
+       [
+        1.4943407,
+        43.6123743
+       ],
+       [
+        1.4943632,
+        43.6123716
+       ],
+       [
+        1.4943739,
+        43.6123622
+       ],
+       [
+        1.4943758,
+        43.6123541
+       ],
+       [
+        1.4943749,
+        43.6123457
+       ],
+       [
+        1.4943679,
+        43.6123383
+       ],
+       [
+        1.4943477,
+        43.6123286
+       ],
+       [
+        1.494319,
+        43.6123256
+       ],
+       [
+        1.4943141,
+        43.6123181
+       ],
+       [
+        1.4943008,
+        43.6123167
+       ],
+       [
+        1.4942921,
+        43.6123225
+       ],
+       [
+        1.4942902,
+        43.6123333
+       ],
+       [
+        1.4942825,
+        43.612337
+       ],
+       [
+        1.4942792,
+        43.6123443
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221137",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4930221,
+        43.6130336
+       ],
+       [
+        1.493123,
+        43.6130543
+       ],
+       [
+        1.4931395,
+        43.613012
+       ],
+       [
+        1.4930386,
+        43.6129914
+       ],
+       [
+        1.4930221,
+        43.6130336
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221138",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4924819,
+        43.6106678
+       ],
+       [
+        1.4925148,
+        43.61058
+       ],
+       [
+        1.4924568,
+        43.6105686
+       ],
+       [
+        1.4924239,
+        43.6106564
+       ],
+       [
+        1.4924819,
+        43.6106678
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221148",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4927518,
+        43.6105012
+       ],
+       [
+        1.4928512,
+        43.6105255
+       ],
+       [
+        1.4928707,
+        43.6104839
+       ],
+       [
+        1.4927713,
+        43.6104595
+       ],
+       [
+        1.4927518,
+        43.6105012
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221149",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4939634,
+        43.6107928
+       ],
+       [
+        1.4940383,
+        43.6108168
+       ],
+       [
+        1.4940574,
+        43.6107855
+       ],
+       [
+        1.4939825,
+        43.6107616
+       ],
+       [
+        1.4939634,
+        43.6107928
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221155",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4931061,
+        43.6098834
+       ],
+       [
+        1.4931176,
+        43.6098078
+       ],
+       [
+        1.4930573,
+        43.609803
+       ],
+       [
+        1.4930458,
+        43.6098785
+       ],
+       [
+        1.4931061,
+        43.6098834
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221156",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4935335,
+        43.609998
+       ],
+       [
+        1.4935538,
+        43.6099472
+       ],
+       [
+        1.4935148,
+        43.6099391
+       ],
+       [
+        1.4934946,
+        43.6099899
+       ],
+       [
+        1.4935335,
+        43.609998
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221158",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4935613,
+        43.6098228
+       ],
+       [
+        1.493541,
+        43.6098718
+       ],
+       [
+        1.4935911,
+        43.6098827
+       ],
+       [
+        1.4936115,
+        43.6098336
+       ],
+       [
+        1.4935613,
+        43.6098228
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221159",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4941501,
+        43.6099523
+       ],
+       [
+        1.4941776,
+        43.6099587
+       ],
+       [
+        1.4941942,
+        43.6099218
+       ],
+       [
+        1.4941665,
+        43.6099154
+       ],
+       [
+        1.4941501,
+        43.6099523
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1282221160",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5075365,
+        43.6047188
+       ],
+       [
+        1.5075665,
+        43.6046881
+       ],
+       [
+        1.5076375,
+        43.6047246
+       ],
+       [
+        1.5076075,
+        43.6047552
+       ],
+       [
+        1.5075365,
+        43.6047188
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1327595132",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5071161,
+        43.6045482
+       ],
+       [
+        1.5071336,
+        43.6045239
+       ],
+       [
+        1.5071842,
+        43.6045431
+       ],
+       [
+        1.5071667,
+        43.6045674
+       ],
+       [
+        1.5071161,
+        43.6045482
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1327595133",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5064184,
+        43.6049877
+       ],
+       [
+        1.5064424,
+        43.6049577
+       ],
+       [
+        1.5065158,
+        43.6049885
+       ],
+       [
+        1.5064918,
+        43.6050185
+       ],
+       [
+        1.5064184,
+        43.6049877
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1327595135",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4926113,
+        43.6143874
+       ],
+       [
+        1.492569,
+        43.6143798
+       ],
+       [
+        1.4925908,
+        43.6143157
+       ],
+       [
+        1.4926332,
+        43.6143232
+       ],
+       [
+        1.4926113,
+        43.6143874
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614089",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4932966,
+        43.6139943
+       ],
+       [
+        1.4932542,
+        43.6139867
+       ],
+       [
+        1.4932761,
+        43.6139226
+       ],
+       [
+        1.4933184,
+        43.6139301
+       ],
+       [
+        1.4932966,
+        43.6139943
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614090",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.493388,
+        43.6140383
+       ],
+       [
+        1.4933476,
+        43.6140264
+       ],
+       [
+        1.4933819,
+        43.6139652
+       ],
+       [
+        1.4934223,
+        43.6139771
+       ],
+       [
+        1.493388,
+        43.6140383
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614091",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4924208,
+        43.6148676
+       ],
+       [
+        1.4924489,
+        43.6147909
+       ],
+       [
+        1.4924948,
+        43.6147997
+       ],
+       [
+        1.4924667,
+        43.6148764
+       ],
+       [
+        1.4924208,
+        43.6148676
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614099",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4933752,
+        43.6132562
+       ],
+       [
+        1.4932696,
+        43.6132348
+       ],
+       [
+        1.4932803,
+        43.6132069
+       ],
+       [
+        1.493386,
+        43.6132283
+       ],
+       [
+        1.4933752,
+        43.6132562
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614100",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4938584,
+        43.6131688
+       ],
+       [
+        1.4939294,
+        43.6131517
+       ],
+       [
+        1.4939417,
+        43.6131785
+       ],
+       [
+        1.4938707,
+        43.6131957
+       ],
+       [
+        1.4938584,
+        43.6131688
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614102",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4923508,
+        43.6131666
+       ],
+       [
+        1.4924224,
+        43.6131179
+       ],
+       [
+        1.4924542,
+        43.6131423
+       ],
+       [
+        1.4923825,
+        43.6131911
+       ],
+       [
+        1.4923508,
+        43.6131666
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614103",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.492413,
+        43.6130462
+       ],
+       [
+        1.4923519,
+        43.6130439
+       ],
+       [
+        1.492354,
+        43.6130155
+       ],
+       [
+        1.4924151,
+        43.6130179
+       ],
+       [
+        1.492413,
+        43.6130462
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1347614104",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "yes"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4947542,
+        43.6086869
+       ],
+       [
+        1.4947833,
+        43.6086419
+       ],
+       [
+        1.4947516,
+        43.6086312
+       ],
+       [
+        1.4947225,
+        43.6086762
+       ],
+       [
+        1.4947542,
+        43.6086869
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1351810598",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4952498,
+        43.6089375
+       ],
+       [
+        1.4951815,
+        43.6089328
+       ],
+       [
+        1.4951782,
+        43.6089581
+       ],
+       [
+        1.4952465,
+        43.6089628
+       ],
+       [
+        1.4952498,
+        43.6089375
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1351810599",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4957307,
+        43.6080693
+       ],
+       [
+        1.4957517,
+        43.6080341
+       ],
+       [
+        1.4957267,
+        43.6080263
+       ],
+       [
+        1.4957058,
+        43.6080615
+       ],
+       [
+        1.4957307,
+        43.6080693
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1351810600",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4975768,
+        43.6074143
+       ],
+       [
+        1.4976101,
+        43.6074583
+       ],
+       [
+        1.4975773,
+        43.6074713
+       ],
+       [
+        1.497544,
+        43.6074273
+       ],
+       [
+        1.4975768,
+        43.6074143
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354480778",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5060319,
+        43.6142345
+       ],
+       [
+        1.5061926,
+        43.6141701
+       ],
+       [
+        1.5061514,
+        43.6141161
+       ],
+       [
+        1.5059906,
+        43.6141804
+       ],
+       [
+        1.5060319,
+        43.6142345
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356505960",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4928046,
+        43.6115792
+       ],
+       [
+        1.4928867,
+        43.6116185
+       ],
+       [
+        1.4929107,
+        43.6115922
+       ],
+       [
+        1.4928286,
+        43.6115529
+       ],
+       [
+        1.4928046,
+        43.6115792
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098103",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4931383,
+        43.6115822
+       ],
+       [
+        1.4930895,
+        43.6115579
+       ],
+       [
+        1.4930706,
+        43.6115778
+       ],
+       [
+        1.4931193,
+        43.6116021
+       ],
+       [
+        1.4931383,
+        43.6115822
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098104",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4932813,
+        43.6126156
+       ],
+       [
+        1.493303,
+        43.6125577
+       ],
+       [
+        1.4932701,
+        43.6125512
+       ],
+       [
+        1.4932483,
+        43.6126091
+       ],
+       [
+        1.4932813,
+        43.6126156
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098106",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4943944,
+        43.6127209
+       ],
+       [
+        1.4943166,
+        43.6127004
+       ],
+       [
+        1.4943049,
+        43.6127236
+       ],
+       [
+        1.4943827,
+        43.6127441
+       ],
+       [
+        1.4943944,
+        43.6127209
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098107",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4957601,
+        43.613139
+       ],
+       [
+        1.4957818,
+        43.6130811
+       ],
+       [
+        1.4957489,
+        43.6130746
+       ],
+       [
+        1.4957271,
+        43.6131325
+       ],
+       [
+        1.4957601,
+        43.613139
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098111",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.495599,
+        43.6132267
+       ],
+       [
+        1.4956208,
+        43.6131689
+       ],
+       [
+        1.4955878,
+        43.6131624
+       ],
+       [
+        1.495566,
+        43.6132202
+       ],
+       [
+        1.495599,
+        43.6132267
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098112",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4960487,
+        43.6124159
+       ],
+       [
+        1.495989,
+        43.6123998
+       ],
+       [
+        1.4959799,
+        43.6124175
+       ],
+       [
+        1.4960396,
+        43.6124335
+       ],
+       [
+        1.4960487,
+        43.6124159
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098113",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.497041,
+        43.6120751
+       ],
+       [
+        1.4970231,
+        43.6120673
+       ],
+       [
+        1.496984,
+        43.6120708
+       ],
+       [
+        1.4969738,
+        43.6120806
+       ],
+       [
+        1.4969742,
+        43.6120971
+       ],
+       [
+        1.4969872,
+        43.6121037
+       ],
+       [
+        1.4970313,
+        43.6120997
+       ],
+       [
+        1.4970442,
+        43.6120909
+       ],
+       [
+        1.497041,
+        43.6120751
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098115",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4973879,
+        43.6114374
+       ],
+       [
+        1.4974524,
+        43.6114144
+       ],
+       [
+        1.4974322,
+        43.6113846
+       ],
+       [
+        1.4973677,
+        43.6114076
+       ],
+       [
+        1.4973879,
+        43.6114374
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098116",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4974872,
+        43.6113927
+       ],
+       [
+        1.4975353,
+        43.61138
+       ],
+       [
+        1.4975258,
+        43.6113611
+       ],
+       [
+        1.4974777,
+        43.6113738
+       ],
+       [
+        1.4974872,
+        43.6113927
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098117",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4966513,
+        43.611462
+       ],
+       [
+        1.4966731,
+        43.6114041
+       ],
+       [
+        1.4966402,
+        43.6113976
+       ],
+       [
+        1.4966184,
+        43.6114554
+       ],
+       [
+        1.4966513,
+        43.611462
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098118",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4978398,
+        43.611302
+       ],
+       [
+        1.4978165,
+        43.6112597
+       ],
+       [
+        1.4977865,
+        43.6112684
+       ],
+       [
+        1.4978098,
+        43.6113106
+       ],
+       [
+        1.4978398,
+        43.611302
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098119",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.498851,
+        43.6110669
+       ],
+       [
+        1.4988727,
+        43.6109797
+       ],
+       [
+        1.4988523,
+        43.6109758
+       ],
+       [
+        1.498836,
+        43.6109538
+       ],
+       [
+        1.4988055,
+        43.6109656
+       ],
+       [
+        1.4988097,
+        43.6109901
+       ],
+       [
+        1.4987962,
+        43.6110596
+       ],
+       [
+        1.498851,
+        43.6110669
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098120",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4989299,
+        43.6113716
+       ],
+       [
+        1.4989517,
+        43.6113137
+       ],
+       [
+        1.4989187,
+        43.6113072
+       ],
+       [
+        1.4988969,
+        43.6113651
+       ],
+       [
+        1.4989299,
+        43.6113716
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098121",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4998643,
+        43.6106121
+       ],
+       [
+        1.4998072,
+        43.6105975
+       ],
+       [
+        1.4997954,
+        43.6106216
+       ],
+       [
+        1.4998525,
+        43.6106363
+       ],
+       [
+        1.4998643,
+        43.6106121
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098122",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4994073,
+        43.6116469
+       ],
+       [
+        1.499328,
+        43.6116293
+       ],
+       [
+        1.499318,
+        43.6116529
+       ],
+       [
+        1.4993972,
+        43.6116705
+       ],
+       [
+        1.4994073,
+        43.6116469
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098123",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4998843,
+        43.6123143
+       ],
+       [
+        1.4999596,
+        43.6122893
+       ],
+       [
+        1.4999454,
+        43.6122668
+       ],
+       [
+        1.4998701,
+        43.6122919
+       ],
+       [
+        1.4998843,
+        43.6123143
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098124",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5006414,
+        43.612076
+       ],
+       [
+        1.5006003,
+        43.6120239
+       ],
+       [
+        1.5005706,
+        43.6120362
+       ],
+       [
+        1.5006117,
+        43.6120883
+       ],
+       [
+        1.5006414,
+        43.612076
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098125",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4986172,
+        43.612552
+       ],
+       [
+        1.4986501,
+        43.6126071
+       ],
+       [
+        1.4986815,
+        43.6125973
+       ],
+       [
+        1.4986486,
+        43.6125422
+       ],
+       [
+        1.4986172,
+        43.612552
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098126",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4985713,
+        43.6129259
+       ],
+       [
+        1.4985342,
+        43.6128723
+       ],
+       [
+        1.4985036,
+        43.6128834
+       ],
+       [
+        1.4985408,
+        43.612937
+       ],
+       [
+        1.4985713,
+        43.6129259
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098127",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4972364,
+        43.6130187
+       ],
+       [
+        1.4972446,
+        43.6129888
+       ],
+       [
+        1.4972146,
+        43.6129733
+       ],
+       [
+        1.4971789,
+        43.6129832
+       ],
+       [
+        1.4971703,
+        43.613011
+       ],
+       [
+        1.4972034,
+        43.6130299
+       ],
+       [
+        1.4972364,
+        43.6130187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098128",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4972765,
+        43.6128262
+       ],
+       [
+        1.4972847,
+        43.6127665
+       ],
+       [
+        1.4972507,
+        43.6127641
+       ],
+       [
+        1.4972425,
+        43.6128238
+       ],
+       [
+        1.4972765,
+        43.6128262
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098129",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4968924,
+        43.613028
+       ],
+       [
+        1.4969033,
+        43.6129856
+       ],
+       [
+        1.4968712,
+        43.6129813
+       ],
+       [
+        1.4968604,
+        43.6130237
+       ],
+       [
+        1.4968924,
+        43.613028
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098130",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4969006,
+        43.6135201
+       ],
+       [
+        1.4969221,
+        43.6135781
+       ],
+       [
+        1.4969551,
+        43.6135717
+       ],
+       [
+        1.4969336,
+        43.6135137
+       ],
+       [
+        1.4969006,
+        43.6135201
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098131",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4966823,
+        43.6135688
+       ],
+       [
+        1.4966005,
+        43.6135783
+       ],
+       [
+        1.496606,
+        43.6136027
+       ],
+       [
+        1.4966878,
+        43.6135932
+       ],
+       [
+        1.4966823,
+        43.6135688
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098132",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4983627,
+        43.6137837
+       ],
+       [
+        1.4984201,
+        43.6137405
+       ],
+       [
+        1.4983955,
+        43.6137233
+       ],
+       [
+        1.4983381,
+        43.6137665
+       ],
+       [
+        1.4983627,
+        43.6137837
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098133",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4978185,
+        43.6145261
+       ],
+       [
+        1.497812,
+        43.6145061
+       ],
+       [
+        1.4977891,
+        43.6144985
+       ],
+       [
+        1.4977721,
+        43.6144458
+       ],
+       [
+        1.4977164,
+        43.6144552
+       ],
+       [
+        1.4977435,
+        43.6145388
+       ],
+       [
+        1.4978185,
+        43.6145261
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098134",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4979267,
+        43.6144314
+       ],
+       [
+        1.4980033,
+        43.6144544
+       ],
+       [
+        1.4980163,
+        43.6144315
+       ],
+       [
+        1.4979398,
+        43.6144086
+       ],
+       [
+        1.4979267,
+        43.6144314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098135",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4989348,
+        43.6142508
+       ],
+       [
+        1.4989477,
+        43.61431
+       ],
+       [
+        1.4989814,
+        43.6143062
+       ],
+       [
+        1.4989685,
+        43.6142469
+       ],
+       [
+        1.4989348,
+        43.6142508
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098136",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4997011,
+        43.6139435
+       ],
+       [
+        1.4996699,
+        43.613867
+       ],
+       [
+        1.4996669,
+        43.6138617
+       ],
+       [
+        1.4996579,
+        43.6138572
+       ],
+       [
+        1.499647,
+        43.6138565
+       ],
+       [
+        1.4996343,
+        43.613859
+       ],
+       [
+        1.4996288,
+        43.6138649
+       ],
+       [
+        1.4996301,
+        43.6138748
+       ],
+       [
+        1.4996235,
+        43.6138766
+       ],
+       [
+        1.4996518,
+        43.6139542
+       ],
+       [
+        1.4997011,
+        43.6139435
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460098137",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5045876,
+        43.6045115
+       ],
+       [
+        1.5045332,
+        43.6044924
+       ],
+       [
+        1.5044793,
+        43.6045729
+       ],
+       [
+        1.5045337,
+        43.604592
+       ],
+       [
+        1.5045876,
+        43.6045115
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111019",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5048596,
+        43.6046935
+       ],
+       [
+        1.504899,
+        43.6047063
+       ],
+       [
+        1.5049338,
+        43.6046486
+       ],
+       [
+        1.5049287,
+        43.6046468
+       ],
+       [
+        1.5049296,
+        43.604644
+       ],
+       [
+        1.5049299,
+        43.6046396
+       ],
+       [
+        1.5049281,
+        43.6046356
+       ],
+       [
+        1.5049225,
+        43.6046321
+       ],
+       [
+        1.5049165,
+        43.6046306
+       ],
+       [
+        1.5049105,
+        43.6046308
+       ],
+       [
+        1.504905,
+        43.6046328
+       ],
+       [
+        1.5049,
+        43.6046372
+       ],
+       [
+        1.5048948,
+        43.6046358
+       ],
+       [
+        1.5048596,
+        43.6046935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111020",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5052783,
+        43.6046817
+       ],
+       [
+        1.5052582,
+        43.6046593
+       ],
+       [
+        1.5051907,
+        43.604691
+       ],
+       [
+        1.5052108,
+        43.6047134
+       ],
+       [
+        1.5052783,
+        43.6046817
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111021",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5056689,
+        43.6046064
+       ],
+       [
+        1.505633,
+        43.6045907
+       ],
+       [
+        1.5055779,
+        43.6046565
+       ],
+       [
+        1.5056138,
+        43.6046723
+       ],
+       [
+        1.5056689,
+        43.6046064
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111024",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5059045,
+        43.6047196
+       ],
+       [
+        1.5058779,
+        43.6047596
+       ],
+       [
+        1.5059647,
+        43.6047886
+       ],
+       [
+        1.5059578,
+        43.6047942
+       ],
+       [
+        1.5059561,
+        43.6048004
+       ],
+       [
+        1.5059569,
+        43.6048066
+       ],
+       [
+        1.5059625,
+        43.6048139
+       ],
+       [
+        1.5059705,
+        43.6048189
+       ],
+       [
+        1.5059792,
+        43.6048202
+       ],
+       [
+        1.5059919,
+        43.6048193
+       ],
+       [
+        1.5060018,
+        43.6048154
+       ],
+       [
+        1.506007,
+        43.6048098
+       ],
+       [
+        1.5060082,
+        43.6048027
+       ],
+       [
+        1.5060069,
+        43.6047948
+       ],
+       [
+        1.5060034,
+        43.6047903
+       ],
+       [
+        1.5059966,
+        43.6047862
+       ],
+       [
+        1.5060151,
+        43.6047589
+       ],
+       [
+        1.5059045,
+        43.6047196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111025",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5063668,
+        43.6045229
+       ],
+       [
+        1.5063272,
+        43.6045113
+       ],
+       [
+        1.5063004,
+        43.6045592
+       ],
+       [
+        1.5063399,
+        43.6045708
+       ],
+       [
+        1.5063668,
+        43.6045229
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1468111027",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5073519,
+        43.6053846
+       ],
+       [
+        1.5072638,
+        43.6053504
+       ],
+       [
+        1.5072672,
+        43.6053457
+       ],
+       [
+        1.5072573,
+        43.6053396
+       ],
+       [
+        1.5072556,
+        43.6053336
+       ],
+       [
+        1.5072626,
+        43.6053249
+       ],
+       [
+        1.5072696,
+        43.6053223
+       ],
+       [
+        1.5072765,
+        43.6053223
+       ],
+       [
+        1.5072844,
+        43.6053226
+       ],
+       [
+        1.5072864,
+        43.6053197
+       ],
+       [
+        1.5073728,
+        43.6053562
+       ],
+       [
+        1.5073519,
+        43.6053846
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1472718160",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.507171,
+        43.6054314
+       ],
+       [
+        1.5070966,
+        43.6054016
+       ],
+       [
+        1.5071001,
+        43.6053972
+       ],
+       [
+        1.5070953,
+        43.6053899
+       ],
+       [
+        1.5070977,
+        43.6053815
+       ],
+       [
+        1.5071038,
+        43.6053761
+       ],
+       [
+        1.5071173,
+        43.6053758
+       ],
+       [
+        1.5071213,
+        43.6053708
+       ],
+       [
+        1.5071946,
+        43.6054019
+       ],
+       [
+        1.507171,
+        43.6054314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1472718162",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5051728,
+        43.6050396
+       ],
+       [
+        1.5051355,
+        43.6050146
+       ],
+       [
+        1.5052045,
+        43.6049602
+       ],
+       [
+        1.5052418,
+        43.6049852
+       ],
+       [
+        1.5051728,
+        43.6050396
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1472718163",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4997096,
+        43.6154051
+       ],
+       [
+        1.4996943,
+        43.6153885
+       ],
+       [
+        1.4996653,
+        43.6153869
+       ],
+       [
+        1.4996539,
+        43.615406
+       ],
+       [
+        1.4996705,
+        43.6154243
+       ],
+       [
+        1.4996995,
+        43.6154243
+       ],
+       [
+        1.4997096,
+        43.6154051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194457",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4999629,
+        43.6155449
+       ],
+       [
+        1.4999561,
+        43.615466
+       ],
+       [
+        1.4999648,
+        43.6154657
+       ],
+       [
+        1.4999694,
+        43.6154588
+       ],
+       [
+        1.4999804,
+        43.6154555
+       ],
+       [
+        1.4999902,
+        43.6154565
+       ],
+       [
+        1.4999994,
+        43.6154628
+       ],
+       [
+        1.5000097,
+        43.615463
+       ],
+       [
+        1.5000173,
+        43.6155426
+       ],
+       [
+        1.4999629,
+        43.6155449
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194458",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5003564,
+        43.6149963
+       ],
+       [
+        1.5003343,
+        43.6149715
+       ],
+       [
+        1.5004215,
+        43.6149297
+       ],
+       [
+        1.5004448,
+        43.614953
+       ],
+       [
+        1.5003564,
+        43.6149963
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194459",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4999009,
+        43.6143669
+       ],
+       [
+        1.4999628,
+        43.6143547
+       ],
+       [
+        1.4999755,
+        43.6143407
+       ],
+       [
+        1.4999792,
+        43.6143306
+       ],
+       [
+        1.4999715,
+        43.6143139
+       ],
+       [
+        1.4999562,
+        43.6143082
+       ],
+       [
+        1.4999358,
+        43.614308
+       ],
+       [
+        1.4999192,
+        43.614313
+       ],
+       [
+        1.4999071,
+        43.6143251
+       ],
+       [
+        1.4998878,
+        43.6143317
+       ],
+       [
+        1.499878,
+        43.6143416
+       ],
+       [
+        1.4998758,
+        43.6143532
+       ],
+       [
+        1.4998832,
+        43.6143633
+       ],
+       [
+        1.4999009,
+        43.6143669
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194460",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4998226,
+        43.6134623
+       ],
+       [
+        1.4998591,
+        43.6134409
+       ],
+       [
+        1.4999167,
+        43.6134953
+       ],
+       [
+        1.4998782,
+        43.6135129
+       ],
+       [
+        1.4998226,
+        43.6134623
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194461",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5006568,
+        43.6129493
+       ],
+       [
+        1.5007227,
+        43.6129273
+       ],
+       [
+        1.5006704,
+        43.612836
+       ],
+       [
+        1.5006027,
+        43.6128605
+       ],
+       [
+        1.5006568,
+        43.6129493
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194462",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5009274,
+        43.6129992
+       ],
+       [
+        1.5009107,
+        43.6129699
+       ],
+       [
+        1.5008217,
+        43.6129973
+       ],
+       [
+        1.5008379,
+        43.613026
+       ],
+       [
+        1.5009274,
+        43.6129992
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194463",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5009408,
+        43.6133251
+       ],
+       [
+        1.5008967,
+        43.6133406
+       ],
+       [
+        1.50094,
+        43.613404
+       ],
+       [
+        1.5009858,
+        43.6133886
+       ],
+       [
+        1.5009408,
+        43.6133251
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194464",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5020489,
+        43.6140481
+       ],
+       [
+        1.502006,
+        43.6140658
+       ],
+       [
+        1.5020732,
+        43.6141515
+       ],
+       [
+        1.5021162,
+        43.6141339
+       ],
+       [
+        1.5020489,
+        43.6140481
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194465",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5018874,
+        43.6144677
+       ],
+       [
+        1.5018701,
+        43.614439
+       ],
+       [
+        1.5017882,
+        43.6144647
+       ],
+       [
+        1.5018055,
+        43.6144935
+       ],
+       [
+        1.5018874,
+        43.6144677
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194466",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.50206,
+        43.6146158
+       ],
+       [
+        1.5020792,
+        43.614585
+       ],
+       [
+        1.5019766,
+        43.6145516
+       ],
+       [
+        1.5019575,
+        43.6145824
+       ],
+       [
+        1.50206,
+        43.6146158
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194467",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5023481,
+        43.6151858
+       ],
+       [
+        1.5023273,
+        43.6151442
+       ],
+       [
+        1.502214,
+        43.6151727
+       ],
+       [
+        1.5022291,
+        43.6152145
+       ],
+       [
+        1.5022737,
+        43.6152069
+       ],
+       [
+        1.5022711,
+        43.6152013
+       ],
+       [
+        1.5023481,
+        43.6151858
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194468",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5028156,
+        43.6151253
+       ],
+       [
+        1.5027685,
+        43.6150518
+       ],
+       [
+        1.5027384,
+        43.6150602
+       ],
+       [
+        1.502738,
+        43.6150775
+       ],
+       [
+        1.5027785,
+        43.6151376
+       ],
+       [
+        1.5028156,
+        43.6151253
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194469",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5033292,
+        43.6149956
+       ],
+       [
+        1.5033135,
+        43.6149656
+       ],
+       [
+        1.5033954,
+        43.6149431
+       ],
+       [
+        1.5034111,
+        43.6149731
+       ],
+       [
+        1.5033292,
+        43.6149956
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194470",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5043972,
+        43.6145386
+       ],
+       [
+        1.5043811,
+        43.6145056
+       ],
+       [
+        1.5044718,
+        43.6144832
+       ],
+       [
+        1.5044873,
+        43.6145147
+       ],
+       [
+        1.5043972,
+        43.6145386
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194471",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5046418,
+        43.6143704
+       ],
+       [
+        1.5046281,
+        43.6143458
+       ],
+       [
+        1.5047106,
+        43.6143256
+       ],
+       [
+        1.5047232,
+        43.6143511
+       ],
+       [
+        1.5046418,
+        43.6143704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194472",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5053954,
+        43.6147383
+       ],
+       [
+        1.5053769,
+        43.6147004
+       ],
+       [
+        1.5052873,
+        43.6147234
+       ],
+       [
+        1.5053057,
+        43.6147612
+       ],
+       [
+        1.5053954,
+        43.6147383
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194473",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5054863,
+        43.6148655
+       ],
+       [
+        1.5053793,
+        43.6148939
+       ],
+       [
+        1.5053986,
+        43.6149312
+       ],
+       [
+        1.5054771,
+        43.6149106
+       ],
+       [
+        1.5054829,
+        43.6149185
+       ],
+       [
+        1.505492,
+        43.6149212
+       ],
+       [
+        1.5055019,
+        43.6149201
+       ],
+       [
+        1.5055073,
+        43.6149155
+       ],
+       [
+        1.5055096,
+        43.6149111
+       ],
+       [
+        1.5055101,
+        43.6149069
+       ],
+       [
+        1.5054863,
+        43.6148655
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194474",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5049152,
+        43.6149795
+       ],
+       [
+        1.5048846,
+        43.6149437
+       ],
+       [
+        1.5047848,
+        43.6149884
+       ],
+       [
+        1.5048154,
+        43.6150241
+       ],
+       [
+        1.5049152,
+        43.6149795
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194475",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5054689,
+        43.615231
+       ],
+       [
+        1.5054292,
+        43.6152419
+       ],
+       [
+        1.50547,
+        43.6153197
+       ],
+       [
+        1.5055097,
+        43.6153088
+       ],
+       [
+        1.5054689,
+        43.615231
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194476",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5057082,
+        43.6151341
+       ],
+       [
+        1.5056681,
+        43.6151497
+       ],
+       [
+        1.5057181,
+        43.6152172
+       ],
+       [
+        1.5057583,
+        43.6152016
+       ],
+       [
+        1.5057082,
+        43.6151341
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194477",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5057978,
+        43.6155482
+       ],
+       [
+        1.505759,
+        43.6155631
+       ],
+       [
+        1.505802,
+        43.6156218
+       ],
+       [
+        1.5058409,
+        43.6156068
+       ],
+       [
+        1.5057978,
+        43.6155482
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1560194479",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4992306,
+        43.6048139
+       ],
+       [
+        1.4991862,
+        43.604799
+       ],
+       [
+        1.4992247,
+        43.6047331
+       ],
+       [
+        1.4992685,
+        43.6047477
+       ],
+       [
+        1.4992306,
+        43.6048139
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/619416372",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5023199,
+        43.6046277
+       ],
+       [
+        1.5023032,
+        43.6046256
+       ],
+       [
+        1.5022992,
+        43.6046133
+       ],
+       [
+        1.5022917,
+        43.604608
+       ],
+       [
+        1.502355,
+        43.6045604
+       ],
+       [
+        1.5023919,
+        43.6045864
+       ],
+       [
+        1.5023288,
+        43.604634
+       ],
+       [
+        1.5023199,
+        43.6046277
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/619416373",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5008351,
+        43.6050868
+       ],
+       [
+        1.500892,
+        43.605077
+       ],
+       [
+        1.5009128,
+        43.6050496
+       ],
+       [
+        1.5009163,
+        43.6050336
+       ],
+       [
+        1.5009148,
+        43.6050266
+       ],
+       [
+        1.5009054,
+        43.6050221
+       ],
+       [
+        1.5008817,
+        43.6050208
+       ],
+       [
+        1.5008244,
+        43.6050536
+       ],
+       [
+        1.500813,
+        43.6050718
+       ],
+       [
+        1.5008193,
+        43.6050845
+       ],
+       [
+        1.5008351,
+        43.6050868
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/619416375",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5023315,
+        43.6045062
+       ],
+       [
+        1.5023503,
+        43.604492
+       ],
+       [
+        1.5022812,
+        43.6044442
+       ],
+       [
+        1.5022513,
+        43.604467
+       ],
+       [
+        1.5023087,
+        43.6045068
+       ],
+       [
+        1.5023199,
+        43.6044983
+       ],
+       [
+        1.5023315,
+        43.6045062
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/619416382",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4975477,
+        43.6044685
+       ],
+       [
+        1.4975863,
+        43.6043972
+       ],
+       [
+        1.4975378,
+        43.6043833
+       ],
+       [
+        1.4974993,
+        43.6044546
+       ],
+       [
+        1.4975477,
+        43.6044685
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/619416391",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4939683,
+        43.6146118
+       ],
+       [
+        1.4940106,
+        43.6146263
+       ],
+       [
+        1.49397,
+        43.6146882
+       ],
+       [
+        1.4939277,
+        43.6146736
+       ],
+       [
+        1.4939683,
+        43.6146118
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/767654786",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4942181,
+        43.6077521
+       ],
+       [
+        1.4941908,
+        43.6077938
+       ],
+       [
+        1.494227,
+        43.6078319
+       ],
+       [
+        1.4942906,
+        43.6078282
+       ],
+       [
+        1.4943179,
+        43.6077864
+       ],
+       [
+        1.4942817,
+        43.6077484
+       ],
+       [
+        1.4942181,
+        43.6077521
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/768420642",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4939391,
+        43.6047451
+       ],
+       [
+        1.4940803,
+        43.6047738
+       ],
+       [
+        1.4941003,
+        43.6047223
+       ],
+       [
+        1.493959,
+        43.6046936
+       ],
+       [
+        1.4939391,
+        43.6047451
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/768713688",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  }
+ ]
+}

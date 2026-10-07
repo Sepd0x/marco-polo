@@ -15,8 +15,9 @@
     "preview": "npm --workspace @marco-polo/web run preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit -p packages/core && tsc --noEmit -p packages/cli && tsc --noEmit -p apps/web",
-    "scan": "npm --workspace @marco-polo/cli run scan --"
+    "typecheck": "tsc --noEmit -p packages/core && tsc --noEmit -p packages/cli && tsc --noEmit -p packages/eval && tsc --noEmit -p apps/web",
+    "scan": "npm --workspace @marco-polo/cli run scan --",
+    "eval": "npm --workspace @marco-polo/eval run eval --"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

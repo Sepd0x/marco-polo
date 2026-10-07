@@ -24,6 +24,7 @@ Thumbs.db
 
 # scan output (CLI default output dir)
 scans/
+eval-out/
 
 # local tooling state and private working notes (never publish these)
 .claude/

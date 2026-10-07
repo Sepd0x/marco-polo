@@ -1,0 +1,6049 @@
+{
+ "type": "FeatureCollection",
+ "zone": "marbella",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-07T19:23:20.837Z",
+ "bbox": [
+  -4.9656308268163825,
+  36.48430202659001,
+  -4.951769173183617,
+  36.49549797340999
+ ],
+ "buildingsChecked": 288,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649475,
+     36.4885679
+    ]
+   },
+   "properties": {
+    "id": "node/10228083025",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9654603,
+     36.4857961
+    ]
+   },
+   "properties": {
+    "id": "node/10228083028",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9625535,
+     36.4859975
+    ]
+   },
+   "properties": {
+    "id": "node/10228083029",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.962194,
+     36.4861699
+    ]
+   },
+   "properties": {
+    "id": "node/10228083030",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.963285,
+     36.4871355
+    ]
+   },
+   "properties": {
+    "id": "node/10228083031",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9629167,
+     36.4869945
+    ]
+   },
+   "properties": {
+    "id": "node/10228083032",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9626758,
+     36.4870237
+    ]
+   },
+   "properties": {
+    "id": "node/10228083033",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9623195,
+     36.4868707
+    ]
+   },
+   "properties": {
+    "id": "node/10228083034",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621972,
+     36.486816
+    ]
+   },
+   "properties": {
+    "id": "node/10228083035",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9620303,
+     36.4866815
+    ]
+   },
+   "properties": {
+    "id": "node/10228083036",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167302461",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9626797,
+     36.48866
+    ]
+   },
+   "properties": {
+    "id": "node/10228083037",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650272,
+     36.485519
+    ]
+   },
+   "properties": {
+    "id": "node/10228083121",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.962276,
+     36.4874457
+    ]
+   },
+   "properties": {
+    "id": "node/10228083122",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649952,
+     36.4889931
+    ]
+   },
+   "properties": {
+    "id": "node/10228083239",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650778,
+     36.4889759
+    ]
+   },
+   "properties": {
+    "id": "node/10228083240",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9654768,
+     36.4858559
+    ]
+   },
+   "properties": {
+    "id": "node/10228083243",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9655695,
+     36.4862171
+    ]
+   },
+   "properties": {
+    "id": "node/10228083244",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9645888,
+     36.4855088
+    ]
+   },
+   "properties": {
+    "id": "node/10228083245",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.964759,
+     36.4859757
+    ]
+   },
+   "properties": {
+    "id": "node/10228083246",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649023,
+     36.4863783
+    ]
+   },
+   "properties": {
+    "id": "node/10228083247",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9623825,
+     36.4862945
+    ]
+   },
+   "properties": {
+    "id": "node/10228083248",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9627444,
+     36.4865509
+    ]
+   },
+   "properties": {
+    "id": "node/10228083249",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9630009,
+     36.4867617
+    ]
+   },
+   "properties": {
+    "id": "node/10228083250",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.963113,
+     36.4870847
+    ]
+   },
+   "properties": {
+    "id": "node/10228083251",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.964687,
+     36.4878952
+    ]
+   },
+   "properties": {
+    "id": "node/10228083318",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9653718,
+     36.4853858
+    ]
+   },
+   "properties": {
+    "id": "node/10228083533",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9655898,
+     36.4862692
+    ]
+   },
+   "properties": {
+    "id": "node/10228083534",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.964604,
+     36.4855665
+    ]
+   },
+   "properties": {
+    "id": "node/10228083535",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9624799,
+     36.4859732
+    ]
+   },
+   "properties": {
+    "id": "node/10228083536",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9619707,
+     36.4866088
+    ]
+   },
+   "properties": {
+    "id": "node/10228083537",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9622399,
+     36.4873805
+    ]
+   },
+   "properties": {
+    "id": "node/10228083538",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9627747,
+     36.4881027
+    ]
+   },
+   "properties": {
+    "id": "node/10228083539",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.963803,
+     36.4880491
+    ]
+   },
+   "properties": {
+    "id": "node/10228083540",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9630266,
+     36.4886668
+    ]
+   },
+   "properties": {
+    "id": "node/10228083541",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.964189,
+     36.4887286
+    ]
+   },
+   "properties": {
+    "id": "node/10228083542",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9637227,
+     36.4891039
+    ]
+   },
+   "properties": {
+    "id": "node/10228083543",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9630971,
+     36.4901287
+    ]
+   },
+   "properties": {
+    "id": "node/10228083544",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9636384,
+     36.4898878
+    ]
+   },
+   "properties": {
+    "id": "node/10228083545",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9637516,
+     36.4902114
+    ]
+   },
+   "properties": {
+    "id": "node/10228083546",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9628849,
+     36.49065
+    ]
+   },
+   "properties": {
+    "id": "node/10228083547",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9653825,
+     36.4854341
+    ]
+   },
+   "properties": {
+    "id": "node/10228083732",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301223",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9647366,
+     36.485914
+    ]
+   },
+   "properties": {
+    "id": "node/10228083733",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621041,
+     36.4861908
+    ]
+   },
+   "properties": {
+    "id": "node/10228083734",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9631564,
+     36.4871273
+    ]
+   },
+   "properties": {
+    "id": "node/10228083735",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9629706,
+     36.4870223
+    ]
+   },
+   "properties": {
+    "id": "node/10228083736",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9623719,
+     36.4868981
+    ]
+   },
+   "properties": {
+    "id": "node/10228083737",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621102,
+     36.4868079
+    ]
+   },
+   "properties": {
+    "id": "node/10228083738",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9632778,
+     36.4880218
+    ]
+   },
+   "properties": {
+    "id": "node/10228083739",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9627158,
+     36.4896224
+    ]
+   },
+   "properties": {
+    "id": "node/10228083740",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649045,
+     36.4863171
+    ]
+   },
+   "properties": {
+    "id": "node/10228084230",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167301220",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9626081,
+     36.4869944
+    ]
+   },
+   "properties": {
+    "id": "node/10228084231",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9633809,
+     36.4880202
+    ]
+   },
+   "properties": {
+    "id": "node/10228084232",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650797,
+     36.4858041
+    ]
+   },
+   "properties": {
+    "id": "node/10228084318",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9588573,
+     36.489112
+    ]
+   },
+   "properties": {
+    "id": "node/10228994317",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9571163,
+     36.4909756
+    ]
+   },
+   "properties": {
+    "id": "node/10228994319",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573506,
+     36.4917899
+    ]
+   },
+   "properties": {
+    "id": "node/10228994320",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9577902,
+     36.491511
+    ]
+   },
+   "properties": {
+    "id": "node/10228994321",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9589468,
+     36.4909906
+    ]
+   },
+   "properties": {
+    "id": "node/10228994322",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9595054,
+     36.4914734
+    ]
+   },
+   "properties": {
+    "id": "node/10228994323",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.959832,
+     36.4917574
+    ]
+   },
+   "properties": {
+    "id": "node/10228994324",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621215,
+     36.4918143
+    ]
+   },
+   "properties": {
+    "id": "node/10228994325",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9640239,
+     36.4905225
+    ]
+   },
+   "properties": {
+    "id": "node/10228994326",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650632,
+     36.490056
+    ]
+   },
+   "properties": {
+    "id": "node/10228994327",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.965199,
+     36.48943
+    ]
+   },
+   "properties": {
+    "id": "node/10228994328",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9639858,
+     36.4908977
+    ]
+   },
+   "properties": {
+    "id": "node/10228994329",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9637363,
+     36.4915507
+    ]
+   },
+   "properties": {
+    "id": "node/10228994330",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9640284,
+     36.4916657
+    ]
+   },
+   "properties": {
+    "id": "node/10228994331",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9640306,
+     36.4952847
+    ]
+   },
+   "properties": {
+    "id": "node/10228994333",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.965625,
+     36.4937161
+    ]
+   },
+   "properties": {
+    "id": "node/10228994338",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9654309,
+     36.4936113
+    ]
+   },
+   "properties": {
+    "id": "node/10228994339",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9653985,
+     36.4934674
+    ]
+   },
+   "properties": {
+    "id": "node/10228994340",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9588963,
+     36.4893337
+    ]
+   },
+   "properties": {
+    "id": "node/10228994417",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957964,
+     36.4907815
+    ]
+   },
+   "properties": {
+    "id": "node/10228994418",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9574012,
+     36.4909438
+    ]
+   },
+   "properties": {
+    "id": "node/10228994419",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9599707,
+     36.491287
+    ]
+   },
+   "properties": {
+    "id": "node/10228994420",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9643157,
+     36.4896416
+    ]
+   },
+   "properties": {
+    "id": "node/10228994421",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9639899,
+     36.4894727
+    ]
+   },
+   "properties": {
+    "id": "node/10228994422",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9648293,
+     36.4895236
+    ]
+   },
+   "properties": {
+    "id": "node/10228994423",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9638942,
+     36.492987
+    ]
+   },
+   "properties": {
+    "id": "node/10228994424",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9585995,
+     36.4894407
+    ]
+   },
+   "properties": {
+    "id": "node/10228994517",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573811,
+     36.4910436
+    ]
+   },
+   "properties": {
+    "id": "node/10228994518",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573028,
+     36.4916756
+    ]
+   },
+   "properties": {
+    "id": "node/10228994519",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9579288,
+     36.491413
+    ]
+   },
+   "properties": {
+    "id": "node/10228994520",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9603947,
+     36.490601
+    ]
+   },
+   "properties": {
+    "id": "node/10228994521",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9639055,
+     36.4907662
+    ]
+   },
+   "properties": {
+    "id": "node/10228994522",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9645943,
+     36.4896218
+    ]
+   },
+   "properties": {
+    "id": "node/10228994523",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.96547,
+     36.4899152
+    ]
+   },
+   "properties": {
+    "id": "node/10228994524",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9655332,
+     36.4902382
+    ]
+   },
+   "properties": {
+    "id": "node/10228994525",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9642254,
+     36.4906071
+    ]
+   },
+   "properties": {
+    "id": "node/10228994526",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9640643,
+     36.4910411
+    ]
+   },
+   "properties": {
+    "id": "node/10228994527",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9634642,
+     36.4911082
+    ]
+   },
+   "properties": {
+    "id": "node/10228994528",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9646726,
+     36.4912231
+    ]
+   },
+   "properties": {
+    "id": "node/10228994529",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9582168,
+     36.489583
+    ]
+   },
+   "properties": {
+    "id": "node/10228994617",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9590087,
+     36.4902749
+    ]
+   },
+   "properties": {
+    "id": "node/10228994618",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.959394,
+     36.4901887
+    ]
+   },
+   "properties": {
+    "id": "node/10228994619",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9587801,
+     36.490619
+    ]
+   },
+   "properties": {
+    "id": "node/10228994620",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9578276,
+     36.4908198
+    ]
+   },
+   "properties": {
+    "id": "node/10228994621",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9572415,
+     36.4915301
+    ]
+   },
+   "properties": {
+    "id": "node/10228994622",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957526,
+     36.4914823
+    ]
+   },
+   "properties": {
+    "id": "node/10228994623",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957561,
+     36.4918204
+    ]
+   },
+   "properties": {
+    "id": "node/10228994624",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9576027,
+     36.4916796
+    ]
+   },
+   "properties": {
+    "id": "node/10228994625",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.958236,
+     36.491142
+    ]
+   },
+   "properties": {
+    "id": "node/10228994626",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9582874,
+     36.4912307
+    ]
+   },
+   "properties": {
+    "id": "node/10228994627",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9604964,
+     36.4909571
+    ]
+   },
+   "properties": {
+    "id": "node/10228994628",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.960053,
+     36.4903922
+    ]
+   },
+   "properties": {
+    "id": "node/10228994629",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9604657,
+     36.4902231
+    ]
+   },
+   "properties": {
+    "id": "node/10228994630",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9605191,
+     36.4903989
+    ]
+   },
+   "properties": {
+    "id": "node/10228994631",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/674135631",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9614204,
+     36.4916326
+    ]
+   },
+   "properties": {
+    "id": "node/10228994632",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9615114,
+     36.4916943
+    ]
+   },
+   "properties": {
+    "id": "node/10228994633",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9631927,
+     36.4905941
+    ]
+   },
+   "properties": {
+    "id": "node/10228994634",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9635651,
+     36.4907941
+    ]
+   },
+   "properties": {
+    "id": "node/10228994635",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9642275,
+     36.4904504
+    ]
+   },
+   "properties": {
+    "id": "node/10228994636",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9643185,
+     36.4902016
+    ]
+   },
+   "properties": {
+    "id": "node/10228994637",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9640968,
+     36.4897063
+    ]
+   },
+   "properties": {
+    "id": "node/10228994638",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9646067,
+     36.4892651
+    ]
+   },
+   "properties": {
+    "id": "node/10228994639",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.965029,
+     36.4899043
+    ]
+   },
+   "properties": {
+    "id": "node/10228994640",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9654096,
+     36.4896644
+    ]
+   },
+   "properties": {
+    "id": "node/10228994641",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9648225,
+     36.4908596
+    ]
+   },
+   "properties": {
+    "id": "node/10228994642",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9648746,
+     36.4916615
+    ]
+   },
+   "properties": {
+    "id": "node/10228994643",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649064,
+     36.4921042
+    ]
+   },
+   "properties": {
+    "id": "node/10228994644",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9649465,
+     36.4923805
+    ]
+   },
+   "properties": {
+    "id": "node/10228994645",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9644344,
+     36.4920199
+    ]
+   },
+   "properties": {
+    "id": "node/10228994646",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.964214,
+     36.4918018
+    ]
+   },
+   "properties": {
+    "id": "node/10228994647",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9653255,
+     36.4912587
+    ]
+   },
+   "properties": {
+    "id": "node/10228994649",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9637676,
+     36.4923539
+    ]
+   },
+   "properties": {
+    "id": "node/10228994650",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650605,
+     36.4932756
+    ]
+   },
+   "properties": {
+    "id": "node/10228994651",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9650079,
+     36.4898097
+    ]
+   },
+   "properties": {
+    "id": "node/10228995817",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9638284,
+     36.4911404
+    ]
+   },
+   "properties": {
+    "id": "node/10228996217",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9639237,
+     36.491292
+    ]
+   },
+   "properties": {
+    "id": "node/10228996218",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9653021,
+     36.4944628
+    ]
+   },
+   "properties": {
+    "id": "node/10228996219",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9565023,
+     36.4917134
+    ]
+   },
+   "properties": {
+    "id": "node/10230312027",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957076,
+     36.4919204
+    ]
+   },
+   "properties": {
+    "id": "node/10230312028",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9566989,
+     36.4922547
+    ]
+   },
+   "properties": {
+    "id": "node/10230312029",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573533,
+     36.4929016
+    ]
+   },
+   "properties": {
+    "id": "node/10230312030",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9581397,
+     36.4931948
+    ]
+   },
+   "properties": {
+    "id": "node/10230312031",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9619423,
+     36.4857206
+    ]
+   },
+   "properties": {
+    "id": "node/10230312032",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9622868,
+     36.4856032
+    ]
+   },
+   "properties": {
+    "id": "node/10230312033",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9615811,
+     36.4844931
+    ]
+   },
+   "properties": {
+    "id": "node/10230312034",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9622026,
+     36.4934193
+    ]
+   },
+   "properties": {
+    "id": "node/10230312122",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9578125,
+     36.4920609
+    ]
+   },
+   "properties": {
+    "id": "node/10230312123",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9568415,
+     36.4925367
+    ]
+   },
+   "properties": {
+    "id": "node/10230312124",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9575645,
+     36.4929183
+    ]
+   },
+   "properties": {
+    "id": "node/10230312125",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9580971,
+     36.492896
+    ]
+   },
+   "properties": {
+    "id": "node/10230312126",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957587,
+     36.4924894
+    ]
+   },
+   "properties": {
+    "id": "node/10230312127",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9618566,
+     36.4857455
+    ]
+   },
+   "properties": {
+    "id": "node/10230312128",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9620673,
+     36.4852788
+    ]
+   },
+   "properties": {
+    "id": "node/10230312129",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9613933,
+     36.4846222
+    ]
+   },
+   "properties": {
+    "id": "node/10230312130",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9581533,
+     36.4926841
+    ]
+   },
+   "properties": {
+    "id": "node/10230312424",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9563716,
+     36.4860875
+    ]
+   },
+   "properties": {
+    "id": "node/10230312425",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9617431,
+     36.4853887
+    ]
+   },
+   "properties": {
+    "id": "node/10230312426",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.956919,
+     36.492239
+    ]
+   },
+   "properties": {
+    "id": "node/10230312621",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9564102,
+     36.492048
+    ]
+   },
+   "properties": {
+    "id": "node/10230312622",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9578509,
+     36.4930395
+    ]
+   },
+   "properties": {
+    "id": "node/10230312623",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9547839,
+     36.4872331
+    ]
+   },
+   "properties": {
+    "id": "node/10230312624",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9625662,
+     36.4852521
+    ]
+   },
+   "properties": {
+    "id": "node/10230312625",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621674,
+     36.485274
+    ]
+   },
+   "properties": {
+    "id": "node/10230312626",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9527672,
+     36.4933412
+    ]
+   },
+   "properties": {
+    "id": "node/10230313418",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9622083,
+     36.4856466
+    ]
+   },
+   "properties": {
+    "id": "node/10230313419",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9620959,
+     36.4848164
+    ]
+   },
+   "properties": {
+    "id": "node/10230313420",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9572692,
+     36.4927914
+    ]
+   },
+   "properties": {
+    "id": "node/10230313518",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9620625,
+     36.4927303
+    ]
+   },
+   "properties": {
+    "id": "node/10230313817",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9567839,
+     36.491577
+    ]
+   },
+   "properties": {
+    "id": "node/10230313818",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9569672,
+     36.4927579
+    ]
+   },
+   "properties": {
+    "id": "node/10230313819",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9618052,
+     36.4853574
+    ]
+   },
+   "properties": {
+    "id": "node/10230313820",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9615876,
+     36.4850152
+    ]
+   },
+   "properties": {
+    "id": "node/10230313821",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9621731,
+     36.4848094
+    ]
+   },
+   "properties": {
+    "id": "node/10230313822",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9616598,
+     36.4849819
+    ]
+   },
+   "properties": {
+    "id": "node/10230314117",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9555546,
+     36.495404
+    ]
+   },
+   "properties": {
+    "id": "node/10230653720",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9562819,
+     36.4951984
+    ]
+   },
+   "properties": {
+    "id": "node/10230653721",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9567698,
+     36.4951612
+    ]
+   },
+   "properties": {
+    "id": "node/10230653722",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9594418,
+     36.495362
+    ]
+   },
+   "properties": {
+    "id": "node/10230653725",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9613727,
+     36.4952185
+    ]
+   },
+   "properties": {
+    "id": "node/10230653727",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.960991,
+     36.494467
+    ]
+   },
+   "properties": {
+    "id": "node/10230653730",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9594467,
+     36.4948567
+    ]
+   },
+   "properties": {
+    "id": "node/10230653731",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9590824,
+     36.494657
+    ]
+   },
+   "properties": {
+    "id": "node/10230653732",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9599828,
+     36.4944565
+    ]
+   },
+   "properties": {
+    "id": "node/10230653733",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9605292,
+     36.4942081
+    ]
+   },
+   "properties": {
+    "id": "node/10230653734",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9548799,
+     36.4954808
+    ]
+   },
+   "properties": {
+    "id": "node/10230653818",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9554027,
+     36.4954407
+    ]
+   },
+   "properties": {
+    "id": "node/10230653819",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9557693,
+     36.49536
+    ]
+   },
+   "properties": {
+    "id": "node/10230653820",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9559245,
+     36.4953068
+    ]
+   },
+   "properties": {
+    "id": "node/10230653821",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9564006,
+     36.495153
+    ]
+   },
+   "properties": {
+    "id": "node/10230653822",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.957247,
+     36.4949316
+    ]
+   },
+   "properties": {
+    "id": "node/10230653823",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9574932,
+     36.4948396
+    ]
+   },
+   "properties": {
+    "id": "node/10230653824",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9588498,
+     36.4952605
+    ]
+   },
+   "properties": {
+    "id": "node/10230653825",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9589079,
+     36.4953148
+    ]
+   },
+   "properties": {
+    "id": "node/10230653826",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9602222,
+     36.4949857
+    ]
+   },
+   "properties": {
+    "id": "node/10230653834",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9607165,
+     36.4949345
+    ]
+   },
+   "properties": {
+    "id": "node/10230653835",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9598119,
+     36.495005
+    ]
+   },
+   "properties": {
+    "id": "node/10230653836",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.956595,
+     36.4951612
+    ]
+   },
+   "properties": {
+    "id": "node/10230654019",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9569141,
+     36.4950466
+    ]
+   },
+   "properties": {
+    "id": "node/10230654020",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9570207,
+     36.4949977
+    ]
+   },
+   "properties": {
+    "id": "node/10230654021",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9571483,
+     36.4949503
+    ]
+   },
+   "properties": {
+    "id": "node/10230654022",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573613,
+     36.4948898
+    ]
+   },
+   "properties": {
+    "id": "node/10230654023",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9577767,
+     36.494767
+    ]
+   },
+   "properties": {
+    "id": "node/10230654024",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9579307,
+     36.4947536
+    ]
+   },
+   "properties": {
+    "id": "node/10230654025",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9582466,
+     36.4947355
+    ]
+   },
+   "properties": {
+    "id": "node/10230654026",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9583816,
+     36.4947639
+    ]
+   },
+   "properties": {
+    "id": "node/10230654027",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9585259,
+     36.4948455
+    ]
+   },
+   "properties": {
+    "id": "node/10230654028",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9586256,
+     36.4949279
+    ]
+   },
+   "properties": {
+    "id": "node/10230654029",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9587041,
+     36.4950422
+    ]
+   },
+   "properties": {
+    "id": "node/10230654030",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9598771,
+     36.4951576
+    ]
+   },
+   "properties": {
+    "id": "node/10230654035",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9602878,
+     36.4951515
+    ]
+   },
+   "properties": {
+    "id": "node/10230654036",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9608197,
+     36.495199
+    ]
+   },
+   "properties": {
+    "id": "node/10230654037",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9606963,
+     36.4947344
+    ]
+   },
+   "properties": {
+    "id": "node/10230654038",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9601581,
+     36.4945622
+    ]
+   },
+   "properties": {
+    "id": "node/10230654039",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9595185,
+     36.4944224
+    ]
+   },
+   "properties": {
+    "id": "node/10230654040",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9608265,
+     36.4939867
+    ]
+   },
+   "properties": {
+    "id": "node/10230654041",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9576457,
+     36.4947821
+    ]
+   },
+   "properties": {
+    "id": "node/10230654118",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9599361,
+     36.4940218
+    ]
+   },
+   "properties": {
+    "id": "node/10230654121",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9561008,
+     36.4952612
+    ]
+   },
+   "properties": {
+    "id": "node/10230654218",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9587583,
+     36.4951085
+    ]
+   },
+   "properties": {
+    "id": "node/10230654219",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9605602,
+     36.4945023
+    ]
+   },
+   "properties": {
+    "id": "node/10230654220",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9591072,
+     36.4947887
+    ]
+   },
+   "properties": {
+    "id": "node/10230654221",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9552306,
+     36.4954514
+    ]
+   },
+   "properties": {
+    "id": "node/10230654317",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9580838,
+     36.4947701
+    ]
+   },
+   "properties": {
+    "id": "node/10230654717",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9596962,
+     36.4947585
+    ]
+   },
+   "properties": {
+    "id": "node/10230654719",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9572521,
+     36.485986
+    ]
+   },
+   "properties": {
+    "id": "node/10232528821",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167299302",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9576018,
+     36.4857025
+    ]
+   },
+   "properties": {
+    "id": "node/10232528822",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167299302",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9593731,
+     36.4878204
+    ]
+   },
+   "properties": {
+    "id": "node/10232528918",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9585815,
+     36.4883305
+    ]
+   },
+   "properties": {
+    "id": "node/10232528919",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9602598,
+     36.487574
+    ]
+   },
+   "properties": {
+    "id": "node/10232529718",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9604571,
+     36.4875437
+    ]
+   },
+   "properties": {
+    "id": "node/10232529719",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9591747,
+     36.4878418
+    ]
+   },
+   "properties": {
+    "id": "node/10232529720",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9585118,
+     36.4882571
+    ]
+   },
+   "properties": {
+    "id": "node/10232529721",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9578393,
+     36.485602
+    ]
+   },
+   "properties": {
+    "id": "node/10232529818",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573954,
+     36.4859373
+    ]
+   },
+   "properties": {
+    "id": "node/10232529917",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/167299302",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9573934,
+     36.4870294
+    ]
+   },
+   "properties": {
+    "id": "node/10232529918",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.960818,
+     36.4847237
+    ]
+   },
+   "properties": {
+    "id": "node/3660085385",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    },
+    "radius_m": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9592435,
+        36.4889475
+       ],
+       [
+        -4.9592577,
+        36.4889493
+       ],
+       [
+        -4.9592896,
+        36.4889624
+       ],
+       [
+        -4.9592968,
+        36.4889773
+       ],
+       [
+        -4.9592883,
+        36.4889863
+       ],
+       [
+        -4.9592575,
+        36.4889851
+       ],
+       [
+        -4.9592347,
+        36.4889943
+       ],
+       [
+        -4.9592169,
+        36.4889926
+       ],
+       [
+        -4.9592098,
+        36.4889868
+       ],
+       [
+        -4.9592085,
+        36.488979
+       ],
+       [
+        -4.9592125,
+        36.4889649
+       ],
+       [
+        -4.9592282,
+        36.4889534
+       ],
+       [
+        -4.9592435,
+        36.4889475
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1000051689",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9593071,
+        36.4888633
+       ],
+       [
+        -4.9592623,
+        36.4888923
+       ],
+       [
+        -4.9592377,
+        36.4888864
+       ],
+       [
+        -4.9592304,
+        36.4888659
+       ],
+       [
+        -4.9592916,
+        36.4888457
+       ],
+       [
+        -4.9593053,
+        36.4888505
+       ],
+       [
+        -4.9593071,
+        36.4888633
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1000051690",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9591765,
+        36.4888824
+       ],
+       [
+        -4.9591239,
+        36.4888871
+       ],
+       [
+        -4.9591183,
+        36.4888948
+       ],
+       [
+        -4.959124,
+        36.4889039
+       ],
+       [
+        -4.9591674,
+        36.4889111
+       ],
+       [
+        -4.9591799,
+        36.4889066
+       ],
+       [
+        -4.9591846,
+        36.4888918
+       ],
+       [
+        -4.9591765,
+        36.4888824
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1000051691",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9591284,
+        36.489314
+       ],
+       [
+        -4.9591368,
+        36.4893001
+       ],
+       [
+        -4.9591303,
+        36.4892743
+       ],
+       [
+        -4.9591063,
+        36.4892618
+       ],
+       [
+        -4.9590868,
+        36.4892615
+       ],
+       [
+        -4.9590761,
+        36.4892772
+       ],
+       [
+        -4.9590803,
+        36.4892906
+       ],
+       [
+        -4.9591112,
+        36.4893156
+       ],
+       [
+        -4.9591284,
+        36.489314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1000051692",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9615107,
+        36.4891362
+       ],
+       [
+        -4.9614269,
+        36.4891513
+       ],
+       [
+        -4.9614716,
+        36.4893119
+       ],
+       [
+        -4.9613928,
+        36.4893261
+       ],
+       [
+        -4.961348,
+        36.4891655
+       ],
+       [
+        -4.9612551,
+        36.4891822
+       ],
+       [
+        -4.9612418,
+        36.4891344
+       ],
+       [
+        -4.9614973,
+        36.4890883
+       ],
+       [
+        -4.9615107,
+        36.4891362
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1494759090",
+    "source": "osm",
+    "role": "ignore",
+    "reason": "inside way/430030125",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.959609,
+        36.4897265
+       ],
+       [
+        -4.9596157,
+        36.4898139
+       ],
+       [
+        -4.959565,
+        36.4898164
+       ],
+       [
+        -4.9595583,
+        36.4897291
+       ],
+       [
+        -4.959609,
+        36.4897265
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1495046133",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9586823,
+        36.4902344
+       ],
+       [
+        -4.9586152,
+        36.4901379
+       ],
+       [
+        -4.958672,
+        36.4901124
+       ],
+       [
+        -4.9587391,
+        36.4902089
+       ],
+       [
+        -4.9586823,
+        36.4902344
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1495046134",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9607458,
+        36.4852887
+       ],
+       [
+        -4.9606224,
+        36.4851981
+       ],
+       [
+        -4.9606331,
+        36.4851507
+       ],
+       [
+        -4.960735,
+        36.4851205
+       ],
+       [
+        -4.9607994,
+        36.4851636
+       ],
+       [
+        -4.9607458,
+        36.4852887
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167299405",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9582459,
+        36.4871045
+       ],
+       [
+        -4.9582567,
+        36.4870441
+       ],
+       [
+        -4.9583264,
+        36.4870312
+       ],
+       [
+        -4.9583854,
+        36.4870527
+       ],
+       [
+        -4.9584659,
+        36.4870053
+       ],
+       [
+        -4.958541,
+        36.4870484
+       ],
+       [
+        -4.9585254,
+        36.4871345
+       ],
+       [
+        -4.9583377,
+        36.4871862
+       ],
+       [
+        -4.9582679,
+        36.4871431
+       ],
+       [
+        -4.9582084,
+        36.4871606
+       ],
+       [
+        -4.9581821,
+        36.4871992
+       ],
+       [
+        -4.9581065,
+        36.4871649
+       ],
+       [
+        -4.9581386,
+        36.4871174
+       ],
+       [
+        -4.958203,
+        36.4871261
+       ],
+       [
+        -4.9582459,
+        36.4871045
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167300249",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9575593,
+        36.4870398
+       ],
+       [
+        -4.957747,
+        36.4869751
+       ],
+       [
+        -4.9577578,
+        36.4869233
+       ],
+       [
+        -4.9576778,
+        36.48688
+       ],
+       [
+        -4.9574735,
+        36.4869277
+       ],
+       [
+        -4.9574681,
+        36.4869924
+       ],
+       [
+        -4.9575593,
+        36.4870398
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167300251",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9587985,
+        36.4865999
+       ],
+       [
+        -4.9585785,
+        36.4866603
+       ],
+       [
+        -4.9585093,
+        36.486604
+       ],
+       [
+        -4.9584498,
+        36.4866258
+       ],
+       [
+        -4.9584015,
+        36.4866603
+       ],
+       [
+        -4.9583264,
+        36.4866085
+       ],
+       [
+        -4.9583747,
+        36.4865783
+       ],
+       [
+        -4.958445,
+        36.486591
+       ],
+       [
+        -4.9584981,
+        36.486574
+       ],
+       [
+        -4.9584873,
+        36.4865266
+       ],
+       [
+        -4.9585571,
+        36.486492
+       ],
+       [
+        -4.9586322,
+        36.4865222
+       ],
+       [
+        -4.958718,
+        36.4864791
+       ],
+       [
+        -4.9587829,
+        36.4865091
+       ],
+       [
+        -4.9587985,
+        36.4865999
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167300390",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9617219,
+        36.4877427
+       ],
+       [
+        -4.9616958,
+        36.4877361
+       ],
+       [
+        -4.9616629,
+        36.4877707
+       ],
+       [
+        -4.9616254,
+        36.4877621
+       ],
+       [
+        -4.9616066,
+        36.4877298
+       ],
+       [
+        -4.9615697,
+        36.4877318
+       ],
+       [
+        -4.9615349,
+        36.4877685
+       ],
+       [
+        -4.9614886,
+        36.487788
+       ],
+       [
+        -4.9614618,
+        36.4877599
+       ],
+       [
+        -4.9614349,
+        36.4877319
+       ],
+       [
+        -4.9614376,
+        36.4876888
+       ],
+       [
+        -4.9614785,
+        36.4876693
+       ],
+       [
+        -4.9615047,
+        36.4876909
+       ],
+       [
+        -4.9615369,
+        36.4877039
+       ],
+       [
+        -4.9615724,
+        36.4876779
+       ],
+       [
+        -4.9615637,
+        36.4876457
+       ],
+       [
+        -4.9616066,
+        36.4876651
+       ],
+       [
+        -4.9616093,
+        36.4876996
+       ],
+       [
+        -4.9616361,
+        36.4876953
+       ],
+       [
+        -4.9616442,
+        36.4876694
+       ],
+       [
+        -4.9616924,
+        36.4876629
+       ],
+       [
+        -4.9617012,
+        36.4876887
+       ],
+       [
+        -4.96173,
+        36.4877082
+       ],
+       [
+        -4.9617219,
+        36.4877427
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167302594",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.955384,
+        36.4895867
+       ],
+       [
+        -4.955334,
+        36.4894765
+       ],
+       [
+        -4.955603,
+        36.4893976
+       ],
+       [
+        -4.9556447,
+        36.4894895
+       ],
+       [
+        -4.955483,
+        36.4895369
+       ],
+       [
+        -4.9554913,
+        36.4895552
+       ],
+       [
+        -4.955384,
+        36.4895867
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167304646",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.954421,
+        36.4895303
+       ],
+       [
+        -4.9545041,
+        36.4895044
+       ],
+       [
+        -4.9545578,
+        36.4895216
+       ],
+       [
+        -4.9545531,
+        36.4895605
+       ],
+       [
+        -4.9545262,
+        36.4896079
+       ],
+       [
+        -4.9544827,
+        36.4896424
+       ],
+       [
+        -4.954427,
+        36.4896553
+       ],
+       [
+        -4.9544082,
+        36.4896208
+       ],
+       [
+        -4.9543995,
+        36.4895928
+       ],
+       [
+        -4.954362,
+        36.4895626
+       ],
+       [
+        -4.9543727,
+        36.4895281
+       ],
+       [
+        -4.954421,
+        36.4895303
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167305573",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9552364,
+        36.4881848
+       ],
+       [
+        -4.9550949,
+        36.4882321
+       ],
+       [
+        -4.9550546,
+        36.4881588
+       ],
+       [
+        -4.9549688,
+        36.4881847
+       ],
+       [
+        -4.9549071,
+        36.4880811
+       ],
+       [
+        -4.9550593,
+        36.4880166
+       ],
+       [
+        -4.9550922,
+        36.4880833
+       ],
+       [
+        -4.9551613,
+        36.4880597
+       ],
+       [
+        -4.9552364,
+        36.4881848
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167305588",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.954885,
+        36.4878354
+       ],
+       [
+        -4.9548132,
+        36.4878612
+       ],
+       [
+        -4.9548421,
+        36.4879066
+       ],
+       [
+        -4.9546979,
+        36.4879518
+       ],
+       [
+        -4.9546382,
+        36.4879389
+       ],
+       [
+        -4.9545792,
+        36.4878764
+       ],
+       [
+        -4.9545926,
+        36.4878397
+       ],
+       [
+        -4.9546329,
+        36.4878139
+       ],
+       [
+        -4.9546811,
+        36.487816
+       ],
+       [
+        -4.9546731,
+        36.4877837
+       ],
+       [
+        -4.9546865,
+        36.4877535
+       ],
+       [
+        -4.9546704,
+        36.4877211
+       ],
+       [
+        -4.9547428,
+        36.4876996
+       ],
+       [
+        -4.9547884,
+        36.4877643
+       ],
+       [
+        -4.9548528,
+        36.4877707
+       ],
+       [
+        -4.954885,
+        36.4878354
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/167305668",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9635995,
+        36.4943886
+       ],
+       [
+        -4.9636768,
+        36.4943958
+       ],
+       [
+        -4.9637202,
+        36.4943498
+       ],
+       [
+        -4.9636956,
+        36.4943009
+       ],
+       [
+        -4.9635239,
+        36.4941931
+       ],
+       [
+        -4.963452,
+        36.4941881
+       ],
+       [
+        -4.9634139,
+        36.4942125
+       ],
+       [
+        -4.963393,
+        36.4942441
+       ],
+       [
+        -4.9633528,
+        36.4942441
+       ],
+       [
+        -4.9633233,
+        36.4942204
+       ],
+       [
+        -4.9632879,
+        36.4941974
+       ],
+       [
+        -4.963224,
+        36.4941945
+       ],
+       [
+        -4.9631865,
+        36.4942118
+       ],
+       [
+        -4.9631838,
+        36.4942808
+       ],
+       [
+        -4.9632213,
+        36.4943045
+       ],
+       [
+        -4.9632965,
+        36.4943067
+       ],
+       [
+        -4.9635164,
+        36.4943218
+       ],
+       [
+        -4.9635539,
+        36.4943088
+       ],
+       [
+        -4.9635888,
+        36.4943304
+       ],
+       [
+        -4.9635995,
+        36.4943886
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/196079511",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9612379,
+        36.488903
+       ],
+       [
+        -4.961229,
+        36.4888915
+       ],
+       [
+        -4.9612185,
+        36.4888843
+       ],
+       [
+        -4.9612052,
+        36.488881
+       ],
+       [
+        -4.9611915,
+        36.4888823
+       ],
+       [
+        -4.9611748,
+        36.4888839
+       ],
+       [
+        -4.9611644,
+        36.4888809
+       ],
+       [
+        -4.961156,
+        36.4888753
+       ],
+       [
+        -4.9611444,
+        36.4888653
+       ],
+       [
+        -4.9611326,
+        36.4888455
+       ],
+       [
+        -4.9611303,
+        36.4888334
+       ],
+       [
+        -4.9611311,
+        36.4888211
+       ],
+       [
+        -4.9611228,
+        36.4888133
+       ],
+       [
+        -4.961105,
+        36.4888041
+       ],
+       [
+        -4.9610896,
+        36.4887971
+       ],
+       [
+        -4.9610814,
+        36.488781
+       ],
+       [
+        -4.9610803,
+        36.4887637
+       ],
+       [
+        -4.9610862,
+        36.488747
+       ],
+       [
+        -4.9611011,
+        36.4887308
+       ],
+       [
+        -4.9611224,
+        36.4887203
+       ],
+       [
+        -4.9611389,
+        36.4887178
+       ],
+       [
+        -4.9611555,
+        36.4887201
+       ],
+       [
+        -4.96117,
+        36.4887268
+       ],
+       [
+        -4.9611828,
+        36.4887403
+       ],
+       [
+        -4.9611871,
+        36.488757
+       ],
+       [
+        -4.9611981,
+        36.488775
+       ],
+       [
+        -4.9612168,
+        36.4887883
+       ],
+       [
+        -4.9612403,
+        36.488795
+       ],
+       [
+        -4.9612653,
+        36.4887939
+       ],
+       [
+        -4.9612877,
+        36.4887853
+       ],
+       [
+        -4.9613045,
+        36.4887706
+       ],
+       [
+        -4.9613131,
+        36.4887519
+       ],
+       [
+        -4.9613122,
+        36.4887319
+       ],
+       [
+        -4.9613148,
+        36.4887192
+       ],
+       [
+        -4.961326,
+        36.48871
+       ],
+       [
+        -4.9613417,
+        36.4887076
+       ],
+       [
+        -4.9613548,
+        36.4887119
+       ],
+       [
+        -4.9613634,
+        36.488721
+       ],
+       [
+        -4.961365,
+        36.4887323
+       ],
+       [
+        -4.9613591,
+        36.4887427
+       ],
+       [
+        -4.9613438,
+        36.4887585
+       ],
+       [
+        -4.961338,
+        36.488778
+       ],
+       [
+        -4.9613424,
+        36.4887967
+       ],
+       [
+        -4.9613558,
+        36.4888125
+       ],
+       [
+        -4.9613685,
+        36.4888271
+       ],
+       [
+        -4.9613709,
+        36.4888448
+       ],
+       [
+        -4.9613639,
+        36.4888592
+       ],
+       [
+        -4.9613501,
+        36.4888699
+       ],
+       [
+        -4.9613352,
+        36.4888738
+       ],
+       [
+        -4.9613226,
+        36.4888813
+       ],
+       [
+        -4.9613139,
+        36.4888917
+       ],
+       [
+        -4.9613067,
+        36.4889033
+       ],
+       [
+        -4.9612924,
+        36.488912
+       ],
+       [
+        -4.9612733,
+        36.4889144
+       ],
+       [
+        -4.9612536,
+        36.4889118
+       ],
+       [
+        -4.9612379,
+        36.488903
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/430030128",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9596826,
+        36.4890126
+       ],
+       [
+        -4.9596071,
+        36.489026
+       ],
+       [
+        -4.9596416,
+        36.4891516
+       ],
+       [
+        -4.9597171,
+        36.4891382
+       ],
+       [
+        -4.9596826,
+        36.4890126
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/430030134",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9595386,
+        36.4891204
+       ],
+       [
+        -4.9594848,
+        36.4891904
+       ],
+       [
+        -4.9594899,
+        36.4892017
+       ],
+       [
+        -4.9595053,
+        36.4892038
+       ],
+       [
+        -4.9595745,
+        36.4891729
+       ],
+       [
+        -4.9595706,
+        36.4891503
+       ],
+       [
+        -4.9595578,
+        36.4891328
+       ],
+       [
+        -4.9595386,
+        36.4891204
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/430030135",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9611727,
+        36.4902159
+       ],
+       [
+        -4.9610829,
+        36.49021
+       ],
+       [
+        -4.9610862,
+        36.4901372
+       ],
+       [
+        -4.9609347,
+        36.490127
+       ],
+       [
+        -4.9608408,
+        36.4902084
+       ],
+       [
+        -4.9608944,
+        36.4902536
+       ],
+       [
+        -4.960932,
+        36.4902278
+       ],
+       [
+        -4.9609253,
+        36.4903598
+       ],
+       [
+        -4.961058,
+        36.4903652
+       ],
+       [
+        -4.9610748,
+        36.490383
+       ],
+       [
+        -4.9610896,
+        36.4903949
+       ],
+       [
+        -4.961107,
+        36.4903981
+       ],
+       [
+        -4.9611298,
+        36.4903976
+       ],
+       [
+        -4.9611459,
+        36.4903879
+       ],
+       [
+        -4.9611559,
+        36.490376
+       ],
+       [
+        -4.9611613,
+        36.4903631
+       ],
+       [
+        -4.9611727,
+        36.4902159
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/480486140",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9558197,
+        36.4893599
+       ],
+       [
+        -4.9556735,
+        36.4894042
+       ],
+       [
+        -4.9556507,
+        36.4893553
+       ],
+       [
+        -4.9557968,
+        36.4893111
+       ],
+       [
+        -4.9558197,
+        36.4893599
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/615355274",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -4.9649371,
+        36.4847079
+       ],
+       [
+        -4.9649681,
+        36.4847117
+       ],
+       [
+        -4.9650239,
+        36.4847069
+       ],
+       [
+        -4.9650414,
+        36.4846957
+       ],
+       [
+        -4.965049,
+        36.4846832
+       ],
+       [
+        -4.9650458,
+        36.4846698
+       ],
+       [
+        -4.965039,
+        36.4846598
+       ],
+       [
+        -4.9650223,
+        36.4846515
+       ],
+       [
+        -4.965006,
+        36.4846531
+       ],
+       [
+        -4.9649952,
+        36.4846634
+       ],
+       [
+        -4.9649777,
+        36.4846691
+       ],
+       [
+        -4.9649514,
+        36.4846627
+       ],
+       [
+        -4.9649367,
+        36.4846579
+       ],
+       [
+        -4.9649211,
+        36.4846634
+       ],
+       [
+        -4.9649132,
+        36.4846778
+       ],
+       [
+        -4.9649163,
+        36.4846922
+       ],
+       [
+        -4.9649223,
+        36.4847002
+       ],
+       [
+        -4.9649371,
+        36.4847079
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/969909260",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  }
+ ]
+}

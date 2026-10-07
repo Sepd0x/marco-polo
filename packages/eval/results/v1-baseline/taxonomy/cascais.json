@@ -1,0 +1,39 @@
+{
+ "fn": {
+  "visual/cascais/c100": "pale, lilac or low-saturation water",
+  "visual/cascais/c14": "pale, lilac or low-saturation water",
+  "visual/cascais/c140": "merged with a neighbouring pool",
+  "visual/cascais/c160": "label doubtful",
+  "visual/cascais/c164": "label doubtful",
+  "visual/cascais/c174": "pale, lilac or low-saturation water",
+  "visual/cascais/c182": "pale, lilac or low-saturation water",
+  "visual/cascais/c194": "pale, lilac or low-saturation water",
+  "visual/cascais/c195": "pale, lilac or low-saturation water",
+  "visual/cascais/c201": "found below 0.55",
+  "visual/cascais/c226": "label misplaced",
+  "visual/cascais/c266": "found below 0.55",
+  "visual/cascais/c311": "pale, lilac or low-saturation water",
+  "visual/cascais/c344": "pale, lilac or low-saturation water",
+  "visual/cascais/c349": "deep blue or navy water",
+  "visual/cascais/c351": "pale, lilac or low-saturation water",
+  "visual/cascais/c379": "found below 0.55",
+  "visual/cascais/c4": "deep blue or navy water",
+  "visual/cascais/c40": "pale, lilac or low-saturation water",
+  "visual/cascais/c44": "label doubtful",
+  "visual/cascais/c5": "found below 0.55",
+  "visual/cascais/c76": "found below 0.55",
+  "visual/cascais/c80": "pale, lilac or low-saturation water",
+  "visual/cascais/x-candidates-8": "deep blue or navy water",
+  "way/1238201267": "covered or empty (cover visible)",
+  "way/1238201438": "dark or shaded water",
+  "way/124241882": "pale, lilac or low-saturation water"
+ },
+ "fp": {
+  "p134": "blue or teal object/roof",
+  "p135": "unlabelled real pool (label gap)",
+  "p137": "shadow or dark roof",
+  "p163": "unlabelled real pool (label gap)",
+  "p233": "unlabelled real pool (label gap)",
+  "p59": "shadow or dark roof"
+ }
+}

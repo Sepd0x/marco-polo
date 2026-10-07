@@ -1,0 +1,7 @@
+{
+ "type": "FeatureCollection",
+ "zone": "odemira",
+ "note": "Hand-checked supplement to the OSM labels, drawn by eye on Esri World Imagery z19. Features with an OSM id override that OSM feature.",
+ "created": "2026-10-07",
+ "features": []
+}

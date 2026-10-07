@@ -1,0 +1,35 @@
+{
+ "fn": {
+  "visual/algarve/c112": "found below 0.55",
+  "visual/algarve/c135": "deep blue or navy water",
+  "visual/algarve/c163": "pale, lilac or low-saturation water",
+  "visual/algarve/c170": "pale, lilac or low-saturation water",
+  "visual/algarve/c173": "pale, lilac or low-saturation water",
+  "visual/algarve/c179": "pale, lilac or low-saturation water",
+  "visual/algarve/c187": "pale, lilac or low-saturation water",
+  "visual/algarve/c241": "dark or shaded water",
+  "visual/algarve/c281": "pale, lilac or low-saturation water",
+  "visual/algarve/c282": "found below 0.55",
+  "visual/algarve/c49": "found below 0.55",
+  "visual/algarve/c53": "found below 0.55",
+  "visual/algarve/c54": "found below 0.55",
+  "visual/algarve/c55": "deep blue or navy water",
+  "visual/algarve/c67": "dark or shaded water",
+  "visual/algarve/c85": "dark or shaded water",
+  "way/1480632714": "found below 0.55",
+  "way/1480632715": "pale, lilac or low-saturation water",
+  "way/1480632716": "found below 0.55",
+  "way/1480633969": "deep blue or navy water",
+  "way/1480633970": "dark or shaded water",
+  "way/1480633971": "label misplaced",
+  "way/1480633973": "pale, lilac or low-saturation water"
+ },
+ "fp": {
+  "p37": "shadow or dark roof",
+  "p40": "unsure, maybe a pool",
+  "p41": "unsure, maybe a pool",
+  "p67": "vehicle or boat",
+  "p76": "shadow or dark roof",
+  "p92": "asphalt or road"
+ }
+}
