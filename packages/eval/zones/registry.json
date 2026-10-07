@@ -1,0 +1,566 @@
+{
+ "about": "Zone registry of the benchmark. Roles: DEV (tune here), DEV-2 (confirmation, run at a freeze), GOLD (phase 0 gold, DEV-like), TEST (pre-registered draw, never tuned on), TRAIN (zones a model was trained on). seen: places whose imagery was looked at in phase 0. Every TEST zone must be at least minDistanceKm from every other zone and seen site (eval zones check).",
+ "minDistanceKm": 50,
+ "zones": [
+  {
+   "id": "vilamoura",
+   "name": "Vilamoura, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.12113,
+    "south": 37.06998,
+    "east": -8.10987,
+    "north": 37.07902
+   },
+   "areaKm2": 1,
+   "why": "resort villas, golf, marina; the reference area of the original tuning",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -0.1,
+     2
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "scottsdale",
+   "name": "Scottsdale, AZ, US",
+   "role": "DEV",
+   "country": "US",
+   "productSource": "esri",
+   "bbox": {
+    "west": -111.93004,
+    "south": 33.59061,
+    "east": -111.92196,
+    "north": 33.59739
+   },
+   "areaKm2": 0.5625,
+   "why": "desert suburb, a pool in most back yards, sharp imagery",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "odemira",
+   "name": "Odemira greenhouses, Alentejo, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.78226,
+    "south": 37.53898,
+    "east": -8.77094,
+    "north": 37.54802
+   },
+   "areaKm2": 1,
+   "why": "farmland: plastic greenhouses, irrigation tanks and reservoirs, few houses; mostly a false-positive test",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "aix",
+   "name": "Puyricard, Aix-en-Provence, FR",
+   "role": "DEV",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 5.4138,
+    "south": 43.56548,
+    "east": 5.4262,
+    "north": 43.57452
+   },
+   "areaKm2": 1,
+   "why": "Provence countryside villas, sharp summer imagery, dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.2,
+     2.2
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "balma",
+   "name": "Balma, Toulouse, FR",
+   "role": "DEV",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 1.4938,
+    "south": 43.60548,
+    "east": 1.5062,
+    "north": 43.61452
+   },
+   "areaKm2": 1,
+   "why": "inland suburb, lawns and trees, dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -0.4,
+     1.6
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "braga",
+   "name": "Braga, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.385,
+    "south": 41.56498,
+    "east": -8.373,
+    "north": 41.57402
+   },
+   "areaKm2": 1,
+   "why": "north of Portugal on DGT Ortos2025; the 1 km box with the most OSM pools (83) around Braga, picked over Maia (27 at best) by OSM count, before review",
+   "labelSource": "dgt",
+   "osmShiftM": {},
+   "review": "blind"
+  },
+  {
+   "id": "marbella",
+   "name": "Marbella, ES",
+   "role": "DEV-2",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -4.96429,
+    "south": 36.48538,
+    "east": -4.95311,
+    "north": 36.49442
+   },
+   "areaKm2": 1,
+   "why": "dense villas on slopes, vegetation, rooftop solar; OSM pools mostly mapped as points",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -1.2,
+     1
+    ]
+   },
+   "review": "candidates"
+  },
+  {
+   "id": "cascais",
+   "name": "Birre, Cascais, PT",
+   "role": "DEV-2",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -9.44732,
+    "south": 38.71461,
+    "east": -9.43868,
+    "north": 38.72139
+   },
+   "areaKm2": 0.5625,
+   "why": "Atlantic suburb, villas and gardens",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.7,
+     1
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "algarve",
+   "name": "Santa Barbara de Nexe, Algarve interior, PT",
+   "role": "DEV-2",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -7.97063,
+    "south": 37.10048,
+    "east": -7.95937,
+    "north": 37.10952
+   },
+   "areaKm2": 1,
+   "why": "scattered rural villas, orchards, farm water tanks",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "castelnau",
+   "name": "Castelnau-le-Lez, Montpellier, FR",
+   "role": "DEV-2",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.89879,
+    "south": 43.63048,
+    "east": 3.91121,
+    "north": 43.63952
+   },
+   "areaKm2": 1,
+   "why": "hillside suburb, trees and low sun, very dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.3,
+     0.8
+    ]
+   },
+   "review": "candidates"
+  },
+  {
+   "id": "arcadia",
+   "name": "Arcadia, Phoenix, AZ, US",
+   "role": "DEV-2",
+   "country": "US",
+   "productSource": "esri",
+   "bbox": {
+    "west": -111.97539,
+    "south": 33.49548,
+    "east": -111.96461,
+    "north": 33.50452
+   },
+   "areaKm2": 1,
+   "why": "desert suburb with large lots; OSM pools mapped as points",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "candidates"
+  },
+  {
+   "id": "gold-mougins",
+   "name": "Mougins, FR (gold)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 6.99,
+    "south": 43.59,
+    "east": 7.01,
+    "north": 43.605
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 gold on IGN; also a leave-one-zone-out training zone of the prototype",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-grabels",
+   "name": "Grabels, FR (gold)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.795,
+    "south": 43.64,
+    "east": 3.815,
+    "north": 43.655
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 gold on IGN; also a training zone of the prototype",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-pozuelo",
+   "name": "Pozuelo de Alarcon, ES (gold)",
+   "role": "GOLD",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -3.835,
+    "south": 40.43,
+    "east": -3.815,
+    "north": 40.445
+   },
+   "areaKm2": 2.81,
+   "why": "phase 0 gold on PNOA; also a training zone of the prototype",
+   "labelSource": "pnoa",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-mougins-esri",
+   "name": "Mougins, FR (gold, Esri)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "esri",
+   "bbox": {
+    "west": 6.9921181,
+    "south": 43.5933271,
+    "east": 6.9975975,
+    "north": 43.5972955
+   },
+   "areaKm2": 0.19,
+   "why": "phase 0 gold on Esri, evaluation only",
+   "labelSource": "esri",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-pozuelo-esri",
+   "name": "Pozuelo de Alarcon, ES (gold, Esri)",
+   "role": "GOLD",
+   "country": "ES",
+   "productSource": "esri",
+   "bbox": {
+    "west": -3.821862,
+    "south": 40.4391137,
+    "east": -3.8163826,
+    "north": 40.4432839
+   },
+   "areaKm2": 0.21,
+   "why": "phase 0 gold on Esri, evaluation only",
+   "labelSource": "esri",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-leliana",
+   "name": "L’Eliana, ES",
+   "role": "TRAIN",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -0.545,
+    "south": 39.555,
+    "east": -0.525,
+    "north": 39.57
+   },
+   "areaKm2": 2.85,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "pnoa",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-stgely",
+   "name": "Saint-Gely-du-Fesc, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.795,
+    "south": 43.685,
+    "east": 3.815,
+    "north": 43.7
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-tournefeuille",
+   "name": "Tournefeuille, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 1.33,
+    "south": 43.575,
+    "east": 1.35,
+    "north": 43.59
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  }
+ ],
+ "seen": [
+  {
+   "id": "imagery-vilamoura",
+   "center": [
+    37.07509,
+    -8.11599
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-cascais",
+   "center": [
+    38.71397,
+    -9.45675
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-evora",
+   "center": [
+    38.56394,
+    -7.93225
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-marbella",
+   "center": [
+    36.49019,
+    -4.95875
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-scottsdale",
+   "center": [
+    33.59449,
+    -111.9254
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-mougins",
+   "center": [
+    43.59651,
+    6.99347
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "norte-maia",
+   "center": [
+    41.23809,
+    -8.61237
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-braga",
+   "center": [
+    41.55882,
+    -8.38391
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-gaia",
+   "center": [
+    41.08188,
+    -8.65478
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-guimaraes",
+   "center": [
+    41.45633,
+    -8.31641
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-viana",
+   "center": [
+    41.72029,
+    -8.85587
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-ref-cascais",
+   "center": [
+    38.705,
+    -9.42
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-ofir",
+   "center": [
+    41.51655,
+    -8.78345
+   ],
+   "from": "mp-research/imagery-norte (named in the plan; its OSM query failed, centre from Nominatim)"
+  },
+  {
+   "id": "norte-pontelima",
+   "center": [
+    41.765,
+    -8.585
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-gaia-madalena",
+   "center": [
+    41.098,
+    -8.645
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-porto-centro",
+   "center": [
+    41.15,
+    -8.611
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-lisboa",
+   "center": [
+    38.72,
+    -9.14
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "detection-bormujos",
+   "center": [
+    37.3725,
+    -6.075
+   ],
+   "from": "mp-research/detection/zones"
+  },
+  {
+   "id": "detection-torrelodones",
+   "center": [
+    40.5775,
+    -3.925
+   ],
+   "from": "mp-research/detection (osm_count2.mjs box)"
+  }
+ ],
+ "notSeen": {
+  "reason": "Single-tile presence checks of the DGT services (dgt_coverage_probe.json, answered yes or no by script). No image was looked at or used for tuning, so they do not block TEST candidates. Counting them would exclude almost all of mainland Portugal.",
+  "sites": [
+   "Valenca",
+   "Braganca",
+   "Porto",
+   "Viseu",
+   "Guarda",
+   "Coimbra",
+   "Leiria",
+   "CasteloBranco",
+   "Santarem",
+   "Lisboa",
+   "Evora",
+   "Setubal",
+   "Beja",
+   "Sines",
+   "Faro",
+   "Lagos",
+   "Tavira"
+  ]
+ }
+}
