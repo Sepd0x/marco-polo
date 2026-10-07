@@ -5,9 +5,38 @@ import type { EvalDetection, Label } from './types.js';
 export interface MatchOptions {
   /** Box IoU at or above which a detection hits a label even if its centre misses. */
   iouMin: number;
+  /**
+   * Point labels. 'v2' (plan A4): the detection centre is within
+   * max(3 m, half the long side of its box) of the point, and its area is at
+   * most `pointMaxAreaM2`. 'v1': within the label radius, or the point inside
+   * the outline, any size (the rule of the phase 0 report, kept to reproduce it).
+   */
+  pointRule: 'v1' | 'v2';
+  pointMaxAreaM2: number;
 }
 
-export const DEFAULT_MATCH: MatchOptions = { iouMin: 0.3 };
+export const POINT_MIN_RADIUS_M = 3;
+export const POINT_AREA_FLOOR_M2 = 150;
+
+export const DEFAULT_MATCH: MatchOptions = { iouMin: 0.3, pointRule: 'v2', pointMaxAreaM2: POINT_AREA_FLOOR_M2 };
+export const V1_MATCH: MatchOptions = { iouMin: 0.3, pointRule: 'v1', pointMaxAreaM2: Infinity };
+
+/** Area cap for point hits in a zone: 4 x the median polygon pool label, or 150 m², whichever is larger. */
+export function pointAreaCap(labels: Label[]): number {
+  const areas = labels.filter((l) => l.role === 'pool' && !l.point && l.areaM2 > 0).map((l) => l.areaM2).sort((a, b) => a - b);
+  if (!areas.length) return POINT_AREA_FLOOR_M2;
+  const mid = areas.length >> 1;
+  const med = areas.length % 2 ? areas[mid] : (areas[mid - 1] + areas[mid]) / 2;
+  return Math.max(4 * med, POINT_AREA_FLOOR_M2);
+}
+
+/** Half the long side of a box, metres. */
+export function halfLongSideM(b: BBox): number {
+  const lat = ((b.north + b.south) / 2) * (Math.PI / 180);
+  const w = (b.east - b.west) * 111320 * Math.cos(lat);
+  const h = (b.north - b.south) * 110540;
+  return Math.max(w, h) / 2;
+}
 
 export interface Pair {
   det: EvalDetection;
@@ -35,13 +64,19 @@ export interface MatchResult {
 /** The hit test: centre inside the label, or box IoU ≥ iouMin. Point labels use a radius. */
 export function hits(det: EvalDetection, label: Label, opts: MatchOptions = DEFAULT_MATCH): { ok: boolean; iou: number; centerIn: boolean } {
   if (label.point) {
-    // A mapped point has no outline: hit when the detection centre is within
-    // the radius, or the point falls inside the detected outline (large pools
-    // are often tagged near one end).
-    const near =
-      distanceM(det.center, label.point) <= (label.radiusM ?? 5) ||
-      (pointInBBox(label.point, det.bbox) && pointInPolygons(label.point, det.outline));
-    return { ok: near, iou: 0, centerIn: near };
+    if (opts.pointRule === 'v1') {
+      // A mapped point has no outline: hit when the detection centre is within
+      // the radius, or the point falls inside the detected outline (large pools
+      // are often tagged near one end).
+      const near =
+        distanceM(det.center, label.point) <= (label.radiusM ?? 5) ||
+        (pointInBBox(label.point, det.bbox) && pointInPolygons(label.point, det.outline));
+      return { ok: near, iou: 0, centerIn: near };
+    }
+    // A huge detection whose centre lands on a point is not a measured pool.
+    const near = distanceM(det.center, label.point) <= Math.max(POINT_MIN_RADIUS_M, halfLongSideM(det.bbox));
+    const ok = near && det.areaM2 <= opts.pointMaxAreaM2;
+    return { ok, iou: 0, centerIn: ok };
   }
   const iou = bboxIoU(det.bbox, label.bbox);
   const centerIn = pointInBBox(det.center, label.bbox) && pointInPolygons(det.center, label.polygons);

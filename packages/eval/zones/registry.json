@@ -385,6 +385,139 @@
    "why": "phase 0 prototype training zone",
    "labelSource": "ign",
    "review": "gold-union"
+  },
+  {
+   "id": "test-pt-north-braganca",
+   "name": "Bragança, PT (TEST pt-north)",
+   "role": "TEST",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
+   "bbox": {
+    "west": -6.761791,
+    "south": 41.814932,
+    "east": -6.749748,
+    "north": 41.823976
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum pt-north: Bragança (0402), cell 31/16",
+   "review": "blind",
+   "stratum": "pt-north",
+   "reportedApart": false
+  },
+  {
+   "id": "test-pt-rest-ourem",
+   "name": "Ourém, PT (TEST pt-rest)",
+   "role": "TEST",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
+   "bbox": {
+    "west": -8.562172,
+    "south": 39.716695,
+    "east": -8.550498,
+    "north": 39.725739
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum pt-rest: Ourém (1421), cell 20/12",
+   "review": "blind",
+   "stratum": "pt-rest",
+   "reportedApart": false
+  },
+  {
+   "id": "test-es-las-torres-de-cotillas",
+   "name": "Las Torres de Cotillas, ES (TEST es)",
+   "role": "TEST",
+   "country": "ES",
+   "productSource": "pnoa",
+   "labelSource": "pnoa",
+   "bbox": {
+    "west": -1.248495,
+    "south": 38.031588,
+    "east": -1.237092,
+    "north": 38.040632
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum es: Las Torres de Cotillas (30038), cell 4/7",
+   "review": "blind",
+   "stratum": "es",
+   "reportedApart": false
+  },
+  {
+   "id": "test-fr-joinville-le-pont",
+   "name": "Joinville-le-Pont, FR (TEST fr)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.468144,
+    "south": 48.818359,
+    "east": 2.481788,
+    "north": 48.827402
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum fr: Joinville-le-Pont (94042), cell 1/1",
+   "review": "blind",
+   "stratum": "fr",
+   "reportedApart": false
+  },
+  {
+   "id": "test-us-solana-beach-city-ca",
+   "name": "Solana Beach city, CA, US (TEST us)",
+   "role": "TEST",
+   "country": "US",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": -117.247325,
+    "south": 32.997453,
+    "east": -117.236615,
+    "north": 33.006497
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum us: Solana Beach city, CA (0672506), cell 2/3",
+   "review": "blind",
+   "stratum": "us",
+   "reportedApart": false
+  },
+  {
+   "id": "test-negative-dunkerque",
+   "name": "Dunkerque, FR (TEST negative)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.353958,
+    "south": 51.030172,
+    "east": 2.368238,
+    "north": 51.039216
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum negative: Dunkerque (59183), cell 6/8",
+   "review": "blind",
+   "stratum": "negative",
+   "reportedApart": true
+  },
+  {
+   "id": "test-hard-cerveteri",
+   "name": "Cerveteri, IT (TEST hard)",
+   "role": "TEST",
+   "country": "IT",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": 12.152939,
+    "south": 41.945972,
+    "east": 12.165028,
+    "north": 41.955016
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum hard: Cerveteri (058029), cell 1/13",
+   "review": "blind",
+   "stratum": "hard",
+   "reportedApart": true
   }
  ],
  "seen": [

@@ -73,23 +73,62 @@ async function readIfExists(path: string): Promise<LabelFile | null> {
   }
 }
 
-/** OSM labels plus the hand-made supplement, if the area has one. */
-export async function loadLabels(zone: string, dir = LABELS_DIR, osmShiftM: [number, number] = [0, 0]): Promise<{ labels: Label[]; osm: number; visual: number; overrides: number }> {
+export interface LoadOptions {
+  dir?: string;
+  /** Source the labels are evaluated on; selects `<zone>.absent.<source>.json`. */
+  source?: string;
+  /** Shift of raw OSM geometry onto that source, metres [east, north]; null = not measured. */
+  osmShiftM?: [number, number] | null;
+  /** Shift of hand labels from the source they were drawn on, metres [east, north]. */
+  visualShiftM?: [number, number];
+}
+
+/** Pools that are not in a given source's imagery (built later, filled in, covered): ignored there. */
+export interface AbsentFile {
+  source: string;
+  method: string;
+  ids: string[];
+}
+
+/** OSM labels plus the hand-made supplement, if the area has one, moved onto the source under test. */
+export async function loadLabels(
+  zone: string,
+  opts: LoadOptions = {},
+): Promise<{ labels: Label[]; osm: number; visual: number; overrides: number; absent: number }> {
+  const dir = opts.dir ?? LABELS_DIR;
+  const osmShift = opts.osmShiftM === undefined ? [0, 0] as [number, number] : opts.osmShiftM;
+  const visualShift = opts.visualShiftM ?? [0, 0];
   const osm = await readIfExists(join(dir, `${zone}.geojson`));
   if (!osm) throw new Error(`no labels for ${zone}: run "npm run eval -- labels --zone ${zone}" first`);
   const extra = await readIfExists(join(dir, `${zone}.extra.geojson`));
+  const all = [...osm.features, ...(extra?.features ?? [])];
+  if (!osmShift && all.some((f) => f.properties.source === 'osm')) {
+    throw new Error(`${zone}: OSM shift on ${opts.source ?? 'this source'} not measured (eval offset), refusing to guess`);
+  }
+  const move = (f: LabelFeature) => shiftFeature(f, f.properties.source === 'osm' ? osmShift! : visualShift);
   // A hand-made feature with an OSM id replaces that OSM feature (used to mark a
   // mapped pool as `ignore` when the imagery shows it covered or not built yet).
   const byId = new Map<string, LabelFeature>();
-  for (const f of osm.features) byId.set(f.properties.id, shiftFeature(f, osmShiftM));
+  for (const f of osm.features) byId.set(f.properties.id, move(f));
   let overrides = 0;
   for (const f of extra?.features ?? []) {
     if (byId.has(f.properties.id)) overrides++;
     // Overrides carry OSM geometry: shift it like the rest of OSM.
-    byId.set(f.properties.id, f.properties.source === 'osm' ? shiftFeature(f, osmShiftM) : f);
+    byId.set(f.properties.id, move(f));
+  }
+  let absent = 0;
+  if (opts.source) {
+    const abs = (await readIfExists(join(dir, `${zone}.absent.${opts.source}.json`))) as unknown as AbsentFile | null;
+    for (const id of abs?.ids ?? []) {
+      const f = byId.get(id);
+      if (!f) throw new Error(`${zone}: absent list names unknown label ${id}`);
+      byId.set(id, { ...f, properties: { ...f.properties, role: 'ignore', reason: `absent on ${opts.source}` } });
+      absent++;
+    }
   }
   const labels = dedupeLabels([...byId.values()].map(featureToLabel));
-  return { labels, osm: osm.features.length, visual: (extra?.features.length ?? 0) - overrides, overrides };
+  const visual = osm.features.filter((f) => f.properties.source === 'visual').length + (extra?.features.length ?? 0) - overrides;
+  return { labels, osm: osm.features.filter((f) => f.properties.source === 'osm').length, visual, overrides, absent };
 }
 
 /**

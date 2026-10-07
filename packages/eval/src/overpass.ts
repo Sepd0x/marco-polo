@@ -96,7 +96,7 @@ export function stitchRings(segments: Ring[]): Ring[] {
   return rings;
 }
 
-function elementPolygons(el: OsmElement): Polygon[] {
+export function elementPolygons(el: OsmElement): Polygon[] {
   if (el.type === 'way' && el.geometry && el.geometry.length >= 4) {
     const r = toRing(el.geometry);
     const closed = r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1];

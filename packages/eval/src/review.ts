@@ -96,7 +96,7 @@ export async function renderReview(zoneId: string, src: TileSource, outRoot: str
   const zone = zoneById(zoneId);
   const out = join(outRoot, zone.id);
   await mkdir(out, { recursive: true });
-  const { labels } = await loadLabels(zone.id, undefined, zone.osmShiftM);
+  const { labels } = await loadLabels(zone.id, { osmShiftM: zone.osmShiftM?.esri ?? [0, 0] });
 
   const ring: Ring = [
     [zone.bbox.west, zone.bbox.south],

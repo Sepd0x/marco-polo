@@ -1,0 +1,260 @@
+{
+ "about": "TEST draw, one entry per stratum with every attempt. Rules: zones/test-candidates.json. Raw OSM answers are kept outside the repo; their sha256 is here.",
+ "listCommit": "ddf92d433297d5b206351b9a5aefd73a4cb7000e",
+ "candidatesSha256": "56377eae69a1b7e49387368c654b229c7eace672136c5db40d6b7bccc6314f9c",
+ "registrySha256AtStart": "ef9080328d45716a3bf7a5adec8287302f65459b483f8e32de70b88e0aa87185",
+ "strata": [
+  {
+   "stratum": "pt-north",
+   "eligible": 3,
+   "start": 0,
+   "attempts": [
+    {
+     "index": 0,
+     "municipality": {
+      "name": "Bragança",
+      "code": "0402"
+     },
+     "status": "drawn",
+     "osmSha256": "56a00c9c17551870ecf932f5f8bd412d4705d68f050083d58376ced7d58807fd",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 31,
+      "col": 16,
+      "share": 0.388,
+      "bbox": {
+       "west": -6.761790965136392,
+       "south": 41.81493203721671,
+       "east": -6.7497476442074165,
+       "north": 41.823975754546275
+      }
+     }
+    }
+   ],
+   "zone": "test-pt-north-braganca"
+  },
+  {
+   "stratum": "pt-rest",
+   "eligible": 50,
+   "start": 44,
+   "attempts": [
+    {
+     "index": 44,
+     "municipality": {
+      "name": "Ourém",
+      "code": "1421"
+     },
+     "status": "drawn",
+     "osmSha256": "a546757f8495ef55215bf60eb37827ad772e039f883a557b04b5a67190a31d5a",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 20,
+      "col": 12,
+      "share": 0.41,
+      "bbox": {
+       "west": -8.562171523861725,
+       "south": 39.71669544659142,
+       "east": -8.55049819251687,
+       "north": 39.72573916392099
+      }
+     }
+    }
+   ],
+   "zone": "test-pt-rest-ourem"
+  },
+  {
+   "stratum": "es",
+   "eligible": 501,
+   "start": 381,
+   "attempts": [
+    {
+     "index": 381,
+     "municipality": {
+      "name": "Las Torres de Cotillas",
+      "code": "30038"
+     },
+     "status": "drawn",
+     "osmSha256": "e904bc69a45d8fe63c115b47626f1891018090ad741f194d6547d97eefa477cd",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 4,
+      "col": 7,
+      "share": 0.478,
+      "bbox": {
+       "west": -1.2484953794917888,
+       "south": 38.03158846931829,
+       "east": -1.2370921908477586,
+       "north": 38.040632186647855
+      }
+     }
+    }
+   ],
+   "zone": "test-es-las-torres-de-cotillas"
+  },
+  {
+   "stratum": "fr",
+   "eligible": 865,
+   "start": 788,
+   "attempts": [
+    {
+     "index": 788,
+     "municipality": {
+      "name": "Joinville-le-Pont",
+      "code": "94042"
+     },
+     "status": "drawn",
+     "osmSha256": "ae57dc93800baa5296973b4ffbe001d5d1516edaac90649405479b161cf0c14c",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.909,
+      "bbox": {
+       "west": 2.468144279758504,
+       "south": 48.818358717329566,
+       "east": 2.481787559517008,
+       "north": 48.827402434659135
+      }
+     }
+    }
+   ],
+   "zone": "test-fr-joinville-le-pont"
+  },
+  {
+   "stratum": "us",
+   "eligible": 648,
+   "start": 262,
+   "attempts": [
+    {
+     "index": 262,
+     "municipality": {
+      "name": "Signal Hill city, CA",
+      "code": "0671876"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "99f82bf1f1272e2fd0f4d8d1efafae8cc47ef83408ae5f3af0a0c66227197d3e",
+     "eligibleCells": 0
+    },
+    {
+     "index": 263,
+     "municipality": {
+      "name": "Solana Beach city, CA",
+      "code": "0672506"
+     },
+     "status": "drawn",
+     "osmSha256": "b7f4576dcd5d0bd98352ae47d4ae79db296f494ea6e03d464698c9a99940fe5b",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 3,
+      "share": 0.891,
+      "bbox": {
+       "west": -117.24732499442494,
+       "south": 32.99745343493705,
+       "east": -117.23661465932948,
+       "north": 33.00649715226662
+      }
+     },
+     "esri": {
+      "date": "2026-01-10",
+      "desc": "LG01",
+      "resM": 0.34,
+      "noonElevationDeg": 35
+     }
+    }
+   ],
+   "zone": "test-us-solana-beach-city-ca"
+  },
+  {
+   "stratum": "negative",
+   "eligible": 22,
+   "start": 18,
+   "attempts": [
+    {
+     "index": 18,
+     "municipality": {
+      "name": "Dunkerque",
+      "code": "59183"
+     },
+     "status": "drawn",
+     "osmSha256": "8706775c349ad5d35e975c55defda9a114c9b2068364b54b33569ebc17be352c",
+     "eligibleCells": 15,
+     "cell": {
+      "row": 6,
+      "col": 8,
+      "share": 0.317,
+      "bbox": {
+       "west": 2.353958454472098,
+       "south": 51.03017230397742,
+       "east": 2.3682383862811105,
+       "north": 51.03921602130699
+      }
+     }
+    }
+   ],
+   "zone": "test-negative-dunkerque"
+  },
+  {
+   "stratum": "hard",
+   "eligible": 1167,
+   "start": 619,
+   "attempts": [
+    {
+     "index": 619,
+     "municipality": {
+      "name": "Cave",
+      "code": "058026"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "7ca0f1ea7696954e7bd82e4e1e5d0545bd25e8ee725b281a7f57f42e023f72bd",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.551,
+      "bbox": {
+       "west": 12.928396498295232,
+       "south": 41.81481375198871,
+       "east": 12.940449047442847,
+       "north": 41.82385746931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-13",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 51.2
+     }
+    },
+    {
+     "index": 620,
+     "municipality": {
+      "name": "Cerveteri",
+      "code": "058029"
+     },
+     "status": "drawn",
+     "osmSha256": "29333fef91780fbd4f37a8b3a731d061db21e9130d9b2d2c57c39af6e022c6db",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 1,
+      "col": 13,
+      "share": 0.351,
+      "bbox": {
+       "west": 12.152939010470302,
+       "south": 41.94597231732957,
+       "east": 12.16502844204494,
+       "north": 41.95501603465914
+      }
+     },
+     "esri": {
+      "date": "2025-11-05",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 31.5
+     }
+    }
+   ],
+   "zone": "test-hard-cerveteri"
+  }
+ ]
+}
