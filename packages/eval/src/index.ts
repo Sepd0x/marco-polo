@@ -25,7 +25,7 @@ import { DETECTORS } from './detectors.js';
 import { drawStratum, rejectAfterReview } from './drawzones.js';
 import { diagnoseMisses } from './diagnose.js';
 import { evaluateZone, type ZoneResult } from './evaluate.js';
-import { checkFrozen, labelsHash, readFreeze, relabel, sha256, writeFreeze, zoneLabelFiles } from './freeze.js';
+import { checkFrozen, fileSha256, labelsHash, readFreeze, relabel, sha256, writeFreeze, zoneLabelFiles } from './freeze.js';
 import { writeGallery } from './gallery.js';
 import { computeTargets, detectorHash, logTestRun, readTestRuns, runGate, type ReportFile, type TargetsFile } from './gate.js';
 import { TileSource } from './imagery.js';
@@ -398,7 +398,7 @@ async function main() {
           if (p.length) throw new Error(`${z.id} is already frozen and changed; use run --relabel "<why>"`);
           continue;
         }
-        for (const f of files) frozen.set(f, sha256(readFileSync(join(LABELS_DIR, f))));
+        for (const f of files) frozen.set(f, fileSha256(join(LABELS_DIR, f)));
         console.log(`${z.id}: froze ${files.join(', ')}`);
       }
       writeFreeze(LABELS_DIR, frozen);

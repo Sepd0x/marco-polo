@@ -13,6 +13,9 @@ export const RELABEL_LOG = 'RELABEL_LOG.md';
 
 export const sha256 = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');
 
+/** Hash of a text file with line endings normalised, so a Windows checkout and CI agree. */
+export const fileSha256 = (path: string) => sha256(readFileSync(path, 'utf8').replace(/\r\n/g, '\n'));
+
 /** Label files that belong to a zone: `<zone>.geojson`, `<zone>.<anything>.geojson|json`. */
 export function zoneLabelFiles(dir: string, zone: string): string[] {
   if (!existsSync(dir)) return [];
@@ -51,7 +54,7 @@ export function checkFrozen(dir: string, zones: string[], file = FREEZE_FILE): F
     for (const f of files) {
       const want = frozen.get(f);
       if (!want) out.push({ zone, file: f, problem: 'not frozen' });
-      else if (want !== sha256(readFileSync(join(dir, f)))) out.push({ zone, file: f, problem: 'changed' });
+      else if (want !== fileSha256(join(dir, f))) out.push({ zone, file: f, problem: 'changed' });
     }
     for (const f of frozen.keys()) {
       if ((f === `${zone}.geojson` || f.startsWith(`${zone}.`)) && !files.includes(f)) out.push({ zone, file: f, problem: 'missing' });
@@ -83,7 +86,7 @@ export function relabel(dir: string, zones: string[], reason: string, commit: st
       }
     }
     for (const f of zoneLabelFiles(dir, zone)) {
-      const h = sha256(readFileSync(join(dir, f)));
+      const h = fileSha256(join(dir, f));
       if (frozen.get(f) !== h) changed.push(f);
       frozen.set(f, h);
     }
