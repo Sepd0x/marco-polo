@@ -1,8 +1,14 @@
 import type { Ring, TileCoord, TileDetection } from '../types.js';
-import { metersPerPixel, tilePixelToLonLat } from '../geo/mercator.js';
+import { bitmapPixelToLonLat, metersPerPixel, TILE_SIZE } from '../geo/mercator.js';
 import { buildWaterMask, DEFAULT_THRESHOLDS, isStrictPoolPixel, type WaterThresholds } from './color.js';
 import { cleanMask, labelComponents } from './mask.js';
 import { removeCollinear, simplifyRing, traceOutline } from './contour.js';
+
+/**
+ * Smallest object reported, m². One value for the detector and the merger:
+ * when they differed (3 and 8), every hot tub was found and then dropped.
+ */
+export const MIN_POOL_AREA_M2 = 3;
 
 export interface DetectorOptions {
   thresholds: WaterThresholds;
@@ -26,7 +32,7 @@ export interface DetectorOptions {
 
 export const DEFAULT_DETECTOR_OPTIONS: DetectorOptions = {
   thresholds: DEFAULT_THRESHOLDS,
-  minAreaM2: 3,
+  minAreaM2: MIN_POOL_AREA_M2,
   maxAreaM2: 2000,
   minPixels: 12,
   maxAspect: 8,
@@ -35,7 +41,9 @@ export const DEFAULT_DETECTOR_OPTIONS: DetectorOptions = {
 };
 
 /**
- * Detect pool candidates in one satellite tile.
+ * Detect pool candidates in one satellite tile. The bitmap may be any size:
+ * positions and areas come from its real width (a z18 tile fetched at 512 px
+ * has half the metres per pixel of the same tile at 256 px).
  *
  * Pipeline: water-signature mask → morphological cleanup → 8-connected
  * components → shape/size filters → outline tracing → geographic projection.
@@ -59,6 +67,7 @@ export function detectTile(
 
   const detections: TileDetection[] = [];
   if (components.length === 0) return detections;
+  const bitmapScale = TILE_SIZE / width;
 
   // Per-component colour + texture statistics in one pass over the labelled
   // pixels. Texture (mean local brightness gradient) is sampled only where a
@@ -117,8 +126,8 @@ export function detectTile(
 
     const cxPx = c.sumX / c.pixelCount;
     const cyPx = c.sumY / c.pixelCount;
-    const center = tilePixelToLonLat(tile, cxPx + 0.5, cyPx + 0.5);
-    const mpp = metersPerPixel(center.lat, tile.z);
+    const center = bitmapPixelToLonLat(tile, cxPx + 0.5, cyPx + 0.5, width);
+    const mpp = metersPerPixel(center.lat, tile.z) * bitmapScale;
     const areaM2 = c.pixelCount * mpp * mpp;
 
     // Interior shapes must be pool-sized. Edge fragments stay candidates —
@@ -132,12 +141,12 @@ export function detectTile(
       opts.simplifyEpsilonPx,
     );
     const outline: Ring = outlinePx.map(([px, py]) => {
-      const { lon, lat } = tilePixelToLonLat(tile, px, py);
+      const { lon, lat } = bitmapPixelToLonLat(tile, px, py, width);
       return [lon, lat] as [number, number];
     });
 
-    const nwCorner = tilePixelToLonLat(tile, c.minX, c.minY);
-    const seCorner = tilePixelToLonLat(tile, c.maxX + 1, c.maxY + 1);
+    const nwCorner = bitmapPixelToLonLat(tile, c.minX, c.minY, width);
+    const seCorner = bitmapPixelToLonLat(tile, c.maxX + 1, c.maxY + 1, width);
 
     detections.push({
       tile,

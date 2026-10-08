@@ -63,7 +63,11 @@ export function coreDetector(id: string, description: string, det: Partial<Detec
   };
 }
 
-/** v1: packages/core as shipped, default detector and merger options. */
-export const v1Detector = coreDetector('v1', 'packages/core detectTile + DetectionMerger, default options');
+/**
+ * v1: packages/core as shipped. The merger then emitted nothing under 8 m²;
+ * the shared minimum is 3 m² now, so v1 keeps its own value to stay the
+ * baseline it was.
+ */
+export const v1Detector = coreDetector('v1', 'packages/core detectTile + DetectionMerger as shipped (merger minimum 8 m²)', {}, { minAreaM2: 8 });
 
 export const DETECTORS: Record<string, Detector> = { v1: v1Detector };

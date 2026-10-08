@@ -1,7 +1,7 @@
 import type { BBox, Detection, DetectionKind, TileCoord, TileDetection } from '../types.js';
 import { metersPerPixel } from '../geo/mercator.js';
 import { bboxesIntersect, expandBBoxMeters, unionBBox } from '../geo/polygon.js';
-import { scoreConfidence } from '../detect/detector.js';
+import { MIN_POOL_AREA_M2, scoreConfidence } from '../detect/detector.js';
 
 export interface MergerOptions {
   /** Final emission floor, m². Edge fragments smaller than this wait for a merge. */
@@ -15,7 +15,7 @@ export interface MergerOptions {
 }
 
 export const DEFAULT_MERGER_OPTIONS: MergerOptions = {
-  minAreaM2: 8,
+  minAreaM2: MIN_POOL_AREA_M2,
   maxAreaM2: 2000,
   hotTubMaxM2: 10,
   adjacencyPx: 2.5,

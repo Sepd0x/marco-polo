@@ -26,9 +26,12 @@ describe('v1 detector behind the Detector seam', () => {
     expect(() => createV1Detector().detectTile(windowOf(rgba, 320, 32), { providerId: 'x' })).toThrow(/halo/);
   });
 
-  it('refuses 512 px tiles', () => {
-    const rgba = makeTile(512, 512, GREY_RGB);
-    expect(() => createV1Detector().detectTile(windowOf(rgba, 512), { providerId: 'x' })).toThrow(/256/);
+  it('projects a 512 px tile by its real width instead of refusing it', () => {
+    const rgba = makeTile(512, 512, GREY_RGB, [{ x: 200, y: 160, w: 60, h: 32, rgb: POOL_RGB }]);
+    const [d] = createV1Detector().detectTile(windowOf(rgba, 512), { providerId: 'x' });
+    const mpp = metersPerPixel(d.center.lat, TILE.z) / 2;
+    expect(d.areaM2 / (60 * 32 * mpp * mpp)).toBeGreaterThan(0.9);
+    expect(d.areaM2 / (60 * 32 * mpp * mpp)).toBeLessThan(1.1);
   });
 });
 
