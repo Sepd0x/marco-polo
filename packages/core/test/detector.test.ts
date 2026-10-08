@@ -80,7 +80,7 @@ describe('detector', () => {
   });
 
   it('rejects interior shapes larger than a plausible pool', () => {
-    // ~200×200 px ≈ 2270 m² at this latitude/zoom — a pond, not a pool.
+    // About 200 x 200 px, some 2270 m² at this latitude and zoom: a pond, not a pool.
     const rgba = makeTile(256, 256, GREY_RGB, [{ x: 20, y: 20, w: 200, h: 200, rgb: POOL_RGB }]);
     expect(detectTile(rgba, 256, 256, TILE)).toHaveLength(0);
   });
@@ -125,7 +125,7 @@ describe('detector', () => {
   });
 
   it('rejects textured surfaces even in a perfect pool colour', () => {
-    // A pool-coloured rectangle with a strong checker texture — a hedge or a
+    // A pool-coloured rectangle with a strong checker texture: a hedge or a
     // photovoltaic array as the colour gate sees it.
     const rgba = makeTile(256, 256, GREY_RGB, [{ x: 100, y: 80, w: 30, h: 16, rgb: POOL_RGB }]);
     for (let y = 80; y < 96; y++) {

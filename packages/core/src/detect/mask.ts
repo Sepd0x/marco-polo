@@ -4,7 +4,7 @@
  */
 
 /**
- * 3×3 cross erosion — a pixel survives only if its 4-neighbourhood is set.
+ * 3x3 cross erosion: a pixel survives only if its 4-neighbourhood is set.
  * Out-of-image neighbours count as set (border replication): a shape that
  * touches the tile edge must keep touching it, or the cross-tile merger
  * loses the signal that the shape continues in the next tile.
@@ -43,8 +43,8 @@ export function dilate(mask: Uint8Array, width: number, height: number): Uint8Ar
 }
 
 /**
- * Morphological open (erode→dilate) to drop speckle noise, then close
- * (dilate→erode) to seal small holes from sun glint, steps and lane lines.
+ * Morphological open (erode, then dilate) to drop speckle noise, then close
+ * (dilate, then erode) to seal small holes from sun glint, steps and lane lines.
  */
 export function cleanMask(mask: Uint8Array, width: number, height: number): Uint8Array {
   let m = erode(mask, width, height);

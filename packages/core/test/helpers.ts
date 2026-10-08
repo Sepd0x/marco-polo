@@ -1,10 +1,10 @@
 import type { TileCoord, TileDetection } from '../src/types.js';
 import { metersPerPixel, tilePixelToLonLat } from '../src/geo/mercator.js';
 
-export const POOL_RGB: [number, number, number] = [45, 170, 190]; // hue ≈ 188°, clearly pool
+export const POOL_RGB: [number, number, number] = [45, 170, 190]; // hue about 188°, clearly pool
 export const GREY_RGB: [number, number, number] = [120, 118, 115];
 export const GRASS_RGB: [number, number, number] = [80, 140, 60];
-export const ROOF_BLUE_RGB: [number, number, number] = [60, 80, 200]; // hue ≈ 231°, too blue
+export const ROOF_BLUE_RGB: [number, number, number] = [60, 80, 200]; // hue about 231°, too blue
 
 export interface RectSpec {
   x: number;

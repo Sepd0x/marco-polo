@@ -3,33 +3,33 @@
  *
  * Swimming-pool water has one of the most distinctive colour signatures in aerial
  * imagery: chlorinated water over a light liner reflects strongly in the cyan band
- * (hue ≈ 170–205°), with moderate-to-high saturation. Natural water (sea, lakes,
- * rivers) trends darker, greener or muddier, and is orders of magnitude larger —
- * geometry filters handle it downstream.
+ * (hue about 170 to 205°), with moderate to high saturation. Natural water (sea,
+ * lakes, rivers) trends darker, greener or muddier, and is orders of magnitude
+ * larger: the geometry filters handle it downstream.
  */
 
 export interface WaterThresholds {
   /** Broad hue window (degrees) a pixel may occupy to count as water at all. */
   hueMin: number;
   hueMax: number;
-  /** Absolute saturation floor (0–1) — rejects grey roofs, concrete, shadow haze. */
+  /** Absolute saturation floor (0 to 1): rejects grey roofs, concrete, shadow haze. */
   satMin: number;
   /**
    * Saturation at which a pixel qualifies regardless of brightness.
    * Below it, the pixel must also be bright (≥ valBright): pale pools are
-   * bright, deep pools are saturated — asphalt shadow is neither.
+   * bright, deep pools are saturated, asphalt shadow is neither.
    */
   satStrong: number;
   /** Brightness that lets a weakly-saturated pixel through (pale sunlit water). */
   valBright: number;
-  /** Minimum value/brightness (0–1) — rejects deep shadow. */
+  /** Minimum value/brightness (0 to 1): rejects deep shadow. */
   valMin: number;
-  /** Blue channel must exceed red by this much (0–255) — rejects warm surfaces. */
+  /** Blue channel must exceed red by this much (0 to 255): rejects warm surfaces. */
   blueOverRed: number;
   /** Green must not lag red (turquoise = green and blue high together). */
   greenOverRed: number;
   /**
-   * Allowed blue−green window (0–255). Turquoise water has green and blue
+   * Allowed blue minus green window (0 to 255). Turquoise water has green and blue
    * nearly balanced; photovoltaic panels and blue roofs are strongly
    * blue-dominant, vegetation strongly green-dominant. This band rejects both.
    */
@@ -57,7 +57,7 @@ export const DEFAULT_THRESHOLDS: WaterThresholds = {
   strictSatMin: 0.34,
 };
 
-/** RGB (0–255) → HSV (h in degrees 0–360, s and v in 0–1). */
+/** RGB (0 to 255) to HSV (h in degrees 0 to 360, s and v in 0 to 1). */
 export function rgbToHsv(r: number, g: number, b: number): { h: number; s: number; v: number } {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);

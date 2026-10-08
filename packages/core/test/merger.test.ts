@@ -56,7 +56,7 @@ describe('cross-tile merger', () => {
 
   it('withholds fragments until the merged shape clears the minimum area', () => {
     const merger = new DetectionMerger({ minAreaM2: 8 }, plan);
-    // Each fragment ≈ 4.5 m² — too small alone, valid together.
+    // Each fragment is about 4.5 m²: too small alone, valid together.
     const left = makeFragment(A, { x: 251, y: 100, w: 5, h: 16 });
     const right = makeFragment(B, { x: 0, y: 100, w: 5, h: 16 });
 
@@ -70,7 +70,7 @@ describe('cross-tile merger', () => {
 
   it('reclassifies clusters that grow beyond the pool ceiling as open water', () => {
     const merger = new DetectionMerger({ maxAreaM2: 100 }, plan);
-    const big1 = makeFragment(A, { x: 156, y: 0, w: 100, h: 256 }); // ≈ 1450 m²… over any ceiling
+    const big1 = makeFragment(A, { x: 156, y: 0, w: 100, h: 256 }); // about 1450 m², over any ceiling
     const e1 = merger.addTileDetections(A, [big1]);
     expect(e1.filter((e) => e.type === 'add')).toHaveLength(0);
     expect(merger.waterBodiesFiltered).toBe(1);
@@ -79,7 +79,7 @@ describe('cross-tile merger', () => {
 
   it('removes an emitted detection that later merges into open water', () => {
     const merger = new DetectionMerger({ maxAreaM2: 60 }, plan);
-    const left = makeFragment(A, { x: 236, y: 100, w: 20, h: 16 }); // ≈ 18 m² → emitted
+    const left = makeFragment(A, { x: 236, y: 100, w: 20, h: 16 }); // about 18 m², emitted
     const e1 = merger.addTileDetections(A, [left]);
     expect(e1.filter((e) => e.type === 'add')).toHaveLength(1);
 
@@ -91,7 +91,7 @@ describe('cross-tile merger', () => {
 
   it('marks shapes at the plan boundary as permanently truncated', () => {
     const merger = new DetectionMerger({}, [A]); // plan contains only tile A
-    const frag = makeFragment(A, { x: 236, y: 100, w: 20, h: 16 }); // touches east → outside plan
+    const frag = makeFragment(A, { x: 236, y: 100, w: 20, h: 16 }); // touches east, outside the plan
     merger.addTileDetections(A, [frag]);
     const events = merger.finalize();
     void events;

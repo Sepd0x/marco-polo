@@ -21,7 +21,7 @@ export interface DetectorOptions {
   /** Above this aspect ratio a non-edge shape is a canal/ditch/paint stripe, not a pool. */
   maxAspect: number;
   /**
-   * Hard ceiling on interior surface texture. Pool water is glassy — mean local
+   * Hard ceiling on interior surface texture. Pool water is glassy: mean local
    * brightness gradients stay very low. Bushes, hedges and photovoltaic arrays
    * that sneak through the colour gate are strongly textured and fail this.
    */
@@ -45,8 +45,8 @@ export const DEFAULT_DETECTOR_OPTIONS: DetectorOptions = {
  * positions and areas come from its real width (a z18 tile fetched at 512 px
  * has half the metres per pixel of the same tile at 256 px).
  *
- * Pipeline: water-signature mask → morphological cleanup → 8-connected
- * components → shape/size filters → outline tracing → geographic projection.
+ * Pipeline: water-signature mask, morphological cleanup, 8-connected
+ * components, shape and size filters, outline tracing, geographic projection.
  * Components touching a tile edge are kept even when small: they may be
  * fragments of a pool that continues in the neighbouring tile, and the
  * cross-tile merger makes the final call.
@@ -71,7 +71,7 @@ export function detectTile(
 
   // Per-component colour + texture statistics in one pass over the labelled
   // pixels. Texture (mean local brightness gradient) is sampled only where a
-  // pixel's 4-neighbourhood shares its label — component borders would
+  // pixel's 4-neighbourhood shares its label: component borders would
   // otherwise contaminate the measurement with the shape's own edge.
   const stats = new Map<number, { h: number; s: number; v: number; strict: number; tex: number; texN: number }>();
   for (const c of components) stats.set(c.label, { h: 0, s: 0, v: 0, strict: 0, tex: 0, texN: 0 });
@@ -130,7 +130,7 @@ export function detectTile(
     const mpp = metersPerPixel(center.lat, tile.z) * bitmapScale;
     const areaM2 = c.pixelCount * mpp * mpp;
 
-    // Interior shapes must be pool-sized. Edge fragments stay candidates —
+    // Interior shapes must be pool-sized. Edge fragments stay candidates,
     // unless they are already far beyond any plausible pool (open water).
     if (!touchesEdge && (areaM2 < opts.minAreaM2 || areaM2 > opts.maxAreaM2)) continue;
     if (touchesEdge && areaM2 > opts.maxAreaM2 * 4) continue;
@@ -179,7 +179,7 @@ export interface ConfidenceInput {
 }
 
 /**
- * Score how pool-like a detection is, 0–1.
+ * Score how pool-like a detection is, 0 to 1.
  * Blends colour evidence (dominant), surface smoothness, shape compactness
  * and size plausibility.
  */
