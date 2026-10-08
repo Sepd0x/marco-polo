@@ -1,0 +1,1 @@
+Rejected after review: about 30 pools in the zone on the half-scale sheets of all 36 windows (rule: fewer than 40). Dense detached-house suburb, apartment blocks, a cemetery and a wheat field; pools are small and sparse.

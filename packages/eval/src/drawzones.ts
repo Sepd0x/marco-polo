@@ -43,6 +43,8 @@ export interface StratumDraw {
   zone?: string;
   /** Zones of this stratum rejected after review; they stay in the registry as seen places. */
   rejected?: string[];
+  /** Every eligible municipality was tried and none kept: the stratum has no TEST zone. */
+  exhausted?: boolean;
 }
 
 export interface DrawFile {
@@ -191,7 +193,7 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
   };
   if (draw.listCommit !== commit) throw new Error(`draw.json was made with list commit ${draw.listCommit}, the list was added in ${commit}`);
   for (const earlier of cands.strata.slice(0, idx)) {
-    if (!draw.strata.some((s) => s.stratum === earlier.id && s.zone)) throw new Error(`draw strata in file order: ${earlier.id} first`);
+    if (!draw.strata.some((s) => s.stratum === earlier.id && (s.zone || s.exhausted))) throw new Error(`draw strata in file order: ${earlier.id} first`);
   }
   let sd = draw.strata.find((s) => s.stratum === stratumId);
   const last = sd?.attempts[sd.attempts.length - 1];
@@ -200,7 +202,13 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
   const reg = loadRegistry();
   // The stratum's own rejected zones do not move its eligible list: the hashed order stays fixed.
   const own = new Set(sd?.rejected ?? []);
-  const sites = protectedSites(reg).filter((s) => !own.has(s.id));
+  // Only TEST zones of strata drawn before this one count (rules: "TEST zones drawn before").
+  const later = new Set(cands.strata.slice(idx + 1).map((s) => s.id));
+  const laterZones = new Set([
+    ...reg.zones.filter((z) => z.role === 'TEST' && z.stratum && later.has(z.stratum)).map((z) => z.id),
+    ...draw.strata.filter((s) => later.has(s.stratum)).flatMap((s) => s.rejected ?? []),
+  ]);
+  const sites = protectedSites(reg).filter((s) => !own.has(s.id) && !laterZones.has(s.id));
   const elig = eligibleMunicipalities(stratumId, stratum.candidates, sites, cands.rules.minDistanceKm, cands.excludedRegions);
   if (!elig.length) throw new Error(`${stratumId}: no eligible municipality`);
   const order = drawOrder(commit, stratumId, elig.length);
@@ -265,6 +273,8 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
     writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
     return sd;
   }
+  sd.exhausted = true;
+  writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
   throw new Error(`${stratumId}: every eligible municipality tried`);
 }
 
@@ -285,14 +295,15 @@ export function rejectAfterReview(stratumId: string, pools: number, minPools: nu
   if (!draw || !sd || !last || last.status !== 'drawn') throw new Error(`${stratumId}: nothing drawn to reject`);
   if (pools >= minPools) throw new Error(`${stratumId}: ${pools} pools is not below ${minPools}`);
   last.status = `rejected: ${pools} pools after review`;
-  // Its imagery was looked at: it becomes a seen place, and leaves the TEST role.
+  // It leaves the TEST role and is kept on record. It does not block other zones: it was
+  // reviewed blind and never scanned or tuned on, so nearby TEST zones learn nothing from it.
   const reg = loadRegistry();
   const z = reg.zones.find((x) => x.id === sd.zone);
   if (z) {
     saveRegistry({
       ...reg,
       zones: reg.zones.filter((x) => x.id !== z.id),
-      seen: [...reg.seen, { id: z.id, center: zoneCenter(z), from: `TEST draw of stratum ${stratumId}, rejected after review (${pools} pools)` }],
+      rejectedTest: [...(reg.rejectedTest ?? []), { id: z.id, stratum: stratumId, bbox: z.bbox, pools }],
     });
     sd.rejected = [...(sd.rejected ?? []), z.id];
   }

@@ -1,0 +1,1 @@
+Rejected after review: about 15 pools in the zone on the half-scale sheets of all 36 windows (rule: fewer than 40). Dense small-plot suburb on the Marne, apartment blocks, a cemetery and a sports park. Not boxed one by one: the count is far from the threshold. Its imagery was looked at, so the place is now a seen site in the registry.

@@ -387,82 +387,6 @@
    "review": "gold-union"
   },
   {
-   "id": "test-pt-north-braganca",
-   "name": "Bragança, PT (TEST pt-north)",
-   "role": "TEST",
-   "country": "PT",
-   "productSource": "dgt",
-   "labelSource": "dgt",
-   "bbox": {
-    "west": -6.761791,
-    "south": 41.814932,
-    "east": -6.749748,
-    "north": 41.823976
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum pt-north: Bragança (0402), cell 31/16",
-   "review": "blind",
-   "stratum": "pt-north",
-   "reportedApart": false
-  },
-  {
-   "id": "test-pt-rest-ourem",
-   "name": "Ourém, PT (TEST pt-rest)",
-   "role": "TEST",
-   "country": "PT",
-   "productSource": "dgt",
-   "labelSource": "dgt",
-   "bbox": {
-    "west": -8.562172,
-    "south": 39.716695,
-    "east": -8.550498,
-    "north": 39.725739
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum pt-rest: Ourém (1421), cell 20/12",
-   "review": "blind",
-   "stratum": "pt-rest",
-   "reportedApart": false
-  },
-  {
-   "id": "test-es-las-torres-de-cotillas",
-   "name": "Las Torres de Cotillas, ES (TEST es)",
-   "role": "TEST",
-   "country": "ES",
-   "productSource": "pnoa",
-   "labelSource": "pnoa",
-   "bbox": {
-    "west": -1.248495,
-    "south": 38.031588,
-    "east": -1.237092,
-    "north": 38.040632
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum es: Las Torres de Cotillas (30038), cell 4/7",
-   "review": "blind",
-   "stratum": "es",
-   "reportedApart": false
-  },
-  {
-   "id": "test-fr-joinville-le-pont",
-   "name": "Joinville-le-Pont, FR (TEST fr)",
-   "role": "TEST",
-   "country": "FR",
-   "productSource": "ign",
-   "labelSource": "ign",
-   "bbox": {
-    "west": 2.468144,
-    "south": 48.818359,
-    "east": 2.481788,
-    "north": 48.827402
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum fr: Joinville-le-Pont (94042), cell 1/1",
-   "review": "blind",
-   "stratum": "fr",
-   "reportedApart": false
-  },
-  {
    "id": "test-us-solana-beach-city-ca",
    "name": "Solana Beach city, CA, US (TEST us)",
    "role": "TEST",
@@ -501,23 +425,61 @@
    "reportedApart": true
   },
   {
-   "id": "test-hard-cerveteri",
-   "name": "Cerveteri, IT (TEST hard)",
+   "id": "test-pt-rest-viseu",
+   "name": "Viseu, PT (TEST pt-rest)",
    "role": "TEST",
-   "country": "IT",
-   "productSource": "esri",
-   "labelSource": "esri",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
    "bbox": {
-    "west": 12.152939,
-    "south": 41.945972,
-    "east": 12.165028,
-    "north": 41.955016
+    "west": -7.937577,
+    "south": 40.662345,
+    "east": -7.92573,
+    "north": 40.671388
    },
    "areaKm2": 1,
-   "why": "drawn for stratum hard: Cerveteri (058029), cell 1/13",
+   "why": "drawn for stratum pt-rest: Viseu (1823), cell 14/13",
    "review": "blind",
-   "stratum": "hard",
-   "reportedApart": true
+   "stratum": "pt-rest",
+   "reportedApart": false
+  },
+  {
+   "id": "test-es-la-union",
+   "name": "La Unión, ES (TEST es)",
+   "role": "TEST",
+   "country": "ES",
+   "productSource": "pnoa",
+   "labelSource": "pnoa",
+   "bbox": {
+    "west": -0.895209,
+    "south": 37.62003,
+    "east": -0.883869,
+    "north": 37.629073
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum es: La Unión (30041), cell 5/3",
+   "review": "blind",
+   "stratum": "es",
+   "reportedApart": false
+  },
+  {
+   "id": "test-fr-cergy",
+   "name": "Cergy, FR (TEST fr)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.04109,
+    "south": 49.045271,
+    "east": 2.054793,
+    "north": 49.054315
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum fr: Cergy (95127), cell 3/3",
+   "review": "blind",
+   "stratum": "fr",
+   "reportedApart": false
   }
  ],
  "seen": [
@@ -695,5 +657,425 @@
    "Lagos",
    "Tavira"
   ]
- }
+ },
+ "rejectedTest": [
+  {
+   "id": "test-pt-north-braganca",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -6.761791,
+    "south": 41.814932,
+    "east": -6.749748,
+    "north": 41.823976
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-north-mirandela",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -7.186851,
+    "south": 41.46935,
+    "east": -7.174851,
+    "north": 41.478393
+   },
+   "pools": 9
+  },
+  {
+   "id": "test-pt-north-chaves",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -7.488147,
+    "south": 41.744061,
+    "east": -7.47611,
+    "north": 41.753104
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-joinville-le-pont",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.468144,
+    "south": 48.818359,
+    "east": 2.481788,
+    "north": 48.827402
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-le-kremlin-bicetre",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.357509,
+    "south": 48.81012,
+    "east": 2.371149,
+    "north": 48.819163
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-limeil-brevannes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.467797,
+    "south": 48.747341,
+    "east": 2.48142,
+    "north": 48.756385
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-maisons-alfort",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.429563,
+    "south": 48.795663,
+    "east": 2.443202,
+    "north": 48.804706
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-fr-nogent-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.464608,
+    "south": 48.826137,
+    "east": 2.478256,
+    "north": 48.835181
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-orly",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.396582,
+    "south": 48.736613,
+    "east": 2.410204,
+    "north": 48.745656
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-ormesson-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.525884,
+    "south": 48.785471,
+    "east": 2.539519,
+    "north": 48.794514
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-fr-le-perreux-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.505054,
+    "south": 48.829335,
+    "east": 2.518703,
+    "north": 48.838379
+   },
+   "pools": 20
+  },
+  {
+   "id": "test-fr-le-plessis-trevise",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.569694,
+    "south": 48.802264,
+    "east": 2.583334,
+    "north": 48.811307
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-la-queue-en-brie",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.58266,
+    "south": 48.782129,
+    "east": 2.596292,
+    "north": 48.791173
+   },
+   "pools": 20
+  },
+  {
+   "id": "test-fr-saint-mande",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.411472,
+    "south": 48.842756,
+    "east": 2.425121,
+    "north": 48.851799
+   },
+   "pools": 0
+  },
+  {
+   "id": "test-fr-saint-maur-des-fosses",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.47423,
+    "south": 48.784042,
+    "east": 2.487868,
+    "north": 48.793086
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-saint-maurice",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.43328,
+    "south": 48.812693,
+    "east": 2.446923,
+    "north": 48.821737
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-sucy-en-brie",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.507576,
+    "south": 48.778361,
+    "east": 2.521206,
+    "north": 48.787405
+   },
+   "pools": 25
+  },
+  {
+   "id": "test-fr-thiais",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.395037,
+    "south": 48.764218,
+    "east": 2.408664,
+    "north": 48.773262
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-valenton",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.46257,
+    "south": 48.745724,
+    "east": 2.476195,
+    "north": 48.754768
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-villecresnes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.522177,
+    "south": 48.723494,
+    "east": 2.535793,
+    "north": 48.732538
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-villejuif",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.34381,
+    "south": 48.778695,
+    "east": 2.357446,
+    "north": 48.787739
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-villeneuve-le-roi",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.39746,
+    "south": 48.728035,
+    "east": 2.411079,
+    "north": 48.737078
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-villeneuve-saint-georges",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.439309,
+    "south": 48.741492,
+    "east": 2.452931,
+    "north": 48.750536
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-villiers-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.537717,
+    "south": 48.826121,
+    "east": 2.551363,
+    "north": 48.835164
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-vincennes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.432282,
+    "south": 48.840893,
+    "east": 2.445932,
+    "north": 48.849937
+   },
+   "pools": 0
+  },
+  {
+   "id": "test-fr-vitry-sur-seine",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.39464,
+    "south": 48.770008,
+    "east": 2.408275,
+    "north": 48.779052
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-arnouville",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.414837,
+    "south": 48.983899,
+    "east": 2.428526,
+    "north": 48.992942
+   },
+   "pools": 12
+  },
+  {
+   "id": "test-fr-beaumont-sur-oise",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.29538,
+    "south": 49.14083,
+    "east": 2.30911,
+    "north": 49.149874
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-pt-rest-ourem",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -8.562172,
+    "south": 39.716695,
+    "east": -8.550498,
+    "north": 39.725739
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-es-las-torres-de-cotillas",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.248495,
+    "south": 38.031588,
+    "east": -1.237092,
+    "north": 38.040632
+   },
+   "pools": 12
+  },
+  {
+   "id": "test-hard-cerveteri",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.152939,
+    "south": 41.945972,
+    "east": 12.165028,
+    "north": 41.955016
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-pt-rest-lamego",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -7.820356,
+    "south": 41.090029,
+    "east": -7.80844,
+    "north": 41.099072
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-rest-mangualde",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -7.766787,
+    "south": 40.598274,
+    "east": -7.754958,
+    "north": 40.607318
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-rest-tondela",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -8.036528,
+    "south": 40.466052,
+    "east": -8.024707,
+    "north": 40.475096
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-hard-frascati",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.674284,
+    "south": 41.79631,
+    "east": 12.686339,
+    "north": 41.805354
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-es-totana",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.512434,
+    "south": 37.757872,
+    "east": -1.501068,
+    "north": 37.766915
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-bezons",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.198213,
+    "south": 48.926712,
+    "east": 2.211885,
+    "north": 48.935756
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-hard-grottaferrata",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.670746,
+    "south": 41.774526,
+    "east": 12.682793,
+    "north": 41.78357
+   },
+   "pools": 10
+  }
+ ]
 }

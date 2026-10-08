@@ -53,6 +53,8 @@ export interface Registry {
   zones: ZoneDef[];
   seen: SeenSite[];
   notSeen?: { reason: string; sites: string[] };
+  /** TEST draws rejected after review (too few pools): on record, not protected. */
+  rejectedTest?: Array<{ id: string; stratum: string; bbox: BBox; pools: number }>;
 }
 
 export function loadRegistry(dir = ZONES_DIR): Registry {
