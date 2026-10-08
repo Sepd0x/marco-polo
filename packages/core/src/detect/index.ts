@@ -3,3 +3,7 @@ export * from './mask.js';
 export * from './contour.js';
 export * from './detector.js';
 export * from './window.js';
+export * from './features.js';
+export * from './candidates.js';
+export * from './model.js';
+export * from './learned.js';

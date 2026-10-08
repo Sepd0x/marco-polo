@@ -4,24 +4,29 @@
  * Rather than Moore-neighbour tracing (fragile on single pixels and diagonal
  * touches), this walks the *lattice edges* between inside and outside pixels:
  * every boundary side of a labelled pixel becomes a directed edge on the pixel
- * corner grid, edges chain start→end into closed loops, and the longest loop is
+ * corner grid, edges chain start to end into closed loops, and the longest loop is
  * the outer boundary. Deterministic, hole-safe, and exact.
  */
 
 export type PxPoint = [number, number];
 
-/** Trace the outer boundary of the component with `label`, in pixel-corner coordinates. */
+/**
+ * Trace the outer boundary of the component with `label`, in pixel-corner
+ * coordinates. `bbox` (inclusive, the component's own) limits the scan, which
+ * matters on large windows.
+ */
 export function traceOutline(
   labels: Int32Array,
   width: number,
   height: number,
   label: number,
+  bbox?: { minX: number; minY: number; maxX: number; maxY: number },
 ): PxPoint[] {
   const inside = (x: number, y: number) =>
     x >= 0 && x < width && y >= 0 && y < height && labels[y * width + x] === label;
 
   // Directed edges, clockwise around each inside pixel (image coords, y down):
-  // start corner key → array of end corner keys.
+  // start corner key to the end corner keys.
   const edges = new Map<number, number[]>();
   const corner = (x: number, y: number) => y * (width + 1) + x;
   const addEdge = (x1: number, y1: number, x2: number, y2: number) => {
@@ -31,8 +36,10 @@ export function traceOutline(
     else edges.set(k, [corner(x2, y2)]);
   };
 
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
+  const x0 = bbox ? bbox.minX : 0, x1 = bbox ? bbox.maxX : width - 1;
+  const y0 = bbox ? bbox.minY : 0, y1 = bbox ? bbox.maxY : height - 1;
+  for (let y = y0; y <= y1; y++) {
+    for (let x = x0; x <= x1; x++) {
       if (labels[y * width + x] !== label) continue;
       if (!inside(x, y - 1)) addEdge(x, y, x + 1, y); // top
       if (!inside(x + 1, y)) addEdge(x + 1, y, x + 1, y + 1); // right
@@ -91,7 +98,7 @@ export function removeCollinear(ring: PxPoint[]): PxPoint[] {
   return out.length >= 3 ? out : ring.slice();
 }
 
-/** Ramer–Douglas–Peucker simplification for a closed ring. */
+/** Ramer-Douglas-Peucker simplification for a closed ring. */
 export function simplifyRing(ring: PxPoint[], epsilon: number): PxPoint[] {
   if (ring.length <= 4 || epsilon <= 0) return ring.slice();
   // Split at the two most distant points so RDP endpoints are stable.
