@@ -61,17 +61,62 @@ export function tilePixelToLonLat(tile: TileCoord, px: number, py: number): LonL
 }
 
 /**
- * Ground resolution in metres per pixel at a given latitude and zoom.
- * Derived from the Web Mercator scale factor: m/px = cos(lat)·C / (256·2^z).
+ * Ground resolution in metres per pixel at a given latitude and zoom, for
+ * 256 px tiles. Derived from the Web Mercator scale factor:
+ * m/px = cos(lat)·C / (256·2^z). For any other bitmap size use
+ * `metersPerPixelOfBitmap`.
  */
 export function metersPerPixel(lat: number, z: number): number {
   return (Math.cos(clampLatitude(lat) * DEG) * EARTH_CIRCUMFERENCE) / (TILE_SIZE * 2 ** z);
 }
 
-/** Fill a `{z}/{x}/{y}` URL template. */
+/**
+ * Ground metres per pixel at the centre of a tile, from the width of the
+ * bitmap actually received. A z18 tile fetched at 512 px has half the m/px
+ * of the same tile at 256 px.
+ */
+export function metersPerPixelOfBitmap(tile: TileCoord, bitmapWidth: number): number {
+  if (!(bitmapWidth > 0)) throw new RangeError(`bitmap width must be positive, got ${bitmapWidth}`);
+  const lat = worldYToLat((tile.y + 0.5) * TILE_SIZE, tile.z);
+  return (metersPerPixel(lat, tile.z) * TILE_SIZE) / bitmapWidth;
+}
+
+/**
+ * Pixel position inside a tile bitmap of `tilePx` pixels per side to a
+ * geographic coordinate. Positions outside 0..tilePx (a halo) are valid.
+ */
+export function bitmapPixelToLonLat(tile: TileCoord, px: number, py: number, tilePx: number): LonLat {
+  const s = TILE_SIZE / tilePx;
+  return tilePixelToLonLat(tile, px * s, py * s);
+}
+
+/** Half the side of the Web Mercator square, metres. */
+export const MERCATOR_HALF_SIDE = Math.PI * EARTH_RADIUS;
+
+/** Tile bounds in EPSG:3857 metres as [minX, minY, maxX, maxY]. */
+export function tileBBox3857(tile: TileCoord): [number, number, number, number] {
+  const span = (2 * MERCATOR_HALF_SIDE) / 2 ** tile.z;
+  const minX = -MERCATOR_HALF_SIDE + tile.x * span;
+  const maxY = MERCATOR_HALF_SIDE - tile.y * span;
+  return [minX, maxY - span, minX + span, maxY];
+}
+
+/**
+ * Fill a tile URL template: `{z}/{x}/{y}` for XYZ, `{bbox-epsg-3857}` for WMS
+ * (the tile bounds, no halo).
+ */
 export function tileUrl(template: string, tile: TileCoord): string {
-  return template
+  let url = template
     .replaceAll('{z}', String(tile.z))
     .replaceAll('{x}', String(tile.x))
     .replaceAll('{y}', String(tile.y));
+  if (url.includes('{bbox-epsg-3857}')) {
+    url = url.replaceAll('{bbox-epsg-3857}', tileBBox3857(tile).map(formatMetres).join(','));
+  }
+  return url;
+}
+
+/** Millimetre precision is plenty for a bbox and keeps URLs stable. */
+export function formatMetres(v: number): string {
+  return v.toFixed(3);
 }

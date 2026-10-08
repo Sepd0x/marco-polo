@@ -6,9 +6,8 @@ import { bboxIntersectsRing, ringAreaM2, ringBBox } from '../geo/polygon.js';
  * Build the ordered list of tiles a scan must visit to cover a polygon at a zoom level.
  *
  * Tiles are kept only if their bounds intersect the polygon, then sequenced with a
- * traversal order chosen for spatial locality — neighbours complete close together,
- * which lets cross-tile detection merging resolve quickly and reads as a coherent
- * sweep on the map.
+ * traversal order chosen for spatial locality: neighbours complete close together,
+ * which lets cross-tile detection merging resolve quickly.
  */
 export function buildScanPlan(polygon: Ring, zoom: number, order: TraversalOrder = 'serpentine'): ScanPlan {
   const bbox = ringBBox(polygon);
@@ -40,7 +39,7 @@ export function buildScanPlan(polygon: Ring, zoom: number, order: TraversalOrder
   return { zoom, order, tiles, range, areaM2: ringAreaM2(polygon), polygon };
 }
 
-/** Row-by-row, alternating direction — the classic scanner sweep. */
+/** Row by row, alternating direction. */
 function serpentineSequence(range: { minX: number; minY: number; maxX: number; maxY: number }): [number, number][] {
   const out: [number, number][] = [];
   let reverse = false;
