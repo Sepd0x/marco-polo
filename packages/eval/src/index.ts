@@ -31,6 +31,8 @@ import { computeTargets, detectorHash, logTestRun, readTestRuns, runGate, type R
 import { TileSource } from './imagery.js';
 import { LABELS_DIR, loadLabels } from './labels.js';
 import { measureOffset } from './offset.js';
+import { buildFixture, specLabels, type FixtureSpec } from './fixture.js';
+import { sourceShiftM } from './imgshift.js';
 import { osmRecallCommand } from './osmrecall.js';
 import { buildingQuery, overpass, poolQuery, toLabelFeatures } from './overpass.js';
 import { checkRegistry, loadRegistry } from './registry.js';
@@ -69,6 +71,7 @@ interface Opts {
   stratum?: string;
   pools?: number;
   dir?: string;
+  write?: boolean;
 }
 
 function parse(argv: string[]): Opts {
@@ -135,6 +138,7 @@ function parse(argv: string[]): Opts {
       case '--stratum': o.stratum = v(); break;
       case '--pools': o.pools = Number(v()); break;
       case '--dir': o.dir = resolve(v()); break;
+      case '--write': o.write = true; break;
       case '-h':
       case '--help':
         help();
@@ -162,6 +166,7 @@ commands:
   blind        render | second | merge | agree | osm-sheet: blind review of a zone (see src/blind.ts)
   osm-recall   render 10 blind windows of a zone and score OSM against a hand count (training zones)
   adjudicate   prepare | apply: symmetric, blind adjudication of unmatched detections of two runs
+  fixture      rebuild fixtures/open (open tiles and labels for CI and e2e) from fixtures/open/spec.json
   compare      paired comparison of two report.json files (--baseline a --report b)
   targets      fix targets.json from a DEV + DEV-2 comparison (--baseline v1 --report v2)
   gate         check the committed v2 report against the frozen labels, the detector and targets.json
@@ -363,11 +368,28 @@ async function main() {
       return;
     }
     case 'offset': {
+      // OSM onto the source (from confident detections) and hand labels onto the source
+      // (phase correlation against the source they were drawn on). --write stores both.
+      const reg = loadRegistry();
       for (const z of selectZones(o.zones)) {
         const sid = sourceFor(z, o.source);
-        const r = await measureOffset(z, tileSource(o, sid));
-        console.log(`${z.id.padEnd(22)} ${sid.padEnd(4)} OSM east ${r.east.toFixed(1)} m  north ${r.north.toFixed(1)} m  (n=${r.n}, median residual ${r.spread.toFixed(1)} m; in use: ${JSON.stringify(z.osmShiftM?.[sid] ?? null)})`);
+        const src = tileSource(o, sid);
+        const def = reg.zones.find((x) => x.id === z.id)!;
+        let line = `${z.id.padEnd(22)} ${sid.padEnd(4)}`;
+        if (z.review !== 'blind') {
+          const r = await measureOffset(z, src);
+          line += ` OSM east ${r.east.toFixed(1)} m north ${r.north.toFixed(1)} m (n=${r.n}, residual ${r.spread.toFixed(1)} m)`;
+          if (o.write && r.n >= 5) (def.osmShiftM ??= {})[sid] = [Math.round(r.east * 10) / 10, Math.round(r.north * 10) / 10];
+        }
+        if (sid !== z.labelSource) {
+          const c = { lon: (z.bbox.west + z.bbox.east) / 2, lat: (z.bbox.south + z.bbox.north) / 2 };
+          const s = await sourceShiftM(tileSource(o, z.labelSource), src, c);
+          line += `; labels from ${z.labelSource}: east ${s.m[0]} m north ${s.m[1]} m (peak ${s.peak.toFixed(3)})`;
+          if (o.write && s.peak >= 0.002) (def.labelShiftM ??= {})[sid] = s.m;
+        }
+        console.log(line);
       }
+      if (o.write) writeFileSync(join(EVAL_DIR, 'zones', 'registry.json'), JSON.stringify(reg, null, 1) + '\n', 'utf8');
       return;
     }
     case 'zones':
@@ -421,6 +443,13 @@ async function main() {
       if (sub === 'prepare') return adjudicatePrepare(readReport(o.baseline, '--baseline'), readReport(o.report, '--report'), o.dir ?? join(o.out, 'adjudicate'), (s) => tileSource(o, s));
       if (sub === 'apply') return adjudicateApply(o.dir ?? join(o.out, 'adjudicate'), LABELS_DIR);
       throw new Error('adjudicate prepare | apply');
+    }
+    case 'fixture': {
+      const dir = join(EVAL_DIR, 'fixtures', 'open');
+      const spec = JSON.parse(readFileSync(join(dir, 'spec.json'), 'utf8')) as FixtureSpec;
+      const bytes = await buildFixture(spec.blocks, specLabels(spec, LABELS_DIR), dir, (s) => tileSource(o, s));
+      console.log(`fixture: ${bytes} bytes of imagery -> ${dir}`);
+      return;
     }
     case 'compare': {
       const a = readReport(o.baseline, '--baseline'), b = readReport(o.report, '--report');

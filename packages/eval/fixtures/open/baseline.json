@@ -1,0 +1,23 @@
+{
+ "about": "Errors of each detector on the fixture at its default threshold. CI fails if a detector does worse than its line.",
+ "v1": {
+  "dgt-braga": {
+   "labels": 45,
+   "tp": 11,
+   "fp": 33,
+   "fn": 34
+  },
+  "ign-aix": {
+   "labels": 3,
+   "tp": 3,
+   "fp": 13,
+   "fn": 0
+  },
+  "pnoa-pozuelo": {
+   "labels": 25,
+   "tp": 14,
+   "fp": 0,
+   "fn": 11
+  }
+ }
+}
