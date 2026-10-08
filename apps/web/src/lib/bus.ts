@@ -9,6 +9,8 @@ export interface FlyToEvent {
 type Events = {
   flyto: FlyToEvent;
   cursor: { lon: number; lat: number };
+  /** The map view after it settles: west, south, east, north, and the zoom. */
+  view: { bbox: [number, number, number, number]; zoom: number };
 };
 
 type Handler<T> = (payload: T) => void;
