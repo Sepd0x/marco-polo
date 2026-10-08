@@ -14,10 +14,11 @@ export interface LearnedOptions {
   /** Two candidates clash when their boxes share more than this share of the smaller box. */
   nmsOverlap: number;
   /**
-   * How far the measured area reaches: `mask` counts the water pixels,
-   * `half` adds half a pixel along the outline, `ring` adds the full pixel ring.
+   * Pixel rings added around the water mask before the area and the outline
+   * are measured. The colour test loses the mixed pixels where water meets
+   * the coping, so the bare mask under-measures pools.
    */
-  rim: 'mask' | 'half' | 'ring';
+  rimPx: number;
   /** Outline simplification tolerance, px. */
   simplifyEpsilonPx: number;
 }
@@ -26,7 +27,7 @@ export const DEFAULT_LEARNED_OPTIONS: LearnedOptions = {
   candidates: { levels: CANDIDATE_LEVELS, minPixels: 10, minAreaM2: MIN_POOL_AREA_M2, maxAreaM2: 2000 },
   floor: 0.1,
   nmsOverlap: 0.3,
-  rim: 'mask',
+  rimPx: 0,
   simplifyEpsilonPx: 1.2,
 };
 
@@ -148,7 +149,7 @@ export function toTileDetection(
   const c = cand.component;
   const geo = (x: number, y: number) => bitmapPixelToLonLat(frame.tile, x - frame.offsetX, y - frame.offsetY, frame.tilePx);
 
-  let h = 0, sat = 0, v = 0, strict = 0, outside = 0, borderEdges = 0;
+  let h = 0, sat = 0, v = 0, strict = 0;
   for (let y = c.minY; y <= c.maxY; y++) {
     for (let x = c.minX; x <= c.maxX; x++) {
       const i = y * width + x;
@@ -157,31 +158,25 @@ export function toTileDetection(
       sat += hsv.sat[i];
       v += hsv.val[i];
       if (isStrictPoolPixel(hsv.hue[i], hsv.sat[i], DEFAULT_THRESHOLDS)) strict++;
-      for (const [dx, dy] of NEIGHBOURS4) {
-        const nx = x + dx, ny = y + dy;
-        if (nx < 0 || ny < 0 || nx >= width || ny >= height || cand.labels[ny * width + nx] !== c.label) borderEdges++;
-      }
     }
   }
-  if (options.rim === 'ring') outside = ringPixels(cand.labels, width, height, c);
   const px = c.pixelCount;
-  const rimPx = options.rim === 'mask' ? 0 : options.rim === 'half' ? borderEdges / 2 : outside;
-  const areaM2 = (px + rimPx) * cand.mPerPx * cand.mPerPx;
-
-  const outlinePx = simplifyRing(removeCollinear(traceOutline(cand.labels, width, height, c.label, c)), options.simplifyEpsilonPx);
+  const shape = grownShape(cand.labels, width, height, c, options.rimPx);
+  const areaM2 = shape.count * cand.mPerPx * cand.mPerPx;
+  const outlinePx = simplifyRing(removeCollinear(traceOutline(shape.labels, shape.w, shape.h, 1)), options.simplifyEpsilonPx);
   const outline: Ring = outlinePx.map(([x, y]) => {
-    const p = geo(x, y);
+    const p = geo(x + shape.x0, y + shape.y0);
     return [p.lon, p.lat] as [number, number];
   });
-  const nw = geo(c.minX, c.minY);
-  const se = geo(c.maxX + 1, c.maxY + 1);
+  const nw = geo(shape.x0, shape.y0);
+  const se = geo(shape.x0 + shape.w, shape.y0 + shape.h);
   const bw = c.maxX - c.minX + 1;
   const bh = c.maxY - c.minY + 1;
   const tex = cand.features[TEX];
   return {
     tile: frame.tile,
     pixelCount: px,
-    bboxPx: { minX: c.minX - frame.offsetX, minY: c.minY - frame.offsetY, maxX: c.maxX - frame.offsetX, maxY: c.maxY - frame.offsetY },
+    bboxPx: { minX: shape.x0 - frame.offsetX, minY: shape.y0 - frame.offsetY, maxX: shape.x0 + shape.w - 1 - frame.offsetX, maxY: shape.y0 + shape.h - 1 - frame.offsetY },
     bbox: { west: nw.lon, north: nw.lat, east: se.lon, south: se.lat },
     center: geo(cand.cx + 0.5, cand.cy + 0.5),
     outline,
@@ -198,24 +193,38 @@ export function toTileDetection(
   };
 }
 
-const NEIGHBOURS4: readonly [number, number][] = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-
-/** Pixels outside the shape that touch it on a side: the one-pixel ring around it. */
-function ringPixels(labels: Int32Array, width: number, height: number, c: { label: number; minX: number; minY: number; maxX: number; maxY: number }): number {
-  let n = 0;
-  for (let y = Math.max(0, c.minY - 1); y <= Math.min(height - 1, c.maxY + 1); y++) {
-    for (let x = Math.max(0, c.minX - 1); x <= Math.min(width - 1, c.maxX + 1); x++) {
-      const i = y * width + x;
-      if (labels[i] === c.label) continue;
-      if (
-        (x > 0 && labels[i - 1] === c.label) ||
-        (x < width - 1 && labels[i + 1] === c.label) ||
-        (y > 0 && labels[i - width] === c.label) ||
-        (y < height - 1 && labels[i + width] === c.label)
-      ) n++;
-    }
+/**
+ * The component cut out of the window and grown by `rim` four-neighbour
+ * dilations, in a local grid starting at (x0, y0). Growth stops at the
+ * window edge.
+ */
+function grownShape(
+  labels: Int32Array,
+  width: number,
+  height: number,
+  c: { label: number; minX: number; minY: number; maxX: number; maxY: number },
+  rim: number,
+): { labels: Int32Array; w: number; h: number; x0: number; y0: number; count: number } {
+  const x0 = Math.max(0, c.minX - rim), y0 = Math.max(0, c.minY - rim);
+  const x1 = Math.min(width - 1, c.maxX + rim), y1 = Math.min(height - 1, c.maxY + rim);
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  let m = new Int32Array(w * h);
+  for (let y = c.minY; y <= c.maxY; y++) {
+    for (let x = c.minX; x <= c.maxX; x++) if (labels[y * width + x] === c.label) m[(y - y0) * w + (x - x0)] = 1;
   }
-  return n;
+  for (let step = 0; step < rim; step++) {
+    const next = m.slice();
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        if (m[y * w + x]) continue;
+        if ((x > 0 && m[y * w + x - 1]) || (x < w - 1 && m[y * w + x + 1]) || (y > 0 && m[(y - 1) * w + x]) || (y < h - 1 && m[(y + 1) * w + x])) next[y * w + x] = 1;
+      }
+    }
+    m = next;
+  }
+  let count = 0;
+  for (let i = 0; i < m.length; i++) count += m[i];
+  return { labels: m, w, h, x0, y0, count };
 }
 
 /** Detections of one window: candidates with their centroid in the central tile. */
