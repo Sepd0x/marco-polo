@@ -10,8 +10,6 @@ export interface Settings {
   recommendedScore: boolean;
   showHotTubs: boolean;
   labels: boolean;
-  /** Accent colour over the dark base, hex. */
-  accent: string;
   imagery: ImagerySetting;
 }
 
@@ -24,7 +22,6 @@ export const DEFAULT_SETTINGS: Settings = {
   recommendedScore: true,
   showHotTubs: true,
   labels: true,
-  accent: '#35e0ff',
   imagery: { mode: 'auto' },
 };
 

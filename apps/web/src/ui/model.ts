@@ -8,6 +8,7 @@ import {
   measuredDims,
   metersPerPixelOfBitmap,
   pickProvider,
+  PLAN_LIMITS,
   rankDetections,
   ringAreaM2,
   tileBBox,
@@ -142,6 +143,8 @@ export interface AreaFacts {
   /** The slowest source sets the pace the panel quotes. */
   rate: number;
   sources: SourceFacts[];
+  /** About the largest area that can be scanned here, m² (the limit counts z19 tiles). */
+  maxAreaM2: number;
 }
 
 function sourceFacts(p: ImageryProvider, tiles: number, zoom: number, ratePerSec: number, date?: string | null): SourceFacts {
@@ -172,8 +175,10 @@ export function areaFacts(area: Ring, imagery: ImagerySetting, ratePerSec: numbe
   }
   const rate = sources.length ? Math.min(...sources.map((s) => s.rate)) : ratePerSec;
   if (est.approximate) seconds = est.requests / rate;
+  const areaM2 = ringAreaM2(area);
   return {
-    areaM2: ringAreaM2(area),
+    areaM2,
+    maxAreaM2: est.z19Tiles > 0 ? (areaM2 * PLAN_LIMITS.blockTiles) / est.z19Tiles : Infinity,
     tiles: est.requests,
     approximate: est.approximate,
     level: est.level,

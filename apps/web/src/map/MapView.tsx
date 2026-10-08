@@ -225,6 +225,12 @@ export function MapView() {
         if (s.phase === 'scanning' && s.settings.follow) s.updateSettings({ follow: false });
       });
 
+      // A display tile that fails (outside a source's coverage, offline) stays
+      // empty; only other map errors are worth the console.
+      map.on('error', (e: { error?: unknown; sourceId?: string; tile?: unknown }) => {
+        if (e.sourceId || e.tile) return;
+        console.error(e.error);
+      });
       foldAttribution(map);
       map.on('resize', () => foldAttribution(map));
 

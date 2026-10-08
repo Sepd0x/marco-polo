@@ -197,8 +197,7 @@ export function AreaSection() {
       )}
       {ready && blocked && (
         <p className="warn" role="alert">
-          Too large to scan: {facts.approximate ? 'about ' : ''}
-          {formatCount(facts.tiles)} tiles. The limit is 10,000. Draw a smaller area.
+          Too large to scan. Here the limit is about {formatLandArea(facts.maxAreaM2)}; draw a smaller area.
         </p>
       )}
       {ready && (
