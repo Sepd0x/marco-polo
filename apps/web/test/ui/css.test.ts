@@ -100,3 +100,12 @@ describe('motion', () => {
     expect(block).toMatch(/\.row\.new\s*{\s*animation: none/);
   });
 });
+
+describe('focus', () => {
+  it('draws a visible ring on keyboard focus, in a text colour that passes contrast', () => {
+    const base = style('base.css');
+    expect(base).toMatch(/:focus-visible\s*{\s*outline: 2px solid var\(--pool-text\)/);
+    expect(contrastRatio(light['pool-text'], light.panel)).toBeGreaterThanOrEqual(3);
+    expect(contrastRatio(dark['pool-text'], dark.panel)).toBeGreaterThanOrEqual(3);
+  });
+});
