@@ -1,76 +1,37 @@
 /// <reference lib="webworker" />
 /**
- * Detection worker: receives a decoded tile bitmap, runs the computer-vision
- * pipeline off the main thread, and returns geo-referenced detections plus
- * raw RGBA crops for result thumbnails.
+ * Detection worker. Decoding happens here, the same way the parity test
+ * decodes in Chromium and Firefox (createImageBitmap without colour space
+ * conversion or premultiplied alpha, then a 2D canvas), so the pixels the
+ * product scores are the pixels that were measured.
  */
-import { detectTile, type DetectorOptions, type TileCoord, type TileDetection } from '@marco-polo/core';
-import { fragKey } from '../lib/fragKey.js';
+import { productDetector, runJob, sniffType, type DecodedImage, type WorkJob } from './tileWork.js';
 
-export interface DetectRequest {
-  id: number;
-  tile: TileCoord;
-  bitmap: ImageBitmap;
-  options: Partial<DetectorOptions>;
-}
+const detector = productDetector();
 
-export interface ThumbCrop {
-  key: string;
-  width: number;
-  height: number;
-  buffer: ArrayBuffer;
-}
+const DECODE_OPTIONS: ImageBitmapOptions = { colorSpaceConversion: 'none', premultiplyAlpha: 'none' };
 
-export interface DetectResponse {
-  id: number;
-  detections: TileDetection[];
-  thumbs: ThumbCrop[];
-  error?: string;
-}
-
-const THUMB_PAD = 6;
-const THUMB_MAX = 120;
-
-self.onmessage = (e: MessageEvent<DetectRequest>) => {
-  const { id, tile, bitmap, options } = e.data;
+async function decode(bytes: Uint8Array): Promise<DecodedImage> {
+  const bmp = await createImageBitmap(new Blob([bytes as BlobPart], { type: sniffType(bytes) }), DECODE_OPTIONS);
   try {
-    const w = bitmap.width;
-    const h = bitmap.height;
-    const canvas = new OffscreenCanvas(w, h);
+    const canvas = new OffscreenCanvas(bmp.width, bmp.height);
     const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
-    ctx.drawImage(bitmap, 0, 0);
-    bitmap.close();
-    const img = ctx.getImageData(0, 0, w, h);
-
-    const detections = detectTile(img.data, w, h, tile, options);
-
-    const thumbs: ThumbCrop[] = [];
-    for (const d of detections) {
-      const x0 = Math.max(0, d.bboxPx.minX - THUMB_PAD);
-      const y0 = Math.max(0, d.bboxPx.minY - THUMB_PAD);
-      const x1 = Math.min(w, d.bboxPx.maxX + 1 + THUMB_PAD);
-      const y1 = Math.min(h, d.bboxPx.maxY + 1 + THUMB_PAD);
-      const cw = Math.min(THUMB_MAX, x1 - x0);
-      const ch = Math.min(THUMB_MAX, y1 - y0);
-      if (cw <= 0 || ch <= 0) continue;
-      const crop = ctx.getImageData(x0, y0, cw, ch);
-      thumbs.push({
-        key: fragKey(tile, d.bboxPx),
-        width: cw,
-        height: ch,
-        buffer: crop.data.buffer,
-      });
-    }
-
-    const response: DetectResponse = { id, detections, thumbs };
-    (self as unknown as Worker).postMessage(response, thumbs.map((t) => t.buffer));
-  } catch (err) {
-    const response: DetectResponse = {
-      id,
-      detections: [],
-      thumbs: [],
-      error: err instanceof Error ? err.message : String(err),
-    };
-    (self as unknown as Worker).postMessage(response);
+    ctx.drawImage(bmp, 0, 0);
+    const img = ctx.getImageData(0, 0, bmp.width, bmp.height);
+    return { pixels: img.data, width: img.width, height: img.height };
+  } finally {
+    bmp.close();
   }
+}
+
+async function encodeThumb(pixels: Uint8ClampedArray, width: number, height: number): Promise<Blob> {
+  const canvas = new OffscreenCanvas(width, height);
+  const ctx = canvas.getContext('2d')!;
+  ctx.putImageData(new ImageData(pixels as Uint8ClampedArray<ArrayBuffer>, width, height), 0, 0);
+  return canvas.convertToBlob({ type: 'image/png' });
+}
+
+self.onmessage = async (e: MessageEvent<WorkJob>) => {
+  const result = await runJob(e.data, { decode, encodeThumb, detector });
+  (self as unknown as Worker).postMessage(result);
 };

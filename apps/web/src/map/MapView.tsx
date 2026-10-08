@@ -198,6 +198,8 @@ export function MapView() {
         if (s.phase === 'scanning' && s.settings.follow) s.updateSettings({ follow: false });
       });
 
+      emit('mapready', {});
+
       unsubs.push(() => {
         draw.dispose();
         overlay.dispose();

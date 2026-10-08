@@ -1,56 +1,76 @@
-import type { RankedDetection, Ring } from '@marco-polo/core';
-import { googleMapsUrl } from './links.js';
+/**
+ * Exports of the scan on screen, through the core writers: every row carries
+ * its source, layer, capture date and plan part, and nothing that looks like
+ * a URL template or a key goes out.
+ */
+import {
+  findAnyProvider,
+  partSummary,
+  provenanceOf,
+  toCSV as coreCSV,
+  toGeoJSON as coreGeoJSON,
+  toResultDetection,
+  type Provenance,
+  type RankedDetection,
+  type ScanResult,
+} from '@marco-polo/core';
+import { useStore, type PartView } from '../state/store.js';
+import { partOfDetection } from '../scan/ids.js';
 
-function closeRing(ring: Ring): [number, number][] {
-  if (ring.length === 0) return [];
-  const first = ring[0];
-  const last = ring[ring.length - 1];
-  if (first[0] === last[0] && first[1] === last[1]) return ring as [number, number][];
-  return [...ring, first] as [number, number][];
+/** Provenance of detections from scans saved before sources were recorded. */
+const UNKNOWN: Provenance = {
+  providerId: 'unknown',
+  providerName: 'Not recorded (scan saved by an older version)',
+  layer: null,
+  date: null,
+  zoom: 19,
+  nativeResM: null,
+  partId: 'p0',
+};
+
+export function partProvenance(p: PartView): Provenance {
+  const provider = findAnyProvider(p.providerId);
+  if (!provider) return { ...UNKNOWN, providerId: p.providerId, providerName: p.providerName, zoom: p.zoom, partId: p.id };
+  return provenanceOf(provider, p.id, p.zoom, p.date);
 }
 
-export function toGeoJSON(detections: RankedDetection[], meta: Record<string, unknown> = {}): string {
-  const collection = {
-    type: 'FeatureCollection',
-    ...meta,
-    features: detections.map((d) => ({
-      type: 'Feature',
-      geometry: {
-        type: 'MultiPolygon',
-        coordinates: d.outline.map((ring) => [closeRing(ring)]),
-      },
-      properties: {
-        id: d.id,
-        rank: d.rank,
-        kind: d.kind,
-        area_m2: Number(d.areaM2.toFixed(1)),
-        confidence: d.confidence,
-        lat: Number(d.center.lat.toFixed(6)),
-        lon: Number(d.center.lon.toFixed(6)),
-        truncated: d.truncated,
-        google_maps: googleMapsUrl(d.center.lat, d.center.lon),
-      },
-    })),
+interface ResultInput {
+  area: [number, number][] | null;
+  parts: PartView[];
+  ranked: RankedDetection[];
+  settings: { minConfidence: number };
+}
+
+/**
+ * The scan as a ScanResult. `listed` is what the user chose to export (the
+ * filtered list); everything else found counts as below the threshold.
+ */
+export function scanResult(s: ResultInput, listed: RankedDetection[] = s.ranked, now = new Date()): ScanResult {
+  const byPart = new Map(s.parts.map((p) => [p.id, partProvenance(p)]));
+  const fallback = s.parts.length === 1 ? byPart.get(s.parts[0].id)! : UNKNOWN;
+  const detections = listed.map((d) => {
+    const part = partOfDetection(d.id);
+    return toResultDetection(d, (part && byPart.get(part)) || fallback);
+  });
+  return {
+    formatVersion: 2,
+    createdAt: now.toISOString(),
+    area: s.area ?? [],
+    threshold: s.settings.minConfidence,
+    parts: s.parts.map((p) => partSummary(p.id, byPart.get(p.id)!, p.tiles.length || p.tilesDone, p.tilesNoCoverage, p.areaM2)),
+    detections,
+    belowThreshold: Math.max(0, s.ranked.length - listed.length),
   };
-  return JSON.stringify(collection, null, 2);
 }
 
-export function toCSV(detections: RankedDetection[]): string {
-  const header = 'rank,id,kind,lat,lon,area_m2,confidence,truncated,google_maps';
-  const rows = detections.map((d) =>
-    [
-      d.rank,
-      d.id,
-      d.kind,
-      d.center.lat.toFixed(6),
-      d.center.lon.toFixed(6),
-      d.areaM2.toFixed(1),
-      d.confidence,
-      d.truncated,
-      `"${googleMapsUrl(d.center.lat, d.center.lon)}"`,
-    ].join(','),
-  );
-  return [header, ...rows].join('\n');
+/** GeoJSON of the listed detections of the scan on screen. */
+export function toGeoJSON(listed: RankedDetection[], state: ResultInput = useStore.getState()): string {
+  return coreGeoJSON(scanResult(state, listed));
+}
+
+/** CSV of the listed detections of the scan on screen. */
+export function toCSV(listed: RankedDetection[], state: ResultInput = useStore.getState()): string {
+  return coreCSV(scanResult(state, listed));
 }
 
 export function download(filename: string, content: string, mime: string): void {
