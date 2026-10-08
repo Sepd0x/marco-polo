@@ -1,96 +1,145 @@
-import * as maplibregl from 'maplibre-gl';
+import type * as maplibregl from 'maplibre-gl';
 import type { RankedDetection, Ring, ScanTile } from '@marco-polo/core';
-import { lighten } from '../lib/theme.js';
-
-const HOT_TUB_COLOR = '#ffc866';
+import { chaikin, OUTLINE_CASING, POOL_OUTLINE } from './outline.js';
 
 const EMPTY: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 
-/** Max plan size for which individual tile grid lines are drawn. */
+/** Plans larger than this draw no grid (it would be a grey smear anyway). */
 const GRID_LIMIT = 6000;
 
+const LINE = '#f4f6f8';
+
+/** The whole world, for the darkened outside of the area. */
+const WORLD: GeoJSON.Position[] = [
+  [-180, -85.06],
+  [180, -85.06],
+  [180, 85.06],
+  [-180, 85.06],
+  [-180, -85.06],
+];
+
+function closed(ring: Ring): GeoJSON.Position[] {
+  return [...ring, ring[0]];
+}
+
+/** The ring wound clockwise (lon east, lat north), opposite to WORLD, so MapLibre reads it as a hole. */
+function asHole(ring: Ring): GeoJSON.Position[] {
+  let twice = 0;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    twice += (ring[j][0] - ring[i][0]) * (ring[j][1] + ring[i][1]);
+  }
+  const c = closed(ring);
+  return twice > 0 ? c.reverse() : c;
+}
+
+function tileRing(t: ScanTile): GeoJSON.Position[] {
+  const b = t.bbox;
+  return [
+    [b.west, b.north],
+    [b.east, b.north],
+    [b.east, b.south],
+    [b.west, b.south],
+    [b.west, b.north],
+  ];
+}
+
 /**
- * Owns every scan-related layer on the map: the drawn area, the tile grid of
- * the plan, scanned coverage, the pulsing current tile, and detection shapes.
+ * Every scan layer on the map: the drawn area, the plan grid (pending tiles
+ * dashed under a light veil, scanned tiles clean), the tile being read, the
+ * pool outlines and the drawing draft. Tile progress uses feature state, so
+ * a finished tile costs no GeoJSON upload. Nothing here animates per frame.
  */
 export class ScanOverlay {
   private map: maplibregl.Map;
-  private scannedCoords: GeoJSON.Position[][][] = [];
-  private scannedFlush: number | null = null;
-  private pulseFrame: number | null = null;
-  private pulseOn = false;
+  private tileIds = new Map<string, number>();
+  private complete = false;
 
-  constructor(map: maplibregl.Map) {
+  constructor(map: maplibregl.Map, beforeId?: string) {
     this.map = map;
-    this.installSourcesAndLayers();
+    this.install(beforeId);
   }
 
-  private installSourcesAndLayers(): void {
+  private install(beforeId?: string): void {
     const map = this.map;
-    const addSrc = (id: string) => {
+    for (const id of ['outside', 'area', 'current', 'detections', 'draft']) {
       if (!map.getSource(id)) map.addSource(id, { type: 'geojson', data: EMPTY });
-    };
-    for (const id of ['scanned', 'plangrid', 'area', 'current', 'detections', 'draft']) addSrc(id);
+    }
+    if (!map.getSource('plan')) map.addSource('plan', { type: 'geojson', data: EMPTY });
 
+    const done: maplibregl.ExpressionSpecification = ['boolean', ['feature-state', 'done'], false];
+    const selected: maplibregl.ExpressionSpecification = ['==', ['get', 'selected'], 1];
     const layers: maplibregl.LayerSpecification[] = [
       {
-        id: 'scanned-fill',
+        id: 'outside-fill',
         type: 'fill',
-        source: 'scanned',
-        paint: { 'fill-color': '#35e0ff', 'fill-opacity': 0.05 },
+        source: 'outside',
+        paint: { 'fill-color': '#05070a', 'fill-opacity': 0, 'fill-opacity-transition': { duration: 400, delay: 0 } },
       },
       {
-        id: 'plangrid-line',
+        id: 'plan-veil',
+        type: 'fill',
+        source: 'plan',
+        paint: {
+          'fill-color': '#0b0f14',
+          'fill-opacity': ['case', done, 0, 0.32],
+        },
+      },
+      {
+        id: 'plan-line',
         type: 'line',
-        source: 'plangrid',
-        paint: { 'line-color': '#35e0ff', 'line-opacity': 0.14, 'line-width': 0.7 },
+        source: 'plan',
+        paint: {
+          'line-color': LINE,
+          'line-opacity': ['case', done, 0, 0.55],
+          'line-width': 0.8,
+          'line-dasharray': [2, 2],
+        },
       },
       {
-        id: 'area-fill',
-        type: 'fill',
+        id: 'area-casing',
+        type: 'line',
         source: 'area',
-        paint: { 'fill-color': '#35e0ff', 'fill-opacity': 0.03 },
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: { 'line-color': OUTLINE_CASING, 'line-opacity': 0.7, 'line-width': 3.5 },
       },
       {
         id: 'area-line',
         type: 'line',
         source: 'area',
-        paint: {
-          'line-color': '#35e0ff',
-          'line-opacity': 0.8,
-          'line-width': 1.4,
-          'line-dasharray': [3, 2],
-        },
-      },
-      {
-        id: 'current-fill',
-        type: 'fill',
-        source: 'current',
-        paint: { 'fill-color': '#35e0ff', 'fill-opacity': 0.16 },
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: { 'line-color': LINE, 'line-width': 1.5 },
       },
       {
         id: 'current-line',
         type: 'line',
         source: 'current',
-        paint: { 'line-color': '#7ef0ff', 'line-opacity': 0.95, 'line-width': 1.6 },
+        paint: { 'line-color': LINE, 'line-width': 2, 'line-opacity': 0.95 },
       },
       {
         id: 'det-fill',
         type: 'fill',
         source: 'detections',
+        paint: { 'fill-color': POOL_OUTLINE, 'fill-opacity': ['case', selected, 0.25, 0] },
+      },
+      {
+        id: 'det-casing',
+        type: 'line',
+        source: 'detections',
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
-          'fill-color': ['case', ['==', ['get', 'kind'], 'hot_tub'], '#ffc866', '#35e0ff'],
-          'fill-opacity': ['case', ['==', ['get', 'selected'], 1], 0.4, 0.18],
+          'line-color': OUTLINE_CASING,
+          'line-opacity': 0.85,
+          'line-width': ['case', selected, 5.5, 4],
         },
       },
       {
         id: 'det-line',
         type: 'line',
         source: 'detections',
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
-          'line-color': ['case', ['==', ['get', 'kind'], 'hot_tub'], '#ffc866', '#35e0ff'],
-          'line-opacity': 0.95,
-          'line-width': ['case', ['==', ['get', 'selected'], 1], 2.4, 1.1],
+          'line-color': POOL_OUTLINE,
+          'line-width': ['case', selected, 2.6, ['==', ['get', 'kind'], 'hot_tub'], 1.2, 1.7],
         },
       },
       {
@@ -98,18 +147,14 @@ export class ScanOverlay {
         type: 'fill',
         source: 'draft',
         filter: ['==', ['geometry-type'], 'Polygon'],
-        paint: { 'fill-color': '#35e0ff', 'fill-opacity': 0.08 },
+        paint: { 'fill-color': LINE, 'fill-opacity': 0.08 },
       },
       {
         id: 'draft-line',
         type: 'line',
         source: 'draft',
         filter: ['!=', ['geometry-type'], 'Point'],
-        paint: {
-          'line-color': '#7ef0ff',
-          'line-width': 1.5,
-          'line-dasharray': [2, 1.5],
-        },
+        paint: { 'line-color': LINE, 'line-width': 1.5, 'line-dasharray': [2, 1.5] },
       },
       {
         id: 'draft-vertex',
@@ -118,181 +163,103 @@ export class ScanOverlay {
         filter: ['==', ['geometry-type'], 'Point'],
         paint: {
           'circle-radius': 3.5,
-          'circle-color': '#06090d',
-          'circle-stroke-color': '#7ef0ff',
+          'circle-color': OUTLINE_CASING,
+          'circle-stroke-color': LINE,
           'circle-stroke-width': 1.5,
         },
       },
     ];
     for (const layer of layers) {
-      if (!this.map.getLayer(layer.id)) this.map.addLayer(layer);
+      if (!map.getLayer(layer.id)) map.addLayer(layer, beforeId);
     }
   }
 
+  private source(id: string): maplibregl.GeoJSONSource {
+    return this.map.getSource(id) as maplibregl.GeoJSONSource;
+  }
+
   setArea(ring: Ring | null): void {
-    const src = this.map.getSource('area') as maplibregl.GeoJSONSource;
     if (!ring) {
-      src.setData(EMPTY);
+      this.source('area').setData(EMPTY);
+      this.source('outside').setData(EMPTY);
       return;
     }
-    src.setData({
+    const polygon: GeoJSON.Polygon = { type: 'Polygon', coordinates: [closed(ring)] };
+    this.source('area').setData({ type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: polygon }] });
+    this.source('outside').setData({
       type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {},
-          geometry: { type: 'Polygon', coordinates: [[...ring, ring[0]]] },
-        },
-      ],
+      features: [{ type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [WORLD, asHole(ring)] } }],
     });
   }
 
   setPlan(tiles: ScanTile[] | null): void {
-    const src = this.map.getSource('plangrid') as maplibregl.GeoJSONSource;
-    this.scannedCoords = [];
-    (this.map.getSource('scanned') as maplibregl.GeoJSONSource).setData(EMPTY);
+    this.tileIds.clear();
+    const src = this.source('plan');
+    this.map.removeFeatureState({ source: 'plan' });
     if (!tiles || tiles.length === 0 || tiles.length > GRID_LIMIT) {
       src.setData(EMPTY);
       return;
     }
-    // One MultiLineString of every tile's outline — cheap to render, one feature.
-    const lines: GeoJSON.Position[][] = tiles.map((t) => [
-      [t.bbox.west, t.bbox.north],
-      [t.bbox.east, t.bbox.north],
-      [t.bbox.east, t.bbox.south],
-      [t.bbox.west, t.bbox.south],
-      [t.bbox.west, t.bbox.north],
-    ]);
     src.setData({
       type: 'FeatureCollection',
-      features: [
-        { type: 'Feature', properties: {}, geometry: { type: 'MultiLineString', coordinates: lines } },
-      ],
+      features: tiles.map((t, i) => {
+        this.tileIds.set(keyOf(t), i);
+        return { type: 'Feature', id: i, properties: {}, geometry: { type: 'Polygon', coordinates: [tileRing(t)] } };
+      }),
     });
   }
 
   markScanned(tile: ScanTile): void {
-    this.scannedCoords.push([
-      [
-        [tile.bbox.west, tile.bbox.north],
-        [tile.bbox.east, tile.bbox.north],
-        [tile.bbox.east, tile.bbox.south],
-        [tile.bbox.west, tile.bbox.south],
-        [tile.bbox.west, tile.bbox.north],
-      ],
-    ]);
-    if (this.scannedFlush === null) {
-      this.scannedFlush = window.setTimeout(() => {
-        this.scannedFlush = null;
-        (this.map.getSource('scanned') as maplibregl.GeoJSONSource).setData({
-          type: 'FeatureCollection',
-          features: [
-            {
-              type: 'Feature',
-              properties: {},
-              geometry: { type: 'MultiPolygon', coordinates: this.scannedCoords },
-            },
-          ],
-        });
-      }, 180);
-    }
+    const id = this.tileIds.get(keyOf(tile));
+    if (id !== undefined) this.map.setFeatureState({ source: 'plan', id }, { done: true });
   }
 
   setCurrent(tile: ScanTile | null): void {
-    const src = this.map.getSource('current') as maplibregl.GeoJSONSource;
+    const src = this.source('current');
     if (!tile) {
       src.setData(EMPTY);
-      this.stopPulse();
       return;
     }
     src.setData({
       type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [
-                [tile.bbox.west, tile.bbox.north],
-                [tile.bbox.east, tile.bbox.north],
-                [tile.bbox.east, tile.bbox.south],
-                [tile.bbox.west, tile.bbox.south],
-                [tile.bbox.west, tile.bbox.north],
-              ],
-            ],
-          },
-        },
-      ],
+      features: [{ type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [tileRing(tile)] } }],
     });
-    this.startPulse();
   }
 
-  private startPulse(): void {
-    if (this.pulseOn) return;
-    this.pulseOn = true;
-    const step = (t: number) => {
-      if (!this.pulseOn) return;
-      const phase = (Math.sin(t / 260) + 1) / 2;
-      if (this.map.getLayer('current-fill')) {
-        this.map.setPaintProperty('current-fill', 'fill-opacity', 0.08 + phase * 0.2);
-        this.map.setPaintProperty('current-line', 'line-opacity', 0.55 + phase * 0.45);
-      }
-      this.pulseFrame = requestAnimationFrame(step);
-    };
-    this.pulseFrame = requestAnimationFrame(step);
-  }
-
-  private stopPulse(): void {
-    this.pulseOn = false;
-    if (this.pulseFrame !== null) cancelAnimationFrame(this.pulseFrame);
-    this.pulseFrame = null;
+  /**
+   * End of a scan: the grid and the veil go, the outside of the area darkens.
+   * Off again for a new area or scan.
+   */
+  setComplete(on: boolean): void {
+    if (on === this.complete) return;
+    this.complete = on;
+    const vis = on ? 'none' : 'visible';
+    for (const id of ['plan-veil', 'plan-line', 'current-line']) this.map.setLayoutProperty(id, 'visibility', vis);
+    this.map.setPaintProperty('outside-fill', 'fill-opacity', on ? 0.45 : 0);
   }
 
   setDetections(list: RankedDetection[], selectedId: string | null): void {
-    const src = this.map.getSource('detections') as maplibregl.GeoJSONSource;
-    src.setData({
+    this.source('detections').setData({
       type: 'FeatureCollection',
       features: list.map((d) => ({
         type: 'Feature',
-        properties: {
-          id: d.id,
-          kind: d.kind,
-          rank: d.rank,
-          selected: d.id === selectedId ? 1 : 0,
-        },
+        properties: { id: d.id, kind: d.kind, rank: d.rank, selected: d.id === selectedId ? 1 : 0 },
         geometry: {
           type: 'MultiPolygon',
-          coordinates: d.outline.map((ring) => [[...ring, ring[0]]]),
+          coordinates: d.outline.map((ring) => {
+            const smooth = chaikin(ring, 2);
+            return [[...smooth, smooth[0]]];
+          }),
         },
       })),
     });
   }
 
-  /** Re-colour every scan layer to the configured accent. */
-  setAccent(hex: string): void {
-    const bright = lighten(hex, 0.4);
-    const set = (layer: string, prop: Parameters<maplibregl.Map['setPaintProperty']>[1], value: unknown) => {
-      if (this.map.getLayer(layer)) {
-        this.map.setPaintProperty(layer, prop, value as never);
-      }
-    };
-    set('scanned-fill', 'fill-color', hex);
-    set('plangrid-line', 'line-color', hex);
-    set('area-fill', 'fill-color', hex);
-    set('area-line', 'line-color', hex);
-    set('current-fill', 'fill-color', hex);
-    set('current-line', 'line-color', bright);
-    set('det-fill', 'fill-color', ['case', ['==', ['get', 'kind'], 'hot_tub'], HOT_TUB_COLOR, hex]);
-    set('det-line', 'line-color', ['case', ['==', ['get', 'kind'], 'hot_tub'], HOT_TUB_COLOR, hex]);
-    set('draft-fill', 'fill-color', hex);
-    set('draft-line', 'line-color', bright);
-    set('draft-vertex', 'circle-stroke-color', bright);
-  }
-
   dispose(): void {
-    this.stopPulse();
-    if (this.scannedFlush !== null) clearTimeout(this.scannedFlush);
+    this.tileIds.clear();
   }
+}
+
+function keyOf(t: ScanTile): string {
+  return `${t.tile.z}/${t.tile.x}/${t.tile.y}`;
 }

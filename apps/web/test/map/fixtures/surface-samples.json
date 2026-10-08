@@ -1,0 +1,1637 @@
+{
+ "about": "Mean sRGB of hand-picked roof-tile and grass patches and of the centre half of each labelled pool box, from the open fixture mosaics (z19, packages/eval/fixtures/open). rectPx is in the block mosaic, origin at the top-left tile.",
+ "samples": [
+  {
+   "class": "roof",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    120,
+    40,
+    170,
+    90
+   ],
+   "rgb": [
+    202,
+    145,
+    127
+   ],
+   "pixels": 2500
+  },
+  {
+   "class": "roof",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    140,
+    625,
+    200,
+    670
+   ],
+   "rgb": [
+    142,
+    128,
+    124
+   ],
+   "pixels": 2700
+  },
+  {
+   "class": "roof",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    30,
+    860,
+    80,
+    900
+   ],
+   "rgb": [
+    142,
+    117,
+    113
+   ],
+   "pixels": 2000
+  },
+  {
+   "class": "roof",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    85,
+    1110,
+    130,
+    1190
+   ],
+   "rgb": [
+    198,
+    145,
+    128
+   ],
+   "pixels": 3600
+  },
+  {
+   "class": "roof",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1150,
+    505,
+    1175,
+    540
+   ],
+   "rgb": [
+    144,
+    127,
+    126
+   ],
+   "pixels": 875
+  },
+  {
+   "class": "grass",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    205,
+    80,
+    245,
+    115
+   ],
+   "rgb": [
+    111,
+    127,
+    107
+   ],
+   "pixels": 1400
+  },
+  {
+   "class": "grass",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    150,
+    400,
+    165,
+    440
+   ],
+   "rgb": [
+    132,
+    141,
+    117
+   ],
+   "pixels": 600
+  },
+  {
+   "class": "grass",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    700,
+    40,
+    740,
+    70
+   ],
+   "rgb": [
+    110,
+    128,
+    109
+   ],
+   "pixels": 1200
+  },
+  {
+   "class": "grass",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    605,
+    345,
+    625,
+    380
+   ],
+   "rgb": [
+    131,
+    141,
+    123
+   ],
+   "pixels": 700
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    601,
+    665,
+    610,
+    672
+   ],
+   "rgb": [
+    185,
+    216,
+    226
+   ],
+   "pixels": 63
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    990,
+    898,
+    996,
+    904
+   ],
+   "rgb": [
+    165,
+    205,
+    233
+   ],
+   "pixels": 36
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    542,
+    380,
+    559,
+    393
+   ],
+   "rgb": [
+    217,
+    252,
+    253
+   ],
+   "pixels": 221
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    876,
+    323,
+    891,
+    338
+   ],
+   "rgb": [
+    194,
+    238,
+    238
+   ],
+   "pixels": 225
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    532,
+    933,
+    550,
+    943
+   ],
+   "rgb": [
+    191,
+    196,
+    210
+   ],
+   "pixels": 180
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1074,
+    310,
+    1085,
+    326
+   ],
+   "rgb": [
+    152,
+    206,
+    223
+   ],
+   "pixels": 176
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    65,
+    507,
+    74,
+    528
+   ],
+   "rgb": [
+    124,
+    166,
+    176
+   ],
+   "pixels": 189
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    126,
+    681,
+    136,
+    699
+   ],
+   "rgb": [
+    113,
+    143,
+    157
+   ],
+   "pixels": 180
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    578,
+    375,
+    594,
+    386
+   ],
+   "rgb": [
+    206,
+    249,
+    248
+   ],
+   "pixels": 176
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    336,
+    696,
+    349,
+    707
+   ],
+   "rgb": [
+    126,
+    131,
+    131
+   ],
+   "pixels": 143
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    888,
+    1244,
+    898,
+    1262
+   ],
+   "rgb": [
+    133,
+    195,
+    219
+   ],
+   "pixels": 180
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    710,
+    367,
+    726,
+    376
+   ],
+   "rgb": [
+    154,
+    171,
+    164
+   ],
+   "pixels": 144
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1102,
+    300,
+    1120,
+    309
+   ],
+   "rgb": [
+    197,
+    241,
+    237
+   ],
+   "pixels": 162
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1190,
+    867,
+    1204,
+    878
+   ],
+   "rgb": [
+    195,
+    232,
+    230
+   ],
+   "pixels": 154
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1256,
+    283,
+    1263,
+    301
+   ],
+   "rgb": [
+    107,
+    138,
+    145
+   ],
+   "pixels": 126
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    67,
+    1022,
+    79,
+    1032
+   ],
+   "rgb": [
+    137,
+    207,
+    232
+   ],
+   "pixels": 120
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    913,
+    308,
+    924,
+    319
+   ],
+   "rgb": [
+    209,
+    252,
+    252
+   ],
+   "pixels": 121
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    796,
+    620,
+    811,
+    627
+   ],
+   "rgb": [
+    164,
+    182,
+    195
+   ],
+   "pixels": 105
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1194,
+    293,
+    1201,
+    308
+   ],
+   "rgb": [
+    106,
+    135,
+    143
+   ],
+   "pixels": 105
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    265,
+    698,
+    280,
+    706
+   ],
+   "rgb": [
+    177,
+    211,
+    207
+   ],
+   "pixels": 120
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    984,
+    318,
+    993,
+    330
+   ],
+   "rgb": [
+    187,
+    226,
+    237
+   ],
+   "pixels": 108
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    822,
+    664,
+    830,
+    677
+   ],
+   "rgb": [
+    95,
+    127,
+    151
+   ],
+   "pixels": 104
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    395,
+    950,
+    404,
+    960
+   ],
+   "rgb": [
+    135,
+    179,
+    194
+   ],
+   "pixels": 90
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    882,
+    1161,
+    893,
+    1169
+   ],
+   "rgb": [
+    143,
+    212,
+    239
+   ],
+   "pixels": 88
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    360,
+    693,
+    369,
+    702
+   ],
+   "rgb": [
+    169,
+    161,
+    167
+   ],
+   "pixels": 81
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    761,
+    1196,
+    770,
+    1204
+   ],
+   "rgb": [
+    182,
+    229,
+    241
+   ],
+   "pixels": 72
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    758,
+    928,
+    765,
+    938
+   ],
+   "rgb": [
+    160,
+    204,
+    227
+   ],
+   "pixels": 70
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    636,
+    945,
+    642,
+    956
+   ],
+   "rgb": [
+    122,
+    174,
+    189
+   ],
+   "pixels": 66
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    619,
+    945,
+    626,
+    956
+   ],
+   "rgb": [
+    179,
+    224,
+    229
+   ],
+   "pixels": 77
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1030,
+    1165,
+    1038,
+    1173
+   ],
+   "rgb": [
+    155,
+    165,
+    161
+   ],
+   "pixels": 64
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    928,
+    338,
+    936,
+    346
+   ],
+   "rgb": [
+    208,
+    242,
+    241
+   ],
+   "pixels": 64
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    973,
+    304,
+    984,
+    309
+   ],
+   "rgb": [
+    134,
+    162,
+    169
+   ],
+   "pixels": 55
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    955,
+    324,
+    964,
+    331
+   ],
+   "rgb": [
+    209,
+    241,
+    241
+   ],
+   "pixels": 63
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    700,
+    1204,
+    707,
+    1212
+   ],
+   "rgb": [
+    168,
+    208,
+    213
+   ],
+   "pixels": 56
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1054,
+    588,
+    1062,
+    595
+   ],
+   "rgb": [
+    174,
+    210,
+    224
+   ],
+   "pixels": 56
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1225,
+    289,
+    1231,
+    299
+   ],
+   "rgb": [
+    150,
+    210,
+    229
+   ],
+   "pixels": 60
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    505,
+    658,
+    514,
+    666
+   ],
+   "rgb": [
+    147,
+    169,
+    170
+   ],
+   "pixels": 72
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    644,
+    640,
+    651,
+    648
+   ],
+   "rgb": [
+    128,
+    148,
+    151
+   ],
+   "pixels": 56
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    670,
+    942,
+    677,
+    949
+   ],
+   "rgb": [
+    172,
+    223,
+    239
+   ],
+   "pixels": 49
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    448,
+    986,
+    466,
+    995
+   ],
+   "rgb": [
+    101,
+    147,
+    170
+   ],
+   "pixels": 162
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    1100,
+    599,
+    1116,
+    607
+   ],
+   "rgb": [
+    219,
+    254,
+    253
+   ],
+   "pixels": 128
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    186,
+    420,
+    195,
+    435
+   ],
+   "rgb": [
+    117,
+    177,
+    196
+   ],
+   "pixels": 135
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    474,
+    47,
+    495,
+    58
+   ],
+   "rgb": [
+    149,
+    233,
+    251
+   ],
+   "pixels": 231
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    338,
+    77,
+    349,
+    99
+   ],
+   "rgb": [
+    69,
+    103,
+    129
+   ],
+   "pixels": 242
+  },
+  {
+   "class": "water",
+   "source": "dgt",
+   "block": "dgt-braga",
+   "rectPx": [
+    264,
+    272,
+    288,
+    293
+   ],
+   "rgb": [
+    148,
+    221,
+    236
+   ],
+   "pixels": 504
+  },
+  {
+   "class": "roof",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    835,
+    140,
+    900,
+    200
+   ],
+   "rgb": [
+    149,
+    123,
+    117
+   ],
+   "pixels": 3900
+  },
+  {
+   "class": "roof",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    482,
+    150,
+    512,
+    212
+   ],
+   "rgb": [
+    124,
+    112,
+    107
+   ],
+   "pixels": 1860
+  },
+  {
+   "class": "roof",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    880,
+    912,
+    915,
+    930
+   ],
+   "rgb": [
+    131,
+    112,
+    106
+   ],
+   "pixels": 630
+  },
+  {
+   "class": "roof",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    330,
+    460,
+    380,
+    505
+   ],
+   "rgb": [
+    164,
+    150,
+    137
+   ],
+   "pixels": 2250
+  },
+  {
+   "class": "roof",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    0,
+    70,
+    40,
+    120
+   ],
+   "rgb": [
+    131,
+    117,
+    111
+   ],
+   "pixels": 2000
+  },
+  {
+   "class": "grass",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    600,
+    700,
+    750,
+    850
+   ],
+   "rgb": [
+    91,
+    104,
+    90
+   ],
+   "pixels": 22500
+  },
+  {
+   "class": "grass",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    420,
+    820,
+    520,
+    900
+   ],
+   "rgb": [
+    111,
+    118,
+    101
+   ],
+   "pixels": 8000
+  },
+  {
+   "class": "grass",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    200,
+    600,
+    280,
+    680
+   ],
+   "rgb": [
+    70,
+    84,
+    78
+   ],
+   "pixels": 6400
+  },
+  {
+   "class": "grass",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    60,
+    850,
+    120,
+    900
+   ],
+   "rgb": [
+    80,
+    93,
+    82
+   ],
+   "pixels": 3000
+  },
+  {
+   "class": "water",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    523,
+    267,
+    558,
+    284
+   ],
+   "rgb": [
+    180,
+    230,
+    226
+   ],
+   "pixels": 595
+  },
+  {
+   "class": "water",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    188,
+    421,
+    206,
+    442
+   ],
+   "rgb": [
+    95,
+    136,
+    135
+   ],
+   "pixels": 378
+  },
+  {
+   "class": "water",
+   "source": "ign",
+   "block": "ign-aix",
+   "rectPx": [
+    373,
+    616,
+    400,
+    650
+   ],
+   "rgb": [
+    110,
+    155,
+    154
+   ],
+   "pixels": 918
+  },
+  {
+   "class": "roof",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    860,
+    430,
+    940,
+    490
+   ],
+   "rgb": [
+    155,
+    127,
+    104
+   ],
+   "pixels": 4800
+  },
+  {
+   "class": "roof",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    570,
+    850,
+    630,
+    930
+   ],
+   "rgb": [
+    162,
+    129,
+    104
+   ],
+   "pixels": 4800
+  },
+  {
+   "class": "roof",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    790,
+    815,
+    840,
+    860
+   ],
+   "rgb": [
+    124,
+    105,
+    88
+   ],
+   "pixels": 2250
+  },
+  {
+   "class": "grass",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    285,
+    290,
+    305,
+    310
+   ],
+   "rgb": [
+    61,
+    81,
+    59
+   ],
+   "pixels": 400
+  },
+  {
+   "class": "grass",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    575,
+    405,
+    598,
+    428
+   ],
+   "rgb": [
+    92,
+    112,
+    77
+   ],
+   "pixels": 529
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    83,
+    40,
+    98,
+    48
+   ],
+   "rgb": [
+    104,
+    139,
+    158
+   ],
+   "pixels": 120
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    153,
+    30,
+    168,
+    38
+   ],
+   "rgb": [
+    54,
+    87,
+    97
+   ],
+   "pixels": 120
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    350,
+    95,
+    371,
+    104
+   ],
+   "rgb": [
+    110,
+    162,
+    165
+   ],
+   "pixels": 189
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    244,
+    136,
+    262,
+    150
+   ],
+   "rgb": [
+    166,
+    196,
+    190
+   ],
+   "pixels": 252
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    313,
+    170,
+    328,
+    181
+   ],
+   "rgb": [
+    168,
+    182,
+    174
+   ],
+   "pixels": 165
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    579,
+    120,
+    597,
+    131
+   ],
+   "rgb": [
+    78,
+    125,
+    157
+   ],
+   "pixels": 198
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    676,
+    85,
+    690,
+    106
+   ],
+   "rgb": [
+    143,
+    172,
+    183
+   ],
+   "pixels": 294
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    870,
+    160,
+    891,
+    171
+   ],
+   "rgb": [
+    140,
+    193,
+    198
+   ],
+   "pixels": 231
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    938,
+    179,
+    963,
+    187
+   ],
+   "rgb": [
+    131,
+    171,
+    180
+   ],
+   "pixels": 200
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    982,
+    135,
+    994,
+    156
+   ],
+   "rgb": [
+    167,
+    177,
+    171
+   ],
+   "pixels": 252
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    789,
+    246,
+    807,
+    257
+   ],
+   "rgb": [
+    164,
+    208,
+    222
+   ],
+   "pixels": 198
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    272,
+    386,
+    284,
+    410
+   ],
+   "rgb": [
+    114,
+    171,
+    183
+   ],
+   "pixels": 288
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    284,
+    495,
+    322,
+    506
+   ],
+   "rgb": [
+    160,
+    183,
+    172
+   ],
+   "pixels": 418
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    536,
+    475,
+    550,
+    506
+   ],
+   "rgb": [
+    101,
+    122,
+    152
+   ],
+   "pixels": 434
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    576,
+    436,
+    600,
+    450
+   ],
+   "rgb": [
+    120,
+    166,
+    163
+   ],
+   "pixels": 336
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    665,
+    428,
+    676,
+    453
+   ],
+   "rgb": [
+    154,
+    196,
+    197
+   ],
+   "pixels": 275
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    720,
+    436,
+    741,
+    450
+   ],
+   "rgb": [
+    142,
+    186,
+    189
+   ],
+   "pixels": 294
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    195,
+    696,
+    216,
+    707
+   ],
+   "rgb": [
+    76,
+    112,
+    125
+   ],
+   "pixels": 231
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    315,
+    717,
+    336,
+    730
+   ],
+   "rgb": [
+    146,
+    179,
+    180
+   ],
+   "pixels": 273
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    502,
+    742,
+    524,
+    754
+   ],
+   "rgb": [
+    133,
+    153,
+    145
+   ],
+   "pixels": 264
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    574,
+    747,
+    592,
+    762
+   ],
+   "rgb": [
+    162,
+    198,
+    199
+   ],
+   "pixels": 270
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    486,
+    790,
+    500,
+    811
+   ],
+   "rgb": [
+    142,
+    187,
+    188
+   ],
+   "pixels": 294
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    663,
+    771,
+    678,
+    783
+   ],
+   "rgb": [
+    158,
+    193,
+    196
+   ],
+   "pixels": 180
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    859,
+    785,
+    877,
+    796
+   ],
+   "rgb": [
+    86,
+    174,
+    179
+   ],
+   "pixels": 198
+  },
+  {
+   "class": "water",
+   "source": "pnoa",
+   "block": "pnoa-pozuelo",
+   "rectPx": [
+    626,
+    970,
+    640,
+    991
+   ],
+   "rgb": [
+    87,
+    156,
+    186
+   ],
+   "pixels": 294
+  }
+ ]
+}
