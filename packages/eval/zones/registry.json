@@ -1,0 +1,1351 @@
+{
+ "about": "Zone registry of the benchmark. Roles: DEV (tune here), DEV-2 (confirmation, run at a freeze), GOLD (phase 0 gold, DEV-like), TEST (pre-registered draw, never tuned on), TRAIN (zones a model was trained on). seen: places whose imagery was looked at in phase 0. Every TEST zone must be at least minDistanceKm from every other zone and seen site (eval zones check).",
+ "minDistanceKm": 50,
+ "zones": [
+  {
+   "id": "vilamoura",
+   "name": "Vilamoura, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.12113,
+    "south": 37.06998,
+    "east": -8.10987,
+    "north": 37.07902
+   },
+   "areaKm2": 1,
+   "why": "resort villas, golf, marina; the reference area of the original tuning",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -0.1,
+     2
+    ],
+    "dgt": [
+     -0.4,
+     -0.3
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     0.2,
+     -2.1
+    ]
+   }
+  },
+  {
+   "id": "scottsdale",
+   "name": "Scottsdale, AZ, US",
+   "role": "DEV",
+   "country": "US",
+   "productSource": "esri",
+   "bbox": {
+    "west": -111.93004,
+    "south": 33.59061,
+    "east": -111.92196,
+    "north": 33.59739
+   },
+   "areaKm2": 0.5625,
+   "why": "desert suburb, a pool in most back yards, sharp imagery",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "full"
+  },
+  {
+   "id": "odemira",
+   "name": "Odemira greenhouses, Alentejo, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.78226,
+    "south": 37.53898,
+    "east": -8.77094,
+    "north": 37.54802
+   },
+   "areaKm2": 1,
+   "why": "farmland: plastic greenhouses, irrigation tanks and reservoirs, few houses; mostly a false-positive test",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ],
+    "dgt": [
+     0,
+     0
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -3.3,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "aix",
+   "name": "Puyricard, Aix-en-Provence, FR",
+   "role": "DEV",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 5.4138,
+    "south": 43.56548,
+    "east": 5.4262,
+    "north": 43.57452
+   },
+   "areaKm2": 1,
+   "why": "Provence countryside villas, sharp summer imagery, dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.2,
+     2.2
+    ],
+    "ign": [
+     0.7,
+     -0.3
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "ign": [
+     -0.5,
+     -2.5
+    ]
+   }
+  },
+  {
+   "id": "balma",
+   "name": "Balma, Toulouse, FR",
+   "role": "DEV",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 1.4938,
+    "south": 43.60548,
+    "east": 1.5062,
+    "north": 43.61452
+   },
+   "areaKm2": 1,
+   "why": "inland suburb, lawns and trees, dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -0.4,
+     1.6
+    ],
+    "ign": [
+     -0.1,
+     0.1
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "ign": [
+     -0.1,
+     -1.4
+    ]
+   }
+  },
+  {
+   "id": "braga",
+   "name": "Braga, PT",
+   "role": "DEV",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.385,
+    "south": 41.56498,
+    "east": -8.373,
+    "north": 41.57402
+   },
+   "areaKm2": 1,
+   "why": "north of Portugal on DGT Ortos2025; the 1 km box with the most OSM pools (83) around Braga, picked over Maia (27 at best) by OSM count, before review",
+   "labelSource": "dgt",
+   "osmShiftM": {},
+   "review": "blind",
+   "labelShiftM": {
+    "esri": [
+     2.5,
+     0.9
+    ]
+   }
+  },
+  {
+   "id": "marbella",
+   "name": "Marbella, ES",
+   "role": "DEV-2",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -4.96429,
+    "south": 36.48538,
+    "east": -4.95311,
+    "north": 36.49442
+   },
+   "areaKm2": 1,
+   "why": "dense villas on slopes, vegetation, rooftop solar; OSM pools mostly mapped as points",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     -1.2,
+     1
+    ],
+    "pnoa": [
+     0.2,
+     -0.7
+    ]
+   },
+   "review": "candidates",
+   "labelShiftM": {
+    "pnoa": [
+     0.8,
+     -1.2
+    ]
+   }
+  },
+  {
+   "id": "cascais",
+   "name": "Birre, Cascais, PT",
+   "role": "DEV-2",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -9.44732,
+    "south": 38.71461,
+    "east": -9.43868,
+    "north": 38.72139
+   },
+   "areaKm2": 0.5625,
+   "why": "Atlantic suburb, villas and gardens",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.7,
+     1
+    ],
+    "dgt": [
+     0.6,
+     -0.3
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -1.4,
+     -1.2
+    ]
+   }
+  },
+  {
+   "id": "algarve",
+   "name": "Santa Barbara de Nexe, Algarve interior, PT",
+   "role": "DEV-2",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -7.97063,
+    "south": 37.10048,
+    "east": -7.95937,
+    "north": 37.10952
+   },
+   "areaKm2": 1,
+   "why": "scattered rural villas, orchards, farm water tanks",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ],
+    "dgt": [
+     -0.1,
+     0.1
+    ]
+   },
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -3.1,
+     -1
+    ]
+   }
+  },
+  {
+   "id": "castelnau",
+   "name": "Castelnau-le-Lez, Montpellier, FR",
+   "role": "DEV-2",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.89879,
+    "south": 43.63048,
+    "east": 3.91121,
+    "north": 43.63952
+   },
+   "areaKm2": 1,
+   "why": "hillside suburb, trees and low sun, very dense OSM pool mapping",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0.3,
+     0.8
+    ],
+    "ign": [
+     0.3,
+     -0.4
+    ]
+   },
+   "review": "candidates",
+   "labelShiftM": {
+    "ign": [
+     -0.2,
+     -0.4
+    ]
+   }
+  },
+  {
+   "id": "arcadia",
+   "name": "Arcadia, Phoenix, AZ, US",
+   "role": "DEV-2",
+   "country": "US",
+   "productSource": "esri",
+   "bbox": {
+    "west": -111.97539,
+    "south": 33.49548,
+    "east": -111.96461,
+    "north": 33.50452
+   },
+   "areaKm2": 1,
+   "why": "desert suburb with large lots; OSM pools mapped as points",
+   "labelSource": "esri",
+   "osmShiftM": {
+    "esri": [
+     0,
+     0
+    ]
+   },
+   "review": "candidates"
+  },
+  {
+   "id": "gold-mougins",
+   "name": "Mougins, FR (gold)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 6.9921112,
+    "south": 43.5933222,
+    "east": 6.9976044,
+    "north": 43.5973005
+   },
+   "areaKm2": 0.195,
+   "why": "phase 0 gold on IGN; also a leave-one-zone-out training zone of the prototype; bbox is the gold region, not the whole prototype zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-grabels",
+   "name": "Grabels, FR (gold)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.8026428,
+    "south": 43.6465102,
+    "east": 3.808136,
+    "north": 43.650485
+   },
+   "areaKm2": 0.194,
+   "why": "phase 0 gold on IGN; also a training zone of the prototype; bbox is the gold region, not the whole prototype zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-pozuelo",
+   "name": "Pozuelo de Alarcon, ES (gold)",
+   "role": "GOLD",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -3.8218689,
+    "south": 40.4391085,
+    "east": -3.8163757,
+    "north": 40.4432892
+   },
+   "areaKm2": 0.215,
+   "why": "phase 0 gold on PNOA; also a training zone of the prototype; bbox is the gold region, not the whole prototype zone",
+   "labelSource": "pnoa",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-mougins-esri",
+   "name": "Mougins, FR (gold, Esri)",
+   "role": "GOLD",
+   "country": "FR",
+   "productSource": "esri",
+   "bbox": {
+    "west": 6.9921112,
+    "south": 43.5933222,
+    "east": 6.9976044,
+    "north": 43.5973005
+   },
+   "areaKm2": 0.195,
+   "why": "phase 0 gold on Esri, evaluation only; bbox is the gold region, not the whole prototype zone",
+   "labelSource": "esri",
+   "review": "gold-union"
+  },
+  {
+   "id": "gold-pozuelo-esri",
+   "name": "Pozuelo de Alarcon, ES (gold, Esri)",
+   "role": "GOLD",
+   "country": "ES",
+   "productSource": "esri",
+   "bbox": {
+    "west": -3.8218689,
+    "south": 40.4391085,
+    "east": -3.8163757,
+    "north": 40.4432892
+   },
+   "areaKm2": 0.215,
+   "why": "phase 0 gold on Esri, evaluation only; bbox is the gold region, not the whole prototype zone",
+   "labelSource": "esri",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-leliana",
+   "name": "L’Eliana, ES",
+   "role": "TRAIN",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -0.545,
+    "south": 39.555,
+    "east": -0.525,
+    "north": 39.57
+   },
+   "areaKm2": 2.85,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "pnoa",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-stgely",
+   "name": "Saint-Gely-du-Fesc, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 3.795,
+    "south": 43.685,
+    "east": 3.815,
+    "north": 43.7
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "train-tournefeuille",
+   "name": "Tournefeuille, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 1.33,
+    "south": 43.575,
+    "east": 1.35,
+    "north": 43.59
+   },
+   "areaKm2": 2.67,
+   "why": "phase 0 prototype training zone",
+   "labelSource": "ign",
+   "review": "gold-union"
+  },
+  {
+   "id": "test-negative-dunkerque",
+   "name": "Dunkerque, FR (TEST negative)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.353958,
+    "south": 51.030172,
+    "east": 2.368238,
+    "north": 51.039216
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum negative: Dunkerque (59183), cell 6/8",
+   "review": "blind",
+   "stratum": "negative",
+   "reportedApart": true
+  },
+  {
+   "id": "test-pt-rest-viseu",
+   "name": "Viseu, PT (TEST pt-rest)",
+   "role": "TEST",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
+   "bbox": {
+    "west": -7.937577,
+    "south": 40.662345,
+    "east": -7.92573,
+    "north": 40.671388
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum pt-rest: Viseu (1823), cell 14/13",
+   "review": "blind",
+   "stratum": "pt-rest",
+   "reportedApart": false
+  },
+  {
+   "id": "test-es-aranguren",
+   "name": "Aranguren, ES (TEST es)",
+   "role": "TEST",
+   "country": "ES",
+   "productSource": "pnoa",
+   "labelSource": "pnoa",
+   "bbox": {
+    "west": -1.622784,
+    "south": 42.799067,
+    "east": -1.610545,
+    "north": 42.808111
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum es: Aranguren (31023), cell 6/1",
+   "review": "blind",
+   "stratum": "es",
+   "reportedApart": false
+  },
+  {
+   "id": "test-us-south-el-monte-city-ca",
+   "name": "South El Monte city, CA, US (TEST us)",
+   "role": "TEST",
+   "country": "US",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": -118.037829,
+    "south": 34.033053,
+    "east": -118.026987,
+    "north": 34.042097
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum us: South El Monte city, CA (0672996), cell 0/3",
+   "review": "blind",
+   "stratum": "us",
+   "reportedApart": false
+  },
+  {
+   "id": "test-hard-fiumicino",
+   "name": "Fiumicino, IT (TEST hard)",
+   "role": "TEST",
+   "country": "IT",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": 12.151372,
+    "south": 41.894696,
+    "east": 12.163438,
+    "north": 41.90374
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum hard: Fiumicino (058120), cell 17/2",
+   "review": "blind",
+   "stratum": "hard",
+   "reportedApart": true
+  },
+  {
+   "id": "test-fr-domont",
+   "name": "Domont, FR (TEST fr)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.33479,
+    "south": 49.028725,
+    "east": 2.348491,
+    "north": 49.037769
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum fr: Domont (95199), cell 2/3",
+   "review": "blind",
+   "stratum": "fr",
+   "reportedApart": false
+  }
+ ],
+ "seen": [
+  {
+   "id": "imagery-vilamoura",
+   "center": [
+    37.07509,
+    -8.11599
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-cascais",
+   "center": [
+    38.71397,
+    -9.45675
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-evora",
+   "center": [
+    38.56394,
+    -7.93225
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-marbella",
+   "center": [
+    36.49019,
+    -4.95875
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-scottsdale",
+   "center": [
+    33.59449,
+    -111.9254
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "imagery-mougins",
+   "center": [
+    43.59651,
+    6.99347
+   ],
+   "from": "mp-research/imagery"
+  },
+  {
+   "id": "norte-maia",
+   "center": [
+    41.23809,
+    -8.61237
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-braga",
+   "center": [
+    41.55882,
+    -8.38391
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-gaia",
+   "center": [
+    41.08188,
+    -8.65478
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-guimaraes",
+   "center": [
+    41.45633,
+    -8.31641
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-viana",
+   "center": [
+    41.72029,
+    -8.85587
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-ref-cascais",
+   "center": [
+    38.705,
+    -9.42
+   ],
+   "from": "mp-research/imagery-norte"
+  },
+  {
+   "id": "norte-ofir",
+   "center": [
+    41.51655,
+    -8.78345
+   ],
+   "from": "mp-research/imagery-norte (named in the plan; its OSM query failed, centre from Nominatim)"
+  },
+  {
+   "id": "norte-pontelima",
+   "center": [
+    41.765,
+    -8.585
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-gaia-madalena",
+   "center": [
+    41.098,
+    -8.645
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-porto-centro",
+   "center": [
+    41.15,
+    -8.611
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "norte-lisboa",
+   "center": [
+    38.72,
+    -9.14
+   ],
+   "from": "mp-research/imagery-norte esri_meta.py"
+  },
+  {
+   "id": "detection-bormujos",
+   "center": [
+    37.3725,
+    -6.075
+   ],
+   "from": "mp-research/detection/zones"
+  },
+  {
+   "id": "detection-torrelodones",
+   "center": [
+    40.5775,
+    -3.925
+   ],
+   "from": "mp-research/detection (osm_count2.mjs box)"
+  }
+ ],
+ "notSeen": {
+  "reason": "Single-tile presence checks of the DGT services (dgt_coverage_probe.json, answered yes or no by script). No image was looked at or used for tuning, so they do not block TEST candidates. Counting them would exclude almost all of mainland Portugal.",
+  "sites": [
+   "Valenca",
+   "Braganca",
+   "Porto",
+   "Viseu",
+   "Guarda",
+   "Coimbra",
+   "Leiria",
+   "CasteloBranco",
+   "Santarem",
+   "Lisboa",
+   "Evora",
+   "Setubal",
+   "Beja",
+   "Sines",
+   "Faro",
+   "Lagos",
+   "Tavira"
+  ]
+ },
+ "rejectedTest": [
+  {
+   "id": "test-pt-north-braganca",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -6.761791,
+    "south": 41.814932,
+    "east": -6.749748,
+    "north": 41.823976
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-north-mirandela",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -7.186851,
+    "south": 41.46935,
+    "east": -7.174851,
+    "north": 41.478393
+   },
+   "pools": 9
+  },
+  {
+   "id": "test-pt-north-chaves",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -7.488147,
+    "south": 41.744061,
+    "east": -7.47611,
+    "north": 41.753104
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-joinville-le-pont",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.468144,
+    "south": 48.818359,
+    "east": 2.481788,
+    "north": 48.827402
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-le-kremlin-bicetre",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.357509,
+    "south": 48.81012,
+    "east": 2.371149,
+    "north": 48.819163
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-limeil-brevannes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.467797,
+    "south": 48.747341,
+    "east": 2.48142,
+    "north": 48.756385
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-maisons-alfort",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.429563,
+    "south": 48.795663,
+    "east": 2.443202,
+    "north": 48.804706
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-fr-nogent-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.464608,
+    "south": 48.826137,
+    "east": 2.478256,
+    "north": 48.835181
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-orly",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.396582,
+    "south": 48.736613,
+    "east": 2.410204,
+    "north": 48.745656
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-ormesson-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.525884,
+    "south": 48.785471,
+    "east": 2.539519,
+    "north": 48.794514
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-fr-le-perreux-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.505054,
+    "south": 48.829335,
+    "east": 2.518703,
+    "north": 48.838379
+   },
+   "pools": 20
+  },
+  {
+   "id": "test-fr-le-plessis-trevise",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.569694,
+    "south": 48.802264,
+    "east": 2.583334,
+    "north": 48.811307
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-la-queue-en-brie",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.58266,
+    "south": 48.782129,
+    "east": 2.596292,
+    "north": 48.791173
+   },
+   "pools": 20
+  },
+  {
+   "id": "test-fr-saint-mande",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.411472,
+    "south": 48.842756,
+    "east": 2.425121,
+    "north": 48.851799
+   },
+   "pools": 0
+  },
+  {
+   "id": "test-fr-saint-maur-des-fosses",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.47423,
+    "south": 48.784042,
+    "east": 2.487868,
+    "north": 48.793086
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-fr-saint-maurice",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.43328,
+    "south": 48.812693,
+    "east": 2.446923,
+    "north": 48.821737
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-sucy-en-brie",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.507576,
+    "south": 48.778361,
+    "east": 2.521206,
+    "north": 48.787405
+   },
+   "pools": 25
+  },
+  {
+   "id": "test-fr-thiais",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.395037,
+    "south": 48.764218,
+    "east": 2.408664,
+    "north": 48.773262
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-valenton",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.46257,
+    "south": 48.745724,
+    "east": 2.476195,
+    "north": 48.754768
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-villecresnes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.522177,
+    "south": 48.723494,
+    "east": 2.535793,
+    "north": 48.732538
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-villejuif",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.34381,
+    "south": 48.778695,
+    "east": 2.357446,
+    "north": 48.787739
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-villeneuve-le-roi",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.39746,
+    "south": 48.728035,
+    "east": 2.411079,
+    "north": 48.737078
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-villeneuve-saint-georges",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.439309,
+    "south": 48.741492,
+    "east": 2.452931,
+    "north": 48.750536
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-villiers-sur-marne",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.537717,
+    "south": 48.826121,
+    "east": 2.551363,
+    "north": 48.835164
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-vincennes",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.432282,
+    "south": 48.840893,
+    "east": 2.445932,
+    "north": 48.849937
+   },
+   "pools": 0
+  },
+  {
+   "id": "test-fr-vitry-sur-seine",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.39464,
+    "south": 48.770008,
+    "east": 2.408275,
+    "north": 48.779052
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-fr-arnouville",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.414837,
+    "south": 48.983899,
+    "east": 2.428526,
+    "north": 48.992942
+   },
+   "pools": 12
+  },
+  {
+   "id": "test-fr-beaumont-sur-oise",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.29538,
+    "south": 49.14083,
+    "east": 2.30911,
+    "north": 49.149874
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-pt-rest-ourem",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -8.562172,
+    "south": 39.716695,
+    "east": -8.550498,
+    "north": 39.725739
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-es-las-torres-de-cotillas",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.248495,
+    "south": 38.031588,
+    "east": -1.237092,
+    "north": 38.040632
+   },
+   "pools": 12
+  },
+  {
+   "id": "test-hard-cerveteri",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.152939,
+    "south": 41.945972,
+    "east": 12.165028,
+    "north": 41.955016
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-pt-rest-lamego",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -7.820356,
+    "south": 41.090029,
+    "east": -7.80844,
+    "north": 41.099072
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-rest-mangualde",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -7.766787,
+    "south": 40.598274,
+    "east": -7.754958,
+    "north": 40.607318
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-pt-rest-tondela",
+   "stratum": "pt-rest",
+   "bbox": {
+    "west": -8.036528,
+    "south": 40.466052,
+    "east": -8.024707,
+    "north": 40.475096
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-hard-frascati",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.674284,
+    "south": 41.79631,
+    "east": 12.686339,
+    "north": 41.805354
+   },
+   "pools": 8
+  },
+  {
+   "id": "test-es-totana",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.512434,
+    "south": 37.757872,
+    "east": -1.501068,
+    "north": 37.766915
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-fr-bezons",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.198213,
+    "south": 48.926712,
+    "east": 2.211885,
+    "north": 48.935756
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-hard-grottaferrata",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.670746,
+    "south": 41.774526,
+    "east": 12.682793,
+    "north": 41.78357
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-es-la-union",
+   "stratum": "es",
+   "bbox": {
+    "west": -0.895209,
+    "south": 37.62003,
+    "east": -0.883869,
+    "north": 37.629073
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-cergy",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.04109,
+    "south": 49.045271,
+    "east": 2.054793,
+    "north": 49.054315
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-hard-guidonia-montecelio",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.636107,
+    "south": 41.971672,
+    "east": 12.648192,
+    "north": 41.980716
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-es-yecla",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.114446,
+    "south": 38.600716,
+    "east": -1.102952,
+    "north": 38.60976
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-us-solana-beach-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -117.247325,
+    "south": 32.997453,
+    "east": -117.236615,
+    "north": 33.006497
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-fr-cormeilles-en-parisis",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.187014,
+    "south": 48.958738,
+    "east": 2.200699,
+    "north": 48.967781
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-hard-marino",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.595388,
+    "south": 41.763223,
+    "east": 12.60743,
+    "north": 41.772267
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-es-santomera",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.059668,
+    "south": 38.05787,
+    "east": -1.048256,
+    "north": 38.066914
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-es-los-alcazares",
+   "stratum": "es",
+   "bbox": {
+    "west": -0.868729,
+    "south": 37.729213,
+    "east": -0.857369,
+    "north": 37.738257
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-us-soledad-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -121.33579,
+    "south": 36.437465,
+    "east": -121.324623,
+    "north": 36.446509
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-hard-rocca-di-papa",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.706593,
+    "south": 41.760826,
+    "east": 12.718634,
+    "north": 41.769869
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-es-ansoain-antsoain",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.652614,
+    "south": 42.829898,
+    "east": -1.640363,
+    "north": 42.838942
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-us-sonoma-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -122.470442,
+    "south": 38.28348,
+    "east": -122.458996,
+    "north": 38.292523
+   },
+   "pools": 25
+  },
+  {
+   "id": "test-hard-ciampino",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.607926,
+    "south": 41.775181,
+    "east": 12.619976,
+    "north": 41.784225
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-deuil-la-barre",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.323411,
+    "south": 48.975612,
+    "east": 2.337096,
+    "north": 48.984656
+   },
+   "pools": 0
+  }
+ ]
+}

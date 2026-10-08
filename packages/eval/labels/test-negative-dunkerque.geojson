@@ -1,0 +1,94 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-negative-dunkerque",
+ "review": "blind",
+ "source": "ign",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0,
+  0
+ ],
+ "osmShiftPairs": 0,
+ "windows": 36,
+ "poolsInZone": 0,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.35906720161438,
+        51.03051662519786
+       ],
+       [
+        2.3591288924217224,
+        51.03051662519786
+       ],
+       [
+        2.3591288924217224,
+        51.03056048349463
+       ],
+       [
+        2.35906720161438,
+        51.03056048349463
+       ],
+       [
+        2.35906720161438,
+        51.03051662519786
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-negative-dunkerque/b1",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.3547810316085815,
+        51.031012558904266
+       ],
+       [
+        2.3548534512519836,
+        51.031012558904266
+       ],
+       [
+        2.3548534512519836,
+        51.031041235180766
+       ],
+       [
+        2.3547810316085815,
+        51.031041235180766
+       ],
+       [
+        2.3547810316085815,
+        51.031012558904266
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-negative-dunkerque/b2",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-negative-dunkerque",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-08T01:38:23.970Z",
+ "bbox": [
+  2.3522438011716176,
+  51.02909402659001,
+  2.3699521988283823,
+  51.040293973409995
+ ],
+ "buildingsChecked": 1919,
+ "features": []
+}

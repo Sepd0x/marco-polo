@@ -1,0 +1,4607 @@
+{
+ "type": "FeatureCollection",
+ "zone": "gold-grabels",
+ "review": "gold-union",
+ "about": "Phase 0 gold (C:/dev/mp-research/detection/gold), converted to boxes. The review started from regions the prototype methods proposed, so it is the union of what the methods found, checked by eye; pools no method proposed can be missing. Boxes are on the source of the zone.",
+ "attribution": "Hand labels; OSM-derived proposals (c) OpenStreetMap contributors, ODbL 1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8028306,
+        43.6502055
+       ],
+       [
+        3.8029271,
+        43.6502055
+       ],
+       [
+        3.8029271,
+        43.6502812
+       ],
+       [
+        3.8028306,
+        43.6502812
+       ],
+       [
+        3.8028306,
+        43.6502055
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/1",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.803713,
+        43.6502055
+       ],
+       [
+        3.8038176,
+        43.6502055
+       ],
+       [
+        3.8038176,
+        43.6502987
+       ],
+       [
+        3.803713,
+        43.6502987
+       ],
+       [
+        3.803713,
+        43.6502055
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/5",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8048798,
+        43.6500037
+       ],
+       [
+        3.8049415,
+        43.6500037
+       ],
+       [
+        3.8049415,
+        43.6500503
+       ],
+       [
+        3.8048798,
+        43.6500503
+       ],
+       [
+        3.8048798,
+        43.6500037
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/10",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8053626,
+        43.6500503
+       ],
+       [
+        3.8054618,
+        43.6500503
+       ],
+       [
+        3.8054618,
+        43.6501318
+       ],
+       [
+        3.8053626,
+        43.6501318
+       ],
+       [
+        3.8053626,
+        43.6500503
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/13",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.805443,
+        43.6501784
+       ],
+       [
+        3.8054779,
+        43.6501784
+       ],
+       [
+        3.8054779,
+        43.6502249
+       ],
+       [
+        3.805443,
+        43.6502249
+       ],
+       [
+        3.805443,
+        43.6501784
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/14",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8057944,
+        43.6501861
+       ],
+       [
+        3.8058481,
+        43.6501861
+       ],
+       [
+        3.8058481,
+        43.650223
+       ],
+       [
+        3.8057944,
+        43.650223
+       ],
+       [
+        3.8057944,
+        43.6501861
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/15",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8073957,
+        43.6503705
+       ],
+       [
+        3.8074118,
+        43.6503705
+       ],
+       [
+        3.8074118,
+        43.650386
+       ],
+       [
+        3.8073957,
+        43.650386
+       ],
+       [
+        3.8073957,
+        43.6503705
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/20",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8074091,
+        43.6503453
+       ],
+       [
+        3.8074923,
+        43.6503453
+       ],
+       [
+        3.8074923,
+        43.650388
+       ],
+       [
+        3.8074091,
+        43.650388
+       ],
+       [
+        3.8074091,
+        43.6503453
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/21",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8074225,
+        43.6501881
+       ],
+       [
+        3.8075352,
+        43.6501881
+       ],
+       [
+        3.8075352,
+        43.6502676
+       ],
+       [
+        3.8074225,
+        43.6502676
+       ],
+       [
+        3.8074225,
+        43.6501881
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/22",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8074279,
+        43.6501958
+       ],
+       [
+        3.8074949,
+        43.6501958
+       ],
+       [
+        3.8074949,
+        43.6502541
+       ],
+       [
+        3.8074279,
+        43.6502541
+       ],
+       [
+        3.8074279,
+        43.6501958
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/23",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8080046,
+        43.6504171
+       ],
+       [
+        3.8080502,
+        43.6504171
+       ],
+       [
+        3.8080502,
+        43.650454
+       ],
+       [
+        3.8080046,
+        43.650454
+       ],
+       [
+        3.8080046,
+        43.6504171
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/26",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8034582,
+        43.6495321
+       ],
+       [
+        3.8035682,
+        43.6495321
+       ],
+       [
+        3.8035682,
+        43.6496155
+       ],
+       [
+        3.8034582,
+        43.6496155
+       ],
+       [
+        3.8034582,
+        43.6495321
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/31",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8037157,
+        43.6496272
+       ],
+       [
+        3.8038149,
+        43.6496272
+       ],
+       [
+        3.8038149,
+        43.6496893
+       ],
+       [
+        3.8037157,
+        43.6496893
+       ],
+       [
+        3.8037157,
+        43.6496272
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/33",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8038766,
+        43.649699
+       ],
+       [
+        3.8039303,
+        43.649699
+       ],
+       [
+        3.8039303,
+        43.6497572
+       ],
+       [
+        3.8038766,
+        43.6497572
+       ],
+       [
+        3.8038766,
+        43.649699
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/34",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8044238,
+        43.6499338
+       ],
+       [
+        3.8044748,
+        43.6499338
+       ],
+       [
+        3.8044748,
+        43.6499571
+       ],
+       [
+        3.8044238,
+        43.6499571
+       ],
+       [
+        3.8044238,
+        43.6499338
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/36",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8050112,
+        43.6497398
+       ],
+       [
+        3.8051158,
+        43.6497398
+       ],
+       [
+        3.8051158,
+        43.6498135
+       ],
+       [
+        3.8050112,
+        43.6498135
+       ],
+       [
+        3.8050112,
+        43.6497398
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/41",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8051882,
+        43.6496272
+       ],
+       [
+        3.8052258,
+        43.6496272
+       ],
+       [
+        3.8052258,
+        43.6496738
+       ],
+       [
+        3.8051882,
+        43.6496738
+       ],
+       [
+        3.8051882,
+        43.6496272
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/42",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8065642,
+        43.6496641
+       ],
+       [
+        3.80665,
+        43.6496641
+       ],
+       [
+        3.80665,
+        43.6497359
+       ],
+       [
+        3.8065642,
+        43.6497359
+       ],
+       [
+        3.8065642,
+        43.6496641
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/55",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.806591,
+        43.649569
+       ],
+       [
+        3.8067466,
+        43.649569
+       ],
+       [
+        3.8067466,
+        43.6496466
+       ],
+       [
+        3.806591,
+        43.6496466
+       ],
+       [
+        3.806591,
+        43.649569
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/56",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8066018,
+        43.649569
+       ],
+       [
+        3.806701,
+        43.649569
+       ],
+       [
+        3.806701,
+        43.649635
+       ],
+       [
+        3.8066018,
+        43.649635
+       ],
+       [
+        3.8066018,
+        43.649569
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/57",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807267,
+        43.649534
+       ],
+       [
+        3.8073313,
+        43.649534
+       ],
+       [
+        3.8073313,
+        43.6495864
+       ],
+       [
+        3.807267,
+        43.6495864
+       ],
+       [
+        3.807267,
+        43.649534
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/60",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8072938,
+        43.6498698
+       ],
+       [
+        3.8073394,
+        43.6498698
+       ],
+       [
+        3.8073394,
+        43.6498892
+       ],
+       [
+        3.8072938,
+        43.6498892
+       ],
+       [
+        3.8072938,
+        43.6498698
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/61",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8079563,
+        43.6496777
+       ],
+       [
+        3.8080072,
+        43.6496777
+       ],
+       [
+        3.8080072,
+        43.6496971
+       ],
+       [
+        3.8079563,
+        43.6496971
+       ],
+       [
+        3.8079563,
+        43.6496777
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/66",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8036272,
+        43.6491614
+       ],
+       [
+        3.803705,
+        43.6491614
+       ],
+       [
+        3.803705,
+        43.6492177
+       ],
+       [
+        3.8036272,
+        43.6492177
+       ],
+       [
+        3.8036272,
+        43.6491614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/71",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8036567,
+        43.6490488
+       ],
+       [
+        3.803705,
+        43.6490488
+       ],
+       [
+        3.803705,
+        43.6490818
+       ],
+       [
+        3.8036567,
+        43.6490818
+       ],
+       [
+        3.8036567,
+        43.6490488
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/72",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8057327,
+        43.6490644
+       ],
+       [
+        3.8057917,
+        43.6490644
+       ],
+       [
+        3.8057917,
+        43.649109
+       ],
+       [
+        3.8057327,
+        43.649109
+       ],
+       [
+        3.8057327,
+        43.6490644
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/77",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8057435,
+        43.6491129
+       ],
+       [
+        3.8057756,
+        43.6491129
+       ],
+       [
+        3.8057756,
+        43.6491381
+       ],
+       [
+        3.8057435,
+        43.6491381
+       ],
+       [
+        3.8057435,
+        43.6491129
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/78",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8060492,
+        43.6489557
+       ],
+       [
+        3.806119,
+        43.6489557
+       ],
+       [
+        3.806119,
+        43.6490081
+       ],
+       [
+        3.8060492,
+        43.6490081
+       ],
+       [
+        3.8060492,
+        43.6489557
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/80",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8065642,
+        43.6491595
+       ],
+       [
+        3.8066179,
+        43.6491595
+       ],
+       [
+        3.8066179,
+        43.649208
+       ],
+       [
+        3.8065642,
+        43.649208
+       ],
+       [
+        3.8065642,
+        43.6491595
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/83",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8068056,
+        43.6490799
+       ],
+       [
+        3.8068405,
+        43.6490799
+       ],
+       [
+        3.8068405,
+        43.649109
+       ],
+       [
+        3.8068056,
+        43.649109
+       ],
+       [
+        3.8068056,
+        43.6490799
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/85",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8071597,
+        43.6492196
+       ],
+       [
+        3.8072348,
+        43.6492196
+       ],
+       [
+        3.8072348,
+        43.6492798
+       ],
+       [
+        3.8071597,
+        43.6492798
+       ],
+       [
+        3.8071597,
+        43.6492196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/88",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807511,
+        43.649173
+       ],
+       [
+        3.8075888,
+        43.649173
+       ],
+       [
+        3.8075888,
+        43.6492313
+       ],
+       [
+        3.807511,
+        43.6492313
+       ],
+       [
+        3.807511,
+        43.649173
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/90",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8077712,
+        43.6494234
+       ],
+       [
+        3.807798,
+        43.6494234
+       ],
+       [
+        3.807798,
+        43.6494448
+       ],
+       [
+        3.8077712,
+        43.6494448
+       ],
+       [
+        3.8077712,
+        43.6494234
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/91",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807798,
+        43.6493885
+       ],
+       [
+        3.8078597,
+        43.6493885
+       ],
+       [
+        3.8078597,
+        43.6494292
+       ],
+       [
+        3.807798,
+        43.6494292
+       ],
+       [
+        3.807798,
+        43.6493885
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/92",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8029754,
+        43.648715
+       ],
+       [
+        3.8030559,
+        43.648715
+       ],
+       [
+        3.8030559,
+        43.6487655
+       ],
+       [
+        3.8029754,
+        43.6487655
+       ],
+       [
+        3.8029754,
+        43.648715
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/94",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8032436,
+        43.6488936
+       ],
+       [
+        3.8033053,
+        43.6488936
+       ],
+       [
+        3.8033053,
+        43.6489285
+       ],
+       [
+        3.8032436,
+        43.6489285
+       ],
+       [
+        3.8032436,
+        43.6488936
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/95",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8033724,
+        43.6485209
+       ],
+       [
+        3.8034153,
+        43.6485209
+       ],
+       [
+        3.8034153,
+        43.6485481
+       ],
+       [
+        3.8033724,
+        43.6485481
+       ],
+       [
+        3.8033724,
+        43.6485209
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/96",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8040081,
+        43.6487791
+       ],
+       [
+        3.8040456,
+        43.6487791
+       ],
+       [
+        3.8040456,
+        43.6488082
+       ],
+       [
+        3.8040081,
+        43.6488082
+       ],
+       [
+        3.8040081,
+        43.6487791
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/100",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8046411,
+        43.6486607
+       ],
+       [
+        3.8047162,
+        43.6486607
+       ],
+       [
+        3.8047162,
+        43.648684
+       ],
+       [
+        3.8046411,
+        43.648684
+       ],
+       [
+        3.8046411,
+        43.6486607
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/105",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8050917,
+        43.648847
+       ],
+       [
+        3.8051319,
+        43.648847
+       ],
+       [
+        3.8051319,
+        43.6488742
+       ],
+       [
+        3.8050917,
+        43.6488742
+       ],
+       [
+        3.8050917,
+        43.648847
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/107",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.805384,
+        43.6489033
+       ],
+       [
+        3.8054672,
+        43.6489033
+       ],
+       [
+        3.8054672,
+        43.6489634
+       ],
+       [
+        3.805384,
+        43.6489634
+       ],
+       [
+        3.805384,
+        43.6489033
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/109",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8060009,
+        43.648684
+       ],
+       [
+        3.8061458,
+        43.648684
+       ],
+       [
+        3.8061458,
+        43.6487674
+       ],
+       [
+        3.8060009,
+        43.6487674
+       ],
+       [
+        3.8060009,
+        43.648684
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/112",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.806245,
+        43.6485209
+       ],
+       [
+        3.8063121,
+        43.6485209
+       ],
+       [
+        3.8063121,
+        43.6485675
+       ],
+       [
+        3.806245,
+        43.6485675
+       ],
+       [
+        3.806245,
+        43.6485209
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/113",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8065159,
+        43.6486917
+       ],
+       [
+        3.8065615,
+        43.6486917
+       ],
+       [
+        3.8065615,
+        43.6487286
+       ],
+       [
+        3.8065159,
+        43.6487286
+       ],
+       [
+        3.8065159,
+        43.6486917
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/114",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8076639,
+        43.648585
+       ],
+       [
+        3.8077497,
+        43.648585
+       ],
+       [
+        3.8077497,
+        43.6486219
+       ],
+       [
+        3.8076639,
+        43.6486219
+       ],
+       [
+        3.8076639,
+        43.648585
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/123",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8029164,
+        43.6484045
+       ],
+       [
+        3.8029432,
+        43.6484045
+       ],
+       [
+        3.8029432,
+        43.6484355
+       ],
+       [
+        3.8029164,
+        43.6484355
+       ],
+       [
+        3.8029164,
+        43.6484045
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/128",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8029754,
+        43.6483928
+       ],
+       [
+        3.803021,
+        43.6483928
+       ],
+       [
+        3.803021,
+        43.64842
+       ],
+       [
+        3.8029754,
+        43.64842
+       ],
+       [
+        3.8029754,
+        43.6483928
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/130",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8031068,
+        43.6482803
+       ],
+       [
+        3.8031605,
+        43.6482803
+       ],
+       [
+        3.8031605,
+        43.6482997
+       ],
+       [
+        3.8031068,
+        43.6482997
+       ],
+       [
+        3.8031068,
+        43.6482803
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/132",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8031149,
+        43.6484317
+       ],
+       [
+        3.8032007,
+        43.6484317
+       ],
+       [
+        3.8032007,
+        43.6484588
+       ],
+       [
+        3.8031149,
+        43.6484588
+       ],
+       [
+        3.8031149,
+        43.6484317
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/133",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8032115,
+        43.6483269
+       ],
+       [
+        3.8033187,
+        43.6483269
+       ],
+       [
+        3.8033187,
+        43.648356
+       ],
+       [
+        3.8032115,
+        43.648356
+       ],
+       [
+        3.8032115,
+        43.6483269
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/134",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8035119,
+        43.6480377
+       ],
+       [
+        3.803528,
+        43.6480377
+       ],
+       [
+        3.803528,
+        43.6480726
+       ],
+       [
+        3.8035119,
+        43.6480726
+       ],
+       [
+        3.8035119,
+        43.6480377
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/135",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8035601,
+        43.6480202
+       ],
+       [
+        3.8035977,
+        43.6480202
+       ],
+       [
+        3.8035977,
+        43.6480843
+       ],
+       [
+        3.8035601,
+        43.6480843
+       ],
+       [
+        3.8035601,
+        43.6480202
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/136",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8043433,
+        43.648257
+       ],
+       [
+        3.8044024,
+        43.648257
+       ],
+       [
+        3.8044024,
+        43.6483016
+       ],
+       [
+        3.8043433,
+        43.6483016
+       ],
+       [
+        3.8043433,
+        43.648257
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/137",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8047081,
+        43.6481367
+       ],
+       [
+        3.8047779,
+        43.6481367
+       ],
+       [
+        3.8047779,
+        43.6481929
+       ],
+       [
+        3.8047081,
+        43.6481929
+       ],
+       [
+        3.8047081,
+        43.6481367
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/139",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.804912,
+        43.6482958
+       ],
+       [
+        3.8049442,
+        43.6482958
+       ],
+       [
+        3.8049442,
+        43.648356
+       ],
+       [
+        3.804912,
+        43.648356
+       ],
+       [
+        3.804912,
+        43.6482958
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/140",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8055289,
+        43.6482764
+       ],
+       [
+        3.8055933,
+        43.6482764
+       ],
+       [
+        3.8055933,
+        43.6483424
+       ],
+       [
+        3.8055289,
+        43.6483424
+       ],
+       [
+        3.8055289,
+        43.6482764
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/144",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8058883,
+        43.6480687
+       ],
+       [
+        3.8059688,
+        43.6480687
+       ],
+       [
+        3.8059688,
+        43.6481134
+       ],
+       [
+        3.8058883,
+        43.6481134
+       ],
+       [
+        3.8058883,
+        43.6480687
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/146",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8064703,
+        43.6483734
+       ],
+       [
+        3.8065562,
+        43.6483734
+       ],
+       [
+        3.8065562,
+        43.6484375
+       ],
+       [
+        3.8064703,
+        43.6484375
+       ],
+       [
+        3.8064703,
+        43.6483734
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/148",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.806752,
+        43.6482337
+       ],
+       [
+        3.8067842,
+        43.6482337
+       ],
+       [
+        3.8067842,
+        43.6482473
+       ],
+       [
+        3.806752,
+        43.6482473
+       ],
+       [
+        3.806752,
+        43.6482337
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/152",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8071972,
+        43.6481988
+       ],
+       [
+        3.8072535,
+        43.6481988
+       ],
+       [
+        3.8072535,
+        43.6482376
+       ],
+       [
+        3.8071972,
+        43.6482376
+       ],
+       [
+        3.8071972,
+        43.6481988
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/154",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8031578,
+        43.6477757
+       ],
+       [
+        3.8032624,
+        43.6477757
+       ],
+       [
+        3.8032624,
+        43.6478184
+       ],
+       [
+        3.8031578,
+        43.6478184
+       ],
+       [
+        3.8031578,
+        43.6477757
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/158",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8031685,
+        43.6477757
+       ],
+       [
+        3.8032061,
+        43.6477757
+       ],
+       [
+        3.8032061,
+        43.6478145
+       ],
+       [
+        3.8031685,
+        43.6478145
+       ],
+       [
+        3.8031685,
+        43.6477757
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/159",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8032517,
+        43.6477563
+       ],
+       [
+        3.8032705,
+        43.6477563
+       ],
+       [
+        3.8032705,
+        43.647764
+       ],
+       [
+        3.8032517,
+        43.647764
+       ],
+       [
+        3.8032517,
+        43.6477563
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/160",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8034448,
+        43.6475505
+       ],
+       [
+        3.803528,
+        43.6475505
+       ],
+       [
+        3.803528,
+        43.6476243
+       ],
+       [
+        3.8034448,
+        43.6476243
+       ],
+       [
+        3.8034448,
+        43.6475505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/162",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8038686,
+        43.6478281
+       ],
+       [
+        3.803941,
+        43.6478281
+       ],
+       [
+        3.803941,
+        43.6478863
+       ],
+       [
+        3.8038686,
+        43.6478863
+       ],
+       [
+        3.8038686,
+        43.6478281
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/164",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8041127,
+        43.6475913
+       ],
+       [
+        3.8041636,
+        43.6475913
+       ],
+       [
+        3.8041636,
+        43.647632
+       ],
+       [
+        3.8041127,
+        43.647632
+       ],
+       [
+        3.8041127,
+        43.6475913
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/167",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8055825,
+        43.6475505
+       ],
+       [
+        3.8056442,
+        43.6475505
+       ],
+       [
+        3.8056442,
+        43.6476049
+       ],
+       [
+        3.8055825,
+        43.6476049
+       ],
+       [
+        3.8055825,
+        43.6475505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/177",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8058025,
+        43.6478863
+       ],
+       [
+        3.80584,
+        43.6478863
+       ],
+       [
+        3.80584,
+        43.6479193
+       ],
+       [
+        3.8058025,
+        43.6479193
+       ],
+       [
+        3.8058025,
+        43.6478863
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/179",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8059688,
+        43.6476514
+       ],
+       [
+        3.8060063,
+        43.6476514
+       ],
+       [
+        3.8060063,
+        43.6476864
+       ],
+       [
+        3.8059688,
+        43.6476864
+       ],
+       [
+        3.8059688,
+        43.6476514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/182",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8062048,
+        43.6478514
+       ],
+       [
+        3.8062799,
+        43.6478514
+       ],
+       [
+        3.8062799,
+        43.6479154
+       ],
+       [
+        3.8062048,
+        43.6479154
+       ],
+       [
+        3.8062048,
+        43.6478514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/186",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8069719,
+        43.6475816
+       ],
+       [
+        3.8070416,
+        43.6475816
+       ],
+       [
+        3.8070416,
+        43.6476126
+       ],
+       [
+        3.8069719,
+        43.6476126
+       ],
+       [
+        3.8069719,
+        43.6475816
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/190",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8072214,
+        43.647929
+       ],
+       [
+        3.807267,
+        43.647929
+       ],
+       [
+        3.807267,
+        43.6479892
+       ],
+       [
+        3.8072214,
+        43.6479892
+       ],
+       [
+        3.8072214,
+        43.647929
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/192",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8077068,
+        43.6476068
+       ],
+       [
+        3.8078034,
+        43.6476068
+       ],
+       [
+        3.8078034,
+        43.6476398
+       ],
+       [
+        3.8077068,
+        43.6476398
+       ],
+       [
+        3.8077068,
+        43.6476068
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/195",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807908,
+        43.6474574
+       ],
+       [
+        3.8080072,
+        43.6474574
+       ],
+       [
+        3.8080072,
+        43.6475195
+       ],
+       [
+        3.807908,
+        43.6475195
+       ],
+       [
+        3.807908,
+        43.6474574
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/196",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8035333,
+        43.6471429
+       ],
+       [
+        3.8036057,
+        43.6471429
+       ],
+       [
+        3.8036057,
+        43.647174
+       ],
+       [
+        3.8035333,
+        43.647174
+       ],
+       [
+        3.8035333,
+        43.6471429
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/209",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.804574,
+        43.6470051
+       ],
+       [
+        3.804633,
+        43.6470051
+       ],
+       [
+        3.804633,
+        43.6470343
+       ],
+       [
+        3.804574,
+        43.6470343
+       ],
+       [
+        3.804574,
+        43.6470051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/216",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8047269,
+        43.6470168
+       ],
+       [
+        3.8047752,
+        43.6470168
+       ],
+       [
+        3.8047752,
+        43.6470595
+       ],
+       [
+        3.8047269,
+        43.6470595
+       ],
+       [
+        3.8047269,
+        43.6470168
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/218",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8048127,
+        43.6470304
+       ],
+       [
+        3.80492,
+        43.6470304
+       ],
+       [
+        3.80492,
+        43.6470653
+       ],
+       [
+        3.8048127,
+        43.6470653
+       ],
+       [
+        3.8048127,
+        43.6470304
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/219",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8048235,
+        43.6470343
+       ],
+       [
+        3.8048664,
+        43.6470343
+       ],
+       [
+        3.8048664,
+        43.6470537
+       ],
+       [
+        3.8048235,
+        43.6470537
+       ],
+       [
+        3.8048235,
+        43.6470343
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/220",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8056791,
+        43.6472051
+       ],
+       [
+        3.8057327,
+        43.6472051
+       ],
+       [
+        3.8057327,
+        43.647304
+       ],
+       [
+        3.8056791,
+        43.647304
+       ],
+       [
+        3.8056791,
+        43.6472051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/224",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8060734,
+        43.6474768
+       ],
+       [
+        3.8061082,
+        43.6474768
+       ],
+       [
+        3.8061082,
+        43.6474981
+       ],
+       [
+        3.8060734,
+        43.6474981
+       ],
+       [
+        3.8060734,
+        43.6474768
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/229",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8075244,
+        43.6471624
+       ],
+       [
+        3.8075379,
+        43.6471624
+       ],
+       [
+        3.8075379,
+        43.6471701
+       ],
+       [
+        3.8075244,
+        43.6471701
+       ],
+       [
+        3.8075244,
+        43.6471624
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/232",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807562,
+        43.6471721
+       ],
+       [
+        3.8076076,
+        43.6471721
+       ],
+       [
+        3.8076076,
+        43.64724
+       ],
+       [
+        3.807562,
+        43.64724
+       ],
+       [
+        3.807562,
+        43.6471721
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/234",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8029084,
+        43.6465859
+       ],
+       [
+        3.8029405,
+        43.6465859
+       ],
+       [
+        3.8029405,
+        43.6466267
+       ],
+       [
+        3.8029084,
+        43.6466267
+       ],
+       [
+        3.8029084,
+        43.6465859
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/241",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8039464,
+        43.646549
+       ],
+       [
+        3.8040429,
+        43.646549
+       ],
+       [
+        3.8040429,
+        43.6465917
+       ],
+       [
+        3.8039464,
+        43.6465917
+       ],
+       [
+        3.8039464,
+        43.646549
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/246",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.806929,
+        43.6468809
+       ],
+       [
+        3.8069987,
+        43.6468809
+       ],
+       [
+        3.8069987,
+        43.6469178
+       ],
+       [
+        3.806929,
+        43.6469178
+       ],
+       [
+        3.806929,
+        43.6468809
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/256",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8079831,
+        43.6466655
+       ],
+       [
+        3.8080233,
+        43.6466655
+       ],
+       [
+        3.8080233,
+        43.6467024
+       ],
+       [
+        3.8079831,
+        43.6467024
+       ],
+       [
+        3.8079831,
+        43.6466655
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/259",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.808026,
+        43.646648
+       ],
+       [
+        3.8080823,
+        43.646648
+       ],
+       [
+        3.8080823,
+        43.6466752
+       ],
+       [
+        3.808026,
+        43.6466752
+       ],
+       [
+        3.808026,
+        43.646648
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/260",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8080931,
+        43.6469683
+       ],
+       [
+        3.8081467,
+        43.6469683
+       ],
+       [
+        3.8081467,
+        43.6469954
+       ],
+       [
+        3.8080931,
+        43.6469954
+       ],
+       [
+        3.8080931,
+        43.6469683
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/261",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8074198,
+        43.650353
+       ],
+       [
+        3.8074359,
+        43.650353
+       ],
+       [
+        3.8074359,
+        43.6503608
+       ],
+       [
+        3.8074198,
+        43.6503608
+       ],
+       [
+        3.8074198,
+        43.650353
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/262",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8034636,
+        43.6476029
+       ],
+       [
+        3.8034824,
+        43.6476029
+       ],
+       [
+        3.8034824,
+        43.6476204
+       ],
+       [
+        3.8034636,
+        43.6476204
+       ],
+       [
+        3.8034636,
+        43.6476029
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/263",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8055691,
+        43.6483346
+       ],
+       [
+        3.8055825,
+        43.6483346
+       ],
+       [
+        3.8055825,
+        43.6483424
+       ],
+       [
+        3.8055691,
+        43.6483424
+       ],
+       [
+        3.8055691,
+        43.6483346
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/264",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8067198,
+        43.6482279
+       ],
+       [
+        3.8067359,
+        43.6482279
+       ],
+       [
+        3.8067359,
+        43.6482415
+       ],
+       [
+        3.8067198,
+        43.6482415
+       ],
+       [
+        3.8067198,
+        43.6482279
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/267",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.805899,
+        43.648094
+       ],
+       [
+        3.8059124,
+        43.648094
+       ],
+       [
+        3.8059124,
+        43.6481037
+       ],
+       [
+        3.805899,
+        43.6481037
+       ],
+       [
+        3.805899,
+        43.648094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/301",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8053921,
+        43.6500891
+       ],
+       [
+        3.8054511,
+        43.6500891
+       ],
+       [
+        3.8054511,
+        43.6501299
+       ],
+       [
+        3.8053921,
+        43.6501299
+       ],
+       [
+        3.8053921,
+        43.6500891
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/312",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8053519,
+        43.6500658
+       ],
+       [
+        3.8053894,
+        43.6500658
+       ],
+       [
+        3.8053894,
+        43.6501066
+       ],
+       [
+        3.8053519,
+        43.6501066
+       ],
+       [
+        3.8053519,
+        43.6500658
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/313",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.804625,
+        43.6496699
+       ],
+       [
+        3.8047028,
+        43.6496699
+       ],
+       [
+        3.8047028,
+        43.6497339
+       ],
+       [
+        3.804625,
+        43.6497339
+       ],
+       [
+        3.804625,
+        43.6496699
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/322",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8056791,
+        43.6491071
+       ],
+       [
+        3.805722,
+        43.6491071
+       ],
+       [
+        3.805722,
+        43.6491362
+       ],
+       [
+        3.8056791,
+        43.6491362
+       ],
+       [
+        3.8056791,
+        43.6491071
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/329",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8032168,
+        43.6488839
+       ],
+       [
+        3.8032866,
+        43.6488839
+       ],
+       [
+        3.8032866,
+        43.6489246
+       ],
+       [
+        3.8032168,
+        43.6489246
+       ],
+       [
+        3.8032168,
+        43.6488839
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/331",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8046089,
+        43.6486529
+       ],
+       [
+        3.8047028,
+        43.6486529
+       ],
+       [
+        3.8047028,
+        43.6486898
+       ],
+       [
+        3.8046089,
+        43.6486898
+       ],
+       [
+        3.8046089,
+        43.6486529
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/335",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8079751,
+        43.6466403
+       ],
+       [
+        3.808085,
+        43.6466403
+       ],
+       [
+        3.808085,
+        43.6466985
+       ],
+       [
+        3.8079751,
+        43.6466985
+       ],
+       [
+        3.8079751,
+        43.6466403
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/363",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8065347,
+        43.6494758
+       ],
+       [
+        3.8066661,
+        43.6494758
+       ],
+       [
+        3.8066661,
+        43.6495418
+       ],
+       [
+        3.8065347,
+        43.6495418
+       ],
+       [
+        3.8065347,
+        43.6494758
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/54",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8078785,
+        43.6498135
+       ],
+       [
+        3.8078892,
+        43.6498135
+       ],
+       [
+        3.8078892,
+        43.6498213
+       ],
+       [
+        3.8078785,
+        43.6498213
+       ],
+       [
+        3.8078785,
+        43.6498135
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/64",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8079053,
+        43.6498019
+       ],
+       [
+        3.8079214,
+        43.6498019
+       ],
+       [
+        3.8079214,
+        43.6498096
+       ],
+       [
+        3.8079053,
+        43.6498096
+       ],
+       [
+        3.8079053,
+        43.6498019
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/65",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8074601,
+        43.6489518
+       ],
+       [
+        3.8075244,
+        43.6489518
+       ],
+       [
+        3.8075244,
+        43.6490023
+       ],
+       [
+        3.8074601,
+        43.6490023
+       ],
+       [
+        3.8074601,
+        43.6489518
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/89",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807275,
+        43.6486704
+       ],
+       [
+        3.8073421,
+        43.6486704
+       ],
+       [
+        3.8073421,
+        43.6487597
+       ],
+       [
+        3.807275,
+        43.6487597
+       ],
+       [
+        3.807275,
+        43.6486704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/119",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8080072,
+        43.6487597
+       ],
+       [
+        3.8080233,
+        43.6487597
+       ],
+       [
+        3.8080233,
+        43.6487694
+       ],
+       [
+        3.8080072,
+        43.6487694
+       ],
+       [
+        3.8080072,
+        43.6487597
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/125",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8033402,
+        43.6475816
+       ],
+       [
+        3.8034099,
+        43.6475816
+       ],
+       [
+        3.8034099,
+        43.6476262
+       ],
+       [
+        3.8033402,
+        43.6476262
+       ],
+       [
+        3.8033402,
+        43.6475816
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/161",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8051426,
+        43.6474341
+       ],
+       [
+        3.8052016,
+        43.6474341
+       ],
+       [
+        3.8052016,
+        43.6474826
+       ],
+       [
+        3.8051426,
+        43.6474826
+       ],
+       [
+        3.8051426,
+        43.6474341
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/221",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8078114,
+        43.6469993
+       ],
+       [
+        3.8078758,
+        43.6469993
+       ],
+       [
+        3.8078758,
+        43.6470226
+       ],
+       [
+        3.8078114,
+        43.6470226
+       ],
+       [
+        3.8078114,
+        43.6469993
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/238",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8055852,
+        43.6483676
+       ],
+       [
+        3.8056791,
+        43.6483676
+       ],
+       [
+        3.8056791,
+        43.6484317
+       ],
+       [
+        3.8055852,
+        43.6484317
+       ],
+       [
+        3.8055852,
+        43.6483676
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/266",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8071784,
+        43.6479659
+       ],
+       [
+        3.8071972,
+        43.6479659
+       ],
+       [
+        3.8071972,
+        43.6479756
+       ],
+       [
+        3.8071784,
+        43.6479756
+       ],
+       [
+        3.8071784,
+        43.6479659
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/268",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8063362,
+        43.6482182
+       ],
+       [
+        3.8063604,
+        43.6482182
+       ],
+       [
+        3.8063604,
+        43.6482318
+       ],
+       [
+        3.8063362,
+        43.6482318
+       ],
+       [
+        3.8063362,
+        43.6482182
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/270",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8071918,
+        43.649274
+       ],
+       [
+        3.8072348,
+        43.649274
+       ],
+       [
+        3.8072348,
+        43.6493089
+       ],
+       [
+        3.8071918,
+        43.6493089
+       ],
+       [
+        3.8071918,
+        43.649274
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/271",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8065454,
+        43.6494816
+       ],
+       [
+        3.8066044,
+        43.6494816
+       ],
+       [
+        3.8066044,
+        43.6495185
+       ],
+       [
+        3.8065454,
+        43.6495185
+       ],
+       [
+        3.8065454,
+        43.6494816
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/274",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8051856,
+        43.6496214
+       ],
+       [
+        3.8052875,
+        43.6496214
+       ],
+       [
+        3.8052875,
+        43.6496951
+       ],
+       [
+        3.8051856,
+        43.6496951
+       ],
+       [
+        3.8051856,
+        43.6496214
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/297",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.807452,
+        43.6503666
+       ],
+       [
+        3.8075003,
+        43.6503666
+       ],
+       [
+        3.8075003,
+        43.650388
+       ],
+       [
+        3.807452,
+        43.650388
+       ],
+       [
+        3.807452,
+        43.6503666
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/304",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8071623,
+        43.6492235
+       ],
+       [
+        3.8071892,
+        43.6492235
+       ],
+       [
+        3.8071892,
+        43.6492332
+       ],
+       [
+        3.8071623,
+        43.6492332
+       ],
+       [
+        3.8071623,
+        43.6492235
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/328",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8066179,
+        43.6487752
+       ],
+       [
+        3.8066635,
+        43.6487752
+       ],
+       [
+        3.8066635,
+        43.6488062
+       ],
+       [
+        3.8066179,
+        43.6488062
+       ],
+       [
+        3.8066179,
+        43.6487752
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/334",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8028976,
+        43.648387
+       ],
+       [
+        3.8030291,
+        43.648387
+       ],
+       [
+        3.8030291,
+        43.6484414
+       ],
+       [
+        3.8028976,
+        43.6484414
+       ],
+       [
+        3.8028976,
+        43.648387
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/340",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        3.8052526,
+        43.6487267
+       ],
+       [
+        3.8052955,
+        43.6487267
+       ],
+       [
+        3.8052955,
+        43.648781
+       ],
+       [
+        3.8052526,
+        43.648781
+       ],
+       [
+        3.8052526,
+        43.6487267
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/grabels/x0",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: box added by eye"
+   }
+  }
+ ]
+}

@@ -2,7 +2,7 @@ import type { BBox, LonLat, Ring } from '@marco-polo/core';
 import { sleep } from '../../cli/src/tiles.js';
 import { closeRing, pointInPolygons, polygonsCentroid, type Polygon } from './geom.js';
 
-const UA = 'marco-polo-eval/0.1 (pool detection benchmark; github.com/Sepd0x/marco-polo)';
+export const UA = 'marco-polo-eval/0.2 (pool detection benchmark; github.com/Sepd0x/marco-polo)';
 
 /** Public Overpass instances, tried in order. One query at a time, with pauses. */
 export const OVERPASS_ENDPOINTS = [
@@ -16,11 +16,13 @@ interface OsmGeomPoint {
   lon: number;
 }
 
-interface OsmElement {
+export interface OsmElement {
   type: 'node' | 'way' | 'relation';
   id: number;
   lat?: number;
   lon?: number;
+  /** Centre of the element's bounding box, with `out center`. */
+  center?: OsmGeomPoint;
   tags?: Record<string, string>;
   geometry?: OsmGeomPoint[];
   members?: Array<{ type: string; role: string; geometry?: OsmGeomPoint[] }>;
@@ -35,7 +37,7 @@ export async function overpass(query: string): Promise<OsmElement[]> {
         method: 'POST',
         headers: { 'User-Agent': UA, 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'data=' + encodeURIComponent(query),
-        signal: AbortSignal.timeout(120_000),
+        signal: AbortSignal.timeout(300_000),
       });
       if (res.ok) {
         const json = (await res.json()) as { elements: OsmElement[]; remark?: string };
@@ -46,6 +48,7 @@ export async function overpass(query: string): Promise<OsmElement[]> {
     } catch (err) {
       lastErr = `${endpoint} ${String(err)}`;
     }
+    console.error(`  overpass retry ${attempt + 1}: ${lastErr.slice(0, 120)}`);
     await sleep(8000 * (attempt + 1));
   }
   throw new Error(`Overpass failed: ${lastErr}`);
@@ -93,7 +96,7 @@ export function stitchRings(segments: Ring[]): Ring[] {
   return rings;
 }
 
-function elementPolygons(el: OsmElement): Polygon[] {
+export function elementPolygons(el: OsmElement): Polygon[] {
   if (el.type === 'way' && el.geometry && el.geometry.length >= 4) {
     const r = toRing(el.geometry);
     const closed = r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1];

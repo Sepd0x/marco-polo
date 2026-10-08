@@ -1,0 +1,1 @@
+Rejected after review: 3 pools and 1 unsure in the zone (rule: fewer than 40). Windows w-00-00, w-00-01, w-02-00 and w-03-01 were looked at in full; the other 21 on half-scale sheets, enough to see the zone is apartment blocks, roads, a park and fields. Its imagery was looked at, so the place is now a seen site in the registry.

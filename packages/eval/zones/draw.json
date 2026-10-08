@@ -1,0 +1,1986 @@
+{
+ "about": "TEST draw, one entry per stratum with every attempt. Rules: zones/test-candidates.json. Raw OSM answers are kept outside the repo; their sha256 is here.",
+ "listCommit": "ddf92d433297d5b206351b9a5aefd73a4cb7000e",
+ "candidatesSha256": "56377eae69a1b7e49387368c654b229c7eace672136c5db40d6b7bccc6314f9c",
+ "registrySha256AtStart": "ef9080328d45716a3bf7a5adec8287302f65459b483f8e32de70b88e0aa87185",
+ "strata": [
+  {
+   "stratum": "pt-north",
+   "eligible": 3,
+   "start": 0,
+   "attempts": [
+    {
+     "index": 0,
+     "municipality": {
+      "name": "Bragança",
+      "code": "0402"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "56a00c9c17551870ecf932f5f8bd412d4705d68f050083d58376ced7d58807fd",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 31,
+      "col": 16,
+      "share": 0.388,
+      "bbox": {
+       "west": -6.761790965136392,
+       "south": 41.81493203721671,
+       "east": -6.7497476442074165,
+       "north": 41.823975754546275
+      }
+     }
+    },
+    {
+     "index": 1,
+     "municipality": {
+      "name": "Mirandela",
+      "code": "0407"
+     },
+     "status": "rejected: 9 pools after review",
+     "osmSha256": "32d76c5ea4f49c05ba7384dde69050f4bb2cab2d6557e04ba4876920695af666",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 15,
+      "col": 15,
+      "share": 0.413,
+      "bbox": {
+       "west": -7.186851343774406,
+       "south": 41.46934975994357,
+       "east": -7.174850773359367,
+       "north": 41.47839347727314
+      }
+     }
+    },
+    {
+     "index": 2,
+     "municipality": {
+      "name": "Chaves",
+      "code": "1703"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "20a3efd02870004077ca134741e28e21c321960f4ba8ef725baff773170f283e",
+     "eligibleCells": 9,
+     "cell": {
+      "row": 18,
+      "col": 11,
+      "share": 0.429,
+      "bbox": {
+       "west": -7.488147255093532,
+       "south": 41.74406061193228,
+       "east": -7.47611010555658,
+       "north": 41.753104329261845
+      }
+     }
+    }
+   ],
+   "rejected": [
+    "test-pt-north-braganca",
+    "test-pt-north-mirandela",
+    "test-pt-north-chaves"
+   ],
+   "exhausted": true
+  },
+  {
+   "stratum": "pt-rest",
+   "eligible": 50,
+   "start": 44,
+   "attempts": [
+    {
+     "index": 44,
+     "municipality": {
+      "name": "Ourém",
+      "code": "1421"
+     },
+     "status": "rejected: 8 pools after review",
+     "osmSha256": "a546757f8495ef55215bf60eb37827ad772e039f883a557b04b5a67190a31d5a",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 20,
+      "col": 12,
+      "share": 0.41,
+      "bbox": {
+       "west": -8.562171523861725,
+       "south": 39.71669544659142,
+       "east": -8.55049819251687,
+       "north": 39.72573916392099
+      }
+     }
+    },
+    {
+     "index": 45,
+     "municipality": {
+      "name": "Lamego",
+      "code": "1805"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "72bca5477122e21c7b9069b8fdce264c05e2b4cd1025155cdf9ec7abc39539ce",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 12,
+      "col": 8,
+      "share": 0.569,
+      "bbox": {
+       "west": -7.8203555302247985,
+       "south": 41.09002870795486,
+       "east": -7.8084398215028985,
+       "north": 41.099072425284426
+      }
+     }
+    },
+    {
+     "index": 46,
+     "municipality": {
+      "name": "Mangualde",
+      "code": "1806"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "b37b910e2ab68f24359d30dac8e65efba0471f332c9d4f37f94275b028d20586",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 8,
+      "col": 11,
+      "share": 0.429,
+      "bbox": {
+       "west": -7.766787030122312,
+       "south": 40.59827403863657,
+       "east": -7.7549577964970675,
+       "north": 40.607317755966136
+      }
+     }
+    },
+    {
+     "index": 47,
+     "municipality": {
+      "name": "São Pedro do Sul",
+      "code": "1816"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "3ef65660f88bf6a81fff8736faebc523ce16436ab7f91f2bdf3537c3f2f92d0f",
+     "eligibleCells": 0
+    },
+    {
+     "index": 48,
+     "municipality": {
+      "name": "Tondela",
+      "code": "1821"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "1a840e4b729669c1a6ac73efdf946dfc3aeed7453ae5ceb7cba8858156283ed2",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 2,
+      "col": 23,
+      "share": 0.46,
+      "bbox": {
+       "west": -8.036528010876737,
+       "south": 40.466052234659145,
+       "east": -8.024706624393117,
+       "north": 40.47509595198871
+      }
+     }
+    },
+    {
+     "index": 49,
+     "municipality": {
+      "name": "Viseu",
+      "code": "1823"
+     },
+     "status": "drawn",
+     "osmSha256": "4cdaa2bb185acc444d68e7aac441580a39bbf7645a65592061685cdeb0439090",
+     "eligibleCells": 44,
+     "cell": {
+      "row": 14,
+      "col": 13,
+      "share": 0.451,
+      "bbox": {
+       "west": -7.937577322914087,
+       "south": 40.662344542614,
+       "east": -7.925730278522862,
+       "north": 40.67138825994357
+      }
+     }
+    }
+   ],
+   "rejected": [
+    "test-pt-rest-ourem",
+    "test-pt-rest-lamego",
+    "test-pt-rest-mangualde",
+    "test-pt-rest-tondela"
+   ],
+   "zone": "test-pt-rest-viseu"
+  },
+  {
+   "stratum": "es",
+   "eligible": 501,
+   "start": 381,
+   "attempts": [
+    {
+     "index": 381,
+     "municipality": {
+      "name": "Las Torres de Cotillas",
+      "code": "30038"
+     },
+     "status": "rejected: 12 pools after review",
+     "osmSha256": "e904bc69a45d8fe63c115b47626f1891018090ad741f194d6547d97eefa477cd",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 4,
+      "col": 7,
+      "share": 0.478,
+      "bbox": {
+       "west": -1.2484953794917888,
+       "south": 38.03158846931829,
+       "east": -1.2370921908477586,
+       "north": 38.040632186647855
+      }
+     }
+    },
+    {
+     "index": 382,
+     "municipality": {
+      "name": "Totana",
+      "code": "30039"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "df24c39ff940f9713a4fbe9c396413af3dc78ca47893a3e972e11f23ab46f84a",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 10,
+      "col": 14,
+      "share": 0.404,
+      "bbox": {
+       "west": -1.512433635578018,
+       "south": 37.75787177329571,
+       "east": -1.5010676166907335,
+       "north": 37.76691549062528
+      }
+     }
+    },
+    {
+     "index": 383,
+     "municipality": {
+      "name": "La Unión",
+      "code": "30041"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "b50341dbd4f219bac35d9cba30380cdcb01e619bebb37e339d4384268c318d0d",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 5,
+      "col": 3,
+      "share": 0.488,
+      "bbox": {
+       "west": -0.895208600590419,
+       "south": 37.62002958664785,
+       "east": -0.8838688674538919,
+       "north": 37.62907330397742
+      }
+     }
+    },
+    {
+     "index": 384,
+     "municipality": {
+      "name": "Yecla",
+      "code": "30043"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "684321ecfa296874bbb6de213eec3a9f7c8395ffd7dab0d9852e5b5fe5981b9c",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 18,
+      "col": 20,
+      "share": 0.463,
+      "bbox": {
+       "west": -1.1144463142499088,
+       "south": 38.60071591193228,
+       "east": -1.1029524699624043,
+       "north": 38.609759629261845
+      }
+     }
+    },
+    {
+     "index": 385,
+     "municipality": {
+      "name": "Santomera",
+      "code": "30901"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "c5b50061c6e012ef34f084d500da0a9eeab5b03b9f3a53a5e1ed4afe10a9db9a",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 4,
+      "share": 0.519,
+      "bbox": {
+       "west": -1.0596683493590842,
+       "south": 38.057869834659144,
+       "east": -1.0482558866988552,
+       "north": 38.06691355198871
+      }
+     }
+    },
+    {
+     "index": 386,
+     "municipality": {
+      "name": "Los Alcázares",
+      "code": "30902"
+     },
+     "status": "rejected: 15 pools after review",
+     "osmSha256": "75b7ab3505e79b77ea0e060043e03d186a41ab68c450ed6144b31dc59ae06e23",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 1,
+      "col": 4,
+      "share": 0.544,
+      "bbox": {
+       "west": -0.8687294697148127,
+       "south": 37.72921311732957,
+       "east": -0.8573686621435159,
+       "north": 37.73825683465914
+      }
+     }
+    },
+    {
+     "index": 387,
+     "municipality": {
+      "name": "Ansoáin / Antsoain",
+      "code": "31016"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "de0b266a32ad382f3bab21e9c40e254f8afe003615d192f5c731fe323d1652df",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 0,
+      "col": 0,
+      "share": 0.723,
+      "bbox": {
+       "west": -1.6526139,
+       "south": 42.8298984,
+       "east": -1.6403632408012798,
+       "north": 42.838942117329566
+      }
+     }
+    },
+    {
+     "index": 388,
+     "municipality": {
+      "name": "Aranguren",
+      "code": "31023"
+     },
+     "status": "drawn",
+     "osmSha256": "d9776aee39f7fbfd28a1ba84822e5b5e6b9abd6ec643bb4bcc0013d47b1c0ba5",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 6,
+      "col": 1,
+      "share": 0.755,
+      "bbox": {
+       "west": -1.622783688669477,
+       "south": 42.79906710397742,
+       "east": -1.6105454773389543,
+       "north": 42.80811082130699
+      }
+     }
+    }
+   ],
+   "rejected": [
+    "test-es-las-torres-de-cotillas",
+    "test-es-totana",
+    "test-es-la-union",
+    "test-es-yecla",
+    "test-es-santomera",
+    "test-es-los-alcazares",
+    "test-es-ansoain-antsoain"
+   ],
+   "zone": "test-es-aranguren"
+  },
+  {
+   "stratum": "fr",
+   "eligible": 865,
+   "start": 788,
+   "attempts": [
+    {
+     "index": 788,
+     "municipality": {
+      "name": "Joinville-le-Pont",
+      "code": "94042"
+     },
+     "status": "rejected: 15 pools after review",
+     "osmSha256": "ae57dc93800baa5296973b4ffbe001d5d1516edaac90649405479b161cf0c14c",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.909,
+      "bbox": {
+       "west": 2.468144279758504,
+       "south": 48.818358717329566,
+       "east": 2.481787559517008,
+       "north": 48.827402434659135
+      }
+     }
+    },
+    {
+     "index": 789,
+     "municipality": {
+      "name": "Le Kremlin-Bicêtre",
+      "code": "94043"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "e4c938914da369ecd3bfe8a28862f901a83f6d7f8e88158ee750f7913b4f887e",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.943,
+      "bbox": {
+       "west": 2.3575092317246273,
+       "south": 48.81011971732957,
+       "east": 2.3711494634492545,
+       "north": 48.81916343465914
+      }
+     }
+    },
+    {
+     "index": 790,
+     "municipality": {
+      "name": "Limeil-Brévannes",
+      "code": "94044"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "ecb6ae95f00e938de63b826643c53a9bfc4e368cb92a4c04e358752843f18513",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 0,
+      "share": 0.456,
+      "bbox": {
+       "west": 2.467797,
+       "south": 48.74734143465914,
+       "east": 2.4814202678057433,
+       "north": 48.75638515198871
+      }
+     }
+    },
+    {
+     "index": 791,
+     "municipality": {
+      "name": "Maisons-Alfort",
+      "code": "94046"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "f6d99df3acdd2d6411723ec8d4195258fee4a2020e95566b036271cd0b81bbe0",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 1,
+      "bbox": {
+       "west": 2.4295633313135534,
+       "south": 48.79566271732957,
+       "east": 2.4432016626271067,
+       "north": 48.80470643465914
+      }
+     }
+    },
+    {
+     "index": 792,
+     "municipality": {
+      "name": "Nogent-sur-Marne",
+      "code": "94052"
+     },
+     "status": "rejected: 15 pools after review",
+     "osmSha256": "c9b0573c9bb2d8acf8b557bf46eb3bb2b5963f6fa7d1117d30cb8fcf53d10309",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 0,
+      "col": 0,
+      "share": 0.764,
+      "bbox": {
+       "west": 2.464608,
+       "south": 48.826137,
+       "east": 2.4782559141232823,
+       "north": 48.83518071732957
+      }
+     }
+    },
+    {
+     "index": 793,
+     "municipality": {
+      "name": "Orly",
+      "code": "94054"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "cfad892ea05c1dc062e615a145e692a00d95c75a7c05fdcec3e8affbad8dbabe",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "share": 0.873,
+      "bbox": {
+       "west": 2.3965822611169725,
+       "south": 48.73661271732957,
+       "east": 2.4102038916754585,
+       "north": 48.74565643465914
+      }
+     }
+    },
+    {
+     "index": 794,
+     "municipality": {
+      "name": "Ormesson-sur-Marne",
+      "code": "94055"
+     },
+     "status": "rejected: 30 pools after review",
+     "osmSha256": "39d68fc34d933ebd95b8f26cec9898243de85f9fe9412fc09b233e5ec23b83a6",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.878,
+      "bbox": {
+       "west": 2.5258844147666255,
+       "south": 48.78547071732957,
+       "east": 2.539518829533251,
+       "north": 48.794514434659135
+      }
+     }
+    },
+    {
+     "index": 795,
+     "municipality": {
+      "name": "Le Perreux-sur-Marne",
+      "code": "94058"
+     },
+     "status": "rejected: 20 pools after review",
+     "osmSha256": "039bcc096845db0abc14a79d04904d51fbcd2e669659f0707cb118a96e73e3ae",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 0,
+      "col": 1,
+      "share": 0.866,
+      "bbox": {
+       "west": 2.505053647749629,
+       "south": 48.829335,
+       "east": 2.5187032954992574,
+       "north": 48.83837871732957
+      }
+     }
+    },
+    {
+     "index": 796,
+     "municipality": {
+      "name": "Le Plessis-Trévise",
+      "code": "94059"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "265b4247e53ae17ddd026cdaec457aa920b39c3e422128afd1113bdc29b107dc",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.853,
+      "bbox": {
+       "west": 2.569694030293949,
+       "south": 48.802263717329566,
+       "east": 2.5833340605878976,
+       "north": 48.811307434659135
+      }
+     }
+    },
+    {
+     "index": 797,
+     "municipality": {
+      "name": "La Queue-en-Brie",
+      "code": "94060"
+     },
+     "status": "rejected: 20 pools after review",
+     "osmSha256": "8f80f235690fb7c36b4478c91c4676c90e5c4fb35b01087cdd2f54826f5e3f03",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.687,
+      "bbox": {
+       "west": 2.582660177797514,
+       "south": 48.78212915198871,
+       "east": 2.5962917666962704,
+       "north": 48.79117286931828
+      }
+     }
+    },
+    {
+     "index": 798,
+     "municipality": {
+      "name": "Saint-Mandé",
+      "code": "94067"
+     },
+     "status": "rejected: 0 pools after review",
+     "osmSha256": "a9446b71fde5204b95a327f69dd5de7960af4a1384c3085e146268ccdefce52c",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 1,
+      "col": 0,
+      "share": 0.964,
+      "bbox": {
+       "west": 2.411472,
+       "south": 48.84275571732957,
+       "east": 2.425121166322515,
+       "north": 48.851799434659135
+      }
+     }
+    },
+    {
+     "index": 799,
+     "municipality": {
+      "name": "Saint-Maur-des-Fossés",
+      "code": "94068"
+     },
+     "status": "rejected: 15 pools after review",
+     "osmSha256": "955a3e5ed3169966e284af7dd16a02dfdf5db1b409cf9240d0b1073b60b56b3f",
+     "eligibleCells": 11,
+     "cell": {
+      "row": 0,
+      "col": 1,
+      "share": 0.807,
+      "bbox": {
+       "west": 2.474229828829974,
+       "south": 48.784042,
+       "east": 2.4878676576599483,
+       "north": 48.79308571732957
+      }
+     }
+    },
+    {
+     "index": 800,
+     "municipality": {
+      "name": "Saint-Maurice",
+      "code": "94069"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "06d543a1a61c9518a1424c779cee06a7e201a2af32c2b74cfc1ee15f6439092d",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 0,
+      "col": 1,
+      "share": 0.526,
+      "bbox": {
+       "west": 2.4332798724377125,
+       "south": 48.812693,
+       "east": 2.446922744875425,
+       "north": 48.82173671732957
+      }
+     }
+    },
+    {
+     "index": 801,
+     "municipality": {
+      "name": "Sucy-en-Brie",
+      "code": "94071"
+     },
+     "status": "rejected: 25 pools after review",
+     "osmSha256": "0c02a7608111c152fa653109d3ed54e7c457aed5e56e775d955e7fe88a91c5dc",
+     "eligibleCells": 8,
+     "cell": {
+      "row": 3,
+      "col": 1,
+      "share": 0.678,
+      "bbox": {
+       "west": 2.5075763811591982,
+       "south": 48.77836115198871,
+       "east": 2.5212057623183965,
+       "north": 48.78740486931828
+      }
+     }
+    },
+    {
+     "index": 802,
+     "municipality": {
+      "name": "Thiais",
+      "code": "94073"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "031f3ecff438ffca616a70c3571844f14aa49795c5f7286ff434bbbe26ac5318",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 2,
+      "col": 2,
+      "share": 0.878,
+      "bbox": {
+       "west": 2.3950372389401418,
+       "south": 48.76421843465914,
+       "east": 2.4086643584102125,
+       "north": 48.77326215198871
+      }
+     }
+    },
+    {
+     "index": 803,
+     "municipality": {
+      "name": "Valenton",
+      "code": "94074"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "ad6c989fd7ca6ee7197b3425996086070434bd3a24665b4875bdeb208b3479fa",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 2,
+      "col": 2,
+      "share": 0.44,
+      "bbox": {
+       "west": 2.462570409022427,
+       "south": 48.745724434659145,
+       "east": 2.4761946135336403,
+       "north": 48.75476815198871
+      }
+     }
+    },
+    {
+     "index": 804,
+     "municipality": {
+      "name": "Villecresnes",
+      "code": "94075"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "be166c8e8805261e0e9718a3631956c32cd6c6ab7401dfba5638ae918d2287e3",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 1,
+      "share": 0.451,
+      "bbox": {
+       "west": 2.5221767242507025,
+       "south": 48.723494434659145,
+       "east": 2.535793448501405,
+       "north": 48.73253815198871
+      }
+     }
+    },
+    {
+     "index": 805,
+     "municipality": {
+      "name": "Villejuif",
+      "code": "94076"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "6d90296e3e50b64577e78ff0f202919befd42fcce10bca603abe33043856c8a1",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 0,
+      "col": 0,
+      "share": 0.594,
+      "bbox": {
+       "west": 2.34381,
+       "south": 48.778695,
+       "east": 2.3574460596688707,
+       "north": 48.78773871732957
+      }
+     }
+    },
+    {
+     "index": 806,
+     "municipality": {
+      "name": "Villeneuve-le-Roi",
+      "code": "94077"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "56ef2d12da2279403e644ae67eebffad58c42d56ba751fcd27160cae4f7a68a9",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "share": 0.71,
+      "bbox": {
+       "west": 2.397459826661706,
+       "south": 48.72803471732957,
+       "east": 2.4110792399925596,
+       "north": 48.73707843465914
+      }
+     }
+    },
+    {
+     "index": 807,
+     "municipality": {
+      "name": "Villeneuve-Saint-Georges",
+      "code": "94078"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "1a7b85a80c0b77204e29aee9c542791d0adc15813ec9e85fa5997320f3d3916f",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 3,
+      "col": 1,
+      "share": 0.49,
+      "bbox": {
+       "west": 2.4393092647222505,
+       "south": 48.74149215198871,
+       "east": 2.452930529444501,
+       "north": 48.75053586931828
+      }
+     }
+    },
+    {
+     "index": 808,
+     "municipality": {
+      "name": "Villiers-sur-Marne",
+      "code": "94079"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "1d4b2212026607f62edabe3bd5c0ba3937c5408e407a9c1807aa36555daedeb8",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.923,
+      "bbox": {
+       "west": 2.5377174222505055,
+       "south": 48.826120717329566,
+       "east": 2.551362844501011,
+       "north": 48.835164434659134
+      }
+     }
+    },
+    {
+     "index": 809,
+     "municipality": {
+      "name": "Vincennes",
+      "code": "94080"
+     },
+     "status": "rejected: 0 pools after review",
+     "osmSha256": "558f80399f8b917820ba6267992400051dcf3197f0053cb7976553f5852368f7",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 0,
+      "col": 1,
+      "share": 0.687,
+      "bbox": {
+       "west": 2.4322816861186136,
+       "south": 48.840893,
+       "east": 2.4459323722372273,
+       "north": 48.84993671732957
+      }
+     }
+    },
+    {
+     "index": 810,
+     "municipality": {
+      "name": "Vitry-sur-Seine",
+      "code": "94081"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "ecd31dc2411e507a8bdbdb40b7aeea811432027428948a1e7eedaf10f1c545a5",
+     "eligibleCells": 11,
+     "cell": {
+      "row": 0,
+      "col": 2,
+      "share": 0.735,
+      "bbox": {
+       "west": 2.394639874292686,
+       "south": 48.770008,
+       "east": 2.408274811439029,
+       "north": 48.779051717329565
+      }
+     }
+    },
+    {
+     "index": 811,
+     "municipality": {
+      "name": "Arnouville",
+      "code": "95019"
+     },
+     "status": "rejected: 12 pools after review",
+     "osmSha256": "0f82e8fd7e038234c616be5083a2c616229ffe0e598b7d3607857ef56d23db14",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.995,
+      "bbox": {
+       "west": 2.414836891641535,
+       "south": 48.983898717329566,
+       "east": 2.42852578328307,
+       "north": 48.992942434659135
+      }
+     }
+    },
+    {
+     "index": 812,
+     "municipality": {
+      "name": "Beaumont-sur-Oise",
+      "code": "95052"
+     },
+     "status": "rejected: 8 pools after review",
+     "osmSha256": "17c733cc701d08d58a1364fffbd6b51754bb702a7017c01dff31105c7ea5929d",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 2,
+      "col": 2,
+      "share": 0.447,
+      "bbox": {
+       "west": 2.2953798032696384,
+       "south": 49.140830434659144,
+       "east": 2.309110204904458,
+       "north": 49.14987415198871
+      }
+     }
+    },
+    {
+     "index": 813,
+     "municipality": {
+      "name": "Bezons",
+      "code": "95063"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "aa548f350d7ceb8d7cee256b5f1c4329f51c5487e5ff5bc83ac0fbd7e2b8a970",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 2,
+      "col": 0,
+      "share": 1,
+      "bbox": {
+       "west": 2.198213,
+       "south": 48.926712434659144,
+       "east": 2.2118849608604574,
+       "north": 48.93575615198871
+      }
+     }
+    },
+    {
+     "index": 814,
+     "municipality": {
+      "name": "Cergy",
+      "code": "95127"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "c85d44ea304913c9520e21a2f072c530bb6a339b7873f78a04a167013d968b27",
+     "eligibleCells": 10,
+     "cell": {
+      "row": 3,
+      "col": 3,
+      "share": 0.324,
+      "bbox": {
+       "west": 2.0410904046611726,
+       "south": 49.045271151988715,
+       "east": 2.054793206214897,
+       "north": 49.05431486931828
+      }
+     }
+    },
+    {
+     "index": 815,
+     "municipality": {
+      "name": "Cormeilles-en-Parisis",
+      "code": "95176"
+     },
+     "status": "rejected: 30 pools after review",
+     "osmSha256": "dcc4f8fa776f2c4c79329a00274667901f8f0e4f5cad63342806f35ceda22c6a",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.984,
+      "bbox": {
+       "west": 2.187014314007778,
+       "south": 48.95873771732957,
+       "east": 2.200698628015556,
+       "north": 48.96778143465914
+      }
+     }
+    },
+    {
+     "index": 816,
+     "municipality": {
+      "name": "Deuil-la-Barre",
+      "code": "95197"
+     },
+     "status": "rejected: 0 pools after review",
+     "osmSha256": "1e92d2aba6c1582b129e29b3a94df4c4bafe6e5b883ab88c4961c878d1e8e1d1",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 1,
+      "share": 1,
+      "bbox": {
+       "west": 2.3234114052665893,
+       "south": 48.97561243465914,
+       "east": 2.3370958105331785,
+       "north": 48.98465615198871
+      }
+     }
+    },
+    {
+     "index": 817,
+     "municipality": {
+      "name": "Domont",
+      "code": "95199"
+     },
+     "status": "drawn",
+     "osmSha256": "bec28cd8d8b9ab8dc0dd41223ec3bac5e3b6d96ee8c8c440be4f5d07cbc5bbca",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 3,
+      "share": 0.719,
+      "bbox": {
+       "west": 2.3347904603862366,
+       "south": 49.028725434659144,
+       "east": 2.3484909471816486,
+       "north": 49.03776915198871
+      }
+     }
+    }
+   ],
+   "rejected": [
+    "test-fr-joinville-le-pont",
+    "test-fr-le-kremlin-bicetre",
+    "test-fr-limeil-brevannes",
+    "test-fr-maisons-alfort",
+    "test-fr-nogent-sur-marne",
+    "test-fr-orly",
+    "test-fr-ormesson-sur-marne",
+    "test-fr-le-perreux-sur-marne",
+    "test-fr-le-plessis-trevise",
+    "test-fr-la-queue-en-brie",
+    "test-fr-saint-mande",
+    "test-fr-saint-maur-des-fosses",
+    "test-fr-saint-maurice",
+    "test-fr-sucy-en-brie",
+    "test-fr-thiais",
+    "test-fr-valenton",
+    "test-fr-villecresnes",
+    "test-fr-villejuif",
+    "test-fr-villeneuve-le-roi",
+    "test-fr-villeneuve-saint-georges",
+    "test-fr-villiers-sur-marne",
+    "test-fr-vincennes",
+    "test-fr-vitry-sur-seine",
+    "test-fr-arnouville",
+    "test-fr-beaumont-sur-oise",
+    "test-fr-bezons",
+    "test-fr-cergy",
+    "test-fr-cormeilles-en-parisis",
+    "test-fr-deuil-la-barre"
+   ],
+   "zone": "test-fr-domont"
+  },
+  {
+   "stratum": "us",
+   "eligible": 648,
+   "start": 262,
+   "attempts": [
+    {
+     "index": 262,
+     "municipality": {
+      "name": "Signal Hill city, CA",
+      "code": "0671876"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "99f82bf1f1272e2fd0f4d8d1efafae8cc47ef83408ae5f3af0a0c66227197d3e",
+     "eligibleCells": 0
+    },
+    {
+     "index": 263,
+     "municipality": {
+      "name": "Solana Beach city, CA",
+      "code": "0672506"
+     },
+     "status": "rejected: 30 pools after review",
+     "osmSha256": "b7f4576dcd5d0bd98352ae47d4ae79db296f494ea6e03d464698c9a99940fe5b",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 3,
+      "share": 0.891,
+      "bbox": {
+       "west": -117.24732499442494,
+       "south": 32.99745343493705,
+       "east": -117.23661465932948,
+       "north": 33.00649715226662
+      }
+     },
+     "esri": {
+      "date": "2026-01-10",
+      "desc": "LG01",
+      "resM": 0.34,
+      "noonElevationDeg": 35
+     }
+    },
+    {
+     "index": 264,
+     "municipality": {
+      "name": "Soledad city, CA",
+      "code": "0672520"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "8fad34e76b9716b6f0044b223646b2a141933232438c2250ef88ee18ce1727f7",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 4,
+      "col": 5,
+      "share": 0.488,
+      "bbox": {
+       "west": -121.3357904903278,
+       "south": 36.437464868988,
+       "east": -121.32462338837091,
+       "north": 36.44650858631757
+      }
+     },
+     "esri": {
+      "date": "2025-10-14",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 44.3
+     }
+    },
+    {
+     "index": 265,
+     "municipality": {
+      "name": "Sonoma city, CA",
+      "code": "0672646"
+     },
+     "status": "rejected: 25 pools after review",
+     "osmSha256": "14497084f6082609ac40d95951c4e81f2b198a34368704ac233f16fd5f4a3f88",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.361,
+      "bbox": {
+       "west": -122.47044168976775,
+       "south": 38.28347971754863,
+       "east": -122.45899637988832,
+       "north": 38.2925234348782
+      }
+     },
+     "esri": {
+      "date": "2025-10-20",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 40.3
+     }
+    },
+    {
+     "index": 266,
+     "municipality": {
+      "name": "South El Monte city, CA",
+      "code": "0672996"
+     },
+     "status": "drawn",
+     "osmSha256": "bff33a9389332064d29e5a4fc0ce2aeee8dd8e85e41d8c7cb7530deee0126c86",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 0,
+      "col": 3,
+      "share": 0.39,
+      "bbox": {
+       "west": -118.03782853351574,
+       "south": 34.03305299977478,
+       "east": -118.02698671123919,
+       "north": 34.04209671710435
+      }
+     },
+     "esri": {
+      "date": "2025-11-07",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 38.9
+     }
+    }
+   ],
+   "rejected": [
+    "test-us-solana-beach-city-ca",
+    "test-us-soledad-city-ca",
+    "test-us-sonoma-city-ca"
+   ],
+   "zone": "test-us-south-el-monte-city-ca"
+  },
+  {
+   "stratum": "negative",
+   "eligible": 22,
+   "start": 18,
+   "attempts": [
+    {
+     "index": 18,
+     "municipality": {
+      "name": "Dunkerque",
+      "code": "59183"
+     },
+     "status": "drawn",
+     "osmSha256": "8706775c349ad5d35e975c55defda9a114c9b2068364b54b33569ebc17be352c",
+     "eligibleCells": 15,
+     "cell": {
+      "row": 6,
+      "col": 8,
+      "share": 0.317,
+      "bbox": {
+       "west": 2.353958454472098,
+       "south": 51.03017230397742,
+       "east": 2.3682383862811105,
+       "north": 51.03921602130699
+      }
+     }
+    }
+   ],
+   "zone": "test-negative-dunkerque"
+  },
+  {
+   "stratum": "hard",
+   "eligible": 1167,
+   "start": 619,
+   "attempts": [
+    {
+     "index": 619,
+     "municipality": {
+      "name": "Cave",
+      "code": "058026"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "7ca0f1ea7696954e7bd82e4e1e5d0545bd25e8ee725b281a7f57f42e023f72bd",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.551,
+      "bbox": {
+       "west": 12.928396498295232,
+       "south": 41.81481375198871,
+       "east": 12.940449047442847,
+       "north": 41.82385746931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-13",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 51.2
+     }
+    },
+    {
+     "index": 620,
+     "municipality": {
+      "name": "Cerveteri",
+      "code": "058029"
+     },
+     "status": "rejected: 15 pools after review",
+     "osmSha256": "29333fef91780fbd4f37a8b3a731d061db21e9130d9b2d2c57c39af6e022c6db",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 1,
+      "col": 13,
+      "share": 0.351,
+      "bbox": {
+       "west": 12.152939010470302,
+       "south": 41.94597231732957,
+       "east": 12.16502844204494,
+       "north": 41.95501603465914
+      }
+     },
+     "esri": {
+      "date": "2025-11-05",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 31.5
+     }
+    },
+    {
+     "index": 621,
+     "municipality": {
+      "name": "Civitavecchia",
+      "code": "058032"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "4f0e131bb80a91cd6318fa5e25fd8fbceaea29595a8ed93e5a3e3bef34686724",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 6,
+      "share": 0.302,
+      "bbox": {
+       "west": 11.806279004506576,
+       "south": 42.06590841732957,
+       "east": 11.818388088591005,
+       "north": 42.074952134659135
+      }
+     },
+     "esri": {
+      "date": "2025-09-07",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 53.3
+     }
+    },
+    {
+     "index": 622,
+     "municipality": {
+      "name": "Colleferro",
+      "code": "058034"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "ab170c78c7f0ab258b27fea79db49c6bb8e4fd0b9b057c33c88d51b53ad9161c",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 3,
+      "col": 4,
+      "share": 0.791,
+      "bbox": {
+       "west": 13.001169021237322,
+       "south": 41.718494751988715,
+       "east": 13.013206251546652,
+       "north": 41.72753846931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-13",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 51.3
+     }
+    },
+    {
+     "index": 623,
+     "municipality": {
+      "name": "Fiano Romano",
+      "code": "058036"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "7eda30cf1cac1df7767657dab58dcc79c5b34ff5d5ccc3bd6aeb0661303d40bd",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 3,
+      "col": 4,
+      "share": 0.676,
+      "bbox": {
+       "west": 12.598325474793466,
+       "south": 42.14575045198871,
+       "east": 12.610443818491833,
+       "north": 42.15479416931828
+      }
+     },
+     "esri": {
+      "date": "2023-07-16",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 69.2
+     }
+    },
+    {
+     "index": 624,
+     "municipality": {
+      "name": "Formello",
+      "code": "058038"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "fbb9d24386099baead0e8d3373d77483883c0a68573ba7a55806ce28eca4ce1a",
+     "eligibleCells": 0
+    },
+    {
+     "index": 625,
+     "municipality": {
+      "name": "Frascati",
+      "code": "058039"
+     },
+     "status": "rejected: 8 pools after review",
+     "osmSha256": "6c3eaed02a1854a2371689c79c6c85dd8323226f4aee482239409c1108efb26f",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 0,
+      "col": 4,
+      "share": 0.363,
+      "bbox": {
+       "west": 12.674284346937668,
+       "south": 41.7963102,
+       "east": 12.686339183672084,
+       "north": 41.80535391732957
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.3
+     }
+    },
+    {
+     "index": 626,
+     "municipality": {
+      "name": "Genzano di Roma",
+      "code": "058043"
+     },
+     "status": "no boundary"
+    },
+    {
+     "index": 627,
+     "municipality": {
+      "name": "Grottaferrata",
+      "code": "058046"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "52e0d9704bab22d75ad38666a7a5b3fac0fbbe33bd9b8097f70aff01e3daa887",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 2,
+      "col": 3,
+      "share": 0.533,
+      "bbox": {
+       "west": 12.670746372703542,
+       "south": 41.77452613465914,
+       "east": 12.682793363604723,
+       "north": 41.78356985198871
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.3
+     }
+    },
+    {
+     "index": 628,
+     "municipality": {
+      "name": "Guidonia Montecelio",
+      "code": "058047"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "cffcabc932f89780786e6130cc1a0fb504e563b310c8ff01337e159b0722b3fa",
+     "eligibleCells": 9,
+     "cell": {
+      "row": 5,
+      "col": 2,
+      "share": 0.304,
+      "bbox": {
+       "west": 12.636106811455464,
+       "south": 41.971671886647854,
+       "east": 12.648192017183197,
+       "north": 41.98071560397742
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.1
+     }
+    },
+    {
+     "index": 629,
+     "municipality": {
+      "name": "Lanuvio",
+      "code": "058050"
+     },
+     "status": "no boundary"
+    },
+    {
+     "index": 630,
+     "municipality": {
+      "name": "Marino",
+      "code": "058057"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "03494d7670d318258d3ff0e3c6128b0e90d3e8f3e44c625838c903472f8bd763",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 3,
+      "col": 1,
+      "share": 0.351,
+      "bbox": {
+       "west": 12.595387580133764,
+       "south": 41.76322325198871,
+       "east": 12.607430260267527,
+       "north": 41.77226696931828
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.4
+     }
+    },
+    {
+     "index": 631,
+     "municipality": {
+      "name": "Mentana",
+      "code": "058059"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "4fd9fd5c1ebdd434d93ad07c98ba9ded07d2df3e5ba56209727738c5b166431c",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.653,
+      "bbox": {
+       "west": 12.639010707962973,
+       "south": 42.03610745198871,
+       "east": 12.651106411944458,
+       "north": 42.04515116931828
+      }
+     },
+     "esri": {
+      "date": "2023-07-16",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 69.3
+     }
+    },
+    {
+     "index": 632,
+     "municipality": {
+      "name": "Monte Compatri",
+      "code": "058060"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "8ce0a397ace354d28eae6456e91fe87a975190eeaf0c6b4f87601b494a2ca4f8",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 3,
+      "col": 3,
+      "share": 0.315,
+      "bbox": {
+       "west": 12.733602376037727,
+       "south": 41.806802351988715,
+       "east": 12.745659168050302,
+       "north": 41.81584606931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-08",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 53.2
+     }
+    },
+    {
+     "index": 633,
+     "municipality": {
+      "name": "Monterotondo",
+      "code": "058065"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "a250e0581a2376475a289cd1b40a54a23896fccb9b9405708513b42347ff5b35",
+     "eligibleCells": 0
+    },
+    {
+     "index": 634,
+     "municipality": {
+      "name": "Nettuno",
+      "code": "058072"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "6a5ae0275aa02f0119b7b54f4adc211e4f5ff49a9b34b5a426cedbf5b32aa5c0",
+     "eligibleCells": 12,
+     "cell": {
+      "row": 7,
+      "col": 3,
+      "share": 0.383,
+      "bbox": {
+       "west": 12.65501012372547,
+       "south": 41.470917721306996,
+       "east": 12.666999398300627,
+       "north": 41.479961438636565
+      }
+     },
+     "esri": {
+      "date": "2023-07-16",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 69.9
+     }
+    },
+    {
+     "index": 635,
+     "municipality": {
+      "name": "Palestrina",
+      "code": "058074"
+     },
+     "status": "no boundary"
+    },
+    {
+     "index": 636,
+     "municipality": {
+      "name": "Palombara Sabina",
+      "code": "058075"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "e222f7c3a5786a108a43c80bf48eebf910543556f4213264ea8a6b394db2b138",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 10,
+      "share": 0.365,
+      "bbox": {
+       "west": 12.757366884568462,
+       "south": 42.05979723465914,
+       "east": 12.769469483025308,
+       "north": 42.06884095198871
+      }
+     },
+     "esri": {
+      "date": "2025-06-10",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 70.9
+     }
+    },
+    {
+     "index": 637,
+     "municipality": {
+      "name": "Pomezia",
+      "code": "058079"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "26af769275704478eac6b0fb338327eb49c1660960bda227451831424a3e90fd",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 7,
+      "share": 0.306,
+      "bbox": {
+       "west": 12.500105981243655,
+       "south": 41.61387663465914,
+       "east": 12.512129007135606,
+       "north": 41.62292035198871
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.8
+     }
+    },
+    {
+     "index": 638,
+     "municipality": {
+      "name": "Riano",
+      "code": "058081"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "c3697f84a48aadb0bb7952edce342bb0b2d020d0fd706e10e882b32d59f9a11d",
+     "eligibleCells": 0
+    },
+    {
+     "index": 639,
+     "municipality": {
+      "name": "Rignano Flaminio",
+      "code": "058082"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3ca6164e63ecb88ada057f0db0f6f19e8edb24d8d17ae43496a0b49852d5c52",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 5,
+      "col": 4,
+      "share": 0.458,
+      "bbox": {
+       "west": 12.477779861678188,
+       "south": 42.20193208664786,
+       "east": 12.489905927097736,
+       "north": 42.210975803977426
+      }
+     },
+     "esri": {
+      "date": "2025-07-21",
+      "desc": "LG01",
+      "resM": 0.34,
+      "noonElevationDeg": 68.2
+     }
+    },
+    {
+     "index": 640,
+     "municipality": {
+      "name": "Rocca di Papa",
+      "code": "058086"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "be7c8980e9ac9381ae201c3af7d4f25bb9307b2ea279eecda1394428fd92de7a",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 4,
+      "col": 2,
+      "share": 0.413,
+      "bbox": {
+       "west": 12.706592518258988,
+       "south": 41.76082576931829,
+       "east": 12.718634027388482,
+       "north": 41.769869486647856
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.4
+     }
+    },
+    {
+     "index": 641,
+     "municipality": {
+      "name": "Rocca Priora",
+      "code": "058088"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3c94278b044d58a20349387e09dcbbe457700661474d70e6da18a79bba9acaf",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 4,
+      "col": 2,
+      "share": 0.329,
+      "bbox": {
+       "west": 12.762285244833476,
+       "south": 41.78721116931829,
+       "east": 12.774331867250215,
+       "north": 41.79625488664786
+      }
+     },
+     "esri": {
+      "date": "2025-09-08",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 53.2
+     }
+    },
+    {
+     "index": 642,
+     "municipality": {
+      "name": "Santa Marinella",
+      "code": "058097"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "b7340a12297b36baee68c0e62bda1e43d1e751be7252be8bbc6c897430a95dd1",
+     "eligibleCells": 0
+    },
+    {
+     "index": 643,
+     "municipality": {
+      "name": "Tivoli",
+      "code": "058104"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "07813b9e2f9728bd686c5ae6fe4d1ec7d3aa0cdbc5fdfe53db48379d9811e444",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 4,
+      "col": 8,
+      "share": 0.522,
+      "bbox": {
+       "west": 12.786563909807324,
+       "south": 41.95262026931829,
+       "east": 12.798644561033239,
+       "north": 41.96166398664786
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.4
+     }
+    },
+    {
+     "index": 644,
+     "municipality": {
+      "name": "Valmontone",
+      "code": "058110"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "8b1d3891c651353754c69436a47354adcfa910b7937be060d9a659c23241623e",
+     "eligibleCells": 0
+    },
+    {
+     "index": 645,
+     "municipality": {
+      "name": "Velletri",
+      "code": "058111"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "ac4fa04691df7cd747f0d7c8711860803c0f97bc0cdb35a73ff4630b2bc9b736",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 13,
+      "col": 6,
+      "share": 0.444,
+      "bbox": {
+       "west": 12.769627635544458,
+       "south": 41.69030412528442,
+       "east": 12.781650824801867,
+       "north": 41.69934784261399
+      }
+     },
+     "esri": {
+      "date": "2022-09-06",
+      "desc": "GE01",
+      "resM": 0.46,
+      "noonElevationDeg": 54.1
+     }
+    },
+    {
+     "index": 646,
+     "municipality": {
+      "name": "Zagarolo",
+      "code": "058114"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "0f9873c274126f54f3657a0abd85d37b1600e212b5349fabb32a4c8d22932c67",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 7,
+      "col": 2,
+      "share": 0.315,
+      "bbox": {
+       "west": 12.751491940076992,
+       "south": 41.875124021307,
+       "east": 12.763552610115488,
+       "north": 41.88416773863657
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.5
+     }
+    },
+    {
+     "index": 647,
+     "municipality": {
+      "name": "Lariano",
+      "code": "058115"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "af08ff37717dd53a74b2d6908ea45023305013a3531d2cd65c307506211fabc4",
+     "eligibleCells": 0
+    },
+    {
+     "index": 648,
+     "municipality": {
+      "name": "Ladispoli",
+      "code": "058116"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3966b71e9fcba2b0127531be4b320b99efb14b1ee4c2d4c883f92d25884e830",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 3,
+      "col": 3,
+      "share": 0.499,
+      "bbox": {
+       "west": 12.078651403153037,
+       "south": 41.95186565198871,
+       "east": 12.090730404204049,
+       "north": 41.96090936931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-05",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 54.2
+     }
+    },
+    {
+     "index": 649,
+     "municipality": {
+      "name": "Ardea",
+      "code": "058117"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "3a69d12ed1770e33b552dbc157bb226988f527984f41824384a6a537f0a267a0",
+     "eligibleCells": 21,
+     "cell": {
+      "row": 7,
+      "col": 3,
+      "share": 0.637,
+      "bbox": {
+       "west": 12.522932802700993,
+       "south": 41.597270521307,
+       "east": 12.534947970267991,
+       "north": 41.60631423863657
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.8
+     }
+    },
+    {
+     "index": 650,
+     "municipality": {
+      "name": "Ciampino",
+      "code": "058118"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "e4c00723d843abe2a5f24a29346cb133b5cc2174c5dac4e63de233c781137eb4",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 0,
+      "col": 2,
+      "share": 0.497,
+      "bbox": {
+       "west": 12.607926230785178,
+       "south": 41.7751808,
+       "east": 12.619976096177767,
+       "north": 41.78422451732957
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.3
+     }
+    },
+    {
+     "index": 651,
+     "municipality": {
+      "name": "San Cesareo",
+      "code": "058119"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "4055f829241fa79fd3e764417842aef832036e03539729ff570968cb3d04e3d9",
+     "eligibleCells": 0
+    },
+    {
+     "index": 652,
+     "municipality": {
+      "name": "Fiumicino",
+      "code": "058120"
+     },
+     "status": "drawn",
+     "osmSha256": "657979950c20aac8b9a57e1ff72fc06b7f8c6628db799c6739bf8a56a2401e7e",
+     "eligibleCells": 9,
+     "cell": {
+      "row": 17,
+      "col": 2,
+      "share": 0.372,
+      "bbox": {
+       "west": 12.15137240569346,
+       "south": 41.89469649460271,
+       "east": 12.163437758540189,
+       "north": 41.90374021193228
+      }
+     },
+     "esri": {
+      "date": "2025-12-09",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 25.1
+     }
+    }
+   ],
+   "rejected": [
+    "test-hard-cerveteri",
+    "test-hard-frascati",
+    "test-hard-grottaferrata",
+    "test-hard-guidonia-montecelio",
+    "test-hard-marino",
+    "test-hard-rocca-di-papa",
+    "test-hard-ciampino"
+   ],
+   "zone": "test-hard-fiumicino"
+  }
+ ]
+}

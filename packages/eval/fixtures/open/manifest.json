@@ -1,0 +1,1091 @@
+{
+ "about": "Open imagery for CI and e2e tests. Bytes exactly as each source served them; see ATTRIBUTION.md.",
+ "blocks": [
+  {
+   "id": "dgt-braga",
+   "source": "dgt",
+   "zone": "braga",
+   "x0": 249940,
+   "y0": 195457,
+   "cols": 5,
+   "rows": 5,
+   "labels": "zone",
+   "bbox": {
+    "west": -8.37982177734375,
+    "north": 41.57384762780053,
+    "east": -8.376388549804688,
+    "south": 41.571279175581694
+   },
+   "attribution": "Informação geográfica cedida pela Direção-Geral do Território, Ortos2025, CC BY 4.0",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/96d83932-f957-40d6-a2ea-3a25751c4b2d"
+  },
+  {
+   "id": "ign-aix",
+   "source": "ign",
+   "zone": "aix",
+   "x0": 270035,
+   "y0": 191506,
+   "cols": 4,
+   "rows": 4,
+   "labels": "hand",
+   "bbox": {
+    "west": 5.4183197021484375,
+    "north": 43.57143678491637,
+    "east": 5.4210662841796875,
+    "south": 43.56944681061758
+   },
+   "attribution": "IGN, BD ORTHO (Géoplateforme), Licence Ouverte 2.0",
+   "licence": "Licence Ouverte Etalab 2.0",
+   "licenceUrl": "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+  },
+  {
+   "id": "pnoa-pozuelo",
+   "source": "pnoa",
+   "zone": "gold-pozuelo",
+   "x0": 256571,
+   "y0": 197648,
+   "cols": 4,
+   "rows": 4,
+   "labels": "hand",
+   "bbox": {
+    "west": -3.8266754150390625,
+    "north": 40.438585867043294,
+    "east": -3.8239288330078125,
+    "south": 40.43649540640561
+   },
+   "attribution": "CC BY 4.0 scne.es",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://www.ign.es/resources/licencia/Condiciones_licenciaUso_IGN.pdf"
+  }
+ ],
+ "tiles": [
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249940,
+   "y": 195457,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932837.493,5097279.668,-932761.056,5097356.105&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932837.493,
+    5097279.668,
+    -932761.056,
+    5097356.105
+   ],
+   "file": "tiles/dgt/19-249940-195457.jpg",
+   "sha256": "9a3e2bcde87ffc70bfae947e4fc5c064c66da5dc4429d742478372ff6f394761",
+   "bytes": 12048
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249941,
+   "y": 195457,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932761.056,5097279.668,-932684.619,5097356.105&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932761.056,
+    5097279.668,
+    -932684.619,
+    5097356.105
+   ],
+   "file": "tiles/dgt/19-249941-195457.jpg",
+   "sha256": "7b8bcfc6ceec01db0fa59369a3ef6fbd2e10af212f12fe71c81b36ce51a8eb65",
+   "bytes": 12382
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249942,
+   "y": 195457,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932684.619,5097279.668,-932608.182,5097356.105&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932684.619,
+    5097279.668,
+    -932608.182,
+    5097356.105
+   ],
+   "file": "tiles/dgt/19-249942-195457.jpg",
+   "sha256": "303f8ab1726606ade5e7372c19d5db09248446bf9405ecd9615372ec4a70603d",
+   "bytes": 12515
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249943,
+   "y": 195457,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932608.182,5097279.668,-932531.745,5097356.105&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932608.182,
+    5097279.668,
+    -932531.745,
+    5097356.105
+   ],
+   "file": "tiles/dgt/19-249943-195457.jpg",
+   "sha256": "2cd2c3e281874f0b841ae492f468b0d330a1d82993360bcb71476abab6db9f33",
+   "bytes": 11764
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249944,
+   "y": 195457,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932531.745,5097279.668,-932455.308,5097356.105&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932531.745,
+    5097279.668,
+    -932455.308,
+    5097356.105
+   ],
+   "file": "tiles/dgt/19-249944-195457.jpg",
+   "sha256": "07142d6ca611830ff4fc3877dbea6418896788c3ea41ad09af01d9fb21fe8783",
+   "bytes": 10728
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249940,
+   "y": 195458,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932837.493,5097203.231,-932761.056,5097279.668&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932837.493,
+    5097203.231,
+    -932761.056,
+    5097279.668
+   ],
+   "file": "tiles/dgt/19-249940-195458.jpg",
+   "sha256": "298b14bfc535c45cef4d58deb7eb4ad8c6c587287af8371686d37986d16a1ac6",
+   "bytes": 14251
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249941,
+   "y": 195458,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932761.056,5097203.231,-932684.619,5097279.668&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932761.056,
+    5097203.231,
+    -932684.619,
+    5097279.668
+   ],
+   "file": "tiles/dgt/19-249941-195458.jpg",
+   "sha256": "f320b1380d5b6bbe3a93dab1e23f87554764d867e77800dcc95d8e4d9ab59ca8",
+   "bytes": 14845
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249942,
+   "y": 195458,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932684.619,5097203.231,-932608.182,5097279.668&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932684.619,
+    5097203.231,
+    -932608.182,
+    5097279.668
+   ],
+   "file": "tiles/dgt/19-249942-195458.jpg",
+   "sha256": "8edb2afdb2518710a69eb4960fbfddbaf6dc7973b3fe92601c9d084d158e7771",
+   "bytes": 13740
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249943,
+   "y": 195458,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932608.182,5097203.231,-932531.745,5097279.668&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932608.182,
+    5097203.231,
+    -932531.745,
+    5097279.668
+   ],
+   "file": "tiles/dgt/19-249943-195458.jpg",
+   "sha256": "7be6ada239760b8803fa3ff37621685d79e90c1c91138b8d66ab57e172fcf6d5",
+   "bytes": 14467
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249944,
+   "y": 195458,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932531.745,5097203.231,-932455.308,5097279.668&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932531.745,
+    5097203.231,
+    -932455.308,
+    5097279.668
+   ],
+   "file": "tiles/dgt/19-249944-195458.jpg",
+   "sha256": "33e5603c491ed604341071be797d3179be5055ad2bc2b24411bfad74c6f96980",
+   "bytes": 15539
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249940,
+   "y": 195459,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932837.493,5097126.794,-932761.056,5097203.231&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932837.493,
+    5097126.794,
+    -932761.056,
+    5097203.231
+   ],
+   "file": "tiles/dgt/19-249940-195459.jpg",
+   "sha256": "c8266b93f7acb543d7da9c6932ca34a9ade25a243cdb9562da24331dbccdfc4f",
+   "bytes": 13753
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249941,
+   "y": 195459,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932761.056,5097126.794,-932684.619,5097203.231&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932761.056,
+    5097126.794,
+    -932684.619,
+    5097203.231
+   ],
+   "file": "tiles/dgt/19-249941-195459.jpg",
+   "sha256": "5da13550ab9e6408a013972242090e0112dd7782d6cb4bc334899cc06147864f",
+   "bytes": 13549
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249942,
+   "y": 195459,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932684.619,5097126.794,-932608.182,5097203.231&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932684.619,
+    5097126.794,
+    -932608.182,
+    5097203.231
+   ],
+   "file": "tiles/dgt/19-249942-195459.jpg",
+   "sha256": "d0bf676d78546f8ea0cd8693998840b14de7c55e938a3710498a06a69630c906",
+   "bytes": 15389
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249943,
+   "y": 195459,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932608.182,5097126.794,-932531.745,5097203.231&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932608.182,
+    5097126.794,
+    -932531.745,
+    5097203.231
+   ],
+   "file": "tiles/dgt/19-249943-195459.jpg",
+   "sha256": "819e122d4092f93c0e2539a946c762e5137baea6a028b33a96752bdb96ee136b",
+   "bytes": 15233
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249944,
+   "y": 195459,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932531.745,5097126.794,-932455.308,5097203.231&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932531.745,
+    5097126.794,
+    -932455.308,
+    5097203.231
+   ],
+   "file": "tiles/dgt/19-249944-195459.jpg",
+   "sha256": "88821895d4dfc97a6c260bb33709a690b300a1c0f4ec8ae0bad21466fb7b69d2",
+   "bytes": 13390
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249940,
+   "y": 195460,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932837.493,5097050.357,-932761.056,5097126.794&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932837.493,
+    5097050.357,
+    -932761.056,
+    5097126.794
+   ],
+   "file": "tiles/dgt/19-249940-195460.jpg",
+   "sha256": "2fa6085bc406ef777655cca5f08a8d9fbb8fd8c0dca145213f9e2d7ca3460eb5",
+   "bytes": 14041
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249941,
+   "y": 195460,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932761.056,5097050.357,-932684.619,5097126.794&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932761.056,
+    5097050.357,
+    -932684.619,
+    5097126.794
+   ],
+   "file": "tiles/dgt/19-249941-195460.jpg",
+   "sha256": "8039ebc6d33b7b2eabe23cfff0ed6157541cac3a6ea87acb11c6e84d02d83269",
+   "bytes": 14278
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249942,
+   "y": 195460,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932684.619,5097050.357,-932608.182,5097126.794&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932684.619,
+    5097050.357,
+    -932608.182,
+    5097126.794
+   ],
+   "file": "tiles/dgt/19-249942-195460.jpg",
+   "sha256": "28761e7c9993dcafbe005a0efa1a6816433221019fb0866bf2457c16ca88dd94",
+   "bytes": 13671
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249943,
+   "y": 195460,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932608.182,5097050.357,-932531.745,5097126.794&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932608.182,
+    5097050.357,
+    -932531.745,
+    5097126.794
+   ],
+   "file": "tiles/dgt/19-249943-195460.jpg",
+   "sha256": "15575614395d9025e5b7e23c23198477d9458a27d7072b6aa04f457c7584e975",
+   "bytes": 13490
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249944,
+   "y": 195460,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932531.745,5097050.357,-932455.308,5097126.794&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932531.745,
+    5097050.357,
+    -932455.308,
+    5097126.794
+   ],
+   "file": "tiles/dgt/19-249944-195460.jpg",
+   "sha256": "fe34d3d243f451cd4dc61b8a9ff2606318d816827feeb15342604cdceecf9c97",
+   "bytes": 14111
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249940,
+   "y": 195461,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932837.493,5096973.920,-932761.056,5097050.357&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932837.493,
+    5096973.92,
+    -932761.056,
+    5097050.357
+   ],
+   "file": "tiles/dgt/19-249940-195461.jpg",
+   "sha256": "0c90d81efe663e6e371c6d981155cea42dc6b3f9d54e43a2c67aeaa20776180c",
+   "bytes": 13456
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249941,
+   "y": 195461,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932761.056,5096973.920,-932684.619,5097050.357&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932761.056,
+    5096973.92,
+    -932684.619,
+    5097050.357
+   ],
+   "file": "tiles/dgt/19-249941-195461.jpg",
+   "sha256": "9914a7a91dbad48e14ce7e7782d5c0bae8ec17980940f642604a228c38a86cc0",
+   "bytes": 12736
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249942,
+   "y": 195461,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932684.619,5096973.920,-932608.182,5097050.357&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932684.619,
+    5096973.92,
+    -932608.182,
+    5097050.357
+   ],
+   "file": "tiles/dgt/19-249942-195461.jpg",
+   "sha256": "8f1740ae3d784c1a4e6f30ad286e438583b77208aa3576b03b6a750672222655",
+   "bytes": 13677
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249943,
+   "y": 195461,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932608.182,5096973.920,-932531.745,5097050.357&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932608.182,
+    5096973.92,
+    -932531.745,
+    5097050.357
+   ],
+   "file": "tiles/dgt/19-249943-195461.jpg",
+   "sha256": "e6fcebfcbf6016b81ab3a4377bb028ea87f5a51c38c36d8c0276978e68c8596f",
+   "bytes": 14915
+  },
+  {
+   "block": "dgt-braga",
+   "source": "dgt",
+   "provider": "dgt-ortos2025",
+   "z": 19,
+   "x": 249944,
+   "y": 195461,
+   "url": "https://cartografia.dgterritorio.gov.pt/wms/ortos2025?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=Ortos2025-RGB&STYLES=&CRS=EPSG:3857&BBOX=-932531.745,5096973.920,-932455.308,5097050.357&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg",
+   "bbox3857": [
+    -932531.745,
+    5096973.92,
+    -932455.308,
+    5097050.357
+   ],
+   "file": "tiles/dgt/19-249944-195461.jpg",
+   "sha256": "2162fbfba956a673762ea2b1ed2242cb2692c08b48afc5ebda1d268655de3e07",
+   "bytes": 14877
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270035,
+   "y": 191506,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191506&TILECOL=270035&FORMAT=image/jpeg",
+   "bbox3857": [
+    603164.59,
+    5399282.367,
+    603241.027,
+    5399358.804
+   ],
+   "file": "tiles/ign/19-270035-191506.jpg",
+   "sha256": "ed578b4e52275208b8f27ec30f20fcbf2bc31fd9394ee2b7a742da7bae835217",
+   "bytes": 10863
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270036,
+   "y": 191506,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191506&TILECOL=270036&FORMAT=image/jpeg",
+   "bbox3857": [
+    603241.027,
+    5399282.367,
+    603317.464,
+    5399358.804
+   ],
+   "file": "tiles/ign/19-270036-191506.jpg",
+   "sha256": "91b02afd0d40309f7f362d7cf45f7978c8d512aeaafb0a278874a22955032612",
+   "bytes": 11521
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270037,
+   "y": 191506,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191506&TILECOL=270037&FORMAT=image/jpeg",
+   "bbox3857": [
+    603317.464,
+    5399282.367,
+    603393.901,
+    5399358.804
+   ],
+   "file": "tiles/ign/19-270037-191506.jpg",
+   "sha256": "8de162a7696e061455a5683776789e0abfb6db4b0c2fd386f8ab4f796e39a4a0",
+   "bytes": 11004
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270038,
+   "y": 191506,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191506&TILECOL=270038&FORMAT=image/jpeg",
+   "bbox3857": [
+    603393.901,
+    5399282.367,
+    603470.338,
+    5399358.804
+   ],
+   "file": "tiles/ign/19-270038-191506.jpg",
+   "sha256": "55d02dccc5d5573d108ed3a918cceda0bbd113219caf09c3777125b19080829f",
+   "bytes": 11101
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270035,
+   "y": 191507,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191507&TILECOL=270035&FORMAT=image/jpeg",
+   "bbox3857": [
+    603164.59,
+    5399205.93,
+    603241.027,
+    5399282.367
+   ],
+   "file": "tiles/ign/19-270035-191507.jpg",
+   "sha256": "caa27fe859bee1d62c72370b90ec7c49959e79f12a5b49c14a8d6d3d7353b69c",
+   "bytes": 12633
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270036,
+   "y": 191507,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191507&TILECOL=270036&FORMAT=image/jpeg",
+   "bbox3857": [
+    603241.027,
+    5399205.93,
+    603317.464,
+    5399282.367
+   ],
+   "file": "tiles/ign/19-270036-191507.jpg",
+   "sha256": "21dbdbf4508f811194962fd57f3c9f0f93b7d09a3ac54897f31951131d34405d",
+   "bytes": 11432
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270037,
+   "y": 191507,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191507&TILECOL=270037&FORMAT=image/jpeg",
+   "bbox3857": [
+    603317.464,
+    5399205.93,
+    603393.901,
+    5399282.367
+   ],
+   "file": "tiles/ign/19-270037-191507.jpg",
+   "sha256": "c481c1b783330baf0aabd282f6fa0e062ba69730070bfc0ce62b11d240a914a8",
+   "bytes": 9119
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270038,
+   "y": 191507,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191507&TILECOL=270038&FORMAT=image/jpeg",
+   "bbox3857": [
+    603393.901,
+    5399205.93,
+    603470.338,
+    5399282.367
+   ],
+   "file": "tiles/ign/19-270038-191507.jpg",
+   "sha256": "7ad913990a3fde049ec5f8ca353ab5ef62fd0a60d318f15d6728f298f39d1812",
+   "bytes": 8755
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270035,
+   "y": 191508,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191508&TILECOL=270035&FORMAT=image/jpeg",
+   "bbox3857": [
+    603164.59,
+    5399129.493,
+    603241.027,
+    5399205.93
+   ],
+   "file": "tiles/ign/19-270035-191508.jpg",
+   "sha256": "75ca6477039940f5ba6a0499ce6dcdfcd5e048b848f67f9d5988b8eca89cdc69",
+   "bytes": 11960
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270036,
+   "y": 191508,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191508&TILECOL=270036&FORMAT=image/jpeg",
+   "bbox3857": [
+    603241.027,
+    5399129.493,
+    603317.464,
+    5399205.93
+   ],
+   "file": "tiles/ign/19-270036-191508.jpg",
+   "sha256": "a5c75b6206a7ef87c0272df72066a492bbb096bf5503f026f3767a9833f16d12",
+   "bytes": 11827
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270037,
+   "y": 191508,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191508&TILECOL=270037&FORMAT=image/jpeg",
+   "bbox3857": [
+    603317.464,
+    5399129.493,
+    603393.901,
+    5399205.93
+   ],
+   "file": "tiles/ign/19-270037-191508.jpg",
+   "sha256": "4e4b88fdab1977b28eec023a6741cc434e8796f2fec24bfbf2844697d943bd2d",
+   "bytes": 10080
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270038,
+   "y": 191508,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191508&TILECOL=270038&FORMAT=image/jpeg",
+   "bbox3857": [
+    603393.901,
+    5399129.493,
+    603470.338,
+    5399205.93
+   ],
+   "file": "tiles/ign/19-270038-191508.jpg",
+   "sha256": "d2e8769e672ca56e82624c33cc6f094e611135ba2766f097792d077a2d6865e8",
+   "bytes": 10651
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270035,
+   "y": 191509,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191509&TILECOL=270035&FORMAT=image/jpeg",
+   "bbox3857": [
+    603164.59,
+    5399053.056,
+    603241.027,
+    5399129.493
+   ],
+   "file": "tiles/ign/19-270035-191509.jpg",
+   "sha256": "130adce5fd9dbc81a1391e1989b683d1415585038316e5439e5b6ddef9705028",
+   "bytes": 11612
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270036,
+   "y": 191509,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191509&TILECOL=270036&FORMAT=image/jpeg",
+   "bbox3857": [
+    603241.027,
+    5399053.056,
+    603317.464,
+    5399129.493
+   ],
+   "file": "tiles/ign/19-270036-191509.jpg",
+   "sha256": "0df24e05a2279919ce1192cbe011c1ae532b1016f90e2f8ce2adf8758fa99235",
+   "bytes": 10431
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270037,
+   "y": 191509,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191509&TILECOL=270037&FORMAT=image/jpeg",
+   "bbox3857": [
+    603317.464,
+    5399053.056,
+    603393.901,
+    5399129.493
+   ],
+   "file": "tiles/ign/19-270037-191509.jpg",
+   "sha256": "75ba1049a63a1fe4a98fdb170876a31638af5b85b4fe155ded1a725fc5171f4e",
+   "bytes": 9863
+  },
+  {
+   "block": "ign-aix",
+   "source": "ign",
+   "provider": "ign-orthophotos",
+   "z": 19,
+   "x": 270038,
+   "y": 191509,
+   "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX=19&TILEROW=191509&TILECOL=270038&FORMAT=image/jpeg",
+   "bbox3857": [
+    603393.901,
+    5399053.056,
+    603470.338,
+    5399129.493
+   ],
+   "file": "tiles/ign/19-270038-191509.jpg",
+   "sha256": "99b193bfb476874138ca04f1dab493670fa9d4b9266c95b43964d4005722a028",
+   "bytes": 12034
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256571,
+   "y": 197648,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197648&tilecol=256571&format=image/jpeg",
+   "bbox3857": [
+    -425983.559,
+    4929806.139,
+    -425907.122,
+    4929882.576
+   ],
+   "file": "tiles/pnoa/19-256571-197648.jpg",
+   "sha256": "5445114962f1454378fa5de47675c89f33a655aa107c6ed42a3ebeb325a7651d",
+   "bytes": 16058
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256572,
+   "y": 197648,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197648&tilecol=256572&format=image/jpeg",
+   "bbox3857": [
+    -425907.122,
+    4929806.139,
+    -425830.685,
+    4929882.576
+   ],
+   "file": "tiles/pnoa/19-256572-197648.jpg",
+   "sha256": "4046db99f3d2122f11dbfdaeb555740515ab3b669a35c76610606edbd4fe32cf",
+   "bytes": 15231
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256573,
+   "y": 197648,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197648&tilecol=256573&format=image/jpeg",
+   "bbox3857": [
+    -425830.685,
+    4929806.139,
+    -425754.248,
+    4929882.576
+   ],
+   "file": "tiles/pnoa/19-256573-197648.jpg",
+   "sha256": "1e9e7969fd1d6eb5d983d8b734ee5dbbed69fe61f24d441ad3f4fb4186c33004",
+   "bytes": 16022
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256574,
+   "y": 197648,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197648&tilecol=256574&format=image/jpeg",
+   "bbox3857": [
+    -425754.248,
+    4929806.139,
+    -425677.811,
+    4929882.576
+   ],
+   "file": "tiles/pnoa/19-256574-197648.jpg",
+   "sha256": "9bf8f40c71fa98d46e42ae980f6f3f472e3f8abac71d4ce80177cdda1fca461a",
+   "bytes": 14474
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256571,
+   "y": 197649,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197649&tilecol=256571&format=image/jpeg",
+   "bbox3857": [
+    -425983.559,
+    4929729.702,
+    -425907.122,
+    4929806.139
+   ],
+   "file": "tiles/pnoa/19-256571-197649.jpg",
+   "sha256": "369cb186504a65db5da78f5f7bd6298cc4480188ddef186a187fb6a94cd1e71d",
+   "bytes": 15138
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256572,
+   "y": 197649,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197649&tilecol=256572&format=image/jpeg",
+   "bbox3857": [
+    -425907.122,
+    4929729.702,
+    -425830.685,
+    4929806.139
+   ],
+   "file": "tiles/pnoa/19-256572-197649.jpg",
+   "sha256": "d7c77246b805f35154a75509d6b96e37b9ea15fc047eede6dfadc064e564d95f",
+   "bytes": 15292
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256573,
+   "y": 197649,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197649&tilecol=256573&format=image/jpeg",
+   "bbox3857": [
+    -425830.685,
+    4929729.702,
+    -425754.248,
+    4929806.139
+   ],
+   "file": "tiles/pnoa/19-256573-197649.jpg",
+   "sha256": "f86c45619a3e1bd4bb905a0649fcc6959b500238ecf3a4e0f6579e51cd46334a",
+   "bytes": 15050
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256574,
+   "y": 197649,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197649&tilecol=256574&format=image/jpeg",
+   "bbox3857": [
+    -425754.248,
+    4929729.702,
+    -425677.811,
+    4929806.139
+   ],
+   "file": "tiles/pnoa/19-256574-197649.jpg",
+   "sha256": "40de9e7ac6f03a479ae1b5f6e4cfb92ccae83f631b6b7e8eb9a8ed90ae5dd4c0",
+   "bytes": 15392
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256571,
+   "y": 197650,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197650&tilecol=256571&format=image/jpeg",
+   "bbox3857": [
+    -425983.559,
+    4929653.265,
+    -425907.122,
+    4929729.702
+   ],
+   "file": "tiles/pnoa/19-256571-197650.jpg",
+   "sha256": "489d7bee30d6b4c6018f454b500f2d098fa6cc81ea4f46c09bc867cf25344039",
+   "bytes": 13822
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256572,
+   "y": 197650,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197650&tilecol=256572&format=image/jpeg",
+   "bbox3857": [
+    -425907.122,
+    4929653.265,
+    -425830.685,
+    4929729.702
+   ],
+   "file": "tiles/pnoa/19-256572-197650.jpg",
+   "sha256": "e6854dc21203e8c6bc69ddb9853b21242487f36235d2b7208e208ae3f7d69b0c",
+   "bytes": 14147
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256573,
+   "y": 197650,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197650&tilecol=256573&format=image/jpeg",
+   "bbox3857": [
+    -425830.685,
+    4929653.265,
+    -425754.248,
+    4929729.702
+   ],
+   "file": "tiles/pnoa/19-256573-197650.jpg",
+   "sha256": "07a8eec7c6b0b9274d8d9c4a21479d0a78f563cedb61a16318d1b8507853ad32",
+   "bytes": 14509
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256574,
+   "y": 197650,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197650&tilecol=256574&format=image/jpeg",
+   "bbox3857": [
+    -425754.248,
+    4929653.265,
+    -425677.811,
+    4929729.702
+   ],
+   "file": "tiles/pnoa/19-256574-197650.jpg",
+   "sha256": "62b3927a74dd0b77e3259bdafd27372fe13e313a0c486e6021379a4873a79fed",
+   "bytes": 14122
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256571,
+   "y": 197651,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197651&tilecol=256571&format=image/jpeg",
+   "bbox3857": [
+    -425983.559,
+    4929576.828,
+    -425907.122,
+    4929653.265
+   ],
+   "file": "tiles/pnoa/19-256571-197651.jpg",
+   "sha256": "8d7027a9ff0146c7de88528d08e320e1679683ef996936141bc840e81e0ebb0a",
+   "bytes": 13818
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256572,
+   "y": 197651,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197651&tilecol=256572&format=image/jpeg",
+   "bbox3857": [
+    -425907.122,
+    4929576.828,
+    -425830.685,
+    4929653.265
+   ],
+   "file": "tiles/pnoa/19-256572-197651.jpg",
+   "sha256": "95ef80d7a7ad39fc91b2e139648b1c784daa73e76aae22898876369db1342d4c",
+   "bytes": 13600
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256573,
+   "y": 197651,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197651&tilecol=256573&format=image/jpeg",
+   "bbox3857": [
+    -425830.685,
+    4929576.828,
+    -425754.248,
+    4929653.265
+   ],
+   "file": "tiles/pnoa/19-256573-197651.jpg",
+   "sha256": "099260fe018b46e1eb8ed59d25dff0ef0a44a688cb57c5695cc4af243f236fc5",
+   "bytes": 14313
+  },
+  {
+   "block": "pnoa-pozuelo",
+   "source": "pnoa",
+   "provider": "pnoa",
+   "z": 19,
+   "x": 256574,
+   "y": 197651,
+   "url": "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix=19&tilerow=197651&tilecol=256574&format=image/jpeg",
+   "bbox3857": [
+    -425754.248,
+    4929576.828,
+    -425677.811,
+    4929653.265
+   ],
+   "file": "tiles/pnoa/19-256574-197651.jpg",
+   "sha256": "eabd64776082e13c46785432730e46ed7dbed8999efa0e6d4f5a719088787d35",
+   "bytes": 13917
+  }
+ ],
+ "totalBytes": 752636
+}

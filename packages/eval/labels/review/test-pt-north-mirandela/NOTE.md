@@ -1,0 +1,1 @@
+Rejected after review: about 9 pools in the zone on the half-scale sheets of all 25 windows (rule: fewer than 40). Mostly apartment blocks, a sports area, olive groves and a water treatment plant. Not boxed one by one: the count is far from the threshold. Its imagery was looked at, so the place is now a seen site in the registry.

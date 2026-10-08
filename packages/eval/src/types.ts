@@ -32,4 +32,9 @@ export interface EvalDetection {
   confidence: number;
   kind?: string;
   truncated?: boolean;
+  /**
+   * Length and width as the detector reports them. Absent: measured here from
+   * the outline. null: the detector says "not measured".
+   */
+  dims?: { lengthM: number; widthM: number } | null;
 }

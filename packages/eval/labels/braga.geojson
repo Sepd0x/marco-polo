@@ -1,0 +1,9885 @@
+{
+ "type": "FeatureCollection",
+ "zone": "braga",
+ "review": "blind",
+ "source": "dgt",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  -0.3,
+  -0.4
+ ],
+ "osmShiftPairs": 76,
+ "windows": 25,
+ "poolsInZone": 166,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384604156017303,
+        41.56764102903821
+       ],
+       [
+        -8.38442713022232,
+        41.56764102903821
+       ],
+       [
+        -8.38442713022232,
+        41.56773333975732
+       ],
+       [
+        -8.384604156017303,
+        41.56773333975732
+       ],
+       [
+        -8.384604156017303,
+        41.56764102903821
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385127186775208,
+        41.569471164767755
+       ],
+       [
+        -8.38505208492279,
+        41.569471164767755
+       ],
+       [
+        -8.38505208492279,
+        41.56957952644179
+       ],
+       [
+        -8.385127186775208,
+        41.56957952644179
+       ],
+       [
+        -8.385127186775208,
+        41.569471164767755
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37822049856186,
+        41.57249318330334
+       ],
+       [
+        -8.378174901008606,
+        41.57249318330334
+       ],
+       [
+        -8.378174901008606,
+        41.572519269169284
+       ],
+       [
+        -8.37822049856186,
+        41.572519269169284
+       ],
+       [
+        -8.37822049856186,
+        41.57249318330334
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b100",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377177119255066,
+        41.57202564253505
+       ],
+       [
+        -8.377139568328857,
+        41.57202564253505
+       ],
+       [
+        -8.377139568328857,
+        41.57205373520896
+       ],
+       [
+        -8.377177119255066,
+        41.57205373520896
+       ],
+       [
+        -8.377177119255066,
+        41.57202564253505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b101",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385296165943146,
+        41.57014942558762
+       ],
+       [
+        -8.385261297225952,
+        41.57014942558762
+       ],
+       [
+        -8.385261297225952,
+        41.57017952575484
+       ],
+       [
+        -8.385296165943146,
+        41.57017952575484
+       ],
+       [
+        -8.385296165943146,
+        41.57014942558762
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b102",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38344544172287,
+        41.57149990595536
+       ],
+       [
+        -8.3833247423172,
+        41.57149990595536
+       ],
+       [
+        -8.3833247423172,
+        41.571590204527205
+       ],
+       [
+        -8.38344544172287,
+        41.571590204527205
+       ],
+       [
+        -8.38344544172287,
+        41.57149990595536
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b103",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.372856080532074,
+        41.56883503794187
+       ],
+       [
+        -8.372772932052612,
+        41.56883503794187
+       ],
+       [
+        -8.372772932052612,
+        41.568927346954965
+       ],
+       [
+        -8.372856080532074,
+        41.568927346954965
+       ],
+       [
+        -8.372856080532074,
+        41.56883503794187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b104",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380529880523682,
+        41.57197748363708
+       ],
+       [
+        -8.380465507507324,
+        41.57197748363708
+       ],
+       [
+        -8.380465507507324,
+        41.57205975506607
+       ],
+       [
+        -8.380529880523682,
+        41.57205975506607
+       ],
+       [
+        -8.380529880523682,
+        41.57197748363708
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b105",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382715880870819,
+        41.57018353910941
+       ],
+       [
+        -8.382630050182343,
+        41.57018353910941
+       ],
+       [
+        -8.382630050182343,
+        41.57024173272264
+       ],
+       [
+        -8.382715880870819,
+        41.57024173272264
+       ],
+       [
+        -8.382715880870819,
+        41.57018353910941
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b106",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384389579296112,
+        41.566822267321896
+       ],
+       [
+        -8.384293019771576,
+        41.566822267321896
+       ],
+       [
+        -8.384293019771576,
+        41.56686842328286
+       ],
+       [
+        -8.384389579296112,
+        41.56686842328286
+       ],
+       [
+        -8.384389579296112,
+        41.566822267321896
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b107",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381978273391724,
+        41.57057684664772
+       ],
+       [
+        -8.381881713867188,
+        41.57057684664772
+       ],
+       [
+        -8.381881713867188,
+        41.57062099326275
+       ],
+       [
+        -8.381978273391724,
+        41.57062099326275
+       ],
+       [
+        -8.381978273391724,
+        41.57057684664772
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b108",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374250829219818,
+        41.56662760921074
+       ],
+       [
+        -8.374181091785431,
+        41.56662760921074
+       ],
+       [
+        -8.374181091785431,
+        41.566683799241176
+       ],
+       [
+        -8.374250829219818,
+        41.566683799241176
+       ],
+       [
+        -8.374250829219818,
+        41.56662760921074
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b109",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37895005941391,
+        41.56665369744523
+       ],
+       [
+        -8.37882936000824,
+        41.56665369744523
+       ],
+       [
+        -8.37882936000824,
+        41.56671590780806
+       ],
+       [
+        -8.37895005941391,
+        41.56671590780806
+       ],
+       [
+        -8.37895005941391,
+        41.56665369744523
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381921947002411,
+        41.568925340238685
+       ],
+       [
+        -8.381825387477875,
+        41.568925340238685
+       ],
+       [
+        -8.381825387477875,
+        41.56895744769159
+       ],
+       [
+        -8.381921947002411,
+        41.56895744769159
+       ],
+       [
+        -8.381921947002411,
+        41.568925340238685
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b110",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376906216144562,
+        41.56888119246491
+       ],
+       [
+        -8.3768230676651,
+        41.56888119246491
+       ],
+       [
+        -8.3768230676651,
+        41.56891731337297
+       ],
+       [
+        -8.376906216144562,
+        41.56891731337297
+       ],
+       [
+        -8.376906216144562,
+        41.56888119246491
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b111",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383464217185974,
+        41.5672396765522
+       ],
+       [
+        -8.383421301841736,
+        41.5672396765522
+       ],
+       [
+        -8.383421301841736,
+        41.567301886350805
+       ],
+       [
+        -8.383464217185974,
+        41.567301886350805
+       ],
+       [
+        -8.383464217185974,
+        41.5672396765522
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b112",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37507426738739,
+        41.565493764225934
+       ],
+       [
+        -8.375017940998077,
+        41.565493764225934
+       ],
+       [
+        -8.375017940998077,
+        41.56553590749291
+       ],
+       [
+        -8.37507426738739,
+        41.56553590749291
+       ],
+       [
+        -8.37507426738739,
+        41.565493764225934
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b113",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385086953639984,
+        41.56657743949939
+       ],
+       [
+        -8.385030627250671,
+        41.56657743949939
+       ],
+       [
+        -8.385030627250671,
+        41.56661958205953
+       ],
+       [
+        -8.385086953639984,
+        41.56661958205953
+       ],
+       [
+        -8.385086953639984,
+        41.56657743949939
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b114",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377351462841034,
+        41.56926246769823
+       ],
+       [
+        -8.377295136451721,
+        41.56926246769823
+       ],
+       [
+        -8.377295136451721,
+        41.5693005950978
+       ],
+       [
+        -8.377351462841034,
+        41.5693005950978
+       ],
+       [
+        -8.377351462841034,
+        41.56926246769823
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b115",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38094562292099,
+        41.571957417418986
+       ],
+       [
+        -8.380894660949707,
+        41.571957417418986
+       ],
+       [
+        -8.380894660949707,
+        41.57199955646977
+       ],
+       [
+        -8.38094562292099,
+        41.57199955646977
+       ],
+       [
+        -8.38094562292099,
+        41.571957417418986
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b116",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383195996284485,
+        41.571750735009935
+       ],
+       [
+        -8.383147716522217,
+        41.571750735009935
+       ],
+       [
+        -8.383147716522217,
+        41.571792874195545
+       ],
+       [
+        -8.383195996284485,
+        41.571792874195545
+       ],
+       [
+        -8.383195996284485,
+        41.571750735009935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b117",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379373848438263,
+        41.57083771257169
+       ],
+       [
+        -8.37932288646698,
+        41.57083771257169
+       ],
+       [
+        -8.37932288646698,
+        41.57087583904158
+       ],
+       [
+        -8.379373848438263,
+        41.57087583904158
+       ],
+       [
+        -8.379373848438263,
+        41.57083771257169
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b118",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381533026695251,
+        41.565724548446276
+       ],
+       [
+        -8.381490111351013,
+        41.565724548446276
+       ],
+       [
+        -8.381490111351013,
+        41.56576669156272
+       ],
+       [
+        -8.381533026695251,
+        41.56576669156272
+       ],
+       [
+        -8.381533026695251,
+        41.565724548446276
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b119",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384046256542206,
+        41.56822298571425
+       ],
+       [
+        -8.383957743644714,
+        41.56822298571425
+       ],
+       [
+        -8.383957743644714,
+        41.56830526192481
+       ],
+       [
+        -8.384046256542206,
+        41.56830526192481
+       ],
+       [
+        -8.384046256542206,
+        41.56822298571425
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382927775382996,
+        41.56737011638362
+       ],
+       [
+        -8.382871448993683,
+        41.56737011638362
+       ],
+       [
+        -8.382871448993683,
+        41.56740222460944
+       ],
+       [
+        -8.382927775382996,
+        41.56740222460944
+       ],
+       [
+        -8.382927775382996,
+        41.56737011638362
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b120",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375712633132935,
+        41.57098219170707
+       ],
+       [
+        -8.375656306743622,
+        41.57098219170707
+       ],
+       [
+        -8.375656306743622,
+        41.57101429813772
+       ],
+       [
+        -8.375712633132935,
+        41.57101429813772
+       ],
+       [
+        -8.375712633132935,
+        41.57098219170707
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b121",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381739556789398,
+        41.570346079759936
+       ],
+       [
+        -8.381683230400085,
+        41.570346079759936
+       ],
+       [
+        -8.381683230400085,
+        41.57037617983553
+       ],
+       [
+        -8.381739556789398,
+        41.57037617983553
+       ],
+       [
+        -8.381739556789398,
+        41.570346079759936
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b122",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380151689052582,
+        41.565397436655346
+       ],
+       [
+        -8.380108773708344,
+        41.565397436655346
+       ],
+       [
+        -8.380108773708344,
+        41.56543556633588
+       ],
+       [
+        -8.380151689052582,
+        41.56543556633588
+       ],
+       [
+        -8.380151689052582,
+        41.565397436655346
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b123",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378022015094757,
+        41.57143770019911
+       ],
+       [
+        -8.377971053123474,
+        41.57143770019911
+       ],
+       [
+        -8.377971053123474,
+        41.571469806403364
+       ],
+       [
+        -8.378022015094757,
+        41.571469806403364
+       ],
+       [
+        -8.378022015094757,
+        41.57143770019911
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b124",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.372949957847595,
+        41.565804821025345
+       ],
+       [
+        -8.372901678085327,
+        41.565804821025345
+       ],
+       [
+        -8.372901678085327,
+        41.56583693002904
+       ],
+       [
+        -8.372949957847595,
+        41.56583693002904
+       ],
+       [
+        -8.372949957847595,
+        41.565804821025345
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b125",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379915654659271,
+        41.568895239487105
+       ],
+       [
+        -8.379867374897003,
+        41.568895239487105
+       ],
+       [
+        -8.379867374897003,
+        41.568927346954965
+       ],
+       [
+        -8.379915654659271,
+        41.568927346954965
+       ],
+       [
+        -8.379915654659271,
+        41.568895239487105
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b126",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377965688705444,
+        41.57195139755235
+       ],
+       [
+        -8.377909362316132,
+        41.57195139755235
+       ],
+       [
+        -8.377909362316132,
+        41.57197748363708
+       ],
+       [
+        -8.377965688705444,
+        41.57197748363708
+       ],
+       [
+        -8.377965688705444,
+        41.57195139755235
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b127",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374693393707275,
+        41.5648957282367
+       ],
+       [
+        -8.374650478363037,
+        41.5648957282367
+       ],
+       [
+        -8.374650478363037,
+        41.56492984453261
+       ],
+       [
+        -8.374693393707275,
+        41.56492984453261
+       ],
+       [
+        -8.374693393707275,
+        41.5648957282367
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b128",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377426564693451,
+        41.570843732542116
+       ],
+       [
+        -8.377380967140198,
+        41.570843732542116
+       ],
+       [
+        -8.377380967140198,
+        41.57087583904158
+       ],
+       [
+        -8.377426564693451,
+        41.57087583904158
+       ],
+       [
+        -8.377426564693451,
+        41.570843732542116
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b129",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.372440338134766,
+        41.5645003792584
+       ],
+       [
+        -8.37231695652008,
+        41.5645003792584
+       ],
+       [
+        -8.37231695652008,
+        41.56455657113882
+       ],
+       [
+        -8.372440338134766,
+        41.56455657113882
+       ],
+       [
+        -8.372440338134766,
+        41.5645003792584
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37757408618927,
+        41.57143770019911
+       ],
+       [
+        -8.377533853054047,
+        41.57143770019911
+       ],
+       [
+        -8.377533853054047,
+        41.571473819677784
+       ],
+       [
+        -8.37757408618927,
+        41.571473819677784
+       ],
+       [
+        -8.37757408618927,
+        41.57143770019911
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b130",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376410007476807,
+        41.56610584230862
+       ],
+       [
+        -8.376367092132568,
+        41.56610584230862
+       ],
+       [
+        -8.376367092132568,
+        41.56613795116274
+       ],
+       [
+        -8.376410007476807,
+        41.56613795116274
+       ],
+       [
+        -8.376410007476807,
+        41.56610584230862
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b131",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378663063049316,
+        41.56905577666681
+       ],
+       [
+        -8.378620147705078,
+        41.56905577666681
+       ],
+       [
+        -8.378620147705078,
+        41.56908788405488
+       ],
+       [
+        -8.378663063049316,
+        41.56908788405488
+       ],
+       [
+        -8.378663063049316,
+        41.56905577666681
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b132",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375779688358307,
+        41.569136045107065
+       ],
+       [
+        -8.375736773014069,
+        41.569136045107065
+       ],
+       [
+        -8.375736773014069,
+        41.56916815245525
+       ],
+       [
+        -8.375779688358307,
+        41.56916815245525
+       ],
+       [
+        -8.375779688358307,
+        41.569136045107065
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b133",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380889296531677,
+        41.566982809652686
+       ],
+       [
+        -8.380846381187439,
+        41.566982809652686
+       ],
+       [
+        -8.380846381187439,
+        41.56701090451956
+       ],
+       [
+        -8.380889296531677,
+        41.56701090451956
+       ],
+       [
+        -8.380889296531677,
+        41.566982809652686
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b134",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37856113910675,
+        41.570568819987194
+       ],
+       [
+        -8.378518223762512,
+        41.570568819987194
+       ],
+       [
+        -8.378518223762512,
+        41.57059691329465
+       ],
+       [
+        -8.37856113910675,
+        41.57059691329465
+       ],
+       [
+        -8.37856113910675,
+        41.570568819987194
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b135",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377330005168915,
+        41.57264769174033
+       ],
+       [
+        -8.377292454242706,
+        41.57264769174033
+       ],
+       [
+        -8.377292454242706,
+        41.572679797343206
+       ],
+       [
+        -8.377330005168915,
+        41.572679797343206
+       ],
+       [
+        -8.377330005168915,
+        41.57264769174033
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b136",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379199504852295,
+        41.572447031360866
+       ],
+       [
+        -8.379151225090027,
+        41.572447031360866
+       ],
+       [
+        -8.379151225090027,
+        41.57247111063931
+       ],
+       [
+        -8.379199504852295,
+        41.57247111063931
+       ],
+       [
+        -8.379199504852295,
+        41.572447031360866
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b137",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377144932746887,
+        41.57323160989843
+       ],
+       [
+        -8.377118110656738,
+        41.57323160989843
+       ],
+       [
+        -8.377118110656738,
+        41.573273748118005
+       ],
+       [
+        -8.377144932746887,
+        41.573273748118005
+       ],
+       [
+        -8.377144932746887,
+        41.57323160989843
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b138",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381626904010773,
+        41.56602557010355
+       ],
+       [
+        -8.381592035293579,
+        41.56602557010355
+       ],
+       [
+        -8.381592035293579,
+        41.566057678997545
+       ],
+       [
+        -8.381626904010773,
+        41.566057678997545
+       ],
+       [
+        -8.381626904010773,
+        41.56602557010355
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b139",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382753431797028,
+        41.56473518071996
+       ],
+       [
+        -8.382664918899536,
+        41.56473518071996
+       ],
+       [
+        -8.382664918899536,
+        41.5648034134633
+       ],
+       [
+        -8.382753431797028,
+        41.5648034134633
+       ],
+       [
+        -8.382753431797028,
+        41.56473518071996
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379548192024231,
+        41.56734001490744
+       ],
+       [
+        -8.379505276679993,
+        41.56734001490744
+       ],
+       [
+        -8.379505276679993,
+        41.56736610285428
+       ],
+       [
+        -8.379548192024231,
+        41.56736610285428
+       ],
+       [
+        -8.379548192024231,
+        41.56734001490744
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b140",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376396596431732,
+        41.572697856737804
+       ],
+       [
+        -8.376353681087494,
+        41.572697856737804
+       ],
+       [
+        -8.376353681087494,
+        41.572723942521094
+       ],
+       [
+        -8.376396596431732,
+        41.572723942521094
+       ],
+       [
+        -8.376396596431732,
+        41.572697856737804
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b141",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379955887794495,
+        41.57207580801561
+       ],
+       [
+        -8.379915654659271,
+        41.57207580801561
+       ],
+       [
+        -8.379915654659271,
+        41.57210189405009
+       ],
+       [
+        -8.379955887794495,
+        41.57210189405009
+       ],
+       [
+        -8.379955887794495,
+        41.57207580801561
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b142",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376815021038055,
+        41.571556091748235
+       ],
+       [
+        -8.376772105693817,
+        41.571556091748235
+       ],
+       [
+        -8.376772105693817,
+        41.57157816472493
+       ],
+       [
+        -8.376815021038055,
+        41.57157816472493
+       ],
+       [
+        -8.376815021038055,
+        41.571556091748235
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b143",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376090824604034,
+        41.56967384108421
+       ],
+       [
+        -8.37606132030487,
+        41.56967384108421
+       ],
+       [
+        -8.37606132030487,
+        41.569701934780866
+       ],
+       [
+        -8.376090824604034,
+        41.569701934780866
+       ],
+       [
+        -8.376090824604034,
+        41.56967384108421
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b144",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376962542533875,
+        41.57149589268258
+       ],
+       [
+        -8.37693303823471,
+        41.57149589268258
+       ],
+       [
+        -8.37693303823471,
+        41.57151796567984
+       ],
+       [
+        -8.376962542533875,
+        41.57151796567984
+       ],
+       [
+        -8.376962542533875,
+        41.57149589268258
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b145",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383791446685791,
+        41.568594231199945
+       ],
+       [
+        -8.38367611169815,
+        41.568594231199945
+       ],
+       [
+        -8.38367611169815,
+        41.568646406070194
+       ],
+       [
+        -8.383791446685791,
+        41.568646406070194
+       ],
+       [
+        -8.383791446685791,
+        41.568594231199945
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383759260177612,
+        41.5698424030809
+       ],
+       [
+        -8.383673429489136,
+        41.5698424030809
+       ],
+       [
+        -8.383673429489136,
+        41.56991063043071
+       ],
+       [
+        -8.383759260177612,
+        41.56991063043071
+       ],
+       [
+        -8.383759260177612,
+        41.5698424030809
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382340371608734,
+        41.570978178402115
+       ],
+       [
+        -8.382187485694885,
+        41.570978178402115
+       ],
+       [
+        -8.382187485694885,
+        41.571016304789104
+       ],
+       [
+        -8.382340371608734,
+        41.571016304789104
+       ],
+       [
+        -8.382340371608734,
+        41.570978178402115
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b17",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383276462554932,
+        41.567958095739286
+       ],
+       [
+        -8.383179903030396,
+        41.567958095739286
+       ],
+       [
+        -8.383179903030396,
+        41.56801829810169
+       ],
+       [
+        -8.383276462554932,
+        41.56801829810169
+       ],
+       [
+        -8.383276462554932,
+        41.567958095739286
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b18",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382812440395355,
+        41.57041029323758
+       ],
+       [
+        -8.382702469825745,
+        41.57041029323758
+       ],
+       [
+        -8.382702469825745,
+        41.57046246664116
+       ],
+       [
+        -8.382812440395355,
+        41.57046246664116
+       ],
+       [
+        -8.382812440395355,
+        41.57041029323758
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b19",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.372440338134766,
+        41.57305503039364
+       ],
+       [
+        -8.372276723384857,
+        41.57305503039364
+       ],
+       [
+        -8.372276723384857,
+        41.57314933996193
+       ],
+       [
+        -8.372440338134766,
+        41.57314933996193
+       ],
+       [
+        -8.372440338134766,
+        41.57305503039364
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380317986011505,
+        41.5729787800037
+       ],
+       [
+        -8.380208015441895,
+        41.5729787800037
+       ],
+       [
+        -8.380208015441895,
+        41.57303095133285
+       ],
+       [
+        -8.380317986011505,
+        41.57303095133285
+       ],
+       [
+        -8.380317986011505,
+        41.5729787800037
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b20",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382721245288849,
+        41.57040828656736
+       ],
+       [
+        -8.382616639137268,
+        41.57040828656736
+       ],
+       [
+        -8.382616639137268,
+        41.57045845330392
+       ],
+       [
+        -8.382721245288849,
+        41.57045845330392
+       ],
+       [
+        -8.382721245288849,
+        41.57040828656736
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b21",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376401960849762,
+        41.57323160989843
+       ],
+       [
+        -8.376332223415375,
+        41.57323160989843
+       ],
+       [
+        -8.376332223415375,
+        41.57330384682945
+       ],
+       [
+        -8.376401960849762,
+        41.57330384682945
+       ],
+       [
+        -8.376401960849762,
+        41.57323160989843
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b22",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381347954273224,
+        41.57335200473858
+       ],
+       [
+        -8.381248712539673,
+        41.57335200473858
+       ],
+       [
+        -8.381248712539673,
+        41.57340216918908
+       ],
+       [
+        -8.381347954273224,
+        41.57340216918908
+       ],
+       [
+        -8.381347954273224,
+        41.57335200473858
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b23",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378392159938812,
+        41.57304700404104
+       ],
+       [
+        -8.378298282623291,
+        41.57304700404104
+       ],
+       [
+        -8.378298282623291,
+        41.5730971687284
+       ],
+       [
+        -8.378392159938812,
+        41.5730971687284
+       ],
+       [
+        -8.378392159938812,
+        41.57304700404104
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b24",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382109701633453,
+        41.56493586505354
+       ],
+       [
+        -8.382013142108917,
+        41.56493586505354
+       ],
+       [
+        -8.382013142108917,
+        41.56498402920085
+       ],
+       [
+        -8.382109701633453,
+        41.56498402920085
+       ],
+       [
+        -8.382109701633453,
+        41.56493586505354
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b25",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38144451379776,
+        41.57148987277292
+       ],
+       [
+        -8.38133454322815,
+        41.57148987277292
+       ],
+       [
+        -8.38133454322815,
+        41.5715320121287
+       ],
+       [
+        -8.38144451379776,
+        41.5715320121287
+       ],
+       [
+        -8.38144451379776,
+        41.57148987277292
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b26",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382056057453156,
+        41.568678513661716
+       ],
+       [
+        -8.381967544555664,
+        41.568678513661716
+       ],
+       [
+        -8.381967544555664,
+        41.56873068846391
+       ],
+       [
+        -8.382056057453156,
+        41.56873068846391
+       ],
+       [
+        -8.382056057453156,
+        41.568678513661716
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b27",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377490937709808,
+        41.573155359716935
+       ],
+       [
+        -8.377413153648376,
+        41.573155359716935
+       ],
+       [
+        -8.377413153648376,
+        41.57321355065305
+       ],
+       [
+        -8.377490937709808,
+        41.57321355065305
+       ],
+       [
+        -8.377490937709808,
+        41.573155359716935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b28",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381256759166718,
+        41.57264167193802
+       ],
+       [
+        -8.381162881851196,
+        41.57264167193802
+       ],
+       [
+        -8.381162881851196,
+        41.57268983034083
+       ],
+       [
+        -8.381256759166718,
+        41.57268983034083
+       ],
+       [
+        -8.381256759166718,
+        41.57264167193802
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b29",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384067714214325,
+        41.56855409665569
+       ],
+       [
+        -8.383855819702148,
+        41.56855409665569
+       ],
+       [
+        -8.383855819702148,
+        41.568626338817396
+       ],
+       [
+        -8.384067714214325,
+        41.568626338817396
+       ],
+       [
+        -8.384067714214325,
+        41.56855409665569
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376222252845764,
+        41.573241642810345
+       ],
+       [
+        -8.376165926456451,
+        41.573241642810345
+       ],
+       [
+        -8.376165926456451,
+        41.57332190604958
+       ],
+       [
+        -8.376222252845764,
+        41.57332190604958
+       ],
+       [
+        -8.376222252845764,
+        41.573241642810345
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b30",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376133739948273,
+        41.573245655974674
+       ],
+       [
+        -8.37607741355896,
+        41.573245655974674
+       ],
+       [
+        -8.37607741355896,
+        41.57332591920892
+       ],
+       [
+        -8.376133739948273,
+        41.57332591920892
+       ],
+       [
+        -8.376133739948273,
+        41.573245655974674
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b31",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375168144702911,
+        41.57005511163952
+       ],
+       [
+        -8.375066220760345,
+        41.57005511163952
+       ],
+       [
+        -8.375066220760345,
+        41.570099258611094
+       ],
+       [
+        -8.375168144702911,
+        41.570099258611094
+       ],
+       [
+        -8.375168144702911,
+        41.57005511163952
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b32",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385247886180878,
+        41.56653730370228
+       ],
+       [
+        -8.385164737701416,
+        41.56653730370228
+       ],
+       [
+        -8.385164737701416,
+        41.56658948023367
+       ],
+       [
+        -8.385247886180878,
+        41.56658948023367
+       ],
+       [
+        -8.385247886180878,
+        41.56653730370228
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b33",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382726609706879,
+        41.56932668225297
+       ],
+       [
+        -8.382656872272491,
+        41.56932668225297
+       ],
+       [
+        -8.382656872272491,
+        41.569388890042
+       ],
+       [
+        -8.382726609706879,
+        41.569388890042
+       ],
+       [
+        -8.382726609706879,
+        41.56932668225297
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b34",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380615711212158,
+        41.57197146377231
+       ],
+       [
+        -8.380559384822845,
+        41.57197146377231
+       ],
+       [
+        -8.380559384822845,
+        41.572043702112545
+       ],
+       [
+        -8.380615711212158,
+        41.572043702112545
+       ],
+       [
+        -8.380615711212158,
+        41.57197146377231
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b35",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383804857730865,
+        41.56894540739862
+       ],
+       [
+        -8.383756577968597,
+        41.56894540739862
+       ],
+       [
+        -8.383756577968597,
+        41.56902768268916
+       ],
+       [
+        -8.383804857730865,
+        41.56902768268916
+       ],
+       [
+        -8.383804857730865,
+        41.56894540739862
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b36",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378418982028961,
+        41.57194537768515
+       ],
+       [
+        -8.378322422504425,
+        41.57194537768515
+       ],
+       [
+        -8.378322422504425,
+        41.571985510122566
+       ],
+       [
+        -8.378418982028961,
+        41.571985510122566
+       ],
+       [
+        -8.378418982028961,
+        41.57194537768515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b37",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37695449590683,
+        41.5731754255629
+       ],
+       [
+        -8.376898169517517,
+        41.5731754255629
+       ],
+       [
+        -8.376898169517517,
+        41.573243649392545
+       ],
+       [
+        -8.37695449590683,
+        41.573243649392545
+       ],
+       [
+        -8.37695449590683,
+        41.5731754255629
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b38",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379658162593842,
+        41.572768087668805
+       ],
+       [
+        -8.379612565040588,
+        41.572768087668805
+       ],
+       [
+        -8.379612565040588,
+        41.572850358090875
+       ],
+       [
+        -8.379658162593842,
+        41.572850358090875
+       ],
+       [
+        -8.379658162593842,
+        41.572768087668805
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b39",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38367074728012,
+        41.571493886046085
+       ],
+       [
+        -8.38355541229248,
+        41.571493886046085
+       ],
+       [
+        -8.38355541229248,
+        41.57159622442751
+       ],
+       [
+        -8.38367074728012,
+        41.57159622442751
+       ],
+       [
+        -8.38367074728012,
+        41.571493886046085
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379494547843933,
+        41.57242696528864
+       ],
+       [
+        -8.379446268081665,
+        41.57242696528864
+       ],
+       [
+        -8.379446268081665,
+        41.57249920311949
+       ],
+       [
+        -8.379494547843933,
+        41.57249920311949
+       ],
+       [
+        -8.379494547843933,
+        41.57242696528864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b40",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378290235996246,
+        41.57306305674524
+       ],
+       [
+        -8.3782097697258,
+        41.57306305674524
+       ],
+       [
+        -8.3782097697258,
+        41.57310519507476
+       ],
+       [
+        -8.378290235996246,
+        41.57310519507476
+       ],
+       [
+        -8.378290235996246,
+        41.57306305674524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b41",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380414545536041,
+        41.57198751674378
+       ],
+       [
+        -8.380368947982788,
+        41.57198751674378
+       ],
+       [
+        -8.380368947982788,
+        41.572061761684985
+       ],
+       [
+        -8.380414545536041,
+        41.572061761684985
+       ],
+       [
+        -8.380414545536041,
+        41.57198751674378
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b42",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380843698978424,
+        41.570903932215515
+       ],
+       [
+        -8.380755186080933,
+        41.570903932215515
+       ],
+       [
+        -8.380755186080933,
+        41.57094205864633
+       ],
+       [
+        -8.380843698978424,
+        41.57094205864633
+       ],
+       [
+        -8.380843698978424,
+        41.570903932215515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b43",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37893933057785,
+        41.57241693225019
+       ],
+       [
+        -8.378866910934448,
+        41.57241693225019
+       ],
+       [
+        -8.378866910934448,
+        41.572463084214164
+       ],
+       [
+        -8.37893933057785,
+        41.572463084214164
+       ],
+       [
+        -8.37893933057785,
+        41.57241693225019
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b44",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384022116661072,
+        41.56527301333078
+       ],
+       [
+        -8.383963108062744,
+        41.56527301333078
+       ],
+       [
+        -8.383963108062744,
+        41.56532920453929
+       ],
+       [
+        -8.384022116661072,
+        41.56532920453929
+       ],
+       [
+        -8.384022116661072,
+        41.56527301333078
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b45",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377450704574585,
+        41.571299242010475
+       ],
+       [
+        -8.377402424812317,
+        41.571299242010475
+       ],
+       [
+        -8.377402424812317,
+        41.571367467821666
+       ],
+       [
+        -8.377450704574585,
+        41.571367467821666
+       ],
+       [
+        -8.377450704574585,
+        41.571299242010475
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b46",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385280072689056,
+        41.57273798870773
+       ],
+       [
+        -8.385223746299744,
+        41.57273798870773
+       ],
+       [
+        -8.385223746299744,
+        41.57279618001984
+       ],
+       [
+        -8.385280072689056,
+        41.57279618001984
+       ],
+       [
+        -8.385280072689056,
+        41.57273798870773
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b47",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377938866615295,
+        41.57308312261986
+       ],
+       [
+        -8.377853035926819,
+        41.57308312261986
+       ],
+       [
+        -8.377853035926819,
+        41.57312124776449
+       ],
+       [
+        -8.377938866615295,
+        41.57312124776449
+       ],
+       [
+        -8.377938866615295,
+        41.57308312261986
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b48",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384341299533844,
+        41.566145978373775
+       ],
+       [
+        -8.384279608726501,
+        41.566145978373775
+       ],
+       [
+        -8.384279608726501,
+        41.56619815522118
+       ],
+       [
+        -8.384341299533844,
+        41.56619815522118
+       ],
+       [
+        -8.384341299533844,
+        41.566145978373775
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b49",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377152979373932,
+        41.5683433898893
+       ],
+       [
+        -8.376989364624023,
+        41.5683433898893
+       ],
+       [
+        -8.376989364624023,
+        41.56840158516014
+       ],
+       [
+        -8.377152979373932,
+        41.56840158516014
+       ],
+       [
+        -8.377152979373932,
+        41.5683433898893
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.373987972736359,
+        41.568287201302205
+       ],
+       [
+        -8.373912870883942,
+        41.568287201302205
+       ],
+       [
+        -8.373912870883942,
+        41.56832934274711
+       ],
+       [
+        -8.373987972736359,
+        41.56832934274711
+       ],
+       [
+        -8.373987972736359,
+        41.568287201302205
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b50",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376887440681458,
+        41.573219570402074
+       ],
+       [
+        -8.376796245574951,
+        41.573219570402074
+       ],
+       [
+        -8.376796245574951,
+        41.573253682302585
+       ],
+       [
+        -8.376887440681458,
+        41.573253682302585
+       ],
+       [
+        -8.376887440681458,
+        41.573219570402074
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b51",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385301530361176,
+        41.57177080129222
+       ],
+       [
+        -8.385255932807922,
+        41.57177080129222
+       ],
+       [
+        -8.385255932807922,
+        41.57183701997956
+       ],
+       [
+        -8.385301530361176,
+        41.57183701997956
+       ],
+       [
+        -8.385301530361176,
+        41.57177080129222
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b52",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37994247674942,
+        41.56689852497876
+       ],
+       [
+        -8.379886150360107,
+        41.56689852497876
+       ],
+       [
+        -8.379886150360107,
+        41.56695070121844
+       ],
+       [
+        -8.37994247674942,
+        41.56695070121844
+       ],
+       [
+        -8.37994247674942,
+        41.56689852497876
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b53",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384215235710144,
+        41.567647049306515
+       ],
+       [
+        -8.384158909320831,
+        41.567647049306515
+       ],
+       [
+        -8.384158909320831,
+        41.56769922494171
+       ],
+       [
+        -8.384215235710144,
+        41.56769922494171
+       ],
+       [
+        -8.384215235710144,
+        41.567647049306515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b54",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376047909259796,
+        41.56941698386258
+       ],
+       [
+        -8.375978171825409,
+        41.56941698386258
+       ],
+       [
+        -8.375978171825409,
+        41.56945912457053
+       ],
+       [
+        -8.376047909259796,
+        41.56945912457053
+       ],
+       [
+        -8.376047909259796,
+        41.56941698386258
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b55",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376646041870117,
+        41.57207580801561
+       ],
+       [
+        -8.37657630443573,
+        41.57207580801561
+       ],
+       [
+        -8.37657630443573,
+        41.57211794698917
+       ],
+       [
+        -8.376646041870117,
+        41.57211794698917
+       ],
+       [
+        -8.376646041870117,
+        41.57207580801561
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b56",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383850455284119,
+        41.565305122598765
+       ],
+       [
+        -8.38379681110382,
+        41.565305122598765
+       ],
+       [
+        -8.38379681110382,
+        41.56535930695231
+       ],
+       [
+        -8.383850455284119,
+        41.56535930695231
+       ],
+       [
+        -8.383850455284119,
+        41.565305122598765
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b57",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376463651657104,
+        41.57322559015053
+       ],
+       [
+        -8.376423418521881,
+        41.57322559015053
+       ],
+       [
+        -8.376423418521881,
+        41.57329782708828
+       ],
+       [
+        -8.376463651657104,
+        41.57329782708828
+       ],
+       [
+        -8.376463651657104,
+        41.57322559015053
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b58",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379658162593842,
+        41.57176478140819
+       ],
+       [
+        -8.379593789577484,
+        41.57176478140819
+       ],
+       [
+        -8.379593789577484,
+        41.5718089272114
+       ],
+       [
+        -8.379658162593842,
+        41.5718089272114
+       ],
+       [
+        -8.379658162593842,
+        41.57176478140819
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b59",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374934792518616,
+        41.572186171935684
+       ],
+       [
+        -8.37483286857605,
+        41.572186171935684
+       ],
+       [
+        -8.37483286857605,
+        41.572278476160406
+       ],
+       [
+        -8.374934792518616,
+        41.572278476160406
+       ],
+       [
+        -8.374934792518616,
+        41.572186171935684
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380811512470245,
+        41.57194939093001
+       ],
+       [
+        -8.380765914916992,
+        41.57194939093001
+       ],
+       [
+        -8.380765914916992,
+        41.57200958957306
+       ],
+       [
+        -8.380811512470245,
+        41.57200958957306
+       ],
+       [
+        -8.380811512470245,
+        41.57194939093001
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b60",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384274244308472,
+        41.56570247346955
+       ],
+       [
+        -8.384236693382263,
+        41.56570247346955
+       ],
+       [
+        -8.384236693382263,
+        41.565774718819874
+       ],
+       [
+        -8.384274244308472,
+        41.565774718819874
+       ],
+       [
+        -8.384274244308472,
+        41.56570247346955
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b61",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375892341136932,
+        41.5693005950978
+       ],
+       [
+        -8.37583601474762,
+        41.5693005950978
+       ],
+       [
+        -8.37583601474762,
+        41.569342735881676
+       ],
+       [
+        -8.375892341136932,
+        41.569342735881676
+       ],
+       [
+        -8.375892341136932,
+        41.5693005950978
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b62",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37984323501587,
+        41.56967183439112
+       ],
+       [
+        -8.379786908626556,
+        41.56967183439112
+       ],
+       [
+        -8.379786908626556,
+        41.56971397493284
+       ],
+       [
+        -8.37984323501587,
+        41.56971397493284
+       ],
+       [
+        -8.37984323501587,
+        41.56967183439112
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b63",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377386331558228,
+        41.57319749798626
+       ],
+       [
+        -8.377330005168915,
+        41.57319749798626
+       ],
+       [
+        -8.377330005168915,
+        41.57323963622809
+       ],
+       [
+        -8.377386331558228,
+        41.57323963622809
+       ],
+       [
+        -8.377386331558228,
+        41.57319749798626
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b64",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381237983703613,
+        41.571469806403364
+       ],
+       [
+        -8.38117629289627,
+        41.571469806403364
+       ],
+       [
+        -8.38117629289627,
+        41.5715079325002
+       ],
+       [
+        -8.381237983703613,
+        41.5715079325002
+       ],
+       [
+        -8.381237983703613,
+        41.571469806403364
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b65",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377705514431,
+        41.572581473884014
+       ],
+       [
+        -8.377627730369568,
+        41.572581473884014
+       ],
+       [
+        -8.377627730369568,
+        41.57261157291803
+       ],
+       [
+        -8.377705514431,
+        41.57261157291803
+       ],
+       [
+        -8.377705514431,
+        41.572581473884014
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b66",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376629948616028,
+        41.573215557236125
+       ],
+       [
+        -8.376589715480804,
+        41.573215557236125
+       ],
+       [
+        -8.376589715480804,
+        41.573273748118005
+       ],
+       [
+        -8.376629948616028,
+        41.573273748118005
+       ],
+       [
+        -8.376629948616028,
+        41.573215557236125
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b67",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379132449626923,
+        41.572424958681076
+       ],
+       [
+        -8.379049301147461,
+        41.572424958681076
+       ],
+       [
+        -8.379049301147461,
+        41.57245305118133
+       ],
+       [
+        -8.379132449626923,
+        41.57245305118133
+       ],
+       [
+        -8.379132449626923,
+        41.572424958681076
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b68",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381924629211426,
+        41.57086781241821
+       ],
+       [
+        -8.381865620613098,
+        41.57086781241821
+       ],
+       [
+        -8.381865620613098,
+        41.57090593887033
+       ],
+       [
+        -8.381924629211426,
+        41.57090593887033
+       ],
+       [
+        -8.381924629211426,
+        41.57086781241821
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b69",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381900489330292,
+        41.56501212493688
+       ],
+       [
+        -8.381771743297577,
+        41.56501212493688
+       ],
+       [
+        -8.381771743297577,
+        41.565078350552014
+       ],
+       [
+        -8.381900489330292,
+        41.565078350552014
+       ],
+       [
+        -8.381900489330292,
+        41.56501212493688
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377051055431366,
+        41.57105643780372
+       ],
+       [
+        -8.377008140087128,
+        41.57105643780372
+       ],
+       [
+        -8.377008140087128,
+        41.57110660403694
+       ],
+       [
+        -8.377051055431366,
+        41.57110660403694
+       ],
+       [
+        -8.377051055431366,
+        41.57105643780372
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b70",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382605910301208,
+        41.56804639251829
+       ],
+       [
+        -8.382549583911896,
+        41.56804639251829
+       ],
+       [
+        -8.382549583911896,
+        41.56808452063555
+       ],
+       [
+        -8.382605910301208,
+        41.56808452063555
+       ],
+       [
+        -8.382605910301208,
+        41.56804639251829
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b71",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381272852420807,
+        41.56884105809892
+       ],
+       [
+        -8.381216526031494,
+        41.56884105809892
+       ],
+       [
+        -8.381216526031494,
+        41.56887717902943
+       ],
+       [
+        -8.381272852420807,
+        41.56887717902943
+       ],
+       [
+        -8.381272852420807,
+        41.56884105809892
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b72",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377193212509155,
+        41.5731754255629
+       ],
+       [
+        -8.377147614955902,
+        41.5731754255629
+       ],
+       [
+        -8.377147614955902,
+        41.573219570402074
+       ],
+       [
+        -8.377193212509155,
+        41.573219570402074
+       ],
+       [
+        -8.377193212509155,
+        41.5731754255629
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b73",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37533712387085,
+        41.571283188867945
+       ],
+       [
+        -8.375286161899567,
+        41.571283188867945
+       ],
+       [
+        -8.375286161899567,
+        41.57132131507492
+       ],
+       [
+        -8.37533712387085,
+        41.57132131507492
+       ],
+       [
+        -8.37533712387085,
+        41.571283188867945
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b74",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377625048160553,
+        41.57247713045753
+       ],
+       [
+        -8.377587497234344,
+        41.57247713045753
+       ],
+       [
+        -8.377587497234344,
+        41.57252729558745
+       ],
+       [
+        -8.377625048160553,
+        41.57252729558745
+       ],
+       [
+        -8.377625048160553,
+        41.57247713045753
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b75",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378775715827942,
+        41.57191327171725
+       ],
+       [
+        -8.378724753856659,
+        41.57191327171725
+       ],
+       [
+        -8.378724753856659,
+        41.57194939093001
+       ],
+       [
+        -8.378775715827942,
+        41.57194939093001
+       ],
+       [
+        -8.378775715827942,
+        41.57191327171725
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b76",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.373861908912659,
+        41.566593493811254
+       ],
+       [
+        -8.373792171478271,
+        41.566593493811254
+       ],
+       [
+        -8.373792171478271,
+        41.56661958205953
+       ],
+       [
+        -8.373861908912659,
+        41.56661958205953
+       ],
+       [
+        -8.373861908912659,
+        41.566593493811254
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b77",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.385140597820282,
+        41.567942041766514
+       ],
+       [
+        -8.385097682476044,
+        41.567942041766514
+       ],
+       [
+        -8.385097682476044,
+        41.56798418343656
+       ],
+       [
+        -8.385140597820282,
+        41.56798418343656
+       ],
+       [
+        -8.385140597820282,
+        41.567942041766514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b78",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37746948003769,
+        41.571493886046085
+       ],
+       [
+        -8.377413153648376,
+        41.571493886046085
+       ],
+       [
+        -8.377413153648376,
+        41.57152599222242
+       ],
+       [
+        -8.37746948003769,
+        41.57152599222242
+       ],
+       [
+        -8.37746948003769,
+        41.571493886046085
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b79",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382525444030762,
+        41.56974407530295
+       ],
+       [
+        -8.382415473461151,
+        41.56974407530295
+       ],
+       [
+        -8.382415473461151,
+        41.569820329511124
+       ],
+       [
+        -8.382525444030762,
+        41.569820329511124
+       ],
+       [
+        -8.382525444030762,
+        41.56974407530295
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378869593143463,
+        41.57243097850358
+       ],
+       [
+        -8.37881863117218,
+        41.57243097850358
+       ],
+       [
+        -8.37881863117218,
+        41.57246509082054
+       ],
+       [
+        -8.378869593143463,
+        41.57246509082054
+       ],
+       [
+        -8.378869593143463,
+        41.57243097850358
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b80",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383233547210693,
+        41.56989257025689
+       ],
+       [
+        -8.383195996284485,
+        41.56989257025689
+       ],
+       [
+        -8.383195996284485,
+        41.569938724024404
+       ],
+       [
+        -8.383233547210693,
+        41.569938724024404
+       ],
+       [
+        -8.383233547210693,
+        41.56989257025689
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b81",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377794027328491,
+        41.57142365372973
+       ],
+       [
+        -8.377743065357208,
+        41.57142365372973
+       ],
+       [
+        -8.377743065357208,
+        41.57145575994097
+       ],
+       [
+        -8.377794027328491,
+        41.57145575994097
+       ],
+       [
+        -8.377794027328491,
+        41.57142365372973
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b82",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377799391746521,
+        41.57195541079684
+       ],
+       [
+        -8.377759158611298,
+        41.57195541079684
+       ],
+       [
+        -8.377759158611298,
+        41.57199554322803
+       ],
+       [
+        -8.377799391746521,
+        41.57199554322803
+       ],
+       [
+        -8.377799391746521,
+        41.57195541079684
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b83",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378126621246338,
+        41.571919291587456
+       ],
+       [
+        -8.37808907032013,
+        41.571919291587456
+       ],
+       [
+        -8.37808907032013,
+        41.5719614306631
+       ],
+       [
+        -8.378126621246338,
+        41.5719614306631
+       ],
+       [
+        -8.378126621246338,
+        41.571919291587456
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b84",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378169536590576,
+        41.571919291587456
+       ],
+       [
+        -8.378134667873383,
+        41.571919291587456
+       ],
+       [
+        -8.378134667873383,
+        41.5719614306631
+       ],
+       [
+        -8.378169536590576,
+        41.5719614306631
+       ],
+       [
+        -8.378169536590576,
+        41.571919291587456
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b85",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376305401325226,
+        41.5688571118483
+       ],
+       [
+        -8.376259803771973,
+        41.5688571118483
+       ],
+       [
+        -8.376259803771973,
+        41.568889219335105
+       ],
+       [
+        -8.376305401325226,
+        41.568889219335105
+       ],
+       [
+        -8.376305401325226,
+        41.5688571118483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b86",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377517759799957,
+        41.56937283642476
+       ],
+       [
+        -8.377474844455719,
+        41.56937283642476
+       ],
+       [
+        -8.377474844455719,
+        41.56940494365526
+       ],
+       [
+        -8.377517759799957,
+        41.56940494365526
+       ],
+       [
+        -8.377517759799957,
+        41.56937283642476
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b87",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37706983089447,
+        41.571485859499504
+       ],
+       [
+        -8.377026915550232,
+        41.571485859499504
+       ],
+       [
+        -8.377026915550232,
+        41.57151796567984
+       ],
+       [
+        -8.37706983089447,
+        41.57151796567984
+       ],
+       [
+        -8.37706983089447,
+        41.571485859499504
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b88",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37734341621399,
+        41.573145326791625
+       ],
+       [
+        -8.377300500869751,
+        41.573145326791625
+       ],
+       [
+        -8.377300500869751,
+        41.57317743214715
+       ],
+       [
+        -8.37734341621399,
+        41.57317743214715
+       ],
+       [
+        -8.37734341621399,
+        41.573145326791625
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b89",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384502232074738,
+        41.56480140661895
+       ],
+       [
+        -8.384381532669067,
+        41.56480140661895
+       ],
+       [
+        -8.384381532669067,
+        41.56486963929236
+       ],
+       [
+        -8.384502232074738,
+        41.56486963929236
+       ],
+       [
+        -8.384502232074738,
+        41.56480140661895
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377228081226349,
+        41.573221576984956
+       ],
+       [
+        -8.377166390419006,
+        41.573221576984956
+       ],
+       [
+        -8.377166390419006,
+        41.573243649392545
+       ],
+       [
+        -8.377228081226349,
+        41.573243649392545
+       ],
+       [
+        -8.377228081226349,
+        41.573221576984956
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b90",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376876711845398,
+        41.57099623827244
+       ],
+       [
+        -8.37683916091919,
+        41.57099623827244
+       ],
+       [
+        -8.37683916091919,
+        41.57103235799795
+       ],
+       [
+        -8.376876711845398,
+        41.57103235799795
+       ],
+       [
+        -8.376876711845398,
+        41.57099623827244
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b91",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376136422157288,
+        41.569726015082566
+       ],
+       [
+        -8.376085460186005,
+        41.569726015082566
+       ],
+       [
+        -8.376085460186005,
+        41.56975210206594
+       ],
+       [
+        -8.376136422157288,
+        41.56975210206594
+       ],
+       [
+        -8.376136422157288,
+        41.569726015082566
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b92",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377273678779602,
+        41.57317743214715
+       ],
+       [
+        -8.377222716808319,
+        41.57317743214715
+       ],
+       [
+        -8.377222716808319,
+        41.573203517736765
+       ],
+       [
+        -8.377273678779602,
+        41.573203517736765
+       ],
+       [
+        -8.377273678779602,
+        41.57317743214715
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b93",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377954959869385,
+        41.57140760061814
+       ],
+       [
+        -8.377914726734161,
+        41.57140760061814
+       ],
+       [
+        -8.377914726734161,
+        41.571439706837346
+       ],
+       [
+        -8.377954959869385,
+        41.571439706837346
+       ],
+       [
+        -8.377954959869385,
+        41.57140760061814
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b94",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377005457878113,
+        41.57264568513962
+       ],
+       [
+        -8.376962542533875,
+        41.57264568513962
+       ],
+       [
+        -8.376962542533875,
+        41.57267578414372
+       ],
+       [
+        -8.377005457878113,
+        41.57267578414372
+       ],
+       [
+        -8.377005457878113,
+        41.57264568513962
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b95",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376544117927551,
+        41.57323762964577
+       ],
+       [
+        -8.376511931419373,
+        41.57323762964577
+       ],
+       [
+        -8.376511931419373,
+        41.57327776128034
+       ],
+       [
+        -8.376544117927551,
+        41.57327776128034
+       ],
+       [
+        -8.376544117927551,
+        41.57323762964577
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b96",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378477990627289,
+        41.572505222935085
+       ],
+       [
+        -8.378432393074036,
+        41.572505222935085
+       ],
+       [
+        -8.378432393074036,
+        41.57253331540043
+       ],
+       [
+        -8.378477990627289,
+        41.57253331540043
+       ],
+       [
+        -8.378477990627289,
+        41.572505222935085
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b97",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378102481365204,
+        41.57253732860877
+       ],
+       [
+        -8.37806761264801,
+        41.57253732860877
+       ],
+       [
+        -8.37806761264801,
+        41.57257344747258
+       ],
+       [
+        -8.378102481365204,
+        41.57257344747258
+       ],
+       [
+        -8.378102481365204,
+        41.57253732860877
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b98",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378035426139832,
+        41.57193534457189
+       ],
+       [
+        -8.377995193004608,
+        41.57193534457189
+       ],
+       [
+        -8.377995193004608,
+        41.571965443906976
+       ],
+       [
+        -8.378035426139832,
+        41.571965443906976
+       ],
+       [
+        -8.378035426139832,
+        41.57193534457189
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/braga/b99",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382395901963154,
+        41.566626381400404
+       ],
+       [
+        -8.382373501962972,
+        41.5666230814004
+       ],
+       [
+        -8.382360601963134,
+        41.5666259814004
+       ],
+       [
+        -8.382349901963446,
+        41.5666315814004
+       ],
+       [
+        -8.382342101963918,
+        41.5666400814004
+       ],
+       [
+        -8.382338701964482,
+        41.5666501814004
+       ],
+       [
+        -8.38233960196495,
+        41.566658581400404
+       ],
+       [
+        -8.382365601967626,
+        41.5667065814004
+       ],
+       [
+        -8.3823732019679,
+        41.566711481400404
+       ],
+       [
+        -8.38238440196811,
+        41.5667152814004
+       ],
+       [
+        -8.382398801968167,
+        41.5667162814004
+       ],
+       [
+        -8.382409101968072,
+        41.5667145814004
+       ],
+       [
+        -8.382419401967839,
+        41.5667103814004
+       ],
+       [
+        -8.382430501967308,
+        41.5667008814004
+       ],
+       [
+        -8.382434201966895,
+        41.5666934814004
+       ],
+       [
+        -8.38243540196649,
+        41.5666861814004
+       ],
+       [
+        -8.382406601963512,
+        41.5666327814004
+       ],
+       [
+        -8.382395901963154,
+        41.566626381400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1033823252",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382550201965808,
+        41.5666739814004
+       ],
+       [
+        -8.382486901966852,
+        41.5666926814004
+       ],
+       [
+        -8.38244070196199,
+        41.5666054814004
+       ],
+       [
+        -8.38250400196094,
+        41.5665866814004
+       ],
+       [
+        -8.382550201965808,
+        41.5666739814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1033823253",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382806701964823,
+        41.5666562814004
+       ],
+       [
+        -8.382755801965704,
+        41.5666720814004
+       ],
+       [
+        -8.382718101961906,
+        41.5666039814004
+       ],
+       [
+        -8.382769001961032,
+        41.5665882814004
+       ],
+       [
+        -8.382806701964823,
+        41.5666562814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1033823254",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382923701959314,
+        41.5665574814004
+       ],
+       [
+        -8.382959901962915,
+        41.5666220814004
+       ],
+       [
+        -8.382916201963685,
+        41.5666358814004
+       ],
+       [
+        -8.382879901960077,
+        41.5665711814004
+       ],
+       [
+        -8.382923701959314,
+        41.5665574814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1033823255",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.384075102041017,
+        41.568022981400404
+       ],
+       [
+        -8.384086302041052,
+        41.5680235814004
+       ],
+       [
+        -8.384096802041883,
+        41.5680384814004
+       ],
+       [
+        -8.384090702042206,
+        41.568044281400404
+       ],
+       [
+        -8.384093302042725,
+        41.5680535814004
+       ],
+       [
+        -8.383988802045032,
+        41.5680949814004
+       ],
+       [
+        -8.383962902043004,
+        41.5680585814004
+       ],
+       [
+        -8.38406760204069,
+        41.5680170814004
+       ],
+       [
+        -8.384075102041017,
+        41.568022981400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1033823258",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.386490602185653,
+        41.5706169814004
+       ],
+       [
+        -8.386404002185568,
+        41.5706154814004
+       ],
+       [
+        -8.386405002183869,
+        41.5705849814004
+       ],
+       [
+        -8.386491602183952,
+        41.5705864814004
+       ],
+       [
+        -8.386490602185653,
+        41.5706169814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1049267200",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380227302016854,
+        41.5675895814004
+       ],
+       [
+        -8.380180502017925,
+        41.5676087814004
+       ],
+       [
+        -8.380128302013954,
+        41.5675375814004
+       ],
+       [
+        -8.38017520201288,
+        41.5675182814004
+       ],
+       [
+        -8.380227302016854,
+        41.5675895814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1053364313",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383679301952194,
+        41.5664297814004
+       ],
+       [
+        -8.383661301950573,
+        41.5664006814004
+       ],
+       [
+        -8.3835823019521,
+        41.5664280814004
+       ],
+       [
+        -8.383600401953721,
+        41.5664571814004
+       ],
+       [
+        -8.383679301952194,
+        41.5664297814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1104049430",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383832101949123,
+        41.5663746814004
+       ],
+       [
+        -8.383771901950254,
+        41.5663949814004
+       ],
+       [
+        -8.383757301948911,
+        41.5663708814004
+       ],
+       [
+        -8.383817501947773,
+        41.5663504814004
+       ],
+       [
+        -8.383832101949123,
+        41.5663746814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1104049431",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382060501974745,
+        41.5668342814004
+       ],
+       [
+        -8.382051101973492,
+        41.5668117814004
+       ],
+       [
+        -8.381977101974446,
+        41.5668288814004
+       ],
+       [
+        -8.3819865019757,
+        41.5668513814004
+       ],
+       [
+        -8.382060501974745,
+        41.5668342814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1104049432",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382247301970102,
+        41.5667509814004
+       ],
+       [
+        -8.382154601971179,
+        41.5667702814004
+       ],
+       [
+        -8.38216540197279,
+        41.5667991814004
+       ],
+       [
+        -8.382258101971713,
+        41.5667798814004
+       ],
+       [
+        -8.382247301970102,
+        41.5667509814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1104049433",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38637340191591,
+        41.5657788814004
+       ],
+       [
+        -8.386318001911565,
+        41.5657009814004
+       ],
+       [
+        -8.386269101912653,
+        41.5657204814004
+       ],
+       [
+        -8.38632440191699,
+        41.5657982814004
+       ],
+       [
+        -8.38637340191591,
+        41.5657788814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1104049547",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.386177801995556,
+        41.5672075814004
+       ],
+       [
+        -8.386168901996026,
+        41.5672159814004
+       ],
+       [
+        -8.386162901996544,
+        41.567225281400404
+       ],
+       [
+        -8.386153101996973,
+        41.5672329814004
+       ],
+       [
+        -8.386141201997095,
+        41.5672351814004
+       ],
+       [
+        -8.38613170199704,
+        41.5672341814004
+       ],
+       [
+        -8.386122401996806,
+        41.5672299814004
+       ],
+       [
+        -8.386116801996506,
+        41.5672245814004
+       ],
+       [
+        -8.38611420199611,
+        41.5672174814004
+       ],
+       [
+        -8.386112601995697,
+        41.567210081400404
+       ],
+       [
+        -8.386111601995061,
+        41.5671986814004
+       ],
+       [
+        -8.386112901994364,
+        41.5671861814004
+       ],
+       [
+        -8.38611620199399,
+        41.5671794814004
+       ],
+       [
+        -8.386122401993607,
+        41.5671725814004
+       ],
+       [
+        -8.386130301993239,
+        41.5671659814004
+       ],
+       [
+        -8.38614420199278,
+        41.567157781400404
+       ],
+       [
+        -8.386155701992507,
+        41.5671528814004
+       ],
+       [
+        -8.386173501992442,
+        41.567151681400404
+       ],
+       [
+        -8.386189601992726,
+        41.5671567814004
+       ],
+       [
+        -8.386200201993239,
+        41.5671659814004
+       ],
+       [
+        -8.386201101993802,
+        41.5671760814004
+       ],
+       [
+        -8.386201801994376,
+        41.5671863814004
+       ],
+       [
+        -8.386197501994882,
+        41.567195481400404
+       ],
+       [
+        -8.386191601995213,
+        41.5672013814004
+       ],
+       [
+        -8.38618340199542,
+        41.5672050814004
+       ],
+       [
+        -8.386177801995556,
+        41.5672075814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120660757",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38033710235558,
+        41.5736641814004
+       ],
+       [
+        -8.380238602357455,
+        41.5736977814004
+       ],
+       [
+        -8.380215002355296,
+        41.5736590814004
+       ],
+       [
+        -8.380313502353422,
+        41.5736254814004
+       ],
+       [
+        -8.38033710235558,
+        41.5736641814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666753",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380618402313893,
+        41.5729166814004
+       ],
+       [
+        -8.380528702314802,
+        41.5729329814004
+       ],
+       [
+        -8.380519102313151,
+        41.5729033814004
+       ],
+       [
+        -8.380608802312242,
+        41.5728870814004
+       ],
+       [
+        -8.380618402313893,
+        41.5729166814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666759",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380101402309187,
+        41.5728322814004
+       ],
+       [
+        -8.380019002310748,
+        41.5728602814004
+       ],
+       [
+        -8.379996302308669,
+        41.5728229814004
+       ],
+       [
+        -8.380078702307108,
+        41.5727949814004
+       ],
+       [
+        -8.380101402309187,
+        41.5728322814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666762",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381414902280037,
+        41.572309581400404
+       ],
+       [
+        -8.381408602279686,
+        41.5723032814004
+       ],
+       [
+        -8.381398902279507,
+        41.5723000814004
+       ],
+       [
+        -8.381388502279586,
+        41.5723014814004
+       ],
+       [
+        -8.381380202279914,
+        41.5723073814004
+       ],
+       [
+        -8.381378202280382,
+        41.5723157814004
+       ],
+       [
+        -8.381383502280796,
+        41.5723231814004
+       ],
+       [
+        -8.381373302281007,
+        41.5723269814004
+       ],
+       [
+        -8.38143080228588,
+        41.5724143814004
+       ],
+       [
+        -8.381484902284773,
+        41.5723944814004
+       ],
+       [
+        -8.381426302279802,
+        41.5723053814004
+       ],
+       [
+        -8.381414902280037,
+        41.572309581400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666768",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380796002314865,
+        41.5729340814004
+       ],
+       [
+        -8.380786502315438,
+        41.5729443814004
+       ],
+       [
+        -8.380771702315732,
+        41.5729496814004
+       ],
+       [
+        -8.380754702315706,
+        41.5729491814004
+       ],
+       [
+        -8.380738702315378,
+        41.5729432814004
+       ],
+       [
+        -8.380713602310491,
+        41.5728556814004
+       ],
+       [
+        -8.38077420230995,
+        41.5728459814004
+       ],
+       [
+        -8.380796002314865,
+        41.5729340814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666769",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38097870230429,
+        41.5727444814004
+       ],
+       [
+        -8.380987402304056,
+        41.5727402814004
+       ],
+       [
+        -8.380991902303666,
+        41.5727332814004
+       ],
+       [
+        -8.38099110230323,
+        41.5727254814004
+       ],
+       [
+        -8.380985002302868,
+        41.5727189814004
+       ],
+       [
+        -8.380975402302688,
+        41.5727157814004
+       ],
+       [
+        -8.380965002302752,
+        41.5727168814004
+       ],
+       [
+        -8.380892202303771,
+        41.572735181400404
+       ],
+       [
+        -8.380904702305328,
+        41.5727630814004
+       ],
+       [
+        -8.38097870230429,
+        41.5727444814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666770",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381226202305694,
+        41.5727696814004
+       ],
+       [
+        -8.381211302305433,
+        41.572764981400404
+       ],
+       [
+        -8.381203002304837,
+        41.5727542814004
+       ],
+       [
+        -8.38120420230414,
+        41.5727417814004
+       ],
+       [
+        -8.381215102303603,
+        41.5727321814004
+       ],
+       [
+        -8.381318202302761,
+        41.5727170814004
+       ],
+       [
+        -8.38132810230486,
+        41.5727546814004
+       ],
+       [
+        -8.381226202305694,
+        41.5727696814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120666775",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378642302255612,
+        41.5718715814004
+       ],
+       [
+        -8.378638002253966,
+        41.5718420814004
+       ],
+       [
+        -8.37854860225438,
+        41.5718494814004
+       ],
+       [
+        -8.378552902256018,
+        41.5718788814004
+       ],
+       [
+        -8.378642302255612,
+        41.5718715814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848078",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379339302147981,
+        41.5699413814004
+       ],
+       [
+        -8.379323302147194,
+        41.5699272814004
+       ],
+       [
+        -8.379365002145718,
+        41.5699007814004
+       ],
+       [
+        -8.379381002146502,
+        41.5699148814004
+       ],
+       [
+        -8.379339302147981,
+        41.5699413814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848128",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379442402143482,
+        41.5698606814004
+       ],
+       [
+        -8.379458202143503,
+        41.5698610814004
+       ],
+       [
+        -8.3794708021439,
+        41.5698681814004
+       ],
+       [
+        -8.379475802144524,
+        41.5698793814004
+       ],
+       [
+        -8.37947140214516,
+        41.5698907814004
+       ],
+       [
+        -8.379457402145595,
+        41.5698985814004
+       ],
+       [
+        -8.379439902145572,
+        41.5698981814004
+       ],
+       [
+        -8.379426602145102,
+        41.5698897814004
+       ],
+       [
+        -8.379423002144456,
+        41.5698781814004
+       ],
+       [
+        -8.379429002143844,
+        41.5698671814004
+       ],
+       [
+        -8.379442402143482,
+        41.5698606814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848129",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379265402154907,
+        41.5700655814004
+       ],
+       [
+        -8.379234302156068,
+        41.5700863814004
+       ],
+       [
+        -8.379172202153171,
+        41.5700344814004
+       ],
+       [
+        -8.37920330215201,
+        41.570013681400404
+       ],
+       [
+        -8.379265402154907,
+        41.5700655814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848130",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379023702122332,
+        41.5694813814004
+       ],
+       [
+        -8.378992802120981,
+        41.5694571814004
+       ],
+       [
+        -8.378910502124285,
+        41.5695163814004
+       ],
+       [
+        -8.378941402125626,
+        41.5695404814004
+       ],
+       [
+        -8.379023702122332,
+        41.5694813814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848136",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378836802114488,
+        41.5693406814004
+       ],
+       [
+        -8.37880070211326,
+        41.569318681400404
+       ],
+       [
+        -8.378745102116104,
+        41.5693696814004
+       ],
+       [
+        -8.37878120211733,
+        41.5693916814004
+       ],
+       [
+        -8.378836802114488,
+        41.5693406814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848137",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38033360209171,
+        41.5689321814004
+       ],
+       [
+        -8.380341702091213,
+        41.5689232814004
+       ],
+       [
+        -8.380340002090707,
+        41.5689141814004
+       ],
+       [
+        -8.380330802090311,
+        41.568907081400404
+       ],
+       [
+        -8.38031920209021,
+        41.5689052814004
+       ],
+       [
+        -8.380286902086837,
+        41.5688447814004
+       ],
+       [
+        -8.380237702087662,
+        41.5688595814004
+       ],
+       [
+        -8.380286102092702,
+        41.5689499814004
+       ],
+       [
+        -8.38033690209205,
+        41.5689382814004
+       ],
+       [
+        -8.38033360209171,
+        41.5689321814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848143",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380829402060956,
+        41.5683805814004
+       ],
+       [
+        -8.380725502063045,
+        41.5684180814004
+       ],
+       [
+        -8.380705702061329,
+        41.5683872814004
+       ],
+       [
+        -8.380758502060269,
+        41.5683682814004
+       ],
+       [
+        -8.380753102059801,
+        41.5683598814004
+       ],
+       [
+        -8.380804202058776,
+        41.5683414814004
+       ],
+       [
+        -8.380829402060956,
+        41.5683805814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848146",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381069702074498,
+        41.5686234814004
+       ],
+       [
+        -8.381021402074415,
+        41.5686219814004
+       ],
+       [
+        -8.38102600206976,
+        41.5685384814004
+       ],
+       [
+        -8.381074302069838,
+        41.5685398814004
+       ],
+       [
+        -8.381069702074498,
+        41.5686234814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848147",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380373102114488,
+        41.5693406814004
+       ],
+       [
+        -8.380294002110974,
+        41.5692776814004
+       ],
+       [
+        -8.38032830210963,
+        41.5692535814004
+       ],
+       [
+        -8.380407402113143,
+        41.5693165814004
+       ],
+       [
+        -8.380373102114488,
+        41.5693406814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848161",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380520402169633,
+        41.5703296814004
+       ],
+       [
+        -8.380457302169459,
+        41.5703265814004
+       ],
+       [
+        -8.3804593021682,
+        41.5703039814004
+       ],
+       [
+        -8.380522302168371,
+        41.5703070814004
+       ],
+       [
+        -8.380520402169633,
+        41.5703296814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848162",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381750502206636,
+        41.5709932814004
+       ],
+       [
+        -8.38165850220649,
+        41.5709906814004
+       ],
+       [
+        -8.381660302204518,
+        41.5709552814004
+       ],
+       [
+        -8.38175220220466,
+        41.5709578814004
+       ],
+       [
+        -8.381750502206636,
+        41.5709932814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848176",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.38100100220397,
+        41.5709454814004
+       ],
+       [
+        -8.38089800220376,
+        41.5709416814004
+       ],
+       [
+        -8.380899702202246,
+        41.5709145814004
+       ],
+       [
+        -8.381002802202453,
+        41.5709182814004
+       ],
+       [
+        -8.38100100220397,
+        41.5709454814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848177",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380287802219417,
+        41.5712224814004
+       ],
+       [
+        -8.38023640221931,
+        41.571220581400404
+       ],
+       [
+        -8.380242102214627,
+        41.5711365814004
+       ],
+       [
+        -8.380293502214737,
+        41.5711385814004
+       ],
+       [
+        -8.380287802219417,
+        41.5712224814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848178",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380751502235954,
+        41.5715190814004
+       ],
+       [
+        -8.380753002234437,
+        41.5714918814004
+       ],
+       [
+        -8.380755102232314,
+        41.5714537814004
+       ],
+       [
+        -8.380714402232242,
+        41.5714524814004
+       ],
+       [
+        -8.380710802235889,
+        41.5715178814004
+       ],
+       [
+        -8.380751502235954,
+        41.5715190814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848180",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379826002263403,
+        41.5720112814004
+       ],
+       [
+        -8.379815102263482,
+        41.5720126814004
+       ],
+       [
+        -8.37980380226328,
+        41.5720090814004
+       ],
+       [
+        -8.379797102262856,
+        41.5720014814004
+       ],
+       [
+        -8.379797702262298,
+        41.5719914814004
+       ],
+       [
+        -8.379807302261847,
+        41.5719833814004
+       ],
+       [
+        -8.379881202260302,
+        41.571955681400404
+       ],
+       [
+        -8.379900302261891,
+        41.5719841814004
+       ],
+       [
+        -8.379826002263403,
+        41.5720112814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848187",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380327802266342,
+        41.5720639814004
+       ],
+       [
+        -8.380290002266273,
+        41.5720627814004
+       ],
+       [
+        -8.380293302263008,
+        41.5720041814004
+       ],
+       [
+        -8.380331202263072,
+        41.5720053814004
+       ],
+       [
+        -8.380327802266342,
+        41.5720639814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848188",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377864802143247,
+        41.5698564814004
+       ],
+       [
+        -8.377839702142214,
+        41.5698379814004
+       ],
+       [
+        -8.377886402140241,
+        41.5698025814004
+       ],
+       [
+        -8.377911502141274,
+        41.5698210814004
+       ],
+       [
+        -8.377864802143247,
+        41.5698564814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848210",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37764720211451,
+        41.5693410814004
+       ],
+       [
+        -8.377677202114318,
+        41.5693376814004
+       ],
+       [
+        -8.37768840211732,
+        41.5693914814004
+       ],
+       [
+        -8.377658402117515,
+        41.5693949814004
+       ],
+       [
+        -8.37764720211451,
+        41.5693410814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848211",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377862202123062,
+        41.5694944814004
+       ],
+       [
+        -8.377824302121601,
+        41.569468281400404
+       ],
+       [
+        -8.377765902124228,
+        41.5695153814004
+       ],
+       [
+        -8.377803802125694,
+        41.5695416814004
+       ],
+       [
+        -8.377862202123062,
+        41.5694944814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1120848213",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382036902332999,
+        41.573259281400404
+       ],
+       [
+        -8.381933202333846,
+        41.573274481400404
+       ],
+       [
+        -8.381923602331788,
+        41.5732375814004
+       ],
+       [
+        -8.382027302330942,
+        41.5732223814004
+       ],
+       [
+        -8.382036902332999,
+        41.573259281400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1122409991",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.382440902334114,
+        41.5732792814004
+       ],
+       [
+        -8.382431402334086,
+        41.5732787814004
+       ],
+       [
+        -8.382423202333786,
+        41.5732733814004
+       ],
+       [
+        -8.382421102333396,
+        41.5732663814004
+       ],
+       [
+        -8.382424702333022,
+        41.5732596814004
+       ],
+       [
+        -8.382433502332793,
+        41.5732555814004
+       ],
+       [
+        -8.382430102332206,
+        41.5732450814004
+       ],
+       [
+        -8.382551202331015,
+        41.5732236814004
+       ],
+       [
+        -8.38256490233343,
+        41.5732669814004
+       ],
+       [
+        -8.382444202334618,
+        41.5732882814004
+       ],
+       [
+        -8.382440902334114,
+        41.5732792814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1122409992",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.381656402339797,
+        41.5733811814004
+       ],
+       [
+        -8.381644602339831,
+        41.5733817814004
+       ],
+       [
+        -8.381633402339586,
+        41.5733773814004
+       ],
+       [
+        -8.381626902339134,
+        41.5733692814004
+       ],
+       [
+        -8.381627502338564,
+        41.5733590814004
+       ],
+       [
+        -8.381635702338107,
+        41.5733508814004
+       ],
+       [
+        -8.381648602337924,
+        41.5733475814004
+       ],
+       [
+        -8.38164730233755,
+        41.5733408814004
+       ],
+       [
+        -8.381788302336654,
+        41.5733247814004
+       ],
+       [
+        -8.38179780233924,
+        41.573371181400404
+       ],
+       [
+        -8.381657702340139,
+        41.5733872814004
+       ],
+       [
+        -8.381656402339797,
+        41.5733811814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1122409993",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.383676102299889,
+        41.5726655814004
+       ],
+       [
+        -8.38360030230023,
+        41.5726716814004
+       ],
+       [
+        -8.383596202298625,
+        41.5726428814004
+       ],
+       [
+        -8.383671902298284,
+        41.5726367814004
+       ],
+       [
+        -8.383676102299889,
+        41.5726655814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1122410001",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377032501891362,
+        41.565338581400404
+       ],
+       [
+        -8.376982901893019,
+        41.5653682814004
+       ],
+       [
+        -8.37691470188945,
+        41.5653042814004
+       ],
+       [
+        -8.376964401887802,
+        41.5652746814004
+       ],
+       [
+        -8.377032501891362,
+        41.565338581400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124272579",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "building": "yes"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375851701876657,
+        41.5650747814004
+       ],
+       [
+        -8.375768501878502,
+        41.5651078814004
+       ],
+       [
+        -8.375690801872409,
+        41.5649985814004
+       ],
+       [
+        -8.375774001870564,
+        41.5649654814004
+       ],
+       [
+        -8.375851701876657,
+        41.5650747814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124272583",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37607220185297,
+        41.5646498814004
+       ],
+       [
+        -8.375957501851238,
+        41.5646187814004
+       ],
+       [
+        -8.375979501848713,
+        41.5645734814004
+       ],
+       [
+        -8.376094101850446,
+        41.5646045814004
+       ],
+       [
+        -8.37607220185297,
+        41.5646498814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124272585",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376660401853778,
+        41.5646643814004
+       ],
+       [
+        -8.37659110185355,
+        41.5646602814004
+       ],
+       [
+        -8.376601901847842,
+        41.564557881400404
+       ],
+       [
+        -8.376671101848071,
+        41.5645619814004
+       ],
+       [
+        -8.376660401853778,
+        41.5646643814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124272586",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375850801915107,
+        41.5657644814004
+       ],
+       [
+        -8.375776601916739,
+        41.5657937814004
+       ],
+       [
+        -8.37576080191549,
+        41.5657713814004
+       ],
+       [
+        -8.375835001913856,
+        41.5657420814004
+       ],
+       [
+        -8.375850801915107,
+        41.5657644814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124273642",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37622100190966,
+        41.5656667814004
+       ],
+       [
+        -8.376193801911928,
+        41.5657074814004
+       ],
+       [
+        -8.37613190191065,
+        41.5656845814004
+       ],
+       [
+        -8.376131501909464,
+        41.5656632814004
+       ],
+       [
+        -8.37622100190966,
+        41.5656667814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124273648",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.371525301912564,
+        41.5657188814004
+       ],
+       [
+        -8.371459601911615,
+        41.5657018814004
+       ],
+       [
+        -8.371504301906242,
+        41.565605481400404
+       ],
+       [
+        -8.371570001907196,
+        41.5656225814004
+       ],
+       [
+        -8.371525301912564,
+        41.5657188814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1124490606",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375226702235683,
+        41.5715141814004
+       ],
+       [
+        -8.37520910223596,
+        41.5715191814004
+       ],
+       [
+        -8.375252602240751,
+        41.5716050814004
+       ],
+       [
+        -8.375239002240962,
+        41.5716088814004
+       ],
+       [
+        -8.375252902242497,
+        41.5716363814004
+       ],
+       [
+        -8.375292302241872,
+        41.5716251814004
+       ],
+       [
+        -8.375287802241381,
+        41.5716163814004
+       ],
+       [
+        -8.375333302240662,
+        41.5716034814004
+       ],
+       [
+        -8.375280302234835,
+        41.5714989814004
+       ],
+       [
+        -8.375263502235097,
+        41.5715036814004
+       ],
+       [
+        -8.375258102234673,
+        41.5714960814004
+       ],
+       [
+        -8.375247902234445,
+        41.5714919814004
+       ],
+       [
+        -8.37523630223449,
+        41.5714927814004
+       ],
+       [
+        -8.375227602234784,
+        41.5714980814004
+       ],
+       [
+        -8.375224002235225,
+        41.5715059814004
+       ],
+       [
+        -8.375226702235683,
+        41.5715141814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1262995403",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376893202298938,
+        41.5726484814004
+       ],
+       [
+        -8.376810102299228,
+        41.5726536814004
+       ],
+       [
+        -8.376807202297778,
+        41.5726276814004
+       ],
+       [
+        -8.376890202297487,
+        41.5726224814004
+       ],
+       [
+        -8.376893202298938,
+        41.5726484814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1262995418",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376278602366835,
+        41.5738659814004
+       ],
+       [
+        -8.376179602368406,
+        41.5738941814004
+       ],
+       [
+        -8.376161902366478,
+        41.5738595814004
+       ],
+       [
+        -8.376261002364899,
+        41.5738312814004
+       ],
+       [
+        -8.376278602366835,
+        41.5738659814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354287310",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376000602343819,
+        41.5734532814004
+       ],
+       [
+        -8.37595010234349,
+        41.5734473814004
+       ],
+       [
+        -8.375968302338682,
+        41.5733611814004
+       ],
+       [
+        -8.376018802339017,
+        41.5733671814004
+       ],
+       [
+        -8.376000602343819,
+        41.5734532814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354287318",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379287302316515,
+        41.5729636814004
+       ],
+       [
+        -8.379294402319577,
+        41.5730185814004
+       ],
+       [
+        -8.379334502319407,
+        41.5730155814004
+       ],
+       [
+        -8.379327402316353,
+        41.5729607814004
+       ],
+       [
+        -8.379287302316515,
+        41.5729636814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354627579",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.373316002289444,
+        41.5724782814004
+       ],
+       [
+        -8.373190002292864,
+        41.5725395814004
+       ],
+       [
+        -8.373238502295969,
+        41.5725952814004
+       ],
+       [
+        -8.373363802292529,
+        41.5725335814004
+       ],
+       [
+        -8.373316002289444,
+        41.5724782814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354670371",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.373793802258099,
+        41.571916181400404
+       ],
+       [
+        -8.373805802259929,
+        41.5719489814004
+       ],
+       [
+        -8.37369810226116,
+        41.5719710814004
+       ],
+       [
+        -8.373686102259326,
+        41.5719381814004
+       ],
+       [
+        -8.373793802258099,
+        41.571916181400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354670383",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374400902314703,
+        41.5729311814004
+       ],
+       [
+        -8.374365002311707,
+        41.5728774814004
+       ],
+       [
+        -8.374508302308717,
+        41.5728238814004
+       ],
+       [
+        -8.374544202311718,
+        41.5728776814004
+       ],
+       [
+        -8.374400902314703,
+        41.5729311814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1354670400",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374405102157477,
+        41.5701116814004
+       ],
+       [
+        -8.374414802159585,
+        41.5701494814004
+       ],
+       [
+        -8.374519902158653,
+        41.5701327814004
+       ],
+       [
+        -8.374511102156545,
+        41.5700949814004
+       ],
+       [
+        -8.374405102157477,
+        41.5701116814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1355008810",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376553001941106,
+        41.5662308814004
+       ],
+       [
+        -8.376563701942572,
+        41.5662571814004
+       ],
+       [
+        -8.376641701941653,
+        41.5662406814004
+       ],
+       [
+        -8.376632201940186,
+        41.5662143814004
+       ],
+       [
+        -8.376553001941106,
+        41.5662308814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1355731942",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376281701916271,
+        41.5657853814004
+       ],
+       [
+        -8.376261401917986,
+        41.5658161814004
+       ],
+       [
+        -8.376351301919833,
+        41.5658492814004
+       ],
+       [
+        -8.37637150191811,
+        41.5658183814004
+       ],
+       [
+        -8.376281701916271,
+        41.5657853814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1355731951",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376498001921043,
+        41.5658709814004
+       ],
+       [
+        -8.376596501923045,
+        41.5659068814004
+       ],
+       [
+        -8.37657660192474,
+        41.5659372814004
+       ],
+       [
+        -8.376478101922743,
+        41.5659014814004
+       ],
+       [
+        -8.376498001921043,
+        41.5658709814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1355731952",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375761102149202,
+        41.5699632814004
+       ],
+       [
+        -8.375770702151666,
+        41.5700074814004
+       ],
+       [
+        -8.375875102150953,
+        41.5699946814004
+       ],
+       [
+        -8.375865502148494,
+        41.5699505814004
+       ],
+       [
+        -8.375761102149202,
+        41.5699632814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651602",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375316202149397,
+        41.5699667814004
+       ],
+       [
+        -8.375374602148923,
+        41.5699582814004
+       ],
+       [
+        -8.375393902153105,
+        41.5700332814004
+       ],
+       [
+        -8.375335502153574,
+        41.5700416814004
+       ],
+       [
+        -8.375316202149397,
+        41.5699667814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651610",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375505902149163,
+        41.569962581400404
+       ],
+       [
+        -8.375517302151712,
+        41.5700082814004
+       ],
+       [
+        -8.375635402150786,
+        41.5699916814004
+       ],
+       [
+        -8.375623902148236,
+        41.5699459814004
+       ],
+       [
+        -8.375505902149163,
+        41.569962581400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651611",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375111002114597,
+        41.5693426814004
+       ],
+       [
+        -8.375153502114248,
+        41.5693363814004
+       ],
+       [
+        -8.375169902117692,
+        41.5693981814004
+       ],
+       [
+        -8.375127302118049,
+        41.5694045814004
+       ],
+       [
+        -8.375111002114597,
+        41.5693426814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651624",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.377207802152123,
+        41.5700156814004
+       ],
+       [
+        -8.377216102153742,
+        41.570044681400404
+       ],
+       [
+        -8.37730330215296,
+        41.570030681400404
+       ],
+       [
+        -8.377295002151344,
+        41.5700016814004
+       ],
+       [
+        -8.377207802152123,
+        41.5700156814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651680",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376772702154454,
+        41.5700574814004
+       ],
+       [
+        -8.376777802155548,
+        41.5700770814004
+       ],
+       [
+        -8.376834902155078,
+        41.5700686814004
+       ],
+       [
+        -8.376821502152236,
+        41.5700176814004
+       ],
+       [
+        -8.376789402152504,
+        41.5700224814004
+       ],
+       [
+        -8.376797602154248,
+        41.570053781400404
+       ],
+       [
+        -8.376772702154454,
+        41.5700574814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1356651689",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376999002056461,
+        41.5682999814004
+       ],
+       [
+        -8.377080302055742,
+        41.5682870814004
+       ],
+       [
+        -8.377088402057327,
+        41.5683154814004
+       ],
+       [
+        -8.377007002058045,
+        41.5683283814004
+       ],
+       [
+        -8.376999002056461,
+        41.5682999814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1481121874",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374885802047435,
+        41.5681380814004
+       ],
+       [
+        -8.37485410204375,
+        41.5680719814004
+       ],
+       [
+        -8.37488590204327,
+        41.5680633814004
+       ],
+       [
+        -8.374917702046956,
+        41.5681294814004
+       ],
+       [
+        -8.374885802047435,
+        41.5681380814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1481121912",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37533820209548,
+        41.5689997814004
+       ],
+       [
+        -8.375346902097265,
+        41.5690317814004
+       ],
+       [
+        -8.375448902096405,
+        41.5690163814004
+       ],
+       [
+        -8.375440202094621,
+        41.5689843814004
+       ],
+       [
+        -8.37533820209548,
+        41.5689997814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1481187880",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375479602101183,
+        41.5691020814004
+       ],
+       [
+        -8.375532802100766,
+        41.5690945814004
+       ],
+       [
+        -8.375553002105237,
+        41.5691747814004
+       ],
+       [
+        -8.375499802105656,
+        41.5691822814004
+       ],
+       [
+        -8.375479602101183,
+        41.5691020814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1481187881",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374302802051922,
+        41.5682185814004
+       ],
+       [
+        -8.374200302052754,
+        41.5682334814004
+       ],
+       [
+        -8.374192002050986,
+        41.5682017814004
+       ],
+       [
+        -8.374294502050155,
+        41.5681868814004
+       ],
+       [
+        -8.374302802051922,
+        41.5682185814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1481955005",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374811801885745,
+        41.5652377814004
+       ],
+       [
+        -8.374828201886999,
+        41.5652602814004
+       ],
+       [
+        -8.374761001888526,
+        41.5652876814004
+       ],
+       [
+        -8.374744701887272,
+        41.5652651814004
+       ],
+       [
+        -8.374811801885745,
+        41.5652377814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1554695025",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376048001879896,
+        41.5651328814004
+       ],
+       [
+        -8.37610000188381,
+        41.5652030814004
+       ],
+       [
+        -8.376074101884413,
+        41.5652138814004
+       ],
+       [
+        -8.376022101880492,
+        41.5651435814004
+       ],
+       [
+        -8.376048001879896,
+        41.5651328814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1554695028",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.3761461019147,
+        41.5657571814004
+       ],
+       [
+        -8.376130301915852,
+        41.5657778814004
+       ],
+       [
+        -8.37605030191394,
+        41.5657435814004
+       ],
+       [
+        -8.37606610191279,
+        41.5657229814004
+       ],
+       [
+        -8.3761461019147,
+        41.5657571814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1554695034",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.376001501910423,
+        41.5656804814004
+       ],
+       [
+        -8.376016901911628,
+        41.5657020814004
+       ],
+       [
+        -8.375931901913528,
+        41.5657361814004
+       ],
+       [
+        -8.375916501912323,
+        41.5657145814004
+       ],
+       [
+        -8.376001501910423,
+        41.5656804814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1554695035",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.380925801876216,
+        41.5650668814004
+       ],
+       [
+        -8.380935801876333,
+        41.5650689814004
+       ],
+       [
+        -8.380940901876562,
+        41.5650730814004
+       ],
+       [
+        -8.380942501876936,
+        41.5650797814004
+       ],
+       [
+        -8.380945701877225,
+        41.5650849814004
+       ],
+       [
+        -8.380953301877488,
+        41.5650896814004
+       ],
+       [
+        -8.380959301877581,
+        41.5650913814004
+       ],
+       [
+        -8.380962801877665,
+        41.5650928814004
+       ],
+       [
+        -8.380967101877811,
+        41.5650954814004
+       ],
+       [
+        -8.380969101877945,
+        41.5650978814004
+       ],
+       [
+        -8.380970101878162,
+        41.5651017814004
+       ],
+       [
+        -8.380969001878396,
+        41.5651059814004
+       ],
+       [
+        -8.380965801878581,
+        41.5651092814004
+       ],
+       [
+        -8.380960501878707,
+        41.5651115814004
+       ],
+       [
+        -8.380953201878713,
+        41.5651116814004
+       ],
+       [
+        -8.38094680187867,
+        41.5651108814004
+       ],
+       [
+        -8.380940301878658,
+        41.5651106814004
+       ],
+       [
+        -8.380929301878576,
+        41.5651091814004
+       ],
+       [
+        -8.380920501878425,
+        41.5651064814004
+       ],
+       [
+        -8.380913301878223,
+        41.5651028814004
+       ],
+       [
+        -8.380907101877973,
+        41.565098381400404
+       ],
+       [
+        -8.38090140187762,
+        41.5650920814004
+       ],
+       [
+        -8.380899201877426,
+        41.5650885814004
+       ],
+       [
+        -8.38089780187717,
+        41.5650839814004
+       ],
+       [
+        -8.380898801876974,
+        41.5650804814004
+       ],
+       [
+        -8.380901401876729,
+        41.5650760814004
+       ],
+       [
+        -8.380905901876508,
+        41.5650720814004
+       ],
+       [
+        -8.380914501876278,
+        41.565067981400404
+       ],
+       [
+        -8.380925801876216,
+        41.5650668814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/602722586",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375819202062331,
+        41.5684052814004
+       ],
+       [
+        -8.375709202063426,
+        41.568424881400404
+       ],
+       [
+        -8.37569590206109,
+        41.5683829814004
+       ],
+       [
+        -8.375805902060002,
+        41.568363481400404
+       ],
+       [
+        -8.375819202062331,
+        41.5684052814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895555540",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.375203502099538,
+        41.5690725814004
+       ],
+       [
+        -8.375108702100453,
+        41.5690889814004
+       ],
+       [
+        -8.375097502100285,
+        41.5690859814004
+       ],
+       [
+        -8.375087402099934,
+        41.5690796814004
+       ],
+       [
+        -8.375082202099595,
+        41.5690735814004
+       ],
+       [
+        -8.375079102099036,
+        41.5690635814004
+       ],
+       [
+        -8.375079902098664,
+        41.5690568814004
+       ],
+       [
+        -8.375083702098244,
+        41.5690493814004
+       ],
+       [
+        -8.37508920209794,
+        41.569043881400404
+       ],
+       [
+        -8.37518950209708,
+        41.5690284814004
+       ],
+       [
+        -8.375195802097197,
+        41.5690305814004
+       ],
+       [
+        -8.375202102097392,
+        41.5690340814004
+       ],
+       [
+        -8.375206402097593,
+        41.5690376814004
+       ],
+       [
+        -8.375210402097867,
+        41.5690425814004
+       ],
+       [
+        -8.375213202098234,
+        41.5690491814004
+       ],
+       [
+        -8.3752136020986,
+        41.5690557814004
+       ],
+       [
+        -8.375211902098975,
+        41.5690624814004
+       ],
+       [
+        -8.375209502099192,
+        41.569066381400404
+       ],
+       [
+        -8.37520730209935,
+        41.5690691814004
+       ],
+       [
+        -8.375203502099538,
+        41.5690725814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895557040",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.374603002050412,
+        41.5681914814004
+       ],
+       [
+        -8.374497302051182,
+        41.5682052814004
+       ],
+       [
+        -8.374488502049086,
+        41.5681676814004
+       ],
+       [
+        -8.37459420204831,
+        41.5681537814004
+       ],
+       [
+        -8.374603002050412,
+        41.5681914814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895630521",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.37447040208551,
+        41.5688209814004
+       ],
+       [
+        -8.374362602086336,
+        41.5688357814004
+       ],
+       [
+        -8.374353502084267,
+        41.5687986814004
+       ],
+       [
+        -8.374461302083443,
+        41.5687838814004
+       ],
+       [
+        -8.37447040208551,
+        41.5688209814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895630523",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379598302371926,
+        41.5739572814004
+       ],
+       [
+        -8.379468002371553,
+        41.5739505814004
+       ],
+       [
+        -8.379471902369136,
+        41.5739072814004
+       ],
+       [
+        -8.379602302369507,
+        41.5739138814004
+       ],
+       [
+        -8.379598302371926,
+        41.5739572814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895634418",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378578802360874,
+        41.573759081400404
+       ],
+       [
+        -8.378468602361174,
+        41.5737644814004
+       ],
+       [
+        -8.378465002358944,
+        41.5737244814004
+       ],
+       [
+        -8.378575302358637,
+        41.573718981400404
+       ],
+       [
+        -8.378578802360874,
+        41.573759081400404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895646131",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.378928802358335,
+        41.5737135814004
+       ],
+       [
+        -8.37887220235838,
+        41.5737143814004
+       ],
+       [
+        -8.378870202353628,
+        41.5736291814004
+       ],
+       [
+        -8.378926802353583,
+        41.573628381400404
+       ],
+       [
+        -8.378928802358335,
+        41.5737135814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895646132",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -8.379148402334373,
+        41.5732838814004
+       ],
+       [
+        -8.379046302336567,
+        41.5733232814004
+       ],
+       [
+        -8.379014602334003,
+        41.5732772814004
+       ],
+       [
+        -8.379116702331812,
+        41.5732379814004
+       ],
+       [
+        -8.379148402334373,
+        41.5732838814004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/895648079",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private",
+     "swimming_pool": "outdoor"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  }
+ ]
+}

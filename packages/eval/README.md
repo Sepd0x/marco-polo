@@ -1,104 +1,114 @@
 # eval
 
-Benchmark for the pool detector. It scans ten fixed areas with the same tiles
-the web app uses, matches the detections against labelled pools and reports
-precision, recall, F1, area error and detector time, plus contact sheets of
-every false positive and false negative.
+Benchmark for the pool detector. It scans fixed areas with the same tiles the
+web app uses, matches the detections against frozen labels and reports
+precision, recall, F1, area, length, width and centre errors, each with a 95%
+interval, plus contact sheets of every error outside TEST.
 
 ```bash
-npm run eval                                   # all areas, v1 at 0.55, tiles from cache or network
-npm run eval -- run --zones dev --min-conf 0.5 # only the DEV areas
+npm run eval                                      # v1 on DEV and DEV-2, Esri, frozen labels
+npm run eval -- run --zones dev --source auto     # each zone on the source the product scans there
+npm run eval -- zones check                       # registry rules
+npm run eval -- gate                              # committed reports against targets.json
 npm run eval -- --help
 ```
 
-Results of the shipped detector are in [`results/v1-baseline/report.md`](results/v1-baseline/report.md).
-Any change to detection should come with a new run next to it.
+## Zones and roles
 
-## DEV and TEST
+`zones/registry.json` holds every zone with its role, its product source and
+the places phase 0 looked at.
 
-| split | areas | use |
-|---|---|---|
-| DEV | Vilamoura, Scottsdale, Odemira (greenhouses), Puyricard (Aix), Balma | tune on these, look at their galleries as often as you like |
-| TEST | Marbella, Birre (Cascais), Santa Barbara de Nexe (Algarve), Castelnau-le-Lez, Arcadia (Phoenix) | **never tune on these.** Run them to report a number, do not open their galleries while choosing thresholds or rules |
+| role | use |
+|---|---|
+| DEV | tune here, look at galleries as often as you like |
+| DEV-2 | the five former TEST zones; confirmation only, run at a freeze |
+| GOLD | phase 0 gold (union of what the prototype methods proposed, checked by eye) |
+| TEST | drawn from a pre-registered list; never tuned on, no galleries |
+| TRAIN | zones a model learns from |
 
-If a TEST area starts steering decisions it is no longer a test area: move it to
-DEV and pick a new one. Area definitions, with the reason each one is in the
-set, are in [`src/zones.ts`](src/zones.ts).
+`eval zones check` fails when a TEST zone sits less than 50 km from any other
+zone or seen place, so a training zone added near a TEST zone is caught.
+
+### The TEST draw
+
+1. `zones/test-candidates.json` lists, per stratum, the municipalities a TEST
+   zone may come from, with official codes and the rules of the draw. It was
+   committed in `ddf92d4`, before any imagery of a candidate was opened, and
+   is never edited.
+2. `eval zones draw --stratum <id>` hashes that commit with the stratum name
+   to pick a municipality, then a 1 km cell of it (OSM land use only), and
+   writes every attempt to `zones/draw.json`.
+3. A zone with fewer than 40 pools after review is rejected
+   (`eval zones reject`) and the next municipality in the hashed order is
+   drawn. Rejected zones stay on record in the registry.
+
+Strata: north of Portugal and the rest of Portugal (DGT Ortos2025), Spain
+(PNOA), France (IGN), United States (Esri), negative (ports and marinas) and
+hard imagery (Esri winter or low-sun captures). The last two are reported
+apart and never enter the totals. `results/TEST_ZONES.md` says where each
+stratum stands.
+
+Do not rebase or squash the commits that added the list and the draw: the draw
+is a function of the list's commit hash.
 
 ## Labels
 
-`labels/<area>.geojson` is an OpenStreetMap extract (`leisure=swimming_pool`:
-ways, multipolygon relations and points) fetched once through Overpass, so the
-benchmark runs without network. Pools tagged `indoor=yes`, `covered=yes` or
-`location=indoor`, or sitting inside a building footprint, become `ignore`
-labels: a detection there is neither a hit nor a false positive. Points are
-matched within 5 m, or when they fall inside a detected outline.
+Phase 0 zones: `labels/<zone>.geojson` is an OpenStreetMap extract
+(`leisure=swimming_pool`), `labels/<zone>.extra.geojson` the hand additions and
+corrections made on Esri imagery. Indoor, covered and duplicated pools are
+`ignore`: a detection there counts neither way.
 
-OSM alone was not good enough: in three areas it had a sixth of the pools or
-less (Scottsdale 8%, Cascais 5%, Algarve 15%). So every area was checked against the
-imagery and completed in `labels/<area>.extra.geojson`:
+New zones are reviewed blind (`eval blind`): the zone is cut into 1024 px
+windows of clean imagery with only a coordinate ruler, and every pool is
+boxed by eye, with no detection and no OSM in view. OSM is merged afterwards;
+every OSM pool the review did not box is shown on its own crop and judged
+pool, absent or unsure. A second, independent pass covers 20% of the windows
+(picked by hash) and their agreement (F1) must reach 0.90.
 
-- unlabelled pools added, either from a colour candidate whose outline was
-  confirmed by eye, or as a box drawn by eye for pools no colour rule fires on
-  (dark, green, shaded);
-- doubtful things (a pale shape that may be an empty pool) added as `ignore`;
-- OSM pools that are covered, empty, absent from this imagery or mapped twice
-  turned into `ignore`.
+`labels/labels.sha256` freezes every label file. A run refuses changed labels
+unless it passes `--relabel "<why>"`, which re-freezes and logs the change in
+`labels/RELABEL_LOG.md`. A label absent from one source's imagery is listed in
+`labels/<zone>.absent.<source>.json` and ignored on that source only.
 
-Review depth is recorded per area. "full" means every window was looked at;
-"candidates" (Marbella, Castelnau, Arcadia, all with dense OSM mapping) means
-every unlabelled candidate plus a sample of windows. Some label fixes came from
-reading the first run's galleries; they apply detector-independent rules
-(covered, absent, real pool) but were only looked for where v1 failed, so they
-lean slightly in v1's favour. The report says how many labels each area has and
-where they came from.
-
-OSM is traced from other imagery and can sit a few metres off Esri. The shift
-per area is measured with `npm run eval -- offset` (median offset between
-confident detections and OSM polygons) and stored in `zones.ts`.
-
-The labels are ODbL, see [`labels/ATTRIBUTION.md`](labels/ATTRIBUTION.md).
-
-### Changing or adding labels
-
-```bash
-npm run eval -- labels --zone <id>             # refresh from Overpass (one query at a time)
-npm run eval -- review --zone <id> --out <dir> # numbered windows + candidates.json
-# write <dir>/<id>/review.json (format at the top of src/review.ts)
-npm run eval -- extra  --zone <id> --review <dir>/<id>/review.json
-```
+Labels are ODbL, see [`labels/ATTRIBUTION.md`](labels/ATTRIBUTION.md).
 
 ## Matching and metrics
 
-- A detection hits a label when its centre is inside the label polygon, or the
-  two boxes overlap with IoU ≥ 0.3. Each label is matched once, greedily
-  (centre-inside pairs first, then by IoU). A second detection on an already
-  matched pool is a false positive marked "duplicate".
-- Labels count by centroid inside the area, detections by centre, so nothing at
-  the edge is counted twice. Labels are loaded with a 120 m margin and the scan
-  covers the area plus 40 m, so pools on the edge are imaged whole.
-- Precision is over detections, recall over labels. DEV and TEST totals are
-  micro-averages (counts summed, then divided); the macro F1 is printed too.
-- Area error: median of |detected − label| / label over hits on OSM polygons.
-- Time: detector CPU time (detect + merge) per km² of scanned area, with tiles
-  already decoded. It moves with machine load, treat it as a rough figure.
+- Polygon label: hit when the detection centre is inside it or the boxes
+  overlap with IoU >= 0.3.
+- Point label: hit when the detection centre is within max(3 m, half the long
+  side of its box) of the point and its area is at most max(4 x the median
+  pool label of the zone, 150 m²). `--match v1` restores the phase 0 rule.
+- Each label is matched once. Precision is over detections, recall over labels,
+  totals are micro-averages.
+- Intervals: block bootstrap, blocks of 4 x 4 z19 tiles resampled inside each
+  zone, 2000 replicates, fixed seed. Comparisons of two runs use the same draws.
+- Area error, length and width (minimum-area rectangle) are judged against OSM
+  outlines only; `compare` and the gate also report area error on the labels
+  both runs hit, so the sample does not change between versions.
 
-For misses with no detection at all, the run also reports which stage of the
-core pipeline lost the pool (colour gate and which rule, texture ceiling,
-size/shape, mask cleanup), by re-running with that stage relaxed.
+## Sources
 
-## Imagery
+`--source esri|dgt|pnoa|ign|auto`. The DGT is read through its WMS with the
+tile's EPSG:3857 box; `auto` is each zone's product source. Tiles are cached
+on disk keyed by URL (`--cache`), a run writes the sha256 of every image it
+read (`tiles.manifest`), and tiles without imagery (Esri placeholder, blank
+DGT or PNOA answers, 404) count as missing, never as empty ground.
 
-Default is Esri World Imagery at z19, the app's default. `--template` takes any
-`https://` XYZ template, so sources can be compared on the same labels. Tiles
-are cached on disk keyed by URL (`--cache`, or `$MARCO_POLO_CACHE`, default
-`~/.cache/marco-polo/tiles`); a full run is about 3,400 tiles and fetches at 4
-per second at most. `--offline` refuses any network access.
+## TEST runs, targets and the gate
 
-## Galleries and taxonomy
-
-`--gallery <dir>` writes `fp-NN.png` and `fn-NN.png` per area: 200 px crops with
-the label in green (yellow dashed: ignored), the detection in magenta, and
-detections below the threshold dashed orange. `items.json` lists every item.
-`--taxonomy <dir>` folds hand categories (`<area>.json`, keyed by item id) into
-the report; the categories used for v1 are in `results/v1-baseline/taxonomy/`.
+- `eval targets --baseline v1.json --report v2.json` fixes `targets.json` from
+  DEV and DEV-2: each target is the stricter of the plan's floor and v2's
+  pessimistic interval end there. It must be committed before the first TEST
+  run.
+- A detector other than v1 runs on TEST only with `--confirm-test "<why>"`,
+  which logs the run in `results/TEST_RUNS.md` first. At most three.
+- `eval gate` reads the committed reports and fails when the detector code or
+  model changed since the run, the labels differ from the frozen ones,
+  `targets.json` changed after the first TEST run, a floor or target is missed,
+  or a measurement is missing.
+- `eval adjudicate prepare|apply` pools the unmatched detections of two runs,
+  shuffled and shown without saying which version found them; confirmed pools
+  form a second label set with its own sha256.
+- `eval osm-recall` scores OSM against a blind count in 10 windows of a zone;
+  training zones need 0.90.

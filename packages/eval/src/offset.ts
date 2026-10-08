@@ -20,7 +20,7 @@ export async function measureOffset(zone: Zone, src: TileSource): Promise<{ east
   ];
   const plan = buildScanPlan(ring, 19);
   const run = await v1Detector.run(plan.tiles, (t) => src.get(t.tile));
-  const { labels } = await loadLabels(zone.id); // raw OSM, no shift
+  const { labels } = await loadLabels(zone.id, { osmShiftM: [0, 0] }); // raw OSM, no shift
   const polys = labels.filter((l) => l.source === 'osm' && !l.point && l.areaM2 >= 12 && l.areaM2 <= 600);
   const dets = run.detections.filter((d) => d.confidence >= 0.5 && d.areaM2 >= 12 && d.areaM2 <= 600 && !d.truncated);
   const dx: number[] = [], dy: number[] = [];

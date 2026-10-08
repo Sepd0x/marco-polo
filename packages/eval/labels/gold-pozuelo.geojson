@@ -1,0 +1,7571 @@
+{
+ "type": "FeatureCollection",
+ "zone": "gold-pozuelo",
+ "review": "gold-union",
+ "about": "Phase 0 gold (C:/dev/mp-research/detection/gold), converted to boxes. The review started from regions the prototype methods proposed, so it is the union of what the methods found, checked by eye; pools no method proposed can be missing. Boxes are on the source of the zone.",
+ "attribution": "Hand labels; OSM-derived proposals (c) OpenStreetMap contributors, ODbL 1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186744,
+        40.4432422
+       ],
+       [
+        -3.8185912,
+        40.4432422
+       ],
+       [
+        -3.8185912,
+        40.4433157
+       ],
+       [
+        -3.8186744,
+        40.4433157
+       ],
+       [
+        -3.8186744,
+        40.4432422
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/0",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217643,
+        40.4430136
+       ],
+       [
+        -3.8216811,
+        40.4430136
+       ],
+       [
+        -3.8216811,
+        40.4430667
+       ],
+       [
+        -3.8217643,
+        40.4430667
+       ],
+       [
+        -3.8217643,
+        40.4430136
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/1",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217241,
+        40.443036
+       ],
+       [
+        -3.8216865,
+        40.443036
+       ],
+       [
+        -3.8216865,
+        40.4430605
+       ],
+       [
+        -3.8217241,
+        40.4430605
+       ],
+       [
+        -3.8217241,
+        40.443036
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/2",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8216034,
+        40.4427666
+       ],
+       [
+        -3.8214988,
+        40.4427666
+       ],
+       [
+        -3.8214988,
+        40.4428319
+       ],
+       [
+        -3.8216034,
+        40.4428319
+       ],
+       [
+        -3.8216034,
+        40.4427666
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/3",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821429,
+        40.4431504
+       ],
+       [
+        -3.8213217,
+        40.4431504
+       ],
+       [
+        -3.8213217,
+        40.4432116
+       ],
+       [
+        -3.821429,
+        40.4432116
+       ],
+       [
+        -3.821429,
+        40.4431504
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/6",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821421,
+        40.4428401
+       ],
+       [
+        -3.8213432,
+        40.4428401
+       ],
+       [
+        -3.8213432,
+        40.4428911
+       ],
+       [
+        -3.821421,
+        40.4428911
+       ],
+       [
+        -3.821421,
+        40.4428401
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/7",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8213325,
+        40.4431953
+       ],
+       [
+        -3.8212091,
+        40.4431953
+       ],
+       [
+        -3.8212091,
+        40.4432606
+       ],
+       [
+        -3.8213325,
+        40.4432606
+       ],
+       [
+        -3.8213325,
+        40.4431953
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/8",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212654,
+        40.4429176
+       ],
+       [
+        -3.8211608,
+        40.4429176
+       ],
+       [
+        -3.8211608,
+        40.4429748
+       ],
+       [
+        -3.8212654,
+        40.4429748
+       ],
+       [
+        -3.8212654,
+        40.4429176
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/9",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210616,
+        40.4429952
+       ],
+       [
+        -3.8209891,
+        40.4429952
+       ],
+       [
+        -3.8209891,
+        40.443036
+       ],
+       [
+        -3.8210616,
+        40.443036
+       ],
+       [
+        -3.8210616,
+        40.4429952
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/10",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820906,
+        40.4430626
+       ],
+       [
+        -3.8208121,
+        40.4430626
+       ],
+       [
+        -3.8208121,
+        40.4431259
+       ],
+       [
+        -3.820906,
+        40.4431259
+       ],
+       [
+        -3.820906,
+        40.4430626
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/11",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8207424,
+        40.4431279
+       ],
+       [
+        -3.8206458,
+        40.4431279
+       ],
+       [
+        -3.8206458,
+        40.4431932
+       ],
+       [
+        -3.8207424,
+        40.4431932
+       ],
+       [
+        -3.8207424,
+        40.4431279
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/12",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200369,
+        40.4427319
+       ],
+       [
+        -3.8199484,
+        40.4427319
+       ],
+       [
+        -3.8199484,
+        40.442789
+       ],
+       [
+        -3.8200369,
+        40.442789
+       ],
+       [
+        -3.8200369,
+        40.4427319
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/13",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194147,
+        40.442985
+       ],
+       [
+        -3.8193369,
+        40.442985
+       ],
+       [
+        -3.8193369,
+        40.443036
+       ],
+       [
+        -3.8194147,
+        40.443036
+       ],
+       [
+        -3.8194147,
+        40.442985
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/14",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192806,
+        40.4430279
+       ],
+       [
+        -3.8192189,
+        40.4430279
+       ],
+       [
+        -3.8192189,
+        40.443083
+       ],
+       [
+        -3.8192806,
+        40.443083
+       ],
+       [
+        -3.8192806,
+        40.4430279
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/15",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8190955,
+        40.4431034
+       ],
+       [
+        -3.8190204,
+        40.4431034
+       ],
+       [
+        -3.8190204,
+        40.4431687
+       ],
+       [
+        -3.8190955,
+        40.4431687
+       ],
+       [
+        -3.8190955,
+        40.4431034
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/16",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.818779,
+        40.4432116
+       ],
+       [
+        -3.8187173,
+        40.4432116
+       ],
+       [
+        -3.8187173,
+        40.4432647
+       ],
+       [
+        -3.818779,
+        40.4432647
+       ],
+       [
+        -3.818779,
+        40.4432116
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/17",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180548,
+        40.4427196
+       ],
+       [
+        -3.81791,
+        40.4427196
+       ],
+       [
+        -3.81791,
+        40.4428217
+       ],
+       [
+        -3.8180548,
+        40.4428217
+       ],
+       [
+        -3.8180548,
+        40.4427196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/19",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179958,
+        40.4427462
+       ],
+       [
+        -3.8179153,
+        40.4427462
+       ],
+       [
+        -3.8179153,
+        40.4428197
+       ],
+       [
+        -3.8179958,
+        40.4428197
+       ],
+       [
+        -3.8179958,
+        40.4427462
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/20",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817572,
+        40.4428748
+       ],
+       [
+        -3.8174942,
+        40.4428748
+       ],
+       [
+        -3.8174942,
+        40.4429605
+       ],
+       [
+        -3.817572,
+        40.4429605
+       ],
+       [
+        -3.817572,
+        40.4428748
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/25",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175344,
+        40.4428646
+       ],
+       [
+        -3.8175237,
+        40.4428646
+       ],
+       [
+        -3.8175237,
+        40.4428727
+       ],
+       [
+        -3.8175344,
+        40.4428727
+       ],
+       [
+        -3.8175344,
+        40.4428646
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/26",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173628,
+        40.4429421
+       ],
+       [
+        -3.8172126,
+        40.4429421
+       ],
+       [
+        -3.8172126,
+        40.443036
+       ],
+       [
+        -3.8173628,
+        40.443036
+       ],
+       [
+        -3.8173628,
+        40.4429421
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/30",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173574,
+        40.4429462
+       ],
+       [
+        -3.817293,
+        40.4429462
+       ],
+       [
+        -3.817293,
+        40.4430218
+       ],
+       [
+        -3.8173574,
+        40.4430218
+       ],
+       [
+        -3.8173574,
+        40.4429462
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/31",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8172904,
+        40.4429789
+       ],
+       [
+        -3.8172179,
+        40.4429789
+       ],
+       [
+        -3.8172179,
+        40.443034
+       ],
+       [
+        -3.8172904,
+        40.443034
+       ],
+       [
+        -3.8172904,
+        40.4429789
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/32",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8171348,
+        40.4429238
+       ],
+       [
+        -3.8170302,
+        40.4429238
+       ],
+       [
+        -3.8170302,
+        40.4429911
+       ],
+       [
+        -3.8171348,
+        40.4429911
+       ],
+       [
+        -3.8171348,
+        40.4429238
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/34",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170463,
+        40.4430483
+       ],
+       [
+        -3.8169605,
+        40.4430483
+       ],
+       [
+        -3.8169605,
+        40.4431218
+       ],
+       [
+        -3.8170463,
+        40.4431218
+       ],
+       [
+        -3.8170463,
+        40.4430483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/35",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170221,
+        40.4427421
+       ],
+       [
+        -3.8169149,
+        40.4427421
+       ],
+       [
+        -3.8169149,
+        40.4428033
+       ],
+       [
+        -3.8170221,
+        40.4428033
+       ],
+       [
+        -3.8170221,
+        40.4427421
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/36",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8169551,
+        40.4430687
+       ],
+       [
+        -3.8168746,
+        40.4430687
+       ],
+       [
+        -3.8168746,
+        40.4431463
+       ],
+       [
+        -3.8169551,
+        40.4431463
+       ],
+       [
+        -3.8169551,
+        40.4430687
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/37",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166305,
+        40.443183
+       ],
+       [
+        -3.8165259,
+        40.443183
+       ],
+       [
+        -3.8165259,
+        40.4432545
+       ],
+       [
+        -3.8166305,
+        40.4432545
+       ],
+       [
+        -3.8166305,
+        40.443183
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/39",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8164642,
+        40.4432096
+       ],
+       [
+        -3.816365,
+        40.4432096
+       ],
+       [
+        -3.816365,
+        40.4432688
+       ],
+       [
+        -3.8164642,
+        40.4432688
+       ],
+       [
+        -3.8164642,
+        40.4432096
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/40",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217911,
+        40.4426911
+       ],
+       [
+        -3.8217267,
+        40.4426911
+       ],
+       [
+        -3.8217267,
+        40.4427625
+       ],
+       [
+        -3.8217911,
+        40.4427625
+       ],
+       [
+        -3.8217911,
+        40.4426911
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/41",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204125,
+        40.4425584
+       ],
+       [
+        -3.8203508,
+        40.4425584
+       ],
+       [
+        -3.8203508,
+        40.4426298
+       ],
+       [
+        -3.8204125,
+        40.4426298
+       ],
+       [
+        -3.8204125,
+        40.4425584
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/45",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.82034,
+        40.4426155
+       ],
+       [
+        -3.8202381,
+        40.4426155
+       ],
+       [
+        -3.8202381,
+        40.4426768
+       ],
+       [
+        -3.82034,
+        40.4426768
+       ],
+       [
+        -3.82034,
+        40.4426155
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/46",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201228,
+        40.4426768
+       ],
+       [
+        -3.8200504,
+        40.4426768
+       ],
+       [
+        -3.8200504,
+        40.4427503
+       ],
+       [
+        -3.8201228,
+        40.4427503
+       ],
+       [
+        -3.8201228,
+        40.4426768
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/47",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200504,
+        40.4426707
+       ],
+       [
+        -3.8200343,
+        40.4426707
+       ],
+       [
+        -3.8200343,
+        40.4426788
+       ],
+       [
+        -3.8200504,
+        40.4426788
+       ],
+       [
+        -3.8200504,
+        40.4426707
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/48",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196212,
+        40.4421705
+       ],
+       [
+        -3.8195354,
+        40.4421705
+       ],
+       [
+        -3.8195354,
+        40.4422563
+       ],
+       [
+        -3.8196212,
+        40.4422563
+       ],
+       [
+        -3.8196212,
+        40.4421705
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/50",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194174,
+        40.4422583
+       ],
+       [
+        -3.8192886,
+        40.4422583
+       ],
+       [
+        -3.8192886,
+        40.4423604
+       ],
+       [
+        -3.8194174,
+        40.4423604
+       ],
+       [
+        -3.8194174,
+        40.4422583
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/51",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193503,
+        40.4422644
+       ],
+       [
+        -3.8192913,
+        40.4422644
+       ],
+       [
+        -3.8192913,
+        40.4423236
+       ],
+       [
+        -3.8193503,
+        40.4423236
+       ],
+       [
+        -3.8193503,
+        40.4422644
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/52",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192511,
+        40.4423134
+       ],
+       [
+        -3.8191223,
+        40.4423134
+       ],
+       [
+        -3.8191223,
+        40.4423869
+       ],
+       [
+        -3.8192511,
+        40.4423869
+       ],
+       [
+        -3.8192511,
+        40.4423134
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/53",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819074,
+        40.4423808
+       ],
+       [
+        -3.8189667,
+        40.4423808
+       ],
+       [
+        -3.8189667,
+        40.4424686
+       ],
+       [
+        -3.819074,
+        40.4424686
+       ],
+       [
+        -3.819074,
+        40.4423808
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/54",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189507,
+        40.4424196
+       ],
+       [
+        -3.8189077,
+        40.4424196
+       ],
+       [
+        -3.8189077,
+        40.4424665
+       ],
+       [
+        -3.8189507,
+        40.4424665
+       ],
+       [
+        -3.8189507,
+        40.4424196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/56",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189372,
+        40.4423338
+       ],
+       [
+        -3.8188273,
+        40.4423338
+       ],
+       [
+        -3.8188273,
+        40.4424012
+       ],
+       [
+        -3.8189372,
+        40.4424012
+       ],
+       [
+        -3.8189372,
+        40.4423338
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/57",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189077,
+        40.4424318
+       ],
+       [
+        -3.818897,
+        40.4424318
+       ],
+       [
+        -3.818897,
+        40.4424461
+       ],
+       [
+        -3.8189077,
+        40.4424461
+       ],
+       [
+        -3.8189077,
+        40.4424318
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/58",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8188004,
+        40.4424869
+       ],
+       [
+        -3.8187173,
+        40.4424869
+       ],
+       [
+        -3.8187173,
+        40.4425665
+       ],
+       [
+        -3.8188004,
+        40.4425665
+       ],
+       [
+        -3.8188004,
+        40.4424869
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/59",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187924,
+        40.4423951
+       ],
+       [
+        -3.8186824,
+        40.4423951
+       ],
+       [
+        -3.8186824,
+        40.4424584
+       ],
+       [
+        -3.8187924,
+        40.4424584
+       ],
+       [
+        -3.8187924,
+        40.4423951
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/60",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186502,
+        40.4425359
+       ],
+       [
+        -3.8185108,
+        40.4425359
+       ],
+       [
+        -3.8185108,
+        40.4426237
+       ],
+       [
+        -3.8186502,
+        40.4426237
+       ],
+       [
+        -3.8186502,
+        40.4425359
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/61",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.81861,
+        40.4424706
+       ],
+       [
+        -3.8185054,
+        40.4424706
+       ],
+       [
+        -3.8185054,
+        40.4425298
+       ],
+       [
+        -3.81861,
+        40.4425298
+       ],
+       [
+        -3.81861,
+        40.4424706
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/62",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185322,
+        40.4423298
+       ],
+       [
+        -3.8184491,
+        40.4423298
+       ],
+       [
+        -3.8184491,
+        40.4424053
+       ],
+       [
+        -3.8185322,
+        40.4424053
+       ],
+       [
+        -3.8185322,
+        40.4423298
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/63",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184759,
+        40.4422073
+       ],
+       [
+        -3.8183981,
+        40.4422073
+       ],
+       [
+        -3.8183981,
+        40.4422563
+       ],
+       [
+        -3.8184759,
+        40.4422563
+       ],
+       [
+        -3.8184759,
+        40.4422073
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/64",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184679,
+        40.4426053
+       ],
+       [
+        -3.8183391,
+        40.4426053
+       ],
+       [
+        -3.8183391,
+        40.4426809
+       ],
+       [
+        -3.8184679,
+        40.4426809
+       ],
+       [
+        -3.8184679,
+        40.4426053
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/65",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177812,
+        40.442687
+       ],
+       [
+        -3.8177222,
+        40.442687
+       ],
+       [
+        -3.8177222,
+        40.4427584
+       ],
+       [
+        -3.8177812,
+        40.4427584
+       ],
+       [
+        -3.8177812,
+        40.442687
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/66",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177732,
+        40.4427237
+       ],
+       [
+        -3.8177437,
+        40.4427237
+       ],
+       [
+        -3.8177437,
+        40.4427503
+       ],
+       [
+        -3.8177732,
+        40.4427503
+       ],
+       [
+        -3.8177732,
+        40.4427237
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/67",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177598,
+        40.4426094
+       ],
+       [
+        -3.8176632,
+        40.4426094
+       ],
+       [
+        -3.8176632,
+        40.4426564
+       ],
+       [
+        -3.8177598,
+        40.4426564
+       ],
+       [
+        -3.8177598,
+        40.4426094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/68",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173038,
+        40.4424563
+       ],
+       [
+        -3.8172206,
+        40.4424563
+       ],
+       [
+        -3.8172206,
+        40.4425053
+       ],
+       [
+        -3.8173038,
+        40.4425053
+       ],
+       [
+        -3.8173038,
+        40.4424563
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/69",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817277,
+        40.4425053
+       ],
+       [
+        -3.8171804,
+        40.4425053
+       ],
+       [
+        -3.8171804,
+        40.4425665
+       ],
+       [
+        -3.817277,
+        40.4425665
+       ],
+       [
+        -3.817277,
+        40.4425053
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/70",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8167432,
+        40.442489
+       ],
+       [
+        -3.8166976,
+        40.442489
+       ],
+       [
+        -3.8166976,
+        40.4425237
+       ],
+       [
+        -3.8167432,
+        40.4425237
+       ],
+       [
+        -3.8167432,
+        40.442489
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/71",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217589,
+        40.4419399
+       ],
+       [
+        -3.8217053,
+        40.4419399
+       ],
+       [
+        -3.8217053,
+        40.4419705
+       ],
+       [
+        -3.8217589,
+        40.4419705
+       ],
+       [
+        -3.8217589,
+        40.4419399
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/72",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8215873,
+        40.4420052
+       ],
+       [
+        -3.8215551,
+        40.4420052
+       ],
+       [
+        -3.8215551,
+        40.4420338
+       ],
+       [
+        -3.8215873,
+        40.4420338
+       ],
+       [
+        -3.8215873,
+        40.4420052
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/73",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214585,
+        40.4419562
+       ],
+       [
+        -3.8214049,
+        40.4419562
+       ],
+       [
+        -3.8214049,
+        40.4420358
+       ],
+       [
+        -3.8214585,
+        40.4420358
+       ],
+       [
+        -3.8214585,
+        40.4419562
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/75",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8207397,
+        40.4417214
+       ],
+       [
+        -3.8206512,
+        40.4417214
+       ],
+       [
+        -3.8206512,
+        40.4417684
+       ],
+       [
+        -3.8207397,
+        40.4417684
+       ],
+       [
+        -3.8207397,
+        40.4417214
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/77",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205814,
+        40.4417868
+       ],
+       [
+        -3.8204849,
+        40.4417868
+       ],
+       [
+        -3.8204849,
+        40.441848
+       ],
+       [
+        -3.8205814,
+        40.441848
+       ],
+       [
+        -3.8205814,
+        40.4417868
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/78",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204527,
+        40.4416969
+       ],
+       [
+        -3.8203749,
+        40.4416969
+       ],
+       [
+        -3.8203749,
+        40.4417704
+       ],
+       [
+        -3.8204527,
+        40.4417704
+       ],
+       [
+        -3.8204527,
+        40.4416969
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/79",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204339,
+        40.441846
+       ],
+       [
+        -3.8203239,
+        40.441846
+       ],
+       [
+        -3.8203239,
+        40.4419174
+       ],
+       [
+        -3.8204339,
+        40.4419174
+       ],
+       [
+        -3.8204339,
+        40.441846
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/80",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8202676,
+        40.4419052
+       ],
+       [
+        -3.8201791,
+        40.4419052
+       ],
+       [
+        -3.8201791,
+        40.4419541
+       ],
+       [
+        -3.8202676,
+        40.4419541
+       ],
+       [
+        -3.8202676,
+        40.4419052
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/81",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200289,
+        40.4420031
+       ],
+       [
+        -3.8199377,
+        40.4420031
+       ],
+       [
+        -3.8199377,
+        40.4420766
+       ],
+       [
+        -3.8200289,
+        40.4420766
+       ],
+       [
+        -3.8200289,
+        40.4420031
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/83",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197634,
+        40.4419889
+       ],
+       [
+        -3.8196695,
+        40.4419889
+       ],
+       [
+        -3.8196695,
+        40.4420542
+       ],
+       [
+        -3.8197634,
+        40.4420542
+       ],
+       [
+        -3.8197634,
+        40.4419889
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/85",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196909,
+        40.442146
+       ],
+       [
+        -3.8196158,
+        40.442146
+       ],
+       [
+        -3.8196158,
+        40.4422093
+       ],
+       [
+        -3.8196909,
+        40.4422093
+       ],
+       [
+        -3.8196909,
+        40.442146
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/86",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196507,
+        40.4421297
+       ],
+       [
+        -3.8196346,
+        40.4421297
+       ],
+       [
+        -3.8196346,
+        40.442146
+       ],
+       [
+        -3.8196507,
+        40.442146
+       ],
+       [
+        -3.8196507,
+        40.4421297
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/87",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196212,
+        40.4420603
+       ],
+       [
+        -3.8195193,
+        40.4420603
+       ],
+       [
+        -3.8195193,
+        40.4421175
+       ],
+       [
+        -3.8196212,
+        40.4421175
+       ],
+       [
+        -3.8196212,
+        40.4420603
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/88",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194442,
+        40.4421358
+       ],
+       [
+        -3.8193396,
+        40.4421358
+       ],
+       [
+        -3.8193396,
+        40.4421991
+       ],
+       [
+        -3.8194442,
+        40.4421991
+       ],
+       [
+        -3.8194442,
+        40.4421358
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/89",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193262,
+        40.4421767
+       ],
+       [
+        -3.8191921,
+        40.4421767
+       ],
+       [
+        -3.8191921,
+        40.442244
+       ],
+       [
+        -3.8193262,
+        40.442244
+       ],
+       [
+        -3.8193262,
+        40.4421767
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/90",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185912,
+        40.4420725
+       ],
+       [
+        -3.8185295,
+        40.4420725
+       ],
+       [
+        -3.8185295,
+        40.4421358
+       ],
+       [
+        -3.8185912,
+        40.4421358
+       ],
+       [
+        -3.8185912,
+        40.4420725
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/91",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177812,
+        40.4418092
+       ],
+       [
+        -3.8177115,
+        40.4418092
+       ],
+       [
+        -3.8177115,
+        40.4418745
+       ],
+       [
+        -3.8177812,
+        40.4418745
+       ],
+       [
+        -3.8177812,
+        40.4418092
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/93",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176793,
+        40.4419399
+       ],
+       [
+        -3.8175881,
+        40.4419399
+       ],
+       [
+        -3.8175881,
+        40.4420358
+       ],
+       [
+        -3.8176793,
+        40.4420358
+       ],
+       [
+        -3.8176793,
+        40.4419399
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/94",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175371,
+        40.4421032
+       ],
+       [
+        -3.8174728,
+        40.4421032
+       ],
+       [
+        -3.8174728,
+        40.442144
+       ],
+       [
+        -3.8175371,
+        40.442144
+       ],
+       [
+        -3.8175371,
+        40.4421032
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/96",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8168907,
+        40.4416827
+       ],
+       [
+        -3.8168049,
+        40.4416827
+       ],
+       [
+        -3.8168049,
+        40.4417418
+       ],
+       [
+        -3.8168907,
+        40.4417418
+       ],
+       [
+        -3.8168907,
+        40.4416827
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/101",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.816829,
+        40.4417133
+       ],
+       [
+        -3.8167432,
+        40.4417133
+       ],
+       [
+        -3.8167432,
+        40.441797
+       ],
+       [
+        -3.816829,
+        40.441797
+       ],
+       [
+        -3.816829,
+        40.4417133
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/102",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8167191,
+        40.4418827
+       ],
+       [
+        -3.8166198,
+        40.4418827
+       ],
+       [
+        -3.8166198,
+        40.4419562
+       ],
+       [
+        -3.8167191,
+        40.4419562
+       ],
+       [
+        -3.8167191,
+        40.4418827
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/103",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166896,
+        40.4417623
+       ],
+       [
+        -3.8165742,
+        40.4417623
+       ],
+       [
+        -3.8165742,
+        40.4418358
+       ],
+       [
+        -3.8166896,
+        40.4418358
+       ],
+       [
+        -3.8166896,
+        40.4417623
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/104",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8208845,
+        40.441256
+       ],
+       [
+        -3.820847,
+        40.441256
+       ],
+       [
+        -3.820847,
+        40.4412866
+       ],
+       [
+        -3.8208845,
+        40.4412866
+       ],
+       [
+        -3.8208845,
+        40.441256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/105",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203186,
+        40.4413907
+       ],
+       [
+        -3.8202462,
+        40.4413907
+       ],
+       [
+        -3.8202462,
+        40.4414765
+       ],
+       [
+        -3.8203186,
+        40.4414765
+       ],
+       [
+        -3.8203186,
+        40.4413907
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/107",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8202435,
+        40.4412131
+       ],
+       [
+        -3.8201362,
+        40.4412131
+       ],
+       [
+        -3.8201362,
+        40.4412764
+       ],
+       [
+        -3.8202435,
+        40.4412764
+       ],
+       [
+        -3.8202435,
+        40.4412131
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/108",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194817,
+        40.4411601
+       ],
+       [
+        -3.8193798,
+        40.4411601
+       ],
+       [
+        -3.8193798,
+        40.4412642
+       ],
+       [
+        -3.8194817,
+        40.4412642
+       ],
+       [
+        -3.8194817,
+        40.4411601
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/112",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819353,
+        40.4412866
+       ],
+       [
+        -3.8192511,
+        40.4412866
+       ],
+       [
+        -3.8192511,
+        40.4413907
+       ],
+       [
+        -3.819353,
+        40.4413907
+       ],
+       [
+        -3.819353,
+        40.4412866
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/113",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192296,
+        40.4414132
+       ],
+       [
+        -3.8191438,
+        40.4414132
+       ],
+       [
+        -3.8191438,
+        40.4414887
+       ],
+       [
+        -3.8192296,
+        40.4414887
+       ],
+       [
+        -3.8192296,
+        40.4414132
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/114",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8190928,
+        40.4415561
+       ],
+       [
+        -3.8190097,
+        40.4415561
+       ],
+       [
+        -3.8190097,
+        40.4416357
+       ],
+       [
+        -3.8190928,
+        40.4416357
+       ],
+       [
+        -3.8190928,
+        40.4415561
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/115",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184196,
+        40.4411662
+       ],
+       [
+        -3.8183445,
+        40.4411662
+       ],
+       [
+        -3.8183445,
+        40.4412295
+       ],
+       [
+        -3.8184196,
+        40.4412295
+       ],
+       [
+        -3.8184196,
+        40.4411662
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/118",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183498,
+        40.4412642
+       ],
+       [
+        -3.818264,
+        40.4412642
+       ],
+       [
+        -3.818264,
+        40.4413377
+       ],
+       [
+        -3.8183498,
+        40.4413377
+       ],
+       [
+        -3.8183498,
+        40.4412642
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/119",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8181138,
+        40.4413499
+       ],
+       [
+        -3.8180333,
+        40.4413499
+       ],
+       [
+        -3.8180333,
+        40.4414234
+       ],
+       [
+        -3.8181138,
+        40.4414234
+       ],
+       [
+        -3.8181138,
+        40.4413499
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/121",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8181111,
+        40.4414846
+       ],
+       [
+        -3.8180548,
+        40.4414846
+       ],
+       [
+        -3.8180548,
+        40.4415336
+       ],
+       [
+        -3.8181111,
+        40.4415336
+       ],
+       [
+        -3.8181111,
+        40.4414846
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/122",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.818036,
+        40.4415928
+       ],
+       [
+        -3.8179421,
+        40.4415928
+       ],
+       [
+        -3.8179421,
+        40.4416888
+       ],
+       [
+        -3.818036,
+        40.4416888
+       ],
+       [
+        -3.818036,
+        40.4415928
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/123",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.818028,
+        40.4414663
+       ],
+       [
+        -3.8179529,
+        40.4414663
+       ],
+       [
+        -3.8179529,
+        40.4415418
+       ],
+       [
+        -3.818028,
+        40.4415418
+       ],
+       [
+        -3.818028,
+        40.4414663
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/124",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179609,
+        40.4415704
+       ],
+       [
+        -3.8178885,
+        40.4415704
+       ],
+       [
+        -3.8178885,
+        40.4416337
+       ],
+       [
+        -3.8179609,
+        40.4416337
+       ],
+       [
+        -3.8179609,
+        40.4415704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/125",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8172448,
+        40.4412091
+       ],
+       [
+        -3.8171589,
+        40.4412091
+       ],
+       [
+        -3.8171589,
+        40.4412744
+       ],
+       [
+        -3.8172448,
+        40.4412744
+       ],
+       [
+        -3.8172448,
+        40.4412091
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/130",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8172019,
+        40.441256
+       ],
+       [
+        -3.8171187,
+        40.441256
+       ],
+       [
+        -3.8171187,
+        40.4413152
+       ],
+       [
+        -3.8172019,
+        40.4413152
+       ],
+       [
+        -3.8172019,
+        40.441256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/131",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170812,
+        40.4414193
+       ],
+       [
+        -3.816998,
+        40.4414193
+       ],
+       [
+        -3.816998,
+        40.4414846
+       ],
+       [
+        -3.8170812,
+        40.4414846
+       ],
+       [
+        -3.8170812,
+        40.4414193
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/132",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170141,
+        40.4415275
+       ],
+       [
+        -3.8169605,
+        40.4415275
+       ],
+       [
+        -3.8169605,
+        40.4415663
+       ],
+       [
+        -3.8170141,
+        40.4415663
+       ],
+       [
+        -3.8170141,
+        40.4415275
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/133",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8167217,
+        40.4412315
+       ],
+       [
+        -3.8166279,
+        40.4412315
+       ],
+       [
+        -3.8166279,
+        40.4413111
+       ],
+       [
+        -3.8167217,
+        40.4413111
+       ],
+       [
+        -3.8167217,
+        40.4412315
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/134",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217643,
+        40.4408314
+       ],
+       [
+        -3.821716,
+        40.4408314
+       ],
+       [
+        -3.821716,
+        40.4408722
+       ],
+       [
+        -3.8217643,
+        40.4408722
+       ],
+       [
+        -3.8217643,
+        40.4408314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/135",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8213217,
+        40.4410233
+       ],
+       [
+        -3.8212252,
+        40.4410233
+       ],
+       [
+        -3.8212252,
+        40.4410743
+       ],
+       [
+        -3.8213217,
+        40.4410743
+       ],
+       [
+        -3.8213217,
+        40.4410233
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/136",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210428,
+        40.4410315
+       ],
+       [
+        -3.8209516,
+        40.4410315
+       ],
+       [
+        -3.8209516,
+        40.4411172
+       ],
+       [
+        -3.8210428,
+        40.4411172
+       ],
+       [
+        -3.8210428,
+        40.4410315
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/137",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201764,
+        40.4410049
+       ],
+       [
+        -3.820045,
+        40.4410049
+       ],
+       [
+        -3.820045,
+        40.4411294
+       ],
+       [
+        -3.8201764,
+        40.4411294
+       ],
+       [
+        -3.8201764,
+        40.4410049
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/141",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820112,
+        40.4410457
+       ],
+       [
+        -3.8200477,
+        40.4410457
+       ],
+       [
+        -3.8200477,
+        40.4411294
+       ],
+       [
+        -3.820112,
+        40.4411294
+       ],
+       [
+        -3.820112,
+        40.4410457
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/142",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820053,
+        40.4409621
+       ],
+       [
+        -3.8199753,
+        40.4409621
+       ],
+       [
+        -3.8199753,
+        40.4410253
+       ],
+       [
+        -3.820053,
+        40.4410253
+       ],
+       [
+        -3.820053,
+        40.4409621
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/144",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200021,
+        40.440713
+       ],
+       [
+        -3.8199216,
+        40.440713
+       ],
+       [
+        -3.8199216,
+        40.4407824
+       ],
+       [
+        -3.8200021,
+        40.4407824
+       ],
+       [
+        -3.8200021,
+        40.440713
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/145",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8199967,
+        40.4408477
+       ],
+       [
+        -3.8198841,
+        40.4408477
+       ],
+       [
+        -3.8198841,
+        40.4409478
+       ],
+       [
+        -3.8199967,
+        40.4409478
+       ],
+       [
+        -3.8199967,
+        40.4408477
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/146",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8198894,
+        40.4408232
+       ],
+       [
+        -3.8197929,
+        40.4408232
+       ],
+       [
+        -3.8197929,
+        40.4408702
+       ],
+       [
+        -3.8198894,
+        40.4408702
+       ],
+       [
+        -3.8198894,
+        40.4408232
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/147",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197821,
+        40.4408988
+       ],
+       [
+        -3.8196936,
+        40.4408988
+       ],
+       [
+        -3.8196936,
+        40.4409661
+       ],
+       [
+        -3.8197821,
+        40.4409661
+       ],
+       [
+        -3.8197821,
+        40.4408988
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/148",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8195112,
+        40.441109
+       ],
+       [
+        -3.81942,
+        40.441109
+       ],
+       [
+        -3.81942,
+        40.4411764
+       ],
+       [
+        -3.8195112,
+        40.4411764
+       ],
+       [
+        -3.8195112,
+        40.441109
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/151",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8188595,
+        40.4406967
+       ],
+       [
+        -3.8187709,
+        40.4406967
+       ],
+       [
+        -3.8187709,
+        40.4407661
+       ],
+       [
+        -3.8188595,
+        40.4407661
+       ],
+       [
+        -3.8188595,
+        40.4406967
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/153",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186958,
+        40.4407273
+       ],
+       [
+        -3.8186342,
+        40.4407273
+       ],
+       [
+        -3.8186342,
+        40.4407824
+       ],
+       [
+        -3.8186958,
+        40.4407824
+       ],
+       [
+        -3.8186958,
+        40.4407273
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/155",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186422,
+        40.4409294
+       ],
+       [
+        -3.8185617,
+        40.4409294
+       ],
+       [
+        -3.8185617,
+        40.4409784
+       ],
+       [
+        -3.8186422,
+        40.4409784
+       ],
+       [
+        -3.8186422,
+        40.4409294
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/156",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185886,
+        40.4408477
+       ],
+       [
+        -3.8185376,
+        40.4408477
+       ],
+       [
+        -3.8185376,
+        40.4408988
+       ],
+       [
+        -3.8185886,
+        40.4408988
+       ],
+       [
+        -3.8185886,
+        40.4408477
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/157",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185644,
+        40.4410172
+       ],
+       [
+        -3.8184732,
+        40.4410172
+       ],
+       [
+        -3.8184732,
+        40.4410845
+       ],
+       [
+        -3.8185644,
+        40.4410845
+       ],
+       [
+        -3.8185644,
+        40.4410172
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/158",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183954,
+        40.441056
+       ],
+       [
+        -3.8183123,
+        40.441056
+       ],
+       [
+        -3.8183123,
+        40.4411335
+       ],
+       [
+        -3.8183954,
+        40.4411335
+       ],
+       [
+        -3.8183954,
+        40.441056
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/159",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183928,
+        40.4410662
+       ],
+       [
+        -3.8183579,
+        40.4410662
+       ],
+       [
+        -3.8183579,
+        40.4411009
+       ],
+       [
+        -3.8183928,
+        40.4411009
+       ],
+       [
+        -3.8183928,
+        40.4410662
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/160",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183632,
+        40.4410907
+       ],
+       [
+        -3.8183177,
+        40.4410907
+       ],
+       [
+        -3.8183177,
+        40.4411274
+       ],
+       [
+        -3.8183632,
+        40.4411274
+       ],
+       [
+        -3.8183632,
+        40.4410907
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/161",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177276,
+        40.4406232
+       ],
+       [
+        -3.8176444,
+        40.4406232
+       ],
+       [
+        -3.8176444,
+        40.4406987
+       ],
+       [
+        -3.8177276,
+        40.4406987
+       ],
+       [
+        -3.8177276,
+        40.4406232
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/165",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817631,
+        40.4406967
+       ],
+       [
+        -3.8175371,
+        40.4406967
+       ],
+       [
+        -3.8175371,
+        40.4407906
+       ],
+       [
+        -3.817631,
+        40.4407906
+       ],
+       [
+        -3.817631,
+        40.4406967
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/166",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175318,
+        40.4406906
+       ],
+       [
+        -3.8174379,
+        40.4406906
+       ],
+       [
+        -3.8174379,
+        40.4407702
+       ],
+       [
+        -3.8175318,
+        40.4407702
+       ],
+       [
+        -3.8175318,
+        40.4406906
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/167",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174996,
+        40.4408396
+       ],
+       [
+        -3.8174057,
+        40.4408396
+       ],
+       [
+        -3.8174057,
+        40.4409212
+       ],
+       [
+        -3.8174996,
+        40.4409212
+       ],
+       [
+        -3.8174996,
+        40.4408396
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/168",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174111,
+        40.4409845
+       ],
+       [
+        -3.8173199,
+        40.4409845
+       ],
+       [
+        -3.8173199,
+        40.4410519
+       ],
+       [
+        -3.8174111,
+        40.4410519
+       ],
+       [
+        -3.8174111,
+        40.4409845
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/169",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173842,
+        40.4410355
+       ],
+       [
+        -3.8172957,
+        40.4410355
+       ],
+       [
+        -3.8172957,
+        40.4410866
+       ],
+       [
+        -3.8173842,
+        40.4410866
+       ],
+       [
+        -3.8173842,
+        40.4410355
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/170",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8168076,
+        40.4410866
+       ],
+       [
+        -3.8167244,
+        40.4410866
+       ],
+       [
+        -3.8167244,
+        40.4411682
+       ],
+       [
+        -3.8168076,
+        40.4411682
+       ],
+       [
+        -3.8168076,
+        40.4410866
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/171",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8218984,
+        40.4405354
+       ],
+       [
+        -3.8218099,
+        40.4405354
+       ],
+       [
+        -3.8218099,
+        40.4405783
+       ],
+       [
+        -3.8218984,
+        40.4405783
+       ],
+       [
+        -3.8218984,
+        40.4405354
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/173",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8213861,
+        40.4401639
+       ],
+       [
+        -3.821311,
+        40.4401639
+       ],
+       [
+        -3.821311,
+        40.4402108
+       ],
+       [
+        -3.8213861,
+        40.4402108
+       ],
+       [
+        -3.8213861,
+        40.4401639
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/174",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8211474,
+        40.4402741
+       ],
+       [
+        -3.8210428,
+        40.4402741
+       ],
+       [
+        -3.8210428,
+        40.4403333
+       ],
+       [
+        -3.8211474,
+        40.4403333
+       ],
+       [
+        -3.8211474,
+        40.4402741
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/175",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821142,
+        40.4402843
+       ],
+       [
+        -3.8211125,
+        40.4402843
+       ],
+       [
+        -3.8211125,
+        40.440317
+       ],
+       [
+        -3.821142,
+        40.440317
+       ],
+       [
+        -3.821142,
+        40.4402843
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/176",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210401,
+        40.4403496
+       ],
+       [
+        -3.8209194,
+        40.4403496
+       ],
+       [
+        -3.8209194,
+        40.4404027
+       ],
+       [
+        -3.8210401,
+        40.4404027
+       ],
+       [
+        -3.8210401,
+        40.4403496
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/177",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8208818,
+        40.4404068
+       ],
+       [
+        -3.8207853,
+        40.4404068
+       ],
+       [
+        -3.8207853,
+        40.440468
+       ],
+       [
+        -3.8208818,
+        40.440468
+       ],
+       [
+        -3.8208818,
+        40.4404068
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/178",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8207477,
+        40.4404599
+       ],
+       [
+        -3.8206512,
+        40.4404599
+       ],
+       [
+        -3.8206512,
+        40.440517
+       ],
+       [
+        -3.8207477,
+        40.440517
+       ],
+       [
+        -3.8207477,
+        40.4404599
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/179",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8206244,
+        40.4404925
+       ],
+       [
+        -3.8205117,
+        40.4404925
+       ],
+       [
+        -3.8205117,
+        40.4405558
+       ],
+       [
+        -3.8206244,
+        40.4405558
+       ],
+       [
+        -3.8206244,
+        40.4404925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/180",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205466,
+        40.4404272
+       ],
+       [
+        -3.8204741,
+        40.4404272
+       ],
+       [
+        -3.8204741,
+        40.4404905
+       ],
+       [
+        -3.8205466,
+        40.4404905
+       ],
+       [
+        -3.8205466,
+        40.4404272
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/181",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204259,
+        40.4404803
+       ],
+       [
+        -3.8203454,
+        40.4404803
+       ],
+       [
+        -3.8203454,
+        40.4405497
+       ],
+       [
+        -3.8204259,
+        40.4405497
+       ],
+       [
+        -3.8204259,
+        40.4404803
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/183",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201523,
+        40.4405864
+       ],
+       [
+        -3.8200396,
+        40.4405864
+       ],
+       [
+        -3.8200396,
+        40.4406763
+       ],
+       [
+        -3.8201523,
+        40.4406763
+       ],
+       [
+        -3.8201523,
+        40.4405864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/184",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201201,
+        40.4406191
+       ],
+       [
+        -3.8200396,
+        40.4406191
+       ],
+       [
+        -3.8200396,
+        40.4406763
+       ],
+       [
+        -3.8201201,
+        40.4406763
+       ],
+       [
+        -3.8201201,
+        40.4406191
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/185",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194039,
+        40.4401047
+       ],
+       [
+        -3.8193047,
+        40.4401047
+       ],
+       [
+        -3.8193047,
+        40.4401843
+       ],
+       [
+        -3.8194039,
+        40.4401843
+       ],
+       [
+        -3.8194039,
+        40.4401047
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/187",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193691,
+        40.4402517
+       ],
+       [
+        -3.8192564,
+        40.4402517
+       ],
+       [
+        -3.8192564,
+        40.4403415
+       ],
+       [
+        -3.8193691,
+        40.4403415
+       ],
+       [
+        -3.8193691,
+        40.4402517
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/188",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819294,
+        40.4401986
+       ],
+       [
+        -3.8191947,
+        40.4401986
+       ],
+       [
+        -3.8191947,
+        40.4402843
+       ],
+       [
+        -3.819294,
+        40.4402843
+       ],
+       [
+        -3.819294,
+        40.4401986
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/189",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192403,
+        40.4403884
+       ],
+       [
+        -3.8191438,
+        40.4403884
+       ],
+       [
+        -3.8191438,
+        40.4404599
+       ],
+       [
+        -3.8192403,
+        40.4404599
+       ],
+       [
+        -3.8192403,
+        40.4403884
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/190",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191384,
+        40.4404721
+       ],
+       [
+        -3.8190472,
+        40.4404721
+       ],
+       [
+        -3.8190472,
+        40.4405497
+       ],
+       [
+        -3.8191384,
+        40.4405497
+       ],
+       [
+        -3.8191384,
+        40.4404721
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/192",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189238,
+        40.4401659
+       ],
+       [
+        -3.8188407,
+        40.4401659
+       ],
+       [
+        -3.8188407,
+        40.4402353
+       ],
+       [
+        -3.8189238,
+        40.4402353
+       ],
+       [
+        -3.8189238,
+        40.4401659
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/195",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180923,
+        40.4402925
+       ],
+       [
+        -3.8180065,
+        40.4402925
+       ],
+       [
+        -3.8180065,
+        40.4403496
+       ],
+       [
+        -3.8180923,
+        40.4403496
+       ],
+       [
+        -3.8180923,
+        40.4402925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/199",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179475,
+        40.4403986
+       ],
+       [
+        -3.8178456,
+        40.4403986
+       ],
+       [
+        -3.8178456,
+        40.440468
+       ],
+       [
+        -3.8179475,
+        40.440468
+       ],
+       [
+        -3.8179475,
+        40.4403986
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/200",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8178509,
+        40.4403354
+       ],
+       [
+        -3.8177732,
+        40.4403354
+       ],
+       [
+        -3.8177732,
+        40.4404027
+       ],
+       [
+        -3.8178509,
+        40.4404027
+       ],
+       [
+        -3.8178509,
+        40.4403354
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/201",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177812,
+        40.4403884
+       ],
+       [
+        -3.81769,
+        40.4403884
+       ],
+       [
+        -3.81769,
+        40.440468
+       ],
+       [
+        -3.8177812,
+        40.440468
+       ],
+       [
+        -3.8177812,
+        40.4403884
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/203",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176605,
+        40.4405293
+       ],
+       [
+        -3.8175505,
+        40.4405293
+       ],
+       [
+        -3.8175505,
+        40.440615
+       ],
+       [
+        -3.8176605,
+        40.440615
+       ],
+       [
+        -3.8176605,
+        40.4405293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/204",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204178,
+        40.4396821
+       ],
+       [
+        -3.820332,
+        40.4396821
+       ],
+       [
+        -3.820332,
+        40.4397474
+       ],
+       [
+        -3.8204178,
+        40.4397474
+       ],
+       [
+        -3.8204178,
+        40.4396821
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/208",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203508,
+        40.4397107
+       ],
+       [
+        -3.8202623,
+        40.4397107
+       ],
+       [
+        -3.8202623,
+        40.4397781
+       ],
+       [
+        -3.8203508,
+        40.4397781
+       ],
+       [
+        -3.8203508,
+        40.4397107
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/209",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820332,
+        40.4395678
+       ],
+       [
+        -3.8202542,
+        40.4395678
+       ],
+       [
+        -3.8202542,
+        40.4396413
+       ],
+       [
+        -3.820332,
+        40.4396413
+       ],
+       [
+        -3.820332,
+        40.4395678
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/210",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8202381,
+        40.4396494
+       ],
+       [
+        -3.8201845,
+        40.4396494
+       ],
+       [
+        -3.8201845,
+        40.4397005
+       ],
+       [
+        -3.8202381,
+        40.4397005
+       ],
+       [
+        -3.8202381,
+        40.4396494
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/211",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820163,
+        40.4398026
+       ],
+       [
+        -3.8200799,
+        40.4398026
+       ],
+       [
+        -3.8200799,
+        40.4398822
+       ],
+       [
+        -3.820163,
+        40.4398822
+       ],
+       [
+        -3.820163,
+        40.4398026
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/212",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820155,
+        40.4396617
+       ],
+       [
+        -3.8201389,
+        40.4396617
+       ],
+       [
+        -3.8201389,
+        40.4396719
+       ],
+       [
+        -3.820155,
+        40.4396719
+       ],
+       [
+        -3.820155,
+        40.4396617
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/213",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8198975,
+        40.439921
+       ],
+       [
+        -3.8197768,
+        40.439921
+       ],
+       [
+        -3.8197768,
+        40.4400006
+       ],
+       [
+        -3.8198975,
+        40.4400006
+       ],
+       [
+        -3.8198975,
+        40.439921
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/215",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197285,
+        40.4400046
+       ],
+       [
+        -3.8196373,
+        40.4400046
+       ],
+       [
+        -3.8196373,
+        40.4400822
+       ],
+       [
+        -3.8197285,
+        40.4400822
+       ],
+       [
+        -3.8197285,
+        40.4400046
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/216",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196802,
+        40.4396576
+       ],
+       [
+        -3.8195971,
+        40.4396576
+       ],
+       [
+        -3.8195971,
+        40.4397229
+       ],
+       [
+        -3.8196802,
+        40.4397229
+       ],
+       [
+        -3.8196802,
+        40.4396576
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/217",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8195971,
+        40.4396841
+       ],
+       [
+        -3.81953,
+        40.4396841
+       ],
+       [
+        -3.81953,
+        40.4397495
+       ],
+       [
+        -3.8195971,
+        40.4397495
+       ],
+       [
+        -3.8195971,
+        40.4396841
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/218",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193959,
+        40.4398189
+       ],
+       [
+        -3.819353,
+        40.4398189
+       ],
+       [
+        -3.819353,
+        40.4398801
+       ],
+       [
+        -3.8193959,
+        40.4398801
+       ],
+       [
+        -3.8193959,
+        40.4398189
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/219",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186181,
+        40.4397556
+       ],
+       [
+        -3.8185215,
+        40.4397556
+       ],
+       [
+        -3.8185215,
+        40.4398189
+       ],
+       [
+        -3.8186181,
+        40.4398189
+       ],
+       [
+        -3.8186181,
+        40.4397556
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/222",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185349,
+        40.4398393
+       ],
+       [
+        -3.8185,
+        40.4398393
+       ],
+       [
+        -3.8185,
+        40.4398618
+       ],
+       [
+        -3.8185349,
+        40.4398618
+       ],
+       [
+        -3.8185349,
+        40.4398393
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/223",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185108,
+        40.4398291
+       ],
+       [
+        -3.8184974,
+        40.4398291
+       ],
+       [
+        -3.8184974,
+        40.4398373
+       ],
+       [
+        -3.8185108,
+        40.4398373
+       ],
+       [
+        -3.8185108,
+        40.4398291
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/224",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184893,
+        40.4398454
+       ],
+       [
+        -3.8183981,
+        40.4398454
+       ],
+       [
+        -3.8183981,
+        40.4399271
+       ],
+       [
+        -3.8184893,
+        40.4399271
+       ],
+       [
+        -3.8184893,
+        40.4398454
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/225",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8182184,
+        40.4399904
+       ],
+       [
+        -3.8181379,
+        40.4399904
+       ],
+       [
+        -3.8181379,
+        40.4400618
+       ],
+       [
+        -3.8182184,
+        40.4400618
+       ],
+       [
+        -3.8182184,
+        40.4399904
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/226",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177919,
+        40.4400638
+       ],
+       [
+        -3.8177276,
+        40.4400638
+       ],
+       [
+        -3.8177276,
+        40.440121
+       ],
+       [
+        -3.8177919,
+        40.440121
+       ],
+       [
+        -3.8177919,
+        40.4400638
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/228",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212734,
+        40.4392881
+       ],
+       [
+        -3.821083,
+        40.4392881
+       ],
+       [
+        -3.821083,
+        40.4394167
+       ],
+       [
+        -3.8212734,
+        40.4394167
+       ],
+       [
+        -3.8212734,
+        40.4392881
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/234",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194522,
+        40.4400924
+       ],
+       [
+        -3.8193047,
+        40.4400924
+       ],
+       [
+        -3.8193047,
+        40.4401863
+       ],
+       [
+        -3.8194522,
+        40.4401863
+       ],
+       [
+        -3.8194522,
+        40.4400924
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/288",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185376,
+        40.442293
+       ],
+       [
+        -3.8184437,
+        40.442293
+       ],
+       [
+        -3.8184437,
+        40.4424073
+       ],
+       [
+        -3.8185376,
+        40.4424073
+       ],
+       [
+        -3.8185376,
+        40.442293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/302",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8169846,
+        40.4414622
+       ],
+       [
+        -3.8169658,
+        40.4414622
+       ],
+       [
+        -3.8169658,
+        40.4414744
+       ],
+       [
+        -3.8169846,
+        40.4414744
+       ],
+       [
+        -3.8169846,
+        40.4414622
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/307",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185993,
+        40.4425768
+       ],
+       [
+        -3.8184893,
+        40.4425768
+       ],
+       [
+        -3.8184893,
+        40.4426421
+       ],
+       [
+        -3.8185993,
+        40.4426421
+       ],
+       [
+        -3.8185993,
+        40.4425768
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/316",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820619,
+        40.4425012
+       ],
+       [
+        -3.8205144,
+        40.4425012
+       ],
+       [
+        -3.8205144,
+        40.4425625
+       ],
+       [
+        -3.820619,
+        40.4425625
+       ],
+       [
+        -3.820619,
+        40.4425012
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/317",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192913,
+        40.4421869
+       ],
+       [
+        -3.8191786,
+        40.4421869
+       ],
+       [
+        -3.8191786,
+        40.442244
+       ],
+       [
+        -3.8192913,
+        40.442244
+       ],
+       [
+        -3.8192913,
+        40.4421869
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/318",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194656,
+        40.4411989
+       ],
+       [
+        -3.8193691,
+        40.4411989
+       ],
+       [
+        -3.8193691,
+        40.4412621
+       ],
+       [
+        -3.8194656,
+        40.4412621
+       ],
+       [
+        -3.8194656,
+        40.4411989
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/322",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204312,
+        40.4405701
+       ],
+       [
+        -3.8204044,
+        40.4405701
+       ],
+       [
+        -3.8204044,
+        40.4405905
+       ],
+       [
+        -3.8204312,
+        40.4405905
+       ],
+       [
+        -3.8204312,
+        40.4405701
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/324",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817749,
+        40.4403966
+       ],
+       [
+        -3.8176739,
+        40.4403966
+       ],
+       [
+        -3.8176739,
+        40.4404599
+       ],
+       [
+        -3.817749,
+        40.4404599
+       ],
+       [
+        -3.817749,
+        40.4403966
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/327",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8218394,
+        40.4400516
+       ],
+       [
+        -3.8217562,
+        40.4400516
+       ],
+       [
+        -3.8217562,
+        40.4401128
+       ],
+       [
+        -3.8218394,
+        40.4401128
+       ],
+       [
+        -3.8218394,
+        40.4400516
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/330",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821547,
+        40.4431259
+       ],
+       [
+        -3.8215095,
+        40.4431259
+       ],
+       [
+        -3.8215095,
+        40.4431585
+       ],
+       [
+        -3.821547,
+        40.4431585
+       ],
+       [
+        -3.821547,
+        40.4431259
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/4",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177919,
+        40.4428156
+       ],
+       [
+        -3.8176632,
+        40.4428156
+       ],
+       [
+        -3.8176632,
+        40.4428809
+       ],
+       [
+        -3.8177919,
+        40.4428809
+       ],
+       [
+        -3.8177919,
+        40.4428156
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/21",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8206029,
+        40.4425135
+       ],
+       [
+        -3.8205814,
+        40.4425135
+       ],
+       [
+        -3.8205814,
+        40.4425298
+       ],
+       [
+        -3.8206029,
+        40.4425298
+       ],
+       [
+        -3.8206029,
+        40.4425135
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/43",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205519,
+        40.442538
+       ],
+       [
+        -3.8205358,
+        40.442538
+       ],
+       [
+        -3.8205358,
+        40.4425461
+       ],
+       [
+        -3.8205519,
+        40.4425461
+       ],
+       [
+        -3.8205519,
+        40.442538
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/44",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214827,
+        40.4420031
+       ],
+       [
+        -3.8214719,
+        40.4420031
+       ],
+       [
+        -3.8214719,
+        40.4420215
+       ],
+       [
+        -3.8214827,
+        40.4420215
+       ],
+       [
+        -3.8214827,
+        40.4420031
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/74",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176042,
+        40.442048
+       ],
+       [
+        -3.8174593,
+        40.442048
+       ],
+       [
+        -3.8174593,
+        40.442146
+       ],
+       [
+        -3.8176042,
+        40.442146
+       ],
+       [
+        -3.8176042,
+        40.442048
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/95",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200906,
+        40.4414704
+       ],
+       [
+        -3.8200262,
+        40.4414704
+       ],
+       [
+        -3.8200262,
+        40.4415418
+       ],
+       [
+        -3.8200906,
+        40.4415418
+       ],
+       [
+        -3.8200906,
+        40.4414704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/109",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183096,
+        40.4411682
+       ],
+       [
+        -3.8182372,
+        40.4411682
+       ],
+       [
+        -3.8182372,
+        40.4412397
+       ],
+       [
+        -3.8183096,
+        40.4412397
+       ],
+       [
+        -3.8183096,
+        40.4411682
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/120",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196212,
+        40.4410478
+       ],
+       [
+        -3.8194093,
+        40.4410478
+       ],
+       [
+        -3.8194093,
+        40.4411846
+       ],
+       [
+        -3.8196212,
+        40.4411846
+       ],
+       [
+        -3.8196212,
+        40.4410478
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/149",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821834,
+        40.4400598
+       ],
+       [
+        -3.8218153,
+        40.4400598
+       ],
+       [
+        -3.8218153,
+        40.4400761
+       ],
+       [
+        -3.821834,
+        40.4400761
+       ],
+       [
+        -3.821834,
+        40.4400598
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/206",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187361,
+        40.4396576
+       ],
+       [
+        -3.8186717,
+        40.4396576
+       ],
+       [
+        -3.8186717,
+        40.4397046
+       ],
+       [
+        -3.8187361,
+        40.4397046
+       ],
+       [
+        -3.8187361,
+        40.4396576
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/220",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186771,
+        40.4398332
+       ],
+       [
+        -3.8185966,
+        40.4398332
+       ],
+       [
+        -3.8185966,
+        40.4398924
+       ],
+       [
+        -3.8186771,
+        40.4398924
+       ],
+       [
+        -3.8186771,
+        40.4398332
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/221",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179636,
+        40.4398536
+       ],
+       [
+        -3.8178751,
+        40.4398536
+       ],
+       [
+        -3.8178751,
+        40.4399148
+       ],
+       [
+        -3.8179636,
+        40.4399148
+       ],
+       [
+        -3.8179636,
+        40.4398536
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/227",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210616,
+        40.4392881
+       ],
+       [
+        -3.8210481,
+        40.4392881
+       ],
+       [
+        -3.8210481,
+        40.4393024
+       ],
+       [
+        -3.8210616,
+        40.4393024
+       ],
+       [
+        -3.8210616,
+        40.4392881
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/235",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204205,
+        40.4396801
+       ],
+       [
+        -3.8202596,
+        40.4396801
+       ],
+       [
+        -3.8202596,
+        40.4397821
+       ],
+       [
+        -3.8204205,
+        40.4397821
+       ],
+       [
+        -3.8204205,
+        40.4396801
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/280",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166949,
+        40.4431687
+       ],
+       [
+        -3.8165233,
+        40.4431687
+       ],
+       [
+        -3.8165233,
+        40.4432647
+       ],
+       [
+        -3.8166949,
+        40.4432647
+       ],
+       [
+        -3.8166949,
+        40.4431687
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/284",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197124,
+        40.4421134
+       ],
+       [
+        -3.8195246,
+        40.4421134
+       ],
+       [
+        -3.8195246,
+        40.4422603
+       ],
+       [
+        -3.8197124,
+        40.4422603
+       ],
+       [
+        -3.8197124,
+        40.4421134
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/286",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179046,
+        40.4403047
+       ],
+       [
+        -3.8177651,
+        40.4403047
+       ],
+       [
+        -3.8177651,
+        40.4404068
+       ],
+       [
+        -3.8179046,
+        40.4404068
+       ],
+       [
+        -3.8179046,
+        40.4403047
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/290",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.818787,
+        40.4407395
+       ],
+       [
+        -3.8187468,
+        40.4407395
+       ],
+       [
+        -3.8187468,
+        40.4407742
+       ],
+       [
+        -3.818787,
+        40.4407742
+       ],
+       [
+        -3.818787,
+        40.4407395
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/305",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212332,
+        40.4432443
+       ],
+       [
+        -3.8212091,
+        40.4432443
+       ],
+       [
+        -3.8212091,
+        40.4432647
+       ],
+       [
+        -3.8212332,
+        40.4432647
+       ],
+       [
+        -3.8212332,
+        40.4432443
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/313",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8211796,
+        40.4429483
+       ],
+       [
+        -3.8211501,
+        40.4429483
+       ],
+       [
+        -3.8211501,
+        40.4429789
+       ],
+       [
+        -3.8211796,
+        40.4429789
+       ],
+       [
+        -3.8211796,
+        40.4429483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/314",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177437,
+        40.4426931
+       ],
+       [
+        -3.8177249,
+        40.4426931
+       ],
+       [
+        -3.8177249,
+        40.4427094
+       ],
+       [
+        -3.8177437,
+        40.4427094
+       ],
+       [
+        -3.8177437,
+        40.4426931
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/315",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8213781,
+        40.4418317
+       ],
+       [
+        -3.8213405,
+        40.4418317
+       ],
+       [
+        -3.8213405,
+        40.4418807
+       ],
+       [
+        -3.8213781,
+        40.4418807
+       ],
+       [
+        -3.8213781,
+        40.4418317
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/319",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8178617,
+        40.4416765
+       ],
+       [
+        -3.8177946,
+        40.4416765
+       ],
+       [
+        -3.8177946,
+        40.4417214
+       ],
+       [
+        -3.8178617,
+        40.4417214
+       ],
+       [
+        -3.8178617,
+        40.4416765
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/320",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8181862,
+        40.4412846
+       ],
+       [
+        -3.8181594,
+        40.4412846
+       ],
+       [
+        -3.8181594,
+        40.4413172
+       ],
+       [
+        -3.8181862,
+        40.4413172
+       ],
+       [
+        -3.8181862,
+        40.4412846
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo/321",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  }
+ ]
+}
