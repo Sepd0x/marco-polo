@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { createV1Detector } from '@marco-polo/core';
-import { pieceTiles, runJob, sniffType, type DecodedImage, type WorkJob } from '../../src/scan/tileWork.js';
+import { createV1Detector, metersPerPixelOfBitmap, type Detector, type TileWindow } from '@marco-polo/core';
+import { productDetector } from '../../src/scan/productDetector.js';
+import { haloFor, pieceTiles, runJob, sniffType, thumbRect, type DecodedImage, type WorkJob } from '../../src/scan/tileWork.js';
 import { makeTile as plainTile, POOL_RGB, type RectSpec } from '../../../../packages/core/test/helpers.js';
 
 /** Synthetic tile with a little ground texture, so it does not read as a flat no-data fill. */
@@ -100,6 +101,55 @@ describe('tile work', () => {
     const r = await runJob(job({ thumbs: false }), deps({ pixels, width: 256, height: 256 }));
     expect(r.pieces[0].detections).toHaveLength(1);
     expect(r.thumbs).toEqual([]);
+  });
+
+  it('hands v2 a 512 px DGT window with its 96 px halo, unchanged', async () => {
+    const seen: TileWindow[] = [];
+    const spy: Detector = { id: 'v2', version: 'spy', detectTile: (w) => (seen.push(w), []) };
+    const side = 512 + 2 * haloFor('v2', 512);
+    const pixels = makeTile(side, side);
+    const tile = { z: 18, x: 50_000, y: 100_000 };
+    const r = await runJob(job({ tile, tilePx: 512, halo: haloFor('v2', 512), providerId: 'dgt-ortos2025' }), { ...deps({ pixels, width: side, height: side }), detector: spy });
+    expect(r.error).toBeUndefined();
+    expect(haloFor('v2', 512)).toBe(96);
+    expect(seen).toHaveLength(1);
+    expect(seen[0]).toMatchObject({ tile, tilePx: 512, halo: 96, width: 704, height: 704 });
+    expect(r.pieces.map((p) => p.tile)).toEqual([tile]);
+  });
+
+  it('builds an XYZ window for v2 from the bare tile and its eight neighbours', async () => {
+    const seen: TileWindow[] = [];
+    const spy: Detector = { id: 'v2', version: 'spy', detectTile: (w) => (seen.push(w), []) };
+    const pixels = makeTile(256, 256);
+    const neighbours = Array.from({ length: 8 }, (_, i) => (i === 7 ? null : jpeg.slice().buffer));
+    const r = await runJob(job({ halo: 48, neighbours }), { ...deps({ pixels, width: 256, height: 256 }), detector: spy });
+    expect(r.error).toBeUndefined();
+    expect(seen[0]).toMatchObject({ tilePx: 256, halo: 48, width: 352, height: 352 });
+    // The missing bottom-right neighbour stays transparent.
+    expect(seen[0].pixels[(351 * 352 + 351) * 4 + 3]).toBe(0);
+    expect(seen[0].pixels[(200 * 352 + 200) * 4 + 3]).toBe(255);
+  });
+
+  it('runs the shipped model on a DGT window and cuts the thumbnail where the list expects it', async () => {
+    const side = 704;
+    const pixels = makeTile(side, side, undefined, [{ x: 330, y: 300, w: 44, h: 24, rgb: POOL_RGB }]);
+    const tile = { z: 18, x: 125_000, y: 98_000 };
+    const crops: [number, number][] = [];
+    const r = await runJob(job({ tile, tilePx: 512, halo: 96, providerId: 'dgt-ortos2025' }), {
+      ...deps({ pixels, width: side, height: side }),
+      encodeThumb: async (_p, w, h) => (crops.push([w, h]), new Blob(['x'])),
+      detector: productDetector(),
+    });
+    expect(r.error).toBeUndefined();
+    for (const p of r.pieces) for (const d of p.detections) expect(d.score).toBeGreaterThanOrEqual(0);
+    const d = r.pieces[0]?.detections[0];
+    expect(d).toBeDefined();
+    {
+      const rect = thumbRect(d!.bboxPx, 512, 96, metersPerPixelOfBitmap(tile, 512));
+      expect(crops[0]).toEqual([rect.x1 - rect.x0, rect.y1 - rect.y0]);
+      expect(rect.x0).toBeGreaterThanOrEqual(-96);
+      expect(rect.x1).toBeLessThanOrEqual(512 + 96);
+    }
   });
 
   it('names image types by their magic bytes', () => {

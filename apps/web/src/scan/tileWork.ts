@@ -5,7 +5,6 @@
  */
 import {
   buildTileWindow,
-  createV1Detector,
   metersPerPixelOfBitmap,
   noDataReason,
   windowFromBitmap,
@@ -67,14 +66,15 @@ export interface WorkResult {
   error?: string;
 }
 
-/** The detector the product runs. v1 until the learned detector lands. */
-export function productDetector(): Detector {
-  return createV1Detector();
-}
+/** Id of the detector the product runs (the worker builds it with the shipped model). */
+export const PRODUCT_DETECTOR_ID = 'v2';
 
-/** Halo, in px of the central tile, the product detector reads. v1 reads none. */
-export function detectorHalo(detector: Detector): number {
-  return detector.id === 'v1' ? 0 : 48;
+/** Halo the v2 detector reads, px of a 256 px tile; a larger bitmap gets it in proportion. */
+export const V2_HALO_PX = 48;
+
+/** Halo, in px of the bitmap a source answers with, for a detector. v1 reads none. */
+export function haloFor(detectorId: string, requestPx: number): number {
+  return detectorId === 'v1' ? 0 : (V2_HALO_PX * requestPx) / 256;
 }
 
 /**
@@ -102,8 +102,35 @@ function crop(src: Uint8ClampedArray, srcW: number, x0: number, y0: number, w: n
   return out;
 }
 
-const THUMB_PAD = 6;
-const THUMB_MAX = 120;
+/** Thumbnail crop: margin around the shape and largest side, px of the bitmap. */
+export const THUMB_PAD = 6;
+export const THUMB_MAX = 160;
+/** Ground a thumbnail tries to cover, so the pool is seen with its surroundings. */
+export const THUMB_VIEW_M = 30.5;
+
+export interface PxBox {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
+}
+
+/**
+ * The square cut for a thumbnail, in px of the central tile (negative or past
+ * `tilePx` inside the halo): centred on the shape, wide enough for the shape
+ * and THUMB_VIEW_M of ground, never wider than THUMB_MAX or the window.
+ */
+export function thumbRect(b: PxBox, tilePx: number, halo: number, mPerPx: number): { x0: number; y0: number; x1: number; y1: number } {
+  const want = Math.max(b.maxX - b.minX + 1, b.maxY - b.minY + 1) + 2 * THUMB_PAD;
+  const side = Math.min(THUMB_MAX, tilePx + 2 * halo, Math.max(want, Math.ceil(THUMB_VIEW_M / mPerPx)));
+  const place = (lo: number, hi: number) => {
+    const start = Math.round((lo + hi + 1) / 2 - side / 2);
+    return Math.min(Math.max(start, -halo), tilePx + halo - side);
+  };
+  const x0 = place(b.minX, b.maxX);
+  const y0 = place(b.minY, b.maxY);
+  return { x0, y0, x1: x0 + side, y1: y0 + side };
+}
 
 /** Windows handed to the detector and the pixels thumbnails are cut from. */
 function windows(
@@ -150,7 +177,8 @@ export async function runJob(
   try {
     const bytes = new Uint8Array(job.bytes);
     const centre = await deps.decode(bytes);
-    const expected = job.tilePx + 2 * job.halo;
+    // An XYZ centre comes bare (its halo is in the neighbours); a WMS bitmap holds its halo.
+    const expected = job.neighbours ? job.tilePx : job.tilePx + 2 * job.halo;
     if (centre.width !== expected || centre.height !== expected) {
       throw new Error(`tile decoded at ${centre.width}x${centre.height}, expected ${expected}x${expected}`);
     }
@@ -179,13 +207,12 @@ export async function runJob(
       pieces.push({ tile: window.tile, detections });
       if (!job.thumbs) continue;
       for (const d of detections) {
-        const x0 = Math.max(0, d.bboxPx.minX + offset - THUMB_PAD);
-        const y0 = Math.max(0, d.bboxPx.minY + offset - THUMB_PAD);
-        const x1 = Math.min(window.width, d.bboxPx.maxX + offset + 1 + THUMB_PAD);
-        const y1 = Math.min(window.height, d.bboxPx.maxY + offset + 1 + THUMB_PAD);
-        const w = Math.min(THUMB_MAX, x1 - x0);
-        const h = Math.min(THUMB_MAX, y1 - y0);
-        if (w <= 0 || h <= 0) continue;
+        const r = thumbRect(d.bboxPx, window.tilePx, offset, window.mPerPx);
+        const x0 = r.x0 + offset;
+        const y0 = r.y0 + offset;
+        const w = r.x1 - r.x0;
+        const h = r.y1 - r.y0;
+        if (w <= 0 || h <= 0 || x0 < 0 || y0 < 0 || x0 + w > window.width || y0 + h > window.height) continue;
         try {
           const blob = await deps.encodeThumb(crop(window.pixels as Uint8ClampedArray, window.width, x0, y0, w, h), w, h);
           thumbs.push({ key: fragKey(window.tile, d.bboxPx), blob });

@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useStore } from '../state/store.js';
 import { formatArea, formatDims, formatLatLon, formatScore } from '../lib/format.js';
 import { googleMapsUrl } from '../lib/links.js';
-import { dimsOf, sortPools, thumbFor } from './model.js';
+import { dimsOf, sortPools, thumbFor, thumbFrame } from './model.js';
 import { usePools } from './hooks.js';
 import { useUi } from './uiState.js';
+import { partOfDetection } from '../scan/ids.js';
 import { PoolThumb } from './PoolThumb.js';
 import { IconCheck, IconClose, IconCopy, IconExternal, IconNext, IconPrev } from './icons.js';
 
@@ -13,6 +14,7 @@ export function Inspector({ phone, sourceName }: { phone: boolean; sourceName: s
   const selectedId = useStore((s) => s.selectedId);
   const ranked = useStore((s) => s.ranked);
   const thumbs = useStore((s) => s.thumbs);
+  const parts = useStore((s) => s.parts);
   const select = useStore((s) => s.select);
   const sort = useUi((s) => s.sort);
   const { shown } = usePools();
@@ -26,6 +28,8 @@ export function Inspector({ phone, sourceName }: { phone: boolean; sourceName: s
   const d = pos >= 0 ? list[pos] : ranked.find((r) => r.id === selectedId);
   if (!d) return null;
 
+  const part = parts.find((p) => p.id === partOfDetection(d.id));
+  const caption = part?.providerName ?? sourceName ?? undefined;
   const title = `Pool #${d.rank}`;
   const dims = dimsOf(d);
   const coords = formatLatLon(d.center.lat, d.center.lon);
@@ -101,11 +105,11 @@ export function Inspector({ phone, sourceName }: { phone: boolean; sourceName: s
         <div className="m-pool">
           <PoolThumb
             detection={d}
-            image={thumbFor(d, thumbs)}
+            image={thumbFor(d, thumbs, thumbFrame(d, parts))}
             width={112}
             viewM={20}
             scaleBar
-            caption={sourceName ?? undefined}
+            caption={caption}
             className="shot"
           />
           <dl className="facts">
@@ -139,11 +143,11 @@ export function Inspector({ phone, sourceName }: { phone: boolean; sourceName: s
       </div>
       <PoolThumb
         detection={d}
-        image={thumbFor(d, thumbs)}
+        image={thumbFor(d, thumbs, thumbFrame(d, parts))}
         width={320}
         height={176}
         scaleBar
-        caption={sourceName ?? undefined}
+        caption={caption}
         className="shot"
       />
       <dl className="facts">

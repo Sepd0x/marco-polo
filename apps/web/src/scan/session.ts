@@ -3,7 +3,7 @@ import { scanSetting, useStore } from '../state/store.js';
 import { browserFetch, dropLegacyCache, sharedTileCache } from './tileSource.js';
 import { WorkerPool } from './workerPool.js';
 import { loadScan, partFromSaved, saveScan } from './persist.js';
-import { detectorHalo, productDetector } from './tileWork.js';
+import { PRODUCT_DETECTOR_ID, V2_HALO_PX } from './tileWork.js';
 import { startAnnouncer } from './announce.js';
 
 /**
@@ -14,16 +14,14 @@ import { startAnnouncer } from './announce.js';
 let controller: ScanController | null = null;
 let watching = false;
 
-const detector = productDetector();
-
 function defaultDeps(): ControllerDeps {
   return {
     makePool: () => new WorkerPool(),
     fetch: browserFetch,
     cache: sharedTileCache(),
     save: saveScan,
-    halo: detectorHalo(detector),
-    detectorId: detector.id,
+    halo: V2_HALO_PX,
+    detectorId: PRODUCT_DETECTOR_ID,
   };
 }
 

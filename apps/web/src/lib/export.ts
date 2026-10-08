@@ -16,6 +16,7 @@ import {
 } from '@marco-polo/core';
 import { useStore, type PartView } from '../state/store.js';
 import { partOfDetection } from '../scan/ids.js';
+import { cutoffsInUse } from './score.js';
 
 /** Provenance of detections from scans saved before sources were recorded. */
 const UNKNOWN: Provenance = {
@@ -38,7 +39,7 @@ interface ResultInput {
   area: [number, number][] | null;
   parts: PartView[];
   ranked: RankedDetection[];
-  settings: { minConfidence: number };
+  settings: { minConfidence: number; recommendedScore?: boolean };
 }
 
 /**
@@ -56,7 +57,8 @@ export function scanResult(s: ResultInput, listed: RankedDetection[] = s.ranked,
     formatVersion: 2,
     createdAt: now.toISOString(),
     area: s.area ?? [],
-    threshold: s.settings.minConfidence,
+    // With a minimum per source, the lowest one: every listed row passed at least that.
+    threshold: cutoffsInUse({ minConfidence: s.settings.minConfidence, recommendedScore: s.settings.recommendedScore ?? false }, s.parts)[0],
     parts: s.parts.map((p) => partSummary(p.id, byPart.get(p.id)!, p.tiles.length || p.tilesDone, p.tilesNoCoverage, p.areaM2)),
     detections,
     belowThreshold: Math.max(0, s.ranked.length - listed.length),

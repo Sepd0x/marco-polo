@@ -3,7 +3,7 @@
  * they can follow: start, each quarter, pause, resume and the end. Built on
  * the DOM directly so it works whatever panel is on screen.
  */
-import { useStore, type Phase, type ScanStats } from '../state/store.js';
+import { useStore, visibleRanked, type Phase, type ScanStats } from '../state/store.js';
 
 let region: HTMLElement | null = null;
 let stop: (() => void) | null = null;
@@ -67,7 +67,7 @@ export function startAnnouncer(): () => void {
 
   let prev: { phase: Phase; stats: ScanStats } | null = null;
   const unsub = useStore.subscribe(
-    (s) => ({ phase: s.phase, stats: s.stats, pools: s.ranked.length, sources: s.parts.map((p) => p.providerName) }),
+    (s) => ({ phase: s.phase, stats: s.stats, pools: visibleRanked(s).length, sources: s.parts.map((p) => p.providerName) }),
     (next) => {
       const text = progressMessage(prev, next);
       prev = { phase: next.phase, stats: next.stats };

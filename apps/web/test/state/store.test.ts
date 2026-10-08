@@ -85,9 +85,9 @@ describe('store', () => {
     useStore.getState().applyMergerEvents('scan-a', events());
     const s = useStore.getState();
     const conf = s.ranked[0].confidence;
-    expect(thresholdCounts({ ranked: s.ranked, settings: { ...s.settings, minConfidence: conf } })).toEqual({ above: 1, below: 0 });
-    expect(thresholdCounts({ ranked: s.ranked, settings: { ...s.settings, minConfidence: conf + 0.01 } })).toEqual({ above: 0, below: 1 });
-    expect(visibleRanked({ ranked: s.ranked, settings: { ...s.settings, minConfidence: 0 } })).toHaveLength(1);
+    expect(thresholdCounts({ ranked: s.ranked, settings: { ...s.settings, minConfidence: conf, recommendedScore: false } })).toEqual({ above: 1, below: 0 });
+    expect(thresholdCounts({ ranked: s.ranked, settings: { ...s.settings, minConfidence: conf + 0.01, recommendedScore: false } })).toEqual({ above: 0, below: 1 });
+    expect(visibleRanked({ ranked: s.ranked, settings: { ...s.settings, minConfidence: 0, recommendedScore: false } })).toHaveLength(1);
   });
 
   it('measures a drawn area per source, ignoring the zoom setting', () => {

@@ -3,7 +3,7 @@ import { DGT_ORTOS2025, ESRI_WORLD_IMAGERY, PNOA, type Ring } from '@marco-polo/
 
 vi.mock('maplibre-gl', () => ({ addProtocol: vi.fn() }));
 
-const { BaseImagery, RasterSlot, ScannedImagery, scannedParts, ANCHORS, DETAIL_MIN_ZOOM } = await import('../../src/map/sourceLayer.js');
+const { BaseImagery, RasterSlot, ScannedImagery, scannedParts, mapParts, ANCHORS, DETAIL_MIN_ZOOM } = await import('../../src/map/sourceLayer.js');
 type MapLike = import('../../src/map/sourceLayer.js').MapLike;
 
 /** Records what the map was told; enough of MapLibre for the imagery classes. */
@@ -179,6 +179,19 @@ describe('scanned parts', () => {
     const parts = scannedParts(minho, { mode: 'auto' });
     expect(parts.map((p) => p.provider.id).sort()).toEqual(['dgt-ortos2025', 'pnoa']);
     for (const p of parts) expect(p.cells!.tiles.length).toBeGreaterThan(0);
+  });
+
+  it('a scanned part shows the source it really used, after a fallback', () => {
+    const tiles = [{ tile: { z: 19, x: 1, y: 1 } }];
+    expect(mapParts(braga, { mode: 'auto' }, [])[0].provider.id).toBe('dgt-ortos2025');
+    const one = mapParts(braga, { mode: 'auto' }, [{ id: 'p1', providerId: 'esri-world-imagery', zoom: 19, tiles }]);
+    expect(one.map((p) => [p.provider.id, p.cells])).toEqual([['esri-world-imagery', null]]);
+    const planned = scannedParts(minho, { mode: 'auto' });
+    const reported = planned.map((p) => ({ id: p.id, providerId: p.provider.id === 'pnoa' ? 'esri-world-imagery' : p.provider.id, zoom: 19, tiles: [] }));
+    const two = mapParts(minho, { mode: 'auto' }, reported);
+    expect(two.map((p) => p.provider.id).sort()).toEqual(['dgt-ortos2025', 'esri-world-imagery']);
+    // Archived parts keep no tiles; their cells come from the split.
+    for (const p of two) expect(p.cells!.tiles.length).toBeGreaterThan(0);
   });
 
   it('a part the base already shows is hidden, others shown', () => {

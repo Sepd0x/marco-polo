@@ -2,7 +2,7 @@ import { useEffect, useRef, type KeyboardEvent } from 'react';
 import type { RankedDetection } from '@marco-polo/core';
 import { useStore } from '../state/store.js';
 import { formatArea, formatCount, formatDims, formatScore } from '../lib/format.js';
-import { dimsOf, thumbFor } from './model.js';
+import { dimsOf, thumbFor, thumbFrame } from './model.js';
 import { PoolThumb } from './PoolThumb.js';
 
 const RENDER_CAP = 200;
@@ -31,6 +31,7 @@ export function PoolList({
   const selectedId = useStore((s) => s.selectedId);
   const select = useStore((s) => s.select);
   const thumbs = useStore((s) => s.thumbs);
+  const parts = useStore((s) => s.parts);
   const listRef = useRef<HTMLUListElement>(null);
   const shown = pools.slice(0, limit);
 
@@ -92,7 +93,7 @@ export function PoolList({
               onClick={() => pick(d.id)}
             >
               <span className="n">{d.rank}</span>
-              <PoolThumb detection={d} image={thumbFor(d, thumbs)} width={40} />
+              <PoolThumb detection={d} image={thumbFor(d, thumbs, thumbFrame(d, parts))} width={40} />
               <span className="row-main">
                 <span className="a">
                   {formatArea(d.areaM2)}

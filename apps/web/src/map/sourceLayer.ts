@@ -1,6 +1,7 @@
 import {
   coverageContains,
   ESRI_WORLD_IMAGERY,
+  findAnyProvider,
   estimateTileCount,
   PLAN_LIMITS,
   pickProvider,
@@ -210,6 +211,40 @@ export function scannedParts(area: Ring, setting: ImagerySetting): ScannedPart[]
   const split = splitPlanBySource(area, setting);
   if (split.parts.length === 1) return [{ id: split.parts[0].id, provider: split.parts[0].provider, cells: null }];
   return split.parts.map((p) => ({ id: p.id, provider: p.provider, cells: { zoom: p.cellZoom, tiles: p.cells } }));
+}
+
+/** A part as the scan reports it: the source it really used (after any fallback). */
+export interface ReportedPart {
+  id: string;
+  providerId: string;
+  zoom: number;
+  tiles: { tile: TileCoord }[];
+}
+
+/**
+ * Parts to show inside the area. Before a scan, the split the scan would
+ * make. Once a scan reports its parts (live or archived), each part shows the
+ * source it was scanned on, which differs from the split when a part fell
+ * back to another source.
+ */
+export function mapParts(area: Ring, setting: ImagerySetting, reported: readonly ReportedPart[]): ScannedPart[] {
+  const planned = scannedParts(area, setting);
+  if (reported.length === 0) return planned;
+  if (reported.length === 1) {
+    const p = findAnyProvider(reported[0].providerId);
+    return p ? [{ id: reported[0].id, provider: p, cells: null }] : planned;
+  }
+  const byId = new Map(planned.map((p) => [p.id, p]));
+  const out: ScannedPart[] = [];
+  for (const r of reported) {
+    const provider = findAnyProvider(r.providerId);
+    if (!provider) continue;
+    const same = byId.get(r.id);
+    // Archived parts keep no tile list; the planned split gives their cells.
+    const cells = same?.cells ?? (r.tiles.length ? { zoom: r.zoom, tiles: r.tiles.map((t) => t.tile) } : null);
+    out.push({ id: r.id, provider, cells });
+  }
+  return out.length ? out : planned;
 }
 
 /**

@@ -3,10 +3,12 @@ import {
   DetectionMerger,
   estimatePlan,
   fallbackPart,
+  lonLatToTile,
   metersPerPixelOfBitmap,
   NEIGHBOUR_OFFSETS,
   neighbourTile,
   partCentre,
+  pointInRing,
   sampleTiles,
   splitPlanBySource,
   staticCaptureInfo,
@@ -29,6 +31,7 @@ import { fetchTile, type FetchFn, type TileBytes, type TileCache } from './tileS
 import { pieceTiles, type WorkJob, type WorkResult } from './tileWork.js';
 import { detectionId, newScanId } from './ids.js';
 import { savedPart, type SavedScan } from './persist.js';
+import { cutoffsInUse } from '../lib/score.js';
 
 /** Probe tiles asked of a part's source before it is scanned (same as the CLI). */
 export const PROBE_TILES = 5;
@@ -55,7 +58,7 @@ export interface ControllerDeps {
   cache: TileCache | null;
   save?: (rec: SavedScan) => Promise<ArchiveSummary[]>;
   store?: typeof useStore;
-  /** Halo the detector reads, px; 0 for v1. */
+  /** Halo the detector reads, px of a 256 px tile (a 512 px WMS bitmap gets twice that); 0 for v1. */
   halo?: number;
   detectorId?: string;
   /** Look up capture dates (one request per part). */
@@ -82,6 +85,8 @@ interface PartRun {
   blobs: Map<string, Blob>;
   /** XYZ halo: neighbour bytes still needed, with how many tiles still need them. */
   shared: Map<string, { bytes: Promise<TileBytes> | null; uses: number }>;
+  /** Merger ids of this part's detections the store holds. */
+  shown: Set<string>;
 }
 
 function viewOf(part: PlanPart, date: string | null, fellBackFrom: string | null): PartView {
@@ -125,6 +130,7 @@ export class ScanController {
   private bucket: TokenBucket;
   private pool: Pool | null = null;
   private runs: PartRun[] = [];
+  private cellKeys = new WeakMap<PlanPart, Set<string>>();
   private ticker: ReturnType<typeof setInterval> | null = null;
   private resumeWaiters: (() => void)[] = [];
   private inflight = new Set<Promise<void>>();
@@ -171,6 +177,7 @@ export class ScanController {
       failed: [],
       blobs: new Map(),
       shared: new Map(),
+      shown: new Set(),
     }));
     this.store.getState().beginScan(this.scanId, {
       parts: this.runs.map((r) => r.view),
@@ -276,6 +283,11 @@ export class ScanController {
     );
   }
 
+  /** Halo inside one WMS request, in px of the bitmap it asks for. */
+  private wmsHalo(p: ImageryProvider): number {
+    return p.kind === 'wms' ? (this.halo * p.requestPx) / 256 : 0;
+  }
+
   private rateFor(p: ImageryProvider, asked = this.request.ratePerSec): number {
     return Math.max(1, Math.min(10, asked, p.rate.maxPerSec));
   }
@@ -325,6 +337,7 @@ export class ScanController {
     this.update(r, { date, status: 'scanning' });
     const pieces = r.part.plan.tiles.flatMap((t) => pieceTiles(t.tile, r.part.provider.requestPx, this.detectorId));
     r.merger = new DetectionMerger({}, pieces);
+    r.shown.clear();
     this.prepareShared(r);
     await this.scanTiles(r, r.part.plan.tiles);
   }
@@ -340,12 +353,14 @@ export class ScanController {
       this.bucket.setRate(this.rateFor(provider));
       r.probed.clear();
       let withData = 0;
+      let answered = 0;
       for (const t of sampleTiles(r.part, PROBE_TILES)) {
         await this.gate();
-        const req = tileRequest(provider, t, provider.kind === 'wms' ? this.halo : 0);
+        const req = tileRequest(provider, t, this.wmsHalo(provider));
         try {
           const got = await this.get(provider, req.url);
           r.probed.set(req.url, got);
+          answered++;
           if (got.status !== 200) continue;
           const res = await this.pool!.run(
             { scanId: this.scanId, providerId: provider.id, tile: t, tilePx: provider.requestPx, halo: req.halo, bytes: got.bytes.slice().buffer, probe: true },
@@ -353,10 +368,12 @@ export class ScanController {
           if (!res.error && !res.noData) withData++;
         } catch (err) {
           if (err instanceof ScanCancelled || !this.alive()) throw new ScanCancelled();
-          // A failed probe counts as no data.
+          // No answer at all (offline, server down) says nothing about coverage.
         }
       }
-      if (withData > 0 || this.request.setting.mode === 'fixed') break;
+      // Fall back only when the source answered and had no imagery; when it did
+      // not answer, its tiles fail and can be retried on the same source.
+      if (withData > 0 || answered === 0 || this.request.setting.mode === 'fixed') break;
       const next = fallbackPart(r.part, this.request.area, this.request.order);
       if (!next) break;
       fellFrom.push(provider.name);
@@ -478,7 +495,7 @@ export class ScanController {
     let outcome: TileOutcome = 'done';
     let events: MergerEvent[] = [];
     try {
-      const req = tileRequest(provider, tile, provider.kind === 'wms' ? this.halo : 0);
+      const req = tileRequest(provider, tile, this.wmsHalo(provider));
       const probed = r.probed.get(req.url);
       r.probed.delete(req.url);
       const got = probed ?? (await this.use(r, req.url));
@@ -535,12 +552,40 @@ export class ScanController {
     return Math.max(0, s.tilesTotal - s.tilesDone - 1);
   }
 
+  /**
+   * True when a point belongs to this part: inside the drawn area and in one
+   * of the part's own grid cells. Scan tiles stick out of the area, and the
+   * tiles of two parts overlap along their border; a pool there would
+   * otherwise be listed outside the area, or twice.
+   */
+  private owns(r: PartRun, lon: number, lat: number): boolean {
+    if (!pointInRing(lon, lat, this.request.area)) return false;
+    if (this.runs.length === 1) return true;
+    let keys = this.cellKeys.get(r.part);
+    if (!keys) this.cellKeys.set(r.part, (keys = new Set(r.part.cells.map((t) => `${t.x},${t.y}`))));
+    const c = lonLatToTile(lon, lat, r.part.cellZoom);
+    return keys.has(`${c.x},${c.y}`);
+  }
+
+  /** Merger events as the store sees them: ids for this scan and part, only pools this part owns. */
   private mapEvents(r: PartRun, events: MergerEvent[]): MergerEvent[] {
-    return events.map((e) =>
-      e.type === 'remove'
-        ? { type: 'remove', id: detectionId(this.scanId, r.view.id, e.id) }
-        : { type: e.type, detection: { ...e.detection, id: detectionId(this.scanId, r.view.id, e.detection.id) } },
-    );
+    const out: MergerEvent[] = [];
+    for (const e of events) {
+      if (e.type === 'remove') {
+        if (r.shown.delete(e.id)) out.push({ type: 'remove', id: detectionId(this.scanId, r.view.id, e.id) });
+        continue;
+      }
+      const local = e.detection.id;
+      const id = detectionId(this.scanId, r.view.id, local);
+      if (!this.owns(r, e.detection.center.lon, e.detection.center.lat)) {
+        if (r.shown.delete(local)) out.push({ type: 'remove', id });
+        continue;
+      }
+      const type = r.shown.has(local) ? 'update' : 'add';
+      r.shown.add(local);
+      out.push({ type, detection: { ...e.detection, id } });
+    }
+    return out;
   }
 
   /** Thumbnails only for fragments that lead a detection in these events. */
@@ -589,7 +634,7 @@ export class ScanController {
       detections: Object.values(after.detections),
       thumbs: after.thumbBlobs,
       parts: after.parts.map(savedPart),
-      threshold: after.settings.minConfidence,
+      threshold: cutoffsInUse(after.settings, after.parts)[0],
     });
     if (this.store.getState().scanId === this.scanId) this.store.getState().setArchive(archive);
   }

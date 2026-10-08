@@ -5,6 +5,7 @@ import { resolveImagery } from '../lib/imagery.js';
 import { areaFacts, newestId, scannedSources, splitByScore, type AreaFacts, type SourceFacts } from './model.js';
 import { partSummary, provenanceOf, type RankedDetection } from '@marco-polo/core';
 import { partProvenance } from '../lib/export.js';
+import { cutoffFn } from '../lib/score.js';
 
 export const PHONE_QUERY = '(max-width: 700px)';
 
@@ -62,14 +63,17 @@ export interface PoolsView {
 export function usePools(): PoolsView {
   const ranked = useStore((s) => s.ranked);
   const minScore = useStore((s) => s.settings.minConfidence);
+  const recommended = useStore((s) => s.settings.recommendedScore);
   const showHotTubs = useStore((s) => s.settings.showHotTubs);
+  const parts = useStore((s) => s.parts);
   const phase = useStore((s) => s.phase);
   const planTiles = useStore((s) => s.planTiles);
   return useMemo(() => {
-    const { shown, below, lowestBelow } = splitByScore(ranked, minScore, showHotTubs);
+    const cut = cutoffFn({ minConfidence: minScore, recommendedScore: recommended }, parts);
+    const { shown, below, lowestBelow } = splitByScore(ranked, cut, showHotTubs);
     const live = phase === 'scanning' || phase === 'paused';
     return { shown, below, lowestBelow, newest: live ? newestId(shown, planTiles) : null };
-  }, [ranked, minScore, showHotTubs, phase, planTiles]);
+  }, [ranked, minScore, recommended, showHotTubs, parts, phase, planTiles]);
 }
 
 /**

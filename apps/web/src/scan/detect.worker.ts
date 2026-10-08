@@ -5,7 +5,8 @@
  * conversion or premultiplied alpha, then a 2D canvas), so the pixels the
  * product scores are the pixels that were measured.
  */
-import { productDetector, runJob, sniffType, type DecodedImage, type WorkJob } from './tileWork.js';
+import { runJob, sniffType, type DecodedImage, type WorkJob } from './tileWork.js';
+import { productDetector } from './productDetector.js';
 
 const detector = productDetector();
 

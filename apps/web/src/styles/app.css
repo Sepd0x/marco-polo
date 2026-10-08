@@ -213,6 +213,19 @@
   color: var(--danger);
 }
 
+.warn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 12px;
+}
+
+.warn-row .warn {
+  margin: 0;
+  flex: 1 1 200px;
+}
+
 .facts {
   display: grid;
   grid-template-columns: 92px 1fr;
@@ -530,6 +543,12 @@
 
 .slider label {
   color: var(--ink-2);
+}
+
+.slider-note {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--ink-3);
 }
 
 output {

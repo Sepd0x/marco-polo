@@ -1,8 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { splitPlanBySource, tileRequest, DGT_ORTOS2025, ESRI_WORLD_IMAGERY } from '@marco-polo/core';
+import { pointInRing, splitPlanBySource, tileRequest, DGT_ORTOS2025, ESRI_WORLD_IMAGERY, type TileCoord } from '@marco-polo/core';
 import { ScanController, type ScanRequest } from '../../src/scan/controller.js';
 import { useStore } from '../../src/state/store.js';
 import { maxInWindow, poolsOnEvenColumns, PT_AREA, resetStore, rig, square, tileBody, tileCalls, US_AREA } from './harness.js';
+import { makeFragment } from '../../../../packages/core/test/helpers.js';
 
 function request(area = US_AREA, over: Partial<ScanRequest> = {}): ScanRequest {
   return { area, setting: { mode: 'auto' }, order: 'serpentine', ratePerSec: 5, ...over };
@@ -221,6 +222,38 @@ describe('scan controller', () => {
     expect(part.fellBackFrom).toBe('DGT Ortos2025');
     expect(part.zoom).toBe(19);
     expect(tileCalls(r.net).filter((x) => x.url.includes('dgterritorio'))).toHaveLength(5);
+  });
+
+  it('keeps the source when its probe gets no answer, so the tiles can be retried there', async () => {
+    const r = rig();
+    r.net.respond = (url) => (url.includes('dgterritorio') ? { status: 500 } : { status: 200 });
+    const c = new ScanController(request(PT_AREA), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(600_000);
+    await done;
+    const s = useStore.getState();
+    expect(s.parts[0].providerId).toBe('dgt-ortos2025');
+    expect(s.parts[0].fellBackFrom).toBeNull();
+    expect(s.stats.tilesFailed).toBe(s.stats.tilesTotal);
+  });
+
+  it('lists only pools whose centre is inside the drawn area', async () => {
+    const everywhere = (t: TileCoord) => [makeFragment(t, { x: 100, y: 100, w: 40, h: 20 })];
+    const r = rig({ fragments: everywhere });
+    const c = new ScanController(request(), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(60_000);
+    await done;
+    const tiles = splitPlanBySource(US_AREA).parts[0].plan.tiles;
+    const inside = tiles.filter((t) => {
+      const ctr = everywhere(t.tile)[0].center;
+      return pointInRing(ctr.lon, ctr.lat, US_AREA);
+    });
+    expect(inside.length).toBeGreaterThan(0);
+    expect(inside.length).toBeLessThan(tiles.length);
+    const ranked = useStore.getState().ranked;
+    expect(ranked).toHaveLength(inside.length);
+    for (const d of ranked) expect(pointInRing(d.center.lon, d.center.lat, US_AREA)).toBe(true);
   });
 
   it('keeps a fixed source even when its sample is empty', async () => {

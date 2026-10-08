@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { estimateTileCount, type RankedDetection } from '@marco-polo/core';
 import { useStore } from '../state/store.js';
-import { cancelScan, openArchived, pauseScan, resumeScan, startScan } from '../scan/session.js';
+import { cancelScan, currentScan, openArchived, pauseScan, resumeScan, retryFailed, startScan } from '../scan/session.js';
 import { deleteScan } from '../scan/persist.js';
 import { download, toCSV, toGeoJSON } from '../lib/export.js';
 import { DEMO_AREAS } from '../lib/demoAreas.js';
@@ -18,11 +18,23 @@ import {
   formatWhen,
   plural,
 } from '../lib/format.js';
+import { cutoffsInUse } from '../lib/score.js';
 import { cellStates, MAX_CELLS, sortPools, thresholdToShowAll, viewRing, type AreaFacts, type SourceFacts } from './model.js';
 import { useAreaFacts, useMapView, usePools, useScanSources } from './hooks.js';
 import { useUi } from './uiState.js';
 import { PoolList } from './PoolList.js';
 import { IconDownload, IconPause, IconPlay, IconRect, IconShape, IconStop, IconView } from './icons.js';
+
+/** Why the last scan could not start, until the area changes. */
+export function ScanError() {
+  const message = useStore((s) => s.scanError);
+  if (!message) return null;
+  return (
+    <p className="warn" role="alert">
+      {message}
+    </p>
+  );
+}
 
 /** Put a ring in the store as the area to scan. */
 export function useSetArea() {
@@ -56,6 +68,7 @@ export function DrawSection({ compact = false }: { compact?: boolean }) {
       <p className="lead" aria-live="polite">
         {hint}
       </p>
+      <ScanError />
       <div className="btns wrap">
         <button
           className="btn"
@@ -178,6 +191,7 @@ export function AreaSection() {
         <h2 id="area-h">Your area</h2>
       </div>
       <AreaFactsList facts={facts} showTime={ready} />
+      {ready && <ScanError />}
       {ready && facts.level === 'warn' && (
         <p className="warn">A large area. It takes about {formatDuration(facts.seconds * 1000)} at this speed.</p>
       )}
@@ -307,10 +321,19 @@ export function SourceLine({ sources }: { sources: SourceFacts[] }) {
   );
 }
 
+/** How the list's minimum reads in a sentence. */
+function cutoffText(cutoffs: number[], recommended: boolean): string {
+  const values = cutoffs.map(formatScore).join(' or ');
+  return recommended ? `the recommended minimum (${values})` : values;
+}
+
 export function SummarySection({ compact = false }: { compact?: boolean }) {
   const stats = useStore((s) => s.stats);
-  const minScore = useStore((s) => s.settings.minConfidence);
+  const settings = useStore((s) => s.settings);
+  const parts = useStore((s) => s.parts);
   const update = useStore((s) => s.updateSettings);
+  const cutoffs = cutoffsInUse(settings, parts);
+  const minText = cutoffText(cutoffs, settings.recommendedScore);
   const resetScan = useStore((s) => s.resetScan);
   const sources = useScanSources();
   const facts = useAreaFacts();
@@ -322,6 +345,19 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
   const noCoverage = sources.reduce((a, s) => a + (s.noCoverage ?? 0), 0);
   const missing = stats.tilesFailed + noCoverage;
   const finishedAt = stats.startedAt ? stats.startedAt + stats.elapsedMs : null;
+  const scanId = useStore((s) => s.scanId);
+  // Only the scan this page ran can retry: an archived scan keeps no tile list.
+  const canRetry = !stopped && stats.tilesFailed > 0 && scanId != null && currentScan()?.scanId === scanId;
+  const scanned = stats.tilesDone - stats.tilesFailed - noCoverage;
+  let problem: string | null = null;
+  if (!stopped && stats.tilesTotal > 0 && scanned <= 0) {
+    problem =
+      stats.tilesFailed > 0
+        ? 'No tile could be loaded. Check your connection, then retry.'
+        : 'The imagery has nothing here. Try another place or another source.';
+  } else if (stats.tilesFailed > 0) {
+    problem = `${plural(stats.tilesFailed, 'tile')} could not be loaded, so pools there are missing.`;
+  }
 
   let tilesNote = 'none missing';
   if (stopped) tilesNote = `${formatCount(stats.tilesTotal - stats.tilesDone)} not scanned`;
@@ -354,16 +390,18 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
       <p className="more">
         {below > 0 ? (
           <>
-            {formatCount(below)} more scored below {formatScore(minScore)}.{' '}
+            {formatCount(below)} more scored below {minText}.{' '}
             <button
               className="link"
-              onClick={() => lowestBelow != null && update({ minConfidence: thresholdToShowAll(lowestBelow) })}
+              onClick={() =>
+                lowestBelow != null && update({ minConfidence: thresholdToShowAll(lowestBelow), recommendedScore: false })
+              }
             >
               Show {below === 1 ? 'it' : 'them'}
             </button>
           </>
         ) : (
-          <>None below {formatScore(minScore)}.</>
+          <>None below {minText}.</>
         )}
       </p>
       {!compact && (
@@ -382,6 +420,16 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
           </div>
         </div>
       )}
+      {problem && (
+        <div className="warn-row" role="alert">
+          <p className="warn">{problem}</p>
+          {canRetry && (
+            <button className="btn small" onClick={() => void retryFailed()}>
+              Retry failed
+            </button>
+          )}
+        </div>
+      )}
       <SourceLine sources={sources} />
       <div className="btns">
         <button className="btn" disabled={shown.length === 0} onClick={() => exportPools(shown, 'csv')}>
@@ -398,9 +446,13 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
 }
 
 export function ThresholdSection() {
-  const minScore = useStore((s) => s.settings.minConfidence);
+  const settings = useStore((s) => s.settings);
+  const parts = useStore((s) => s.parts);
   const update = useStore((s) => s.updateSettings);
   const id = useId();
+  const cutoffs = cutoffsInUse(settings, parts);
+  const value = cutoffs[0];
+  const recommended = settings.recommendedScore;
   return (
     <section className="sec">
       <div className="slider">
@@ -411,12 +463,29 @@ export function ThresholdSection() {
           min={0}
           max={0.95}
           step={0.05}
-          value={minScore}
-          onChange={(e) => update({ minConfidence: Number(e.target.value) })}
-          style={{ ['--fill' as string]: `${(minScore / 0.95) * 100}%` }}
+          value={value}
+          aria-valuetext={recommended ? `Recommended, ${cutoffs.map(formatScore).join(' or ')}` : formatScore(value)}
+          onChange={(e) => update({ minConfidence: Number(e.target.value), recommendedScore: false })}
+          style={{ ['--fill' as string]: `${(value / 0.95) * 100}%` }}
         />
-        <output htmlFor={id}>{formatScore(minScore)}</output>
+        <output htmlFor={id}>{cutoffs.map(formatScore).join('/')}</output>
       </div>
+      <p className="slider-note">
+        {recommended ? (
+          cutoffs.length > 1 ? (
+            'Recommended for each source.'
+          ) : (
+            'Recommended for this imagery.'
+          )
+        ) : (
+          <>
+            Set by you.{' '}
+            <button className="link" onClick={() => update({ recommendedScore: true })}>
+              Use the recommended minimum
+            </button>
+          </>
+        )}
+      </p>
     </section>
   );
 }

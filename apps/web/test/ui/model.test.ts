@@ -11,6 +11,7 @@ import {
   splitByScore,
   thresholdToShowAll,
   thumbFor,
+  thumbFrame,
   viewRing,
 } from '../../src/ui/model.js';
 import { fragKey } from '../../src/lib/fragKey.js';
@@ -125,6 +126,20 @@ describe('thumbnails', () => {
     expect(t.bbox.east).toBeCloseTo(b.west + 137 * w, 10);
     expect(t.bbox.north).toBeGreaterThan(t.bbox.south);
     expect(thumbFor(d, {})).toBeNull();
+  });
+
+  it('reads a v2 crop in the frame of its part: the 512 px DGT bitmap and its halo', () => {
+    const d = { ...ranked()[0], id: 'scan-a:p1:1', primary: { tile: { z: 18, x: 125_000, y: 98_000 }, bboxPx: { minX: -20, minY: 300, maxX: 10, maxY: 330 } } };
+    const parts = [{ id: 'p1', providerId: 'dgt-ortos2025', zoom: 18 }];
+    const frame = thumbFrame(d, parts);
+    expect(frame).toEqual({ tilePx: 512, halo: 96 });
+    const key = fragKey(d.primary.tile, d.primary.bboxPx);
+    const t = thumbFor(d, { [key]: 'blob:x' }, frame)!;
+    const b = tileBBox(d.primary.tile);
+    // The crop reaches into the halo, west of the tile.
+    expect(t.bbox.west).toBeLessThan(b.west);
+    // An older v1 piece one zoom deeper keeps the 256 px frame.
+    expect(thumbFrame({ ...d, primary: { ...d.primary, tile: { z: 19, x: 1, y: 1 } } }, parts)).toMatchObject({ tilePx: 256, halo: 0 });
   });
 
   it('smooths an outline for drawing without moving it', () => {

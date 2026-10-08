@@ -14,6 +14,7 @@ import {
   type ScanTile,
 } from '@marco-polo/core';
 import { loadSettings, persistSettings, type Settings } from './settings.js';
+import { cutoffFn } from '../lib/score.js';
 
 export type Phase = 'idle' | 'ready' | 'scanning' | 'paused' | 'complete';
 export type DrawMode = 'rect' | 'polygon' | null;
@@ -475,18 +476,18 @@ export const useStore = create<AppState>()(
 );
 
 /** Detections that pass the display filters, re-ranked so the list reads 1, 2, 3... */
-export function visibleRanked(s: { ranked: RankedDetection[]; settings: Settings }): RankedDetection[] {
+export function visibleRanked(s: { ranked: RankedDetection[]; settings: Settings; parts?: PartView[] }): RankedDetection[] {
+  const cut = cutoffFn(s.settings, s.parts ?? []);
   return rankDetections(
-    s.ranked.filter(
-      (d) => d.confidence >= s.settings.minConfidence && (s.settings.showHotTubs || d.kind !== 'hot_tub'),
-    ),
+    s.ranked.filter((d) => d.confidence >= cut(d) && (s.settings.showHotTubs || d.kind !== 'hot_tub')),
   );
 }
 
 /** Detections at or above the confidence filter, and below it (counted, not listed). */
-export function thresholdCounts(s: { ranked: RankedDetection[]; settings: Settings }): { above: number; below: number } {
+export function thresholdCounts(s: { ranked: RankedDetection[]; settings: Settings; parts?: PartView[] }): { above: number; below: number } {
+  const cut = cutoffFn(s.settings, s.parts ?? []);
   let above = 0;
-  for (const d of s.ranked) if (d.confidence >= s.settings.minConfidence) above++;
+  for (const d of s.ranked) if (d.confidence >= cut(d)) above++;
   return { above, below: s.ranked.length - above };
 }
 

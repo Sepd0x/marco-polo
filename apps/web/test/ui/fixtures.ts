@@ -80,7 +80,7 @@ export function seed(phase: Phase, extra: Record<string, unknown> = {}) {
     drawMode: null,
     area: phase === 'idle' ? null : AREA,
     areaEstimate: null,
-    settings: { ...DEFAULT_SETTINGS },
+    settings: { ...DEFAULT_SETTINGS, minConfidence: 0.55, recommendedScore: false },
     detections: {},
     ranked: [] as RankedDetection[],
     thumbs: {},

@@ -5,7 +5,8 @@
 import {
   estimatePlan,
   findAnyProvider,
-  orientedDims,
+  measuredDims,
+  metersPerPixelOfBitmap,
   pickProvider,
   rankDetections,
   ringAreaM2,
@@ -22,9 +23,11 @@ import {
   type TileCoord,
 } from '@marco-polo/core';
 import { fragKey } from '../lib/fragKey.js';
+import { partOfDetection } from '../scan/ids.js';
+import { haloFor, PRODUCT_DETECTOR_ID, THUMB_PAD, thumbRect } from '../scan/tileWork.js';
 
 /** Every list and inspector crop covers the same ground width, so sizes compare at a glance. */
-export const THUMB_VIEW_M = 30.5;
+export { THUMB_VIEW_M } from '../scan/tileWork.js';
 
 export type SortKey = 'largest' | 'score';
 
@@ -44,24 +47,26 @@ export function sourceKind(providerId: string): string | null {
 type WithDims = RankedDetection & { dims?: OrientedDims | null };
 
 /**
- * Length and width from the minimum-area rectangle of the outline. A shape
- * cut by the edge of the imagery is not measured. Never estimated from area.
+ * Length and width from the minimum-area rectangle of the outline, by the
+ * same rule as the export (`measuredDims`): a shape cut by the edge of the
+ * imagery, joined from parts or too irregular is not measured. Never
+ * estimated from area.
  */
 export function dimsOf(d: WithDims): OrientedDims | null {
   if (d.dims !== undefined) return d.dims;
-  if (d.truncated) return null;
-  return orientedDims(d.outline);
+  return measuredDims(d);
 }
 
 /** One count, explained: what passes the minimum score, and how many fell below it. */
 export function splitByScore(
   ranked: RankedDetection[],
-  minScore: number,
+  minScore: number | ((d: RankedDetection) => number),
   showHotTubs: boolean,
 ): { shown: RankedDetection[]; below: number; lowestBelow: number | null } {
+  const cut = typeof minScore === 'number' ? () => minScore : minScore;
   const kept = ranked.filter((d) => showHotTubs || d.kind !== 'hot_tub');
-  const above = kept.filter((d) => d.confidence >= minScore);
-  const under = kept.filter((d) => d.confidence < minScore);
+  const above = kept.filter((d) => d.confidence >= cut(d));
+  const under = kept.filter((d) => d.confidence < cut(d));
   const lowestBelow = under.length ? Math.min(...under.map((d) => d.confidence)) : null;
   return { shown: rankDetections(above), below: under.length, lowestBelow };
 }
@@ -213,27 +218,54 @@ export interface ThumbImage {
   bbox: BBox;
 }
 
-const THUMB_PAD_PX = 6;
+/** Where a detection's thumbnail was cut from: the bitmap of its primary tile and the halo around it. */
+export interface ThumbFrame {
+  tilePx: number;
+  halo: number;
+  legacy?: boolean;
+}
+
+/** Crops of scans saved before the v2 detector: shape plus margin, cut to the 256 px tile. */
+const V1_FRAME: ThumbFrame = { tilePx: 256, halo: 0, legacy: true };
 
 /**
- * The stored crop for a detection, with the ground it covers. Crops are cut
- * from the primary fragment's bitmap with a fixed margin; the bitmap is taken
- * as one 256 px tile unless the crop says otherwise.
+ * The frame a detection's crop was cut in. A detection on the part's own
+ * grid came from the v2 window (the part's bitmap plus its halo); one a zoom
+ * level deeper is a v1 piece of a 512 px tile, from an older archive.
+ */
+export function thumbFrame(d: RankedDetection, parts: readonly { id: string; providerId: string; zoom: number }[]): ThumbFrame {
+  const partId = partOfDetection(d.id);
+  const part = partId ? parts.find((p) => p.id === partId) : undefined;
+  if (!part || d.primary.tile.z !== part.zoom) return V1_FRAME;
+  const tilePx = findAnyProvider(part.providerId)?.requestPx ?? 256;
+  return { tilePx, halo: haloFor(PRODUCT_DETECTOR_ID, tilePx) };
+}
+
+/**
+ * The stored crop for a detection, with the ground it covers. The worker
+ * cuts it from the primary fragment's window with a fixed margin and a size
+ * cap; this works out the same rectangle.
  */
 export function thumbFor(
   d: RankedDetection,
   thumbs: Record<string, string | ThumbImage>,
-  tilePx = 256,
+  frame: ThumbFrame = V1_FRAME,
 ): ThumbImage | null {
   const v = thumbs[fragKey(d.primary.tile, d.primary.bboxPx)];
   if (!v) return null;
   if (typeof v !== 'string') return v;
+  const { tilePx, halo } = frame;
   const b = tileBBox(d.primary.tile);
-  const { minX, minY, maxX, maxY } = d.primary.bboxPx;
-  const x0 = Math.max(0, minX - THUMB_PAD_PX);
-  const y0 = Math.max(0, minY - THUMB_PAD_PX);
-  const x1 = Math.min(tilePx, maxX + 1 + THUMB_PAD_PX);
-  const y1 = Math.min(tilePx, maxY + 1 + THUMB_PAD_PX);
+  const box = d.primary.bboxPx;
+  let x0: number, y0: number, x1: number, y1: number;
+  if (frame.legacy) {
+    x0 = Math.max(0, box.minX - THUMB_PAD);
+    y0 = Math.max(0, box.minY - THUMB_PAD);
+    x1 = Math.min(x0 + 120, tilePx, box.maxX + 1 + THUMB_PAD);
+    y1 = Math.min(y0 + 120, tilePx, box.maxY + 1 + THUMB_PAD);
+  } else {
+    ({ x0, y0, x1, y1 } = thumbRect(box, tilePx, halo, metersPerPixelOfBitmap(d.primary.tile, tilePx)));
+  }
   const lon = (px: number) => b.west + (px / tilePx) * (b.east - b.west);
   // Latitude is not linear in pixels, but over a few metres the error is far below a pixel.
   const lat = (py: number) => b.north - (py / tilePx) * (b.north - b.south);

@@ -6,6 +6,8 @@ export interface Settings {
   ratePerSec: number;
   follow: boolean;
   minConfidence: number;
+  /** Hold each source to the threshold the model was calibrated to on it; off once the slider is moved. */
+  recommendedScore: boolean;
   showHotTubs: boolean;
   labels: boolean;
   /** Accent colour over the dark base, hex. */
@@ -18,7 +20,8 @@ export const DEFAULT_SETTINGS: Settings = {
   order: 'serpentine',
   ratePerSec: 5,
   follow: true,
-  minConfidence: 0.55,
+  minConfidence: 0.4,
+  recommendedScore: true,
   showHotTubs: true,
   labels: true,
   accent: '#35e0ff',

@@ -8,13 +8,13 @@ import {
   type RankedDetection,
   type Ring,
 } from '@marco-polo/core';
-import { useStore, visibleRanked } from '../state/store.js';
+import { scanSetting, useStore, visibleRanked } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
 import { DrawTool } from './DrawTool.js';
 import { ScanOverlay } from './overlay.js';
 import { DetectionMarkers } from './markers.js';
 import { GLYPHS_URL, LABEL_SOURCE, labelLayers, labelSource, setLabelsVisible } from './labels.js';
-import { anchorLayers, BaseImagery, ScannedImagery, scannedParts } from './sourceLayer.js';
+import { anchorLayers, BaseImagery, mapParts, ScannedImagery } from './sourceLayer.js';
 import { browserDisplay, mapMaxZoom } from './sources.js';
 import { watchContextLoss } from './contextLoss.js';
 import { occluderPadding } from './padding.js';
@@ -84,9 +84,15 @@ export function MapView() {
         useStore.getState().setArea(ring, estimate);
       });
 
+      // Same key, same layers: a part that only counts tiles does not rebuild the imagery.
+      let shownKey = '';
       const showScanned = () => {
-        const { area, settings } = useStore.getState();
-        scannedImagery.setParts(area, area ? scannedParts(area, settings.imagery) : []);
+        const s = useStore.getState();
+        const parts = s.area ? mapParts(s.area, scanSetting(s), s.parts) : [];
+        const key = JSON.stringify([s.area, parts.map((p) => [p.id, p.provider.id, p.cells?.zoom, p.cells?.tiles.length])]);
+        if (key === shownKey) return;
+        shownKey = key;
+        scannedImagery.setParts(s.area, parts);
         scannedImagery.sync(baseImagery);
       };
       showScanned();
@@ -120,6 +126,10 @@ export function MapView() {
           () => showScanned(),
         ),
         sub(
+          (s) => s.parts,
+          () => showScanned(),
+        ),
+        sub(
           (s) => s.planTiles,
           (tiles) => overlay.setPlan(tiles),
         ),
@@ -144,7 +154,7 @@ export function MapView() {
           },
         ),
         sub(
-          (s) => ({ ranked: s.ranked, settings: s.settings, selectedId: s.selectedId }),
+          (s) => ({ ranked: s.ranked, settings: s.settings, parts: s.parts, selectedId: s.selectedId }),
           ({ selectedId, ...rest }) => {
             const visible = visibleRanked(rest);
             overlay.setDetections(visible, selectedId);
