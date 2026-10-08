@@ -4,13 +4,12 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { decodeImage } from '../../packages/cli/src/tiles.ts';
-import { createV1Detector, DetectionMerger, metersPerPixelOfBitmap, type TileCoord } from '../../packages/core/src/index.ts';
+import { DEFAULT_LEARNED_OPTIONS, detectWindow, metersPerPixelOfBitmap, type PoolModel, type TileCoord } from '../../packages/core/src/index.ts';
 
 /*
  * Target (plan B3, fixed before measuring): per candidate, the score from
  * the two decodes differs by at most 0.01, and at least 99% of candidates
- * match. Until the v2 classifier exists the v1 detector stands in as the
- * scorer: a candidate is a merged v1 detection, its score the confidence.
+ * match. The scorer is v2 with the shipped model, every candidate kept.
  */
 const MAX_SCORE_DIFF = 0.01;
 const MIN_MATCHED = 0.99;
@@ -31,29 +30,14 @@ function nodeDecode(buf: Buffer) {
 
 const browserSha = JSON.parse(readFileSync(fileURLToPath(new URL('../../packages/cli/test/jpeg-browser-sha256.json', import.meta.url)), 'utf8')) as { files: Record<string, string> };
 
-/** The v1 detector on a decoded tile; 512 px tiles go in as their four z+1 children. */
-function candidates(tile: TileCoord, rgba: Uint8ClampedArray, size: number) {
-  const det = createV1Detector();
-  const pieces: { tile: TileCoord; px: Uint8ClampedArray }[] = [];
-  const k = size / 256;
-  for (let qy = 0; qy < k; qy++) {
-    for (let qx = 0; qx < k; qx++) {
-      const px = new Uint8ClampedArray(256 * 256 * 4);
-      for (let y = 0; y < 256; y++) {
-        const from = ((qy * 256 + y) * size + qx * 256) * 4;
-        px.set(rgba.subarray(from, from + 1024), y * 1024);
-      }
-      const z = tile.z + Math.log2(k);
-      pieces.push({ tile: { z, x: tile.x * k + qx, y: tile.y * k + qy }, px });
-    }
-  }
-  const merger = new DetectionMerger({}, pieces.map((p) => p.tile));
-  for (const p of pieces) {
-    const w = { tile: p.tile, tilePx: 256, halo: 0, width: 256, height: 256, pixels: p.px, mPerPx: metersPerPixelOfBitmap(p.tile, 256) };
-    merger.addTileDetections(p.tile, det.detectTile(w, { providerId: 'parity' }));
-  }
-  merger.finalize();
-  return merger.getAll();
+const model = JSON.parse(readFileSync(fileURLToPath(new URL('../../packages/core/models/pool-v2.json', import.meta.url)), 'utf8')) as PoolModel;
+
+/** v2 on a decoded image: the whole image is the window; `-halo<N>-` in the name gives its halo. */
+function candidates(name: string, tile: TileCoord, rgba: Uint8ClampedArray, size: number) {
+  const halo = Number(/-halo(\d+)-/.exec(name)?.[1] ?? 0);
+  const tilePx = size - 2 * halo;
+  const w = { tile, tilePx, halo, width: size, height: size, pixels: rgba, mPerPx: metersPerPixelOfBitmap(tile, tilePx) };
+  return detectWindow(w, { providerId: name.split('-')[0] }, model, { ...DEFAULT_LEARNED_OPTIONS, floor: 0 }).map((d) => ({ center: d.center, confidence: d.score ?? 0 }));
 }
 
 test('browser and Node decodes give the same candidates', async ({ page, browserName }, info) => {
@@ -99,9 +83,8 @@ test('browser and Node decodes give the same candidates', async ({ page, browser
     expect(maxDiff, `${name}: Node and browser pixels differ`).toBe(0);
 
     const tile = tileOf(name);
-    const whole = Number.isInteger(Math.log2(mine.width / 256));
-    const a = whole ? candidates(tile, mine.rgba, mine.width) : [];
-    const b = whole ? candidates(tile, rgba, theirs.width) : [];
+    const a = candidates(name, tile, mine.rgba, mine.width);
+    const b = candidates(name, tile, rgba, theirs.width);
     // Pair candidates by position: the same shape lands within a metre.
     let fileMatched = 0;
     let fileWorst = 0;
