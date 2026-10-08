@@ -1,0 +1,7 @@
+{
+ "source": "dgt",
+ "method": "Every pool label of the zone judged on its own crop of the DGT Ortos2025 imagery (z19, nothing drawn but corner marks, order by hash), 8 Oct 2026. Listed: no water surface visible on this source, because an opaque cover, a slatted cover or an enclosure hides it (1), or the canopy hides the whole pool (0). Pools with green, dark, murky or pale water, blue covers, empty pools and doubtful cases stay pool labels. Done by the detection flow after it had seen the candidate misses of this zone, so not blind to the detector; a second reviewer should redo it blind.",
+ "ids": [
+  "way/1545126249"
+ ]
+}
