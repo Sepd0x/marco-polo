@@ -22,14 +22,19 @@ export function regionExcluded(stratum: string, c: Candidate, excluded: Record<s
   return (excluded[stratum] ?? []).includes(c.region);
 }
 
+/** A fixed minimum distance, or one per protected site (rules v2 relax some kinds of site in one stratum). */
+export type MinKm = number | ((site: ProtectedSite) => number);
+const limitOf = (minKm: MinKm, s: ProtectedSite) => (typeof minKm === 'number' ? minKm : minKm(s));
+export const farEnough = (at: [number, number], sites: ProtectedSite[], minKm: MinKm) => sites.every((s) => haversineKm(at, s.center) >= limitOf(minKm, s));
+
 export function eligibleMunicipalities(
   stratum: string,
   list: Candidate[],
   sites: ProtectedSite[],
-  minKm: number,
+  minKm: MinKm,
   excluded: Record<string, string[]>,
 ): Candidate[] {
-  return list.filter((c) => !regionExcluded(stratum, c, excluded) && sites.every((s) => haversineKm(c.center, s.center) >= minKm));
+  return list.filter((c) => !regionExcluded(stratum, c, excluded) && farEnough(c.center, sites, minKm));
 }
 
 /** Order in which municipalities are tried: the hashed start, then i + 1, i + 2, ... mod n. */
@@ -95,14 +100,14 @@ export function eligibleCells(
   boundary: Polygon[],
   features: Polygon[],
   sites: ProtectedSite[],
-  minKm: number,
+  minKm: MinKm,
   minShare: number,
 ): Array<Cell & { share: number }> {
   const out: Array<Cell & { share: number }> = [];
   for (const c of cells) {
     if (!pointInPolygons(c.center, boundary)) continue;
     const at: [number, number] = [c.center.lat, c.center.lon];
-    if (!sites.every((s) => haversineKm(at, s.center) >= minKm)) continue;
+    if (!farEnough(at, sites, minKm)) continue;
     const share = featureShare(c.bbox, features);
     if (share >= minShare) out.push({ ...c, share });
   }

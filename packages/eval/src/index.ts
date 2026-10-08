@@ -162,7 +162,8 @@ commands:
   review       render numbered review windows of one area with candidates (phase 0 method)
   extra        turn a review file into labels/<area>.extra.geojson
   freeze       write labels.sha256 for zones that have never been frozen
-  zones        list | check | draw --stratum <id> | reject --stratum <id> --pools <n> | candidates (rebuild the list, audit only)
+  zones        list | check | draw --stratum <id> | reject --stratum <id> --pools <n> | status | candidates (rebuild the list, audit only)
+               draw, reject and status follow rules v2 (zones/test-candidates-v2.json)
   blind        render | second | merge | agree | osm-sheet: blind review of a zone (see src/blind.ts)
   osm-recall   render 10 blind windows of a zone and score OSM against a hand count (training zones)
   adjudicate   prepare | apply: symmetric, blind adjudication of unmatched detections of two runs
@@ -412,7 +413,7 @@ async function main() {
       }
       if (o.sub[0] === 'reject') {
         if (!o.stratum || o.pools === undefined) throw new Error('zones reject needs --stratum and --pools');
-        rejectAfterReview(o.stratum, o.pools, 40);
+        rejectAfterReview(o.stratum, o.pools);
         return;
       }
       return cmdZones(o);

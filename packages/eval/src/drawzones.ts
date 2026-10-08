@@ -1,8 +1,10 @@
 /**
- * Runs the pre-registered TEST draw (rules in zones/test-candidates.json).
- * Reads administrative boundaries, OSM land use and Esri capture metadata;
- * never imagery. Every attempt is written to zones/draw.json, including the
- * ones that were skipped and why.
+ * Runs the pre-registered TEST draw. Rules v1: zones/test-candidates.json,
+ * attempts in zones/draw.json (closed). Rules v2: zones/test-candidates-v2.json
+ * (same strata and candidates, new cell size, pool minimum and distances),
+ * attempts in zones/draw-v2.json. Reads administrative boundaries, OSM land
+ * use and Esri capture metadata; never imagery. Every attempt is written,
+ * including the ones that were skipped and why.
  */
 import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -13,19 +15,68 @@ import type { BBox } from '@marco-polo/core';
 import { sleep } from '../../cli/src/tiles.js';
 import type { Candidate, SourceId, Stratum } from './candidates.js';
 import { polygonsBBox, type Polygon } from './geom.js';
-import { cellKey, drawOrder, eligibleCells, eligibleMunicipalities, gridCells, hashIndex, isHardCapture, noonElevationDeg } from './lottery.js';
+import { cellKey, drawOrder, eligibleCells, eligibleMunicipalities, gridCells, hashIndex, isHardCapture, noonElevationDeg, type MinKm } from './lottery.js';
 import { elementPolygons, overpass, UA } from './overpass.js';
-import { loadRegistry, protectedSites, ZONES_DIR, zoneCenter, type Registry, type ZoneDef } from './registry.js';
+import { loadRegistry, protectedSites, ZONES_DIR, zoneCenter, type ProtectedSite, type Registry, type Role, type ZoneDef } from './registry.js';
+
+export interface Rules {
+  minDistanceKm: number;
+  cellSizeKm: number;
+  cellMinShare: number;
+  minPools: number;
+  minDistanceKmByStratum?: Record<string, Partial<Record<Role | 'seen', number>>>;
+}
 
 export interface CandidatesFile {
-  rules: { minDistanceKm: number; cellSizeKm: number; cellMinShare: number; minPools: number };
+  rules: Rules;
   excludedRegions: Record<string, string[]>;
   strata: Stratum[];
+}
+
+/** A TEST zone drawn under rules v1 that rules v2 keep as the zone of its stratum. */
+export interface KeptZone {
+  zone: string;
+  stratum: string;
+  why: string;
+}
+
+/** A TEST zone drawn under rules v1 and dropped by rules v2 before anyone reviewed it. */
+export interface RetiredZone {
+  zone: string;
+  stratum: string;
+  why: string;
+}
+
+export interface CandidatesV2File {
+  about: string;
+  rules: Rules;
+  /** The v1 list of strata and municipalities, reused unchanged. */
+  candidates: { file: string; sha256: string };
+  kept: KeptZone[];
+  retired: RetiredZone[];
+  /** Places outside this branch's registry that a TEST zone must also keep away from. */
+  alsoProtected: Array<{ id: string; kind: Role | 'seen'; center: [number, number]; from: string }>;
+}
+
+export type RulesVersion = 1 | 2;
+
+/** One pre-registration, resolved: what the draw needs from the committed files. */
+export interface Prereg {
+  version: RulesVersion;
+  /** File that was committed before any imagery; its adding commit seeds the hashes. */
+  file: string;
+  drawFile: string;
+  rules: Rules;
+  excludedRegions: Record<string, string[]>;
+  strata: Stratum[];
+  kept: KeptZone[];
+  alsoProtected: ProtectedSite[];
 }
 
 export type AttemptStatus = 'drawn' | 'no eligible cell' | 'not hard imagery' | 'same Esri capture as a DEV zone' | 'no boundary' | `rejected: ${number} pools after review`;
 
 export interface Attempt {
+  /** Position in the eligible list; -1 for a zone kept from an earlier draw. */
   index: number;
   municipality: { name: string; code: string };
   status: AttemptStatus;
@@ -33,6 +84,7 @@ export interface Attempt {
   cell?: { row: number; col: number; share: number; bbox: BBox };
   esri?: { date: string | null; desc: string | null; resM: number | null; noonElevationDeg: number | null };
   osmSha256?: string;
+  keptFrom?: string;
 }
 
 export interface StratumDraw {
@@ -49,6 +101,7 @@ export interface StratumDraw {
 
 export interface DrawFile {
   about: string;
+  rules?: RulesVersion;
   listCommit: string;
   candidatesSha256: string;
   registrySha256AtStart: string;
@@ -56,6 +109,9 @@ export interface DrawFile {
 }
 
 export const DRAW_FILE = join(ZONES_DIR, 'draw.json');
+export const DRAW_V2_FILE = join(ZONES_DIR, 'draw-v2.json');
+const CANDIDATES = 'test-candidates.json';
+const CANDIDATES_V2 = 'test-candidates-v2.json';
 
 async function getJson<T>(url: string): Promise<T> {
   for (let attempt = 0; attempt < 5; attempt++) {
@@ -155,44 +211,83 @@ const slug = (s: string) =>
 
 const NEGATIVE_SOURCE: Record<string, SourceId> = { PT: 'dgt', ES: 'pnoa', FR: 'ign' };
 
-export function listCommit(repoRoot: string): string {
-  const out = execSync('git log --diff-filter=A --format=%H -- packages/eval/zones/test-candidates.json', { cwd: repoRoot, encoding: 'utf8' }).trim().split('\n');
+const rel = (file: string) => `packages/eval/zones/${file}`;
+const lf = (b: Buffer | string) => b.toString().replace(/\r\n/g, '\n');
+const sha256File = (p: string) => createHash('sha256').update(lf(readFileSync(p))).digest('hex');
+
+/** The commit that added a pre-registration file: the seed of every hash of its draw. */
+export function listCommit(repoRoot: string, file = CANDIDATES): string {
+  const out = execSync(`git log --diff-filter=A --format=%H -- ${rel(file)}`, { cwd: repoRoot, encoding: 'utf8' }).trim().split('\n');
   const first = out[out.length - 1];
-  if (!/^[0-9a-f]{40}$/.test(first)) throw new Error('test-candidates.json is not committed: commit it before drawing');
+  if (!/^[0-9a-f]{40}$/.test(first)) throw new Error(`${file} is not committed: commit it before drawing`);
   return first;
 }
 
-const sha256File = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
+/** The pre-registration file as committed must be the file on disk. */
+function assertUnchanged(repoRoot: string, file: string): string {
+  const commit = listCommit(repoRoot, file);
+  const committed = execSync(`git show ${commit}:${rel(file)}`, { cwd: repoRoot, encoding: 'buffer', maxBuffer: 1 << 26 });
+  if (createHash('sha256').update(lf(committed)).digest('hex') !== sha256File(join(ZONES_DIR, file))) {
+    throw new Error(`${file} differs from the pre-registered version`);
+  }
+  return commit;
+}
 
-export function readDraw(): DrawFile | null {
-  return existsSync(DRAW_FILE) ? (JSON.parse(readFileSync(DRAW_FILE, 'utf8')) as DrawFile) : null;
+export function loadPrereg(version: RulesVersion): Prereg {
+  const v1 = JSON.parse(readFileSync(join(ZONES_DIR, CANDIDATES), 'utf8')) as CandidatesFile;
+  if (version === 1) {
+    return { version, file: CANDIDATES, drawFile: DRAW_FILE, rules: v1.rules, excludedRegions: v1.excludedRegions, strata: v1.strata, kept: [], alsoProtected: [] };
+  }
+  const v2 = JSON.parse(readFileSync(join(ZONES_DIR, CANDIDATES_V2), 'utf8')) as CandidatesV2File;
+  if (v2.candidates.file !== CANDIDATES || sha256File(join(ZONES_DIR, CANDIDATES)) !== v2.candidates.sha256) {
+    throw new Error(`${CANDIDATES_V2} names a candidate list other than the committed ${CANDIDATES}`);
+  }
+  return {
+    version,
+    file: CANDIDATES_V2,
+    drawFile: DRAW_V2_FILE,
+    rules: v2.rules,
+    excludedRegions: v1.excludedRegions,
+    strata: v1.strata,
+    kept: v2.kept,
+    alsoProtected: v2.alsoProtected.map(({ id, kind, center }) => ({ id, kind, center })),
+  };
+}
+
+/** Minimum distance from a site, for a TEST zone of `stratum`. */
+export function minKmRule(rules: Rules, stratum: string): MinKm {
+  const own = rules.minDistanceKmByStratum?.[stratum];
+  if (!own) return rules.minDistanceKm;
+  return (s: ProtectedSite) => own[s.kind] ?? rules.minDistanceKm;
+}
+
+export function readDraw(path = DRAW_FILE): DrawFile | null {
+  return existsSync(path) ? (JSON.parse(readFileSync(path, 'utf8')) as DrawFile) : null;
 }
 
 /**
  * Draw (or continue) one stratum. A stratum whose last attempt is "drawn"
  * is left alone; one whose last attempt was rejected after review goes on
- * with the next municipality in the hashed order.
+ * with the next municipality in the hashed order. Under rules v2 a stratum
+ * with a zone kept from the v1 draw starts, and ends, with that zone.
  */
-export async function drawStratum(repoRoot: string, stratumId: string, rawDir: string): Promise<StratumDraw> {
-  const candPath = join(ZONES_DIR, 'test-candidates.json');
-  const cands = JSON.parse(readFileSync(candPath, 'utf8')) as CandidatesFile;
-  const commit = listCommit(repoRoot);
-  const committed = execSync(`git show ${commit}:packages/eval/zones/test-candidates.json`, { cwd: repoRoot, encoding: 'buffer', maxBuffer: 1 << 26 });
-  if (createHash('sha256').update(committed).digest('hex') !== sha256File(candPath)) {
-    throw new Error('test-candidates.json differs from the pre-registered version');
-  }
-  const idx = cands.strata.findIndex((s) => s.id === stratumId);
+export async function drawStratum(repoRoot: string, stratumId: string, rawDir: string, version: RulesVersion = 2): Promise<StratumDraw> {
+  const pre = loadPrereg(version);
+  const commit = assertUnchanged(repoRoot, pre.file);
+  if (version > 1) assertUnchanged(repoRoot, CANDIDATES);
+  const idx = pre.strata.findIndex((s) => s.id === stratumId);
   if (idx < 0) throw new Error(`unknown stratum ${stratumId}`);
-  const stratum = cands.strata[idx];
-  const draw: DrawFile = readDraw() ?? {
-    about: 'TEST draw, one entry per stratum with every attempt. Rules: zones/test-candidates.json. Raw OSM answers are kept outside the repo; their sha256 is here.',
+  const stratum = pre.strata[idx];
+  const draw: DrawFile = readDraw(pre.drawFile) ?? {
+    about: `TEST draw, one entry per stratum with every attempt. Rules: zones/${pre.file}. Raw OSM answers are kept outside the repo; their sha256 is here.`,
+    ...(version > 1 ? { rules: version } : {}),
     listCommit: commit,
-    candidatesSha256: sha256File(candPath),
+    candidatesSha256: sha256File(join(ZONES_DIR, pre.file)),
     registrySha256AtStart: sha256File(join(ZONES_DIR, 'registry.json')),
     strata: [],
   };
-  if (draw.listCommit !== commit) throw new Error(`draw.json was made with list commit ${draw.listCommit}, the list was added in ${commit}`);
-  for (const earlier of cands.strata.slice(0, idx)) {
+  if (draw.listCommit !== commit) throw new Error(`${base(pre.drawFile)} was made with list commit ${draw.listCommit}, the list was added in ${commit}`);
+  for (const earlier of pre.strata.slice(0, idx)) {
     if (!draw.strata.some((s) => s.stratum === earlier.id && (s.zone || s.exhausted))) throw new Error(`draw strata in file order: ${earlier.id} first`);
   }
   let sd = draw.strata.find((s) => s.stratum === stratumId);
@@ -200,28 +295,42 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
   if (sd && last?.status === 'drawn') return sd;
 
   const reg = loadRegistry();
-  // The stratum's own rejected zones do not move its eligible list: the hashed order stays fixed.
-  const own = new Set(sd?.rejected ?? []);
-  // Only TEST zones of strata drawn before this one count (rules: "TEST zones drawn before").
-  const later = new Set(cands.strata.slice(idx + 1).map((s) => s.id));
+  const save = () => writeFileSync(pre.drawFile, JSON.stringify(draw, null, 1) + '\n', 'utf8');
+  const kept = new Set(pre.kept.map((k) => k.zone));
+  // A stratum's own zones never move its eligible list: the hashed order stays fixed.
+  const own = new Set([...(sd?.rejected ?? []), ...reg.zones.filter((z) => z.role === 'TEST' && z.stratum === stratumId).map((z) => z.id)]);
+  // TEST zones count when drawn before this stratum; kept zones were all drawn before any v2 attempt.
+  const later = new Set(pre.strata.slice(idx + 1).map((s) => s.id));
   const laterZones = new Set([
-    ...reg.zones.filter((z) => z.role === 'TEST' && z.stratum && later.has(z.stratum)).map((z) => z.id),
+    ...reg.zones.filter((z) => z.role === 'TEST' && z.stratum && later.has(z.stratum) && !kept.has(z.id)).map((z) => z.id),
     ...draw.strata.filter((s) => later.has(s.stratum)).flatMap((s) => s.rejected ?? []),
   ]);
-  const sites = protectedSites(reg).filter((s) => !own.has(s.id) && !laterZones.has(s.id));
-  const elig = eligibleMunicipalities(stratumId, stratum.candidates, sites, cands.rules.minDistanceKm, cands.excludedRegions);
+  const sites = [...protectedSites(reg).filter((s) => !own.has(s.id) && !laterZones.has(s.id)), ...pre.alsoProtected];
+  const minKm = minKmRule(pre.rules, stratumId);
+  const elig = eligibleMunicipalities(stratumId, stratum.candidates, sites, minKm, pre.excludedRegions);
   if (!elig.length) throw new Error(`${stratumId}: no eligible municipality`);
   const order = drawOrder(commit, stratumId, elig.length);
   if (!sd) {
     sd = { stratum: stratumId, eligible: elig.length, start: order[0], attempts: [] };
     draw.strata.push(sd);
+    const k = pre.kept.find((x) => x.stratum === stratumId);
+    if (k) {
+      const z = reg.zones.find((x) => x.id === k.zone && x.role === 'TEST');
+      if (!z) throw new Error(`kept zone ${k.zone} is not a TEST zone of the registry`);
+      const from = readDraw(DRAW_FILE)?.strata.find((s) => s.zone === z.id)?.attempts.at(-1);
+      sd.attempts.push({ ...(from ?? { municipality: { name: z.name, code: '' } }), index: -1, status: 'drawn', keptFrom: `draw.json (rules v1): ${k.why}` });
+      sd.zone = z.id;
+      save();
+      return sd;
+    }
   }
   if (sd.eligible !== elig.length) throw new Error(`${stratumId}: ${elig.length} eligible now, ${sd.eligible} when the draw started (registry changed?)`);
   const devEsri = reg.zones.filter((z) => (z.role === 'DEV' || z.role === 'DEV-2') && z.productSource === 'esri');
   const esriStratum = stratum.source === 'esri';
   const devCaptures = esriStratum ? await Promise.all(devEsri.map((z) => esriCapture(...zoneCenter(z)))) : [];
+  const taken = new Set([...reg.zones.map((z) => z.id), ...(reg.rejectedTest ?? []).map((z) => z.id), ...(reg.retiredTest ?? []).map((z) => z.id)]);
 
-  for (let k = sd.attempts.length; k < order.length; k++) {
+  for (let k = sd.attempts.filter((a) => a.index >= 0).length; k < order.length; k++) {
     const c = elig[order[k]];
     const at: Attempt = { index: order[k], municipality: { name: c.name, code: c.code }, status: 'drawn' };
     console.log(`${stratumId}: try ${k + 1}, ${c.name} (${c.code})`);
@@ -234,7 +343,7 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
     const bounds = polygonsBBox(poly);
     const { polys, sha } = await features(stratum.cellFeatures, bounds, rawDir, `${stratumId}-${c.code}`);
     at.osmSha256 = sha;
-    const cells = eligibleCells(gridCells(bounds, cands.rules.cellSizeKm), poly, polys, sites, cands.rules.minDistanceKm, cands.rules.cellMinShare);
+    const cells = eligibleCells(gridCells(bounds, pre.rules.cellSizeKm), poly, polys, sites, minKm, pre.rules.cellMinShare);
     at.eligibleCells = cells.length;
     if (!cells.length) {
       at.status = 'no eligible cell';
@@ -250,31 +359,34 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
       else if (stratumId === 'hard' && (!cap.date || !isHardCapture(cell.center.lat, cap.date))) at.status = 'not hard imagery';
     }
     sd.attempts.push(at);
-    writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
+    save();
     if (at.status !== 'drawn') continue;
 
     const r6 = (x: number) => Math.round(x * 1e6) / 1e6;
+    let id = `test-${stratumId}-${slug(c.name)}`;
+    // A municipality drawn under rules v1 can come back with a v2 cell: new id, new review.
+    if (taken.has(id)) id += `-v${version}`;
     const zone: ZoneDef = {
-      id: `test-${stratumId}-${slug(c.name)}`,
+      id,
       name: `${c.name}, ${c.country} (TEST ${stratumId})`,
       role: 'TEST',
       country: c.country,
       productSource: stratum.source === 'auto' ? NEGATIVE_SOURCE[c.country] : stratum.source,
       labelSource: stratum.source === 'auto' ? NEGATIVE_SOURCE[c.country] : stratum.source,
       bbox: { west: r6(cell.bbox.west), south: r6(cell.bbox.south), east: r6(cell.bbox.east), north: r6(cell.bbox.north) },
-      areaKm2: cands.rules.cellSizeKm ** 2,
-      why: `drawn for stratum ${stratumId}: ${c.name} (${c.code}), cell ${cell.row}/${cell.col}`,
+      areaKm2: pre.rules.cellSizeKm ** 2,
+      why: `drawn for stratum ${stratumId}${version > 1 ? ` under rules v${version}` : ''}: ${c.name} (${c.code}), cell ${cell.row}/${cell.col}`,
       review: 'blind',
       stratum: stratumId,
       reportedApart: stratum.reportedApart,
     };
     addZone(reg, zone);
     sd.zone = zone.id;
-    writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
+    save();
     return sd;
   }
   sd.exhausted = true;
-  writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
+  save();
   throw new Error(`${stratumId}: every eligible municipality tried`);
 }
 
@@ -288,12 +400,15 @@ function addZone(reg: Registry, zone: ZoneDef) {
 }
 
 /** After review: the zone had too few pools, so the stratum moves to the next municipality. */
-export function rejectAfterReview(stratumId: string, pools: number, minPools: number): void {
-  const draw = readDraw();
+export function rejectAfterReview(stratumId: string, pools: number, version: RulesVersion = 2): void {
+  const pre = loadPrereg(version);
+  const draw = readDraw(pre.drawFile);
   const sd = draw?.strata.find((s) => s.stratum === stratumId);
   const last = sd?.attempts[sd.attempts.length - 1];
   if (!draw || !sd || !last || last.status !== 'drawn') throw new Error(`${stratumId}: nothing drawn to reject`);
-  if (pools >= minPools) throw new Error(`${stratumId}: ${pools} pools is not below ${minPools}`);
+  if (stratumId === 'negative') throw new Error('the pool minimum does not apply to the negative stratum');
+  if (last.keptFrom) throw new Error(`${stratumId}: ${sd.zone} was kept by the rules, not drawn under them`);
+  if (pools >= pre.rules.minPools) throw new Error(`${stratumId}: ${pools} pools is not below ${pre.rules.minPools}`);
   last.status = `rejected: ${pools} pools after review`;
   // It leaves the TEST role and is kept on record. It does not block other zones: it was
   // reviewed blind and never scanned or tuned on, so nearby TEST zones learn nothing from it.
@@ -308,21 +423,29 @@ export function rejectAfterReview(stratumId: string, pools: number, minPools: nu
     sd.rejected = [...(sd.rejected ?? []), z.id];
   }
   sd.zone = undefined;
-  writeFileSync(DRAW_FILE, JSON.stringify(draw, null, 1) + '\n', 'utf8');
+  writeFileSync(pre.drawFile, JSON.stringify(draw, null, 1) + '\n', 'utf8');
 }
 
+const base = (p: string) => p.split(/[\\/]/).pop() ?? p;
+
 /** Markdown summary of the draw: where each stratum stands. */
-export function drawStatus(): string {
-  const draw = readDraw();
+export function drawStatus(version: RulesVersion = 2): string {
+  const pre = loadPrereg(version);
+  const draw = readDraw(pre.drawFile);
   if (!draw) return 'No draw yet.';
+  const v1 = version > 1 ? readDraw(DRAW_FILE) : null;
   const L = [
     '# TEST zones',
     '',
-    `Drawn from the list committed in \`${draw.listCommit.slice(0, 7)}\` by the rules written in it. Generated by \`eval zones status\` from \`zones/draw.json\`.`,
-    '',
-    '| stratum | eligible | tried | rejected after review (under 40 pools) | other skips | zone | labels |',
-    '|---|--:|--:|--:|--:|---|---|',
+    `Drawn from the list committed in \`${draw.listCommit.slice(0, 7)}\` by the rules written in it (\`zones/${pre.file}\`). Generated by \`eval zones status\` from \`zones/${base(pre.drawFile)}\`.`,
   ];
+  if (v1) {
+    L.push(
+      '',
+      `Rules v2 replace the v1 draw (list \`${v1.listCommit.slice(0, 7)}\`, \`zones/draw.json\`, kept as it was): its 1 km cells with 40 pools or more ran out in the north of Portugal and rejected most of what was drawn. v2: cells of ${pre.rules.cellSizeKm} km, at least ${pre.rules.minPools} pools, the per-stratum distances written in the file. A zone kept from v1 is the only attempt of its stratum.`,
+    );
+  }
+  L.push('', `| stratum | eligible | tried | rejected after review (under ${pre.rules.minPools} pools) | other skips | zone | labels |`, '|---|--:|--:|--:|--:|---|---|');
   const labelState = (zone: string | undefined) => {
     if (!zone) return '';
     const path = join(ZONES_DIR, '..', 'labels', `${zone}.geojson`);
@@ -334,9 +457,10 @@ export function drawStatus(): string {
   for (const s of draw.strata) {
     const rej = s.attempts.filter((a) => a.status.startsWith('rejected')).length;
     const other = s.attempts.filter((a) => a.status !== 'drawn' && !a.status.startsWith('rejected')).length;
-    L.push(`| ${s.stratum} | ${s.eligible} | ${s.attempts.length} | ${rej} | ${other} | ${s.zone ?? (s.exhausted ? 'none: every eligible municipality tried' : 'drawing')} | ${labelState(s.zone)} |`);
+    const keptNote = s.zone && s.attempts.at(-1)?.keptFrom ? ' (kept from v1)' : '';
+    L.push(`| ${s.stratum} | ${s.eligible} | ${s.attempts.length} | ${rej} | ${other} | ${s.zone ? s.zone + keptNote : s.exhausted ? 'none: every eligible municipality tried' : 'drawing'} | ${labelState(s.zone)} |`);
   }
   L.push('');
-  L.push('Every attempt, with the municipality, the cell, the Esri capture where it applies and the reason it was skipped, is in `zones/draw.json`; the review note of each rejected zone is in `labels/review/<zone>/NOTE.md`.');
+  L.push(`Every attempt, with the municipality, the cell, the Esri capture where it applies and the reason it was skipped, is in \`zones/${base(pre.drawFile)}\`; the review note of each rejected zone is in \`labels/review/<zone>/NOTE.md\`.`);
   return L.join('\n') + '\n';
 }
