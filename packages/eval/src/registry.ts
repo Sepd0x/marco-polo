@@ -50,11 +50,15 @@ export interface SeenSite {
 export interface Registry {
   about: string;
   minDistanceKm: number;
+  /** TEST rules v2: a smaller minimum for some kinds of site, per stratum (pt-north: DEV and seen at 30 km). */
+  minDistanceKmByStratum?: Record<string, Partial<Record<Role | 'seen', number>>>;
   zones: ZoneDef[];
   seen: SeenSite[];
   notSeen?: { reason: string; sites: string[] };
   /** TEST draws rejected after review (too few pools): on record, not protected. */
   rejectedTest?: Array<{ id: string; stratum: string; bbox: BBox; pools: number }>;
+  /** TEST draws of rules v1 that rules v2 dropped before any review: on record, not protected. */
+  retiredTest?: Array<{ id: string; stratum: string; bbox: BBox; why: string }>;
 }
 
 export function loadRegistry(dir = ZONES_DIR): Registry {
@@ -88,6 +92,11 @@ export function protectedSites(reg: Registry, exceptTestId?: string): ProtectedS
   ];
 }
 
+/** Minimum distance between a TEST zone of `stratum` and a site of `kind`. */
+export function minKmFor(reg: Pick<Registry, 'minDistanceKm' | 'minDistanceKmByStratum'>, stratum: string | undefined, kind: Role | 'seen'): number {
+  return (stratum ? reg.minDistanceKmByStratum?.[stratum]?.[kind] : undefined) ?? reg.minDistanceKm;
+}
+
 export function nearest(center: [number, number], sites: ProtectedSite[]): { site: ProtectedSite; km: number } | null {
   let best: { site: ProtectedSite; km: number } | null = null;
   for (const s of sites) {
@@ -104,7 +113,8 @@ export interface CheckIssue {
 
 /**
  * Registry rules: ids unique, roles known, and every TEST zone at least
- * `minDistanceKm` from every other zone (TEST included) and every seen site.
+ * `minDistanceKm` from every other zone (TEST included) and every seen site,
+ * or the smaller limit its stratum has for that kind of site.
  * TRAIN zones added later are caught by the same rule seen from the TEST side.
  */
 export function checkRegistry(reg: Registry): CheckIssue[] {
@@ -121,8 +131,11 @@ export function checkRegistry(reg: Registry): CheckIssue[] {
   for (const t of reg.zones.filter((z) => z.role === 'TEST')) {
     for (const s of protectedSites(reg, t.id)) {
       const km = haversineKm(zoneCenter(t), s.center);
-      if (km < reg.minDistanceKm) {
-        issues.push({ zone: t.id, problem: `${km.toFixed(1)} km from ${s.kind} ${s.id} (minimum ${reg.minDistanceKm} km)` });
+      // Between two TEST zones the stricter of their two limits holds.
+      const other = s.kind === 'TEST' ? reg.zones.find((z) => z.id === s.id)?.stratum : undefined;
+      const min = Math.max(minKmFor(reg, t.stratum, s.kind), s.kind === 'TEST' ? minKmFor(reg, other, 'TEST') : 0);
+      if (km < min) {
+        issues.push({ zone: t.id, problem: `${km.toFixed(1)} km from ${s.kind} ${s.id} (minimum ${min} km)` });
       }
     }
   }

@@ -27,18 +27,25 @@ the places phase 0 looked at.
 | TRAIN | zones a model learns from |
 
 `eval zones check` fails when a TEST zone sits less than 50 km from any other
-zone or seen place, so a training zone added near a TEST zone is caught.
+zone or seen place (or the smaller minimum its stratum has), so a training
+zone added near a TEST zone is caught.
 
 ### The TEST draw
 
 1. `zones/test-candidates.json` lists, per stratum, the municipalities a TEST
-   zone may come from, with official codes and the rules of the draw. It was
-   committed in `ddf92d4`, before any imagery of a candidate was opened, and
-   is never edited.
-2. `eval zones draw --stratum <id>` hashes that commit with the stratum name
-   to pick a municipality, then a 1 km cell of it (OSM land use only), and
-   writes every attempt to `zones/draw.json`.
-3. A zone with fewer than 40 pools after review is rejected
+   zone may come from, with official codes. It was committed in `ddf92d4`,
+   before any imagery of a candidate was opened, and is never edited.
+2. `zones/test-candidates-v2.json` holds the rules in force: cells of 2 km,
+   at least 20 pools, 50 km from every other zone and seen place (30 km from
+   DEV zones and seen places in the north of Portugal). It keeps two zones of
+   the first draw (Viseu, Dunkerque) and was committed before any imagery of
+   a v2 cell was opened. The first rules (1 km cells, 40 pools) ran out in
+   the north of Portugal and rejected 53 of the 55 zones reviewed; that draw
+   stays in `zones/draw.json`.
+3. `eval zones draw --stratum <id>` hashes the commit that added the rules
+   with the stratum name to pick a municipality, then a cell of it (OSM land
+   use only), and writes every attempt to `zones/draw-v2.json`.
+4. A zone with fewer than 20 pools after review is rejected
    (`eval zones reject`) and the next municipality in the hashed order is
    drawn. Rejected zones stay on record in the registry.
 
@@ -48,8 +55,8 @@ hard imagery (Esri winter or low-sun captures). The last two are reported
 apart and never enter the totals. `results/TEST_ZONES.md` says where each
 stratum stands.
 
-Do not rebase or squash the commits that added the list and the draw: the draw
-is a function of the list's commit hash.
+Do not rebase or squash the commits that added the lists and the draws: each
+draw is a function of the commit hash of its rules.
 
 ## Labels
 

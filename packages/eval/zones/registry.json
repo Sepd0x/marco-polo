@@ -1,6 +1,12 @@
 {
- "about": "Zone registry of the benchmark. Roles: DEV (tune here), DEV-2 (confirmation, run at a freeze), GOLD (phase 0 gold, DEV-like), TEST (pre-registered draw, never tuned on), TRAIN (zones a model was trained on). seen: places whose imagery was looked at in phase 0. Every TEST zone must be at least minDistanceKm from every other zone and seen site (eval zones check).",
+ "about": "Zone registry of the benchmark. Roles: DEV (tune here), DEV-2 (confirmation, run at a freeze), GOLD (phase 0 gold, DEV-like), TEST (pre-registered draw, never tuned on), TRAIN (zones a model was trained on). seen: places whose imagery was looked at in phase 0. Every TEST zone must be at least minDistanceKm from every other zone and seen site (eval zones check). minDistanceKmByStratum: the smaller minimum some TEST strata have for some kinds of site (rules v2 of the draw).",
  "minDistanceKm": 50,
+ "minDistanceKmByStratum": {
+  "pt-north": {
+   "DEV": 30,
+   "seen": 30
+  }
+ },
  "zones": [
   {
    "id": "vilamoura",
@@ -511,79 +517,98 @@
    "reportedApart": false
   },
   {
-   "id": "test-es-aranguren",
-   "name": "Aranguren, ES (TEST es)",
+   "id": "test-es-la-nucia",
+   "name": "la Nucia, ES (TEST es)",
    "role": "TEST",
    "country": "ES",
    "productSource": "pnoa",
    "labelSource": "pnoa",
    "bbox": {
-    "west": -1.622784,
-    "south": 42.799067,
-    "east": -1.610545,
-    "north": 42.808111
+    "west": -0.150131,
+    "south": 38.56718,
+    "east": -0.127142,
+    "north": 38.585267
    },
-   "areaKm2": 1,
-   "why": "drawn for stratum es: Aranguren (31023), cell 6/1",
+   "areaKm2": 4,
+   "why": "drawn for stratum es under rules v2: la Nucia (03094), cell 0/1",
    "review": "blind",
    "stratum": "es",
    "reportedApart": false
   },
   {
-   "id": "test-us-south-el-monte-city-ca",
-   "name": "South El Monte city, CA, US (TEST us)",
-   "role": "TEST",
-   "country": "US",
-   "productSource": "esri",
-   "labelSource": "esri",
-   "bbox": {
-    "west": -118.037829,
-    "south": 34.033053,
-    "east": -118.026987,
-    "north": 34.042097
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum us: South El Monte city, CA (0672996), cell 0/3",
-   "review": "blind",
-   "stratum": "us",
-   "reportedApart": false
-  },
-  {
-   "id": "test-hard-fiumicino",
-   "name": "Fiumicino, IT (TEST hard)",
-   "role": "TEST",
-   "country": "IT",
-   "productSource": "esri",
-   "labelSource": "esri",
-   "bbox": {
-    "west": 12.151372,
-    "south": 41.894696,
-    "east": 12.163438,
-    "north": 41.90374
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum hard: Fiumicino (058120), cell 17/2",
-   "review": "blind",
-   "stratum": "hard",
-   "reportedApart": true
-  },
-  {
-   "id": "test-fr-domont",
-   "name": "Domont, FR (TEST fr)",
+   "id": "test-fr-dammarie-les-lys",
+   "name": "Dammarie-les-Lys, FR (TEST fr)",
    "role": "TEST",
    "country": "FR",
    "productSource": "ign",
    "labelSource": "ign",
    "bbox": {
-    "west": 2.33479,
-    "south": 49.028725,
-    "east": 2.348491,
-    "north": 49.037769
+    "west": 2.639075,
+    "south": 48.512768,
+    "east": 2.666196,
+    "north": 48.530856
    },
-   "areaKm2": 1,
-   "why": "drawn for stratum fr: Domont (95199), cell 2/3",
+   "areaKm2": 4,
+   "why": "drawn for stratum fr under rules v2: Dammarie-les-Lys (77152), cell 1/2",
    "review": "blind",
    "stratum": "fr",
+   "reportedApart": false
+  },
+  {
+   "id": "test-us-santa-fe-springs-city-ca",
+   "name": "Santa Fe Springs city, CA, US (TEST us)",
+   "role": "TEST",
+   "country": "US",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": -118.098421,
+    "south": 33.954979,
+    "east": -118.076768,
+    "north": 33.973066
+   },
+   "areaKm2": 4,
+   "why": "drawn for stratum us under rules v2: Santa Fe Springs city, CA (0669154), cell 4/0",
+   "review": "blind",
+   "stratum": "us",
+   "reportedApart": false
+  },
+  {
+   "id": "test-hard-brixen-bressanone",
+   "name": "Brixen - Bressanone, IT (TEST hard)",
+   "role": "TEST",
+   "country": "IT",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": 11.636675,
+    "south": 46.711951,
+    "east": 11.662873,
+    "north": 46.730038
+   },
+   "areaKm2": 4,
+   "why": "drawn for stratum hard under rules v2: Brixen - Bressanone (021011), cell 3/2",
+   "review": "blind",
+   "stratum": "hard",
+   "reportedApart": true
+  },
+  {
+   "id": "test-pt-north-mirandela-v2",
+   "name": "Mirandela, PT (TEST pt-north)",
+   "role": "TEST",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
+   "bbox": {
+    "west": -7.198852,
+    "south": 41.478393,
+    "east": -7.174851,
+    "north": 41.496481
+   },
+   "areaKm2": 4,
+   "why": "drawn for stratum pt-north under rules v2: Mirandela (0407), cell 8/7",
+   "review": "blind",
+   "stratum": "pt-north",
    "reportedApart": false
   }
  ],
@@ -1346,6 +1371,63 @@
     "north": 48.984656
    },
    "pools": 0
+  },
+  {
+   "id": "test-pt-north-braganca-v2",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -6.785878,
+    "south": 41.805888,
+    "east": -6.761791,
+    "north": 41.823976
+   },
+   "pools": 7
+  }
+ ],
+ "retiredTest": [
+  {
+   "id": "test-es-aranguren",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.622784,
+    "south": 42.799067,
+    "east": -1.610545,
+    "north": 42.808111
+   },
+   "why": "drawn under v1, not reviewed; replaced by a v2 draw"
+  },
+  {
+   "id": "test-fr-domont",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.33479,
+    "south": 49.028725,
+    "east": 2.348491,
+    "north": 49.037769
+   },
+   "why": "drawn under v1, not reviewed; replaced by a v2 draw"
+  },
+  {
+   "id": "test-us-south-el-monte-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -118.037829,
+    "south": 34.033053,
+    "east": -118.026987,
+    "north": 34.042097
+   },
+   "why": "drawn under v1, not reviewed; replaced by a v2 draw"
+  },
+  {
+   "id": "test-hard-fiumicino",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.151372,
+    "south": 41.894696,
+    "east": 12.163438,
+    "north": 41.90374
+   },
+   "why": "drawn under v1, not reviewed; replaced by a v2 draw"
   }
  ]
 }

@@ -1,0 +1,4433 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-fr-dammarie-les-lys",
+ "review": "blind",
+ "source": "ign",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0,
+  1.7
+ ],
+ "osmShiftPairs": 2,
+ "windows": 121,
+ "poolsInZone": 64,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.665257453918457,
+        48.53101136295736
+       ],
+       [
+        2.665528357028961,
+        48.53101136295736
+       ],
+       [
+        2.665528357028961,
+        48.53108063462855
+       ],
+       [
+        2.665257453918457,
+        48.53108063462855
+       ],
+       [
+        2.665257453918457,
+        48.53101136295736
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.653600573539734,
+        48.524341300538126
+       ],
+       [
+        2.653672993183136,
+        48.524341300538126
+       ],
+       [
+        2.653672993183136,
+        48.52441768705104
+       ],
+       [
+        2.653600573539734,
+        48.52441768705104
+       ],
+       [
+        2.653600573539734,
+        48.524341300538126
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6502960920333862,
+        48.530244039645304
+       ],
+       [
+        2.65033096075058,
+        48.530244039645304
+       ],
+       [
+        2.65033096075058,
+        48.530277787905796
+       ],
+       [
+        2.6502960920333862,
+        48.530277787905796
+       ],
+       [
+        2.6502960920333862,
+        48.530244039645304
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b100",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.648579478263855,
+        48.5156378130935
+       ],
+       [
+        2.6486197113990784,
+        48.5156378130935
+       ],
+       [
+        2.6486197113990784,
+        48.515664464143306
+       ],
+       [
+        2.648579478263855,
+        48.515664464143306
+       ],
+       [
+        2.648579478263855,
+        48.5156378130935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b101",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6592305302619934,
+        48.518162493633604
+       ],
+       [
+        2.659270763397217,
+        48.518162493633604
+       ],
+       [
+        2.659270763397217,
+        48.51818914335529
+       ],
+       [
+        2.6592305302619934,
+        48.51818914335529
+       ],
+       [
+        2.6592305302619934,
+        48.518162493633604
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b102",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.649427056312561,
+        48.52129107516918
+       ],
+       [
+        2.6494672894477844,
+        48.52129107516918
+       ],
+       [
+        2.6494672894477844,
+        48.52131594670703
+       ],
+       [
+        2.649427056312561,
+        48.52131594670703
+       ],
+       [
+        2.649427056312561,
+        48.52129107516918
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b103",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6497918367385864,
+        48.52156999100142
+       ],
+       [
+        2.64982670545578,
+        48.52156999100142
+       ],
+       [
+        2.64982670545578,
+        48.521596638930504
+       ],
+       [
+        2.6497918367385864,
+        48.521596638930504
+       ],
+       [
+        2.6497918367385864,
+        48.52156999100142
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b104",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.656819224357605,
+        48.52394337823552
+       ],
+       [
+        2.6568594574928284,
+        48.52394337823552
+       ],
+       [
+        2.6568594574928284,
+        48.523966472026046
+       ],
+       [
+        2.656819224357605,
+        48.523966472026046
+       ],
+       [
+        2.656819224357605,
+        48.52394337823552
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b105",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6562774181365967,
+        48.519503845552464
+       ],
+       [
+        2.6563122868537903,
+        48.519503845552464
+       ],
+       [
+        2.6563122868537903,
+        48.519528717967866
+       ],
+       [
+        2.6562774181365967,
+        48.519528717967866
+       ],
+       [
+        2.6562774181365967,
+        48.519503845552464
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b106",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.653544247150421,
+        48.52424004382018
+       ],
+       [
+        2.6535791158676147,
+        48.52424004382018
+       ],
+       [
+        2.6535791158676147,
+        48.52426491391001
+       ],
+       [
+        2.653544247150421,
+        48.52426491391001
+       ],
+       [
+        2.653544247150421,
+        48.52424004382018
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b107",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.646980881690979,
+        48.525487086135236
+       ],
+       [
+        2.6470157504081726,
+        48.525487086135236
+       ],
+       [
+        2.6470157504081726,
+        48.52551195561271
+       ],
+       [
+        2.646980881690979,
+        48.52551195561271
+       ],
+       [
+        2.646980881690979,
+        48.525487086135236
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b108",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.652251422405243,
+        48.52001372762733
+       ],
+       [
+        2.6522836089134216,
+        48.52001372762733
+       ],
+       [
+        2.6522836089134216,
+        48.52003859979238
+       ],
+       [
+        2.652251422405243,
+        48.52003859979238
+       ],
+       [
+        2.652251422405243,
+        48.52001372762733
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b109",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6435261964797974,
+        48.519404355768714
+       ],
+       [
+        2.643609344959259,
+        48.519404355768714
+       ],
+       [
+        2.643609344959259,
+        48.51946298370064
+       ],
+       [
+        2.6435261964797974,
+        48.51946298370064
+       ],
+       [
+        2.6435261964797974,
+        48.519404355768714
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6486384868621826,
+        48.530508696453126
+       ],
+       [
+        2.648673355579376,
+        48.530508696453126
+       ],
+       [
+        2.648673355579376,
+        48.53052823482035
+       ],
+       [
+        2.6486384868621826,
+        48.53052823482035
+       ],
+       [
+        2.6486384868621826,
+        48.530508696453126
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b110",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6409512758255005,
+        48.519246237674636
+       ],
+       [
+        2.6410210132598877,
+        48.519246237674636
+       ],
+       [
+        2.6410210132598877,
+        48.519311972223136
+       ],
+       [
+        2.6409512758255005,
+        48.519311972223136
+       ],
+       [
+        2.6409512758255005,
+        48.519246237674636
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6579350233078003,
+        48.51983962213002
+       ],
+       [
+        2.6580315828323364,
+        48.51983962213002
+       ],
+       [
+        2.6580315828323364,
+        48.519884036854556
+       ],
+       [
+        2.6579350233078003,
+        48.519884036854556
+       ],
+       [
+        2.6579350233078003,
+        48.51983962213002
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6394009590148926,
+        48.518034574774376
+       ],
+       [
+        2.639489471912384,
+        48.518034574774376
+       ],
+       [
+        2.639489471912384,
+        48.51808254438444
+       ],
+       [
+        2.6394009590148926,
+        48.51808254438444
+       ],
+       [
+        2.6394009590148926,
+        48.518034574774376
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6533913612365723,
+        48.52069593115663
+       ],
+       [
+        2.653469145298004,
+        48.52069593115663
+       ],
+       [
+        2.653469145298004,
+        48.52074389824658
+       ],
+       [
+        2.6533913612365723,
+        48.52074389824658
+       ],
+       [
+        2.6533913612365723,
+        48.52069593115663
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6498669385910034,
+        48.521214683940826
+       ],
+       [
+        2.6499393582344055,
+        48.521214683940826
+       ],
+       [
+        2.6499393582344055,
+        48.521266203619106
+       ],
+       [
+        2.6498669385910034,
+        48.521266203619106
+       ],
+       [
+        2.6498669385910034,
+        48.521214683940826
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.651154398918152,
+        48.52185068181711
+       ],
+       [
+        2.6512321829795837,
+        48.52185068181711
+       ],
+       [
+        2.6512321829795837,
+        48.52189864781354
+       ],
+       [
+        2.651154398918152,
+        48.52189864781354
+       ],
+       [
+        2.651154398918152,
+        48.52185068181711
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b17",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6617276668548584,
+        48.51871325169935
+       ],
+       [
+        2.661783993244171,
+        48.51871325169935
+       ],
+       [
+        2.661783993244171,
+        48.51877543368543
+       ],
+       [
+        2.6617276668548584,
+        48.51877543368543
+       ],
+       [
+        2.6617276668548584,
+        48.51871325169935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b18",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6520663499832153,
+        48.52576953162547
+       ],
+       [
+        2.652144134044647,
+        48.52576953162547
+       ],
+       [
+        2.652144134044647,
+        48.525813941150446
+       ],
+       [
+        2.6520663499832153,
+        48.525813941150446
+       ],
+       [
+        2.6520663499832153,
+        48.52576953162547
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b19",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.650121748447418,
+        48.523852779417204
+       ],
+       [
+        2.6502934098243713,
+        48.523852779417204
+       ],
+       [
+        2.6502934098243713,
+        48.52393094311319
+       ],
+       [
+        2.650121748447418,
+        48.52393094311319
+       ],
+       [
+        2.650121748447418,
+        48.523852779417204
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.655998468399048,
+        48.53003266844956
+       ],
+       [
+        2.6560762524604797,
+        48.53003266844956
+       ],
+       [
+        2.6560762524604797,
+        48.53007707423616
+       ],
+       [
+        2.655998468399048,
+        48.53007707423616
+       ],
+       [
+        2.655998468399048,
+        48.53003266844956
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b20",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6541155576705933,
+        48.53102024394614
+       ],
+       [
+        2.6541826128959656,
+        48.53102024394614
+       ],
+       [
+        2.6541826128959656,
+        48.53107175365037
+       ],
+       [
+        2.6541155576705933,
+        48.53107175365037
+       ],
+       [
+        2.6541155576705933,
+        48.53102024394614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b21",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.648853063583374,
+        48.52452249626499
+       ],
+       [
+        2.6489362120628357,
+        48.52452249626499
+       ],
+       [
+        2.6489362120628357,
+        48.524563354035415
+       ],
+       [
+        2.648853063583374,
+        48.524563354035415
+       ],
+       [
+        2.648853063583374,
+        48.52452249626499
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b22",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6573020219802856,
+        48.518834062345235
+       ],
+       [
+        2.657390534877777,
+        48.518834062345235
+       ],
+       [
+        2.657390534877777,
+        48.518871371457074
+       ],
+       [
+        2.6573020219802856,
+        48.518871371457074
+       ],
+       [
+        2.6573020219802856,
+        48.518834062345235
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b23",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6584070920944214,
+        48.52336070065189
+       ],
+       [
+        2.6584741473197937,
+        48.52336070065189
+       ],
+       [
+        2.6584741473197937,
+        48.52340866521836
+       ],
+       [
+        2.6584070920944214,
+        48.52340866521836
+       ],
+       [
+        2.6584070920944214,
+        48.52336070065189
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b24",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6595282554626465,
+        48.52457223615505
+       ],
+       [
+        2.659595310688019,
+        48.52457223615505
+       ],
+       [
+        2.659595310688019,
+        48.524620199574194
+       ],
+       [
+        2.6595282554626465,
+        48.524620199574194
+       ],
+       [
+        2.6595282554626465,
+        48.52457223615505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b25",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6564866304397583,
+        48.51905791660403
+       ],
+       [
+        2.65656441450119,
+        48.51905791660403
+       ],
+       [
+        2.65656441450119,
+        48.5190987787826
+       ],
+       [
+        2.6564866304397583,
+        48.5190987787826
+       ],
+       [
+        2.6564866304397583,
+        48.51905791660403
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b26",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6436173915863037,
+        48.51977566485828
+       ],
+       [
+        2.6436951756477356,
+        48.51977566485828
+       ],
+       [
+        2.6436951756477356,
+        48.51981652645787
+       ],
+       [
+        2.6436173915863037,
+        48.51981652645787
+       ],
+       [
+        2.6436173915863037,
+        48.51977566485828
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b27",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6437193155288696,
+        48.52579440096426
+       ],
+       [
+        2.643781006336212,
+        48.52579440096426
+       ],
+       [
+        2.643781006336212,
+        48.52584236322599
+       ],
+       [
+        2.6437193155288696,
+        48.52584236322599
+       ],
+       [
+        2.6437193155288696,
+        48.52579440096426
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b28",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6465141773223877,
+        48.53040212340828
+       ],
+       [
+        2.64658659696579,
+        48.53040212340828
+       ],
+       [
+        2.64658659696579,
+        48.53044297643531
+       ],
+       [
+        2.6465141773223877,
+        48.53044297643531
+       ],
+       [
+        2.6465141773223877,
+        48.53040212340828
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b29",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.656765580177307,
+        48.51840056398386
+       ],
+       [
+        2.6569533348083496,
+        48.51840056398386
+       ],
+       [
+        2.6569533348083496,
+        48.51846807626764
+       ],
+       [
+        2.656765580177307,
+        48.51846807626764
+       ],
+       [
+        2.656765580177307,
+        48.51840056398386
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.655842900276184,
+        48.53018897664568
+       ],
+       [
+        2.655899226665497,
+        48.53018897664568
+       ],
+       [
+        2.655899226665497,
+        48.53024048719552
+       ],
+       [
+        2.655842900276184,
+        48.53024048719552
+       ],
+       [
+        2.655842900276184,
+        48.53018897664568
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b30",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.652050256729126,
+        48.53067921285833
+       ],
+       [
+        2.6521173119544983,
+        48.53067921285833
+       ],
+       [
+        2.6521173119544983,
+        48.53072006566182
+       ],
+       [
+        2.652050256729126,
+        48.53072006566182
+       ],
+       [
+        2.652050256729126,
+        48.53067921285833
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b31",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6586592197418213,
+        48.521957272858614
+       ],
+       [
+        2.6587316393852234,
+        48.521957272858614
+       ],
+       [
+        2.6587316393852234,
+        48.52199457967014
+       ],
+       [
+        2.6586592197418213,
+        48.52199457967014
+       ],
+       [
+        2.6586592197418213,
+        48.521957272858614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b32",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.653369903564453,
+        48.52080252462815
+       ],
+       [
+        2.653426229953766,
+        48.52080252462815
+       ],
+       [
+        2.653426229953766,
+        48.52084871506281
+       ],
+       [
+        2.653369903564453,
+        48.52084871506281
+       ],
+       [
+        2.653369903564453,
+        48.52080252462815
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b33",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6523882150650024,
+        48.51999063203457
+       ],
+       [
+        2.652449905872345,
+        48.51999063203457
+       ],
+       [
+        2.652449905872345,
+        48.520031493460756
+       ],
+       [
+        2.6523882150650024,
+        48.520031493460756
+       ],
+       [
+        2.6523882150650024,
+        48.51999063203457
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b34",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.64620840549469,
+        48.52679449353935
+       ],
+       [
+        2.6462754607200623,
+        48.52679449353935
+       ],
+       [
+        2.6462754607200623,
+        48.526831796787974
+       ],
+       [
+        2.64620840549469,
+        48.526831796787974
+       ],
+       [
+        2.64620840549469,
+        48.52679449353935
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b35",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.650376558303833,
+        48.52209761738782
+       ],
+       [
+        2.6504436135292053,
+        48.52209761738782
+       ],
+       [
+        2.6504436135292053,
+        48.522133147586686
+       ],
+       [
+        2.650376558303833,
+        48.522133147586686
+       ],
+       [
+        2.650376558303833,
+        48.52209761738782
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b36",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.658396363258362,
+        48.53001845858962
+       ],
+       [
+        2.6584741473197937,
+        48.53001845858962
+       ],
+       [
+        2.6584741473197937,
+        48.53004865453722
+       ],
+       [
+        2.658396363258362,
+        48.53004865453722
+       ],
+       [
+        2.658396363258362,
+        48.53001845858962
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b37",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6609954237937927,
+        48.51418619807023
+       ],
+       [
+        2.6610544323921204,
+        48.51418619807023
+       ],
+       [
+        2.6610544323921204,
+        48.51422528739177
+       ],
+       [
+        2.6609954237937927,
+        48.51422528739177
+       ],
+       [
+        2.6609954237937927,
+        48.51418619807023
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b38",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6467475295066833,
+        48.52129640478546
+       ],
+       [
+        2.646806538105011,
+        48.52129640478546
+       ],
+       [
+        2.646806538105011,
+        48.52133371208374
+       ],
+       [
+        2.6467475295066833,
+        48.52133371208374
+       ],
+       [
+        2.6467475295066833,
+        48.52129640478546
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b39",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6439446210861206,
+        48.524778300893466
+       ],
+       [
+        2.644059956073761,
+        48.524778300893466
+       ],
+       [
+        2.644059956073761,
+        48.5248582395749
+       ],
+       [
+        2.6439446210861206,
+        48.5248582395749
+       ],
+       [
+        2.6439446210861206,
+        48.524778300893466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6579296588897705,
+        48.52119691852237
+       ],
+       [
+        2.6579752564430237,
+        48.52119691852237
+       ],
+       [
+        2.6579752564430237,
+        48.5212448851379
+       ],
+       [
+        2.6579296588897705,
+        48.5212448851379
+       ],
+       [
+        2.6579296588897705,
+        48.52119691852237
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b40",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6404523849487305,
+        48.51771122288442
+       ],
+       [
+        2.640508711338043,
+        48.51771122288442
+       ],
+       [
+        2.640508711338043,
+        48.51774853282321
+       ],
+       [
+        2.6404523849487305,
+        48.51774853282321
+       ],
+       [
+        2.6404523849487305,
+        48.51771122288442
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b41",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6569104194641113,
+        48.52277091041766
+       ],
+       [
+        2.656966745853424,
+        48.52277091041766
+       ],
+       [
+        2.656966745853424,
+        48.52280821662991
+       ],
+       [
+        2.6569104194641113,
+        48.52280821662991
+       ],
+       [
+        2.6569104194641113,
+        48.52277091041766
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b42",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.641412615776062,
+        48.51965840965034
+       ],
+       [
+        2.6414743065834045,
+        48.51965840965034
+       ],
+       [
+        2.6414743065834045,
+        48.51969216496529
+       ],
+       [
+        2.641412615776062,
+        48.51969216496529
+       ],
+       [
+        2.641412615776062,
+        48.51965840965034
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b43",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6519858837127686,
+        48.52325766550366
+       ],
+       [
+        2.6520368456840515,
+        48.52325766550366
+       ],
+       [
+        2.6520368456840515,
+        48.52329852429441
+       ],
+       [
+        2.6519858837127686,
+        48.52329852429441
+       ],
+       [
+        2.6519858837127686,
+        48.52325766550366
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b44",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.654520571231842,
+        48.52036548996948
+       ],
+       [
+        2.654571533203125,
+        48.52036548996948
+       ],
+       [
+        2.654571533203125,
+        48.52040457452337
+       ],
+       [
+        2.654520571231842,
+        48.52040457452337
+       ],
+       [
+        2.654520571231842,
+        48.52036548996948
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b45",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6390844583511353,
+        48.517814269315174
+       ],
+       [
+        2.639140784740448,
+        48.517814269315174
+       ],
+       [
+        2.639140784740448,
+        48.517848025858974
+       ],
+       [
+        2.6390844583511353,
+        48.517848025858974
+       ],
+       [
+        2.6390844583511353,
+        48.517814269315174
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b46",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6491695642471313,
+        48.52700943092828
+       ],
+       [
+        2.649225890636444,
+        48.52700943092828
+       ],
+       [
+        2.649225890636444,
+        48.527043181344496
+       ],
+       [
+        2.6491695642471313,
+        48.527043181344496
+       ],
+       [
+        2.6491695642471313,
+        48.52700943092828
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b47",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.651921510696411,
+        48.53067210801957
+       ],
+       [
+        2.651972472667694,
+        48.53067210801957
+       ],
+       [
+        2.651972472667694,
+        48.530709408411916
+       ],
+       [
+        2.651921510696411,
+        48.530709408411916
+       ],
+       [
+        2.651921510696411,
+        48.53067210801957
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b48",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6564598083496094,
+        48.518599547298855
+       ],
+       [
+        2.6565054059028625,
+        48.518599547298855
+       ],
+       [
+        2.6565054059028625,
+        48.518640409847166
+       ],
+       [
+        2.6564598083496094,
+        48.518640409847166
+       ],
+       [
+        2.6564598083496094,
+        48.518599547298855
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b49",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6609444618225098,
+        48.513612292286844
+       ],
+       [
+        2.661086618900299,
+        48.513612292286844
+       ],
+       [
+        2.661086618900299,
+        48.513674480534064
+       ],
+       [
+        2.6609444618225098,
+        48.513674480534064
+       ],
+       [
+        2.6609444618225098,
+        48.513612292286844
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6481986045837402,
+        48.5302458158701
+       ],
+       [
+        2.648249566555023,
+        48.5302458158701
+       ],
+       [
+        2.648249566555023,
+        48.5302795641294
+       ],
+       [
+        2.6481986045837402,
+        48.5302795641294
+       ],
+       [
+        2.6481986045837402,
+        48.5302458158701
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b50",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.657296657562256,
+        48.52183291662171
+       ],
+       [
+        2.6573529839515686,
+        48.52183291662171
+       ],
+       [
+        2.6573529839515686,
+        48.521863117450174
+       ],
+       [
+        2.657296657562256,
+        48.521863117450174
+       ],
+       [
+        2.657296657562256,
+        48.52183291662171
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b51",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6436924934387207,
+        48.518428990219576
+       ],
+       [
+        2.643738090991974,
+        48.518428990219576
+       ],
+       [
+        2.643738090991974,
+        48.51846274635377
+       ],
+       [
+        2.6436924934387207,
+        48.51846274635377
+       ],
+       [
+        2.6436924934387207,
+        48.518428990219576
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b52",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6556015014648438,
+        48.530277787905796
+       ],
+       [
+        2.6556551456451416,
+        48.530277787905796
+       ],
+       [
+        2.6556551456451416,
+        48.53030443125346
+       ],
+       [
+        2.6556015014648438,
+        48.53030443125346
+       ],
+       [
+        2.6556015014648438,
+        48.530277787905796
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b53",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6498937606811523,
+        48.521516695101226
+       ],
+       [
+        2.6499393582344055,
+        48.521516695101226
+       ],
+       [
+        2.6499393582344055,
+        48.52154689611822
+       ],
+       [
+        2.6498937606811523,
+        48.52154689611822
+       ],
+       [
+        2.6498937606811523,
+        48.521516695101226
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b54",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.656888961791992,
+        48.523467288515704
+       ],
+       [
+        2.6569345593452454,
+        48.523467288515704
+       ],
+       [
+        2.6569345593452454,
+        48.52349748836967
+       ],
+       [
+        2.656888961791992,
+        48.52349748836967
+       ],
+       [
+        2.656888961791992,
+        48.523467288515704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b55",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.64620304107666,
+        48.523822579775086
+       ],
+       [
+        2.6462486386299133,
+        48.523822579775086
+       ],
+       [
+        2.6462486386299133,
+        48.523852779417204
+       ],
+       [
+        2.64620304107666,
+        48.523852779417204
+       ],
+       [
+        2.64620304107666,
+        48.523822579775086
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b56",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6456397771835327,
+        48.523946931127064
+       ],
+       [
+        2.645685374736786,
+        48.523946931127064
+       ],
+       [
+        2.645685374736786,
+        48.52397713069504
+       ],
+       [
+        2.6456397771835327,
+        48.52397713069504
+       ],
+       [
+        2.6456397771835327,
+        48.523946931127064
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b57",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6497650146484375,
+        48.5269810095077
+       ],
+       [
+        2.6498106122016907,
+        48.5269810095077
+       ],
+       [
+        2.6498106122016907,
+        48.52701120726653
+       ],
+       [
+        2.6497650146484375,
+        48.52701120726653
+       ],
+       [
+        2.6497650146484375,
+        48.5269810095077
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b58",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.656373977661133,
+        48.52239429378361
+       ],
+       [
+        2.6564088463783264,
+        48.52239429378361
+       ],
+       [
+        2.6564088463783264,
+        48.52243160027327
+       ],
+       [
+        2.656373977661133,
+        48.52243160027327
+       ],
+       [
+        2.656373977661133,
+        48.52239429378361
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b59",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.65718936920166,
+        48.522380081780334
+       ],
+       [
+        2.657293975353241,
+        48.522380081780334
+       ],
+       [
+        2.657293975353241,
+        48.52244936525868
+       ],
+       [
+        2.65718936920166,
+        48.52244936525868
+       ],
+       [
+        2.65718936920166,
+        48.522380081780334
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6503121852874756,
+        48.52436261771611
+       ],
+       [
+        2.6503577828407288,
+        48.52436261771611
+       ],
+       [
+        2.6503577828407288,
+        48.52438926417598
+       ],
+       [
+        2.6503121852874756,
+        48.52438926417598
+       ],
+       [
+        2.6503121852874756,
+        48.52436261771611
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b60",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.649872303009033,
+        48.526558238993324
+       ],
+       [
+        2.6499125361442566,
+        48.526558238993324
+       ],
+       [
+        2.6499125361442566,
+        48.5265831079448
+       ],
+       [
+        2.649872303009033,
+        48.5265831079448
+       ],
+       [
+        2.649872303009033,
+        48.526558238993324
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b61",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.647431492805481,
+        48.52699522021998
+       ],
+       [
+        2.6474690437316895,
+        48.52699522021998
+       ],
+       [
+        2.6474690437316895,
+        48.52702008895688
+       ],
+       [
+        2.647431492805481,
+        48.52702008895688
+       ],
+       [
+        2.647431492805481,
+        48.52699522021998
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b62",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6614058017730713,
+        48.52246890673544
+       ],
+       [
+        2.661440670490265,
+        48.52246890673544
+       ],
+       [
+        2.661440670490265,
+        48.5224955541916
+       ],
+       [
+        2.6614058017730713,
+        48.5224955541916
+       ],
+       [
+        2.6614058017730713,
+        48.52246890673544
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b63",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.66069233417511,
+        48.518198026592735
+       ],
+       [
+        2.6607272028923035,
+        48.518198026592735
+       ],
+       [
+        2.6607272028923035,
+        48.51822112300281
+       ],
+       [
+        2.66069233417511,
+        48.51822112300281
+       ],
+       [
+        2.66069233417511,
+        48.518198026592735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b64",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6483112573623657,
+        48.51573020333955
+       ],
+       [
+        2.648501694202423,
+        48.51573020333955
+       ],
+       [
+        2.648501694202423,
+        48.51586523493453
+       ],
+       [
+        2.6483112573623657,
+        48.51586523493453
+       ],
+       [
+        2.6483112573623657,
+        48.51573020333955
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b65",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.651505768299103,
+        48.527306078553494
+       ],
+       [
+        2.651680111885071,
+        48.527306078553494
+       ],
+       [
+        2.651680111885071,
+        48.52744640826178
+       ],
+       [
+        2.651505768299103,
+        48.52744640826178
+       ],
+       [
+        2.651505768299103,
+        48.527306078553494
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b66",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6520663499832153,
+        48.521299957862674
+       ],
+       [
+        2.6521897315979004,
+        48.521299957862674
+       ],
+       [
+        2.6521897315979004,
+        48.5214172092708
+       ],
+       [
+        2.6520663499832153,
+        48.5214172092708
+       ],
+       [
+        2.6520663499832153,
+        48.521299957862674
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b67",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.652254104614258,
+        48.53002556352009
+       ],
+       [
+        2.652396261692047,
+        48.53002556352009
+       ],
+       [
+        2.652396261692047,
+        48.530109046378406
+       ],
+       [
+        2.652254104614258,
+        48.530109046378406
+       ],
+       [
+        2.652254104614258,
+        48.53002556352009
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b68",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.660837173461914,
+        48.514333671261916
+       ],
+       [
+        2.6609256863594055,
+        48.514333671261916
+       ],
+       [
+        2.6609256863594055,
+        48.514442054900215
+       ],
+       [
+        2.660837173461914,
+        48.514442054900215
+       ],
+       [
+        2.660837173461914,
+        48.514333671261916
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b69",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6626020669937134,
+        48.513288912170836
+       ],
+       [
+        2.6627227663993835,
+        48.513288912170836
+       ],
+       [
+        2.6627227663993835,
+        48.51334754718022
+       ],
+       [
+        2.6626020669937134,
+        48.51334754718022
+       ],
+       [
+        2.6626020669937134,
+        48.513288912170836
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.639567255973816,
+        48.51831528518104
+       ],
+       [
+        2.639690637588501,
+        48.51831528518104
+       ],
+       [
+        2.639690637588501,
+        48.518388127500735
+       ],
+       [
+        2.639567255973816,
+        48.518388127500735
+       ],
+       [
+        2.639567255973816,
+        48.51831528518104
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b70",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6407474279403687,
+        48.51553476223568
+       ],
+       [
+        2.64083594083786,
+        48.51553476223568
+       ],
+       [
+        2.64083594083786,
+        48.51560405507695
+       ],
+       [
+        2.6407474279403687,
+        48.51560405507695
+       ],
+       [
+        2.6407474279403687,
+        48.51553476223568
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b71",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.655518352985382,
+        48.52183291662171
+       ],
+       [
+        2.6556283235549927,
+        48.52183291662171
+       ],
+       [
+        2.6556283235549927,
+        48.52187910611677
+       ],
+       [
+        2.655518352985382,
+        48.52187910611677
+       ],
+       [
+        2.655518352985382,
+        48.52183291662171
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b72",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6612502336502075,
+        48.522566614006145
+       ],
+       [
+        2.661368250846863,
+        48.522566614006145
+       ],
+       [
+        2.661368250846863,
+        48.52260569686165
+       ],
+       [
+        2.6612502336502075,
+        48.52260569686165
+       ],
+       [
+        2.6612502336502075,
+        48.522566614006145
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b73",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6610544323921204,
+        48.51260305520398
+       ],
+       [
+        2.6611295342445374,
+        48.51260305520398
+       ],
+       [
+        2.6611295342445374,
+        48.51264925311512
+       ],
+       [
+        2.6610544323921204,
+        48.51264925311512
+       ],
+       [
+        2.6610544323921204,
+        48.51260305520398
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b74",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6609471440315247,
+        48.51251776664199
+       ],
+       [
+        2.661016881465912,
+        48.51251776664199
+       ],
+       [
+        2.661016881465912,
+        48.512565741475775
+       ],
+       [
+        2.6609471440315247,
+        48.512565741475775
+       ],
+       [
+        2.6609471440315247,
+        48.51251776664199
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b75",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6486384868621826,
+        48.530599283364886
+       ],
+       [
+        2.6487162709236145,
+        48.530599283364886
+       ],
+       [
+        2.6487162709236145,
+        48.53064191244376
+       ],
+       [
+        2.6486384868621826,
+        48.53064191244376
+       ],
+       [
+        2.6486384868621826,
+        48.530599283364886
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b76",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.659018635749817,
+        48.51894421297715
+       ],
+       [
+        2.659085690975189,
+        48.51894421297715
+       ],
+       [
+        2.659085690975189,
+        48.51899040510636
+       ],
+       [
+        2.659018635749817,
+        48.51899040510636
+       ],
+       [
+        2.659018635749817,
+        48.51894421297715
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b77",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6506394147872925,
+        48.52118092964044
+       ],
+       [
+        2.650706470012665,
+        48.52118092964044
+       ],
+       [
+        2.650706470012665,
+        48.521221790106466
+       ],
+       [
+        2.6506394147872925,
+        48.521221790106466
+       ],
+       [
+        2.6506394147872925,
+        48.52118092964044
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b78",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6500922441482544,
+        48.531023796341216
+       ],
+       [
+        2.650148570537567,
+        48.531023796341216
+       ],
+       [
+        2.650148570537567,
+        48.53107175365037
+       ],
+       [
+        2.6500922441482544,
+        48.53107175365037
+       ],
+       [
+        2.6500922441482544,
+        48.531023796341216
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b79",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.660912275314331,
+        48.515891885864704
+       ],
+       [
+        2.6610544323921204,
+        48.515891885864704
+       ],
+       [
+        2.6610544323921204,
+        48.5159363040505
+       ],
+       [
+        2.660912275314331,
+        48.5159363040505
+       ],
+       [
+        2.660912275314331,
+        48.515891885864704
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.65532523393631,
+        48.51886604158563
+       ],
+       [
+        2.655394971370697,
+        48.51886604158563
+       ],
+       [
+        2.655394971370697,
+        48.51890335067391
+       ],
+       [
+        2.65532523393631,
+        48.51890335067391
+       ],
+       [
+        2.65532523393631,
+        48.51886604158563
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b80",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.647050619125366,
+        48.521411879667234
+       ],
+       [
+        2.6471123099327087,
+        48.521411879667234
+       ],
+       [
+        2.6471123099327087,
+        48.52145273994696
+       ],
+       [
+        2.647050619125366,
+        48.52145273994696
+       ],
+       [
+        2.647050619125366,
+        48.521411879667234
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b81",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.655848264694214,
+        48.521637499061185
+       ],
+       [
+        2.655915319919586,
+        48.521637499061185
+       ],
+       [
+        2.655915319919586,
+        48.52167480610823
+       ],
+       [
+        2.655848264694214,
+        48.52167480610823
+       ],
+       [
+        2.655848264694214,
+        48.521637499061185
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b82",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.662017345428467,
+        48.51437631403252
+       ],
+       [
+        2.6620709896087646,
+        48.51437631403252
+       ],
+       [
+        2.6620709896087646,
+        48.51441717998733
+       ],
+       [
+        2.662017345428467,
+        48.51441717998733
+       ],
+       [
+        2.662017345428467,
+        48.51437631403252
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b83",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.653326988220215,
+        48.520838055735474
+       ],
+       [
+        2.6533833146095276,
+        48.520838055735474
+       ],
+       [
+        2.6533833146095276,
+        48.52087536337134
+       ],
+       [
+        2.653326988220215,
+        48.52087536337134
+       ],
+       [
+        2.653326988220215,
+        48.520838055735474
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b84",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.64645516872406,
+        48.52864541206586
+       ],
+       [
+        2.646506130695343,
+        48.52864541206586
+       ],
+       [
+        2.646506130695343,
+        48.528682713951106
+       ],
+       [
+        2.64645516872406,
+        48.528682713951106
+       ],
+       [
+        2.64645516872406,
+        48.52864541206586
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b85",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.649432420730591,
+        48.52986925481954
+       ],
+       [
+        2.649483382701874,
+        48.52986925481954
+       ],
+       [
+        2.649483382701874,
+        48.52990655580328
+       ],
+       [
+        2.649432420730591,
+        48.52990655580328
+       ],
+       [
+        2.649432420730591,
+        48.52986925481954
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b86",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6588094234466553,
+        48.52018250279331
+       ],
+       [
+        2.6588550209999084,
+        48.52018250279331
+       ],
+       [
+        2.6588550209999084,
+        48.52022336406473
+       ],
+       [
+        2.6588094234466553,
+        48.52022336406473
+       ],
+       [
+        2.6588094234466553,
+        48.52018250279331
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b87",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6525679230690002,
+        48.52050761547545
+       ],
+       [
+        2.652618885040283,
+        48.52050761547545
+       ],
+       [
+        2.652618885040283,
+        48.52054137022452
+       ],
+       [
+        2.6525679230690002,
+        48.52054137022452
+       ],
+       [
+        2.6525679230690002,
+        48.52050761547545
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b88",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.638915479183197,
+        48.513637167594894
+       ],
+       [
+        2.6389530301094055,
+        48.513637167594894
+       ],
+       [
+        2.6389530301094055,
+        48.51368158775746
+       ],
+       [
+        2.638915479183197,
+        48.51368158775746
+       ],
+       [
+        2.638915479183197,
+        48.513637167594894
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b89",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6621702313423157,
+        48.51291577870305
+       ],
+       [
+        2.6622775197029114,
+        48.51291577870305
+       ],
+       [
+        2.6622775197029114,
+        48.51297441414425
+       ],
+       [
+        2.6621702313423157,
+        48.51297441414425
+       ],
+       [
+        2.6621702313423157,
+        48.51291577870305
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.647152543067932,
+        48.5213088405546
+       ],
+       [
+        2.647203505039215,
+        48.5213088405546
+       ],
+       [
+        2.647203505039215,
+        48.52134081823267
+       ],
+       [
+        2.647152543067932,
+        48.52134081823267
+       ],
+       [
+        2.647152543067932,
+        48.5213088405546
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b90",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.66093373298645,
+        48.515620045719174
+       ],
+       [
+        2.6609793305397034,
+        48.515620045719174
+       ],
+       [
+        2.6609793305397034,
+        48.5156555804616
+       ],
+       [
+        2.66093373298645,
+        48.5156555804616
+       ],
+       [
+        2.66093373298645,
+        48.515620045719174
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b91",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.661089301109314,
+        48.51933329151783
+       ],
+       [
+        2.661134898662567,
+        48.51933329151783
+       ],
+       [
+        2.661134898662567,
+        48.51936349383664
+       ],
+       [
+        2.661089301109314,
+        48.51936349383664
+       ],
+       [
+        2.661089301109314,
+        48.51933329151783
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b92",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6536542177200317,
+        48.52428267825241
+       ],
+       [
+        2.653699815273285,
+        48.52428267825241
+       ],
+       [
+        2.653699815273285,
+        48.5243128776202
+       ],
+       [
+        2.6536542177200317,
+        48.5243128776202
+       ],
+       [
+        2.6536542177200317,
+        48.52428267825241
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b93",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6480859518051147,
+        48.53035949412753
+       ],
+       [
+        2.648131549358368,
+        48.53035949412753
+       ],
+       [
+        2.648131549358368,
+        48.53038968987177
+       ],
+       [
+        2.6480859518051147,
+        48.53038968987177
+       ],
+       [
+        2.6480859518051147,
+        48.53035949412753
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b94",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.646736800670624,
+        48.52867560883222
+       ],
+       [
+        2.6467877626419067,
+        48.52867560883222
+       ],
+       [
+        2.6467877626419067,
+        48.528702253022885
+       ],
+       [
+        2.646736800670624,
+        48.528702253022885
+       ],
+       [
+        2.646736800670624,
+        48.52867560883222
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b95",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.646731436252594,
+        48.51540150650532
+       ],
+       [
+        2.6467877626419067,
+        48.51540150650532
+       ],
+       [
+        2.6467877626419067,
+        48.51542460419036
+       ],
+       [
+        2.646731436252594,
+        48.51542460419036
+       ],
+       [
+        2.646731436252594,
+        48.51540150650532
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b96",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6393017172813416,
+        48.51739319895752
+       ],
+       [
+        2.63933926820755,
+        48.51739319895752
+       ],
+       [
+        2.63933926820755,
+        48.51742695578191
+       ],
+       [
+        2.6393017172813416,
+        48.51742695578191
+       ],
+       [
+        2.6393017172813416,
+        48.51739319895752
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b97",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6568835973739624,
+        48.51691527097768
+       ],
+       [
+        2.656923830509186,
+        48.51691527097768
+       ],
+       [
+        2.656923830509186,
+        48.51694547473812
+       ],
+       [
+        2.6568835973739624,
+        48.51694547473812
+       ],
+       [
+        2.6568835973739624,
+        48.51691527097768
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b98",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.650580406188965,
+        48.52537517333546
+       ],
+       [
+        2.650626003742218,
+        48.52537517333546
+       ],
+       [
+        2.650626003742218,
+        48.525401819262605
+       ],
+       [
+        2.650580406188965,
+        48.525401819262605
+       ],
+       [
+        2.650580406188965,
+        48.52537517333546
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-fr-dammarie-les-lys/b99",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6454096,
+        48.51642007904831
+       ],
+       [
+        2.6456693,
+        48.51638607904831
+       ],
+       [
+        2.6456845,
+        48.51644667904831
+       ],
+       [
+        2.6454244,
+        48.51647957904831
+       ],
+       [
+        2.6454096,
+        48.51642007904831
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/144797255",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers",
+     "sport": "swimming"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6453431,
+        48.51652287904831
+       ],
+       [
+        2.6454034,
+        48.51651487904831
+       ],
+       [
+        2.6454208,
+        48.51657087904831
+       ],
+       [
+        2.6453584,
+        48.516578979048305
+       ],
+       [
+        2.6453431,
+        48.51652287904831
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/144797289",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6677054,
+        48.52647247904831
+       ],
+       [
+        2.6678006,
+        48.526492879048305
+       ],
+       [
+        2.6678719,
+        48.526356079048306
+       ],
+       [
+        2.6677739,
+        48.526335279048304
+       ],
+       [
+        2.6677054,
+        48.52647247904831
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460273146",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "swimming_pool": "kids"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-us-santa-fe-springs-city-ca",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-08T21:04:31.034Z",
+ "bbox": [
+  -118.099720720646,
+  33.95390102659001,
+  -118.075468279354,
+  33.974143973409994
+ ],
+ "buildingsChecked": 6155,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0786444,
+        33.9733493
+       ],
+       [
+        -118.0781198,
+        33.9732314
+       ],
+       [
+        -118.0781864,
+        33.9730275
+       ],
+       [
+        -118.0786652,
+        33.973135
+       ],
+       [
+        -118.0786825,
+        33.9730821
+       ],
+       [
+        -118.0787283,
+        33.9730924
+       ],
+       [
+        -118.0786444,
+        33.9733493
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1107763862",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0789702,
+        33.9733434
+       ],
+       [
+        -118.0787331,
+        33.9732892
+       ],
+       [
+        -118.0788036,
+        33.9730772
+       ],
+       [
+        -118.0790407,
+        33.9731315
+       ],
+       [
+        -118.0789702,
+        33.9733434
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1107763863",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    }
+   }
+  }
+ ]
+}

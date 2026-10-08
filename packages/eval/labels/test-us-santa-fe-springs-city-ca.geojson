@@ -1,0 +1,9895 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-us-santa-fe-springs-city-ca",
+ "review": "blind",
+ "source": "esri",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0,
+  0
+ ],
+ "osmShiftPairs": 0,
+ "windows": 81,
+ "poolsInZone": 185,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08942317962646,
+        33.97221726184351
+       ],
+       [
+        -118.08931857347488,
+        33.97221726184351
+       ],
+       [
+        -118.08931857347488,
+        33.97236184636065
+       ],
+       [
+        -118.08942317962646,
+        33.97236184636065
+       ],
+       [
+        -118.08942317962646,
+        33.97221726184351
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0900776386261,
+        33.97244637257987
+       ],
+       [
+        -118.08996230363846,
+        33.97244637257987
+       ],
+       [
+        -118.08996230363846,
+        33.972526449973195
+       ],
+       [
+        -118.0900776386261,
+        33.972526449973195
+       ],
+       [
+        -118.0900776386261,
+        33.97244637257987
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09507727622986,
+        33.97225730065748
+       ],
+       [
+        -118.09499949216843,
+        33.97225730065748
+       ],
+       [
+        -118.09499949216843,
+        33.97232625634847
+       ],
+       [
+        -118.09507727622986,
+        33.97232625634847
+       ],
+       [
+        -118.09507727622986,
+        33.97225730065748
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b100",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08001399040222,
+        33.956578439198864
+       ],
+       [
+        -118.07990938425064,
+        33.956578439198864
+       ],
+       [
+        -118.07990938425064,
+        33.95662960930953
+       ],
+       [
+        -118.08001399040222,
+        33.95662960930953
+       ],
+       [
+        -118.08001399040222,
+        33.956578439198864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b101",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08546423912048,
+        33.96856030400856
+       ],
+       [
+        -118.08540254831314,
+        33.96856030400856
+       ],
+       [
+        -118.08540254831314,
+        33.96864705847899
+       ],
+       [
+        -118.08546423912048,
+        33.96864705847899
+       ],
+       [
+        -118.08546423912048,
+        33.96856030400856
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b102",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09750199317932,
+        33.9556662711928
+       ],
+       [
+        -118.09742957353592,
+        33.9556662711928
+       ],
+       [
+        -118.09742957353592,
+        33.95573968995516
+       ],
+       [
+        -118.09750199317932,
+        33.95573968995516
+       ],
+       [
+        -118.09750199317932,
+        33.9556662711928
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b103",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09379518032074,
+        33.9596263442864
+       ],
+       [
+        -118.09372276067734,
+        33.9596263442864
+       ],
+       [
+        -118.09372276067734,
+        33.959699759631526
+       ],
+       [
+        -118.09379518032074,
+        33.959699759631526
+       ],
+       [
+        -118.09379518032074,
+        33.9596263442864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b104",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07787358760834,
+        33.966424781451735
+       ],
+       [
+        -118.07780116796494,
+        33.966424781451735
+       ],
+       [
+        -118.07780116796494,
+        33.96649819092957
+       ],
+       [
+        -118.07787358760834,
+        33.96649819092957
+       ],
+       [
+        -118.07787358760834,
+        33.966424781451735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b105",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09755027294159,
+        33.95580198461293
+       ],
+       [
+        -118.0974805355072,
+        33.95580198461293
+       ],
+       [
+        -118.0974805355072,
+        33.95587762806463
+       ],
+       [
+        -118.09755027294159,
+        33.95587762806463
+       ],
+       [
+        -118.09755027294159,
+        33.95580198461293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b106",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09315145015717,
+        33.96409344144142
+       ],
+       [
+        -118.09305757284164,
+        33.96409344144142
+       ],
+       [
+        -118.09305757284164,
+        33.96414905621237
+       ],
+       [
+        -118.09315145015717,
+        33.96414905621237
+       ],
+       [
+        -118.09315145015717,
+        33.96409344144142
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b107",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09457302093506,
+        33.96637139270079
+       ],
+       [
+        -118.09450596570969,
+        33.96637139270079
+       ],
+       [
+        -118.09450596570969,
+        33.96644925128473
+       ],
+       [
+        -118.09457302093506,
+        33.96644925128473
+       ],
+       [
+        -118.09457302093506,
+        33.96637139270079
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b108",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0765163898468,
+        33.968164346583954
+       ],
+       [
+        -118.07644933462143,
+        33.968164346583954
+       ],
+       [
+        -118.07644933462143,
+        33.96824220352653
+       ],
+       [
+        -118.0765163898468,
+        33.96824220352653
+       ],
+       [
+        -118.0765163898468,
+        33.968164346583954
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b109",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09629499912262,
+        33.955541681632916
+       ],
+       [
+        -118.09619039297104,
+        33.955541681632916
+       ],
+       [
+        -118.09619039297104,
+        33.95562844938141
+       ],
+       [
+        -118.09629499912262,
+        33.95562844938141
+       ],
+       [
+        -118.09629499912262,
+        33.955541681632916
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09447109699249,
+        33.95933268227228
+       ],
+       [
+        -118.09440940618515,
+        33.95933268227228
+       ],
+       [
+        -118.09440940618515,
+        33.95941499672697
+       ],
+       [
+        -118.09447109699249,
+        33.95941499672697
+       ],
+       [
+        -118.09447109699249,
+        33.95933268227228
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b110",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09827983379364,
+        33.972804495892326
+       ],
+       [
+        -118.09818059206009,
+        33.972804495892326
+       ],
+       [
+        -118.09818059206009,
+        33.97285565624241
+       ],
+       [
+        -118.09827983379364,
+        33.97285565624241
+       ],
+       [
+        -118.09827983379364,
+        33.972804495892326
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b111",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08045387268066,
+        33.96622234892703
+       ],
+       [
+        -118.08038681745529,
+        33.96622234892703
+       ],
+       [
+        -118.08038681745529,
+        33.96629798311351
+       ],
+       [
+        -118.08045387268066,
+        33.96629798311351
+       ],
+       [
+        -118.08045387268066,
+        33.96622234892703
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b112",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07811498641968,
+        33.95856070229427
+       ],
+       [
+        -118.07802110910416,
+        33.95856070229427
+       ],
+       [
+        -118.07802110910416,
+        33.95861409594764
+       ],
+       [
+        -118.07811498641968,
+        33.95861409594764
+       ],
+       [
+        -118.07811498641968,
+        33.95856070229427
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b113",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0906194448471,
+        33.95879874874053
+       ],
+       [
+        -118.09053629636765,
+        33.95879874874053
+       ],
+       [
+        -118.09053629636765,
+        33.95885881643013
+       ],
+       [
+        -118.0906194448471,
+        33.95885881643013
+       ],
+       [
+        -118.0906194448471,
+        33.95879874874053
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b114",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09066504240036,
+        33.96584862607715
+       ],
+       [
+        -118.09057921171188,
+        33.96584862607715
+       ],
+       [
+        -118.09057921171188,
+        33.965906464244654
+       ],
+       [
+        -118.09066504240036,
+        33.965906464244654
+       ],
+       [
+        -118.09066504240036,
+        33.96584862607715
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b115",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09257745742798,
+        33.96064080526296
+       ],
+       [
+        -118.09248894453049,
+        33.96064080526296
+       ],
+       [
+        -118.09248894453049,
+        33.96069642229127
+       ],
+       [
+        -118.09257745742798,
+        33.96069642229127
+       ],
+       [
+        -118.09257745742798,
+        33.96064080526296
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b116",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09609651565552,
+        33.96078763413899
+       ],
+       [
+        -118.09602946043015,
+        33.96078763413899
+       ],
+       [
+        -118.09602946043015,
+        33.960861048481966
+       ],
+       [
+        -118.09609651565552,
+        33.960861048481966
+       ],
+       [
+        -118.09609651565552,
+        33.96078763413899
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b117",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09556007385254,
+        33.96482310434524
+       ],
+       [
+        -118.09547156095505,
+        33.96482310434524
+       ],
+       [
+        -118.09547156095505,
+        33.96487871863911
+       ],
+       [
+        -118.09556007385254,
+        33.96487871863911
+       ],
+       [
+        -118.09556007385254,
+        33.96482310434524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b118",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09489488601685,
+        33.96534365271318
+       ],
+       [
+        -118.09480637311935,
+        33.96534365271318
+       ],
+       [
+        -118.09480637311935,
+        33.9653992666667
+       ],
+       [
+        -118.09489488601685,
+        33.9653992666667
+       ],
+       [
+        -118.09489488601685,
+        33.96534365271318
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b119",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08344185352325,
+        33.972308461336794
+       ],
+       [
+        -118.08334797620773,
+        33.972308461336794
+       ],
+       [
+        -118.08334797620773,
+        33.972401885106535
+       ],
+       [
+        -118.08344185352325,
+        33.972401885106535
+       ],
+       [
+        -118.08344185352325,
+        33.972308461336794
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09255599975586,
+        33.9657129286836
+       ],
+       [
+        -118.09246748685837,
+        33.9657129286836
+       ],
+       [
+        -118.09246748685837,
+        33.96576854239566
+       ],
+       [
+        -118.09255599975586,
+        33.96576854239566
+       ],
+       [
+        -118.09255599975586,
+        33.9657129286836
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b120",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08779239654541,
+        33.96733683410389
+       ],
+       [
+        -118.08772534132004,
+        33.96733683410389
+       ],
+       [
+        -118.08772534132004,
+        33.96741024279451
+       ],
+       [
+        -118.08779239654541,
+        33.96741024279451
+       ],
+       [
+        -118.08779239654541,
+        33.96733683410389
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b121",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08367252349854,
+        33.9688138937503
+       ],
+       [
+        -118.08358401060104,
+        33.9688138937503
+       ],
+       [
+        -118.08358401060104,
+        33.96886950543467
+       ],
+       [
+        -118.08367252349854,
+        33.96886950543467
+       ],
+       [
+        -118.08367252349854,
+        33.9688138937503
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b122",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0977326631546,
+        33.96089664329211
+       ],
+       [
+        -118.09763342142105,
+        33.96089664329211
+       ],
+       [
+        -118.09763342142105,
+        33.96094558613175
+       ],
+       [
+        -118.0977326631546,
+        33.96094558613175
+       ],
+       [
+        -118.0977326631546,
+        33.96089664329211
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b123",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09774875640869,
+        33.9592058733619
+       ],
+       [
+        -118.09767633676529,
+        33.9592058733619
+       ],
+       [
+        -118.09767633676529,
+        33.95927261491724
+       ],
+       [
+        -118.09774875640869,
+        33.95927261491724
+       ],
+       [
+        -118.09774875640869,
+        33.9592058733619
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b124",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08176815509796,
+        33.95962189486949
+       ],
+       [
+        -118.08167427778244,
+        33.95962189486949
+       ],
+       [
+        -118.08167427778244,
+        33.959673063149715
+       ],
+       [
+        -118.08176815509796,
+        33.959673063149715
+       ],
+       [
+        -118.08176815509796,
+        33.95962189486949
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b125",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07736933231354,
+        33.96504556130256
+       ],
+       [
+        -118.07727545499802,
+        33.96504556130256
+       ],
+       [
+        -118.07727545499802,
+        33.965096726320446
+       ],
+       [
+        -118.07736933231354,
+        33.965096726320446
+       ],
+       [
+        -118.07736933231354,
+        33.96504556130256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b126",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07675778865814,
+        33.97261764913487
+       ],
+       [
+        -118.07666391134262,
+        33.97261764913487
+       ],
+       [
+        -118.07666391134262,
+        33.97266880959737
+       ],
+       [
+        -118.07675778865814,
+        33.97266880959737
+       ],
+       [
+        -118.07675778865814,
+        33.97261764913487
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b127",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09361815452576,
+        33.96688080900038
+       ],
+       [
+        -118.09355109930038,
+        33.96688080900038
+       ],
+       [
+        -118.09355109930038,
+        33.96695199356784
+       ],
+       [
+        -118.09361815452576,
+        33.96695199356784
+       ],
+       [
+        -118.09361815452576,
+        33.96688080900038
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b128",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0916279554367,
+        33.95434472263735
+       ],
+       [
+        -118.0915555357933,
+        33.95434472263735
+       ],
+       [
+        -118.0915555357933,
+        33.95440924316125
+       ],
+       [
+        -118.0916279554367,
+        33.95440924316125
+       ],
+       [
+        -118.0916279554367,
+        33.95434472263735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b129",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09394001960754,
+        33.959675287856854
+       ],
+       [
+        -118.09381395578384,
+        33.959675287856854
+       ],
+       [
+        -118.09381395578384,
+        33.95974425374927
+       ],
+       [
+        -118.09394001960754,
+        33.95974425374927
+       ],
+       [
+        -118.09394001960754,
+        33.959675287856854
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09410095214844,
+        33.96545488058385
+       ],
+       [
+        -118.094023168087,
+        33.96545488058385
+       ],
+       [
+        -118.094023168087,
+        33.965514943573524
+       ],
+       [
+        -118.09410095214844,
+        33.965514943573524
+       ],
+       [
+        -118.09410095214844,
+        33.96545488058385
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b130",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08699309825897,
+        33.97295130377086
+       ],
+       [
+        -118.08692067861557,
+        33.97295130377086
+       ],
+       [
+        -118.08692067861557,
+        33.9730158101828
+       ],
+       [
+        -118.08699309825897,
+        33.9730158101828
+       ],
+       [
+        -118.08699309825897,
+        33.97295130377086
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b131",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07576537132263,
+        33.968371223445885
+       ],
+       [
+        -118.07570368051529,
+        33.968371223445885
+       ],
+       [
+        -118.07570368051529,
+        33.96844685572141
+       ],
+       [
+        -118.07576537132263,
+        33.96844685572141
+       ],
+       [
+        -118.07576537132263,
+        33.968371223445885
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b132",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09729814529419,
+        33.973124803664184
+       ],
+       [
+        -118.09719890356064,
+        33.973124803664184
+       ],
+       [
+        -118.09719890356064,
+        33.97317151511343
+       ],
+       [
+        -118.09729814529419,
+        33.97317151511343
+       ],
+       [
+        -118.09729814529419,
+        33.973124803664184
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b133",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08953046798706,
+        33.95952400763898
+       ],
+       [
+        -118.08946341276169,
+        33.95952400763898
+       ],
+       [
+        -118.08946341276169,
+        33.95959297365402
+       ],
+       [
+        -118.08953046798706,
+        33.95959297365402
+       ],
+       [
+        -118.08953046798706,
+        33.95952400763898
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b134",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09777021408081,
+        33.96114358187748
+       ],
+       [
+        -118.09770315885544,
+        33.96114358187748
+       ],
+       [
+        -118.09770315885544,
+        33.96121254657958
+       ],
+       [
+        -118.09777021408081,
+        33.96121254657958
+       ],
+       [
+        -118.09777021408081,
+        33.96114358187748
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b135",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09726595878601,
+        33.96183767568377
+       ],
+       [
+        -118.09719890356064,
+        33.96183767568377
+       ],
+       [
+        -118.09719890356064,
+        33.96190663982317
+       ],
+       [
+        -118.09726595878601,
+        33.96190663982317
+       ],
+       [
+        -118.09726595878601,
+        33.96183767568377
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b136",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07618916034698,
+        33.966180082734695
+       ],
+       [
+        -118.07612210512161,
+        33.966180082734695
+       ],
+       [
+        -118.07612210512161,
+        33.96624904335347
+       ],
+       [
+        -118.07618916034698,
+        33.96624904335347
+       ],
+       [
+        -118.07618916034698,
+        33.966180082734695
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b137",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07827591896057,
+        33.96831116247329
+       ],
+       [
+        -118.0782088637352,
+        33.96831116247329
+       ],
+       [
+        -118.0782088637352,
+        33.96838012136414
+       ],
+       [
+        -118.07827591896057,
+        33.96838012136414
+       ],
+       [
+        -118.07827591896057,
+        33.96831116247329
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b138",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09374153614044,
+        33.96427140858048
+       ],
+       [
+        -118.09365302324295,
+        33.96427140858048
+       ],
+       [
+        -118.09365302324295,
+        33.96432257406405
+       ],
+       [
+        -118.09374153614044,
+        33.96432257406405
+       ],
+       [
+        -118.09374153614044,
+        33.96427140858048
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b139",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.091139793396,
+        33.95774866968596
+       ],
+       [
+        -118.09102445840836,
+        33.95774866968596
+       ],
+       [
+        -118.09102445840836,
+        33.957822086651426
+       ],
+       [
+        -118.091139793396,
+        33.957822086651426
+       ],
+       [
+        -118.091139793396,
+        33.95774866968596
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09301197528839,
+        33.966696173750876
+       ],
+       [
+        -118.0929234623909,
+        33.966696173750876
+       ],
+       [
+        -118.0929234623909,
+        33.96674733777582
+       ],
+       [
+        -118.09301197528839,
+        33.96674733777582
+       ],
+       [
+        -118.09301197528839,
+        33.966696173750876
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b140",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0880069732666,
+        33.97116734843723
+       ],
+       [
+        -118.08791846036911,
+        33.97116734843723
+       ],
+       [
+        -118.08791846036911,
+        33.971218509772314
+       ],
+       [
+        -118.0880069732666,
+        33.971218509772314
+       ],
+       [
+        -118.0880069732666,
+        33.97116734843723
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b141",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09392929077148,
+        33.955361471411024
+       ],
+       [
+        -118.09386223554611,
+        33.955361471411024
+       ],
+       [
+        -118.09386223554611,
+        33.955428215982145
+       ],
+       [
+        -118.09392929077148,
+        33.955428215982145
+       ],
+       [
+        -118.09392929077148,
+        33.955361471411024
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b142",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09507727622986,
+        33.96064302994479
+       ],
+       [
+        -118.0949941277504,
+        33.96064302994479
+       ],
+       [
+        -118.0949941277504,
+        33.96069642229127
+       ],
+       [
+        -118.09507727622986,
+        33.96069642229127
+       ],
+       [
+        -118.09507727622986,
+        33.96064302994479
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b143",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0976790189743,
+        33.96121254657958
+       ],
+       [
+        -118.09761732816696,
+        33.96121254657958
+       ],
+       [
+        -118.09761732816696,
+        33.961283735890845
+       ],
+       [
+        -118.0976790189743,
+        33.961283735890845
+       ],
+       [
+        -118.0976790189743,
+        33.96121254657958
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b144",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0899703502655,
+        33.96857587533029
+       ],
+       [
+        -118.08990865945816,
+        33.96857587533029
+       ],
+       [
+        -118.08990865945816,
+        33.96864705847899
+       ],
+       [
+        -118.0899703502655,
+        33.96864705847899
+       ],
+       [
+        -118.0899703502655,
+        33.96857587533029
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b145",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09376299381256,
+        33.957001147885755
+       ],
+       [
+        -118.09366911649704,
+        33.957001147885755
+       ],
+       [
+        -118.09366911649704,
+        33.95704786819068
+       ],
+       [
+        -118.09376299381256,
+        33.95704786819068
+       ],
+       [
+        -118.09376299381256,
+        33.957001147885755
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b146",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09223413467407,
+        33.959341581136094
+       ],
+       [
+        -118.09214025735855,
+        33.959341581136094
+       ],
+       [
+        -118.09214025735855,
+        33.959388300155794
+       ],
+       [
+        -118.09223413467407,
+        33.959388300155794
+       ],
+       [
+        -118.09223413467407,
+        33.959341581136094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b147",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0934625864029,
+        33.96875160862063
+       ],
+       [
+        -118.09336870908737,
+        33.96875160862063
+       ],
+       [
+        -118.09336870908737,
+        33.96879832247215
+       ],
+       [
+        -118.0934625864029,
+        33.96879832247215
+       ],
+       [
+        -118.0934625864029,
+        33.96875160862063
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b148",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08583974838257,
+        33.96932996878414
+       ],
+       [
+        -118.08578342199326,
+        33.96932996878414
+       ],
+       [
+        -118.08578342199326,
+        33.96940782465962
+       ],
+       [
+        -118.08583974838257,
+        33.96940782465962
+       ],
+       [
+        -118.08583974838257,
+        33.96932996878414
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b149",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09823155403137,
+        33.964702977346384
+       ],
+       [
+        -118.09814304113388,
+        33.964702977346384
+       ],
+       [
+        -118.09814304113388,
+        33.96479863404442
+       ],
+       [
+        -118.09823155403137,
+        33.96479863404442
+       ],
+       [
+        -118.09823155403137,
+        33.964702977346384
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08736324310303,
+        33.972453045698856
+       ],
+       [
+        -118.08730691671371,
+        33.972453045698856
+       ],
+       [
+        -118.08730691671371,
+        33.972530898715064
+       ],
+       [
+        -118.08736324310303,
+        33.972530898715064
+       ],
+       [
+        -118.08736324310303,
+        33.972453045698856
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b150",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0915904045105,
+        33.96541261401013
+       ],
+       [
+        -118.091501891613,
+        33.96541261401013
+       ],
+       [
+        -118.091501891613,
+        33.96546155425146
+       ],
+       [
+        -118.0915904045105,
+        33.96546155425146
+       ],
+       [
+        -118.0915904045105,
+        33.96541261401013
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b151",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09429407119751,
+        33.9560088915418
+       ],
+       [
+        -118.09421628713608,
+        33.9560088915418
+       ],
+       [
+        -118.09421628713608,
+        33.956064511598164
+       ],
+       [
+        -118.09429407119751,
+        33.956064511598164
+       ],
+       [
+        -118.09429407119751,
+        33.9560088915418
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b152",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08057188987732,
+        33.95669857767086
+       ],
+       [
+        -118.08049410581589,
+        33.95669857767086
+       ],
+       [
+        -118.08049410581589,
+        33.956754197276375
+       ],
+       [
+        -118.08057188987732,
+        33.956754197276375
+       ],
+       [
+        -118.08057188987732,
+        33.95669857767086
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b153",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09735178947449,
+        33.95976427609466
+       ],
+       [
+        -118.09727400541306,
+        33.95976427609466
+       ],
+       [
+        -118.09727400541306,
+        33.959819893696015
+       ],
+       [
+        -118.09735178947449,
+        33.959819893696015
+       ],
+       [
+        -118.09735178947449,
+        33.95976427609466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b154",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09563517570496,
+        33.97274221368546
+       ],
+       [
+        -118.09556812047958,
+        33.97274221368546
+       ],
+       [
+        -118.09556812047958,
+        33.97280672025602
+       ],
+       [
+        -118.09563517570496,
+        33.97280672025602
+       ],
+       [
+        -118.09563517570496,
+        33.97274221368546
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b155",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09574782848358,
+        33.96482310434524
+       ],
+       [
+        -118.09566468000412,
+        33.96482310434524
+       ],
+       [
+        -118.09566468000412,
+        33.96487426949695
+       ],
+       [
+        -118.09574782848358,
+        33.96487426949695
+       ],
+       [
+        -118.09574782848358,
+        33.96482310434524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b156",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08126926422119,
+        33.96638918895483
+       ],
+       [
+        -118.08120757341385,
+        33.96638918895483
+       ],
+       [
+        -118.08120757341385,
+        33.96645814940406
+       ],
+       [
+        -118.08126926422119,
+        33.96645814940406
+       ],
+       [
+        -118.08126926422119,
+        33.96638918895483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b157",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09520602226257,
+        33.966553804128175
+       ],
+       [
+        -118.09514433145523,
+        33.966553804128175
+       ],
+       [
+        -118.09514433145523,
+        33.966622764443926
+       ],
+       [
+        -118.09520602226257,
+        33.966622764443926
+       ],
+       [
+        -118.09520602226257,
+        33.966553804128175
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b158",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09210002422333,
+        33.966767358472865
+       ],
+       [
+        -118.09201687574387,
+        33.966767358472865
+       ],
+       [
+        -118.09201687574387,
+        33.966818522455
+       ],
+       [
+        -118.09210002422333,
+        33.966818522455
+       ],
+       [
+        -118.09210002422333,
+        33.966767358472865
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b159",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09807062149048,
+        33.966246818818256
+       ],
+       [
+        -118.09795528650284,
+        33.966246818818256
+       ],
+       [
+        -118.09795528650284,
+        33.96632022844968
+       ],
+       [
+        -118.09807062149048,
+        33.96632022844968
+       ],
+       [
+        -118.09807062149048,
+        33.966246818818256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0951738357544,
+        33.960636355899126
+       ],
+       [
+        -118.09510946273804,
+        33.960636355899126
+       ],
+       [
+        -118.09510946273804,
+        33.960700871651966
+       ],
+       [
+        -118.0951738357544,
+        33.960700871651966
+       ],
+       [
+        -118.0951738357544,
+        33.960636355899126
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b160",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0951738357544,
+        33.96719446555361
+       ],
+       [
+        -118.09509336948395,
+        33.96719446555361
+       ],
+       [
+        -118.09509336948395,
+        33.9672456292788
+       ],
+       [
+        -118.0951738357544,
+        33.9672456292788
+       ],
+       [
+        -118.0951738357544,
+        33.96719446555361
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b161",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07913959026337,
+        33.95828705929483
+       ],
+       [
+        -118.07906717061996,
+        33.95828705929483
+       ],
+       [
+        -118.07906717061996,
+        33.95834267786192
+       ],
+       [
+        -118.07913959026337,
+        33.95834267786192
+       ],
+       [
+        -118.07913959026337,
+        33.95828705929483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b162",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09088230133057,
+        33.96510784914635
+       ],
+       [
+        -118.0908152461052,
+        33.96510784914635
+       ],
+       [
+        -118.0908152461052,
+        33.965167912381084
+       ],
+       [
+        -118.09088230133057,
+        33.965167912381084
+       ],
+       [
+        -118.09088230133057,
+        33.96510784914635
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b163",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09542059898376,
+        33.960707545692564
+       ],
+       [
+        -118.09534281492233,
+        33.960707545692564
+       ],
+       [
+        -118.09534281492233,
+        33.960758713319805
+       ],
+       [
+        -118.09542059898376,
+        33.960758713319805
+       ],
+       [
+        -118.09542059898376,
+        33.960707545692564
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b164",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09369325637817,
+        33.972662136495316
+       ],
+       [
+        -118.09361547231674,
+        33.972662136495316
+       ],
+       [
+        -118.09361547231674,
+        33.972713296931055
+       ],
+       [
+        -118.09369325637817,
+        33.972713296931055
+       ],
+       [
+        -118.09369325637817,
+        33.972662136495316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b165",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09231996536255,
+        33.96375975205206
+       ],
+       [
+        -118.09223681688309,
+        33.96375975205206
+       ],
+       [
+        -118.09223681688309,
+        33.96380646864537
+       ],
+       [
+        -118.09231996536255,
+        33.96380646864537
+       ],
+       [
+        -118.09231996536255,
+        33.96375975205206
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b166",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09604287147522,
+        33.964151280802454
+       ],
+       [
+        -118.09595972299576,
+        33.964151280802454
+       ],
+       [
+        -118.09595972299576,
+        33.96419799718073
+       ],
+       [
+        -118.09604287147522,
+        33.96419799718073
+       ],
+       [
+        -118.09604287147522,
+        33.964151280802454
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b167",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08759927749634,
+        33.96816879555402
+       ],
+       [
+        -118.08751612901688,
+        33.96816879555402
+       ],
+       [
+        -118.08751612901688,
+        33.96821550972568
+       ],
+       [
+        -118.08759927749634,
+        33.96821550972568
+       ],
+       [
+        -118.08759927749634,
+        33.96816879555402
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b168",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09042096138,
+        33.9632369693768
+       ],
+       [
+        -118.09036463499069,
+        33.9632369693768
+       ],
+       [
+        -118.09036463499069,
+        33.96330370776957
+       ],
+       [
+        -118.09042096138,
+        33.96330370776957
+       ],
+       [
+        -118.09042096138,
+        33.9632369693768
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b169",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09150993824005,
+        33.96537034741541
+       ],
+       [
+        -118.09138923883438,
+        33.96537034741541
+       ],
+       [
+        -118.09138923883438,
+        33.96543930869071
+       ],
+       [
+        -118.09150993824005,
+        33.96543930869071
+       ],
+       [
+        -118.09150993824005,
+        33.96537034741541
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b17",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09533476829529,
+        33.960044588435316
+       ],
+       [
+        -118.0952462553978,
+        33.960044588435316
+       ],
+       [
+        -118.0952462553978,
+        33.960086857676394
+       ],
+       [
+        -118.09533476829529,
+        33.960086857676394
+       ],
+       [
+        -118.09533476829529,
+        33.960044588435316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b170",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07891964912415,
+        33.956881009840984
+       ],
+       [
+        -118.07885259389877,
+        33.956881009840984
+       ],
+       [
+        -118.07885259389877,
+        33.95693662932724
+       ],
+       [
+        -118.07891964912415,
+        33.95693662932724
+       ],
+       [
+        -118.07891964912415,
+        33.956881009840984
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b171",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09721767902374,
+        33.955501634949925
+       ],
+       [
+        -118.09714525938034,
+        33.955501634949925
+       ],
+       [
+        -118.09714525938034,
+        33.95555280570817
+       ],
+       [
+        -118.09721767902374,
+        33.95555280570817
+       ],
+       [
+        -118.09721767902374,
+        33.955501634949925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b172",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09121489524841,
+        33.957739770655536
+       ],
+       [
+        -118.09115320444107,
+        33.957739770655536
+       ],
+       [
+        -118.09115320444107,
+        33.95779983909282
+       ],
+       [
+        -118.09121489524841,
+        33.95779983909282
+       ],
+       [
+        -118.09121489524841,
+        33.957739770655536
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b173",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09657394886017,
+        33.958763153052594
+       ],
+       [
+        -118.09650152921677,
+        33.958763153052594
+       ],
+       [
+        -118.09650152921677,
+        33.95881432184932
+       ],
+       [
+        -118.09657394886017,
+        33.95881432184932
+       ],
+       [
+        -118.09657394886017,
+        33.958763153052594
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b174",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07709038257599,
+        33.966246818818256
+       ],
+       [
+        -118.07701796293259,
+        33.966246818818256
+       ],
+       [
+        -118.07701796293259,
+        33.96629798311351
+       ],
+       [
+        -118.07709038257599,
+        33.96629798311351
+       ],
+       [
+        -118.07709038257599,
+        33.966246818818256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b175",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.092400431633,
+        33.95493875457805
+       ],
+       [
+        -118.09231728315353,
+        33.95493875457805
+       ],
+       [
+        -118.09231728315353,
+        33.95498325118568
+       ],
+       [
+        -118.092400431633,
+        33.95498325118568
+       ],
+       [
+        -118.092400431633,
+        33.95493875457805
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b176",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07667195796967,
+        33.967659386969
+       ],
+       [
+        -118.07661294937134,
+        33.967659386969
+       ],
+       [
+        -118.07661294937134,
+        33.967721672898584
+       ],
+       [
+        -118.07667195796967,
+        33.967721672898584
+       ],
+       [
+        -118.07667195796967,
+        33.967659386969
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b177",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09830665588379,
+        33.95937717658201
+       ],
+       [
+        -118.09822887182236,
+        33.95937717658201
+       ],
+       [
+        -118.09822887182236,
+        33.95942389558216
+       ],
+       [
+        -118.09830665588379,
+        33.95942389558216
+       ],
+       [
+        -118.09830665588379,
+        33.95937717658201
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b178",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08536231517792,
+        33.97113175792511
+       ],
+       [
+        -118.08528453111649,
+        33.97113175792511
+       ],
+       [
+        -118.08528453111649,
+        33.97117847046922
+       ],
+       [
+        -118.08536231517792,
+        33.97117847046922
+       ],
+       [
+        -118.08536231517792,
+        33.97113175792511
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b179",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08588802814484,
+        33.95447821332235
+       ],
+       [
+        -118.08579415082932,
+        33.95447821332235
+       ],
+       [
+        -118.08579415082932,
+        33.954564982155304
+       ],
+       [
+        -118.08588802814484,
+        33.954564982155304
+       ],
+       [
+        -118.08588802814484,
+        33.95447821332235
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b18",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09513092041016,
+        33.97237964136115
+       ],
+       [
+        -118.09507995843887,
+        33.97237964136115
+       ],
+       [
+        -118.09507995843887,
+        33.972450821325914
+       ],
+       [
+        -118.09513092041016,
+        33.972450821325914
+       ],
+       [
+        -118.09513092041016,
+        33.97237964136115
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b180",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0923843383789,
+        33.963123513988926
+       ],
+       [
+        -118.09231460094452,
+        33.963123513988926
+       ],
+       [
+        -118.09231460094452,
+        33.963174680162986
+       ],
+       [
+        -118.0923843383789,
+        33.963174680162986
+       ],
+       [
+        -118.0923843383789,
+        33.963123513988926
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b181",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09005618095398,
+        33.96828891765787
+       ],
+       [
+        -118.09001058340073,
+        33.96828891765787
+       ],
+       [
+        -118.09001058340073,
+        33.968366774486405
+       ],
+       [
+        -118.09005618095398,
+        33.968366774486405
+       ],
+       [
+        -118.09005618095398,
+        33.96828891765787
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b182",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09490025043488,
+        33.95561732531603
+       ],
+       [
+        -118.09481710195541,
+        33.95561732531603
+       ],
+       [
+        -118.09481710195541,
+        33.95565959675672
+       ],
+       [
+        -118.09490025043488,
+        33.95565959675672
+       ],
+       [
+        -118.09490025043488,
+        33.95561732531603
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b183",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09575319290161,
+        33.96562839577163
+       ],
+       [
+        -118.09567004442215,
+        33.96562839577163
+       ],
+       [
+        -118.09567004442215,
+        33.96567066223812
+       ],
+       [
+        -118.09575319290161,
+        33.96567066223812
+       ],
+       [
+        -118.09575319290161,
+        33.96562839577163
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b184",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09271156787872,
+        33.970199726086335
+       ],
+       [
+        -118.09264719486237,
+        33.970199726086335
+       ],
+       [
+        -118.09264719486237,
+        33.97025311243405
+       ],
+       [
+        -118.09271156787872,
+        33.97025311243405
+       ],
+       [
+        -118.09271156787872,
+        33.970199726086335
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b185",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09318363666534,
+        33.959319333974825
+       ],
+       [
+        -118.09311658143997,
+        33.959319333974825
+       ],
+       [
+        -118.09311658143997,
+        33.95937050243702
+       ],
+       [
+        -118.09318363666534,
+        33.95937050243702
+       ],
+       [
+        -118.09318363666534,
+        33.959319333974825
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b186",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07837247848511,
+        33.96508115436174
+       ],
+       [
+        -118.07830542325974,
+        33.96508115436174
+       ],
+       [
+        -118.07830542325974,
+        33.96513231935821
+       ],
+       [
+        -118.07837247848511,
+        33.96513231935821
+       ],
+       [
+        -118.07837247848511,
+        33.96508115436174
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b187",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09568345546722,
+        33.96793299981972
+       ],
+       [
+        -118.09561640024185,
+        33.96793299981972
+       ],
+       [
+        -118.09561640024185,
+        33.96798416310063
+       ],
+       [
+        -118.09568345546722,
+        33.96798416310063
+       ],
+       [
+        -118.09568345546722,
+        33.96793299981972
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b188",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08545887470245,
+        33.96935666223519
+       ],
+       [
+        -118.08538645505905,
+        33.96935666223519
+       ],
+       [
+        -118.08538645505905,
+        33.96940337575437
+       ],
+       [
+        -118.08545887470245,
+        33.96940337575437
+       ],
+       [
+        -118.08545887470245,
+        33.96935666223519
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b189",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0787318944931,
+        33.96417130211057
+       ],
+       [
+        -118.07864874601364,
+        33.96417130211057
+       ],
+       [
+        -118.07864874601364,
+        33.964269183993544
+       ],
+       [
+        -118.0787318944931,
+        33.964269183993544
+       ],
+       [
+        -118.0787318944931,
+        33.96417130211057
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b19",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0978775024414,
+        33.97191919452468
+       ],
+       [
+        -118.09783190488815,
+        33.97191919452468
+       ],
+       [
+        -118.09783190488815,
+        33.97199259925987
+       ],
+       [
+        -118.0978775024414,
+        33.97199259925987
+       ],
+       [
+        -118.0978775024414,
+        33.97191919452468
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b190",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09348940849304,
+        33.95434472263735
+       ],
+       [
+        -118.09341162443161,
+        33.95434472263735
+       ],
+       [
+        -118.09341162443161,
+        33.95438699471026
+       ],
+       [
+        -118.09348940849304,
+        33.95438699471026
+       ],
+       [
+        -118.09348940849304,
+        33.95434472263735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b191",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09869289398193,
+        33.960814330271035
+       ],
+       [
+        -118.09864729642868,
+        33.960814330271035
+       ],
+       [
+        -118.09864729642868,
+        33.96088329524005
+       ],
+       [
+        -118.09869289398193,
+        33.96088329524005
+       ],
+       [
+        -118.09869289398193,
+        33.960814330271035
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b192",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09385418891907,
+        33.97125187584382
+       ],
+       [
+        -118.09376567602158,
+        33.97125187584382
+       ],
+       [
+        -118.09376567602158,
+        33.97128524190224
+       ],
+       [
+        -118.09385418891907,
+        33.97128524190224
+       ],
+       [
+        -118.09385418891907,
+        33.97125187584382
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b193",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0910861492157,
+        33.96157516651269
+       ],
+       [
+        -118.09100836515427,
+        33.96157516651269
+       ],
+       [
+        -118.09100836515427,
+        33.9616129856805
+       ],
+       [
+        -118.0910861492157,
+        33.9616129856805
+       ],
+       [
+        -118.0910861492157,
+        33.96157516651269
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b194",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09763610363007,
+        33.959150255359134
+       ],
+       [
+        -118.09757441282272,
+        33.959150255359134
+       ],
+       [
+        -118.09757441282272,
+        33.9591969744839
+       ],
+       [
+        -118.09763610363007,
+        33.9591969744839
+       ],
+       [
+        -118.09763610363007,
+        33.959150255359134
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b195",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08112978935242,
+        33.9611969739098
+       ],
+       [
+        -118.0810734629631,
+        33.9611969739098
+       ],
+       [
+        -118.0810734629631,
+        33.96124814124266
+       ],
+       [
+        -118.08112978935242,
+        33.96124814124266
+       ],
+       [
+        -118.08112978935242,
+        33.9611969739098
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b196",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08953583240509,
+        33.972283993189656
+       ],
+       [
+        -118.08947950601578,
+        33.972283993189656
+       ],
+       [
+        -118.08947950601578,
+        33.97233515385291
+       ],
+       [
+        -118.08953583240509,
+        33.97233515385291
+       ],
+       [
+        -118.08953583240509,
+        33.972283993189656
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b197",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08960556983948,
+        33.97281784207358
+       ],
+       [
+        -118.08954924345016,
+        33.97281784207358
+       ],
+       [
+        -118.08954924345016,
+        33.97286900241563
+       ],
+       [
+        -118.08960556983948,
+        33.97286900241563
+       ],
+       [
+        -118.08960556983948,
+        33.97281784207358
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b198",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08960556983948,
+        33.969948364915474
+       ],
+       [
+        -118.08953583240509,
+        33.969948364915474
+       ],
+       [
+        -118.08953583240509,
+        33.969986180360344
+       ],
+       [
+        -118.08960556983948,
+        33.969986180360344
+       ],
+       [
+        -118.08960556983948,
+        33.969948364915474
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b199",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08306097984314,
+        33.955946597035506
+       ],
+       [
+        -118.08294832706451,
+        33.955946597035506
+       ],
+       [
+        -118.08294832706451,
+        33.956068961201105
+       ],
+       [
+        -118.08306097984314,
+        33.956068961201105
+       ],
+       [
+        -118.08306097984314,
+        33.955946597035506
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08344721794128,
+        33.95398429674177
+       ],
+       [
+        -118.08333724737167,
+        33.95398429674177
+       ],
+       [
+        -118.08333724737167,
+        33.95405771695543
+       ],
+       [
+        -118.08344721794128,
+        33.95405771695543
+       ],
+       [
+        -118.08344721794128,
+        33.95398429674177
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b20",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09009373188019,
+        33.970130768670934
+       ],
+       [
+        -118.0900427699089,
+        33.970130768670934
+       ],
+       [
+        -118.0900427699089,
+        33.97018193062964
+       ],
+       [
+        -118.09009373188019,
+        33.97018193062964
+       ],
+       [
+        -118.09009373188019,
+        33.970130768670934
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b200",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09447109699249,
+        33.972203915567995
+       ],
+       [
+        -118.09440940618515,
+        33.972203915567995
+       ],
+       [
+        -118.09440940618515,
+        33.9722461787666
+       ],
+       [
+        -118.09447109699249,
+        33.9722461787666
+       ],
+       [
+        -118.09447109699249,
+        33.972203915567995
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b201",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09503436088562,
+        33.973258264879675
+       ],
+       [
+        -118.09495657682419,
+        33.973258264879675
+       ],
+       [
+        -118.09495657682419,
+        33.97329163015081
+       ],
+       [
+        -118.09503436088562,
+        33.97329163015081
+       ],
+       [
+        -118.09503436088562,
+        33.973258264879675
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b202",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09469640254974,
+        33.96529471240401
+       ],
+       [
+        -118.09462934732437,
+        33.96529471240401
+       ],
+       [
+        -118.09462934732437,
+        33.96533252991812
+       ],
+       [
+        -118.09469640254974,
+        33.96533252991812
+       ],
+       [
+        -118.09469640254974,
+        33.96529471240401
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b203",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09866607189178,
+        33.96036939364314
+       ],
+       [
+        -118.09860974550247,
+        33.96036939364314
+       ],
+       [
+        -118.09860974550247,
+        33.96041166272283
+       ],
+       [
+        -118.09866607189178,
+        33.96041166272283
+       ],
+       [
+        -118.09866607189178,
+        33.96036939364314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b204",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09275448322296,
+        33.96038719115293
+       ],
+       [
+        -118.09270352125168,
+        33.96038719115293
+       ],
+       [
+        -118.09270352125168,
+        33.96043390959843
+       ],
+       [
+        -118.09275448322296,
+        33.96043390959843
+       ],
+       [
+        -118.09275448322296,
+        33.96038719115293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b205",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0951738357544,
+        33.957557340326765
+       ],
+       [
+        -118.09511214494705,
+        33.957557340326765
+       ],
+       [
+        -118.09511214494705,
+        33.95759516128073
+       ],
+       [
+        -118.0951738357544,
+        33.95759516128073
+       ],
+       [
+        -118.0951738357544,
+        33.957557340326765
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b206",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0904746055603,
+        33.95736601053731
+       ],
+       [
+        -118.09043437242508,
+        33.95736601053731
+       ],
+       [
+        -118.09043437242508,
+        33.95742162970651
+       ],
+       [
+        -118.0904746055603,
+        33.95742162970651
+       ],
+       [
+        -118.0904746055603,
+        33.95736601053731
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b207",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0971747636795,
+        33.965263568556246
+       ],
+       [
+        -118.09711843729019,
+        33.965263568556246
+       ],
+       [
+        -118.09711843729019,
+        33.96530138608419
+       ],
+       [
+        -118.0971747636795,
+        33.96530138608419
+       ],
+       [
+        -118.0971747636795,
+        33.965263568556246
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b208",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08288395404816,
+        33.97276890606541
+       ],
+       [
+        -118.0828383564949,
+        33.97276890606541
+       ],
+       [
+        -118.0828383564949,
+        33.97280672025602
+       ],
+       [
+        -118.08288395404816,
+        33.97280672025602
+       ],
+       [
+        -118.08288395404816,
+        33.97276890606541
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b209",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09266328811646,
+        33.96387098199396
+       ],
+       [
+        -118.09255331754684,
+        33.96387098199396
+       ],
+       [
+        -118.09255331754684,
+        33.963944393675945
+       ],
+       [
+        -118.09266328811646,
+        33.963944393675945
+       ],
+       [
+        -118.09266328811646,
+        33.96387098199396
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b21",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0927062034607,
+        33.965790787870304
+       ],
+       [
+        -118.09264451265335,
+        33.965790787870304
+       ],
+       [
+        -118.09264451265335,
+        33.96581748243219
+       ],
+       [
+        -118.0927062034607,
+        33.96581748243219
+       ],
+       [
+        -118.0927062034607,
+        33.965790787870304
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b210",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08015882968903,
+        33.97017525733244
+       ],
+       [
+        -118.0799013376236,
+        33.97017525733244
+       ],
+       [
+        -118.0799013376236,
+        33.97038880258364
+       ],
+       [
+        -118.08015882968903,
+        33.97038880258364
+       ],
+       [
+        -118.08015882968903,
+        33.97017525733244
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b211",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09132754802704,
+        33.960342697371466
+       ],
+       [
+        -118.09115320444107,
+        33.960342697371466
+       ],
+       [
+        -118.09115320444107,
+        33.96042946022377
+       ],
+       [
+        -118.09132754802704,
+        33.96042946022377
+       ],
+       [
+        -118.09132754802704,
+        33.960342697371466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b212",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0901312828064,
+        33.96227815535417
+       ],
+       [
+        -118.08995693922043,
+        33.96227815535417
+       ],
+       [
+        -118.08995693922043,
+        33.96235601768495
+       ],
+       [
+        -118.0901312828064,
+        33.96235601768495
+       ],
+       [
+        -118.0901312828064,
+        33.96227815535417
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b213",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08169841766357,
+        33.95981766899267
+       ],
+       [
+        -118.08159112930298,
+        33.95981766899267
+       ],
+       [
+        -118.08159112930298,
+        33.95990443238044
+       ],
+       [
+        -118.08169841766357,
+        33.95990443238044
+       ],
+       [
+        -118.08169841766357,
+        33.95981766899267
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b214",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0780291557312,
+        33.96868042555944
+       ],
+       [
+        -118.07794064283371,
+        33.96868042555944
+       ],
+       [
+        -118.07794064283371,
+        33.968776077784156
+       ],
+       [
+        -118.0780291557312,
+        33.968776077784156
+       ],
+       [
+        -118.0780291557312,
+        33.96868042555944
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b215",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09465885162354,
+        33.95473851955577
+       ],
+       [
+        -118.0945435166359,
+        33.95473851955577
+       ],
+       [
+        -118.0945435166359,
+        33.95480748944998
+       ],
+       [
+        -118.09465885162354,
+        33.95480748944998
+       ],
+       [
+        -118.09465885162354,
+        33.95473851955577
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b216",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08143019676208,
+        33.957156882135735
+       ],
+       [
+        -118.0813416838646,
+        33.957156882135735
+       ],
+       [
+        -118.0813416838646,
+        33.95723474915383
+       ],
+       [
+        -118.08143019676208,
+        33.95723474915383
+       ],
+       [
+        -118.08143019676208,
+        33.957156882135735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b217",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09278130531311,
+        33.96315465862027
+       ],
+       [
+        -118.09267669916153,
+        33.96315465862027
+       ],
+       [
+        -118.09267669916153,
+        33.96321917246322
+       ],
+       [
+        -118.09278130531311,
+        33.96321917246322
+       ],
+       [
+        -118.09278130531311,
+        33.96315465862027
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b218",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08936417102814,
+        33.97068242642847
+       ],
+       [
+        -118.08927565813065,
+        33.97068242642847
+       ],
+       [
+        -118.08927565813065,
+        33.970755832231255
+       ],
+       [
+        -118.08936417102814,
+        33.970755832231255
+       ],
+       [
+        -118.08936417102814,
+        33.97068242642847
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b219",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0896806716919,
+        33.97304917554908
+       ],
+       [
+        -118.0895921587944,
+        33.97304917554908
+       ],
+       [
+        -118.0895921587944,
+        33.97314037415011
+       ],
+       [
+        -118.0896806716919,
+        33.97314037415011
+       ],
+       [
+        -118.0896806716919,
+        33.97304917554908
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b22",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07895183563232,
+        33.96018474425929
+       ],
+       [
+        -118.07888478040695,
+        33.96018474425929
+       ],
+       [
+        -118.07888478040695,
+        33.960278181346986
+       ],
+       [
+        -118.07895183563232,
+        33.960278181346986
+       ],
+       [
+        -118.07895183563232,
+        33.96018474425929
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b220",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09487342834473,
+        33.96248727116692
+       ],
+       [
+        -118.09478491544724,
+        33.96248727116692
+       ],
+       [
+        -118.09478491544724,
+        33.96255623477968
+       ],
+       [
+        -118.09487342834473,
+        33.96255623477968
+       ],
+       [
+        -118.09487342834473,
+        33.96248727116692
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b221",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08461666107178,
+        33.95748169836841
+       ],
+       [
+        -118.08452278375626,
+        33.95748169836841
+       ],
+       [
+        -118.08452278375626,
+        33.95754621651358
+       ],
+       [
+        -118.08461666107178,
+        33.95754621651358
+       ],
+       [
+        -118.08461666107178,
+        33.95748169836841
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b222",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08811962604523,
+        33.955501634949925
+       ],
+       [
+        -118.08803647756577,
+        33.955501634949925
+       ],
+       [
+        -118.08803647756577,
+        33.955566154596575
+       ],
+       [
+        -118.08811962604523,
+        33.955566154596575
+       ],
+       [
+        -118.08811962604523,
+        33.955501634949925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b223",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08863461017609,
+        33.971781282426605
+       ],
+       [
+        -118.08856219053268,
+        33.971781282426605
+       ],
+       [
+        -118.08856219053268,
+        33.971854687280846
+       ],
+       [
+        -118.08863461017609,
+        33.971854687280846
+       ],
+       [
+        -118.08863461017609,
+        33.971781282426605
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b224",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08035731315613,
+        33.95670747681018
+       ],
+       [
+        -118.0802634358406,
+        33.95670747681018
+       ],
+       [
+        -118.0802634358406,
+        33.95675864684325
+       ],
+       [
+        -118.08035731315613,
+        33.95675864684325
+       ],
+       [
+        -118.08035731315613,
+        33.95670747681018
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b225",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08568954467773,
+        33.95530585089509
+       ],
+       [
+        -118.08561712503433,
+        33.95530585089509
+       ],
+       [
+        -118.08561712503433,
+        33.95537037069019
+       ],
+       [
+        -118.08568954467773,
+        33.95537037069019
+       ],
+       [
+        -118.08568954467773,
+        33.95530585089509
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b226",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08575928211212,
+        33.96008018358708
+       ],
+       [
+        -118.08568686246872,
+        33.96008018358708
+       ],
+       [
+        -118.08568686246872,
+        33.96013580098192
+       ],
+       [
+        -118.08575928211212,
+        33.96013580098192
+       ],
+       [
+        -118.08575928211212,
+        33.96008018358708
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b227",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08314681053162,
+        33.960031240249556
+       ],
+       [
+        -118.0830904841423,
+        33.960031240249556
+       ],
+       [
+        -118.0830904841423,
+        33.96010020585342
+       ],
+       [
+        -118.08314681053162,
+        33.96010020585342
+       ],
+       [
+        -118.08314681053162,
+        33.960031240249556
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b228",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08385491371155,
+        33.971830219003145
+       ],
+       [
+        -118.08378517627716,
+        33.971830219003145
+       ],
+       [
+        -118.08378517627716,
+        33.9718813799394
+       ],
+       [
+        -118.08385491371155,
+        33.9718813799394
+       ],
+       [
+        -118.08385491371155,
+        33.971830219003145
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b229",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0914831161499,
+        33.961810979872865
+       ],
+       [
+        -118.09136778116226,
+        33.961810979872865
+       ],
+       [
+        -118.09136778116226,
+        33.96187994403391
+       ],
+       [
+        -118.0914831161499,
+        33.96187994403391
+       ],
+       [
+        -118.0914831161499,
+        33.961810979872865
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b23",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0852872133255,
+        33.96856030400856
+       ],
+       [
+        -118.08522552251816,
+        33.96856030400856
+       ],
+       [
+        -118.08522552251816,
+        33.96861369138545
+       ],
+       [
+        -118.0852872133255,
+        33.96861369138545
+       ],
+       [
+        -118.0852872133255,
+        33.96856030400856
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b230",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0914831161499,
+        33.96462289258621
+       ],
+       [
+        -118.09141606092453,
+        33.96462289258621
+       ],
+       [
+        -118.09141606092453,
+        33.96466960870548
+       ],
+       [
+        -118.0914831161499,
+        33.96466960870548
+       ],
+       [
+        -118.0914831161499,
+        33.96462289258621
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b231",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09763610363007,
+        33.97223950563137
+       ],
+       [
+        -118.09757977724075,
+        33.97223950563137
+       ],
+       [
+        -118.09757977724075,
+        33.97229511507559
+       ],
+       [
+        -118.09763610363007,
+        33.97229511507559
+       ],
+       [
+        -118.09763610363007,
+        33.97223950563137
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b232",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09524357318878,
+        33.960725343131614
+       ],
+       [
+        -118.09518724679947,
+        33.960725343131614
+       ],
+       [
+        -118.09518724679947,
+        33.96077873542644
+       ],
+       [
+        -118.09524357318878,
+        33.96077873542644
+       ],
+       [
+        -118.09524357318878,
+        33.960725343131614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b233",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09437453746796,
+        33.97209714528847
+       ],
+       [
+        -118.09429675340652,
+        33.97209714528847
+       ],
+       [
+        -118.09429675340652,
+        33.972134959777804
+       ],
+       [
+        -118.09437453746796,
+        33.972134959777804
+       ],
+       [
+        -118.09437453746796,
+        33.97209714528847
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b234",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0935350060463,
+        33.9726043029222
+       ],
+       [
+        -118.0934464931488,
+        33.9726043029222
+       ],
+       [
+        -118.0934464931488,
+        33.97263544408184
+       ],
+       [
+        -118.0935350060463,
+        33.97263544408184
+       ],
+       [
+        -118.0935350060463,
+        33.9726043029222
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b235",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0929771065712,
+        33.972401885106535
+       ],
+       [
+        -118.09293150901794,
+        33.972401885106535
+       ],
+       [
+        -118.09293150901794,
+        33.972459718817326
+       ],
+       [
+        -118.0929771065712,
+        33.972459718817326
+       ],
+       [
+        -118.0929771065712,
+        33.972401885106535
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b236",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09250235557556,
+        33.96078318478283
+       ],
+       [
+        -118.09244602918625,
+        33.96078318478283
+       ],
+       [
+        -118.09244602918625,
+        33.96082990301086
+       ],
+       [
+        -118.09250235557556,
+        33.96082990301086
+       ],
+       [
+        -118.09250235557556,
+        33.96078318478283
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b237",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08450400829315,
+        33.97201929187513
+       ],
+       [
+        -118.08444231748581,
+        33.97201929187513
+       ],
+       [
+        -118.08444231748581,
+        33.97205933078233
+       ],
+       [
+        -118.08450400829315,
+        33.97205933078233
+       ],
+       [
+        -118.08450400829315,
+        33.97201929187513
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b238",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09553325176239,
+        33.95757736318684
+       ],
+       [
+        -118.09547960758209,
+        33.95757736318684
+       ],
+       [
+        -118.09547960758209,
+        33.957621858414576
+       ],
+       [
+        -118.09553325176239,
+        33.957621858414576
+       ],
+       [
+        -118.09553325176239,
+        33.95757736318684
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b239",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07755708694458,
+        33.969770409655055
+       ],
+       [
+        -118.07747393846512,
+        33.969770409655055
+       ],
+       [
+        -118.07747393846512,
+        33.969866060653814
+       ],
+       [
+        -118.07755708694458,
+        33.969866060653814
+       ],
+       [
+        -118.07755708694458,
+        33.969770409655055
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b24",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0953723192215,
+        33.954909831770614
+       ],
+       [
+        -118.09532135725021,
+        33.954909831770614
+       ],
+       [
+        -118.09532135725021,
+        33.954956553223894
+       ],
+       [
+        -118.0953723192215,
+        33.954956553223894
+       ],
+       [
+        -118.0953723192215,
+        33.954909831770614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b240",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09603750705719,
+        33.95729036840884
+       ],
+       [
+        -118.0959865450859,
+        33.95729036840884
+       ],
+       [
+        -118.0959865450859,
+        33.95733708855495
+       ],
+       [
+        -118.09603750705719,
+        33.95733708855495
+       ],
+       [
+        -118.09603750705719,
+        33.95729036840884
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b241",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0971372127533,
+        33.95633816174597
+       ],
+       [
+        -118.09709161520004,
+        33.95633816174597
+       ],
+       [
+        -118.09709161520004,
+        33.95638488241496
+       ],
+       [
+        -118.0971372127533,
+        33.95638488241496
+       ],
+       [
+        -118.0971372127533,
+        33.95633816174597
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b242",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09027075767517,
+        33.97182799461391
+       ],
+       [
+        -118.09021979570389,
+        33.97182799461391
+       ],
+       [
+        -118.09021979570389,
+        33.97186358483463
+       ],
+       [
+        -118.09027075767517,
+        33.97186358483463
+       ],
+       [
+        -118.09027075767517,
+        33.97182799461391
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b243",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09428870677948,
+        33.96373083224334
+       ],
+       [
+        -118.09423238039017,
+        33.96373083224334
+       ],
+       [
+        -118.09423238039017,
+        33.96376197665233
+       ],
+       [
+        -118.09428870677948,
+        33.96376197665233
+       ],
+       [
+        -118.09428870677948,
+        33.96373083224334
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b244",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09631645679474,
+        33.971652267680746
+       ],
+       [
+        -118.09627085924149,
+        33.971652267680746
+       ],
+       [
+        -118.09627085924149,
+        33.97169008236792
+       ],
+       [
+        -118.09631645679474,
+        33.97169008236792
+       ],
+       [
+        -118.09631645679474,
+        33.971652267680746
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b245",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09072941541672,
+        33.97300023967406
+       ],
+       [
+        -118.0906891822815,
+        33.97300023967406
+       ],
+       [
+        -118.0906891822815,
+        33.973040278119356
+       ],
+       [
+        -118.09072941541672,
+        33.973040278119356
+       ],
+       [
+        -118.09072941541672,
+        33.97300023967406
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b246",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09227705001831,
+        33.95447376363622
+       ],
+       [
+        -118.09223681688309,
+        33.95447376363622
+       ],
+       [
+        -118.09223681688309,
+        33.954511585960894
+       ],
+       [
+        -118.09227705001831,
+        33.954511585960894
+       ],
+       [
+        -118.09227705001831,
+        33.95447376363622
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b247",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07712525129318,
+        33.97235294885899
+       ],
+       [
+        -118.07708770036697,
+        33.97235294885899
+       ],
+       [
+        -118.07708770036697,
+        33.97237964136115
+       ],
+       [
+        -118.07712525129318,
+        33.97237964136115
+       ],
+       [
+        -118.07712525129318,
+        33.97235294885899
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b248",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09082329273224,
+        33.965904239700464
+       ],
+       [
+        -118.09079378843307,
+        33.965904239700464
+       ],
+       [
+        -118.09079378843307,
+        33.965937607857015
+       ],
+       [
+        -118.09082329273224,
+        33.965937607857015
+       ],
+       [
+        -118.09082329273224,
+        33.965904239700464
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b249",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09593558311462,
+        33.96485869749751
+       ],
+       [
+        -118.0958041548729,
+        33.96485869749751
+       ],
+       [
+        -118.0958041548729,
+        33.96491876090818
+       ],
+       [
+        -118.09593558311462,
+        33.96491876090818
+       ],
+       [
+        -118.09593558311462,
+        33.96485869749751
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b25",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0801910161972,
+        33.95965304078287
+       ],
+       [
+        -118.080153465271,
+        33.95965304078287
+       ],
+       [
+        -118.080153465271,
+        33.959677512563935
+       ],
+       [
+        -118.0801910161972,
+        33.959677512563935
+       ],
+       [
+        -118.0801910161972,
+        33.95965304078287
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b250",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09030562639236,
+        33.97030872317728
+       ],
+       [
+        -118.09028953313828,
+        33.97030872317728
+       ],
+       [
+        -118.09028953313828,
+        33.970324294178866
+       ],
+       [
+        -118.09030562639236,
+        33.970324294178866
+       ],
+       [
+        -118.09030562639236,
+        33.97030872317728
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b251",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07731568813324,
+        33.97003289353373
+       ],
+       [
+        -118.07721108198166,
+        33.97003289353373
+       ],
+       [
+        -118.07721108198166,
+        33.970106299897196
+       ],
+       [
+        -118.07731568813324,
+        33.970106299897196
+       ],
+       [
+        -118.07731568813324,
+        33.97003289353373
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b26",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08064699172974,
+        33.960342697371466
+       ],
+       [
+        -118.08056384325027,
+        33.960342697371466
+       ],
+       [
+        -118.08056384325027,
+        33.96043390959843
+       ],
+       [
+        -118.08064699172974,
+        33.96043390959843
+       ],
+       [
+        -118.08064699172974,
+        33.960342697371466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b27",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07582437992096,
+        33.96790853041363
+       ],
+       [
+        -118.07575464248657,
+        33.96790853041363
+       ],
+       [
+        -118.07575464248657,
+        33.96801530595219
+       ],
+       [
+        -118.07582437992096,
+        33.96801530595219
+       ],
+       [
+        -118.07582437992096,
+        33.96790853041363
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b28",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.089160323143,
+        33.97281784207358
+       ],
+       [
+        -118.08906108140945,
+        33.97281784207358
+       ],
+       [
+        -118.08906108140945,
+        33.97289124603301
+       ],
+       [
+        -118.089160323143,
+        33.97289124603301
+       ],
+       [
+        -118.089160323143,
+        33.97281784207358
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b29",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08332920074463,
+        33.972399660732265
+       ],
+       [
+        -118.08320850133896,
+        33.972399660732265
+       ],
+       [
+        -118.08320850133896,
+        33.972513103746216
+       ],
+       [
+        -118.08332920074463,
+        33.972513103746216
+       ],
+       [
+        -118.08332920074463,
+        33.972399660732265
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09244871139526,
+        33.95580865903784
+       ],
+       [
+        -118.09234410524368,
+        33.95580865903784
+       ],
+       [
+        -118.09234410524368,
+        33.95587762806463
+       ],
+       [
+        -118.09244871139526,
+        33.95587762806463
+       ],
+       [
+        -118.09244871139526,
+        33.95580865903784
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b30",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09589803218842,
+        33.958611871212746
+       ],
+       [
+        -118.09579342603683,
+        33.958611871212746
+       ],
+       [
+        -118.09579342603683,
+        33.95868083796723
+       ],
+       [
+        -118.09589803218842,
+        33.95868083796723
+       ],
+       [
+        -118.09589803218842,
+        33.958611871212746
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b31",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09525966644287,
+        33.96640698520515
+       ],
+       [
+        -118.09517651796341,
+        33.96640698520515
+       ],
+       [
+        -118.09517651796341,
+        33.96649374187211
+       ],
+       [
+        -118.09525966644287,
+        33.96649374187211
+       ],
+       [
+        -118.09525966644287,
+        33.96640698520515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b32",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08574855327606,
+        33.96020476650101
+       ],
+       [
+        -118.08567076921463,
+        33.96020476650101
+       ],
+       [
+        -118.08567076921463,
+        33.96029597887587
+       ],
+       [
+        -118.08574855327606,
+        33.96029597887587
+       ],
+       [
+        -118.08574855327606,
+        33.96020476650101
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b33",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08576464653015,
+        33.970617918246425
+       ],
+       [
+        -118.0856654047966,
+        33.970617918246425
+       ],
+       [
+        -118.0856654047966,
+        33.97068909968587
+       ],
+       [
+        -118.08576464653015,
+        33.97068909968587
+       ],
+       [
+        -118.08576464653015,
+        33.970617918246425
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b34",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0946159362793,
+        33.959951151091055
+       ],
+       [
+        -118.0944898724556,
+        33.959951151091055
+       ],
+       [
+        -118.0944898724556,
+        33.96000676857024
+       ],
+       [
+        -118.0946159362793,
+        33.96000676857024
+       ],
+       [
+        -118.0946159362793,
+        33.959951151091055
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b35",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0806040763855,
+        33.96064080526296
+       ],
+       [
+        -118.0804780125618,
+        33.96064080526296
+       ],
+       [
+        -118.0804780125618,
+        33.96069642229127
+       ],
+       [
+        -118.0806040763855,
+        33.96069642229127
+       ],
+       [
+        -118.0806040763855,
+        33.96064080526296
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b36",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08053970336914,
+        33.96035159612961
+       ],
+       [
+        -118.0804243683815,
+        33.96035159612961
+       ],
+       [
+        -118.0804243683815,
+        33.96041166272283
+       ],
+       [
+        -118.08053970336914,
+        33.96041166272283
+       ],
+       [
+        -118.08053970336914,
+        33.96035159612961
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b37",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08966994285583,
+        33.960525121727606
+       ],
+       [
+        -118.0895546078682,
+        33.960525121727606
+       ],
+       [
+        -118.0895546078682,
+        33.960585188198294
+       ],
+       [
+        -118.08966994285583,
+        33.960585188198294
+       ],
+       [
+        -118.08966994285583,
+        33.960525121727606
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b38",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09091985225677,
+        33.96201119825045
+       ],
+       [
+        -118.09084743261337,
+        33.96201119825045
+       ],
+       [
+        -118.09084743261337,
+        33.9621068579756
+       ],
+       [
+        -118.09091985225677,
+        33.9621068579756
+       ],
+       [
+        -118.09091985225677,
+        33.96201119825045
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b39",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09165477752686,
+        33.96902299349484
+       ],
+       [
+        -118.09150725603104,
+        33.96902299349484
+       ],
+       [
+        -118.09150725603104,
+        33.969100849651355
+       ],
+       [
+        -118.09165477752686,
+        33.969100849651355
+       ],
+       [
+        -118.09165477752686,
+        33.96902299349484
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09083938598633,
+        33.95855180334878
+       ],
+       [
+        -118.09075355529785,
+        33.95855180334878
+       ],
+       [
+        -118.09075355529785,
+        33.958631893824645
+       ],
+       [
+        -118.09083938598633,
+        33.958631893824645
+       ],
+       [
+        -118.09083938598633,
+        33.95855180334878
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b40",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09867143630981,
+        33.96502998933449
+       ],
+       [
+        -118.0985614657402,
+        33.96502998933449
+       ],
+       [
+        -118.0985614657402,
+        33.96509227718967
+       ],
+       [
+        -118.09867143630981,
+        33.96509227718967
+       ],
+       [
+        -118.09867143630981,
+        33.96502998933449
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b41",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09504508972168,
+        33.96768385644677
+       ],
+       [
+        -118.09496194124222,
+        33.96768385644677
+       ],
+       [
+        -118.09496194124222,
+        33.967766162820354
+       ],
+       [
+        -118.09504508972168,
+        33.967766162820354
+       ],
+       [
+        -118.09504508972168,
+        33.96768385644677
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b42",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07746052742004,
+        33.97011742206796
+       ],
+       [
+        -118.0773612856865,
+        33.97011742206796
+       ],
+       [
+        -118.0773612856865,
+        33.97018637949417
+       ],
+       [
+        -118.07746052742004,
+        33.97018637949417
+       ],
+       [
+        -118.07746052742004,
+        33.97011742206796
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b43",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08472394943237,
+        33.97187470677555
+       ],
+       [
+        -118.08462470769882,
+        33.97187470677555
+       ],
+       [
+        -118.08462470769882,
+        33.97194366277679
+       ],
+       [
+        -118.08472394943237,
+        33.97194366277679
+       ],
+       [
+        -118.08472394943237,
+        33.97187470677555
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b44",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09661149978638,
+        33.97311590624236
+       ],
+       [
+        -118.09651225805283,
+        33.97311590624236
+       ],
+       [
+        -118.09651225805283,
+        33.97318486123707
+       ],
+       [
+        -118.09661149978638,
+        33.97318486123707
+       ],
+       [
+        -118.09661149978638,
+        33.97311590624236
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b45",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09740543365479,
+        33.961739791002834
+       ],
+       [
+        -118.09732764959335,
+        33.961739791002834
+       ],
+       [
+        -118.09732764959335,
+        33.961826552430246
+       ],
+       [
+        -118.09740543365479,
+        33.961826552430246
+       ],
+       [
+        -118.09740543365479,
+        33.961739791002834
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b46",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09305489063263,
+        33.96397776260135
+       ],
+       [
+        -118.09295028448105,
+        33.96397776260135
+       ],
+       [
+        -118.09295028448105,
+        33.96404227582002
+       ],
+       [
+        -118.09305489063263,
+        33.96404227582002
+       ],
+       [
+        -118.09305489063263,
+        33.96397776260135
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b47",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09322118759155,
+        33.965806359699094
+       ],
+       [
+        -118.09314340353012,
+        33.965806359699094
+       ],
+       [
+        -118.09314340353012,
+        33.96589311697871
+       ],
+       [
+        -118.09322118759155,
+        33.96589311697871
+       ],
+       [
+        -118.09322118759155,
+        33.965806359699094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b48",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09727668762207,
+        33.971358647184665
+       ],
+       [
+        -118.09719890356064,
+        33.971358647184665
+       ],
+       [
+        -118.09719890356064,
+        33.9714453988004
+       ],
+       [
+        -118.09727668762207,
+        33.9714453988004
+       ],
+       [
+        -118.09727668762207,
+        33.971358647184665
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b49",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08902621269226,
+        33.97269327763378
+       ],
+       [
+        -118.08892160654068,
+        33.97269327763378
+       ],
+       [
+        -118.08892160654068,
+        33.97280227152858
+       ],
+       [
+        -118.08902621269226,
+        33.97280227152858
+       ],
+       [
+        -118.08902621269226,
+        33.97269327763378
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0884200334549,
+        33.9706868752668
+       ],
+       [
+        -118.08833688497543,
+        33.9706868752668
+       ],
+       [
+        -118.08833688497543,
+        33.97076695431706
+       ],
+       [
+        -118.0884200334549,
+        33.97076695431706
+       ],
+       [
+        -118.0884200334549,
+        33.9706868752668
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b50",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09621453285217,
+        33.95871643368959
+       ],
+       [
+        -118.09611529111862,
+        33.95871643368959
+       ],
+       [
+        -118.09611529111862,
+        33.95878317562889
+       ],
+       [
+        -118.09621453285217,
+        33.95878317562889
+       ],
+       [
+        -118.09621453285217,
+        33.95871643368959
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b51",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.096364736557,
+        33.958763153052594
+       ],
+       [
+        -118.0962547659874,
+        33.958763153052594
+       ],
+       [
+        -118.0962547659874,
+        33.95882322076734
+       ],
+       [
+        -118.096364736557,
+        33.95882322076734
+       ],
+       [
+        -118.096364736557,
+        33.958763153052594
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b52",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09028148651123,
+        33.96769275443694
+       ],
+       [
+        -118.09017151594162,
+        33.96769275443694
+       ],
+       [
+        -118.09017151594162,
+        33.967752815846275
+       ],
+       [
+        -118.09028148651123,
+        33.967752815846275
+       ],
+       [
+        -118.09028148651123,
+        33.96769275443694
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b53",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09242725372314,
+        33.96926768403244
+       ],
+       [
+        -118.09231728315353,
+        33.96926768403244
+       ],
+       [
+        -118.09231728315353,
+        33.96932774432951
+       ],
+       [
+        -118.09242725372314,
+        33.96932774432951
+       ],
+       [
+        -118.09242725372314,
+        33.96926768403244
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b54",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0762267112732,
+        33.97213273539654
+       ],
+       [
+        -118.07611674070358,
+        33.97213273539654
+       ],
+       [
+        -118.07611674070358,
+        33.97219279367013
+       ],
+       [
+        -118.0762267112732,
+        33.97219279367013
+       ],
+       [
+        -118.0762267112732,
+        33.97213273539654
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b55",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08398902416229,
+        33.97269772636691
+       ],
+       [
+        -118.0839005112648,
+        33.97269772636691
+       ],
+       [
+        -118.0839005112648,
+        33.97277113043003
+       ],
+       [
+        -118.08398902416229,
+        33.97277113043003
+       ],
+       [
+        -118.08398902416229,
+        33.97269772636691
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b56",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0898255109787,
+        33.972279544434876
+       ],
+       [
+        -118.08973163366318,
+        33.972279544434876
+       ],
+       [
+        -118.08973163366318,
+        33.97234850010783
+       ],
+       [
+        -118.0898255109787,
+        33.97234850010783
+       ],
+       [
+        -118.0898255109787,
+        33.972279544434876
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b57",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08980941772461,
+        33.96057406478099
+       ],
+       [
+        -118.08969408273697,
+        33.96057406478099
+       ],
+       [
+        -118.08969408273697,
+        33.960629681852936
+       ],
+       [
+        -118.08980941772461,
+        33.960629681852936
+       ],
+       [
+        -118.08980941772461,
+        33.96057406478099
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b58",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08264791965485,
+        33.95763298221787
+       ],
+       [
+        -118.08257013559341,
+        33.95763298221787
+       ],
+       [
+        -118.08257013559341,
+        33.95771529831708
+       ],
+       [
+        -118.08264791965485,
+        33.95771529831708
+       ],
+       [
+        -118.08264791965485,
+        33.95763298221787
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b59",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09002935886383,
+        33.96842238646315
+       ],
+       [
+        -118.08993011713028,
+        33.96842238646315
+       ],
+       [
+        -118.08993011713028,
+        33.96852693688099
+       ],
+       [
+        -118.09002935886383,
+        33.96852693688099
+       ],
+       [
+        -118.09002935886383,
+        33.96842238646315
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09732496738434,
+        33.961717544468726
+       ],
+       [
+        -118.0972471833229,
+        33.961717544468726
+       ],
+       [
+        -118.0972471833229,
+        33.961799856615855
+       ],
+       [
+        -118.09732496738434,
+        33.961799856615855
+       ],
+       [
+        -118.09732496738434,
+        33.961717544468726
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b60",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07836174964905,
+        33.96817769349345
+       ],
+       [
+        -118.0782625079155,
+        33.96817769349345
+       ],
+       [
+        -118.0782625079155,
+        33.96824220352653
+       ],
+       [
+        -118.07836174964905,
+        33.96824220352653
+       ],
+       [
+        -118.07836174964905,
+        33.96817769349345
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b61",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09082329273224,
+        33.970233092557585
+       ],
+       [
+        -118.09072405099869,
+        33.970233092557585
+       ],
+       [
+        -118.09072405099869,
+        33.97029760103154
+       ],
+       [
+        -118.09082329273224,
+        33.97029760103154
+       ],
+       [
+        -118.09082329273224,
+        33.970233092557585
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b62",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0818110704422,
+        33.957259221630515
+       ],
+       [
+        -118.0817386507988,
+        33.957259221630515
+       ],
+       [
+        -118.0817386507988,
+        33.95734598762749
+       ],
+       [
+        -118.0818110704422,
+        33.95734598762749
+       ],
+       [
+        -118.0818110704422,
+        33.957259221630515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b63",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09544205665588,
+        33.96404005122709
+       ],
+       [
+        -118.0953374505043,
+        33.96404005122709
+       ],
+       [
+        -118.0953374505043,
+        33.96410011521585
+       ],
+       [
+        -118.09544205665588,
+        33.96410011521585
+       ],
+       [
+        -118.09544205665588,
+        33.96404005122709
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b64",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08386564254761,
+        33.97165671646835
+       ],
+       [
+        -118.08376103639603,
+        33.97165671646835
+       ],
+       [
+        -118.08376103639603,
+        33.97171677507815
+       ],
+       [
+        -118.08386564254761,
+        33.97171677507815
+       ],
+       [
+        -118.08386564254761,
+        33.97165671646835
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b65",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09123635292053,
+        33.963357098446075
+       ],
+       [
+        -118.0911585688591,
+        33.963357098446075
+       ],
+       [
+        -118.0911585688591,
+        33.96343718439802
+       ],
+       [
+        -118.09123635292053,
+        33.96343718439802
+       ],
+       [
+        -118.09123635292053,
+        33.963357098446075
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b66",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09755563735962,
+        33.955946597035506
+       ],
+       [
+        -118.09744566679001,
+        33.955946597035506
+       ],
+       [
+        -118.09744566679001,
+        33.95600221713259
+       ],
+       [
+        -118.09755563735962,
+        33.95600221713259
+       ],
+       [
+        -118.09755563735962,
+        33.955946597035506
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b67",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09182643890381,
+        33.960511773617256
+       ],
+       [
+        -118.09174329042435,
+        33.960511773617256
+       ],
+       [
+        -118.09174329042435,
+        33.960585188198294
+       ],
+       [
+        -118.09182643890381,
+        33.960585188198294
+       ],
+       [
+        -118.09182643890381,
+        33.960511773617256
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b68",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09012055397034,
+        33.971723448254394
+       ],
+       [
+        -118.09003204107285,
+        33.971723448254394
+       ],
+       [
+        -118.09003204107285,
+        33.97179240437829
+       ],
+       [
+        -118.09012055397034,
+        33.97179240437829
+       ],
+       [
+        -118.09012055397034,
+        33.971723448254394
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b69",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08375835418701,
+        33.97294907941096
+       ],
+       [
+        -118.08365106582642,
+        33.97294907941096
+       ],
+       [
+        -118.08365106582642,
+        33.97304250247687
+       ],
+       [
+        -118.08375835418701,
+        33.97304250247687
+       ],
+       [
+        -118.08375835418701,
+        33.97294907941096
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0926901102066,
+        33.960560716678316
+       ],
+       [
+        -118.09261232614517,
+        33.960560716678316
+       ],
+       [
+        -118.09261232614517,
+        33.960638580581076
+       ],
+       [
+        -118.0926901102066,
+        33.960638580581076
+       ],
+       [
+        -118.0926901102066,
+        33.960560716678316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b70",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09325337409973,
+        33.964026703668274
+       ],
+       [
+        -118.09315949678421,
+        33.964026703668274
+       ],
+       [
+        -118.09315949678421,
+        33.96409121684982
+       ],
+       [
+        -118.09325337409973,
+        33.96409121684982
+       ],
+       [
+        -118.09325337409973,
+        33.964026703668274
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b71",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09449255466461,
+        33.95540374297882
+       ],
+       [
+        -118.09439331293106,
+        33.95540374297882
+       ],
+       [
+        -118.09439331293106,
+        33.95546381306535
+       ],
+       [
+        -118.09449255466461,
+        33.95546381306535
+       ],
+       [
+        -118.09449255466461,
+        33.95540374297882
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b72",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08257818222046,
+        33.95787325601413
+       ],
+       [
+        -118.08247894048691,
+        33.95787325601413
+       ],
+       [
+        -118.08247894048691,
+        33.95793332435717
+       ],
+       [
+        -118.08257818222046,
+        33.95793332435717
+       ],
+       [
+        -118.08257818222046,
+        33.95787325601413
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b73",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07751417160034,
+        33.9672456292788
+       ],
+       [
+        -118.07742565870285,
+        33.9672456292788
+       ],
+       [
+        -118.07742565870285,
+        33.96731236452627
+       ],
+       [
+        -118.07751417160034,
+        33.96731236452627
+       ],
+       [
+        -118.07751417160034,
+        33.9672456292788
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b74",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08440208435059,
+        33.97121628536707
+       ],
+       [
+        -118.08428674936295,
+        33.97121628536707
+       ],
+       [
+        -118.08428674936295,
+        33.971267446672705
+       ],
+       [
+        -118.08440208435059,
+        33.971267446672705
+       ],
+       [
+        -118.08440208435059,
+        33.97121628536707
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b75",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08001935482025,
+        33.95432024932238
+       ],
+       [
+        -118.07991743087769,
+        33.95432024932238
+       ],
+       [
+        -118.07991743087769,
+        33.95437809532824
+       ],
+       [
+        -118.08001935482025,
+        33.95437809532824
+       ],
+       [
+        -118.08001935482025,
+        33.95432024932238
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b76",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09029757976532,
+        33.96160631171094
+       ],
+       [
+        -118.0902224779129,
+        33.96160631171094
+       ],
+       [
+        -118.0902224779129,
+        33.96168417465666
+       ],
+       [
+        -118.09029757976532,
+        33.96168417465666
+       ],
+       [
+        -118.09029757976532,
+        33.96160631171094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b77",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07791382074356,
+        33.969172032360646
+       ],
+       [
+        -118.07781994342804,
+        33.969172032360646
+       ],
+       [
+        -118.07781994342804,
+        33.969234317182405
+       ],
+       [
+        -118.07791382074356,
+        33.969234317182405
+       ],
+       [
+        -118.07791382074356,
+        33.969172032360646
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b78",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08199614286423,
+        33.97310478446378
+       ],
+       [
+        -118.0819022655487,
+        33.97310478446378
+       ],
+       [
+        -118.0819022655487,
+        33.97316706640508
+       ],
+       [
+        -118.08199614286423,
+        33.97316706640508
+       ],
+       [
+        -118.08199614286423,
+        33.97310478446378
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b79",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0962198972702,
+        33.96425806105796
+       ],
+       [
+        -118.0960938334465,
+        33.96425806105796
+       ],
+       [
+        -118.0960938334465,
+        33.96433592157644
+       ],
+       [
+        -118.0962198972702,
+        33.96433592157644
+       ],
+       [
+        -118.0962198972702,
+        33.96425806105796
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09653639793396,
+        33.95465175089978
+       ],
+       [
+        -118.09643179178238,
+        33.95465175089978
+       ],
+       [
+        -118.09643179178238,
+        33.954707371843284
+       ],
+       [
+        -118.09653639793396,
+        33.954707371843284
+       ],
+       [
+        -118.09653639793396,
+        33.95465175089978
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b80",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07817935943604,
+        33.959884410068035
+       ],
+       [
+        -118.07811230421066,
+        33.959884410068035
+       ],
+       [
+        -118.07811230421066,
+        33.95997117338775
+       ],
+       [
+        -118.07817935943604,
+        33.95997117338775
+       ],
+       [
+        -118.07817935943604,
+        33.959884410068035
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b81",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09396147727966,
+        33.96974594077763
+       ],
+       [
+        -118.09386223554611,
+        33.96974594077763
+       ],
+       [
+        -118.09386223554611,
+        33.96980377629475
+       ],
+       [
+        -118.09396147727966,
+        33.96980377629475
+       ],
+       [
+        -118.09396147727966,
+        33.96974594077763
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b82",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08595776557922,
+        33.96939225349023
+       ],
+       [
+        -118.08587461709976,
+        33.96939225349023
+       ],
+       [
+        -118.08587461709976,
+        33.96946121150446
+       ],
+       [
+        -118.08595776557922,
+        33.96946121150446
+       ],
+       [
+        -118.08595776557922,
+        33.96939225349023
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b83",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09795260429382,
+        33.9592792890699
+       ],
+       [
+        -118.09786409139633,
+        33.9592792890699
+       ],
+       [
+        -118.09786409139633,
+        33.95934380585189
+       ],
+       [
+        -118.09795260429382,
+        33.95934380585189
+       ],
+       [
+        -118.09795260429382,
+        33.9592792890699
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b84",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09056043624878,
+        33.96000454387177
+       ],
+       [
+        -118.09047192335129,
+        33.96000454387177
+       ],
+       [
+        -118.09047192335129,
+        33.96006906010376
+       ],
+       [
+        -118.09056043624878,
+        33.96006906010376
+       ],
+       [
+        -118.09056043624878,
+        33.96000454387177
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b85",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09125781059265,
+        33.95474964373604
+       ],
+       [
+        -118.09118539094925,
+        33.95474964373604
+       ],
+       [
+        -118.09118539094925,
+        33.95482751295717
+       ],
+       [
+        -118.09125781059265,
+        33.95482751295717
+       ],
+       [
+        -118.09125781059265,
+        33.95474964373604
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b86",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07975113391876,
+        33.96448051949308
+       ],
+       [
+        -118.07967871427536,
+        33.96448051949308
+       ],
+       [
+        -118.07967871427536,
+        33.96455837980792
+       ],
+       [
+        -118.07975113391876,
+        33.96455837980792
+       ],
+       [
+        -118.07975113391876,
+        33.96448051949308
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b87",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07620525360107,
+        33.966295758579584
+       ],
+       [
+        -118.07611137628555,
+        33.966295758579584
+       ],
+       [
+        -118.07611137628555,
+        33.96635582097546
+       ],
+       [
+        -118.07620525360107,
+        33.96635582097546
+       ],
+       [
+        -118.07620525360107,
+        33.966295758579584
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b88",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09118270874023,
+        33.95792665009893
+       ],
+       [
+        -118.09108346700668,
+        33.95792665009893
+       ],
+       [
+        -118.09108346700668,
+        33.95798226890163
+       ],
+       [
+        -118.09118270874023,
+        33.95798226890163
+       ],
+       [
+        -118.09118270874023,
+        33.95792665009893
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b89",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.08845221996307,
+        33.97244859695292
+       ],
+       [
+        -118.0883476138115,
+        33.97244859695292
+       ],
+       [
+        -118.0883476138115,
+        33.972539796198085
+       ],
+       [
+        -118.08845221996307,
+        33.972539796198085
+       ],
+       [
+        -118.08845221996307,
+        33.97244859695292
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09457302093506,
+        33.96369301401711
+       ],
+       [
+        -118.09447377920151,
+        33.96369301401711
+       ],
+       [
+        -118.09447377920151,
+        33.96374862904987
+       ],
+       [
+        -118.09457302093506,
+        33.96374862904987
+       ],
+       [
+        -118.09457302093506,
+        33.96369301401711
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b90",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09740006923676,
+        33.96463624005148
+       ],
+       [
+        -118.0973008275032,
+        33.96463624005148
+       ],
+       [
+        -118.0973008275032,
+        33.96469185446753
+       ],
+       [
+        -118.09740006923676,
+        33.96469185446753
+       ],
+       [
+        -118.09740006923676,
+        33.96463624005148
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b91",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09197664260864,
+        33.96044280834705
+       ],
+       [
+        -118.09188812971115,
+        33.96044280834705
+       ],
+       [
+        -118.09188812971115,
+        33.96050509956128
+       ],
+       [
+        -118.09197664260864,
+        33.96050509956128
+       ],
+       [
+        -118.09197664260864,
+        33.96044280834705
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b92",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09123903512955,
+        33.95701449654691
+       ],
+       [
+        -118.09114784002304,
+        33.95701449654691
+       ],
+       [
+        -118.09114784002304,
+        33.95707456549626
+       ],
+       [
+        -118.09123903512955,
+        33.95707456549626
+       ],
+       [
+        -118.09123903512955,
+        33.95701449654691
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b93",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07890355587006,
+        33.95940609787084
+       ],
+       [
+        -118.07881236076355,
+        33.95940609787084
+       ],
+       [
+        -118.07881236076355,
+        33.95946616513163
+       ],
+       [
+        -118.07890355587006,
+        33.95946616513163
+       ],
+       [
+        -118.07890355587006,
+        33.95940609787084
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b94",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09850513935089,
+        33.95603113956871
+       ],
+       [
+        -118.09838980436325,
+        33.95603113956871
+       ],
+       [
+        -118.09838980436325,
+        33.95607786040628
+       ],
+       [
+        -118.09850513935089,
+        33.95607786040628
+       ],
+       [
+        -118.09850513935089,
+        33.95603113956871
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b95",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.07935416698456,
+        33.95794667287209
+       ],
+       [
+        -118.07928711175919,
+        33.95794667287209
+       ],
+       [
+        -118.07928711175919,
+        33.95802676391761
+       ],
+       [
+        -118.07935416698456,
+        33.95802676391761
+       ],
+       [
+        -118.07935416698456,
+        33.95794667287209
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b96",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09790968894958,
+        33.95666743067589
+       ],
+       [
+        -118.09783190488815,
+        33.95666743067589
+       ],
+       [
+        -118.09783190488815,
+        33.95673639900657
+       ],
+       [
+        -118.09790968894958,
+        33.95673639900657
+       ],
+       [
+        -118.09790968894958,
+        33.95666743067589
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b97",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.097083568573,
+        33.96704319870782
+       ],
+       [
+        -118.09700578451157,
+        33.96704319870782
+       ],
+       [
+        -118.09700578451157,
+        33.96711215862676
+       ],
+       [
+        -118.097083568573,
+        33.96711215862676
+       ],
+       [
+        -118.097083568573,
+        33.96704319870782
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b98",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.09770047664642,
+        33.967261200841236
+       ],
+       [
+        -118.09762269258499,
+        33.967261200841236
+       ],
+       [
+        -118.09762269258499,
+        33.96733016058342
+       ],
+       [
+        -118.09770047664642,
+        33.96733016058342
+       ],
+       [
+        -118.09770047664642,
+        33.967261200841236
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-us-santa-fe-springs-city-ca/b99",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0786444,
+        33.9733493
+       ],
+       [
+        -118.0781198,
+        33.9732314
+       ],
+       [
+        -118.0781864,
+        33.9730275
+       ],
+       [
+        -118.0786652,
+        33.973135
+       ],
+       [
+        -118.0786825,
+        33.9730821
+       ],
+       [
+        -118.0787283,
+        33.9730924
+       ],
+       [
+        -118.0786444,
+        33.9733493
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1107763862",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -118.0789702,
+        33.9733434
+       ],
+       [
+        -118.0787331,
+        33.9732892
+       ],
+       [
+        -118.0788036,
+        33.9730772
+       ],
+       [
+        -118.0790407,
+        33.9731315
+       ],
+       [
+        -118.0789702,
+        33.9733434
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1107763863",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  }
+ ]
+}

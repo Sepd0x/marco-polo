@@ -1,0 +1,54 @@
+{
+ "about": "Rules v2 of the TEST draw, written before any imagery of a v2 cell was opened. The commit that adds this file seeds every hash below. Same strata and municipalities as v1 (candidates.file, checked by sha256). Why v2: under v1 (1 km cells, at least 40 pools) the north of Portugal had three eligible municipalities and none reached 40 pools, and 53 of the 55 zones reviewed were rejected for too few pools (87 attempts in all). The v1 draw stays in zones/draw.json as it was; this draw writes zones/draw-v2.json.",
+ "rules": {
+  "minDistanceKm": 50,
+  "minDistanceKmByStratum": {
+   "pt-north": { "DEV": 30, "seen": 30 }
+  },
+  "cellSizeKm": 2,
+  "cellMinShare": 0.3,
+  "minPools": 20,
+  "municipalityIndex": "i = BigInt(\"0x\" + sha256_hex(utf8(\"<listCommit>:<stratum>\"))) mod n, where listCommit is the full hash of the commit that added this file (test-candidates-v2.json) and n the number of eligible candidates of the stratum in the order of candidates.file",
+  "cellIndex": "j = BigInt(\"0x\" + sha256_hex(utf8(\"<listCommit>:<stratum>:cell:<code>\"))) mod m, over the eligible cells of the municipality in grid order, listCommit as above",
+  "order": "strata are drawn in the order of candidates.file. Kept zones count as drawn before any v2 attempt",
+  "kept": "a stratum listed in kept has that zone as its only attempt and is not drawn again",
+  "eligibleMunicipality": "centre at least the minimum distance from every zone of zones/registry.json (any role; kept zones and TEST zones drawn before included), every seen site listed there and every site in alsoProtected, and its region not in the excludedRegions of candidates.file for the stratum. The minimum is minDistanceKm, or the value minDistanceKmByStratum gives for that stratum and that kind of site: in pt-north 30 km from DEV zones and seen sites, 50 km from everything else",
+  "grid": "square cells of cellSizeKm ground km laid from the south-west corner of the municipality bounding box, rows south to north, cells west to east within a row",
+  "eligibleCell": "cell centre inside the municipality boundary, at least the minimum distance above from every protected site, and at least cellMinShare of a 21 x 21 lattice of points (100 m spacing) inside the stratum features (OSM, fetched at draw time and saved next to the draw)",
+  "poolCount": "pools of the merged blind labels (blind pass 1 on the product source of the stratum, then every OSM pool the pass did not box judged on the imagery) whose centre is inside the cell; unsure boxes do not count",
+  "next": "if the municipality has no eligible cell, or (Esri strata) the capture at the cell centre is the capture of a DEV or DEV-2 Esri zone, or (hard stratum) the Esri metadata at the cell centre does not meet hardCondition, or the zone has fewer than minPools pools after the blind review (all strata except negative), take i + 1 mod n and repeat",
+  "exhausted": "if every eligible municipality of a stratum is tried and none is kept, the stratum has no TEST zone and the results say so. A 2 km cell (4 km2) is the largest zone these rules allow; there is no further relaxation",
+  "zoneIds": "test-<stratum>-<municipality slug>; when that id was already used by a v1 draw, -v2 is appended. A v1 cell rejected or retired never comes back: a v2 zone is always a new cell",
+  "hardCondition": "as in candidates.file: Esri World Imagery metadata at the cell centre (World_Imagery MapServer layer 9, SRC_DATE2): capture date from November to February, or solar elevation at local solar noon on the capture date below 35 degrees",
+  "acquisition": "as in candidates.file: Esri strata, the capture at the cell centre differs from every DEV and DEV-2 Esri zone; PNOA and IGN, the excluded regions; DGT 2025, one national flight, the distance rule applies"
+ },
+ "candidates": {
+  "file": "test-candidates.json",
+  "sha256": "56377eae69a1b7e49387368c654b229c7eace672136c5db40d6b7bccc6314f9c"
+ },
+ "kept": [
+  {
+   "zone": "test-pt-rest-viseu",
+   "stratum": "pt-rest",
+   "why": "blind pass 1 and OSM check done under v1: 52 pools in its 1 km cell, above both minimums"
+  },
+  {
+   "zone": "test-negative-dunkerque",
+   "stratum": "negative",
+   "why": "blind pass 1 and OSM check done under v1; the pool minimum does not apply to the negative stratum"
+  }
+ ],
+ "retired": [
+  { "zone": "test-es-aranguren", "stratum": "es", "why": "drawn under v1, not reviewed; replaced by a v2 draw" },
+  { "zone": "test-fr-domont", "stratum": "fr", "why": "drawn under v1, not reviewed; replaced by a v2 draw" },
+  { "zone": "test-us-south-el-monte-city-ca", "stratum": "us", "why": "drawn under v1, not reviewed; replaced by a v2 draw" },
+  { "zone": "test-hard-fiumicino", "stratum": "hard", "why": "drawn under v1, not reviewed; replaced by a v2 draw" }
+ ],
+ "alsoProtected": [
+  { "id": "train-carvoeiro", "kind": "TRAIN", "center": [37.1, -8.47], "from": "branch v2-detect, zones/registry.json" },
+  { "id": "train-azeitao", "kind": "TRAIN", "center": [38.52, -9.02], "from": "branch v2-detect, zones/registry.json" },
+  { "id": "train-torrelodones", "kind": "TRAIN", "center": [40.58, -3.93], "from": "branch v2-detect, zones/registry.json" },
+  { "id": "train-carry", "kind": "TRAIN", "center": [43.335, 5.16], "from": "branch v2-detect, zones/registry.json" },
+  { "id": "demo-palm-springs", "kind": "seen", "center": [33.8303, -116.5453], "from": "apps/web/src/lib/demoAreas.ts, a demo area of the v1 app" }
+ ]
+}

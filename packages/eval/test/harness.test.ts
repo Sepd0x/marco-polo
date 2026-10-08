@@ -13,6 +13,7 @@ import { cellKey, drawOrder, eligibleCells, eligibleMunicipalities, featureShare
 import { matchDetections, pointAreaCap, V1_MATCH, DEFAULT_MATCH } from '../src/match.js';
 import { minAreaRect } from '../src/obb.js';
 import { checkRegistry, haversineKm, type Registry, type ZoneDef } from '../src/registry.js';
+import { loadPrereg, minKmRule } from '../src/drawzones.js';
 import { tileBounds3857, wmsUrl } from '../src/sources.js';
 import type { EvalDetection } from '../src/types.js';
 import type { RunMeta } from '../src/report.js';
@@ -143,6 +144,27 @@ describe('the TEST draw', () => {
     expect(eligibleCells(cells, [boundary], [half], [], 50, 0.3).length).toBe(2);
   });
 
+  it('rules v2: per-stratum minimum for some kinds of site, 50 km for the rest', () => {
+    const rules = loadPrereg(2).rules;
+    const near = (kind: 'DEV' | 'seen' | 'TRAIN' | 'TEST') => ({ id: kind, kind, center: [41.0 + 40 / 111.195, -8.0] as [number, number] });
+    const c = [{ name: 'm', code: '1', country: 'PT' as const, center: [41.0, -8.0] as [number, number], population: 1, region: '13' }];
+    expect(eligibleMunicipalities('pt-north', c, [near('DEV'), near('seen')], minKmRule(rules, 'pt-north'), {})).toHaveLength(1);
+    expect(eligibleMunicipalities('pt-north', c, [near('TRAIN')], minKmRule(rules, 'pt-north'), {})).toHaveLength(0);
+    expect(eligibleMunicipalities('pt-north', c, [near('TEST')], minKmRule(rules, 'pt-north'), {})).toHaveLength(0);
+    expect(eligibleMunicipalities('pt-rest', c, [near('DEV')], minKmRule(rules, 'pt-rest'), {})).toHaveLength(0);
+  });
+
+  it('rules v2: same candidate list, kept zones are TEST zones, retired ones left the registry', () => {
+    const pre = loadPrereg(2);
+    expect(pre.rules.cellSizeKm).toBe(2);
+    expect(pre.rules.minPools).toBe(20);
+    expect(pre.strata.map((s) => s.id)).toEqual(loadPrereg(1).strata.map((s) => s.id));
+    const r = JSON.parse(readFileSync(new URL('../zones/registry.json', import.meta.url), 'utf8')) as Registry;
+    for (const k of pre.kept) expect(r.zones.find((z) => z.id === k.zone)?.role).toBe('TEST');
+    for (const z of r.retiredTest ?? []) expect(r.zones.some((x) => x.id === z.id)).toBe(false);
+    expect(r.minDistanceKmByStratum).toEqual(pre.rules.minDistanceKmByStratum);
+  });
+
   it('hard imagery: winter months or low noon sun', () => {
     expect(isHardCapture(42, '2025-11-05')).toBe(true);
     expect(isHardCapture(42, '2025-06-21')).toBe(false);
@@ -163,6 +185,14 @@ describe('zones check (plan A1, A8)', () => {
     expect(haversineKm([40, -8], [40 + dLat(49), -8])).toBeCloseTo(49, 1);
     expect(checkRegistry(reg([zone('dev', 'DEV', 40, -8), zone('t', 'TEST', 40 + dLat(49), -8)]))).toHaveLength(1);
     expect(checkRegistry(reg([zone('dev', 'DEV', 40, -8), zone('t', 'TEST', 40 + dLat(51), -8)]))).toHaveLength(0);
+  });
+
+  it('a stratum with a smaller minimum: 40 km from DEV passes, 40 km from TRAIN fails', () => {
+    const dLat = 40 / 111.195;
+    const t = { ...zone('t', 'TEST', 40 + dLat, -8), stratum: 'pt-north' };
+    const r = (other: ZoneDef): Registry => ({ ...reg([other, t]), minDistanceKmByStratum: { 'pt-north': { DEV: 30, seen: 30 } } });
+    expect(checkRegistry(r(zone('dev', 'DEV', 40, -8)))).toHaveLength(0);
+    expect(checkRegistry(r(zone('train', 'TRAIN', 40, -8)))).toHaveLength(1);
   });
 
   it('a training zone added near a TEST zone fails', () => {
