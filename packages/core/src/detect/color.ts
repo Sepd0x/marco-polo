@@ -74,6 +74,26 @@ export function rgbToHsv(r: number, g: number, b: number): { h: number; s: numbe
   return { h, s, v };
 }
 
+/** `rgbToHsv` for every pixel of an RGBA buffer, written into the three arrays. */
+export function hsvInto(pixels: Uint8ClampedArray | Uint8Array, hue: Float32Array, sat: Float32Array, val: Float32Array): void {
+  const n = hue.length;
+  for (let i = 0; i < n; i++) {
+    const r = pixels[i * 4], g = pixels[i * 4 + 1], b = pixels[i * 4 + 2];
+    const max = Math.max(r, g, b);
+    const d = max - Math.min(r, g, b);
+    let h = 0;
+    if (d !== 0) {
+      if (max === r) h = 60 * (((g - b) / d) % 6);
+      else if (max === g) h = 60 * ((b - r) / d + 2);
+      else h = 60 * ((r - g) / d + 4);
+      if (h < 0) h += 360;
+    }
+    hue[i] = h;
+    sat[i] = max === 0 ? 0 : d / max;
+    val[i] = max / 255;
+  }
+}
+
 export interface WaterMask {
   /** 1 where the pixel matches the broad water signature. */
   mask: Uint8Array;

@@ -1,4 +1,4 @@
-import { DEFAULT_THRESHOLDS, rgbToHsv, type WaterThresholds } from './color.js';
+import { DEFAULT_THRESHOLDS, hsvInto, type WaterThresholds } from './color.js';
 import { cleanMask, labelComponents, type Component } from './mask.js';
 import { componentFeatures, FEATURE_COUNT, type FeatureContext } from './features.js';
 
@@ -113,13 +113,8 @@ export function analyseWindow(
   const hue = new Float32Array(n);
   const sat = new Float32Array(n);
   const val = new Float32Array(n);
-  for (let i = 0; i < n; i++) {
-    const { h, s, v } = rgbToHsv(pixels[i * 4], pixels[i * 4 + 1], pixels[i * 4 + 2]);
-    hue[i] = h;
-    sat[i] = s;
-    val[i] = v;
-  }
-  const gates = options.levels.map((lv) => colourGate(pixels, hue, sat, val, lv.gate));
+  hsvInto(pixels, hue, sat, val);
+  const gates = colourGates(pixels, hue, sat, val, options.levels.map((lv) => lv.gate));
 
   let sv = 0, ss = 0, sn = 0;
   for (let y = central.y0; y < central.y1; y++) {
@@ -179,6 +174,41 @@ export function analyseWindow(
     }
   }
   return { width, height, hue, sat, val, candidates };
+}
+
+/** `colourGate` for several gates in one pass over the pixels. */
+export function colourGates(
+  pixels: Uint8ClampedArray | Uint8Array,
+  hue: Float32Array,
+  sat: Float32Array,
+  val: Float32Array,
+  gates: readonly WaterThresholds[],
+): Uint8Array[] {
+  const n = hue.length;
+  const out = gates.map(() => new Uint8Array(n));
+  const k = gates.length;
+  for (let i = 0; i < n; i++) {
+    const o = i * 4;
+    if (pixels[o + 3] < 200) continue;
+    const r = pixels[o], g = pixels[o + 1], b = pixels[o + 2];
+    const h = hue[i], s = sat[i], v = val[i];
+    const br = b - r, gr = g - r, bg = b - g;
+    for (let j = 0; j < k; j++) {
+      const t = gates[j];
+      if (
+        h >= t.hueMin && h <= t.hueMax &&
+        v >= t.valMin &&
+        (s >= t.satStrong || (s >= t.satMin && v >= t.valBright)) &&
+        br >= t.blueOverRed &&
+        gr >= t.greenOverRed &&
+        bg >= t.blueOverGreenMin &&
+        bg <= t.blueOverGreenMax
+      ) {
+        out[j][i] = 1;
+      }
+    }
+  }
+  return out;
 }
 
 /** The colour test of `buildWaterMask`, on precomputed HSV. */

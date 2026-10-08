@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { analyseWindow, CANDIDATE_LEVELS, colourGate } from '../src/detect/candidates.js';
-import { buildWaterMask, DEFAULT_THRESHOLDS, rgbToHsv } from '../src/detect/color.js';
+import { analyseWindow, CANDIDATE_LEVELS, colourGate, colourGates } from '../src/detect/candidates.js';
+import { buildWaterMask, DEFAULT_THRESHOLDS, hsvInto, rgbToHsv } from '../src/detect/color.js';
 import { FEATURE_COUNT, FEATURE_NAMES } from '../src/detect/features.js';
 import { GREY_RGB, makeTile, POOL_RGB } from './helpers.js';
 
@@ -55,6 +55,29 @@ describe('candidate features', () => {
       val[i] = h.v;
     }
     expect(Array.from(colourGate(px, hue, sat, val, CANDIDATE_LEVELS[0].gate))).toEqual(Array.from(buildWaterMask(px, 64, 64, DEFAULT_THRESHOLDS).mask));
+  });
+
+  it('compute HSV and every gate in one pass exactly like the per-pixel helpers', () => {
+    // Every 5th level of each channel, plus transparent pixels.
+    const cols: number[][] = [];
+    for (let r = 0; r < 256; r += 5) for (let g = 0; g < 256; g += 5) for (let b = 0; b < 256; b += 5) cols.push([r, g, b]);
+    const n = cols.length;
+    const px = new Uint8ClampedArray(n * 4);
+    cols.forEach(([r, g, b], i) => px.set([r, g, b, i % 17 === 0 ? 100 : 255], i * 4));
+    const hue = new Float32Array(n), sat = new Float32Array(n), val = new Float32Array(n);
+    hsvInto(px, hue, sat, val);
+    const ref = { h: new Float32Array(n), s: new Float32Array(n), v: new Float32Array(n) };
+    cols.forEach(([r, g, b], i) => {
+      const q = rgbToHsv(r, g, b);
+      ref.h[i] = q.h;
+      ref.s[i] = q.s;
+      ref.v[i] = q.v;
+    });
+    expect(Array.from(hue)).toEqual(Array.from(ref.h));
+    expect(Array.from(sat)).toEqual(Array.from(ref.s));
+    expect(Array.from(val)).toEqual(Array.from(ref.v));
+    const fused = colourGates(px, hue, sat, val, CANDIDATE_LEVELS.map((l) => l.gate));
+    CANDIDATE_LEVELS.forEach((l, k) => expect(Array.from(fused[k])).toEqual(Array.from(colourGate(px, hue, sat, val, l.gate))));
   });
 
   it('keep only shapes whose centroid is in the central square', () => {
