@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import {
+  ESRI_WORLD_IMAGERY,
   estimateTileCount,
   ringBBox,
   type RankedDetection,
@@ -9,65 +10,73 @@ import {
 } from '@marco-polo/core';
 import { useStore, visibleRanked } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
-import { resolveImagery } from '../lib/imagery.js';
 import { DrawTool } from './DrawTool.js';
 import { ScanOverlay } from './overlay.js';
 import { DetectionMarkers } from './markers.js';
-
-const LABELS_URL =
-  'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}';
+import { GLYPHS_URL, LABEL_SOURCE, labelLayers, labelSource, setLabelsVisible } from './labels.js';
+import { anchorLayers, BaseImagery, ScannedImagery, scannedParts } from './sourceLayer.js';
+import { browserDisplay, mapMaxZoom } from './sources.js';
+import { watchContextLoss } from './contextLoss.js';
+import { occluderPadding } from './padding.js';
 
 // MapLibre 6 loads its worker as a separate module file; point it at the
 // copy Vite emits so it resolves under any base path.
 maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
+/** `?map-debug` exposes the map instance for the end-to-end tests and the before/after captures. */
+function exposeForTests(map: maplibregl.Map): void {
+  if (new URLSearchParams(window.location.search).has('map-debug')) {
+    (window as unknown as { __mpMap?: maplibregl.Map }).__mpMap = map;
+  }
+}
+
 export function MapView() {
   const container = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<maplibregl.Map | null>(null);
 
   useEffect(() => {
     if (!container.current) return;
 
-    const boot = resolveImagery(useStore.getState().settings.imagery);
+    const display = browserDisplay();
     const map = new maplibregl.Map({
       container: container.current,
       style: {
         version: 8,
-        sources: {
-          sat: {
-            type: 'raster',
-            tiles: [boot.template],
-            tileSize: boot.tileSize,
-            maxzoom: boot.maxZoom,
-            attribution: boot.attribution,
-          },
-          labels: {
-            type: 'raster',
-            tiles: [LABELS_URL],
-            tileSize: 256,
-            maxzoom: 19,
-          },
-        },
+        glyphs: GLYPHS_URL,
+        sources: { [LABEL_SOURCE]: labelSource() },
         layers: [
-          { id: 'bg', type: 'background', paint: { 'background-color': '#000000' } },
-          { id: 'sat', type: 'raster', source: 'sat' },
-          { id: 'labels', type: 'raster', source: 'labels', paint: { 'raster-opacity': 0.9 } },
+          { id: 'bg', type: 'background', paint: { 'background-color': '#0b0f14' } },
+          ...anchorLayers(),
+          ...labelLayers(),
         ],
       },
       center: [-8.0, 37.2],
       zoom: 5.2,
       attributionControl: { compact: true },
-      maxZoom: 20,
+      maxZoom: mapMaxZoom(ESRI_WORLD_IMAGERY),
       fadeDuration: 120,
     });
-    mapRef.current = map;
+    exposeForTests(map);
 
-    const unsubs: Array<() => void> = [];
+    const unsubs: Array<() => void> = [watchContextLoss(map)];
+    let base: BaseImagery | null = null;
+    let scanned: ScannedImagery | null = null;
 
     map.on('load', () => {
+      const baseImagery = new BaseImagery(map, display);
+      const scannedImagery = new ScannedImagery(map, display);
+      base = baseImagery;
+      scanned = scannedImagery;
+      const refreshImagery = () => {
+        baseImagery.update();
+        scannedImagery.sync(baseImagery);
+      };
+      refreshImagery();
+      map.on('moveend', refreshImagery);
+
+      // Scan layers go above the imagery and the labels; markers on top.
       const overlay = new ScanOverlay(map);
       const markers = new DetectionMarkers(map, (id) => useStore.getState().select(id));
-      overlay.setAccent(useStore.getState().settings.accent);
+      setLabelsVisible(map, useStore.getState().settings.labels);
 
       const draw = new DrawTool(map, (ring: Ring) => {
         const { settings } = useStore.getState();
@@ -75,9 +84,15 @@ export function MapView() {
         useStore.getState().setArea(ring, estimate);
       });
 
-      // ── store → map subscriptions ────────────────────────────────
-      const sub = useStore.subscribe;
+      const showScanned = () => {
+        const { area, settings } = useStore.getState();
+        scannedImagery.setParts(area, area ? scannedParts(area, settings.imagery) : []);
+        scannedImagery.sync(baseImagery);
+      };
+      showScanned();
+      overlay.setArea(useStore.getState().area);
 
+      const sub = useStore.subscribe;
       unsubs.push(
         sub(
           (s) => s.drawMode,
@@ -87,6 +102,7 @@ export function MapView() {
           (s) => s.area,
           (area) => {
             overlay.setArea(area);
+            showScanned();
             if (area) {
               const b = ringBBox(area);
               map.fitBounds(
@@ -94,10 +110,14 @@ export function MapView() {
                   [b.west, b.south],
                   [b.east, b.north],
                 ],
-                { padding: 90, duration: 900, maxZoom: 17 },
+                { padding: occluderPadding(map.getContainer(), 90), duration: 900, maxZoom: 17 },
               );
             }
           },
+        ),
+        sub(
+          (s) => s.settings.imagery,
+          () => showScanned(),
         ),
         sub(
           (s) => s.planTiles,
@@ -114,6 +134,13 @@ export function MapView() {
           (tile) => {
             overlay.setCurrent(tile);
             followCamera(map, tile);
+          },
+        ),
+        sub(
+          (s) => s.phase,
+          (phase) => {
+            overlay.setComplete(phase === 'complete');
+            if (phase === 'complete') fitResults(map);
           },
         ),
         sub(
@@ -141,28 +168,10 @@ export function MapView() {
         ),
         sub(
           (s) => s.settings.labels,
-          (on) => {
-            if (map.getLayer('labels')) {
-              map.setLayoutProperty('labels', 'visibility', on ? 'visible' : 'none');
-            }
-          },
-        ),
-        sub(
-          (s) => s.settings.accent,
-          (accent) => overlay.setAccent(accent),
-        ),
-        // The basemap follows the configured imagery source, so what you see
-        // is what the detector analyses.
-        sub(
-          (s) => s.settings.imagery,
-          (imagery) => {
-            const src = map.getSource('sat') as maplibregl.RasterTileSource | undefined;
-            src?.setTiles([resolveImagery(imagery).template]);
-          },
+          (shown) => setLabelsVisible(map, shown),
         ),
       );
 
-      // Detection polygon click → select.
       map.on('click', 'det-fill', (e) => {
         const f = e.features?.[0];
         if (f?.properties?.id) useStore.getState().select(String(f.properties.id));
@@ -174,7 +183,6 @@ export function MapView() {
         map.getCanvas().style.cursor = '';
       });
 
-      // UI → map commands.
       unsubs.push(
         on('flyto', (e) => {
           if (e.bbox) {
@@ -183,7 +191,7 @@ export function MapView() {
                 [e.bbox[0], e.bbox[1]],
                 [e.bbox[2], e.bbox[3]],
               ],
-              { padding: 80, duration: 1500, maxZoom: 16 },
+              { padding: occluderPadding(map.getContainer(), 80), duration: 1500, maxZoom: 16 },
             );
           } else if (e.center) {
             map.flyTo({ center: e.center, zoom: e.zoom ?? 15, duration: 1500 });
@@ -192,7 +200,7 @@ export function MapView() {
       );
       map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.lng, lat: e.lngLat.lat }));
 
-      // Manual pan while following disables follow — the user takes the wheel.
+      // Panning by hand during a scan turns following off: the user takes over.
       map.on('dragstart', () => {
         const s = useStore.getState();
         if (s.phase === 'scanning' && s.settings.follow) s.updateSettings({ follow: false });
@@ -209,12 +217,39 @@ export function MapView() {
 
     return () => {
       for (const u of unsubs) u();
+      scanned?.clear();
+      base?.clear();
       map.remove();
-      mapRef.current = null;
     };
   }, []);
 
   return <div id="map" ref={container} />;
+}
+
+/** After a scan: frame the pools found, clear of the panels; the area when there are none. */
+function fitResults(map: maplibregl.Map): void {
+  const { ranked, area } = useStore.getState();
+  let west = Infinity;
+  let south = Infinity;
+  let east = -Infinity;
+  let north = -Infinity;
+  for (const d of ranked) {
+    west = Math.min(west, d.bbox.west);
+    south = Math.min(south, d.bbox.south);
+    east = Math.max(east, d.bbox.east);
+    north = Math.max(north, d.bbox.north);
+  }
+  if (!Number.isFinite(west)) {
+    if (!area) return;
+    ({ west, south, east, north } = ringBBox(area));
+  }
+  map.fitBounds(
+    [
+      [west, south],
+      [east, north],
+    ],
+    { padding: occluderPadding(map.getContainer(), 60), duration: 900, maxZoom: 18 },
+  );
 }
 
 let lastFollow = 0;
@@ -247,3 +282,4 @@ function shallowish(
 ): boolean {
   return a.ranked === b.ranked && a.settings === b.settings && a.selectedId === b.selectedId;
 }
+

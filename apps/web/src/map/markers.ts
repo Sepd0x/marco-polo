@@ -1,64 +1,105 @@
-import * as maplibregl from 'maplibre-gl';
+import type * as maplibregl from 'maplibre-gl';
 import type { RankedDetection } from '@marco-polo/core';
+import { FONT_BOLD } from './labels.js';
+import { OUTLINE_CASING, POOL_OUTLINE } from './outline.js';
 
-/** Cap on DOM markers to keep the map fluid on huge result sets. */
-const MARKER_LIMIT = 250;
+export const MARKER_SOURCE = 'det-points';
+export const MARKER_DOT = 'det-dot';
+export const MARKER_RANK = 'det-rank';
+
+/** Rank labels appear from this zoom; below it they would only collide. */
+export const RANK_MIN_ZOOM = 17;
 
 /**
- * DOM markers for detections: a glowing core, a one-shot radar ping on first
- * appearance, and a live rank chip that re-numbers as the ranking shifts.
+ * Detection markers as GL layers: a small dot with a dark ring at the pool
+ * centre and a "#N" label that MapLibre places without overlaps, lower
+ * ranks first. No DOM elements, so there is no cap on how many are shown.
  */
 export class DetectionMarkers {
   private map: maplibregl.Map;
-  private markers = new Map<string, { marker: maplibregl.Marker; el: HTMLDivElement }>();
-  private onSelect: (id: string) => void;
 
   constructor(map: maplibregl.Map, onSelect: (id: string) => void) {
     this.map = map;
     this.onSelect = onSelect;
+    if (!map.getSource(MARKER_SOURCE)) {
+      map.addSource(MARKER_SOURCE, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    }
+    const selected: maplibregl.ExpressionSpecification = ['==', ['get', 'selected'], 1];
+    // Close in, the outline itself marks the pool; the dot would hide its water.
+    const fadeClose: maplibregl.ExpressionSpecification = ['interpolate', ['linear'], ['zoom'], 17.5, 1, 18.5, ['case', selected, 1, 0]];
+    if (!map.getLayer(MARKER_DOT)) {
+      map.addLayer({
+        id: MARKER_DOT,
+        type: 'circle',
+        source: MARKER_SOURCE,
+        layout: { 'circle-sort-key': ['get', 'selected'] },
+        paint: {
+          'circle-color': POOL_OUTLINE,
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2.5, 15, 4, 18, 4.5],
+          'circle-stroke-color': OUTLINE_CASING,
+          'circle-stroke-width': ['case', selected, 2.5, 1.5],
+          'circle-opacity': fadeClose,
+          'circle-stroke-opacity': fadeClose,
+        },
+      });
+    }
+    if (!map.getLayer(MARKER_RANK)) {
+      map.addLayer({
+        id: MARKER_RANK,
+        type: 'symbol',
+        source: MARKER_SOURCE,
+        minzoom: RANK_MIN_ZOOM,
+        layout: {
+          'text-field': ['concat', '#', ['to-string', ['get', 'rank']]],
+          'text-font': FONT_BOLD,
+          'text-size': 12,
+          'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+          'text-radial-offset': 0.9,
+          'text-allow-overlap': false,
+          'text-ignore-placement': false,
+          'symbol-sort-key': ['get', 'rank'],
+        },
+        paint: {
+          'text-color': '#ffffff',
+          'text-halo-color': OUTLINE_CASING,
+          'text-halo-width': 1.6,
+        },
+      });
+    }
+    map.on('click', MARKER_DOT, this.onClick);
+    map.on('mouseenter', MARKER_DOT, this.onEnter);
+    map.on('mouseleave', MARKER_DOT, this.onLeave);
   }
 
+  private onSelect: (id: string) => void;
+
+  private onClick = (e: maplibregl.MapLayerMouseEvent): void => {
+    const id = e.features?.[0]?.properties?.id;
+    if (id) this.onSelect(String(id));
+  };
+
+  private onEnter = (): void => {
+    this.map.getCanvas().style.cursor = 'pointer';
+  };
+
+  private onLeave = (): void => {
+    this.map.getCanvas().style.cursor = '';
+  };
+
   sync(list: RankedDetection[], selectedId: string | null): void {
-    const visible = list.slice(0, MARKER_LIMIT);
-    const keep = new Set(visible.map((d) => d.id));
-
-    for (const [id, entry] of this.markers) {
-      if (!keep.has(id)) {
-        entry.marker.remove();
-        this.markers.delete(id);
-      }
-    }
-
-    for (const d of visible) {
-      let entry = this.markers.get(d.id);
-      if (!entry) {
-        const el = document.createElement('div');
-        el.className = `det-marker ${d.kind}`;
-        el.innerHTML = `<div class="ping"></div><div class="core"></div><div class="rank-chip"></div>`;
-        el.addEventListener('click', (ev) => {
-          ev.stopPropagation();
-          this.onSelect(d.id);
-        });
-        const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
-          .setLngLat([d.center.lon, d.center.lat])
-          .addTo(this.map);
-        entry = { marker, el };
-        this.markers.set(d.id, entry);
-      } else {
-        entry.marker.setLngLat([d.center.lon, d.center.lat]);
-      }
-      // classList only — assigning className would strip the maplibregl-marker
-      // class and with it the absolute positioning markers rely on.
-      entry.el.classList.toggle('hot_tub', d.kind === 'hot_tub');
-      entry.el.classList.toggle('pool', d.kind === 'pool');
-      entry.el.classList.toggle('selected', d.id === selectedId);
-      const chip = entry.el.querySelector('.rank-chip') as HTMLDivElement;
-      if (chip) chip.textContent = `#${d.rank}`;
-    }
+    (this.map.getSource(MARKER_SOURCE) as maplibregl.GeoJSONSource | undefined)?.setData({
+      type: 'FeatureCollection',
+      features: list.map((d) => ({
+        type: 'Feature',
+        properties: { id: d.id, rank: d.rank, kind: d.kind, selected: d.id === selectedId ? 1 : 0 },
+        geometry: { type: 'Point', coordinates: [d.center.lon, d.center.lat] },
+      })),
+    });
   }
 
   clear(): void {
-    for (const { marker } of this.markers.values()) marker.remove();
-    this.markers.clear();
+    this.map.off('click', MARKER_DOT, this.onClick);
+    this.map.off('mouseenter', MARKER_DOT, this.onEnter);
+    this.map.off('mouseleave', MARKER_DOT, this.onLeave);
   }
 }
