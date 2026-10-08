@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import jpeg from 'jpeg-js';
 import { decodeImage, encodePng } from '../src/tiles.js';
-import { candidatesCommand } from '../src/commands/candidates.js';
 
 function gradient(w: number, h: number): Uint8ClampedArray {
   const rgba = new Uint8ClampedArray(w * h * 4);
@@ -39,11 +38,5 @@ describe('tile decoding', () => {
 
   it('rejects anything that is not JPEG or PNG', () => {
     expect(() => decodeImage(Buffer.from('<html>no tile</html>'))).toThrow(/Unrecognised/);
-  });
-});
-
-describe('candidates command', () => {
-  it('exists and says it is not there yet', async () => {
-    expect(await candidatesCommand([])).toBe(2);
   });
 });
