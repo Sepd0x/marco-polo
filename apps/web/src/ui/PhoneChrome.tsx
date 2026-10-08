@@ -74,7 +74,7 @@ export function PhoneChrome({ sourceName }: { sourceName: string | null }) {
 
   return (
     <>
-      <div className="float-top">
+      <div className="float-top" data-map-occluder>
         <SearchBox placeholder="Search a place" />
         <button className="icon-btn float" aria-label="Settings" onClick={() => setSettingsOpen(true)}>
           <IconSliders />
@@ -83,6 +83,7 @@ export function PhoneChrome({ sourceName }: { sourceName: string | null }) {
       {phase === 'complete' && (
         <button
           className="pill"
+          data-map-occluder
           aria-expanded={sheetList}
           onClick={() => {
             setCollapsed(false);
@@ -93,7 +94,7 @@ export function PhoneChrome({ sourceName }: { sourceName: string | null }) {
           <b>{formatCount(shown.length)}</b> {shown.length === 1 ? 'pool' : 'pools'} · {formatArea(total)}
         </button>
       )}
-      <div className={`sheet${collapsed ? ' collapsed' : ''}${sheetList ? ' tall' : ''}`} ref={sheetRef}>
+      <div className={`sheet${collapsed ? ' collapsed' : ''}${sheetList ? ' tall' : ''}`} ref={sheetRef} data-map-occluder>
         <button
           className="grab"
           aria-label={collapsed ? 'Show the panel' : 'Hide the panel'}

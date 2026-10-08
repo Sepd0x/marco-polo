@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { pointInRing, splitPlanBySource, tileRequest, DGT_ORTOS2025, ESRI_WORLD_IMAGERY, type TileCoord } from '@marco-polo/core';
 import { ScanController, type ScanRequest } from '../../src/scan/controller.js';
-import { useStore } from '../../src/state/store.js';
+import { useStore, visibleRanked } from '../../src/state/store.js';
 import { maxInWindow, poolsOnEvenColumns, PT_AREA, resetStore, rig, square, tileBody, tileCalls, US_AREA } from './harness.js';
 import { makeFragment } from '../../../../packages/core/test/helpers.js';
 
@@ -43,6 +43,8 @@ describe('scan controller', () => {
     expect(r.saved).toHaveLength(1);
     expect(r.saved[0].id).toBe(c.scanId);
     expect(r.saved[0].parts?.[0].providerName).toBe('Esri World Imagery');
+    // The archive list counts what the panel lists, not every detection.
+    expect(r.saved[0].listed).toBe(visibleRanked(useStore.getState()).length);
     expect(r.pools[0].disposed).toBe(true);
   });
 

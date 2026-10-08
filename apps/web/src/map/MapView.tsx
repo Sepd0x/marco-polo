@@ -167,13 +167,16 @@ export function MapView() {
           (id) => {
             if (!id) return;
             const det = useStore.getState().detections[id];
-            if (det) {
+            if (!det) return;
+            // After the inspector has rendered, so the pool lands clear of it.
+            requestAnimationFrame(() =>
               map.flyTo({
                 center: [det.center.lon, det.center.lat],
                 zoom: Math.max(map.getZoom(), 17.5),
+                offset: clearOffset(map),
                 duration: 1100,
-              });
-            }
+              }),
+            );
           },
         ),
         sub(
@@ -222,6 +225,9 @@ export function MapView() {
         if (s.phase === 'scanning' && s.settings.follow) s.updateSettings({ follow: false });
       });
 
+      foldAttribution(map);
+      map.on('resize', () => foldAttribution(map));
+
       emit('mapready', {});
 
       unsubs.push(() => {
@@ -268,6 +274,23 @@ function fitResults(map: maplibregl.Map): void {
   );
 }
 
+/** Offset from the container centre to the centre of the part of the map no panel covers. */
+function clearOffset(map: maplibregl.Map): [number, number] {
+  const pad = occluderPadding(map.getContainer(), 0);
+  return [(pad.left - pad.right) / 2, (pad.top - pad.bottom) / 2];
+}
+
+/**
+ * On a phone the attribution starts folded behind its button: open, it covers
+ * the area above the sheet. MapLibre unfolds it on load and on resize.
+ */
+function foldAttribution(map: maplibregl.Map): void {
+  if (!globalThis.matchMedia?.('(max-width: 700px)').matches) return;
+  const el = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+  el?.classList.remove('maplibregl-compact-show');
+  el?.removeAttribute('open');
+}
+
 let lastFollow = 0;
 
 function followCamera(map: maplibregl.Map, tile: { bbox: { west: number; east: number; north: number; south: number } } | null): void {
@@ -282,13 +305,14 @@ function followCamera(map: maplibregl.Map, tile: { bbox: { west: number; east: n
   ];
   const p = map.project(center);
   const c = map.getContainer();
-  const mx = c.clientWidth * 0.28;
-  const my = c.clientHeight * 0.28;
+  const pad = occluderPadding(c, 0);
+  const w = c.clientWidth - pad.left - pad.right;
+  const h = c.clientHeight - pad.top - pad.bottom;
   const inside =
-    p.x > mx && p.x < c.clientWidth - mx && p.y > my && p.y < c.clientHeight - my;
+    p.x > pad.left + w * 0.28 && p.x < pad.left + w * 0.72 && p.y > pad.top + h * 0.28 && p.y < pad.top + h * 0.72;
   if (!inside) {
     lastFollow = now;
-    map.easeTo({ center, duration: 950, easing: (t) => 1 - (1 - t) ** 2 });
+    map.easeTo({ center, offset: clearOffset(map), duration: 950, easing: (t) => 1 - (1 - t) ** 2 });
   }
 }
 

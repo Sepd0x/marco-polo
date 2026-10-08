@@ -22,7 +22,7 @@ import {
   type TileCoord,
   type TraversalOrder,
 } from '@marco-polo/core';
-import { useStore, type ArchiveSummary, type PartView, type TileOutcome } from '../state/store.js';
+import { useStore, visibleRanked, type ArchiveSummary, type PartView, type TileOutcome } from '../state/store.js';
 import { fragKey } from '../lib/fragKey.js';
 import { formatArea } from '../lib/format.js';
 import { ScanMachine, phaseOf, type ScanState } from './machine.js';
@@ -635,6 +635,7 @@ export class ScanController {
       thumbs: after.thumbBlobs,
       parts: after.parts.map(savedPart),
       threshold: cutoffsInUse(after.settings, after.parts)[0],
+      listed: visibleRanked(after).length,
     });
     if (this.store.getState().scanId === this.scanId) this.store.getState().setArchive(archive);
   }

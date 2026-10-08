@@ -36,7 +36,7 @@ export function ImageryChip() {
   const setOpen = useUi((s) => s.setSourcePickerOpen);
   const source = useChipSource();
   return (
-    <div className="chip-wrap">
+    <div className="chip-wrap" data-map-occluder>
       <button
         className="chip"
         aria-haspopup="dialog"
@@ -148,7 +148,7 @@ const Swatch = ({ kind }: { kind: 'wait' | 'busy' | 'done' | 'pool' }) => (
 /** What the tile states on the map mean, shown while a scan runs. */
 export function Legend() {
   return (
-    <div className="legend" role="note" aria-label="Map key">
+    <div className="legend" role="note" aria-label="Map key" data-map-occluder>
       <span>
         <Swatch kind="wait" />
         Waiting

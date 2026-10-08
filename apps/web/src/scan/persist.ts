@@ -26,6 +26,8 @@ export interface SavedScan {
   thumbs: Record<string, Blob | string>;
   parts?: SavedPart[];
   threshold?: number;
+  /** Pools listed when the scan was saved (at or above the minimum); older records count every detection. */
+  listed?: number;
 }
 
 const INDEX_KEY = 'index';
@@ -55,7 +57,7 @@ export async function saveScan(record: SavedScan): Promise<ArchiveSummary[]> {
     id: record.id,
     savedAt: record.savedAt,
     name: record.name,
-    pools: record.detections.length,
+    pools: record.listed ?? record.detections.length,
     areaM2: record.stats.areaM2 ?? 0,
     zoom: record.zoom,
     sources: record.parts?.map((p) => p.providerName),

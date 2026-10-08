@@ -133,7 +133,7 @@ export function Inspector({ phone, sourceName }: { phone: boolean; sourceName: s
   }
 
   return (
-    <section className="insp" role="dialog" aria-label={title}>
+    <section className="insp" role="dialog" aria-label={title} data-map-occluder>
       <div className="insp-h">
         <h2>{title}</h2>
         {nav}
