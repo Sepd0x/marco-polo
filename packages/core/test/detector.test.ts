@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { detectTile, scoreConfidence } from '../src/detect/detector.js';
-import { lonLatToTile, metersPerPixel, tilePixelToLonLat } from '../src/geo/mercator.js';
+import { detectTile, MIN_POOL_AREA_M2, scoreConfidence } from '../src/detect/detector.js';
+import { createV1Detector } from '../src/detect/window.js';
+import { DetectionMerger, DEFAULT_MERGER_OPTIONS } from '../src/merge/merger.js';
+import { bitmapPixelToLonLat, lonLatToTile, metersPerPixel, metersPerPixelOfBitmap, tilePixelToLonLat } from '../src/geo/mercator.js';
 import { GRASS_RGB, GREY_RGB, makeTile, POOL_RGB, ROOF_BLUE_RGB } from './helpers.js';
 
 // A z19 tile over the Algarve (pool country).
@@ -28,6 +30,42 @@ describe('detector', () => {
     expect(d.fillRatio).toBeGreaterThan(0.85);
   });
 
+  it('measures from the real bitmap width: a z18 tile at 512 px', () => {
+    const z18 = lonLatToTile(-8.0172, 37.0894, 18);
+    const rgba = makeTile(512, 512, GREY_RGB, [{ x: 200, y: 160, w: 60, h: 32, rgb: POOL_RGB }]);
+    const dets = detectTile(rgba, 512, 512, z18);
+    expect(dets).toHaveLength(1);
+    const mpp = metersPerPixelOfBitmap(z18, 512);
+    // Same ground size as the 30 x 16 px pool of a 256 px z19 tile, not four times it.
+    const expectedArea = 60 * 32 * mpp * mpp;
+    expect(dets[0].areaM2).toBeGreaterThan(expectedArea * 0.9);
+    expect(dets[0].areaM2).toBeLessThan(expectedArea * 1.1);
+    const c = bitmapPixelToLonLat(z18, 230, 176, 512);
+    expect(dets[0].center.lon).toBeCloseTo(c.lon, 6);
+    expect(dets[0].center.lat).toBeCloseTo(c.lat, 6);
+    const v1 = createV1Detector().detectTile(
+      { tile: z18, tilePx: 512, halo: 0, width: 512, height: 512, pixels: rgba, mPerPx: mpp },
+      { providerId: 'dgt-ortos2025' },
+    );
+    expect(v1[0].areaM2).toBeCloseTo(dets[0].areaM2, 6);
+  });
+
+  it('keeps a 4 m² hot tub all the way through the merger', () => {
+    // 9 x 8 px at this latitude and zoom is about 4.1 m².
+    const rgba = makeTile(256, 256, GREY_RGB, [{ x: 120, y: 120, w: 9, h: 8, rgb: POOL_RGB }]);
+    const dets = detectTile(rgba, 256, 256, TILE);
+    expect(dets).toHaveLength(1);
+    expect(dets[0].areaM2).toBeGreaterThan(3.5);
+    expect(dets[0].areaM2).toBeLessThan(4.5);
+    const merger = new DetectionMerger({}, [TILE]);
+    merger.addTileDetections(TILE, dets);
+    merger.finalize();
+    const out = merger.getAll();
+    expect(out).toHaveLength(1);
+    expect(out[0].kind).toBe('hot_tub');
+    expect(DEFAULT_MERGER_OPTIONS.minAreaM2).toBe(MIN_POOL_AREA_M2);
+  });
+
   it('ignores grass, grey and blue-roof rectangles', () => {
     const rgba = makeTile(256, 256, GREY_RGB, [
       { x: 20, y: 20, w: 24, h: 16, rgb: GRASS_RGB },
@@ -42,7 +80,7 @@ describe('detector', () => {
   });
 
   it('rejects interior shapes larger than a plausible pool', () => {
-    // ~200×200 px ≈ 2270 m² at this latitude/zoom — a pond, not a pool.
+    // About 200 x 200 px, some 2270 m² at this latitude and zoom: a pond, not a pool.
     const rgba = makeTile(256, 256, GREY_RGB, [{ x: 20, y: 20, w: 200, h: 200, rgb: POOL_RGB }]);
     expect(detectTile(rgba, 256, 256, TILE)).toHaveLength(0);
   });
@@ -87,7 +125,7 @@ describe('detector', () => {
   });
 
   it('rejects textured surfaces even in a perfect pool colour', () => {
-    // A pool-coloured rectangle with a strong checker texture — a hedge or a
+    // A pool-coloured rectangle with a strong checker texture: a hedge or a
     // photovoltaic array as the colour gate sees it.
     const rgba = makeTile(256, 256, GREY_RGB, [{ x: 100, y: 80, w: 30, h: 16, rgb: POOL_RGB }]);
     for (let y = 80; y < 96; y++) {

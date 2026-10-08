@@ -1,160 +1,79 @@
 # How detection works
 
-This document walks the full journey of a pixel from a satellite tile to a ranked,
-geolocated pool — with the actual numbers the engine ships with and why they are
-what they are. Everything here lives in [`packages/core/src/detect`](../packages/core/src/detect)
-and is covered by unit tests plus a real-imagery tuning harness
-([`packages/cli/src/dev/annotate.ts`](../packages/cli/src/dev/annotate.ts)).
+The code is in [`packages/core/src/detect`](../packages/core/src/detect). Two
+detectors sit behind the same `Detector` seam: v1, the colour rules of the
+first version, kept as the baseline, and v2, a learned scorer over candidates.
 
-## 1. The physical signature
+## v2
 
-Pool water is cyan from above for a physical reason: water absorbs red light
-strongly, chlorinated pools are shallow with light (usually white/blue) liners, so
-the reflected spectrum peaks between green and blue. In HSV terms that lands in a
-narrow hue band around **170–205°** — a colour that natural terrain essentially
-never produces at pool scale. Sea and lakes sit in similar hues but are darker,
-greener, and *enormously* larger, which geometry handles later.
+1. **Window.** Each scan tile is read with a halo from its neighbours: 48 px
+   around a 256 px tile, 96 px around a 512 px DGT request. A shape is
+   reported only by the tile that holds its centroid, so a pool on a tile edge
+   comes out once and whole.
+2. **Candidates** (`candidates.ts`). Six colour levels: the v1 gate, two looser
+   gates for pale, greenish and shaded water, a strict bright gate that
+   separates a pool from a blue shadow, a green band and an olive band for
+   algae, the last two with a shape test. Olive blobs that fill less than 0.6
+   of their box are also cut at their brightness threshold (Otsu), which
+   separates a green pool from the lawn or tree it touches. Cleaned
+   components from 3 to 2000 m² that pass their level are the candidates.
+3. **Features** (`features.ts`). 47 numbers per candidate: colour of the
+   shape, of a ring 1 to 3 px around it (coping, deck) and of a ring 4 to
+   10 px (garden, roof, road), shape and size, edge contrast, texture, and the
+   brightness and saturation of the tile.
+4. **Score** (`model.ts`). 300 gradient-boosted trees and a small network
+   (32 and 16 units) score each candidate; the average goes through an
+   isotonic calibration per imagery family. The result is the confidence.
+   Thresholds: 0.40 for DGT, IGN and Esri, 0.50 for PNOA. Of overlapping
+   candidates the best one stays.
+5. **Measure** (`learned.ts`, `measure.ts`). The area is the mask grown by one
+   pixel ring, and the outline is traced on that same shape. Length and width
+   come from the minimum-area rectangle of the outline, or are "not measured"
+   when the shape is cut by the edge of the imagery, joined from parts, or
+   fills less than 0.6 of its rectangle.
 
-## 2. Per-pixel gate (`color.ts`)
+The model is [`packages/core/models/pool-v2.json`](../packages/core/models)
+(80 KB gzip, credits in `ATTRIBUTION.md`). [`tools/train`](../tools/train)
+trains, calibrates and reports it.
 
-A pixel counts as *possible water* when all of these hold:
+## Measured
 
-| Check | Default | Rejects |
-|---|---|---|
-| hue ∈ [148°, 215°] | broad band | vegetation (~100°), warm roofs, plain blue roofs (>215°) |
-| value ≥ 0.24 | brightness floor | deep shadow |
-| saturation ≥ 0.34, **or** saturation ≥ 0.20 *and* value ≥ 0.5 | joint gate | asphalt & shadow haze |
-| blue − red ≥ 10 (0–255) | channel test | grey/warm surfaces that sneak into the hue band |
-| green − red ≥ −8 | channel test | purple-ish artefacts |
-| blue − green ∈ [−12, 70] | turquoise band | photovoltaic blue (strongly blue-dominant) and foliage (strongly green-dominant) |
+[`packages/eval`](../packages/eval): frozen labels, each zone on the imagery
+the product scans there, 95% block bootstrap intervals. DEV zones are scored
+with a calibration fitted without them; DEV-2 ran once, with the final model.
 
-The **joint saturation/brightness gate** is the load-bearing rule, found by tuning
-against real desert imagery (Scottsdale, AZ): pale sunlit pools are *bright* with
-modest saturation; deep-water pools are *dark but strongly saturated*; blue-grey
-asphalt, wet roads and building shadows are dark **and** weakly saturated — and
-only that combination is rejected. Before this rule, roads produced dozens of
-speckle detections per suburb tile; after it, zero.
+| | v1 at 0.55 | v2 |
+|---|--:|--:|
+| F1, DEV | 29.0% [24.4, 34.0] | 73.7% [69.3, 78.0] |
+| F1, DEV-2 | 48.6% [45.0, 52.7] | 74.2% [70.4, 77.6] |
+| F1, GOLD | 66.1% [60.0, 71.2] | 84.3% [80.9, 87.2] |
+| false positives per km², DEV | 162.9 | 23.4 |
+| median area error, DEV (signed) | 23.3% (-17.0%) | 23.0% (-10.0%) |
+| median area error, DEV-2 (signed) | 26.3% (-22.0%) | 29.9% (-23.4%) |
 
-A second, tighter band — hue ∈ [168°, 205°], saturation ≥ 0.34 — defines the
-*strict* "unmistakably pool" signature. It isn't used to reject pixels; it feeds
-the confidence score (§6).
+- Candidates reach 426 of the 452 DEV pools (0.942).
+- Five training seeds: DEV F1 73.7% on average, standard deviation 2.1.
+- Tile borders cost at most 1 pp of recall on the gold against scoring the
+  whole area as one image.
+- Time per request in a web worker of the production build, p95, one core of
+  an AMD Ryzen AI 9 365: 126 ms (Chromium) and 127 ms (Firefox) for a 512 px
+  DGT request, 42.5 and 43 ms for a 256 px tile. Targets: 150 and 50 ms.
+- One pixel of boundary is 17.6% of the median labelled pool at these
+  resolutions. The area targets (median error 15%, signed within 5%) are not
+  met.
 
-## 3. Cleanup and components (`mask.ts`)
+## Limits
 
-The binary mask goes through morphological **open** (erode→dilate, killing isolated
-speckle like teal car roofs) then **close** (dilate→erode, sealing holes from sun
-glint, steps and lane ropes). One subtlety: erosion treats out-of-image neighbours
-as *inside*. A shape touching the tile edge must keep touching it after cleanup,
-or the cross-tile merger (§5) loses the only signal that the shape continues in
-the next tile — this was a real bug caught by a unit test.
+- Covered pools, pools under trees and empty pools are missed. The benchmark
+  ignores covered and hidden ones on the imagery where they are covered.
+- Training used five zones in Portugal, Spain and France, imaged in spring
+  and summer, and no Esri imagery. On Esri the threshold rests on one DEV
+  zone, Scottsdale, where v2 is not better than v1.
+- Blue cars, painted courts and teal roofs still pass at times.
+- With the pixel ring the width reads wide, by about 8% (median) on DEV.
 
-8-connected component labelling (iterative flood fill) then yields candidate blobs
-with pixel counts, bounding boxes, centroids and edge-touch flags.
+## v1
 
-## 4. Shape & size filters (`detector.ts`)
-
-Geometry is computed in metres using the Web Mercator ground resolution at the
-tile's latitude — at z19 a pixel is ~0.30 m at the equator, ~0.24 m at 37° N:
-
-- **< 12 px** → noise, dropped before any geographic reasoning.
-- **Interior blobs** (not touching a tile edge) must be **3–2000 m²** — from hot
-  tub to resort lagoon. Larger is a pond/lake/sea.
-- **Edge-touching blobs stay candidates regardless of size** (they may be pool
-  fragments) unless they exceed 4× the ceiling, which no pool fragment can.
-- Elongated interior shapes (aspect > 8, or bbox fill < 0.22) are canals, ditches
-  and painted lanes — dropped.
-
-Each surviving component gets an outline: boundary edges on the pixel lattice are
-chained into closed loops (deterministic, single-pixel-safe, hole-safe — chosen
-over Moore tracing precisely for those edge cases), then simplified with
-Douglas-Peucker at ~1.2 px tolerance and projected to WGS84.
-
-### Surface texture — water's second signature
-
-Colour alone can't separate a pool from a cyan-tinged hedge or a glinting
-photovoltaic array. Smoothness can: **water is glassy**, and textured surfaces
-aren't. For every component the detector measures the mean forward-difference
-brightness gradient, sampled *only* where a pixel's full 4-neighbourhood shares
-the component's label (otherwise the shape's own edge contaminates the score).
-Forward differences matter — central differences straddle one-pixel-period seams
-(exactly what panel grids look like) and read them as smooth.
-
-Measured on reference imagery, real pools score **0.02–0.125** (US imagery is
-sharper and scores higher); vegetation and panel arrays score far above. The
-hard ceiling is **0.15**, and everything above ~0.10 pays a growing confidence
-penalty — so borderline-rough detections survive but visibly rank as doubtful.
-
-## 5. Cross-tile merging (`merger.ts`)
-
-Tiles are analysed independently, so a pool on a tile boundary appears as two or
-four fragments. The merger:
-
-1. indexes clusters by the tiles they touch;
-2. when a new edge-touching fragment arrives, probes the 8 neighbouring tiles for
-   clusters whose geographic bbox comes within **2.5 px** (converted to metres at
-   that latitude) and merges transitively;
-3. re-emits merged detections as live `update` events — the UI's ranking visibly
-   reshuffles when two fragments become one big pool;
-4. reclassifies clusters that outgrow the pool ceiling as open water (`remove`);
-5. tracks **truncation**: a detection is `truncated` only while some touched edge
-   borders an unscanned tile or leaves the scan area entirely. Truncated areas are
-   honest lower bounds, and the UI marks them.
-
-Small fragments (< 8 m²) are *withheld*, not discarded — if their merged sum
-clears the floor they emit late; if not, they never existed.
-
-## 6. Confidence
-
-Each detection is scored 0–1 as a weighted blend:
-
-```
-0.30 · strictRatio            fraction of pixels in the strict pool band
-0.18 · hueScore               gaussian around 189° (σ = 26°)
-0.15 · smoothScore            surface texture (glassy → 1, rough → 0)
-0.14 · satScore               saturation above the floor
-0.12 · shapeScore             bbox fill ratio (compactness)
-0.11 · sizeScore              plateau at 10–150 m², tapering outside
-× 0.9  if truncated
-× 0.78 if rough AND non-compact (texture > 0.10 and fill < 0.50)
-```
-
-The final multiplier targets the dominant false-positive signature — solar-panel
-edges, blue tarps and roof furniture that clear the colour gate but are both
-textured *and* fail to fill their bounding box. Neither condition alone condemns
-a real pool (compact rough pools and smooth sprawling ones both exist), so it is
-a soft penalty, not a hard reject. The web UI's default display threshold is
-**0.55**; borderline real pools sit just under it and reappear the moment you
-lower the slider.
-
-The weights encode a simple prior: **colour evidence dominates**, shape and size
-adjust. In validation, unambiguous pools score 0.7–0.96; the classic false
-positives — teal-coated roofs, blue tarps, playground surfaces — land at 0.35–0.55
-because their saturation or strict-band ratio betrays them. The UI's default
-display threshold (0.45, adjustable) hides most of them while keeping borderline
-real pools inspectable: lower the slider and see everything the engine saw.
-
-## 7. Known limitations (by design, documented rather than hidden)
-
-- **Covered, drained, indoor and heavily-shaded pools** don't reflect the
-  signature and are missed.
-- **Green (algae) pools** drift out of the hue band. Fixable with a second band at
-  the cost of vegetation false positives — a good `thresholds` experiment.
-- **Teal architecture** (roofs, courts) can pass the colour gate; smooth metal
-  roofs even pass the texture gate. Confidence and the size filter contain the
-  damage, but don't eliminate it.
-- **Imagery vintage** varies by region; a pool built last year may not exist in
-  the tiles yet.
-- Areas are pixel-count × resolution² — accurate to roughly ±10–15% on clean
-  imagery, worse when trees overhang the water.
-
-## 8. Tuning it yourself
-
-```bash
-cd packages/cli
-npx tsx src/dev/annotate.ts 33.594 -111.926 3 19 out.png
-```
-
-fetches a 3×3 tile grid around a coordinate, overlays the raw mask (orange), the
-cleaned mask (magenta) and detection boxes coloured by strict-ratio, and prints
-per-detection stats — the exact loop used to arrive at the defaults above. Every
-threshold is a plain field on `DEFAULT_THRESHOLDS` / `DEFAULT_DETECTOR_OPTIONS`.
+A per-pixel colour gate in HSV and RGB, morphology, shape and size filters, a
+hand-weighted confidence and a merger that joins fragments across tile edges
+(`detector.ts`, `merger.ts`). It is the baseline of every comparison above.

@@ -1,7 +1,7 @@
 import type { BBox, Detection, DetectionKind, TileCoord, TileDetection } from '../types.js';
 import { metersPerPixel } from '../geo/mercator.js';
 import { bboxesIntersect, expandBBoxMeters, unionBBox } from '../geo/polygon.js';
-import { scoreConfidence } from '../detect/detector.js';
+import { MIN_POOL_AREA_M2, scoreConfidence } from '../detect/detector.js';
 
 export interface MergerOptions {
   /** Final emission floor, m². Edge fragments smaller than this wait for a merge. */
@@ -15,7 +15,7 @@ export interface MergerOptions {
 }
 
 export const DEFAULT_MERGER_OPTIONS: MergerOptions = {
-  minAreaM2: 8,
+  minAreaM2: MIN_POOL_AREA_M2,
   maxAreaM2: 2000,
   hotTubMaxM2: 10,
   adjacencyPx: 2.5,
@@ -46,7 +46,7 @@ const tileKey = (t: TileCoord) => `${t.x},${t.y}`;
  * joins fragments whose geographic bounds meet within a couple of pixels across
  * facing edges, and re-emits the merged detection. It also tracks which tiles
  * have been processed, so a shape is only marked `truncated` while its
- * continuation is genuinely unknown (unscanned neighbour or outside the plan).
+ * continuation is really unknown (unscanned neighbour or outside the plan).
  */
 export class DetectionMerger {
   private opts: MergerOptions;
@@ -65,7 +65,7 @@ export class DetectionMerger {
 
   /**
    * Ingest the detections of one completed tile (call with an empty array for
-   * tiles with no detections — completion itself resolves neighbours' edges).
+   * tiles with no detections: completion itself resolves neighbours' edges).
    */
   addTileDetections(tile: TileCoord, detections: TileDetection[]): MergerEvent[] {
     const events: MergerEvent[] = [];
@@ -113,8 +113,6 @@ export class DetectionMerger {
     }
     return events;
   }
-
-  // ── internals ──────────────────────────────────────────────────────────────
 
   private placeFragment(frag: TileDetection, events: MergerEvent[]): Cluster {
     const touchesEdge = frag.touches.n || frag.touches.e || frag.touches.s || frag.touches.w;
@@ -182,6 +180,7 @@ export class DetectionMerger {
     let pixelCount = 0;
     let areaM2 = 0;
     let lon = 0, lat = 0, h = 0, s = 0, v = 0, strict = 0, fill = 0, tex = 0;
+    let score = -1;
     let bbox = c.fragments[0].bbox;
     let primary = c.fragments[0];
     const tiles: TileCoord[] = [];
@@ -198,6 +197,7 @@ export class DetectionMerger {
       strict += f.strictRatio * f.pixelCount;
       fill += f.fillRatio * f.pixelCount;
       tex += f.texture * f.pixelCount;
+      if (f.score !== undefined && f.score > score) score = f.score;
       bbox = unionBBox(bbox, f.bbox);
       const k = tileKey(f.tile);
       if (!seen.has(k)) {
@@ -219,7 +219,7 @@ export class DetectionMerger {
       bbox,
       outline: c.fragments.map((f) => f.outline),
       areaM2,
-      confidence: scoreConfidence({ meanHue, meanSat, strictRatio, fillRatio, texture, areaM2, truncated }),
+      confidence: score >= 0 ? score : scoreConfidence({ meanHue, meanSat, strictRatio, fillRatio, texture, areaM2, truncated }),
       pixelCount,
       tiles,
       truncated,

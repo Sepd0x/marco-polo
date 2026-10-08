@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
+import { decodeJpeg, JpegUnsupported } from './jpeg.js';
 import { tileUrl, type CachePolicy, type TileCoord } from '@marco-polo/core';
 
 export interface DecodedTile {
@@ -13,9 +14,18 @@ export interface DecodedTile {
 
 export const USER_AGENT = 'marco-polo-scanner/0.2 (open-source pool scanner; github.com/Sepd0x/marco-polo)';
 
-/** Decode a JPEG or PNG buffer by magic bytes. */
+/**
+ * Decode a JPEG or PNG buffer by magic bytes. JPEGs go through `decodeJpeg`,
+ * which gives the browsers' pixels; jpeg-js only takes the variants it does
+ * not handle (progressive, unusual sampling), which none of the sources serve.
+ */
 export function decodeImage(buf: Uint8Array): DecodedTile {
   if (buf.length > 3 && buf[0] === 0xff && buf[1] === 0xd8) {
+    try {
+      return decodeJpeg(buf);
+    } catch (err) {
+      if (!(err instanceof JpegUnsupported)) throw err;
+    }
     const { data, width, height } = jpeg.decode(buf, { useTArray: true, formatAsRGBA: true });
     return { rgba: new Uint8ClampedArray(data.buffer, data.byteOffset, data.byteLength), width, height };
   }

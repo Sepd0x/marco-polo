@@ -4,7 +4,7 @@
  */
 
 /**
- * 3×3 cross erosion — a pixel survives only if its 4-neighbourhood is set.
+ * 3x3 cross erosion: a pixel survives only if its 4-neighbourhood is set.
  * Out-of-image neighbours count as set (border replication): a shape that
  * touches the tile edge must keep touching it, or the cross-tile merger
  * loses the signal that the shape continues in the next tile.
@@ -43,8 +43,8 @@ export function dilate(mask: Uint8Array, width: number, height: number): Uint8Ar
 }
 
 /**
- * Morphological open (erode→dilate) to drop speckle noise, then close
- * (dilate→erode) to seal small holes from sun glint, steps and lane lines.
+ * Morphological open (erode, then dilate) to drop speckle noise, then close
+ * (dilate, then erode) to seal small holes from sun glint, steps and lane lines.
  */
 export function cleanMask(mask: Uint8Array, width: number, height: number): Uint8Array {
   let m = erode(mask, width, height);
@@ -74,36 +74,28 @@ export interface LabelResult {
 export function labelComponents(mask: Uint8Array, width: number, height: number): LabelResult {
   const labels = new Int32Array(mask.length);
   const components: Component[] = [];
-  const stack: number[] = [];
+  let stack = new Int32Array(1024);
   let next = 0;
 
   for (let start = 0; start < mask.length; start++) {
     if (!mask[start] || labels[start]) continue;
     next++;
-    const comp: Component = {
-      label: next,
-      pixelCount: 0,
-      minX: Infinity,
-      minY: Infinity,
-      maxX: -Infinity,
-      maxY: -Infinity,
-      sumX: 0,
-      sumY: 0,
-    };
-    stack.length = 0;
-    stack.push(start);
+    let count = 0, sumX = 0, sumY = 0;
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    let sp = 0;
+    stack[sp++] = start;
     labels[start] = next;
-    while (stack.length) {
-      const i = stack.pop()!;
-      const x = i % width;
+    while (sp) {
+      const i = stack[--sp];
       const y = (i / width) | 0;
-      comp.pixelCount++;
-      comp.sumX += x;
-      comp.sumY += y;
-      if (x < comp.minX) comp.minX = x;
-      if (x > comp.maxX) comp.maxX = x;
-      if (y < comp.minY) comp.minY = y;
-      if (y > comp.maxY) comp.maxY = y;
+      const x = i - y * width;
+      count++;
+      sumX += x;
+      sumY += y;
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
       const x0 = x > 0 ? -1 : 0;
       const x1 = x < width - 1 ? 1 : 0;
       const y0 = y > 0 ? -1 : 0;
@@ -114,12 +106,17 @@ export function labelComponents(mask: Uint8Array, width: number, height: number)
           const j = i + dy * width + dx;
           if (mask[j] && !labels[j]) {
             labels[j] = next;
-            stack.push(j);
+            if (sp === stack.length) {
+              const grown = new Int32Array(stack.length * 2);
+              grown.set(stack);
+              stack = grown;
+            }
+            stack[sp++] = j;
           }
         }
       }
     }
-    components.push(comp);
+    components.push({ label: next, pixelCount: count, minX, minY, maxX, maxY, sumX, sumY });
   }
   return { labels, components };
 }

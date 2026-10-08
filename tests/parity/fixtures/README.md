@@ -1,8 +1,10 @@
 # Decode parity fixtures
 
-Nine JPEG tiles, unchanged, fetched on 7 Oct 2026 from open-licence sources.
-The name is `<source>-<place>-<z>-<x>-<y>.jpg`; DGT tiles are 512 px WMS
-answers for a z18 tile, the others 256 px WMTS tiles at z19.
+Ten JPEG files, unchanged, fetched on 7 and 8 Oct 2026 from open-licence
+sources. The name is `<source>-<place>-<z>-<x>-<y>.jpg`; DGT tiles are 512 px
+WMS answers for a z18 tile, the others 256 px WMTS tiles at z19. The
+`halo43` file is the same DGT tile asked for with a 43 px halo (598 px, a
+size that is not a whole number of JPEG blocks), to test the decoder edges.
 
 | Files | Source | Licence and credit |
 |---|---|---|

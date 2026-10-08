@@ -1,0 +1,11 @@
+{
+ "source": "ign",
+ "method": "Every pool label of the zone judged on its own crop of the IGN orthophoto imagery (z19, nothing drawn but corner marks, order by hash), 8 Oct 2026. Listed: no water surface visible on this source, because an opaque cover, a slatted cover or an enclosure hides it (5), or the canopy hides the whole pool (0). Pools with green, dark, murky or pale water, blue covers, empty pools and doubtful cases stay pool labels. Done by the detection flow after it had seen the candidate misses of this zone, so not blind to the detector; a second reviewer should redo it blind.",
+ "ids": [
+  "visual/balma/c20",
+  "way/1276692536",
+  "way/1276692545",
+  "way/1276692546",
+  "way/1282221136"
+ ]
+}

@@ -1,5 +1,31 @@
+import { readFileSync } from 'node:fs';
 import { performance } from 'node:perf_hooks';
-import { DetectionMerger, detectTile, type DetectorOptions, type MergerOptions, type ScanTile } from '@marco-polo/core';
+import { fileURLToPath } from 'node:url';
+import {
+  defaultThreshold,
+  DEFAULT_HALO_PX,
+  DEFAULT_LEARNED_OPTIONS,
+  DetectionMerger,
+  detectTile,
+  measuredDims,
+  detectWindow,
+  FEATURE_NAMES,
+  imageCandidates,
+  selectCandidates,
+  sourceFamily,
+  TILE_SIZE,
+  toTileDetection,
+  type Detection,
+  type DetectorOptions,
+  type LearnedOptions,
+  type MergerOptions,
+  type PoolModel,
+  type ScanTile,
+  type TileCoord,
+  type TileDetection,
+  type TileWindow,
+  type WindowAnalysis,
+} from '@marco-polo/core';
 import type { DecodedTile } from '../../cli/src/tiles.js';
 import type { EvalDetection } from './types.js';
 
@@ -11,15 +37,32 @@ export interface DetectorRun {
   tilesMissing: number;
 }
 
+/** Central tile plus a halo, as the product would hand it to the detector. */
+export interface WindowAccess {
+  providerId: string;
+  /** `tilePx` 512 asks a WMS source for the tile at 512 px (the DGT scan grid is z18 at 512 px). */
+  window(tile: ScanTile, halo: number, tilePx?: number): Promise<TileWindow | null>;
+}
+
 /**
  * A detector under test. It sees decoded tiles of the scan plan in traversal
- * order, exactly like the web app, and returns merged detections.
+ * order, exactly like the web app, and returns merged detections. Detectors
+ * that read a halo use `windows`.
  */
 export interface Detector {
   id: string;
   description: string;
-  run(tiles: ScanTile[], get: (t: ScanTile) => Promise<DecodedTile | null>): Promise<DetectorRun>;
+  run(tiles: ScanTile[], get: (t: ScanTile) => Promise<DecodedTile | null>, windows?: WindowAccess): Promise<DetectorRun>;
+  /** Threshold for a source, when the detector has its own per source. */
+  thresholdFor?(providerId: string): number;
 }
+
+function toEval(d: Detection): EvalDetection {
+  return { id: d.id, center: d.center, bbox: d.bbox, outline: d.outline.map((r) => [r]), areaM2: d.areaM2, confidence: d.confidence, kind: d.kind, truncated: d.truncated };
+}
+
+/** v2 reports the dimensions the product shows: measured, or null for "not measured". */
+const toEvalMeasured = (d: Detection): EvalDetection => ({ ...toEval(d), dims: measuredDims(d) });
 
 /** A detector built from packages/core with option overrides. */
 export function coreDetector(id: string, description: string, det: Partial<DetectorOptions> = {}, merge: Partial<MergerOptions> = {}): Detector {
@@ -45,25 +88,202 @@ export function coreDetector(id: string, description: string, det: Partial<Detec
       merger.finalize();
       const all = merger.getAll();
       computeMs += performance.now() - t0;
-      return {
-        computeMs,
-        tilesMissing,
-        detections: all.map((d) => ({
-          id: d.id,
-          center: d.center,
-          bbox: d.bbox,
-          outline: d.outline.map((r) => [r]),
-          areaM2: d.areaM2,
-          confidence: d.confidence,
-          kind: d.kind,
-          truncated: d.truncated,
-        })),
-      };
+      return { computeMs, tilesMissing, detections: all.map(toEval) };
     },
   };
 }
 
-/** v1: packages/core as shipped, default detector and merger options. */
-export const v1Detector = coreDetector('v1', 'packages/core detectTile + DetectionMerger, default options');
+/**
+ * v1: packages/core as shipped. The merger then emitted nothing under 8 m²;
+ * the shared minimum is 3 m² now, so v1 keeps its own value to stay the
+ * baseline it was.
+ */
+export const v1Detector = coreDetector('v1', 'packages/core detectTile + DetectionMerger as shipped (merger minimum 8 m²)', {}, { minAreaM2: 8 });
 
-export const DETECTORS: Record<string, Detector> = { v1: v1Detector };
+/** The model the product ships, or the file named by MARCO_POLO_MODEL (experiments only). */
+export const MODEL_PATH = process.env.MARCO_POLO_MODEL ?? fileURLToPath(new URL('../../core/models/pool-v2.json', import.meta.url));
+
+let modelCache: { path: string; model: PoolModel } | null = null;
+export function loadModel(path = MODEL_PATH): PoolModel {
+  if (modelCache?.path !== path) modelCache = { path, model: JSON.parse(readFileSync(path, 'utf8')) as PoolModel };
+  return modelCache.model;
+}
+
+/** WMS sources are scanned on a z18 grid at 512 px; XYZ sources tile by tile at z19. */
+function productTiles(tiles: ScanTile[], providerId: string): { tiles: ScanTile[]; tilePx: number } {
+  if (!providerId.startsWith('dgt')) return { tiles, tilePx: TILE_SIZE };
+  const parents = new Map<string, ScanTile>();
+  for (const t of tiles) {
+    const p: TileCoord = { z: t.tile.z - 1, x: t.tile.x >> 1, y: t.tile.y >> 1 };
+    const k = `${p.x}/${p.y}`;
+    if (!parents.has(k)) parents.set(k, { tile: p, bbox: t.bbox, index: parents.size });
+  }
+  return { tiles: [...parents.values()], tilePx: 2 * TILE_SIZE };
+}
+
+function mustWindows(windows: WindowAccess | undefined): WindowAccess {
+  if (!windows) throw new Error('this detector reads windows with a halo; run it through evaluateZone');
+  return windows;
+}
+
+/** v2 on the product path: one window per scan tile, halo around it, centroid rule, then the merger. */
+export function v2Detector(opts: { halo?: number; learned?: Partial<LearnedOptions>; id?: string; model?: PoolModel; modelName?: string } = {}): Detector {
+  const halo = opts.halo ?? DEFAULT_HALO_PX;
+  const learned: LearnedOptions = { ...DEFAULT_LEARNED_OPTIONS, ...opts.learned };
+  const getModel = () => opts.model ?? loadModel();
+  const name = opts.modelName ?? MODEL_PATH.split(/[\\/]/).slice(-1)[0];
+  return {
+    id: opts.id ?? 'v2',
+    description: `packages/core detectWindow (halo ${halo} px, model ${name}) + DetectionMerger`,
+    thresholdFor: (providerId) => defaultThreshold(getModel(), providerId),
+    async run(tiles, _get, windows) {
+      const w = mustWindows(windows);
+      const model = getModel();
+      const plan = productTiles(tiles, w.providerId);
+      const merger = new DetectionMerger({}, plan.tiles.map((t) => t.tile));
+      let computeMs = 0;
+      let tilesMissing = 0;
+      for (const st of plan.tiles) {
+        const win = await w.window(st, halo * (plan.tilePx / TILE_SIZE), plan.tilePx);
+        const t0 = performance.now();
+        if (win) merger.addTileDetections(st.tile, detectWindow(win, { providerId: w.providerId }, model, learned));
+        else {
+          tilesMissing++;
+          merger.addTileDetections(st.tile, []);
+        }
+        computeMs += performance.now() - t0;
+      }
+      merger.finalize();
+      return { computeMs, tilesMissing, detections: merger.getAll().map(toEvalMeasured) };
+    },
+  };
+}
+
+/**
+ * Every candidate of the product path with confidence 1: what the scorer can
+ * at best recover (the recall ceiling of the candidate stage).
+ */
+export function v2CandidateDetector(opts: { halo?: number; levels?: LearnedOptions['candidates']['levels'] } = {}): Detector {
+  const halo = opts.halo ?? DEFAULT_HALO_PX;
+  const everything: PoolModel = { format: 'marco-polo-pool-model/1', features: [], gbdt: null, mlp: null, gbdtWeight: 1, calibration: { default: { x: [0], y: [1] } }, thresholds: {}, meta: {} };
+  const learned: LearnedOptions = {
+    ...DEFAULT_LEARNED_OPTIONS,
+    nmsOverlap: Infinity,
+    candidates: { ...DEFAULT_LEARNED_OPTIONS.candidates, ...(opts.levels ? { levels: opts.levels } : {}) },
+  };
+  return {
+    id: 'v2-candidates',
+    description: `every candidate of the product path (halo ${halo} px), confidence 1`,
+    async run(tiles, _get, windows) {
+      const w = mustWindows(windows);
+      const plan = productTiles(tiles, w.providerId);
+      const out: EvalDetection[] = [];
+      let computeMs = 0;
+      let tilesMissing = 0;
+      for (const st of plan.tiles) {
+        const win = await w.window(st, halo * (plan.tilePx / TILE_SIZE), plan.tilePx);
+        if (!win) {
+          tilesMissing++;
+          continue;
+        }
+        const t0 = performance.now();
+        for (const d of detectWindow(win, { providerId: w.providerId }, everything, learned)) out.push(fromTile(d, `c${out.length}`));
+        computeMs += performance.now() - t0;
+      }
+      return { computeMs, tilesMissing, detections: out };
+    },
+  };
+}
+
+function fromTile(d: TileDetection, id: string): EvalDetection {
+  return { id, center: d.center, bbox: d.bbox, outline: [[d.outline]], areaM2: d.areaM2, confidence: d.score ?? 0, kind: d.areaM2 <= 10 ? 'hot_tub' : 'pool', truncated: false };
+}
+
+const TILE_V = FEATURE_NAMES.indexOf('tile_v');
+const TILE_S = FEATURE_NAMES.indexOf('tile_s');
+
+/**
+ * Give each candidate of a mosaic the brightness and saturation of the z19
+ * tile its centroid falls in, as the product computes them for its window.
+ */
+function tileContext(analysis: WindowAnalysis, pixels: Uint8ClampedArray, W: number): void {
+  const cache = new Map<string, [number, number]>();
+  for (const c of analysis.candidates) {
+    const tx = Math.floor(c.cx / TILE_SIZE), ty = Math.floor(c.cy / TILE_SIZE);
+    const key = `${tx}/${ty}`;
+    let ctx = cache.get(key);
+    if (!ctx) {
+      let sv = 0, ss = 0, n = 0;
+      for (let y = ty * TILE_SIZE; y < (ty + 1) * TILE_SIZE; y++) {
+        for (let x = tx * TILE_SIZE; x < (tx + 1) * TILE_SIZE; x++) {
+          const i = y * W + x;
+          if (pixels[i * 4 + 3] < 200) continue;
+          sv += analysis.val[i];
+          ss += analysis.sat[i];
+          n++;
+        }
+      }
+      ctx = [n ? sv / n : 0, n ? ss / n : 0];
+      cache.set(key, ctx);
+    }
+    c.features[TILE_V] = ctx[0];
+    c.features[TILE_S] = ctx[1];
+  }
+}
+
+/**
+ * The same scorer over the whole area stitched into one image, no tile
+ * borders at all: the reference the product path is held to on the gold (P8).
+ * `context: 'tile'` (default) keeps the two context features per z19 tile,
+ * as in the product, so the comparison isolates the tile borders; 'mosaic'
+ * takes them over the whole image.
+ */
+export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions>; model?: PoolModel; context?: 'tile' | 'mosaic' } = {}): Detector {
+  const learned: LearnedOptions = { ...DEFAULT_LEARNED_OPTIONS, ...opts.learned };
+  const getModel = () => opts.model ?? loadModel();
+  const context = opts.context ?? 'tile';
+  return {
+    id: 'v2-mosaic',
+    description: `v2 scorer on the whole area as one image (no tiles, no halo; context features per ${context === 'tile' ? 'z19 tile' : 'mosaic'})`,
+    thresholdFor: (providerId) => defaultThreshold(getModel(), providerId),
+    async run(tiles, _get, windows) {
+      const w = mustWindows(windows);
+      if (w.providerId.startsWith('dgt')) throw new Error('the mosaic reference is built from XYZ tiles');
+      const model = getModel();
+      const z = tiles[0].tile.z;
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const t of tiles) {
+        x0 = Math.min(x0, t.tile.x);
+        y0 = Math.min(y0, t.tile.y);
+        x1 = Math.max(x1, t.tile.x);
+        y1 = Math.max(y1, t.tile.y);
+      }
+      const W = (x1 - x0 + 1) * TILE_SIZE, H = (y1 - y0 + 1) * TILE_SIZE;
+      const pixels = new Uint8ClampedArray(W * H * 4);
+      let tilesMissing = 0;
+      for (const t of tiles) {
+        const win = await w.window(t, 0);
+        if (!win) {
+          tilesMissing++;
+          continue;
+        }
+        const ox = (t.tile.x - x0) * TILE_SIZE, oy = (t.tile.y - y0) * TILE_SIZE;
+        for (let y = 0; y < TILE_SIZE; y++) pixels.set(win.pixels.subarray(y * TILE_SIZE * 4, (y + 1) * TILE_SIZE * 4), ((oy + y) * W + ox) * 4);
+      }
+      const t0 = performance.now();
+      const frame = { tile: { z, x: x0, y: y0 }, tilePx: TILE_SIZE, offsetX: 0, offsetY: 0 };
+      const analysis = imageCandidates(pixels, W, H, frame, { x0: 0, y0: 0, x1: W, y1: H }, learned);
+      if (context === 'tile') tileContext(analysis, pixels, W);
+      const kept = selectCandidates(analysis, sourceFamily(w.providerId), model, learned);
+      const dets = kept.map((s, i) => fromTile(toTileDetection(s, pixels, W, H, frame, analysis, learned), `m${i}`));
+      return { computeMs: performance.now() - t0, tilesMissing, detections: dets.filter((d) => d.areaM2 >= learned.candidates.minAreaM2) };
+    },
+  };
+}
+
+export const DETECTORS: Record<string, Detector> = {
+  v1: v1Detector,
+  v2: v2Detector(),
+  'v2-candidates': v2CandidateDetector(),
+  'v2-mosaic': v2MosaicDetector(),
+};

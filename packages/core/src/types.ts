@@ -78,6 +78,11 @@ export interface TileDetection {
    */
   texture: number;
   touches: EdgeTouch;
+  /**
+   * Calibrated pool probability from a learned detector (v2). When present
+   * the merger uses it as the confidence; v1 leaves it out.
+   */
+  score?: number;
 }
 
 /** A merged, deduplicated detection: the unit the product ranks and displays. */

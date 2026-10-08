@@ -1,0 +1,27 @@
+{
+ "about": "Final targets, fixed before the first TEST run (plan 3.2). The gate fails if this file changes after a TEST run is logged in results/TEST_RUNS.md.",
+ "fixedAt": "2026-10-08",
+ "commit": "7ad4b59",
+ "targets": {
+  "P1": 0.30571140547174,
+  "P2": 0.3633048264662412,
+  "P3": 0,
+  "P4": 0,
+  "P5": 0.15,
+  "P6": 0.05,
+  "P7": 1,
+  "P8": -0.02,
+  "P9": 0
+ },
+ "basis": {
+  "P1": "stricter of floor 0.1 and DEV+DEV-2 bound 0.3057",
+  "P2": "stricter of floor 0.6 and DEV+DEV-2 bound 0.3633",
+  "P3": "floor",
+  "P4": "floor",
+  "P5": "stricter of floor 0.15 and DEV+DEV-2 bound 0.2470",
+  "P6": "floor",
+  "P7": "floor",
+  "P8": "floor",
+  "P9": "floor"
+ }
+}
