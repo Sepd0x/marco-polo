@@ -1,0 +1,385 @@
+{
+ "about": "TEST draw, one entry per stratum with every attempt. Rules: zones/test-candidates-v2.json. Raw OSM answers are kept outside the repo; their sha256 is here.",
+ "rules": 2,
+ "listCommit": "b8f325448fa555b6471e67f31db4eb9d5c07c472",
+ "candidatesSha256": "e068260e65a7d60f6979815b69c25a581fa462d3914cb7f813dadb9f77dba85b",
+ "registrySha256AtStart": "627cfcfa4c7878a3fbb8e525805eed8cb286f97d08483f90186c5456132340be",
+ "strata": [
+  {
+   "stratum": "pt-north",
+   "eligible": 8,
+   "start": 1,
+   "attempts": [
+    {
+     "index": 1,
+     "municipality": {
+      "name": "Bragança",
+      "code": "0402"
+     },
+     "status": "drawn",
+     "osmSha256": "56a00c9c17551870ecf932f5f8bd412d4705d68f050083d58376ced7d58807fd",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 15,
+      "col": 7,
+      "share": 0.349,
+      "bbox": {
+       "west": -6.785877606994342,
+       "south": 41.80588831988714,
+       "east": -6.761790965136391,
+       "north": 41.82397575454628
+      }
+     }
+    }
+   ],
+   "zone": "test-pt-north-braganca-v2"
+  },
+  {
+   "stratum": "pt-rest",
+   "eligible": 50,
+   "start": 1,
+   "attempts": [
+    {
+     "index": -1,
+     "municipality": {
+      "name": "Viseu",
+      "code": "1823"
+     },
+     "status": "drawn",
+     "osmSha256": "4cdaa2bb185acc444d68e7aac441580a39bbf7645a65592061685cdeb0439090",
+     "eligibleCells": 44,
+     "cell": {
+      "row": 14,
+      "col": 13,
+      "share": 0.451,
+      "bbox": {
+       "west": -7.937577322914087,
+       "south": 40.662344542614,
+       "east": -7.925730278522862,
+       "north": 40.67138825994357
+      }
+     },
+     "keptFrom": "draw.json (rules v1): blind pass 1 and OSM check done under v1: 52 pools in its 1 km cell, above both minimums"
+    }
+   ],
+   "zone": "test-pt-rest-viseu"
+  },
+  {
+   "stratum": "es",
+   "eligible": 501,
+   "start": 29,
+   "attempts": [
+    {
+     "index": 29,
+     "municipality": {
+      "name": "la Nucia",
+      "code": "03094"
+     },
+     "status": "drawn",
+     "osmSha256": "9fc97957660737431c2e22885a763ed473dcf2383b6768707f86133b4bc77fbc",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 0,
+      "col": 1,
+      "share": 0.492,
+      "bbox": {
+       "west": -0.15013068629755272,
+       "south": 38.56718,
+       "east": -0.12714237259510544,
+       "north": 38.585267434659144
+      }
+     }
+    }
+   ],
+   "zone": "test-es-la-nucia"
+  },
+  {
+   "stratum": "fr",
+   "eligible": 854,
+   "start": 530,
+   "attempts": [
+    {
+     "index": 530,
+     "municipality": {
+      "name": "Dammarie-les-Lys",
+      "code": "77152"
+     },
+     "status": "drawn",
+     "osmSha256": "919975c3c0d8811f37c50101bec0d13fec49858cf6b2bd313ab98d8c2aabd700",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "share": 0.558,
+      "bbox": {
+       "west": 2.639074510105414,
+       "south": 48.512768434659144,
+       "east": 2.6661962651581206,
+       "north": 48.53085586931829
+      }
+     }
+    }
+   ],
+   "zone": "test-fr-dammarie-les-lys"
+  },
+  {
+   "stratum": "us",
+   "eligible": 635,
+   "start": 238,
+   "attempts": [
+    {
+     "index": 238,
+     "municipality": {
+      "name": "Santa Fe Springs city, CA",
+      "code": "0669154"
+     },
+     "status": "drawn",
+     "osmSha256": "46bcaa9d10920dd288a82b5ff8c1b2253bdb9ecd554818b1603c0f2fdd1bef7b",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 4,
+      "col": 0,
+      "share": 0.651,
+      "bbox": {
+       "west": -118.09842099991336,
+       "south": 33.95497873882518,
+       "east": -118.076767950895,
+       "north": 33.97306617348433
+      }
+     },
+     "esri": {
+      "date": "2025-11-26",
+      "desc": "LG01",
+      "resM": 0.34,
+      "noonElevationDeg": 34.7
+     }
+    }
+   ],
+   "zone": "test-us-santa-fe-springs-city-ca"
+  },
+  {
+   "stratum": "negative",
+   "eligible": 23,
+   "start": 8,
+   "attempts": [
+    {
+     "index": -1,
+     "municipality": {
+      "name": "Dunkerque",
+      "code": "59183"
+     },
+     "status": "drawn",
+     "osmSha256": "8706775c349ad5d35e975c55defda9a114c9b2068364b54b33569ebc17be352c",
+     "eligibleCells": 15,
+     "cell": {
+      "row": 6,
+      "col": 8,
+      "share": 0.317,
+      "bbox": {
+       "west": 2.353958454472098,
+       "south": 51.03017230397742,
+       "east": 2.3682383862811105,
+       "north": 51.03921602130699
+      }
+     },
+     "keptFrom": "draw.json (rules v1): blind pass 1 and OSM check done under v1; the pool minimum does not apply to the negative stratum"
+    }
+   ],
+   "zone": "test-negative-dunkerque"
+  },
+  {
+   "stratum": "hard",
+   "eligible": 1167,
+   "start": 231,
+   "attempts": [
+    {
+     "index": 231,
+     "municipality": {
+      "name": "Goito",
+      "code": "020026"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "aaefac3f8b07e47f2b6b9a537e159ab1062a040f8cf64cb89a13df96b086a8f6",
+     "eligibleCells": 0
+    },
+    {
+     "index": 232,
+     "municipality": {
+      "name": "Mantova",
+      "code": "020030"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "de08034bd744751d8990bedb72b79fa625d8d72ba14ef7c67f6e5937a5c5d043",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 4,
+      "col": 2,
+      "share": 0.333,
+      "bbox": {
+       "west": 10.77384720411932,
+       "south": 45.17430713863657,
+       "east": 10.79931955617898,
+       "north": 45.192394573295715
+      }
+     },
+     "esri": {
+      "date": "2025-08-08",
+      "desc": "LG04",
+      "resM": 0.34,
+      "noonElevationDeg": 60.8
+     }
+    },
+    {
+     "index": 233,
+     "municipality": {
+      "name": "Porto Mantovano",
+      "code": "020045"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "bb9a68aa500306cd26c2f10e87eb4a58f656a3f3a2377d8f6c8ab36e2a41b2be",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 1,
+      "col": 4,
+      "share": 0.519,
+      "bbox": {
+       "west": 10.784389752224273,
+       "south": 45.177695734659146,
+       "east": 10.80988369028034,
+       "north": 45.19578316931829
+      }
+     },
+     "esri": {
+      "date": "2025-08-08",
+      "desc": "LG04",
+      "resM": 0.34,
+      "noonElevationDeg": 60.8
+     }
+    },
+    {
+     "index": 234,
+     "municipality": {
+      "name": "San Giorgio Bigarello",
+      "code": "020057"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "68305a03f3f42992dd79755dbbed213694493b5d249017ac5f272f2e2a3a153f",
+     "eligibleCells": 0
+    },
+    {
+     "index": 235,
+     "municipality": {
+      "name": "Suzzara",
+      "code": "020065"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "e257766bfe27330d7a494582492e9a23974e22144125c6fdb55d34399672419c",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 3,
+      "share": 0.633,
+      "bbox": {
+       "west": 10.728012458846136,
+       "south": 44.979541234659145,
+       "east": 10.753420811794848,
+       "north": 44.99762866931829
+      }
+     },
+     "esri": {
+      "date": "2025-08-08",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 61
+     }
+    },
+    {
+     "index": 236,
+     "municipality": {
+      "name": "Viadana",
+      "code": "020066"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "b360353b572f40c0f5702f15a84f46b333a797ac1537297f87704874db7794cd",
+     "eligibleCells": 0
+    },
+    {
+     "index": 237,
+     "municipality": {
+      "name": "Borgo Virgilio",
+      "code": "020071"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f6d8a54c995cd64b2e844802a08f319f00027098474872e29703d9e37cc761bd",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 4,
+      "col": 4,
+      "share": 0.358,
+      "bbox": {
+       "west": 10.76277892162615,
+       "south": 45.11357443863657,
+       "east": 10.788226127032688,
+       "north": 45.13166187329571
+      }
+     },
+     "esri": {
+      "date": "2025-08-08",
+      "desc": "LG04",
+      "resM": 0.34,
+      "noonElevationDeg": 60.8
+     }
+    },
+    {
+     "index": 238,
+     "municipality": {
+      "name": "Eppan an der Weinstraße - Appiano sulla Strada del Vino",
+      "code": "021004"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "a60ac648af91fa67f69378a5b15c383e19d984c65bb00866b7344343f65b0677",
+     "eligibleCells": 0
+    },
+    {
+     "index": 239,
+     "municipality": {
+      "name": "Brixen - Bressanone",
+      "code": "021011"
+     },
+     "status": "drawn",
+     "osmSha256": "b3a55ab05228f9c3d5f302507639198a3317d405c917f583a2c99ee39ae1609d",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.415,
+      "bbox": {
+       "west": 11.636675013479131,
+       "south": 46.71195060397742,
+       "east": 11.662873470218695,
+       "north": 46.730038038636565
+      }
+     },
+     "esri": {
+      "date": "2025-02-20",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 31.7
+     }
+    }
+   ],
+   "zone": "test-hard-brixen-bressanone"
+  }
+ ],
+ "corrections": [
+  {
+   "date": "2026-10-08",
+   "stratum": "hard",
+   "removed": [
+    "Brixen - Bressanone (021011): no boundary",
+    "Bruneck - Brunico (021013): drawn, test-hard-bruneck-brunico"
+   ],
+   "why": "A public Overpass mirror answered the boundary query of Brixen - Bressanone with no elements; overpass-api.de returns its relation (47300, ref:ISTAT 021011). An empty boundary is not a skip under rules v2, so both attempts were removed and the draw went on from Brixen. No imagery of either cell had been opened."
+  }
+ ]
+}

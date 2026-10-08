@@ -106,6 +106,8 @@ export interface DrawFile {
   candidatesSha256: string;
   registrySha256AtStart: string;
   strata: StratumDraw[];
+  /** Hand corrections of attempts that a server failure made wrong, each made before any imagery of the zones involved was opened. */
+  corrections?: Array<{ date: string; stratum: string; removed: string[]; why: string }>;
 }
 
 export const DRAW_FILE = join(ZONES_DIR, 'draw.json');
@@ -336,6 +338,9 @@ export async function drawStratum(repoRoot: string, stratumId: string, rawDir: s
     console.log(`${stratumId}: try ${k + 1}, ${c.name} (${c.code})`);
     const poly = await boundary(c);
     if (!poly.length) {
+      // Every candidate had a boundary when the list was built, so an empty answer is a
+      // server failure (seen on public Overpass mirrors), not a reason to skip the municipality.
+      if (version > 1) throw new Error(`${c.name}: empty boundary answer; draw again later`);
       at.status = 'no boundary';
       sd.attempts.push(at);
       continue;
