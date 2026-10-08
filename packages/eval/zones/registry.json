@@ -517,25 +517,6 @@
    "reportedApart": false
   },
   {
-   "id": "test-pt-north-braganca-v2",
-   "name": "Bragança, PT (TEST pt-north)",
-   "role": "TEST",
-   "country": "PT",
-   "productSource": "dgt",
-   "labelSource": "dgt",
-   "bbox": {
-    "west": -6.785878,
-    "south": 41.805888,
-    "east": -6.761791,
-    "north": 41.823976
-   },
-   "areaKm2": 4,
-   "why": "drawn for stratum pt-north under rules v2: Bragança (0402), cell 15/7",
-   "review": "blind",
-   "stratum": "pt-north",
-   "reportedApart": false
-  },
-  {
    "id": "test-es-la-nucia",
    "name": "la Nucia, ES (TEST es)",
    "role": "TEST",
@@ -610,6 +591,25 @@
    "review": "blind",
    "stratum": "hard",
    "reportedApart": true
+  },
+  {
+   "id": "test-pt-north-mirandela-v2",
+   "name": "Mirandela, PT (TEST pt-north)",
+   "role": "TEST",
+   "country": "PT",
+   "productSource": "dgt",
+   "labelSource": "dgt",
+   "bbox": {
+    "west": -7.198852,
+    "south": 41.478393,
+    "east": -7.174851,
+    "north": 41.496481
+   },
+   "areaKm2": 4,
+   "why": "drawn for stratum pt-north under rules v2: Mirandela (0407), cell 8/7",
+   "review": "blind",
+   "stratum": "pt-north",
+   "reportedApart": false
   }
  ],
  "seen": [
@@ -1371,6 +1371,17 @@
     "north": 48.984656
    },
    "pools": 0
+  },
+  {
+   "id": "test-pt-north-braganca-v2",
+   "stratum": "pt-north",
+   "bbox": {
+    "west": -6.785878,
+    "south": 41.805888,
+    "east": -6.761791,
+    "north": 41.823976
+   },
+   "pools": 7
   }
  ],
  "retiredTest": [

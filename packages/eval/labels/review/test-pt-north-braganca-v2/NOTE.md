@@ -1,0 +1,1 @@
+Rejected after review: 7 pools in the zone after the blind pass and the OSM check (rules v2: fewer than 20). Apartment blocks, a school campus, farmland and woods; most houses have no garden pool. pass1.json, osm-check.json and the merged labels are kept here.

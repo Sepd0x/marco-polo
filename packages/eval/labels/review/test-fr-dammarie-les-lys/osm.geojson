@@ -1,0 +1,225 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-fr-dammarie-les-lys",
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "fetched": "2026-10-08T21:19:26.480Z",
+ "bbox": [
+  2.637447464679712,
+  48.51169002659001,
+  2.667823535320288,
+  48.53193397340999
+ ],
+ "buildingsChecked": 5039,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6555252,
+        48.5218658
+       ],
+       [
+        2.6555324,
+        48.5218381
+       ],
+       [
+        2.6556292,
+        48.5218494
+       ],
+       [
+        2.6556187,
+        48.5218808
+       ],
+       [
+        2.6555252,
+        48.5218658
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1127369886",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "location": "outdoor",
+     "access": "private",
+     "swimming_pool": "personal"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6454096,
+        48.5164047
+       ],
+       [
+        2.6456693,
+        48.5163707
+       ],
+       [
+        2.6456845,
+        48.5164313
+       ],
+       [
+        2.6454244,
+        48.5164642
+       ],
+       [
+        2.6454096,
+        48.5164047
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/144797255",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers",
+     "sport": "swimming"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6453431,
+        48.5165075
+       ],
+       [
+        2.6454034,
+        48.5164995
+       ],
+       [
+        2.6454208,
+        48.5165555
+       ],
+       [
+        2.6453584,
+        48.5165636
+       ],
+       [
+        2.6453431,
+        48.5165075
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/144797289",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6677054,
+        48.5264571
+       ],
+       [
+        2.6678006,
+        48.5264775
+       ],
+       [
+        2.6678719,
+        48.5263407
+       ],
+       [
+        2.6677739,
+        48.5263199
+       ],
+       [
+        2.6677054,
+        48.5264571
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1460273146",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "swimming_pool": "kids"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        2.6650502,
+        48.5314148
+       ],
+       [
+        2.6653101,
+        48.530996
+       ],
+       [
+        2.6655769,
+        48.5310654
+       ],
+       [
+        2.6653021,
+        48.5314881
+       ],
+       [
+        2.6650502,
+        48.5314148
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/27370569",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "sport": "swimming",
+     "name": "Bassin Laure Manaudou"
+    }
+   }
+  }
+ ]
+}

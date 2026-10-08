@@ -6,11 +6,11 @@ Rules v2 replace the v1 draw (list `ddf92d4`, `zones/draw.json`, kept as it was)
 
 | stratum | eligible | tried | rejected after review (under 20 pools) | other skips | zone | labels |
 |---|--:|--:|--:|--:|---|---|
-| pt-north | 8 | 1 | 0 | 0 | test-pt-north-braganca-v2 | not reviewed yet |
+| pt-north | 8 | 2 | 1 | 0 | test-pt-north-mirandela-v2 | not reviewed yet |
 | pt-rest | 50 | 1 | 0 | 0 | test-pt-rest-viseu (kept from v1) | blind pass 1 and OSM check, 52 pools; second pass not done |
-| es | 501 | 1 | 0 | 0 | test-es-la-nucia | not reviewed yet |
-| fr | 854 | 1 | 0 | 0 | test-fr-dammarie-les-lys | not reviewed yet |
-| us | 635 | 1 | 0 | 0 | test-us-santa-fe-springs-city-ca | not reviewed yet |
+| es | 501 | 1 | 0 | 0 | test-es-la-nucia | blind pass 1 and OSM check, 894 pools; second pass not done |
+| fr | 854 | 1 | 0 | 0 | test-fr-dammarie-les-lys | blind pass 1 and OSM check, 64 pools; second pass not done |
+| us | 635 | 1 | 0 | 0 | test-us-santa-fe-springs-city-ca | blind pass 1 and OSM check, 185 pools; second pass not done |
 | negative | 23 | 1 | 0 | 0 | test-negative-dunkerque (kept from v1) | blind pass 1 and OSM check, 0 pools; second pass not done |
 | hard | 1167 | 9 | 0 | 8 | test-hard-brixen-bressanone | not reviewed yet |
 

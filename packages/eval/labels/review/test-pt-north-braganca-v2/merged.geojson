@@ -1,0 +1,1269 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-pt-north-braganca-v2",
+ "review": "blind",
+ "source": "dgt",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0,
+  0
+ ],
+ "osmShiftPairs": 0,
+ "windows": 100,
+ "poolsInZone": 7,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.77682638168335,
+        41.8172627987198
+       ],
+       [
+        -6.776662766933441,
+        41.8172627987198
+       ],
+       [
+        -6.776662766933441,
+        41.817404726406025
+       ],
+       [
+        -6.77682638168335,
+        41.817404726406025
+       ],
+       [
+        -6.77682638168335,
+        41.8172627987198
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.772151291370392,
+        41.80970219609745
+       ],
+       [
+        -6.772094964981079,
+        41.80970219609745
+       ],
+       [
+        -6.772094964981079,
+        41.80974218047864
+       ],
+       [
+        -6.772151291370392,
+        41.80974218047864
+       ],
+       [
+        -6.772151291370392,
+        41.80970219609745
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.783081293106079,
+        41.81783850344099
+       ],
+       [
+        -6.78294450044632,
+        41.81783850344099
+       ],
+       [
+        -6.78294450044632,
+        41.81791246513071
+       ],
+       [
+        -6.783081293106079,
+        41.81791246513071
+       ],
+       [
+        -6.783081293106079,
+        41.81783850344099
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b11",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.780919432640076,
+        41.80739505503757
+       ],
+       [
+        -6.780771911144257,
+        41.80739505503757
+       ],
+       [
+        -6.780771911144257,
+        41.807461031629195
+       ],
+       [
+        -6.780919432640076,
+        41.807461031629195
+       ],
+       [
+        -6.780919432640076,
+        41.80739505503757
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b12",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.762101054191589,
+        41.81523979525369
+       ],
+       [
+        -6.761980354785919,
+        41.81523979525369
+       ],
+       [
+        -6.761980354785919,
+        41.815319757077944
+       ],
+       [
+        -6.762101054191589,
+        41.815319757077944
+       ],
+       [
+        -6.762101054191589,
+        41.81523979525369
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b13",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.775935888290405,
+        41.80677727092831
+       ],
+       [
+        -6.775858104228973,
+        41.80677727092831
+       ],
+       [
+        -6.775858104228973,
+        41.80687923570634
+       ],
+       [
+        -6.775935888290405,
+        41.80687923570634
+       ],
+       [
+        -6.775935888290405,
+        41.80677727092831
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b14",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.7660680413246155,
+        41.80826274175282
+       ],
+       [
+        -6.765998303890228,
+        41.80826274175282
+       ],
+       [
+        -6.765998303890228,
+        41.80836270490517
+       ],
+       [
+        -6.7660680413246155,
+        41.80836270490517
+       ],
+       [
+        -6.7660680413246155,
+        41.80826274175282
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b15",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.782212257385254,
+        41.80501785312183
+       ],
+       [
+        -6.782129108905792,
+        41.80501785312183
+       ],
+       [
+        -6.782129108905792,
+        41.80509582834327
+       ],
+       [
+        -6.782212257385254,
+        41.80509582834327
+       ],
+       [
+        -6.782212257385254,
+        41.80501785312183
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b16",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.7708852887153625,
+        41.8155696371353
+       ],
+       [
+        -6.770804822444916,
+        41.8155696371353
+       ],
+       [
+        -6.770804822444916,
+        41.815639603376646
+       ],
+       [
+        -6.7708852887153625,
+        41.815639603376646
+       ],
+       [
+        -6.7708852887153625,
+        41.8155696371353
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b17",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.761430501937866,
+        41.808444674573686
+       ],
+       [
+        -6.761325895786285,
+        41.808444674573686
+       ],
+       [
+        -6.761325895786285,
+        41.808492656770014
+       ],
+       [
+        -6.761430501937866,
+        41.808492656770014
+       ],
+       [
+        -6.761430501937866,
+        41.808444674573686
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b18",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.770673394203186,
+        41.81124957344381
+       ],
+       [
+        -6.770595610141754,
+        41.81124957344381
+       ],
+       [
+        -6.770595610141754,
+        41.811307549387934
+       ],
+       [
+        -6.770673394203186,
+        41.811307549387934
+       ],
+       [
+        -6.770673394203186,
+        41.81124957344381
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b19",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.764037609100342,
+        41.818194318354514
+       ],
+       [
+        -6.763927638530731,
+        41.818194318354514
+       ],
+       [
+        -6.763927638530731,
+        41.81834823767645
+       ],
+       [
+        -6.764037609100342,
+        41.81834823767645
+       ],
+       [
+        -6.764037609100342,
+        41.818194318354514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.774600148200989,
+        41.81732676616662
+       ],
+       [
+        -6.774535775184631,
+        41.81732676616662
+       ],
+       [
+        -6.774535775184631,
+        41.81739073354954
+       ],
+       [
+        -6.774600148200989,
+        41.81739073354954
+       ],
+       [
+        -6.774600148200989,
+        41.81732676616662
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b20",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.769611239433289,
+        41.816179340383734
+       ],
+       [
+        -6.769541501998901,
+        41.816179340383734
+       ],
+       [
+        -6.769541501998901,
+        41.81622931580246
+       ],
+       [
+        -6.769611239433289,
+        41.81622931580246
+       ],
+       [
+        -6.769611239433289,
+        41.816179340383734
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b21",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.767977774143219,
+        41.810897718312496
+       ],
+       [
+        -6.767908036708832,
+        41.810897718312496
+       ],
+       [
+        -6.767908036708832,
+        41.81094369949057
+       ],
+       [
+        -6.767977774143219,
+        41.81094369949057
+       ],
+       [
+        -6.767977774143219,
+        41.810897718312496
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b22",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.766438186168671,
+        41.81480799967765
+       ],
+       [
+        -6.766379177570343,
+        41.81480799967765
+       ],
+       [
+        -6.766379177570343,
+        41.81485797616644
+       ],
+       [
+        -6.766438186168671,
+        41.81485797616644
+       ],
+       [
+        -6.766438186168671,
+        41.81480799967765
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b23",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.77769273519516,
+        41.80568963653187
+       ],
+       [
+        -6.777631044387817,
+        41.80568963653187
+       ],
+       [
+        -6.777631044387817,
+        41.80573162276113
+       ],
+       [
+        -6.77769273519516,
+        41.80573162276113
+       ],
+       [
+        -6.77769273519516,
+        41.80568963653187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b24",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.763232946395874,
+        41.81663111675184
+       ],
+       [
+        -6.763176620006561,
+        41.81663111675184
+       ],
+       [
+        -6.763176620006561,
+        41.81667509481216
+       ],
+       [
+        -6.763232946395874,
+        41.81667509481216
+       ],
+       [
+        -6.763232946395874,
+        41.81663111675184
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b25",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.773784756660461,
+        41.80597954088723
+       ],
+       [
+        -6.773717701435089,
+        41.80597954088723
+       ],
+       [
+        -6.773717701435089,
+        41.806013529587815
+       ],
+       [
+        -6.773784756660461,
+        41.806013529587815
+       ],
+       [
+        -6.773784756660461,
+        41.80597954088723
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b26",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.781359314918518,
+        41.81860810062722
+       ],
+       [
+        -6.78130567073822,
+        41.81860810062722
+       ],
+       [
+        -6.78130567073822,
+        41.81863208792337
+       ],
+       [
+        -6.781359314918518,
+        41.81863208792337
+       ],
+       [
+        -6.781359314918518,
+        41.81860810062722
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b27",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.777722239494324,
+        41.8118713127293
+       ],
+       [
+        -6.7776042222976685,
+        41.8118713127293
+       ],
+       [
+        -6.7776042222976685,
+        41.811937284710915
+       ],
+       [
+        -6.777722239494324,
+        41.811937284710915
+       ],
+       [
+        -6.777722239494324,
+        41.8118713127293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.769552230834961,
+        41.81785449516492
+       ],
+       [
+        -6.76945298910141,
+        41.81785449516492
+       ],
+       [
+        -6.76945298910141,
+        41.81792845683618
+       ],
+       [
+        -6.769552230834961,
+        41.81792845683618
+       ],
+       [
+        -6.769552230834961,
+        41.81785449516492
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.7824214696884155,
+        41.8049578721177
+       ],
+       [
+        -6.782324910163879,
+        41.8049578721177
+       ],
+       [
+        -6.782324910163879,
+        41.80501985248767
+       ],
+       [
+        -6.7824214696884155,
+        41.80501985248767
+       ],
+       [
+        -6.7824214696884155,
+        41.8049578721177
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.782233715057373,
+        41.80568763718693
+       ],
+       [
+        -6.782134473323822,
+        41.80568763718693
+       ],
+       [
+        -6.782134473323822,
+        41.80574561816476
+       ],
+       [
+        -6.782233715057373,
+        41.80574561816476
+       ],
+       [
+        -6.782233715057373,
+        41.80568763718693
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.779980659484863,
+        41.80497986515906
+       ],
+       [
+        -6.779905557632446,
+        41.80497986515906
+       ],
+       [
+        -6.779905557632446,
+        41.80503784677741
+       ],
+       [
+        -6.779980659484863,
+        41.80503784677741
+       ],
+       [
+        -6.779980659484863,
+        41.80497986515906
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.76346629858017,
+        41.813666526056984
+       ],
+       [
+        -6.763401925563812,
+        41.813666526056984
+       ],
+       [
+        -6.763401925563812,
+        41.81373249618963
+       ],
+       [
+        -6.76346629858017,
+        41.81373249618963
+       ],
+       [
+        -6.76346629858017,
+        41.813666526056984
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.763562858104706,
+        41.815819516217736
+       ],
+       [
+        -6.763487756252289,
+        41.815819516217736
+       ],
+       [
+        -6.763487756252289,
+        41.815857497752916
+       ],
+       [
+        -6.763562858104706,
+        41.815857497752916
+       ],
+       [
+        -6.763562858104706,
+        41.815819516217736
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-braganca-v2/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.7713482,
+        41.8059857
+       ],
+       [
+        -6.7715418,
+        41.8055716
+       ],
+       [
+        -6.7717726,
+        41.8056315
+       ],
+       [
+        -6.7715791,
+        41.8060457
+       ],
+       [
+        -6.7713482,
+        41.8059857
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/104044151",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "sport": "swimming"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.771658,
+        41.8055525
+       ],
+       [
+        -6.7717475,
+        41.8055401
+       ],
+       [
+        -6.7717678,
+        41.8055373
+       ],
+       [
+        -6.7718084,
+        41.8054464
+       ],
+       [
+        -6.7717719,
+        41.8054373
+       ],
+       [
+        -6.7717393,
+        41.8053813
+       ],
+       [
+        -6.7716214,
+        41.8053949
+       ],
+       [
+        -6.771595,
+        41.8054494
+       ],
+       [
+        -6.771658,
+        41.8055525
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/825473680",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -6.7718188,
+        41.8053465
+       ],
+       [
+        -6.7718111,
+        41.8053545
+       ],
+       [
+        -6.7718071,
+        41.8053638
+       ],
+       [
+        -6.7718073,
+        41.8053736
+       ],
+       [
+        -6.7718115,
+        41.8053829
+       ],
+       [
+        -6.7718194,
+        41.8053907
+       ],
+       [
+        -6.7718302,
+        41.8053964
+       ],
+       [
+        -6.7718428,
+        41.8053992
+       ],
+       [
+        -6.7718571,
+        41.8053988
+       ],
+       [
+        -6.7718704,
+        41.8053948
+       ],
+       [
+        -6.7718811,
+        41.8053876
+       ],
+       [
+        -6.7718879,
+        41.8053782
+       ],
+       [
+        -6.77189,
+        41.8053677
+       ],
+       [
+        -6.7718872,
+        41.8053572
+       ],
+       [
+        -6.7718798,
+        41.805348
+       ],
+       [
+        -6.7718686,
+        41.8053413
+       ],
+       [
+        -6.7718551,
+        41.8053378
+       ],
+       [
+        -6.771842,
+        41.8053377
+       ],
+       [
+        -6.7718294,
+        41.8053407
+       ],
+       [
+        -6.7718188,
+        41.8053465
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/825473681",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  }
+ ]
+}
