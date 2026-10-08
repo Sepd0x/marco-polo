@@ -1,0 +1,2669 @@
+{
+ "type": "FeatureCollection",
+ "zone": "gold-mougins",
+ "review": "gold-union",
+ "about": "Phase 0 gold (C:/dev/mp-research/detection/gold), converted to boxes. The review started from regions the prototype methods proposed, so it is the union of what the methods found, checked by eye; pools no method proposed can be missing. Boxes are on the source of the zone.",
+ "attribution": "Hand labels; OSM-derived proposals (c) OpenStreetMap contributors, ODbL 1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9924545,
+        43.5972519
+       ],
+       [
+        6.9925725,
+        43.5972519
+       ],
+       [
+        6.9925725,
+        43.5973277
+       ],
+       [
+        6.9924545,
+        43.5973277
+       ],
+       [
+        6.9924545,
+        43.5972519
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/0",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9921327,
+        43.5969431
+       ],
+       [
+        6.992197,
+        43.5969431
+       ],
+       [
+        6.992197,
+        43.5970033
+       ],
+       [
+        6.9921327,
+        43.5970033
+       ],
+       [
+        6.9921327,
+        43.5969431
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/2",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9930285,
+        43.5970013
+       ],
+       [
+        6.9931519,
+        43.5970013
+       ],
+       [
+        6.9931519,
+        43.5970693
+       ],
+       [
+        6.9930285,
+        43.5970693
+       ],
+       [
+        6.9930285,
+        43.5970013
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/3",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9934684,
+        43.5971023
+       ],
+       [
+        6.9936132,
+        43.5971023
+       ],
+       [
+        6.9936132,
+        43.5971606
+       ],
+       [
+        6.9934684,
+        43.5971606
+       ],
+       [
+        6.9934684,
+        43.5971023
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/5",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9939995,
+        43.5972325
+       ],
+       [
+        6.994096,
+        43.5972325
+       ],
+       [
+        6.994096,
+        43.5972966
+       ],
+       [
+        6.9939995,
+        43.5972966
+       ],
+       [
+        6.9939995,
+        43.5972325
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/6",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9940263,
+        43.596879
+       ],
+       [
+        6.9941497,
+        43.596879
+       ],
+       [
+        6.9941497,
+        43.5969431
+       ],
+       [
+        6.9940263,
+        43.5969431
+       ],
+       [
+        6.9940263,
+        43.596879
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/7",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9944286,
+        43.5968576
+       ],
+       [
+        6.9946003,
+        43.5968576
+       ],
+       [
+        6.9946003,
+        43.5969159
+       ],
+       [
+        6.9944286,
+        43.5969159
+       ],
+       [
+        6.9944286,
+        43.5968576
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/9",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9944367,
+        43.5971956
+       ],
+       [
+        6.9945493,
+        43.5971956
+       ],
+       [
+        6.9945493,
+        43.5972344
+       ],
+       [
+        6.9944367,
+        43.5972344
+       ],
+       [
+        6.9944367,
+        43.5971956
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/10",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9951421,
+        43.5971062
+       ],
+       [
+        6.9952172,
+        43.5971062
+       ],
+       [
+        6.9952172,
+        43.5971431
+       ],
+       [
+        6.9951421,
+        43.5971431
+       ],
+       [
+        6.9951421,
+        43.5971062
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/12",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.996679,
+        43.5968712
+       ],
+       [
+        6.9968265,
+        43.5968712
+       ],
+       [
+        6.9968265,
+        43.5969275
+       ],
+       [
+        6.996679,
+        43.5969275
+       ],
+       [
+        6.996679,
+        43.5968712
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/13",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9926316,
+        43.5964147
+       ],
+       [
+        6.992712,
+        43.5964147
+       ],
+       [
+        6.992712,
+        43.5964769
+       ],
+       [
+        6.9926316,
+        43.5964769
+       ],
+       [
+        6.9926316,
+        43.5964147
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/14",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9930044,
+        43.5966264
+       ],
+       [
+        6.9930741,
+        43.5966264
+       ],
+       [
+        6.9930741,
+        43.5966556
+       ],
+       [
+        6.9930044,
+        43.5966556
+       ],
+       [
+        6.9930044,
+        43.5966264
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/15",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9934738,
+        43.5964225
+       ],
+       [
+        6.9935569,
+        43.5964225
+       ],
+       [
+        6.9935569,
+        43.5965118
+       ],
+       [
+        6.9934738,
+        43.5965118
+       ],
+       [
+        6.9934738,
+        43.5964225
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/18",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9950134,
+        43.5965254
+       ],
+       [
+        6.9952092,
+        43.5965254
+       ],
+       [
+        6.9952092,
+        43.5965779
+       ],
+       [
+        6.9950134,
+        43.5965779
+       ],
+       [
+        6.9950134,
+        43.5965254
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/24",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9957805,
+        43.5965701
+       ],
+       [
+        6.9960353,
+        43.5965701
+       ],
+       [
+        6.9960353,
+        43.5966245
+       ],
+       [
+        6.9957805,
+        43.5966245
+       ],
+       [
+        6.9957805,
+        43.5965701
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/28",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9927979,
+        43.5960243
+       ],
+       [
+        6.9928998,
+        43.5960243
+       ],
+       [
+        6.9928998,
+        43.5961078
+       ],
+       [
+        6.9927979,
+        43.5961078
+       ],
+       [
+        6.9927979,
+        43.5960243
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/31",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9938117,
+        43.5959466
+       ],
+       [
+        6.9938761,
+        43.5959466
+       ],
+       [
+        6.9938761,
+        43.5960437
+       ],
+       [
+        6.9938117,
+        43.5960437
+       ],
+       [
+        6.9938117,
+        43.5959466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/32",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9952494,
+        43.5960184
+       ],
+       [
+        6.9953942,
+        43.5960184
+       ],
+       [
+        6.9953942,
+        43.5960689
+       ],
+       [
+        6.9952494,
+        43.5960689
+       ],
+       [
+        6.9952494,
+        43.5960184
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/34",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9956598,
+        43.595762
+       ],
+       [
+        6.9957536,
+        43.595762
+       ],
+       [
+        6.9957536,
+        43.595865
+       ],
+       [
+        6.9956598,
+        43.595865
+       ],
+       [
+        6.9956598,
+        43.595762
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/35",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9964832,
+        43.5962632
+       ],
+       [
+        6.9965583,
+        43.5962632
+       ],
+       [
+        6.9965583,
+        43.5963059
+       ],
+       [
+        6.9964832,
+        43.5963059
+       ],
+       [
+        6.9964832,
+        43.5962632
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/37",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9972932,
+        43.5960748
+       ],
+       [
+        6.9975346,
+        43.5960748
+       ],
+       [
+        6.9975346,
+        43.5962457
+       ],
+       [
+        6.9972932,
+        43.5962457
+       ],
+       [
+        6.9972932,
+        43.5960748
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/38",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.997548,
+        43.5961699
+       ],
+       [
+        6.9975722,
+        43.5961699
+       ],
+       [
+        6.9975722,
+        43.5961933
+       ],
+       [
+        6.997548,
+        43.5961933
+       ],
+       [
+        6.997548,
+        43.5961699
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/39",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9926959,
+        43.5954046
+       ],
+       [
+        6.9927764,
+        43.5954046
+       ],
+       [
+        6.9927764,
+        43.5954512
+       ],
+       [
+        6.9926959,
+        43.5954512
+       ],
+       [
+        6.9926959,
+        43.5954046
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/41",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9934577,
+        43.5956804
+       ],
+       [
+        6.9936401,
+        43.5956804
+       ],
+       [
+        6.9936401,
+        43.5957445
+       ],
+       [
+        6.9934577,
+        43.5957445
+       ],
+       [
+        6.9934577,
+        43.5956804
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/42",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9939619,
+        43.5952958
+       ],
+       [
+        6.9940853,
+        43.5952958
+       ],
+       [
+        6.9940853,
+        43.5953852
+       ],
+       [
+        6.9939619,
+        43.5953852
+       ],
+       [
+        6.9939619,
+        43.5952958
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/43",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9948471,
+        43.595389
+       ],
+       [
+        6.9949812,
+        43.595389
+       ],
+       [
+        6.9949812,
+        43.5954473
+       ],
+       [
+        6.9948471,
+        43.5954473
+       ],
+       [
+        6.9948471,
+        43.595389
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/47",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9966441,
+        43.5953832
+       ],
+       [
+        6.9967622,
+        43.5953832
+       ],
+       [
+        6.9967622,
+        43.5954434
+       ],
+       [
+        6.9966441,
+        43.5954434
+       ],
+       [
+        6.9966441,
+        43.5953832
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/53",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9921595,
+        43.5951326
+       ],
+       [
+        6.9922265,
+        43.5951326
+       ],
+       [
+        6.9922265,
+        43.5951851
+       ],
+       [
+        6.9921595,
+        43.5951851
+       ],
+       [
+        6.9921595,
+        43.5951326
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/54",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9935542,
+        43.5951501
+       ],
+       [
+        6.993624,
+        43.5951501
+       ],
+       [
+        6.993624,
+        43.5952686
+       ],
+       [
+        6.9935542,
+        43.5952686
+       ],
+       [
+        6.9935542,
+        43.5951501
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/58",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9936427,
+        43.5951443
+       ],
+       [
+        6.9936723,
+        43.5951443
+       ],
+       [
+        6.9936723,
+        43.5951773
+       ],
+       [
+        6.9936427,
+        43.5951773
+       ],
+       [
+        6.9936427,
+        43.5951443
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/59",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.99662,
+        43.5948937
+       ],
+       [
+        6.9967622,
+        43.5948937
+       ],
+       [
+        6.9967622,
+        43.5949695
+       ],
+       [
+        6.99662,
+        43.5949695
+       ],
+       [
+        6.99662,
+        43.5948937
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/61",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9971806,
+        43.5948141
+       ],
+       [
+        6.9973361,
+        43.5948141
+       ],
+       [
+        6.9973361,
+        43.5948704
+       ],
+       [
+        6.9971806,
+        43.5948704
+       ],
+       [
+        6.9971806,
+        43.5948141
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/63",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9971913,
+        43.5952026
+       ],
+       [
+        6.9973201,
+        43.5952026
+       ],
+       [
+        6.9973201,
+        43.5952803
+       ],
+       [
+        6.9971913,
+        43.5952803
+       ],
+       [
+        6.9971913,
+        43.5952026
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/64",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.992189,
+        43.5947305
+       ],
+       [
+        6.9922292,
+        43.5947305
+       ],
+       [
+        6.9922292,
+        43.5947636
+       ],
+       [
+        6.992189,
+        43.5947636
+       ],
+       [
+        6.992189,
+        43.5947305
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/65",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9923875,
+        43.5944858
+       ],
+       [
+        6.9924653,
+        43.5944858
+       ],
+       [
+        6.9924653,
+        43.594544
+       ],
+       [
+        6.9923875,
+        43.594544
+       ],
+       [
+        6.9923875,
+        43.5944858
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/66",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9932216,
+        43.5945654
+       ],
+       [
+        6.9933423,
+        43.5945654
+       ],
+       [
+        6.9933423,
+        43.594614
+       ],
+       [
+        6.9932216,
+        43.594614
+       ],
+       [
+        6.9932216,
+        43.5945654
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/67",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9947666,
+        43.5943925
+       ],
+       [
+        6.9948873,
+        43.5943925
+       ],
+       [
+        6.9948873,
+        43.5944372
+       ],
+       [
+        6.9947666,
+        43.5944372
+       ],
+       [
+        6.9947666,
+        43.5943925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/68",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9953111,
+        43.5945343
+       ],
+       [
+        6.9954264,
+        43.5945343
+       ],
+       [
+        6.9954264,
+        43.5945771
+       ],
+       [
+        6.9953111,
+        43.5945771
+       ],
+       [
+        6.9953111,
+        43.5945343
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/69",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9959521,
+        43.5947364
+       ],
+       [
+        6.9959897,
+        43.5947364
+       ],
+       [
+        6.9959897,
+        43.5947636
+       ],
+       [
+        6.9959521,
+        43.5947636
+       ],
+       [
+        6.9959521,
+        43.5947364
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/72",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9974327,
+        43.5945266
+       ],
+       [
+        6.9975454,
+        43.5945266
+       ],
+       [
+        6.9975454,
+        43.594581
+       ],
+       [
+        6.9974327,
+        43.594581
+       ],
+       [
+        6.9974327,
+        43.5945266
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/76",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9924867,
+        43.594037
+       ],
+       [
+        6.9925591,
+        43.594037
+       ],
+       [
+        6.9925591,
+        43.5941303
+       ],
+       [
+        6.9924867,
+        43.5941303
+       ],
+       [
+        6.9924867,
+        43.594037
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/79",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9931948,
+        43.5940021
+       ],
+       [
+        6.9932887,
+        43.5940021
+       ],
+       [
+        6.9932887,
+        43.5940409
+       ],
+       [
+        6.9931948,
+        43.5940409
+       ],
+       [
+        6.9931948,
+        43.5940021
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/80",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.99386,
+        43.5937573
+       ],
+       [
+        6.993978,
+        43.5937573
+       ],
+       [
+        6.993978,
+        43.5938214
+       ],
+       [
+        6.99386,
+        43.5938214
+       ],
+       [
+        6.99386,
+        43.5937573
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/81",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.993919,
+        43.5941672
+       ],
+       [
+        6.9940478,
+        43.5941672
+       ],
+       [
+        6.9940478,
+        43.594274
+       ],
+       [
+        6.993919,
+        43.594274
+       ],
+       [
+        6.993919,
+        43.5941672
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/82",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9943133,
+        43.5938583
+       ],
+       [
+        6.994375,
+        43.5938583
+       ],
+       [
+        6.994375,
+        43.5939593
+       ],
+       [
+        6.9943133,
+        43.5939593
+       ],
+       [
+        6.9943133,
+        43.5938583
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/83",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9946137,
+        43.5938059
+       ],
+       [
+        6.9947478,
+        43.5938059
+       ],
+       [
+        6.9947478,
+        43.5939593
+       ],
+       [
+        6.9946137,
+        43.5939593
+       ],
+       [
+        6.9946137,
+        43.5938059
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/84",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9946218,
+        43.5938505
+       ],
+       [
+        6.9947076,
+        43.5938505
+       ],
+       [
+        6.9947076,
+        43.5939438
+       ],
+       [
+        6.9946218,
+        43.5939438
+       ],
+       [
+        6.9946218,
+        43.5938505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/85",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9949758,
+        43.5938195
+       ],
+       [
+        6.9950536,
+        43.5938195
+       ],
+       [
+        6.9950536,
+        43.5938622
+       ],
+       [
+        6.9949758,
+        43.5938622
+       ],
+       [
+        6.9949758,
+        43.5938195
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/86",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9972959,
+        43.5942119
+       ],
+       [
+        6.997371,
+        43.5942119
+       ],
+       [
+        6.997371,
+        43.5942799
+       ],
+       [
+        6.9972959,
+        43.5942799
+       ],
+       [
+        6.9972959,
+        43.5942119
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/88",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9927415,
+        43.593328
+       ],
+       [
+        6.9928542,
+        43.593328
+       ],
+       [
+        6.9928542,
+        43.5933804
+       ],
+       [
+        6.9927415,
+        43.5933804
+       ],
+       [
+        6.9927415,
+        43.593328
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/89",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9946083,
+        43.5935087
+       ],
+       [
+        6.9946861,
+        43.5935087
+       ],
+       [
+        6.9946861,
+        43.5935553
+       ],
+       [
+        6.9946083,
+        43.5935553
+       ],
+       [
+        6.9946083,
+        43.5935087
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/92",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9950804,
+        43.593565
+       ],
+       [
+        6.995126,
+        43.593565
+       ],
+       [
+        6.995126,
+        43.593666
+       ],
+       [
+        6.9950804,
+        43.593666
+       ],
+       [
+        6.9950804,
+        43.593565
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/94",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9956625,
+        43.5933222
+       ],
+       [
+        6.9957268,
+        43.5933222
+       ],
+       [
+        6.9957268,
+        43.5933688
+       ],
+       [
+        6.9956625,
+        43.5933688
+       ],
+       [
+        6.9956625,
+        43.5933222
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/95",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9947612,
+        43.5943478
+       ],
+       [
+        6.9949383,
+        43.5943478
+       ],
+       [
+        6.9949383,
+        43.5944508
+       ],
+       [
+        6.9947612,
+        43.5944508
+       ],
+       [
+        6.9947612,
+        43.5943478
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/104",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9939458,
+        43.5972189
+       ],
+       [
+        6.9941014,
+        43.5972189
+       ],
+       [
+        6.9941014,
+        43.5973005
+       ],
+       [
+        6.9939458,
+        43.5973005
+       ],
+       [
+        6.9939458,
+        43.5972189
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/105",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9975561,
+        43.5962515
+       ],
+       [
+        6.9976017,
+        43.5962515
+       ],
+       [
+        6.9976017,
+        43.596304
+       ],
+       [
+        6.9975561,
+        43.596304
+       ],
+       [
+        6.9975561,
+        43.5962515
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/110",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.996282,
+        43.595865
+       ],
+       [
+        6.9963303,
+        43.595865
+       ],
+       [
+        6.9963303,
+        43.5959135
+       ],
+       [
+        6.996282,
+        43.5959135
+       ],
+       [
+        6.996282,
+        43.595865
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/112",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9964001,
+        43.5958902
+       ],
+       [
+        6.9964188,
+        43.5958902
+       ],
+       [
+        6.9964188,
+        43.5959077
+       ],
+       [
+        6.9964001,
+        43.5959077
+       ],
+       [
+        6.9964001,
+        43.5958902
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/113",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9966093,
+        43.5948918
+       ],
+       [
+        6.9966951,
+        43.5948918
+       ],
+       [
+        6.9966951,
+        43.5949539
+       ],
+       [
+        6.9966093,
+        43.5949539
+       ],
+       [
+        6.9966093,
+        43.5948918
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/115",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.995303,
+        43.5945421
+       ],
+       [
+        6.995346,
+        43.5945421
+       ],
+       [
+        6.995346,
+        43.5945732
+       ],
+       [
+        6.995303,
+        43.5945732
+       ],
+       [
+        6.995303,
+        43.5945421
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/116",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9950885,
+        43.5936388
+       ],
+       [
+        6.9951099,
+        43.5936388
+       ],
+       [
+        6.9951099,
+        43.5936582
+       ],
+       [
+        6.9950885,
+        43.5936582
+       ],
+       [
+        6.9950885,
+        43.5936388
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/117",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9957697,
+        43.5966633
+       ],
+       [
+        6.9958609,
+        43.5966633
+       ],
+       [
+        6.9958609,
+        43.5967197
+       ],
+       [
+        6.9957697,
+        43.5967197
+       ],
+       [
+        6.9957697,
+        43.5966633
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/27",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9923392,
+        43.5959174
+       ],
+       [
+        6.9924679,
+        43.5959174
+       ],
+       [
+        6.9924679,
+        43.5959971
+       ],
+       [
+        6.9923392,
+        43.5959971
+       ],
+       [
+        6.9923392,
+        43.5959174
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/30",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9962901,
+        43.595863
+       ],
+       [
+        6.9964135,
+        43.595863
+       ],
+       [
+        6.9964135,
+        43.5959252
+       ],
+       [
+        6.9962901,
+        43.5959252
+       ],
+       [
+        6.9962901,
+        43.595863
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/36",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9953191,
+        43.5947713
+       ],
+       [
+        6.995354,
+        43.5947713
+       ],
+       [
+        6.995354,
+        43.594783
+       ],
+       [
+        6.9953191,
+        43.594783
+       ],
+       [
+        6.9953191,
+        43.5947713
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/70",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9924331,
+        43.5938234
+       ],
+       [
+        6.9924545,
+        43.5938234
+       ],
+       [
+        6.9924545,
+        43.5938486
+       ],
+       [
+        6.9924331,
+        43.5938486
+       ],
+       [
+        6.9924331,
+        43.5938234
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/78",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9931948,
+        43.5935494
+       ],
+       [
+        6.9933423,
+        43.5935494
+       ],
+       [
+        6.9933423,
+        43.5936194
+       ],
+       [
+        6.9931948,
+        43.5936194
+       ],
+       [
+        6.9931948,
+        43.5935494
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/90",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9923848,
+        43.5944391
+       ],
+       [
+        6.9924867,
+        43.5944391
+       ],
+       [
+        6.9924867,
+        43.594546
+       ],
+       [
+        6.9923848,
+        43.594546
+       ],
+       [
+        6.9923848,
+        43.5944391
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/103",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9950134,
+        43.5965507
+       ],
+       [
+        6.9950348,
+        43.5965507
+       ],
+       [
+        6.9950348,
+        43.5965701
+       ],
+       [
+        6.9950134,
+        43.5965701
+       ],
+       [
+        6.9950134,
+        43.5965507
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/109",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9973388,
+        43.5934232
+       ],
+       [
+        6.9973764,
+        43.5934232
+       ],
+       [
+        6.9973764,
+        43.5934523
+       ],
+       [
+        6.9973388,
+        43.5934523
+       ],
+       [
+        6.9973388,
+        43.5934232
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins/118",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  }
+ ]
+}

@@ -1,0 +1,6393 @@
+{
+ "type": "FeatureCollection",
+ "zone": "gold-pozuelo-esri",
+ "review": "gold-union",
+ "about": "Phase 0 gold (C:/dev/mp-research/detection/gold), converted to boxes. The review started from regions the prototype methods proposed, so it is the union of what the methods found, checked by eye; pools no method proposed can be missing. Boxes are on the source of the zone.",
+ "attribution": "Hand labels; OSM-derived proposals (c) OpenStreetMap contributors, ODbL 1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217482,
+        40.4430197
+       ],
+       [
+        -3.8216543,
+        40.4430197
+       ],
+       [
+        -3.8216543,
+        40.443081
+       ],
+       [
+        -3.8217482,
+        40.443081
+       ],
+       [
+        -3.8217482,
+        40.4430197
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/1",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821606,
+        40.4427727
+       ],
+       [
+        -3.8215068,
+        40.4427727
+       ],
+       [
+        -3.8215068,
+        40.4428442
+       ],
+       [
+        -3.821606,
+        40.4428442
+       ],
+       [
+        -3.821606,
+        40.4427727
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/3",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214156,
+        40.4431973
+       ],
+       [
+        -3.8213566,
+        40.4431973
+       ],
+       [
+        -3.8213566,
+        40.4432238
+       ],
+       [
+        -3.8214156,
+        40.4432238
+       ],
+       [
+        -3.8214156,
+        40.4431973
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/6",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214156,
+        40.4428442
+       ],
+       [
+        -3.8212869,
+        40.4428442
+       ],
+       [
+        -3.8212869,
+        40.4429381
+       ],
+       [
+        -3.8214156,
+        40.4429381
+       ],
+       [
+        -3.8214156,
+        40.4428442
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/7",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8213941,
+        40.4431626
+       ],
+       [
+        -3.8213298,
+        40.4431626
+       ],
+       [
+        -3.8213298,
+        40.4432096
+       ],
+       [
+        -3.8213941,
+        40.4432096
+       ],
+       [
+        -3.8213941,
+        40.4431626
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/8",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821311,
+        40.4432157
+       ],
+       [
+        -3.8212064,
+        40.4432157
+       ],
+       [
+        -3.8212064,
+        40.443279
+       ],
+       [
+        -3.821311,
+        40.443279
+       ],
+       [
+        -3.821311,
+        40.4432157
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/10",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.82126,
+        40.4432728
+       ],
+       [
+        -3.8212359,
+        40.4432728
+       ],
+       [
+        -3.8212359,
+        40.4432892
+       ],
+       [
+        -3.82126,
+        40.4432892
+       ],
+       [
+        -3.82126,
+        40.4432728
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/11",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212466,
+        40.4429176
+       ],
+       [
+        -3.8211474,
+        40.4429176
+       ],
+       [
+        -3.8211474,
+        40.4430034
+       ],
+       [
+        -3.8212466,
+        40.4430034
+       ],
+       [
+        -3.8212466,
+        40.4429176
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/12",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210723,
+        40.4429871
+       ],
+       [
+        -3.8209543,
+        40.4429871
+       ],
+       [
+        -3.8209543,
+        40.4430626
+       ],
+       [
+        -3.8210723,
+        40.4430626
+       ],
+       [
+        -3.8210723,
+        40.4429871
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/13",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8209194,
+        40.4430687
+       ],
+       [
+        -3.8208711,
+        40.4430687
+       ],
+       [
+        -3.8208711,
+        40.4431136
+       ],
+       [
+        -3.8209194,
+        40.4431136
+       ],
+       [
+        -3.8209194,
+        40.4430687
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/14",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205546,
+        40.4432524
+       ],
+       [
+        -3.8204259,
+        40.4432524
+       ],
+       [
+        -3.8204259,
+        40.4432892
+       ],
+       [
+        -3.8205546,
+        40.4432892
+       ],
+       [
+        -3.8205546,
+        40.4432524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/17",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8195837,
+        40.4429381
+       ],
+       [
+        -3.8195542,
+        40.4429381
+       ],
+       [
+        -3.8195542,
+        40.4429605
+       ],
+       [
+        -3.8195837,
+        40.4429605
+       ],
+       [
+        -3.8195837,
+        40.4429381
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/20",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194066,
+        40.4429952
+       ],
+       [
+        -3.8193262,
+        40.4429952
+       ],
+       [
+        -3.8193262,
+        40.4430442
+       ],
+       [
+        -3.8194066,
+        40.4430442
+       ],
+       [
+        -3.8194066,
+        40.4429952
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/21",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819302,
+        40.443032
+       ],
+       [
+        -3.8191974,
+        40.443032
+       ],
+       [
+        -3.8191974,
+        40.4431136
+       ],
+       [
+        -3.819302,
+        40.4431136
+       ],
+       [
+        -3.819302,
+        40.443032
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/22",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189641,
+        40.4431606
+       ],
+       [
+        -3.8189131,
+        40.4431606
+       ],
+       [
+        -3.8189131,
+        40.4432136
+       ],
+       [
+        -3.8189641,
+        40.4432136
+       ],
+       [
+        -3.8189641,
+        40.4431606
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/26",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187629,
+        40.4432422
+       ],
+       [
+        -3.8187253,
+        40.4432422
+       ],
+       [
+        -3.8187253,
+        40.4432769
+       ],
+       [
+        -3.8187629,
+        40.4432769
+       ],
+       [
+        -3.8187629,
+        40.4432422
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/27",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186985,
+        40.4432483
+       ],
+       [
+        -3.8185939,
+        40.4432483
+       ],
+       [
+        -3.8185939,
+        40.4432892
+       ],
+       [
+        -3.8186985,
+        40.4432892
+       ],
+       [
+        -3.8186985,
+        40.4432483
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/28",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179958,
+        40.4427625
+       ],
+       [
+        -3.8179207,
+        40.4427625
+       ],
+       [
+        -3.8179207,
+        40.4428299
+       ],
+       [
+        -3.8179958,
+        40.4428299
+       ],
+       [
+        -3.8179958,
+        40.4427625
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/33",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175613,
+        40.4428727
+       ],
+       [
+        -3.8174888,
+        40.4428727
+       ],
+       [
+        -3.8174888,
+        40.4429626
+       ],
+       [
+        -3.8175613,
+        40.4429626
+       ],
+       [
+        -3.8175613,
+        40.4428727
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/41",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170946,
+        40.4429462
+       ],
+       [
+        -3.8170061,
+        40.4429462
+       ],
+       [
+        -3.8170061,
+        40.4430034
+       ],
+       [
+        -3.8170946,
+        40.4430034
+       ],
+       [
+        -3.8170946,
+        40.4429462
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/46",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170114,
+        40.4430707
+       ],
+       [
+        -3.8169578,
+        40.4430707
+       ],
+       [
+        -3.8169578,
+        40.4431238
+       ],
+       [
+        -3.8170114,
+        40.4431238
+       ],
+       [
+        -3.8170114,
+        40.4430707
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/47",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8170034,
+        40.4427543
+       ],
+       [
+        -3.8169095,
+        40.4427543
+       ],
+       [
+        -3.8169095,
+        40.4428115
+       ],
+       [
+        -3.8170034,
+        40.4428115
+       ],
+       [
+        -3.8170034,
+        40.4427543
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/48",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8169444,
+        40.4431054
+       ],
+       [
+        -3.8168746,
+        40.4431054
+       ],
+       [
+        -3.8168746,
+        40.4431606
+       ],
+       [
+        -3.8169444,
+        40.4431606
+       ],
+       [
+        -3.8169444,
+        40.4431054
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/50",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8164186,
+        40.4432524
+       ],
+       [
+        -3.8163757,
+        40.4432524
+       ],
+       [
+        -3.8163757,
+        40.443279
+       ],
+       [
+        -3.8164186,
+        40.443279
+       ],
+       [
+        -3.8164186,
+        40.4432524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/52",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217831,
+        40.4427135
+       ],
+       [
+        -3.8217267,
+        40.4427135
+       ],
+       [
+        -3.8217267,
+        40.4427666
+       ],
+       [
+        -3.8217831,
+        40.4427666
+       ],
+       [
+        -3.8217831,
+        40.4427135
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/53",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204071,
+        40.442589
+       ],
+       [
+        -3.8203722,
+        40.442589
+       ],
+       [
+        -3.8203722,
+        40.4426257
+       ],
+       [
+        -3.8204071,
+        40.4426257
+       ],
+       [
+        -3.8204071,
+        40.442589
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/56",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203347,
+        40.4426278
+       ],
+       [
+        -3.8202274,
+        40.4426278
+       ],
+       [
+        -3.8202274,
+        40.4426951
+       ],
+       [
+        -3.8203347,
+        40.4426951
+       ],
+       [
+        -3.8203347,
+        40.4426278
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/57",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820112,
+        40.4427196
+       ],
+       [
+        -3.8200772,
+        40.4427196
+       ],
+       [
+        -3.8200772,
+        40.4427523
+       ],
+       [
+        -3.820112,
+        40.4427523
+       ],
+       [
+        -3.820112,
+        40.4427196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/59",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200852,
+        40.4427074
+       ],
+       [
+        -3.8200745,
+        40.4427074
+       ],
+       [
+        -3.8200745,
+        40.4427176
+       ],
+       [
+        -3.8200852,
+        40.4427176
+       ],
+       [
+        -3.8200852,
+        40.4427074
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/60",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196078,
+        40.442193
+       ],
+       [
+        -3.819522,
+        40.442193
+       ],
+       [
+        -3.819522,
+        40.4422583
+       ],
+       [
+        -3.8196078,
+        40.4422583
+       ],
+       [
+        -3.8196078,
+        40.442193
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/62",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193798,
+        40.442295
+       ],
+       [
+        -3.8193047,
+        40.442295
+       ],
+       [
+        -3.8193047,
+        40.4423379
+       ],
+       [
+        -3.8193798,
+        40.4423379
+       ],
+       [
+        -3.8193798,
+        40.442295
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/64",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819294,
+        40.4421971
+       ],
+       [
+        -3.8191894,
+        40.4421971
+       ],
+       [
+        -3.8191894,
+        40.4422522
+       ],
+       [
+        -3.819294,
+        40.4422522
+       ],
+       [
+        -3.819294,
+        40.4421971
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/65",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191947,
+        40.442293
+       ],
+       [
+        -3.8191438,
+        40.442293
+       ],
+       [
+        -3.8191438,
+        40.4423277
+       ],
+       [
+        -3.8191947,
+        40.4423277
+       ],
+       [
+        -3.8191947,
+        40.442293
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/68",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8190633,
+        40.4423849
+       ],
+       [
+        -3.818956,
+        40.4423849
+       ],
+       [
+        -3.818956,
+        40.4424645
+       ],
+       [
+        -3.8190633,
+        40.4424645
+       ],
+       [
+        -3.8190633,
+        40.4423849
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/71",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8188407,
+        40.4423971
+       ],
+       [
+        -3.8186717,
+        40.4423971
+       ],
+       [
+        -3.8186717,
+        40.4425543
+       ],
+       [
+        -3.8188407,
+        40.4425543
+       ],
+       [
+        -3.8188407,
+        40.4423971
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/73",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187951,
+        40.4424032
+       ],
+       [
+        -3.8186771,
+        40.4424032
+       ],
+       [
+        -3.8186771,
+        40.4424645
+       ],
+       [
+        -3.8187951,
+        40.4424645
+       ],
+       [
+        -3.8187951,
+        40.4424032
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/74",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187602,
+        40.442489
+       ],
+       [
+        -3.8187093,
+        40.442489
+       ],
+       [
+        -3.8187093,
+        40.442538
+       ],
+       [
+        -3.8187602,
+        40.442538
+       ],
+       [
+        -3.8187602,
+        40.442489
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/75",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185805,
+        40.4425012
+       ],
+       [
+        -3.8185081,
+        40.4425012
+       ],
+       [
+        -3.8185081,
+        40.442538
+       ],
+       [
+        -3.8185805,
+        40.442538
+       ],
+       [
+        -3.8185805,
+        40.4425012
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/77",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185483,
+        40.4425829
+       ],
+       [
+        -3.8185215,
+        40.4425829
+       ],
+       [
+        -3.8185215,
+        40.4426033
+       ],
+       [
+        -3.8185483,
+        40.4426033
+       ],
+       [
+        -3.8185483,
+        40.4425829
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/78",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185295,
+        40.4423318
+       ],
+       [
+        -3.818441,
+        40.4423318
+       ],
+       [
+        -3.818441,
+        40.44244
+       ],
+       [
+        -3.8185295,
+        40.44244
+       ],
+       [
+        -3.8185295,
+        40.4423318
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/80",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184598,
+        40.4421971
+       ],
+       [
+        -3.8183632,
+        40.4421971
+       ],
+       [
+        -3.8183632,
+        40.442293
+       ],
+       [
+        -3.8184598,
+        40.442293
+       ],
+       [
+        -3.8184598,
+        40.4421971
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/81",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184464,
+        40.4422318
+       ],
+       [
+        -3.8183767,
+        40.4422318
+       ],
+       [
+        -3.8183767,
+        40.4422869
+       ],
+       [
+        -3.8184464,
+        40.4422869
+       ],
+       [
+        -3.8184464,
+        40.4422318
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/82",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817234,
+        40.4425339
+       ],
+       [
+        -3.8171723,
+        40.4425339
+       ],
+       [
+        -3.8171723,
+        40.4425829
+       ],
+       [
+        -3.817234,
+        40.4425829
+       ],
+       [
+        -3.817234,
+        40.4425339
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/89",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8164455,
+        40.4422318
+       ],
+       [
+        -3.8163757,
+        40.4422318
+       ],
+       [
+        -3.8163757,
+        40.4423053
+       ],
+       [
+        -3.8164455,
+        40.4423053
+       ],
+       [
+        -3.8164455,
+        40.4422318
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/90",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8163891,
+        40.4423257
+       ],
+       [
+        -3.8163757,
+        40.4423257
+       ],
+       [
+        -3.8163757,
+        40.4423583
+       ],
+       [
+        -3.8163891,
+        40.4423583
+       ],
+       [
+        -3.8163891,
+        40.4423257
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/91",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214827,
+        40.4419521
+       ],
+       [
+        -3.8213807,
+        40.4419521
+       ],
+       [
+        -3.8213807,
+        40.442048
+       ],
+       [
+        -3.8214827,
+        40.442048
+       ],
+       [
+        -3.8214827,
+        40.4419521
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/93",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820737,
+        40.4417214
+       ],
+       [
+        -3.8206458,
+        40.4417214
+       ],
+       [
+        -3.8206458,
+        40.4417929
+       ],
+       [
+        -3.820737,
+        40.4417929
+       ],
+       [
+        -3.820737,
+        40.4417214
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/100",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205788,
+        40.4418031
+       ],
+       [
+        -3.8204929,
+        40.4418031
+       ],
+       [
+        -3.8204929,
+        40.4418521
+       ],
+       [
+        -3.8205788,
+        40.4418521
+       ],
+       [
+        -3.8205788,
+        40.4418031
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/101",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.820442,
+        40.4417214
+       ],
+       [
+        -3.8203776,
+        40.4417214
+       ],
+       [
+        -3.8203776,
+        40.4417745
+       ],
+       [
+        -3.820442,
+        40.4417745
+       ],
+       [
+        -3.820442,
+        40.4417214
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/103",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204259,
+        40.4418582
+       ],
+       [
+        -3.8203266,
+        40.4418582
+       ],
+       [
+        -3.8203266,
+        40.4419337
+       ],
+       [
+        -3.8204259,
+        40.4419337
+       ],
+       [
+        -3.8204259,
+        40.4418582
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/104",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200235,
+        40.4420236
+       ],
+       [
+        -3.8199458,
+        40.4420236
+       ],
+       [
+        -3.8199458,
+        40.442093
+       ],
+       [
+        -3.8200235,
+        40.442093
+       ],
+       [
+        -3.8200235,
+        40.4420236
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/106",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197419,
+        40.4420072
+       ],
+       [
+        -3.8196614,
+        40.4420072
+       ],
+       [
+        -3.8196614,
+        40.4420705
+       ],
+       [
+        -3.8197419,
+        40.4420705
+       ],
+       [
+        -3.8197419,
+        40.4420072
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/110",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196829,
+        40.4421358
+       ],
+       [
+        -3.8196158,
+        40.4421358
+       ],
+       [
+        -3.8196158,
+        40.4422134
+       ],
+       [
+        -3.8196829,
+        40.4422134
+       ],
+       [
+        -3.8196829,
+        40.4421358
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/111",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8196078,
+        40.4420685
+       ],
+       [
+        -3.8194898,
+        40.4420685
+       ],
+       [
+        -3.8194898,
+        40.4421297
+       ],
+       [
+        -3.8196078,
+        40.4421297
+       ],
+       [
+        -3.8196078,
+        40.4420685
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/113",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819463,
+        40.442146
+       ],
+       [
+        -3.8193235,
+        40.442146
+       ],
+       [
+        -3.8193235,
+        40.4422052
+       ],
+       [
+        -3.819463,
+        40.4422052
+       ],
+       [
+        -3.819463,
+        40.442146
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/114",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.81942,
+        40.4421501
+       ],
+       [
+        -3.8193288,
+        40.4421501
+       ],
+       [
+        -3.8193288,
+        40.4422011
+       ],
+       [
+        -3.81942,
+        40.4422011
+       ],
+       [
+        -3.81942,
+        40.4421501
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/115",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185805,
+        40.4420868
+       ],
+       [
+        -3.8185188,
+        40.4420868
+       ],
+       [
+        -3.8185188,
+        40.4421399
+       ],
+       [
+        -3.8185805,
+        40.4421399
+       ],
+       [
+        -3.8185805,
+        40.4420868
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/118",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817749,
+        40.4418419
+       ],
+       [
+        -3.8177142,
+        40.4418419
+       ],
+       [
+        -3.8177142,
+        40.4418847
+       ],
+       [
+        -3.817749,
+        40.4418847
+       ],
+       [
+        -3.817749,
+        40.4418419
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/121",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176605,
+        40.4419582
+       ],
+       [
+        -3.8175774,
+        40.4419582
+       ],
+       [
+        -3.8175774,
+        40.442044
+       ],
+       [
+        -3.8176605,
+        40.442044
+       ],
+       [
+        -3.8176605,
+        40.4419582
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/122",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175184,
+        40.4420807
+       ],
+       [
+        -3.8174486,
+        40.4420807
+       ],
+       [
+        -3.8174486,
+        40.4421562
+       ],
+       [
+        -3.8175184,
+        40.4421562
+       ],
+       [
+        -3.8175184,
+        40.4420807
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/123",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174996,
+        40.4421154
+       ],
+       [
+        -3.817462,
+        40.4421154
+       ],
+       [
+        -3.817462,
+        40.4421481
+       ],
+       [
+        -3.8174996,
+        40.4421481
+       ],
+       [
+        -3.8174996,
+        40.4421154
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/124",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8168746,
+        40.4416929
+       ],
+       [
+        -3.8167861,
+        40.4416929
+       ],
+       [
+        -3.8167861,
+        40.4417521
+       ],
+       [
+        -3.8168746,
+        40.4417521
+       ],
+       [
+        -3.8168746,
+        40.4416929
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/126",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8168371,
+        40.4417296
+       ],
+       [
+        -3.8167217,
+        40.4417296
+       ],
+       [
+        -3.8167217,
+        40.4418092
+       ],
+       [
+        -3.8168371,
+        40.4418092
+       ],
+       [
+        -3.8168371,
+        40.4417296
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/127",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8167968,
+        40.4418051
+       ],
+       [
+        -3.8167593,
+        40.4418051
+       ],
+       [
+        -3.8167593,
+        40.4418317
+       ],
+       [
+        -3.8167968,
+        40.4418317
+       ],
+       [
+        -3.8167968,
+        40.4418051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/128",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166681,
+        40.4417521
+       ],
+       [
+        -3.8165581,
+        40.4417521
+       ],
+       [
+        -3.8165581,
+        40.4418378
+       ],
+       [
+        -3.8166681,
+        40.4418378
+       ],
+       [
+        -3.8166681,
+        40.4417521
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/130",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203856,
+        40.4417133
+       ],
+       [
+        -3.8203695,
+        40.4417133
+       ],
+       [
+        -3.8203695,
+        40.4417214
+       ],
+       [
+        -3.8203856,
+        40.4417214
+       ],
+       [
+        -3.8203856,
+        40.4417133
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/133",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203052,
+        40.4414112
+       ],
+       [
+        -3.8202408,
+        40.4414112
+       ],
+       [
+        -3.8202408,
+        40.4414928
+       ],
+       [
+        -3.8203052,
+        40.4414928
+       ],
+       [
+        -3.8203052,
+        40.4414112
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/135",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8202301,
+        40.4412233
+       ],
+       [
+        -3.8201308,
+        40.4412233
+       ],
+       [
+        -3.8201308,
+        40.4412846
+       ],
+       [
+        -3.8202301,
+        40.4412846
+       ],
+       [
+        -3.8202301,
+        40.4412233
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/136",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194978,
+        40.4411335
+       ],
+       [
+        -3.819353,
+        40.4411335
+       ],
+       [
+        -3.819353,
+        40.4412662
+       ],
+       [
+        -3.8194978,
+        40.4412662
+       ],
+       [
+        -3.8194978,
+        40.4411335
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/139",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193798,
+        40.4412683
+       ],
+       [
+        -3.8193583,
+        40.4412683
+       ],
+       [
+        -3.8193583,
+        40.4412846
+       ],
+       [
+        -3.8193798,
+        40.4412846
+       ],
+       [
+        -3.8193798,
+        40.4412683
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/140",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193423,
+        40.4413172
+       ],
+       [
+        -3.819243,
+        40.4413172
+       ],
+       [
+        -3.819243,
+        40.4413846
+       ],
+       [
+        -3.8193423,
+        40.4413846
+       ],
+       [
+        -3.8193423,
+        40.4413172
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/141",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192242,
+        40.4414316
+       ],
+       [
+        -3.8191116,
+        40.4414316
+       ],
+       [
+        -3.8191116,
+        40.4415153
+       ],
+       [
+        -3.8192242,
+        40.4415153
+       ],
+       [
+        -3.8192242,
+        40.4414316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/143",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8190874,
+        40.4415724
+       ],
+       [
+        -3.8189936,
+        40.4415724
+       ],
+       [
+        -3.8189936,
+        40.4416459
+       ],
+       [
+        -3.8190874,
+        40.4416459
+       ],
+       [
+        -3.8190874,
+        40.4415724
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/145",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183874,
+        40.4411846
+       ],
+       [
+        -3.8183311,
+        40.4411846
+       ],
+       [
+        -3.8183311,
+        40.4412274
+       ],
+       [
+        -3.8183874,
+        40.4412274
+       ],
+       [
+        -3.8183874,
+        40.4411846
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/148",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8183391,
+        40.4412683
+       ],
+       [
+        -3.8182533,
+        40.4412683
+       ],
+       [
+        -3.8182533,
+        40.4413458
+       ],
+       [
+        -3.8183391,
+        40.4413458
+       ],
+       [
+        -3.8183391,
+        40.4412683
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/149",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8182613,
+        40.4412642
+       ],
+       [
+        -3.8181514,
+        40.4412642
+       ],
+       [
+        -3.8181514,
+        40.4413417
+       ],
+       [
+        -3.8182613,
+        40.4413417
+       ],
+       [
+        -3.8182613,
+        40.4412642
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/151",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180789,
+        40.4414948
+       ],
+       [
+        -3.8180548,
+        40.4414948
+       ],
+       [
+        -3.8180548,
+        40.4415173
+       ],
+       [
+        -3.8180789,
+        40.4415173
+       ],
+       [
+        -3.8180789,
+        40.4414948
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/154",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180602,
+        40.4415255
+       ],
+       [
+        -3.8180494,
+        40.4415255
+       ],
+       [
+        -3.8180494,
+        40.4415336
+       ],
+       [
+        -3.8180602,
+        40.4415336
+       ],
+       [
+        -3.8180602,
+        40.4415255
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/156",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180333,
+        40.4415826
+       ],
+       [
+        -3.81791,
+        40.4415826
+       ],
+       [
+        -3.81791,
+        40.4417051
+       ],
+       [
+        -3.8180333,
+        40.4417051
+       ],
+       [
+        -3.8180333,
+        40.4415826
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/157",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8180146,
+        40.4414806
+       ],
+       [
+        -3.8179475,
+        40.4414806
+       ],
+       [
+        -3.8179475,
+        40.441552
+       ],
+       [
+        -3.8180146,
+        40.441552
+       ],
+       [
+        -3.8180146,
+        40.4414806
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/158",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817226,
+        40.4412193
+       ],
+       [
+        -3.817167,
+        40.4412193
+       ],
+       [
+        -3.817167,
+        40.4412642
+       ],
+       [
+        -3.817226,
+        40.4412642
+       ],
+       [
+        -3.817226,
+        40.4412193
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/159",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8172126,
+        40.4412642
+       ],
+       [
+        -3.8171053,
+        40.4412642
+       ],
+       [
+        -3.8171053,
+        40.4413254
+       ],
+       [
+        -3.8172126,
+        40.4413254
+       ],
+       [
+        -3.8172126,
+        40.4412642
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/160",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.816998,
+        40.4415275
+       ],
+       [
+        -3.8169202,
+        40.4415275
+       ],
+       [
+        -3.8169202,
+        40.4415745
+       ],
+       [
+        -3.816998,
+        40.4415745
+       ],
+       [
+        -3.816998,
+        40.4415275
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/162",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8167056,
+        40.4412417
+       ],
+       [
+        -3.8166144,
+        40.4412417
+       ],
+       [
+        -3.8166144,
+        40.4413377
+       ],
+       [
+        -3.8167056,
+        40.4413377
+       ],
+       [
+        -3.8167056,
+        40.4412417
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/163",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212976,
+        40.4410376
+       ],
+       [
+        -3.8212225,
+        40.4410376
+       ],
+       [
+        -3.8212225,
+        40.4410825
+       ],
+       [
+        -3.8212976,
+        40.4410825
+       ],
+       [
+        -3.8212976,
+        40.4410376
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/164",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210213,
+        40.4410498
+       ],
+       [
+        -3.8209194,
+        40.4410498
+       ],
+       [
+        -3.8209194,
+        40.4411437
+       ],
+       [
+        -3.8210213,
+        40.4411437
+       ],
+       [
+        -3.8210213,
+        40.4410498
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/165",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201308,
+        40.440615
+       ],
+       [
+        -3.8200128,
+        40.440615
+       ],
+       [
+        -3.8200128,
+        40.4407089
+       ],
+       [
+        -3.8201308,
+        40.4407089
+       ],
+       [
+        -3.8201308,
+        40.440615
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/174",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8201094,
+        40.441058
+       ],
+       [
+        -3.8200396,
+        40.441058
+       ],
+       [
+        -3.8200396,
+        40.4411397
+       ],
+       [
+        -3.8201094,
+        40.4411397
+       ],
+       [
+        -3.8201094,
+        40.441058
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/175",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200772,
+        40.4409702
+       ],
+       [
+        -3.8199645,
+        40.4409702
+       ],
+       [
+        -3.8199645,
+        40.44106
+       ],
+       [
+        -3.8200772,
+        40.44106
+       ],
+       [
+        -3.8200772,
+        40.4409702
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/176",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8200101,
+        40.4408743
+       ],
+       [
+        -3.8198921,
+        40.4408743
+       ],
+       [
+        -3.8198921,
+        40.4409702
+       ],
+       [
+        -3.8200101,
+        40.4409702
+       ],
+       [
+        -3.8200101,
+        40.4408743
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/177",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8199887,
+        40.4407273
+       ],
+       [
+        -3.8199082,
+        40.4407273
+       ],
+       [
+        -3.8199082,
+        40.4407885
+       ],
+       [
+        -3.8199887,
+        40.4407885
+       ],
+       [
+        -3.8199887,
+        40.4407273
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/178",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8199162,
+        40.4407987
+       ],
+       [
+        -3.8197795,
+        40.4407987
+       ],
+       [
+        -3.8197795,
+        40.4408865
+       ],
+       [
+        -3.8199162,
+        40.4408865
+       ],
+       [
+        -3.8199162,
+        40.4407987
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/180",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197634,
+        40.4409131
+       ],
+       [
+        -3.8196883,
+        40.4409131
+       ],
+       [
+        -3.8196883,
+        40.4409702
+       ],
+       [
+        -3.8197634,
+        40.4409702
+       ],
+       [
+        -3.8197634,
+        40.4409131
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/184",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8188541,
+        40.440715
+       ],
+       [
+        -3.8187146,
+        40.440715
+       ],
+       [
+        -3.8187146,
+        40.4408049
+       ],
+       [
+        -3.8188541,
+        40.4408049
+       ],
+       [
+        -3.8188541,
+        40.440715
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/187",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186851,
+        40.4407375
+       ],
+       [
+        -3.8186261,
+        40.4407375
+       ],
+       [
+        -3.8186261,
+        40.4407926
+       ],
+       [
+        -3.8186851,
+        40.4407926
+       ],
+       [
+        -3.8186851,
+        40.4407375
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/189",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.81861,
+        40.4408314
+       ],
+       [
+        -3.8185108,
+        40.4408314
+       ],
+       [
+        -3.8185108,
+        40.4409253
+       ],
+       [
+        -3.81861,
+        40.4409253
+       ],
+       [
+        -3.81861,
+        40.4408314
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/190",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186073,
+        40.4409335
+       ],
+       [
+        -3.8185564,
+        40.4409335
+       ],
+       [
+        -3.8185564,
+        40.4409784
+       ],
+       [
+        -3.8186073,
+        40.4409784
+       ],
+       [
+        -3.8186073,
+        40.4409335
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/191",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.818551,
+        40.4410253
+       ],
+       [
+        -3.8184491,
+        40.4410253
+       ],
+       [
+        -3.8184491,
+        40.4411049
+       ],
+       [
+        -3.818551,
+        40.4411049
+       ],
+       [
+        -3.818551,
+        40.4410253
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/192",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184035,
+        40.4410845
+       ],
+       [
+        -3.8183042,
+        40.4410845
+       ],
+       [
+        -3.8183042,
+        40.4411539
+       ],
+       [
+        -3.8184035,
+        40.4411539
+       ],
+       [
+        -3.8184035,
+        40.4410845
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/193",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177061,
+        40.4406558
+       ],
+       [
+        -3.81769,
+        40.4406558
+       ],
+       [
+        -3.81769,
+        40.4406885
+       ],
+       [
+        -3.8177061,
+        40.4406885
+       ],
+       [
+        -3.8177061,
+        40.4406558
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/195",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176739,
+        40.4406763
+       ],
+       [
+        -3.8176632,
+        40.4406763
+       ],
+       [
+        -3.8176632,
+        40.4406865
+       ],
+       [
+        -3.8176739,
+        40.4406865
+       ],
+       [
+        -3.8176739,
+        40.4406763
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/196",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8175184,
+        40.4407028
+       ],
+       [
+        -3.8174433,
+        40.4407028
+       ],
+       [
+        -3.8174433,
+        40.4407742
+       ],
+       [
+        -3.8175184,
+        40.4407742
+       ],
+       [
+        -3.8175184,
+        40.4407028
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/198",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174835,
+        40.4408375
+       ],
+       [
+        -3.8173842,
+        40.4408375
+       ],
+       [
+        -3.8173842,
+        40.4409274
+       ],
+       [
+        -3.8174835,
+        40.4409274
+       ],
+       [
+        -3.8174835,
+        40.4408375
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/200",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173977,
+        40.4409906
+       ],
+       [
+        -3.8173011,
+        40.4409906
+       ],
+       [
+        -3.8173011,
+        40.4410519
+       ],
+       [
+        -3.8173977,
+        40.4410519
+       ],
+       [
+        -3.8173977,
+        40.4409906
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/202",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173762,
+        40.4410335
+       ],
+       [
+        -3.8172501,
+        40.4410335
+       ],
+       [
+        -3.8172501,
+        40.4410784
+       ],
+       [
+        -3.8173762,
+        40.4410784
+       ],
+       [
+        -3.8173762,
+        40.4410335
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/203",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821075,
+        40.4402864
+       ],
+       [
+        -3.8208711,
+        40.4402864
+       ],
+       [
+        -3.8208711,
+        40.4404435
+       ],
+       [
+        -3.821075,
+        40.4404435
+       ],
+       [
+        -3.821075,
+        40.4402864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/205",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8210455,
+        40.4403476
+       ],
+       [
+        -3.8209006,
+        40.4403476
+       ],
+       [
+        -3.8209006,
+        40.4404293
+       ],
+       [
+        -3.8210455,
+        40.4404293
+       ],
+       [
+        -3.8210455,
+        40.4403476
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/206",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8208872,
+        40.4404027
+       ],
+       [
+        -3.8207772,
+        40.4404027
+       ],
+       [
+        -3.8207772,
+        40.4404925
+       ],
+       [
+        -3.8208872,
+        40.4404925
+       ],
+       [
+        -3.8208872,
+        40.4404027
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/207",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8207504,
+        40.4404782
+       ],
+       [
+        -3.8206485,
+        40.4404782
+       ],
+       [
+        -3.8206485,
+        40.4405272
+       ],
+       [
+        -3.8207504,
+        40.4405272
+       ],
+       [
+        -3.8207504,
+        40.4404782
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/208",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8206378,
+        40.4405089
+       ],
+       [
+        -3.8205224,
+        40.4405089
+       ],
+       [
+        -3.8205224,
+        40.4405701
+       ],
+       [
+        -3.8206378,
+        40.4405701
+       ],
+       [
+        -3.8206378,
+        40.4405089
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/209",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819412,
+        40.4401047
+       ],
+       [
+        -3.819294,
+        40.4401047
+       ],
+       [
+        -3.819294,
+        40.4402047
+       ],
+       [
+        -3.819412,
+        40.4402047
+       ],
+       [
+        -3.819412,
+        40.4401047
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/215",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193583,
+        40.4402557
+       ],
+       [
+        -3.8192457,
+        40.4402557
+       ],
+       [
+        -3.8192457,
+        40.4403578
+       ],
+       [
+        -3.8193583,
+        40.4403578
+       ],
+       [
+        -3.8193583,
+        40.4402557
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/216",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192859,
+        40.4402088
+       ],
+       [
+        -3.8192081,
+        40.4402088
+       ],
+       [
+        -3.8192081,
+        40.4402802
+       ],
+       [
+        -3.8192859,
+        40.4402802
+       ],
+       [
+        -3.8192859,
+        40.4402088
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/217",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192484,
+        40.4404027
+       ],
+       [
+        -3.8191545,
+        40.4404027
+       ],
+       [
+        -3.8191545,
+        40.4404803
+       ],
+       [
+        -3.8192484,
+        40.4404803
+       ],
+       [
+        -3.8192484,
+        40.4404027
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/219",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191545,
+        40.4404395
+       ],
+       [
+        -3.8191438,
+        40.4404395
+       ],
+       [
+        -3.8191438,
+        40.4404476
+       ],
+       [
+        -3.8191545,
+        40.4404476
+       ],
+       [
+        -3.8191545,
+        40.4404395
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/221",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191223,
+        40.4404803
+       ],
+       [
+        -3.8190445,
+        40.4404803
+       ],
+       [
+        -3.8190445,
+        40.4405558
+       ],
+       [
+        -3.8191223,
+        40.4405558
+       ],
+       [
+        -3.8191223,
+        40.4404803
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/222",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179314,
+        40.4404048
+       ],
+       [
+        -3.8178483,
+        40.4404048
+       ],
+       [
+        -3.8178483,
+        40.440466
+       ],
+       [
+        -3.8179314,
+        40.440466
+       ],
+       [
+        -3.8179314,
+        40.4404048
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/230",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.817859,
+        40.4403456
+       ],
+       [
+        -3.8177973,
+        40.4403456
+       ],
+       [
+        -3.8177973,
+        40.4404007
+       ],
+       [
+        -3.817859,
+        40.4404007
+       ],
+       [
+        -3.817859,
+        40.4403456
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/231",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8178134,
+        40.4404742
+       ],
+       [
+        -3.817749,
+        40.4404742
+       ],
+       [
+        -3.817749,
+        40.4405272
+       ],
+       [
+        -3.8178134,
+        40.4405272
+       ],
+       [
+        -3.8178134,
+        40.4404742
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/232",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8177839,
+        40.4404048
+       ],
+       [
+        -3.8177007,
+        40.4404048
+       ],
+       [
+        -3.8177007,
+        40.4404762
+       ],
+       [
+        -3.8177839,
+        40.4404762
+       ],
+       [
+        -3.8177839,
+        40.4404048
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/233",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176739,
+        40.4406436
+       ],
+       [
+        -3.8176471,
+        40.4406436
+       ],
+       [
+        -3.8176471,
+        40.4406681
+       ],
+       [
+        -3.8176739,
+        40.4406681
+       ],
+       [
+        -3.8176739,
+        40.4406436
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/235",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176632,
+        40.4405313
+       ],
+       [
+        -3.8175505,
+        40.4405313
+       ],
+       [
+        -3.8175505,
+        40.4406314
+       ],
+       [
+        -3.8176632,
+        40.4406314
+       ],
+       [
+        -3.8176632,
+        40.4405313
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/236",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.821657,
+        40.4398842
+       ],
+       [
+        -3.8215899,
+        40.4398842
+       ],
+       [
+        -3.8215899,
+        40.4399291
+       ],
+       [
+        -3.821657,
+        40.4399291
+       ],
+       [
+        -3.821657,
+        40.4398842
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/240",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.82034,
+        40.4395678
+       ],
+       [
+        -3.8202381,
+        40.4395678
+       ],
+       [
+        -3.8202381,
+        40.4396719
+       ],
+       [
+        -3.82034,
+        40.4396719
+       ],
+       [
+        -3.82034,
+        40.4395678
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/244",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203374,
+        40.4397291
+       ],
+       [
+        -3.8202596,
+        40.4397291
+       ],
+       [
+        -3.8202596,
+        40.4397842
+       ],
+       [
+        -3.8203374,
+        40.4397842
+       ],
+       [
+        -3.8203374,
+        40.4397291
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/245",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8202327,
+        40.4396637
+       ],
+       [
+        -3.8201389,
+        40.4396637
+       ],
+       [
+        -3.8201389,
+        40.4397331
+       ],
+       [
+        -3.8202327,
+        40.4397331
+       ],
+       [
+        -3.8202327,
+        40.4396637
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/247",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8198894,
+        40.4399352
+       ],
+       [
+        -3.8197821,
+        40.4399352
+       ],
+       [
+        -3.8197821,
+        40.4400026
+       ],
+       [
+        -3.8198894,
+        40.4400026
+       ],
+       [
+        -3.8198894,
+        40.4399352
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/253",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197258,
+        40.4400108
+       ],
+       [
+        -3.8196266,
+        40.4400108
+       ],
+       [
+        -3.8196266,
+        40.4400904
+       ],
+       [
+        -3.8197258,
+        40.4400904
+       ],
+       [
+        -3.8197258,
+        40.4400108
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/254",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8194066,
+        40.4397944
+       ],
+       [
+        -3.8193342,
+        40.4397944
+       ],
+       [
+        -3.8193342,
+        40.4398883
+       ],
+       [
+        -3.8194066,
+        40.4398883
+       ],
+       [
+        -3.8194066,
+        40.4397944
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/258",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8186073,
+        40.4397617
+       ],
+       [
+        -3.8185215,
+        40.4397617
+       ],
+       [
+        -3.8185215,
+        40.439823
+       ],
+       [
+        -3.8186073,
+        40.439823
+       ],
+       [
+        -3.8186073,
+        40.4397617
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/264",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184786,
+        40.4398454
+       ],
+       [
+        -3.818374,
+        40.4398454
+       ],
+       [
+        -3.818374,
+        40.4399536
+       ],
+       [
+        -3.8184786,
+        40.4399536
+       ],
+       [
+        -3.8184786,
+        40.4398454
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/266",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8182694,
+        40.4399781
+       ],
+       [
+        -3.8181353,
+        40.4399781
+       ],
+       [
+        -3.8181353,
+        40.4400679
+       ],
+       [
+        -3.8182694,
+        40.4400679
+       ],
+       [
+        -3.8182694,
+        40.4399781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/267",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8212654,
+        40.4393004
+       ],
+       [
+        -3.8210991,
+        40.4393004
+       ],
+       [
+        -3.8210991,
+        40.4394167
+       ],
+       [
+        -3.8212654,
+        40.4394167
+       ],
+       [
+        -3.8212654,
+        40.4393004
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/272",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8217723,
+        40.4432647
+       ],
+       [
+        -3.8217294,
+        40.4432647
+       ],
+       [
+        -3.8217294,
+        40.4432892
+       ],
+       [
+        -3.8217723,
+        40.4432892
+       ],
+       [
+        -3.8217723,
+        40.4432647
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/0",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8216972,
+        40.4429381
+       ],
+       [
+        -3.8215578,
+        40.4429381
+       ],
+       [
+        -3.8215578,
+        40.4430075
+       ],
+       [
+        -3.8216972,
+        40.4430075
+       ],
+       [
+        -3.8216972,
+        40.4429381
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/2",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8206995,
+        40.4432075
+       ],
+       [
+        -3.8206539,
+        40.4432075
+       ],
+       [
+        -3.8206539,
+        40.44323
+       ],
+       [
+        -3.8206995,
+        40.44323
+       ],
+       [
+        -3.8206995,
+        40.4432075
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/16",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8173628,
+        40.4429503
+       ],
+       [
+        -3.8172126,
+        40.4429503
+       ],
+       [
+        -3.8172126,
+        40.4430483
+       ],
+       [
+        -3.8173628,
+        40.4430483
+       ],
+       [
+        -3.8173628,
+        40.4429503
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/43",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166788,
+        40.4431912
+       ],
+       [
+        -3.8164937,
+        40.4431912
+       ],
+       [
+        -3.8164937,
+        40.4432892
+       ],
+       [
+        -3.8166788,
+        40.4432892
+       ],
+       [
+        -3.8166788,
+        40.4431912
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/51",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8192537,
+        40.4423257
+       ],
+       [
+        -3.8192296,
+        40.4423257
+       ],
+       [
+        -3.8192296,
+        40.442342
+       ],
+       [
+        -3.8192537,
+        40.442342
+       ],
+       [
+        -3.8192537,
+        40.4423257
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/66",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191974,
+        40.4423665
+       ],
+       [
+        -3.8191786,
+        40.4423665
+       ],
+       [
+        -3.8191786,
+        40.4423767
+       ],
+       [
+        -3.8191974,
+        40.4423767
+       ],
+       [
+        -3.8191974,
+        40.4423665
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/67",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8191921,
+        40.4423502
+       ],
+       [
+        -3.8191786,
+        40.4423502
+       ],
+       [
+        -3.8191786,
+        40.4423604
+       ],
+       [
+        -3.8191921,
+        40.4423604
+       ],
+       [
+        -3.8191921,
+        40.4423502
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/69",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819176,
+        40.4423747
+       ],
+       [
+        -3.8191384,
+        40.4423747
+       ],
+       [
+        -3.8191384,
+        40.442393
+       ],
+       [
+        -3.819176,
+        40.442393
+       ],
+       [
+        -3.819176,
+        40.4423747
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/70",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185403,
+        40.4426094
+       ],
+       [
+        -3.8185215,
+        40.4426094
+       ],
+       [
+        -3.8185215,
+        40.4426237
+       ],
+       [
+        -3.8185403,
+        40.4426237
+       ],
+       [
+        -3.8185403,
+        40.4426094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/79",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8184008,
+        40.4426502
+       ],
+       [
+        -3.8183418,
+        40.4426502
+       ],
+       [
+        -3.8183418,
+        40.4426849
+       ],
+       [
+        -3.8184008,
+        40.4426849
+       ],
+       [
+        -3.8184008,
+        40.4426502
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/83",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214853,
+        40.4420542
+       ],
+       [
+        -3.8214639,
+        40.4420542
+       ],
+       [
+        -3.8214639,
+        40.4420807
+       ],
+       [
+        -3.8214853,
+        40.4420807
+       ],
+       [
+        -3.8214853,
+        40.4420542
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/92",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214478,
+        40.4420583
+       ],
+       [
+        -3.8214371,
+        40.4420583
+       ],
+       [
+        -3.8214371,
+        40.4420664
+       ],
+       [
+        -3.8214478,
+        40.4420664
+       ],
+       [
+        -3.8214478,
+        40.4420583
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/94",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8214076,
+        40.4418725
+       ],
+       [
+        -3.8213459,
+        40.4418725
+       ],
+       [
+        -3.8213459,
+        40.4419235
+       ],
+       [
+        -3.8214076,
+        40.4419235
+       ],
+       [
+        -3.8214076,
+        40.4418725
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/95",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8198519,
+        40.4420807
+       ],
+       [
+        -3.8197634,
+        40.4420807
+       ],
+       [
+        -3.8197634,
+        40.4421542
+       ],
+       [
+        -3.8198519,
+        40.4421542
+       ],
+       [
+        -3.8198519,
+        40.4420807
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/107",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193879,
+        40.4421317
+       ],
+       [
+        -3.819353,
+        40.4421317
+       ],
+       [
+        -3.819353,
+        40.4421481
+       ],
+       [
+        -3.8193879,
+        40.4421481
+       ],
+       [
+        -3.8193879,
+        40.4421317
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/116",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8193047,
+        40.4421787
+       ],
+       [
+        -3.819294,
+        40.4421787
+       ],
+       [
+        -3.819294,
+        40.4421869
+       ],
+       [
+        -3.8193047,
+        40.4421869
+       ],
+       [
+        -3.8193047,
+        40.4421787
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/117",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166842,
+        40.441899
+       ],
+       [
+        -3.8166118,
+        40.441899
+       ],
+       [
+        -3.8166118,
+        40.4419664
+       ],
+       [
+        -3.8166842,
+        40.4419664
+       ],
+       [
+        -3.8166842,
+        40.441899
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/129",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8203856,
+        40.4414071
+       ],
+       [
+        -3.8202381,
+        40.4414071
+       ],
+       [
+        -3.8202381,
+        40.4415438
+       ],
+       [
+        -3.8203856,
+        40.4415438
+       ],
+       [
+        -3.8203856,
+        40.4414071
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/132",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8182425,
+        40.4412213
+       ],
+       [
+        -3.8182291,
+        40.4412213
+       ],
+       [
+        -3.8182291,
+        40.4412315
+       ],
+       [
+        -3.8182425,
+        40.4412315
+       ],
+       [
+        -3.8182425,
+        40.4412213
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/152",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8209489,
+        40.4410355
+       ],
+       [
+        -3.8208175,
+        40.4410355
+       ],
+       [
+        -3.8208175,
+        40.4410886
+       ],
+       [
+        -3.8209489,
+        40.4410886
+       ],
+       [
+        -3.8209489,
+        40.4410355
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/166",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8198009,
+        40.4406538
+       ],
+       [
+        -3.8197714,
+        40.4406538
+       ],
+       [
+        -3.8197714,
+        40.4406803
+       ],
+       [
+        -3.8198009,
+        40.4406803
+       ],
+       [
+        -3.8198009,
+        40.4406538
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/182",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8197768,
+        40.4408906
+       ],
+       [
+        -3.819758,
+        40.4408906
+       ],
+       [
+        -3.819758,
+        40.4409008
+       ],
+       [
+        -3.8197768,
+        40.4409008
+       ],
+       [
+        -3.8197768,
+        40.4408906
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/183",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8187039,
+        40.4407722
+       ],
+       [
+        -3.8186905,
+        40.4407722
+       ],
+       [
+        -3.8186905,
+        40.4407804
+       ],
+       [
+        -3.8187039,
+        40.4407804
+       ],
+       [
+        -3.8187039,
+        40.4407722
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/188",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8176364,
+        40.4406967
+       ],
+       [
+        -3.8174835,
+        40.4406967
+       ],
+       [
+        -3.8174835,
+        40.4408171
+       ],
+       [
+        -3.8176364,
+        40.4408171
+       ],
+       [
+        -3.8176364,
+        40.4406967
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/197",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174915,
+        40.4408947
+       ],
+       [
+        -3.8174808,
+        40.4408947
+       ],
+       [
+        -3.8174808,
+        40.4409049
+       ],
+       [
+        -3.8174915,
+        40.4409049
+       ],
+       [
+        -3.8174915,
+        40.4408947
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/199",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8174057,
+        40.4409355
+       ],
+       [
+        -3.8173923,
+        40.4409355
+       ],
+       [
+        -3.8173923,
+        40.4409457
+       ],
+       [
+        -3.8174057,
+        40.4409457
+       ],
+       [
+        -3.8174057,
+        40.4409355
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/201",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8205412,
+        40.4404374
+       ],
+       [
+        -3.82034,
+        40.4404374
+       ],
+       [
+        -3.82034,
+        40.4406252
+       ],
+       [
+        -3.8205412,
+        40.4406252
+       ],
+       [
+        -3.8205412,
+        40.4404374
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/210",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8190687,
+        40.4404395
+       ],
+       [
+        -3.8190097,
+        40.4404395
+       ],
+       [
+        -3.8190097,
+        40.4404925
+       ],
+       [
+        -3.8190687,
+        40.4404925
+       ],
+       [
+        -3.8190687,
+        40.4404395
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/224",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8189346,
+        40.4401618
+       ],
+       [
+        -3.8188756,
+        40.4401618
+       ],
+       [
+        -3.8188756,
+        40.4402394
+       ],
+       [
+        -3.8189346,
+        40.4402394
+       ],
+       [
+        -3.8189346,
+        40.4401618
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/226",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8179395,
+        40.4403415
+       ],
+       [
+        -3.8177517,
+        40.4403415
+       ],
+       [
+        -3.8177517,
+        40.4404742
+       ],
+       [
+        -3.8179395,
+        40.4404742
+       ],
+       [
+        -3.8179395,
+        40.4403415
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/229",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8204098,
+        40.4396903
+       ],
+       [
+        -3.8202274,
+        40.4396903
+       ],
+       [
+        -3.8202274,
+        40.4397903
+       ],
+       [
+        -3.8204098,
+        40.4397903
+       ],
+       [
+        -3.8204098,
+        40.4396903
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/243",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.819707,
+        40.4396474
+       ],
+       [
+        -3.8194978,
+        40.4396474
+       ],
+       [
+        -3.8194978,
+        40.439774
+       ],
+       [
+        -3.819707,
+        40.439774
+       ],
+       [
+        -3.819707,
+        40.4396474
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/255",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8185322,
+        40.4398475
+       ],
+       [
+        -3.8184893,
+        40.4398475
+       ],
+       [
+        -3.8184893,
+        40.4398822
+       ],
+       [
+        -3.8185322,
+        40.4398822
+       ],
+       [
+        -3.8185322,
+        40.4398475
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/265",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -3.8166252,
+        40.4399352
+       ],
+       [
+        -3.8165662,
+        40.4399352
+       ],
+       [
+        -3.8165662,
+        40.4399985
+       ],
+       [
+        -3.8166252,
+        40.4399985
+       ],
+       [
+        -3.8166252,
+        40.4399352
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/pozuelo_esri/269",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  }
+ ]
+}

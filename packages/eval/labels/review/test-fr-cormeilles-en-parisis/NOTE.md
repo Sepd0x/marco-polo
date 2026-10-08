@@ -1,0 +1,1 @@
+Rejected after review: about 30 pools in the zone, counted on the 2 x 2 sheets of all 36 windows (rule: fewer than 40); many are small above-ground or covered pools, so this count is an estimate, not a box-by-box review. Dense detached-house suburb, a large school and apartment blocks.

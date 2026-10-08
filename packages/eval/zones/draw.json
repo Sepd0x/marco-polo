@@ -262,7 +262,7 @@
       "name": "La Unión",
       "code": "30041"
      },
-     "status": "drawn",
+     "status": "rejected: 10 pools after review",
      "osmSha256": "b50341dbd4f219bac35d9cba30380cdcb01e619bebb37e339d4384268c318d0d",
      "eligibleCells": 4,
      "cell": {
@@ -276,13 +276,79 @@
        "north": 37.62907330397742
       }
      }
+    },
+    {
+     "index": 384,
+     "municipality": {
+      "name": "Yecla",
+      "code": "30043"
+     },
+     "status": "rejected: 2 pools after review",
+     "osmSha256": "684321ecfa296874bbb6de213eec3a9f7c8395ffd7dab0d9852e5b5fe5981b9c",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 18,
+      "col": 20,
+      "share": 0.463,
+      "bbox": {
+       "west": -1.1144463142499088,
+       "south": 38.60071591193228,
+       "east": -1.1029524699624043,
+       "north": 38.609759629261845
+      }
+     }
+    },
+    {
+     "index": 385,
+     "municipality": {
+      "name": "Santomera",
+      "code": "30901"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "c5b50061c6e012ef34f084d500da0a9eeab5b03b9f3a53a5e1ed4afe10a9db9a",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 4,
+      "share": 0.519,
+      "bbox": {
+       "west": -1.0596683493590842,
+       "south": 38.057869834659144,
+       "east": -1.0482558866988552,
+       "north": 38.06691355198871
+      }
+     }
+    },
+    {
+     "index": 386,
+     "municipality": {
+      "name": "Los Alcázares",
+      "code": "30902"
+     },
+     "status": "drawn",
+     "osmSha256": "75b7ab3505e79b77ea0e060043e03d186a41ab68c450ed6144b31dc59ae06e23",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 1,
+      "col": 4,
+      "share": 0.544,
+      "bbox": {
+       "west": -0.8687294697148127,
+       "south": 37.72921311732957,
+       "east": -0.8573686621435159,
+       "north": 37.73825683465914
+      }
+     }
     }
    ],
    "rejected": [
     "test-es-las-torres-de-cotillas",
-    "test-es-totana"
+    "test-es-totana",
+    "test-es-la-union",
+    "test-es-yecla",
+    "test-es-santomera"
    ],
-   "zone": "test-es-la-union"
+   "zone": "test-es-los-alcazares"
   },
   {
    "stratum": "fr",
@@ -841,7 +907,7 @@
       "name": "Cergy",
       "code": "95127"
      },
-     "status": "drawn",
+     "status": "rejected: 5 pools after review",
      "osmSha256": "c85d44ea304913c9520e21a2f072c530bb6a339b7873f78a04a167013d968b27",
      "eligibleCells": 10,
      "cell": {
@@ -853,6 +919,48 @@
        "south": 49.045271151988715,
        "east": 2.054793206214897,
        "north": 49.05431486931828
+      }
+     }
+    },
+    {
+     "index": 815,
+     "municipality": {
+      "name": "Cormeilles-en-Parisis",
+      "code": "95176"
+     },
+     "status": "rejected: 30 pools after review",
+     "osmSha256": "dcc4f8fa776f2c4c79329a00274667901f8f0e4f5cad63342806f35ceda22c6a",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.984,
+      "bbox": {
+       "west": 2.187014314007778,
+       "south": 48.95873771732957,
+       "east": 2.200698628015556,
+       "north": 48.96778143465914
+      }
+     }
+    },
+    {
+     "index": 816,
+     "municipality": {
+      "name": "Deuil-la-Barre",
+      "code": "95197"
+     },
+     "status": "drawn",
+     "osmSha256": "1e92d2aba6c1582b129e29b3a94df4c4bafe6e5b883ab88c4961c878d1e8e1d1",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 1,
+      "share": 1,
+      "bbox": {
+       "west": 2.3234114052665893,
+       "south": 48.97561243465914,
+       "east": 2.3370958105331785,
+       "north": 48.98465615198871
       }
      }
     }
@@ -883,9 +991,11 @@
     "test-fr-vitry-sur-seine",
     "test-fr-arnouville",
     "test-fr-beaumont-sur-oise",
-    "test-fr-bezons"
+    "test-fr-bezons",
+    "test-fr-cergy",
+    "test-fr-cormeilles-en-parisis"
    ],
-   "zone": "test-fr-cergy"
+   "zone": "test-fr-deuil-la-barre"
   },
   {
    "stratum": "us",
@@ -908,7 +1018,7 @@
       "name": "Solana Beach city, CA",
       "code": "0672506"
      },
-     "status": "drawn",
+     "status": "rejected: 30 pools after review",
      "osmSha256": "b7f4576dcd5d0bd98352ae47d4ae79db296f494ea6e03d464698c9a99940fe5b",
      "eligibleCells": 4,
      "cell": {
@@ -928,9 +1038,39 @@
       "resM": 0.34,
       "noonElevationDeg": 35
      }
+    },
+    {
+     "index": 264,
+     "municipality": {
+      "name": "Soledad city, CA",
+      "code": "0672520"
+     },
+     "status": "drawn",
+     "osmSha256": "8fad34e76b9716b6f0044b223646b2a141933232438c2250ef88ee18ce1727f7",
+     "eligibleCells": 5,
+     "cell": {
+      "row": 4,
+      "col": 5,
+      "share": 0.488,
+      "bbox": {
+       "west": -121.3357904903278,
+       "south": 36.437464868988,
+       "east": -121.32462338837091,
+       "north": 36.44650858631757
+      }
+     },
+     "esri": {
+      "date": "2025-10-14",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 44.3
+     }
     }
    ],
-   "zone": "test-us-solana-beach-city-ca"
+   "rejected": [
+    "test-us-solana-beach-city-ca"
+   ],
+   "zone": "test-us-soledad-city-ca"
   },
   {
    "stratum": "negative",
@@ -1172,13 +1312,295 @@
       "resM": 0.34,
       "noonElevationDeg": 25.3
      }
+    },
+    {
+     "index": 628,
+     "municipality": {
+      "name": "Guidonia Montecelio",
+      "code": "058047"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "cffcabc932f89780786e6130cc1a0fb504e563b310c8ff01337e159b0722b3fa",
+     "eligibleCells": 9,
+     "cell": {
+      "row": 5,
+      "col": 2,
+      "share": 0.304,
+      "bbox": {
+       "west": 12.636106811455464,
+       "south": 41.971671886647854,
+       "east": 12.648192017183197,
+       "north": 41.98071560397742
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.1
+     }
+    },
+    {
+     "index": 629,
+     "municipality": {
+      "name": "Lanuvio",
+      "code": "058050"
+     },
+     "status": "no boundary"
+    },
+    {
+     "index": 630,
+     "municipality": {
+      "name": "Marino",
+      "code": "058057"
+     },
+     "status": "rejected: 5 pools after review",
+     "osmSha256": "03494d7670d318258d3ff0e3c6128b0e90d3e8f3e44c625838c903472f8bd763",
+     "eligibleCells": 6,
+     "cell": {
+      "row": 3,
+      "col": 1,
+      "share": 0.351,
+      "bbox": {
+       "west": 12.595387580133764,
+       "south": 41.76322325198871,
+       "east": 12.607430260267527,
+       "north": 41.77226696931828
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.4
+     }
+    },
+    {
+     "index": 631,
+     "municipality": {
+      "name": "Mentana",
+      "code": "058059"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "4fd9fd5c1ebdd434d93ad07c98ba9ded07d2df3e5ba56209727738c5b166431c",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 3,
+      "col": 2,
+      "share": 0.653,
+      "bbox": {
+       "west": 12.639010707962973,
+       "south": 42.03610745198871,
+       "east": 12.651106411944458,
+       "north": 42.04515116931828
+      }
+     },
+     "esri": {
+      "date": "2023-07-16",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 69.3
+     }
+    },
+    {
+     "index": 632,
+     "municipality": {
+      "name": "Monte Compatri",
+      "code": "058060"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "8ce0a397ace354d28eae6456e91fe87a975190eeaf0c6b4f87601b494a2ca4f8",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 3,
+      "col": 3,
+      "share": 0.315,
+      "bbox": {
+       "west": 12.733602376037727,
+       "south": 41.806802351988715,
+       "east": 12.745659168050302,
+       "north": 41.81584606931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-08",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 53.2
+     }
+    },
+    {
+     "index": 633,
+     "municipality": {
+      "name": "Monterotondo",
+      "code": "058065"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "a250e0581a2376475a289cd1b40a54a23896fccb9b9405708513b42347ff5b35",
+     "eligibleCells": 0
+    },
+    {
+     "index": 634,
+     "municipality": {
+      "name": "Nettuno",
+      "code": "058072"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "6a5ae0275aa02f0119b7b54f4adc211e4f5ff49a9b34b5a426cedbf5b32aa5c0",
+     "eligibleCells": 12,
+     "cell": {
+      "row": 7,
+      "col": 3,
+      "share": 0.383,
+      "bbox": {
+       "west": 12.65501012372547,
+       "south": 41.470917721306996,
+       "east": 12.666999398300627,
+       "north": 41.479961438636565
+      }
+     },
+     "esri": {
+      "date": "2023-07-16",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 69.9
+     }
+    },
+    {
+     "index": 635,
+     "municipality": {
+      "name": "Palestrina",
+      "code": "058074"
+     },
+     "status": "no boundary"
+    },
+    {
+     "index": 636,
+     "municipality": {
+      "name": "Palombara Sabina",
+      "code": "058075"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "e222f7c3a5786a108a43c80bf48eebf910543556f4213264ea8a6b394db2b138",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 10,
+      "share": 0.365,
+      "bbox": {
+       "west": 12.757366884568462,
+       "south": 42.05979723465914,
+       "east": 12.769469483025308,
+       "north": 42.06884095198871
+      }
+     },
+     "esri": {
+      "date": "2025-06-10",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 70.9
+     }
+    },
+    {
+     "index": 637,
+     "municipality": {
+      "name": "Pomezia",
+      "code": "058079"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "26af769275704478eac6b0fb338327eb49c1660960bda227451831424a3e90fd",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 2,
+      "col": 7,
+      "share": 0.306,
+      "bbox": {
+       "west": 12.500105981243655,
+       "south": 41.61387663465914,
+       "east": 12.512129007135606,
+       "north": 41.62292035198871
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.8
+     }
+    },
+    {
+     "index": 638,
+     "municipality": {
+      "name": "Riano",
+      "code": "058081"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "c3697f84a48aadb0bb7952edce342bb0b2d020d0fd706e10e882b32d59f9a11d",
+     "eligibleCells": 0
+    },
+    {
+     "index": 639,
+     "municipality": {
+      "name": "Rignano Flaminio",
+      "code": "058082"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3ca6164e63ecb88ada057f0db0f6f19e8edb24d8d17ae43496a0b49852d5c52",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 5,
+      "col": 4,
+      "share": 0.458,
+      "bbox": {
+       "west": 12.477779861678188,
+       "south": 42.20193208664786,
+       "east": 12.489905927097736,
+       "north": 42.210975803977426
+      }
+     },
+     "esri": {
+      "date": "2025-07-21",
+      "desc": "LG01",
+      "resM": 0.34,
+      "noonElevationDeg": 68.2
+     }
+    },
+    {
+     "index": 640,
+     "municipality": {
+      "name": "Rocca di Papa",
+      "code": "058086"
+     },
+     "status": "drawn",
+     "osmSha256": "be7c8980e9ac9381ae201c3af7d4f25bb9307b2ea279eecda1394428fd92de7a",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 4,
+      "col": 2,
+      "share": 0.413,
+      "bbox": {
+       "west": 12.706592518258988,
+       "south": 41.76082576931829,
+       "east": 12.718634027388482,
+       "north": 41.769869486647856
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.4
+     }
     }
    ],
    "rejected": [
     "test-hard-cerveteri",
     "test-hard-frascati",
-    "test-hard-grottaferrata"
-   ]
+    "test-hard-grottaferrata",
+    "test-hard-guidonia-montecelio",
+    "test-hard-marino"
+   ],
+   "zone": "test-hard-rocca-di-papa"
   }
  ]
 }

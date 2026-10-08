@@ -44,7 +44,7 @@ export function sourceFor(zone: Zone, spec: SourceId | 'auto'): SourceId {
  * and this one. Null when a needed shift has not been measured.
  */
 export function shiftsFor(zone: Zone, source: SourceId): { osm: [number, number]; visual: [number, number] } | null {
-  if (zone.review === 'blind') {
+  if (zone.review === 'blind' || zone.review === 'gold-union') {
     // Blind label files hold everything, OSM included, already on the source they were reviewed on.
     const s: [number, number] | undefined = source === zone.labelSource ? [0, 0] : zone.labelShiftM?.[source];
     return s ? { osm: s, visual: s } : null;

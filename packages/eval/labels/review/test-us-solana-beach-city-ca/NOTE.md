@@ -1,0 +1,1 @@
+Rejected after review: 30 pools in the zone after the blind pass and the OSM check (rule: fewer than 40). Wooded suburb, a golf course and a large road; pass1.json, osm-check.json and the merged labels are kept here.

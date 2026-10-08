@@ -21,9 +21,19 @@
     "esri": [
      -0.1,
      2
+    ],
+    "dgt": [
+     -0.4,
+     -0.3
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     0.2,
+     -2.1
+    ]
+   }
   },
   {
    "id": "scottsdale",
@@ -67,9 +77,19 @@
     "esri": [
      0,
      0
+    ],
+    "dgt": [
+     0,
+     0
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -3.3,
+     0.2
+    ]
+   }
   },
   {
    "id": "aix",
@@ -90,9 +110,19 @@
     "esri": [
      0.2,
      2.2
+    ],
+    "ign": [
+     0.7,
+     -0.3
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "ign": [
+     -0.5,
+     -2.5
+    ]
+   }
   },
   {
    "id": "balma",
@@ -113,9 +143,19 @@
     "esri": [
      -0.4,
      1.6
+    ],
+    "ign": [
+     -0.1,
+     0.1
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "ign": [
+     -0.1,
+     -1.4
+    ]
+   }
   },
   {
    "id": "braga",
@@ -133,7 +173,13 @@
    "why": "north of Portugal on DGT Ortos2025; the 1 km box with the most OSM pools (83) around Braga, picked over Maia (27 at best) by OSM count, before review",
    "labelSource": "dgt",
    "osmShiftM": {},
-   "review": "blind"
+   "review": "blind",
+   "labelShiftM": {
+    "esri": [
+     2.5,
+     0.9
+    ]
+   }
   },
   {
    "id": "marbella",
@@ -154,9 +200,19 @@
     "esri": [
      -1.2,
      1
+    ],
+    "pnoa": [
+     0.2,
+     -0.7
     ]
    },
-   "review": "candidates"
+   "review": "candidates",
+   "labelShiftM": {
+    "pnoa": [
+     0.8,
+     -1.2
+    ]
+   }
   },
   {
    "id": "cascais",
@@ -177,9 +233,19 @@
     "esri": [
      0.7,
      1
+    ],
+    "dgt": [
+     0.6,
+     -0.3
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -1.4,
+     -1.2
+    ]
+   }
   },
   {
    "id": "algarve",
@@ -200,9 +266,19 @@
     "esri": [
      0,
      0
+    ],
+    "dgt": [
+     -0.1,
+     0.1
     ]
    },
-   "review": "full"
+   "review": "full",
+   "labelShiftM": {
+    "dgt": [
+     -3.1,
+     -1
+    ]
+   }
   },
   {
    "id": "castelnau",
@@ -223,9 +299,19 @@
     "esri": [
      0.3,
      0.8
+    ],
+    "ign": [
+     0.3,
+     -0.4
     ]
    },
-   "review": "candidates"
+   "review": "candidates",
+   "labelShiftM": {
+    "ign": [
+     -0.2,
+     -0.4
+    ]
+   }
   },
   {
    "id": "arcadia",
@@ -257,13 +343,13 @@
    "country": "FR",
    "productSource": "ign",
    "bbox": {
-    "west": 6.99,
-    "south": 43.59,
-    "east": 7.01,
-    "north": 43.605
+    "west": 6.9921112,
+    "south": 43.5933222,
+    "east": 6.9976044,
+    "north": 43.5973005
    },
-   "areaKm2": 2.67,
-   "why": "phase 0 gold on IGN; also a leave-one-zone-out training zone of the prototype",
+   "areaKm2": 0.195,
+   "why": "phase 0 gold on IGN; also a leave-one-zone-out training zone of the prototype; bbox is the gold region, not the whole prototype zone",
    "labelSource": "ign",
    "review": "gold-union"
   },
@@ -274,13 +360,13 @@
    "country": "FR",
    "productSource": "ign",
    "bbox": {
-    "west": 3.795,
-    "south": 43.64,
-    "east": 3.815,
-    "north": 43.655
+    "west": 3.8026428,
+    "south": 43.6465102,
+    "east": 3.808136,
+    "north": 43.650485
    },
-   "areaKm2": 2.67,
-   "why": "phase 0 gold on IGN; also a training zone of the prototype",
+   "areaKm2": 0.194,
+   "why": "phase 0 gold on IGN; also a training zone of the prototype; bbox is the gold region, not the whole prototype zone",
    "labelSource": "ign",
    "review": "gold-union"
   },
@@ -291,13 +377,13 @@
    "country": "ES",
    "productSource": "pnoa",
    "bbox": {
-    "west": -3.835,
-    "south": 40.43,
-    "east": -3.815,
-    "north": 40.445
+    "west": -3.8218689,
+    "south": 40.4391085,
+    "east": -3.8163757,
+    "north": 40.4432892
    },
-   "areaKm2": 2.81,
-   "why": "phase 0 gold on PNOA; also a training zone of the prototype",
+   "areaKm2": 0.215,
+   "why": "phase 0 gold on PNOA; also a training zone of the prototype; bbox is the gold region, not the whole prototype zone",
    "labelSource": "pnoa",
    "review": "gold-union"
   },
@@ -308,13 +394,13 @@
    "country": "FR",
    "productSource": "esri",
    "bbox": {
-    "west": 6.9921181,
-    "south": 43.5933271,
-    "east": 6.9975975,
-    "north": 43.5972955
+    "west": 6.9921112,
+    "south": 43.5933222,
+    "east": 6.9976044,
+    "north": 43.5973005
    },
-   "areaKm2": 0.19,
-   "why": "phase 0 gold on Esri, evaluation only",
+   "areaKm2": 0.195,
+   "why": "phase 0 gold on Esri, evaluation only; bbox is the gold region, not the whole prototype zone",
    "labelSource": "esri",
    "review": "gold-union"
   },
@@ -325,13 +411,13 @@
    "country": "ES",
    "productSource": "esri",
    "bbox": {
-    "west": -3.821862,
-    "south": 40.4391137,
-    "east": -3.8163826,
-    "north": 40.4432839
+    "west": -3.8218689,
+    "south": 40.4391085,
+    "east": -3.8163757,
+    "north": 40.4432892
    },
-   "areaKm2": 0.21,
-   "why": "phase 0 gold on Esri, evaluation only",
+   "areaKm2": 0.215,
+   "why": "phase 0 gold on Esri, evaluation only; bbox is the gold region, not the whole prototype zone",
    "labelSource": "esri",
    "review": "gold-union"
   },
@@ -387,25 +473,6 @@
    "review": "gold-union"
   },
   {
-   "id": "test-us-solana-beach-city-ca",
-   "name": "Solana Beach city, CA, US (TEST us)",
-   "role": "TEST",
-   "country": "US",
-   "productSource": "esri",
-   "labelSource": "esri",
-   "bbox": {
-    "west": -117.247325,
-    "south": 32.997453,
-    "east": -117.236615,
-    "north": 33.006497
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum us: Solana Beach city, CA (0672506), cell 2/3",
-   "review": "blind",
-   "stratum": "us",
-   "reportedApart": false
-  },
-  {
    "id": "test-negative-dunkerque",
    "name": "Dunkerque, FR (TEST negative)",
    "role": "TEST",
@@ -444,41 +511,79 @@
    "reportedApart": false
   },
   {
-   "id": "test-es-la-union",
-   "name": "La Unión, ES (TEST es)",
+   "id": "test-us-soledad-city-ca",
+   "name": "Soledad city, CA, US (TEST us)",
    "role": "TEST",
-   "country": "ES",
-   "productSource": "pnoa",
-   "labelSource": "pnoa",
+   "country": "US",
+   "productSource": "esri",
+   "labelSource": "esri",
    "bbox": {
-    "west": -0.895209,
-    "south": 37.62003,
-    "east": -0.883869,
-    "north": 37.629073
+    "west": -121.33579,
+    "south": 36.437465,
+    "east": -121.324623,
+    "north": 36.446509
    },
    "areaKm2": 1,
-   "why": "drawn for stratum es: La Unión (30041), cell 5/3",
+   "why": "drawn for stratum us: Soledad city, CA (0672520), cell 4/5",
    "review": "blind",
-   "stratum": "es",
+   "stratum": "us",
    "reportedApart": false
   },
   {
-   "id": "test-fr-cergy",
-   "name": "Cergy, FR (TEST fr)",
+   "id": "test-fr-deuil-la-barre",
+   "name": "Deuil-la-Barre, FR (TEST fr)",
    "role": "TEST",
    "country": "FR",
    "productSource": "ign",
    "labelSource": "ign",
    "bbox": {
-    "west": 2.04109,
-    "south": 49.045271,
-    "east": 2.054793,
-    "north": 49.054315
+    "west": 2.323411,
+    "south": 48.975612,
+    "east": 2.337096,
+    "north": 48.984656
    },
    "areaKm2": 1,
-   "why": "drawn for stratum fr: Cergy (95127), cell 3/3",
+   "why": "drawn for stratum fr: Deuil-la-Barre (95197), cell 2/1",
    "review": "blind",
    "stratum": "fr",
+   "reportedApart": false
+  },
+  {
+   "id": "test-hard-rocca-di-papa",
+   "name": "Rocca di Papa, IT (TEST hard)",
+   "role": "TEST",
+   "country": "IT",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": 12.706593,
+    "south": 41.760826,
+    "east": 12.718634,
+    "north": 41.769869
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum hard: Rocca di Papa (058086), cell 4/2",
+   "review": "blind",
+   "stratum": "hard",
+   "reportedApart": true
+  },
+  {
+   "id": "test-es-los-alcazares",
+   "name": "Los Alcázares, ES (TEST es)",
+   "role": "TEST",
+   "country": "ES",
+   "productSource": "pnoa",
+   "labelSource": "pnoa",
+   "bbox": {
+    "west": -0.868729,
+    "south": 37.729213,
+    "east": -0.857369,
+    "north": 37.738257
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum es: Los Alcázares (30902), cell 1/4",
+   "review": "blind",
+   "stratum": "es",
    "reportedApart": false
   }
  ],
@@ -1076,6 +1181,94 @@
     "north": 41.78357
    },
    "pools": 10
+  },
+  {
+   "id": "test-es-la-union",
+   "stratum": "es",
+   "bbox": {
+    "west": -0.895209,
+    "south": 37.62003,
+    "east": -0.883869,
+    "north": 37.629073
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-cergy",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.04109,
+    "south": 49.045271,
+    "east": 2.054793,
+    "north": 49.054315
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-hard-guidonia-montecelio",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.636107,
+    "south": 41.971672,
+    "east": 12.648192,
+    "north": 41.980716
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-es-yecla",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.114446,
+    "south": 38.600716,
+    "east": -1.102952,
+    "north": 38.60976
+   },
+   "pools": 2
+  },
+  {
+   "id": "test-us-solana-beach-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -117.247325,
+    "south": 32.997453,
+    "east": -117.236615,
+    "north": 33.006497
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-fr-cormeilles-en-parisis",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.187014,
+    "south": 48.958738,
+    "east": 2.200699,
+    "north": 48.967781
+   },
+   "pools": 30
+  },
+  {
+   "id": "test-hard-marino",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.595388,
+    "south": 41.763223,
+    "east": 12.60743,
+    "north": 41.772267
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-es-santomera",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.059668,
+    "south": 38.05787,
+    "east": -1.048256,
+    "north": 38.066914
+   },
+   "pools": 5
   }
  ]
 }

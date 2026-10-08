@@ -22,7 +22,7 @@ import { BOOT } from './bootstrap.js';
 import { writeCandidates, type SourceId } from './candidates.js';
 import { comparePaired } from './compare.js';
 import { DETECTORS } from './detectors.js';
-import { drawStratum, rejectAfterReview } from './drawzones.js';
+import { drawStatus, drawStratum, rejectAfterReview } from './drawzones.js';
 import { diagnoseMisses } from './diagnose.js';
 import { evaluateZone, type ZoneResult } from './evaluate.js';
 import { checkFrozen, fileSha256, labelsHash, readFreeze, relabel, sha256, writeFreeze, zoneLabelFiles } from './freeze.js';
@@ -385,7 +385,7 @@ async function main() {
           const c = { lon: (z.bbox.west + z.bbox.east) / 2, lat: (z.bbox.south + z.bbox.north) / 2 };
           const s = await sourceShiftM(tileSource(o, z.labelSource), src, c);
           line += `; labels from ${z.labelSource}: east ${s.m[0]} m north ${s.m[1]} m (peak ${s.peak.toFixed(3)})`;
-          if (o.write && s.peak >= 0.002) (def.labelShiftM ??= {})[sid] = s.m;
+          if (o.write && s.peak >= 0.03) (def.labelShiftM ??= {})[sid] = s.m;
         }
         console.log(line);
       }
@@ -402,6 +402,12 @@ async function main() {
       if (o.sub[0] === 'candidates') {
         // Rebuilds the pre-registration from administrative data. Only for audit: the committed file is the one that counts.
         await writeCandidates(o.out.endsWith('.json') ? o.out : join(o.out, 'test-candidates.json'), o.dir);
+        return;
+      }
+      if (o.sub[0] === 'status') {
+        const md = drawStatus();
+        writeFileSync(join(RESULTS, 'TEST_ZONES.md'), md, 'utf8');
+        console.log(md);
         return;
       }
       if (o.sub[0] === 'reject') {

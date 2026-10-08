@@ -1,0 +1,1567 @@
+{
+ "type": "FeatureCollection",
+ "zone": "gold-mougins-esri",
+ "review": "gold-union",
+ "about": "Phase 0 gold (C:/dev/mp-research/detection/gold), converted to boxes. The review started from regions the prototype methods proposed, so it is the union of what the methods found, checked by eye; pools no method proposed can be missing. Boxes are on the source of the zone.",
+ "attribution": "Hand labels; OSM-derived proposals (c) OpenStreetMap contributors, ODbL 1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9921541,
+        43.5969605
+       ],
+       [
+        6.99224,
+        43.5969605
+       ],
+       [
+        6.99224,
+        43.5970343
+       ],
+       [
+        6.9921541,
+        43.5970343
+       ],
+       [
+        6.9921541,
+        43.5969605
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/0",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.992476,
+        43.5972558
+       ],
+       [
+        6.9925725,
+        43.5972558
+       ],
+       [
+        6.9925725,
+        43.5973005
+       ],
+       [
+        6.992476,
+        43.5973005
+       ],
+       [
+        6.992476,
+        43.5972558
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/2",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9930741,
+        43.5970324
+       ],
+       [
+        6.9931251,
+        43.5970324
+       ],
+       [
+        6.9931251,
+        43.5970518
+       ],
+       [
+        6.9930741,
+        43.5970518
+       ],
+       [
+        6.9930741,
+        43.5970324
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/3",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9934765,
+        43.5971062
+       ],
+       [
+        6.993624,
+        43.5971062
+       ],
+       [
+        6.993624,
+        43.5971664
+       ],
+       [
+        6.9934765,
+        43.5971664
+       ],
+       [
+        6.9934765,
+        43.5971062
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/4",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9940263,
+        43.596879
+       ],
+       [
+        6.9941711,
+        43.596879
+       ],
+       [
+        6.9941711,
+        43.5969431
+       ],
+       [
+        6.9940263,
+        43.5969431
+       ],
+       [
+        6.9940263,
+        43.596879
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/5",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9944474,
+        43.5968498
+       ],
+       [
+        6.9946244,
+        43.5968498
+       ],
+       [
+        6.9946244,
+        43.5969159
+       ],
+       [
+        6.9944474,
+        43.5969159
+       ],
+       [
+        6.9944474,
+        43.5968498
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/7",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9951314,
+        43.5971043
+       ],
+       [
+        6.995236,
+        43.5971043
+       ],
+       [
+        6.995236,
+        43.5971567
+       ],
+       [
+        6.9951314,
+        43.5971567
+       ],
+       [
+        6.9951314,
+        43.5971043
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/9",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9967031,
+        43.5968887
+       ],
+       [
+        6.996848,
+        43.5968887
+       ],
+       [
+        6.996848,
+        43.5969431
+       ],
+       [
+        6.9967031,
+        43.5969431
+       ],
+       [
+        6.9967031,
+        43.5968887
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/10",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9964778,
+        43.5962593
+       ],
+       [
+        6.996569,
+        43.5962593
+       ],
+       [
+        6.996569,
+        43.5963215
+       ],
+       [
+        6.9964778,
+        43.5963215
+       ],
+       [
+        6.9964778,
+        43.5962593
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/12",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.99283,
+        43.5960495
+       ],
+       [
+        6.9928998,
+        43.5960495
+       ],
+       [
+        6.9928998,
+        43.5961039
+       ],
+       [
+        6.99283,
+        43.5961039
+       ],
+       [
+        6.99283,
+        43.5960495
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/13",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9952413,
+        43.5960262
+       ],
+       [
+        6.9954371,
+        43.5960262
+       ],
+       [
+        6.9954371,
+        43.5961
+       ],
+       [
+        6.9952413,
+        43.5961
+       ],
+       [
+        6.9952413,
+        43.5960262
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/14",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9956705,
+        43.5957698
+       ],
+       [
+        6.9957402,
+        43.5957698
+       ],
+       [
+        6.9957402,
+        43.595865
+       ],
+       [
+        6.9956705,
+        43.595865
+       ],
+       [
+        6.9956705,
+        43.5957698
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/15",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9964886,
+        43.5962671
+       ],
+       [
+        6.9965234,
+        43.5962671
+       ],
+       [
+        6.9965234,
+        43.5963059
+       ],
+       [
+        6.9964886,
+        43.5963059
+       ],
+       [
+        6.9964886,
+        43.5962671
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/17",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9967622,
+        43.5959796
+       ],
+       [
+        6.9968587,
+        43.5959796
+       ],
+       [
+        6.9968587,
+        43.596065
+       ],
+       [
+        6.9967622,
+        43.596065
+       ],
+       [
+        6.9967622,
+        43.5959796
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/18",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9926396,
+        43.5954007
+       ],
+       [
+        6.9927979,
+        43.5954007
+       ],
+       [
+        6.9927979,
+        43.5954978
+       ],
+       [
+        6.9926396,
+        43.5954978
+       ],
+       [
+        6.9926396,
+        43.5954007
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/20",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9934604,
+        43.5956843
+       ],
+       [
+        6.9936481,
+        43.5956843
+       ],
+       [
+        6.9936481,
+        43.5957504
+       ],
+       [
+        6.9934604,
+        43.5957504
+       ],
+       [
+        6.9934604,
+        43.5956843
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/22",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9966093,
+        43.5953929
+       ],
+       [
+        6.9967756,
+        43.5953929
+       ],
+       [
+        6.9967756,
+        43.5954745
+       ],
+       [
+        6.9966093,
+        43.5954745
+       ],
+       [
+        6.9966093,
+        43.5953929
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/26",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9966576,
+        43.5954026
+       ],
+       [
+        6.9967702,
+        43.5954026
+       ],
+       [
+        6.9967702,
+        43.5954706
+       ],
+       [
+        6.9966576,
+        43.5954706
+       ],
+       [
+        6.9966576,
+        43.5954026
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/27",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9921809,
+        43.5951404
+       ],
+       [
+        6.9922265,
+        43.5951404
+       ],
+       [
+        6.9922265,
+        43.595187
+       ],
+       [
+        6.9921809,
+        43.595187
+       ],
+       [
+        6.9921809,
+        43.5951404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/28",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9966227,
+        43.5949015
+       ],
+       [
+        6.9967648,
+        43.5949015
+       ],
+       [
+        6.9967648,
+        43.5949792
+       ],
+       [
+        6.9966227,
+        43.5949792
+       ],
+       [
+        6.9966227,
+        43.5949015
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/29",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9971645,
+        43.5948063
+       ],
+       [
+        6.997371,
+        43.5948063
+       ],
+       [
+        6.997371,
+        43.5948956
+       ],
+       [
+        6.9971645,
+        43.5948956
+       ],
+       [
+        6.9971645,
+        43.5948063
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/30",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9971833,
+        43.595187
+       ],
+       [
+        6.9973469,
+        43.595187
+       ],
+       [
+        6.9973469,
+        43.5952958
+       ],
+       [
+        6.9971833,
+        43.5952958
+       ],
+       [
+        6.9971833,
+        43.595187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/31",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9923955,
+        43.5944994
+       ],
+       [
+        6.9924733,
+        43.5944994
+       ],
+       [
+        6.9924733,
+        43.594546
+       ],
+       [
+        6.9923955,
+        43.594546
+       ],
+       [
+        6.9923955,
+        43.5944994
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/32",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9932324,
+        43.5945635
+       ],
+       [
+        6.9933558,
+        43.5945635
+       ],
+       [
+        6.9933558,
+        43.5946353
+       ],
+       [
+        6.9932324,
+        43.5946353
+       ],
+       [
+        6.9932324,
+        43.5945635
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/33",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9947666,
+        43.5943945
+       ],
+       [
+        6.9948685,
+        43.5943945
+       ],
+       [
+        6.9948685,
+        43.5944489
+       ],
+       [
+        6.9947666,
+        43.5944489
+       ],
+       [
+        6.9947666,
+        43.5943945
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/34",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9974139,
+        43.5945246
+       ],
+       [
+        6.9975615,
+        43.5945246
+       ],
+       [
+        6.9975615,
+        43.5945965
+       ],
+       [
+        6.9974139,
+        43.5945965
+       ],
+       [
+        6.9974139,
+        43.5945246
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/36",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9924894,
+        43.5940429
+       ],
+       [
+        6.9925725,
+        43.5940429
+       ],
+       [
+        6.9925725,
+        43.5941594
+       ],
+       [
+        6.9924894,
+        43.5941594
+       ],
+       [
+        6.9924894,
+        43.5940429
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/37",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9939405,
+        43.5941866
+       ],
+       [
+        6.9940531,
+        43.5941866
+       ],
+       [
+        6.9940531,
+        43.5942818
+       ],
+       [
+        6.9939405,
+        43.5942818
+       ],
+       [
+        6.9939405,
+        43.5941866
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/38",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9943267,
+        43.5938505
+       ],
+       [
+        6.9944072,
+        43.5938505
+       ],
+       [
+        6.9944072,
+        43.5939632
+       ],
+       [
+        6.9943267,
+        43.5939632
+       ],
+       [
+        6.9943267,
+        43.5938505
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/39",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9946244,
+        43.5938641
+       ],
+       [
+        6.9947183,
+        43.5938641
+       ],
+       [
+        6.9947183,
+        43.593938
+       ],
+       [
+        6.9946244,
+        43.593938
+       ],
+       [
+        6.9946244,
+        43.5938641
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/40",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.997304,
+        43.5942274
+       ],
+       [
+        6.9973844,
+        43.5942274
+       ],
+       [
+        6.9973844,
+        43.5942935
+       ],
+       [
+        6.997304,
+        43.5942935
+       ],
+       [
+        6.997304,
+        43.5942274
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/42",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.992763,
+        43.5933416
+       ],
+       [
+        6.9928676,
+        43.5933416
+       ],
+       [
+        6.9928676,
+        43.5933882
+       ],
+       [
+        6.992763,
+        43.5933882
+       ],
+       [
+        6.992763,
+        43.5933416
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/44",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9938439,
+        43.5937359
+       ],
+       [
+        6.9939941,
+        43.5937359
+       ],
+       [
+        6.9939941,
+        43.5938078
+       ],
+       [
+        6.9938439,
+        43.5938078
+       ],
+       [
+        6.9938439,
+        43.5937359
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/45",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9956705,
+        43.593328
+       ],
+       [
+        6.9957188,
+        43.593328
+       ],
+       [
+        6.9957188,
+        43.5933455
+       ],
+       [
+        6.9956705,
+        43.5933455
+       ],
+       [
+        6.9956705,
+        43.593328
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/49",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9957161,
+        43.5933571
+       ],
+       [
+        6.9957376,
+        43.5933571
+       ],
+       [
+        6.9957376,
+        43.5933688
+       ],
+       [
+        6.9957161,
+        43.5933688
+       ],
+       [
+        6.9957161,
+        43.5933571
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/50",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.99743,
+        43.5937612
+       ],
+       [
+        6.9975293,
+        43.5937612
+       ],
+       [
+        6.9975293,
+        43.5938156
+       ],
+       [
+        6.99743,
+        43.5938156
+       ],
+       [
+        6.99743,
+        43.5937612
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/51",
+    "source": "visual",
+    "role": "pool",
+    "method": "phase 0 gold: region proposed by a method, confirmed by eye"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9921649,
+        43.5969683
+       ],
+       [
+        6.992189,
+        43.5969683
+       ],
+       [
+        6.992189,
+        43.5969994
+       ],
+       [
+        6.9921649,
+        43.5969994
+       ],
+       [
+        6.9921649,
+        43.5969683
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/1",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9940424,
+        43.5972655
+       ],
+       [
+        6.994088,
+        43.5972655
+       ],
+       [
+        6.994088,
+        43.597281
+       ],
+       [
+        6.9940424,
+        43.597281
+       ],
+       [
+        6.9940424,
+        43.5972655
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/6",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9935194,
+        43.5954298
+       ],
+       [
+        6.9936079,
+        43.5954298
+       ],
+       [
+        6.9936079,
+        43.5954648
+       ],
+       [
+        6.9935194,
+        43.5954648
+       ],
+       [
+        6.9935194,
+        43.5954298
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/23",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9938922,
+        43.5937456
+       ],
+       [
+        6.9939458,
+        43.5937456
+       ],
+       [
+        6.9939458,
+        43.593769
+       ],
+       [
+        6.9938922,
+        43.593769
+       ],
+       [
+        6.9938922,
+        43.5937456
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/46",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        6.9945842,
+        43.5935087
+       ],
+       [
+        6.9946915,
+        43.5935087
+       ],
+       [
+        6.9946915,
+        43.5935669
+       ],
+       [
+        6.9945842,
+        43.5935669
+       ],
+       [
+        6.9945842,
+        43.5935087
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "gold/mougins_esri/48",
+    "source": "visual",
+    "role": "ignore",
+    "reason": "unsure in the phase 0 gold review"
+   }
+  }
+ ]
+}

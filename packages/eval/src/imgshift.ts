@@ -82,8 +82,8 @@ function gradient(rgba: ArrayLike<number>, n: number): Float64Array {
 }
 
 /**
- * Pixel shift (dx, dy) that moves image b onto image a, with the peak's share
- * of the correlation energy as a confidence (near 0 = no clear match).
+ * Pixel shift (dx, dy) that moves image b onto image a, with the height of the
+ * correlation peak as a confidence (1 for identical images, near 0 for no match).
  */
 export function phaseCorrelate(a: ArrayLike<number>, b: ArrayLike<number>, n: number): { dx: number; dy: number; peak: number } {
   const ar = gradient(a, n), ai = new Float64Array(n * n);
@@ -118,7 +118,8 @@ export function phaseCorrelate(a: ArrayLike<number>, b: ArrayLike<number>, n: nu
   let dy = by + sub(at(bx, by - 1), best, at(bx, by + 1));
   if (dx > n / 2) dx -= n;
   if (dy > n / 2) dy -= n;
-  return { dx, dy, peak: sum > 0 ? best / sum : 0 };
+  void sum;
+  return { dx, dy, peak: best };
 }
 
 /** Shift in metres [east, north] to apply to labels drawn on `from` so they sit on `to`. */
