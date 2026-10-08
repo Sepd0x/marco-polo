@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { FEATURE_NAMES } from '../src/detect/features.js';
@@ -91,6 +92,11 @@ describe.skipIf(!existsSync(MODEL) || !existsSync(PARITY))('shipped model', () =
 
   it('reads the features in the order the detector writes them', () => {
     expect(load().model.features).toEqual([...FEATURE_NAMES]);
+  });
+
+  it('is the exact file the reference scores were written for', () => {
+    const bytes = readFileSync(MODEL, 'utf8').replace(/\r\n/g, '\n');
+    expect(createHash('sha256').update(bytes).digest('hex')).toBe(load().ref.modelSha256);
   });
 
   it('scores like the Python model within 1e-5', () => {
