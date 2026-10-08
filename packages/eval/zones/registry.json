@@ -434,9 +434,9 @@
     "north": 39.57
    },
    "areaKm2": 2.85,
-   "why": "phase 0 prototype training zone",
+   "why": "phase 0 prototype training zone; v2 training zone if its OSM recall, measured blind on 10 windows, reaches 0.90",
    "labelSource": "pnoa",
-   "review": "gold-union"
+   "review": "blind"
   },
   {
    "id": "train-stgely",
@@ -451,9 +451,9 @@
     "north": 43.7
    },
    "areaKm2": 2.67,
-   "why": "phase 0 prototype training zone",
+   "why": "phase 0 prototype training zone; v2 training zone if its OSM recall, measured blind on 10 windows, reaches 0.90",
    "labelSource": "ign",
-   "review": "gold-union"
+   "review": "blind"
   },
   {
    "id": "train-tournefeuille",
@@ -468,9 +468,9 @@
     "north": 43.59
    },
    "areaKm2": 2.67,
-   "why": "phase 0 prototype training zone",
+   "why": "phase 0 prototype training zone; v2 training zone if its OSM recall, measured blind on 10 windows, reaches 0.90",
    "labelSource": "ign",
-   "review": "gold-union"
+   "review": "blind"
   },
   {
    "id": "test-negative-dunkerque",
@@ -585,6 +585,74 @@
    "review": "blind",
    "stratum": "fr",
    "reportedApart": false
+  },
+  {
+   "id": "train-carvoeiro",
+   "name": "Carvoeiro, Lagoa, PT",
+   "role": "TRAIN",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.47788,
+    "south": 37.09369,
+    "east": -8.46212,
+    "north": 37.10631
+   },
+   "areaKm2": 1.96,
+   "why": "v2 training zone: OSM labels on DGT Ortos2018 and Ortos2025; OSM recall measured blind on 10 windows",
+   "labelSource": "dgt",
+   "review": "blind"
+  },
+  {
+   "id": "train-azeitao",
+   "name": "Azeitão, Setúbal, PT",
+   "role": "TRAIN",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -9.02804,
+    "south": 38.51369,
+    "east": -9.01196,
+    "north": 38.52631
+   },
+   "areaKm2": 1.96,
+   "why": "v2 training zone: OSM labels on DGT Ortos2018 and Ortos2025; OSM recall measured blind on 10 windows",
+   "labelSource": "dgt",
+   "review": "blind"
+  },
+  {
+   "id": "train-torrelodones",
+   "name": "Torrelodones, ES",
+   "role": "TRAIN",
+   "country": "ES",
+   "productSource": "pnoa",
+   "bbox": {
+    "west": -3.93828,
+    "south": 40.57369,
+    "east": -3.92172,
+    "north": 40.58631
+   },
+   "areaKm2": 1.96,
+   "why": "v2 training zone: OSM labels on PNOA; OSM recall measured blind on 10 windows",
+   "labelSource": "pnoa",
+   "review": "blind"
+  },
+  {
+   "id": "train-carry",
+   "name": "Carry-le-Rouet, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 5.15135,
+    "south": 43.32869,
+    "east": 5.16865,
+    "north": 43.34131
+   },
+   "areaKm2": 1.96,
+   "why": "v2 training zone: OSM labels on IGN BD ORTHO; OSM recall measured blind on 10 windows",
+   "labelSource": "ign",
+   "review": "blind"
   }
  ],
  "seen": [

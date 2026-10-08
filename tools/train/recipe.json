@@ -1,0 +1,26 @@
+{
+ "about": "Fixed training recipe of the v2 pool scorer. Every number here is chosen before a run, never after looking at TEST. See tools/train/README.md.",
+ "zones": [
+  { "id": "train-carvoeiro", "source": "dgt", "labelsSha256": "659c9ff65d6549025bc1b30d813aae08a19f93f72af02ec580b7bbb63766d502" },
+  { "id": "train-azeitao", "source": "dgt", "labelsSha256": "0ab71031c7d772d481148afd09c81c5c6c6a5c363bef7a1726560a23e1e00a83" },
+  { "id": "train-torrelodones", "source": "pnoa", "labelsSha256": "c9841e9ea20ef25881233fac310ccfb60219cb055ac607d0ad5ed20e80d96b49" },
+  { "id": "train-leliana", "source": "pnoa", "labelsSha256": "3579066d305ad147c88b5f775b2dd069a23c6d0be148a8c14df71a3687613276" },
+  { "id": "train-carry", "source": "ign", "labelsSha256": "190b7dbf53cec36f6c8807b421161e51b45ef2977e575562876360e9d3a0bb6e" }
+ ],
+ "halo": 48,
+ "copies": 3,
+ "augmentSeed": 0,
+ "augment": {
+  "colour": { "p": 0.8, "gain": [0.85, 1.15], "gamma": [0.75, 1.3], "saturation": [0.65, 1.35], "offset": [-12, 12] },
+  "resample": { "p": 0.5, "metres": [0.3, 0.5] },
+  "unsharp": { "p": 0.3, "amount": [0.3, 1.0], "radius": [0.8, 1.6] },
+  "noise": { "p": 0.4, "sigma": [2, 6] },
+  "jpeg": { "p": 0.6, "quality": [50, 85] }
+ },
+ "negatives": { "ignoreAbove": 0.9, "folds": "leave one zone out" },
+ "gbdt": { "n_estimators": 300, "num_leaves": 15, "learning_rate": 0.05, "min_child_samples": 20, "subsample": 0.8, "subsample_freq": 1, "colsample_bytree": 0.8 },
+ "mlp": { "hidden_layer_sizes": [32, 16], "alpha": 0.001, "max_iter": 400, "early_stopping": true },
+ "gbdtWeight": 0.5,
+ "seeds": [0, 1, 2, 3, 4],
+ "shipSeed": 0
+}
