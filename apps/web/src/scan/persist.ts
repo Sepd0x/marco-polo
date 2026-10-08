@@ -1,25 +1,46 @@
 /**
- * Scan persistence in IndexedDB — completed scans survive reloads and can be
- * reopened from the archive.
+ * Scan archive in IndexedDB: finished scans survive reloads and can be opened
+ * again. Thumbnails are kept as Blobs. Records of older builds (data URL
+ * thumbnails, no parts) still open.
  */
 import { createStore, del, get, set } from 'idb-keyval';
 import type { Detection, Ring } from '@marco-polo/core';
-import type { ArchiveSummary, ScanStats } from '../state/store.js';
+import type { ArchiveSummary, PartView, ScanStats } from '../state/store.js';
 
 const idb = createStore('marco-polo', 'scans');
 
+/** A part as archived: its view without the tile list. */
+export type SavedPart = Omit<PartView, 'tiles'> & { tileCount: number };
+
 export interface SavedScan {
+  formatVersion?: 2;
   id: string;
   savedAt: number;
   name: string;
   area: Ring;
+  /** Finest scan zoom among the parts (older records: the zoom picked by the user). */
   zoom: number;
-  stats: ScanStats;
+  stats: Partial<ScanStats>;
   detections: Detection[];
-  thumbs: Record<string, string>;
+  /** Blobs since v2; data URL strings in older records. */
+  thumbs: Record<string, Blob | string>;
+  parts?: SavedPart[];
+  threshold?: number;
 }
 
 const INDEX_KEY = 'index';
+const KEEP = 30;
+
+export function savedPart(p: PartView): SavedPart {
+  const { tiles, ...rest } = p;
+  return { ...rest, tileCount: tiles.length };
+}
+
+/** A saved part back as a view; the tile list is not archived. */
+export function partFromSaved(p: SavedPart): PartView {
+  const { tileCount: _n, ...rest } = p;
+  return { ...rest, tiles: [] };
+}
 
 export async function listScans(): Promise<ArchiveSummary[]> {
   try {
@@ -35,16 +56,18 @@ export async function saveScan(record: SavedScan): Promise<ArchiveSummary[]> {
     savedAt: record.savedAt,
     name: record.name,
     pools: record.detections.length,
-    areaM2: record.stats.areaM2,
+    areaM2: record.stats.areaM2 ?? 0,
     zoom: record.zoom,
+    sources: record.parts?.map((p) => p.providerName),
   };
   try {
-    await set(`scan:${record.id}`, record, idb);
+    await set(`scan:${record.id}`, { ...record, formatVersion: 2 }, idb);
     const index = (await listScans()).filter((s) => s.id !== record.id);
     index.unshift(summary);
-    const trimmed = index.slice(0, 30);
-    await set(INDEX_KEY, trimmed, idb);
-    return trimmed;
+    const kept = index.slice(0, KEEP);
+    for (const old of index.slice(KEEP)) await del(`scan:${old.id}`, idb).catch(() => {});
+    await set(INDEX_KEY, kept, idb);
+    return kept;
   } catch {
     return listScans();
   }
