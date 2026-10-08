@@ -9,7 +9,9 @@ import {
   detectTile,
   measuredDims,
   detectWindow,
-  scoreImage,
+  FEATURE_NAMES,
+  imageCandidates,
+  selectCandidates,
   sourceFamily,
   TILE_SIZE,
   toTileDetection,
@@ -22,6 +24,7 @@ import {
   type TileCoord,
   type TileDetection,
   type TileWindow,
+  type WindowAnalysis,
 } from '@marco-polo/core';
 import type { DecodedTile } from '../../cli/src/tiles.js';
 import type { EvalDetection } from './types.js';
@@ -196,16 +199,52 @@ function fromTile(d: TileDetection, id: string): EvalDetection {
   return { id, center: d.center, bbox: d.bbox, outline: [[d.outline]], areaM2: d.areaM2, confidence: d.score ?? 0, kind: d.areaM2 <= 10 ? 'hot_tub' : 'pool', truncated: false };
 }
 
+const TILE_V = FEATURE_NAMES.indexOf('tile_v');
+const TILE_S = FEATURE_NAMES.indexOf('tile_s');
+
+/**
+ * Give each candidate of a mosaic the brightness and saturation of the z19
+ * tile its centroid falls in, as the product computes them for its window.
+ */
+function tileContext(analysis: WindowAnalysis, pixels: Uint8ClampedArray, W: number): void {
+  const cache = new Map<string, [number, number]>();
+  for (const c of analysis.candidates) {
+    const tx = Math.floor(c.cx / TILE_SIZE), ty = Math.floor(c.cy / TILE_SIZE);
+    const key = `${tx}/${ty}`;
+    let ctx = cache.get(key);
+    if (!ctx) {
+      let sv = 0, ss = 0, n = 0;
+      for (let y = ty * TILE_SIZE; y < (ty + 1) * TILE_SIZE; y++) {
+        for (let x = tx * TILE_SIZE; x < (tx + 1) * TILE_SIZE; x++) {
+          const i = y * W + x;
+          if (pixels[i * 4 + 3] < 200) continue;
+          sv += analysis.val[i];
+          ss += analysis.sat[i];
+          n++;
+        }
+      }
+      ctx = [n ? sv / n : 0, n ? ss / n : 0];
+      cache.set(key, ctx);
+    }
+    c.features[TILE_V] = ctx[0];
+    c.features[TILE_S] = ctx[1];
+  }
+}
+
 /**
  * The same scorer over the whole area stitched into one image, no tile
  * borders at all: the reference the product path is held to on the gold (P8).
+ * `context: 'tile'` (default) keeps the two context features per z19 tile,
+ * as in the product, so the comparison isolates the tile borders; 'mosaic'
+ * takes them over the whole image.
  */
-export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions>; model?: PoolModel } = {}): Detector {
+export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions>; model?: PoolModel; context?: 'tile' | 'mosaic' } = {}): Detector {
   const learned: LearnedOptions = { ...DEFAULT_LEARNED_OPTIONS, ...opts.learned };
   const getModel = () => opts.model ?? loadModel();
+  const context = opts.context ?? 'tile';
   return {
     id: 'v2-mosaic',
-    description: 'v2 scorer on the whole area as one image (no tiles, no halo)',
+    description: `v2 scorer on the whole area as one image (no tiles, no halo; context features per ${context === 'tile' ? 'z19 tile' : 'mosaic'})`,
     thresholdFor: (providerId) => defaultThreshold(getModel(), providerId),
     async run(tiles, _get, windows) {
       const w = mustWindows(windows);
@@ -233,7 +272,9 @@ export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions>; mode
       }
       const t0 = performance.now();
       const frame = { tile: { z, x: x0, y: y0 }, tilePx: TILE_SIZE, offsetX: 0, offsetY: 0 };
-      const { analysis, kept } = scoreImage(pixels, W, H, frame, { x0: 0, y0: 0, x1: W, y1: H }, sourceFamily(w.providerId), model, learned);
+      const analysis = imageCandidates(pixels, W, H, frame, { x0: 0, y0: 0, x1: W, y1: H }, learned);
+      if (context === 'tile') tileContext(analysis, pixels, W);
+      const kept = selectCandidates(analysis, sourceFamily(w.providerId), model, learned);
       const dets = kept.map((s, i) => fromTile(toTileDetection(s, pixels, W, H, frame, analysis, learned), `m${i}`));
       return { computeMs: performance.now() - t0, tilesMissing, detections: dets.filter((d) => d.areaM2 >= learned.candidates.minAreaM2) };
     },

@@ -59,6 +59,7 @@ async function main() {
   const sources = new Map<SourceId, TileSource>();
   const results: ZoneResult[] = [];
   const goldMosaicRecall: Record<string, number> = {};
+  const goldMosaicRecallWholeContext: Record<string, number> = {};
   const oof: Record<string, { family: string; threshold: number; calibrationZones: string[] }> = {};
   for (const z of zones) {
     const sid = sourceFor(z, 'auto');
@@ -85,8 +86,10 @@ async function main() {
     let line = `${z.role.padEnd(5)} ${z.id.padEnd(18)} ${sid.padEnd(4)} thr ${r.threshold.toFixed(3)} labels ${r.counts.labels} dets ${r.counts.dets} P ${p(r.scores.precision)} R ${p(r.scores.recall)} F1 ${p(r.scores.f1)} area ${p(r.area.medianAbsRel)}`;
     if (z.role === 'GOLD' && !sid.startsWith('dgt')) {
       const m = await evaluateZone(z, lab.labels, info, v2MosaicDetector({ model: shipped }), src, 0.5);
+      const whole = await evaluateZone(z, lab.labels, info, v2MosaicDetector({ model: shipped, context: 'mosaic' }), src, 0.5);
       goldMosaicRecall[z.id] = m.result.scores.recall ?? 0;
-      line += ` | mosaic R ${p(m.result.scores.recall)}`;
+      goldMosaicRecallWholeContext[z.id] = whole.result.scores.recall ?? 0;
+      line += ` | mosaic R ${p(m.result.scores.recall)} (whole-image context ${p(whole.result.scores.recall)})`;
     }
     console.log(line);
   }
@@ -112,6 +115,7 @@ async function main() {
     groups: Object.fromEntries(Object.entries(g).map(([k, rs]) => [k, aggregate(rs)])),
     zones: results,
     goldMosaicRecall,
+    goldMosaicRecallWholeContext,
     model: { sha256: sha256(readFileSync(modelPath)), seed: shipped.meta.seed, thresholds: shipped.thresholds },
     outOfFold: oof,
   };
@@ -130,8 +134,10 @@ async function main() {
     `Shipped thresholds: ${Object.entries(shipped.thresholds).map(([k, v]) => `${k} ${v.toFixed(3)}`).join(', ')}.`,
     '',
     ...(Object.keys(goldMosaicRecall).length
-      ? ['## Product path against the whole mosaic (P8)', '', '| GOLD zone | recall, product path | recall, mosaic | difference |', '|---|--:|--:|--:|',
-        ...results.filter((r) => r.zone in goldMosaicRecall).map((r) => `| ${r.zone} | ${pct(r.scores.recall)} | ${pct(goldMosaicRecall[r.zone])} | ${r.scores.recall === null ? 'n/a' : `${(100 * (r.scores.recall - goldMosaicRecall[r.zone])).toFixed(1)} pp`} |`), '']
+      ? ['## Product path against the whole mosaic (P8)', '',
+        'The mosaic scores the whole area as one image. Its two context features (brightness and saturation of the tile) are taken per z19 tile, as the product does, so the difference measures the tile borders; the last column takes them over the whole image instead.', '',
+        '| GOLD zone | recall, product path | recall, mosaic | difference | mosaic, whole-image context |', '|---|--:|--:|--:|--:|',
+        ...results.filter((r) => r.zone in goldMosaicRecall).map((r) => `| ${r.zone} | ${pct(r.scores.recall)} | ${pct(goldMosaicRecall[r.zone])} | ${r.scores.recall === null ? 'n/a' : `${(100 * (r.scores.recall - goldMosaicRecall[r.zone])).toFixed(1)} pp`} | ${pct(goldMosaicRecallWholeContext[r.zone])} |`), '']
       : []),
   ].join('\n');
   writeFileSync(join(out, 'report.json'), JSON.stringify(json, null, 1));
