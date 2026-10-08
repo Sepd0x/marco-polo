@@ -9,12 +9,11 @@ import { SettingsPanel } from './ui/SettingsPanel.js';
 import { ImageryHint } from './ui/ImageryHint.js';
 import { IntroOverlay } from './ui/IntroOverlay.js';
 import { IconRefresh } from './ui/icons.js';
-import { estimateTileCount, ringBBox } from '@marco-polo/core';
 import { useStore } from './state/store.js';
 import { listScans } from './scan/persist.js';
 import { formatCount } from './lib/format.js';
 import { emit } from './lib/bus.js';
-import { decodeAoi, writeAoiToUrl } from './lib/permalink.js';
+import { bindPermalink } from './lib/permalink.js';
 import { applyAccent } from './lib/theme.js';
 import { startUpdateChecker } from './lib/updates.js';
 
@@ -32,21 +31,8 @@ export function App() {
     return useStore.subscribe((s) => s.settings.accent, applyAccent);
   }, []);
 
-  // AOI permalinks: restore a shared area from the URL, keep the URL current.
-  useEffect(() => {
-    const shared = decodeAoi(window.location.hash);
-    if (shared) {
-      const s = useStore.getState();
-      s.updateSettings({ zoom: shared.zoom });
-      s.setArea(shared.ring, estimateTileCount(shared.ring, shared.zoom));
-      const b = ringBBox(shared.ring);
-      setTimeout(() => emit('flyto', { bbox: [b.west, b.south, b.east, b.north] }), 600);
-    }
-    return useStore.subscribe(
-      (s) => s.area,
-      (area) => writeAoiToUrl(area, useStore.getState().settings.zoom),
-    );
-  }, []);
+  // Area links: applied once the map is ready, never touching the settings.
+  useEffect(() => bindPermalink(), []);
 
   // Keyboard shortcuts.
   useEffect(() => {
