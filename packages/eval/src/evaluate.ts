@@ -1,7 +1,6 @@
-import { buildScanPlan, expandBBoxMeters, type BBox, type LonLat, type Ring, type ScanTile, type TileWindow } from '@marco-polo/core';
-import type { DecodedTile } from '../../cli/src/tiles.js';
+import { buildScanPlan, expandBBoxMeters, type BBox, type LonLat, type Ring } from '@marco-polo/core';
 import { blockKey, emptyBlock, type BlockCounts } from './bootstrap.js';
-import type { Detector, DetectorRun } from './detectors.js';
+import type { Detector, WindowAccess } from './detectors.js';
 import type { GalleryItem } from './gallery.js';
 import { bboxIoU, distanceM, pointInBBox } from './geom.js';
 import type { TileSource } from './imagery.js';
@@ -77,13 +76,6 @@ export interface ZoneRun {
   faint: EvalDetection[];
 }
 
-export interface WindowAccess {
-  providerId: string;
-  /** Central tile plus a halo, for detectors that read one. */
-  window(tile: ScanTile, halo: number): Promise<TileWindow | null>;
-}
-
-type RunWithWindows = (tiles: ScanTile[], get: (t: ScanTile) => Promise<DecodedTile | null>, windows: WindowAccess) => Promise<DetectorRun>;
 
 /** Area and dimensions are judged against OSM outlines only: hand labels are boxes or loose outlines. */
 function hasOutline(l: Label): boolean {
@@ -107,9 +99,11 @@ export async function evaluateZone(
     [scan.west, scan.north],
   ];
   const plan = buildScanPlan(ring, 19);
-  const windows: WindowAccess = { providerId: src.provider.id, window: (t, halo) => src.window(t.tile, halo) };
+  const windows: WindowAccess = { providerId: src.provider.id, window: (t, halo, tilePx) => src.window(t.tile, halo, tilePx) };
   // Detectors that read a halo take the third argument; v1 ignores it.
-  const run = await (detector.run as RunWithWindows)(plan.tiles, (t) => src.get(t.tile), windows);
+  const run = await detector.run(plan.tiles, (t) => src.get(t.tile), windows);
+  // A detector with its own threshold per source (v2) is judged at that threshold.
+  threshold = detector.thresholdFor?.(src.provider.id) ?? threshold;
   const all = run.detections;
   const shown = all.filter((d) => d.confidence >= threshold);
   const faint = all.filter((d) => d.confidence < threshold);
