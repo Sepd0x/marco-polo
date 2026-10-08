@@ -6,7 +6,7 @@
  *
  * Calibration zones (plan B6): the DEV zones of each source family. There is
  * no DEV zone on PNOA, so PNOA uses the Pozuelo gold zone (a DEV-type zone).
- * DEV-2, GOLD on other sources and TEST are never read here.
+ * DEV-2, the other GOLD zones and TEST are never read here.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { DEFAULT_LEARNED_OPTIONS, sourceFamily, type PoolModel } from '@marco-polo/core';
@@ -18,6 +18,18 @@ import { SOURCES } from '../../packages/eval/src/sources.js';
 import { shiftsFor, sourceFor, zoneById } from '../../packages/eval/src/zones.js';
 
 export const CALIBRATION_ZONES = ['vilamoura', 'odemira', 'braga', 'aix', 'balma', 'scottsdale', 'gold-pozuelo'];
+
+/** Lowest score kept: the calibration has to see the low end too. */
+export const CALIBRATION_FLOOR = 0.02;
+
+export interface CalibrationRows {
+  model: string;
+  zones: string[];
+  /** Pool labels in scope, per zone. */
+  labelsByZone: Record<string, number>;
+  familyByZone: Record<string, string>;
+  rows: { zone: string; family: string; score: number; y: number }[];
+}
 
 function arg(name: string, fallback?: string): string {
   const i = process.argv.indexOf(`--${name}`);
@@ -31,9 +43,8 @@ async function main() {
   const cache = arg('cache', 'C:/dev/mp-cache/tiles');
   const model = JSON.parse(readFileSync(MODEL_PATH, 'utf8')) as PoolModel;
   if (Object.keys(model.calibration).length) throw new Error('give the uncalibrated model: calibration must be empty');
-  const det = v2Detector({ learned: { ...DEFAULT_LEARNED_OPTIONS, floor: 0.02 } });
-  const rows: { zone: string; family: string; score: number; y: number }[] = [];
-  const labels: Record<string, number> = {};
+  const det = v2Detector({ learned: { ...DEFAULT_LEARNED_OPTIONS, floor: CALIBRATION_FLOOR } });
+  const data: CalibrationRows = { model: MODEL_PATH, zones: CALIBRATION_ZONES, labelsByZone: {}, familyByZone: {}, rows: [] };
   for (const id of CALIBRATION_ZONES) {
     const z = zoneById(id);
     const sid = sourceFor(z, 'auto');
@@ -44,12 +55,13 @@ async function main() {
     const run = await evaluateZone(z, lab.labels, { visual: lab.visual, overrides: lab.overrides, absent: lab.absent }, { ...det, thresholdFor: undefined }, src, 0);
     const fam = sourceFamily(src.provider.id);
     const conf = new Map(run.shown.map((d) => [d.id, d.confidence]));
-    for (const p of run.result.pairs) rows.push({ zone: id, family: fam, score: conf.get(p.det)!, y: 1 });
-    for (const u of run.result.unmatched) rows.push({ zone: id, family: fam, score: u.confidence, y: 0 });
-    labels[fam] = (labels[fam] ?? 0) + run.result.counts.labels;
+    for (const p of run.result.pairs) data.rows.push({ zone: id, family: fam, score: conf.get(p.det)!, y: 1 });
+    for (const u of run.result.unmatched) data.rows.push({ zone: id, family: fam, score: u.confidence, y: 0 });
+    data.labelsByZone[id] = run.result.counts.labels;
+    data.familyByZone[id] = fam;
     console.log(`${id} (${fam}): ${run.result.pairs.length} hits, ${run.result.unmatched.length} false positives, ${run.result.counts.labels} labels`);
   }
-  writeFileSync(out, JSON.stringify({ model: MODEL_PATH, zones: CALIBRATION_ZONES, labels, rows }));
+  writeFileSync(out, JSON.stringify(data));
 }
 
-await main();
+if (process.argv[1]?.replace(/\\/g, '/').endsWith('tools/train/calibrate.ts')) await main();

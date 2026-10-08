@@ -128,7 +128,11 @@ async function main() {
     for (const w of windows) {
       for (let copy = 0; copy < recipe.copies; copy++) {
         const out = join(zdir, `${w.id}-c${copy}`);
-        if (existsSync(`${out}.meta.json`)) continue;
+        if (existsSync(`${out}.meta.json`)) {
+          const meta = JSON.parse(readFileSync(`${out}.meta.json`, 'utf8')) as { rows: number };
+          manifest.push({ zone: z.id, window: w.id, copy, rows: meta.rows });
+          continue;
+        }
         const b = w.bbox;
         const argv = ['--bbox', `${b.south},${b.west},${b.north},${b.east}`, '--source', z.source, '--out', out, '--labels', labelsFile, '--halo', String(recipe.halo), '--cache-dir', cache, '--quiet'];
         if (copy > 0) argv.push('--augment', augmentFile, '--copy', String(copy), '--seed', String(recipe.augmentSeed));

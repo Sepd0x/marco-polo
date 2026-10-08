@@ -75,6 +75,16 @@ def fit_mlp(recipe, seed, X, y):
     return scaler, net
 
 
+# Digits kept in the exported model. Rounding keeps it under 100 KB gzip; the
+# TypeScript scores stay within 1e-7 of LightGBM and scikit-learn (parity test).
+SPLIT_DIGITS = 12
+VALUE_DIGITS = 9
+
+
+def rnd(x, digits):
+    return float(f'{x:.{digits}g}')
+
+
 def export_gbdt(model):
     dump = model.booster_.dump_model()
     out = {'f': [], 't': [], 'l': [], 'r': [], 'v': [], 'bias': 0.0}
@@ -89,12 +99,12 @@ def export_gbdt(model):
             R.append(-1)
             V.append(0.0)
             if 'leaf_value' in n:
-                V[i] = float(n['leaf_value'])
+                V[i] = rnd(n['leaf_value'], VALUE_DIGITS)
                 return i
             if n['decision_type'] != '<=':
                 raise ValueError(n['decision_type'])
             F[i] = int(n['split_feature'])
-            T[i] = float(n['threshold'])
+            T[i] = rnd(n['threshold'], SPLIT_DIGITS)
             L[i] = walk(n['left_child'])
             R[i] = walk(n['right_child'])
             return i
@@ -107,10 +117,10 @@ def export_gbdt(model):
 
 def export_mlp(scaler, net):
     return {
-        'mean': scaler.mean_.tolist(),
-        'scale': scaler.scale_.tolist(),
-        'weights': [w.tolist() for w in net.coefs_],
-        'biases': [b.tolist() for b in net.intercepts_],
+        'mean': [rnd(v, SPLIT_DIGITS) for v in scaler.mean_],
+        'scale': [rnd(v, SPLIT_DIGITS) for v in scaler.scale_],
+        'weights': [[[rnd(v, VALUE_DIGITS) for v in row] for row in w] for w in net.coefs_],
+        'biases': [[rnd(v, VALUE_DIGITS) for v in b] for b in net.intercepts_],
     }
 
 
