@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { analyseWindow, CANDIDATE_LEVELS } from '../src/detect/candidates.js';
+import { analyseWindow, CANDIDATE_LEVELS, splitByBrightness } from '../src/detect/candidates.js';
 import { MIN_POOL_AREA_M2 } from '../src/detect/detector.js';
 import { FEATURE_COUNT, FEATURE_NAMES } from '../src/detect/features.js';
 import { createV2Detector, DEFAULT_LEARNED_OPTIONS, detectWindow, windowFrame } from '../src/detect/learned.js';
@@ -125,7 +125,7 @@ describe('v2 window detector', () => {
   });
 
   it('runs the green band level only with its shape test', () => {
-    const green = CANDIDATE_LEVELS[CANDIDATE_LEVELS.length - 1];
+    const green = CANDIDATE_LEVELS.find((l) => l.gate.hueMin === 140 && l.gate.hueMax === 170)!;
     expect(green.gate.hueMin).toBe(140);
     expect(green.gate.hueMax).toBe(170);
     expect(green.minFill).toBeGreaterThan(0.5);
@@ -140,5 +140,60 @@ describe('v2 window detector', () => {
     const a = analyseWindow(w.pixels, w.width, w.height, central, () => w.mPerPx, { ...DEFAULT_LEARNED_OPTIONS.candidates, levels: [green] });
     expect(a.candidates).toHaveLength(1);
     expect(a.candidates[0].component.maxY - a.candidates[0].component.minY).toBeGreaterThan(10);
+  });
+
+  it('splits an olive pool from the darker tree it touches', () => {
+    const olive = CANDIDATE_LEVELS.find((l) => l.split)!;
+    const pool: [number, number, number] = [95, 112, 80];
+    const tree: [number, number, number] = [40, 58, 36];
+    // The pool (mosaic x 330..357, y 330..345) touches an L of tree: together they fill too little of their box.
+    const win = mosaic([
+      { x: 330, y: 330, w: 28, h: 16, rgb: pool },
+      { x: 358, y: 300, w: 14, h: 70, rgb: tree },
+      { x: 300, y: 346, w: 72, h: 14, rgb: tree },
+    ]);
+    const w = win(T, 48);
+    const { central } = windowFrame(w);
+    const opts = { ...DEFAULT_LEARNED_OPTIONS.candidates, levels: [olive] };
+    const isPool = (c: { component: { minX: number; minY: number; maxX: number; maxY: number } }) =>
+      Math.abs(c.component.minX - (330 - 256 + 48)) <= 1 && Math.abs(c.component.minY - (330 - 256 + 48)) <= 1 &&
+      Math.abs(c.component.maxX - (357 - 256 + 48)) <= 1 && Math.abs(c.component.maxY - (345 - 256 + 48)) <= 1;
+    const whole = analyseWindow(w.pixels, w.width, w.height, central, () => w.mPerPx, { ...opts, levels: [{ ...olive, split: undefined }] });
+    expect(whole.candidates.some(isPool)).toBe(false);
+    const split = analyseWindow(w.pixels, w.width, w.height, central, () => w.mPerPx, opts);
+    const found = split.candidates.filter(isPool);
+    expect(found).toHaveLength(1);
+    // Split parts take the level numbers after the colour levels: the brighter part here.
+    expect(found[0].level).toBe(2);
+    expect(found[0].labels[Math.round(found[0].cy) * w.width + Math.round(found[0].cx)]).toBe(found[0].component.label);
+  });
+});
+
+describe('brightness split', () => {
+  const W = 40, H = 30;
+  const comp = (labels: Int32Array) => {
+    let n = 0, minX = W, minY = H, maxX = 0, maxY = 0, sx = 0, sy = 0;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (labels[y * W + x] === 1) {
+      n++; sx += x; sy += y;
+      minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+    }
+    return { label: 1, pixelCount: n, minX, minY, maxX, maxY, sumX: sx, sumY: sy };
+  };
+
+  it('cuts a two-toned blob in two and leaves an even one alone', () => {
+    const labels = new Int32Array(W * H);
+    const val = new Float32Array(W * H);
+    for (let y = 5; y < 25; y++) for (let x = 5; x < 35; x++) {
+      labels[y * W + x] = 1;
+      val[y * W + x] = x < 20 ? 0.25 : 0.6;
+    }
+    const parts = { labels: new Int32Array(W * H), next: 0 };
+    const out = splitByBrightness(comp(labels), labels, val, W, H, 0.08, parts);
+    expect(out.map((o) => o.bright)).toEqual([false, true]);
+    expect(out[0].component.maxX).toBeLessThan(20);
+    expect(out[1].component.minX).toBeGreaterThanOrEqual(20);
+    expect(parts.next).toBe(2);
+    const even = new Float32Array(W * H).fill(0.4);
+    expect(splitByBrightness(comp(labels), labels, even, W, H, 0.08, { labels: new Int32Array(W * H), next: 0 })).toHaveLength(0);
   });
 });
