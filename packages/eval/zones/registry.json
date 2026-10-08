@@ -511,79 +511,79 @@
    "reportedApart": false
   },
   {
-   "id": "test-us-soledad-city-ca",
-   "name": "Soledad city, CA, US (TEST us)",
-   "role": "TEST",
-   "country": "US",
-   "productSource": "esri",
-   "labelSource": "esri",
-   "bbox": {
-    "west": -121.33579,
-    "south": 36.437465,
-    "east": -121.324623,
-    "north": 36.446509
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum us: Soledad city, CA (0672520), cell 4/5",
-   "review": "blind",
-   "stratum": "us",
-   "reportedApart": false
-  },
-  {
-   "id": "test-fr-deuil-la-barre",
-   "name": "Deuil-la-Barre, FR (TEST fr)",
-   "role": "TEST",
-   "country": "FR",
-   "productSource": "ign",
-   "labelSource": "ign",
-   "bbox": {
-    "west": 2.323411,
-    "south": 48.975612,
-    "east": 2.337096,
-    "north": 48.984656
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum fr: Deuil-la-Barre (95197), cell 2/1",
-   "review": "blind",
-   "stratum": "fr",
-   "reportedApart": false
-  },
-  {
-   "id": "test-hard-rocca-di-papa",
-   "name": "Rocca di Papa, IT (TEST hard)",
-   "role": "TEST",
-   "country": "IT",
-   "productSource": "esri",
-   "labelSource": "esri",
-   "bbox": {
-    "west": 12.706593,
-    "south": 41.760826,
-    "east": 12.718634,
-    "north": 41.769869
-   },
-   "areaKm2": 1,
-   "why": "drawn for stratum hard: Rocca di Papa (058086), cell 4/2",
-   "review": "blind",
-   "stratum": "hard",
-   "reportedApart": true
-  },
-  {
-   "id": "test-es-los-alcazares",
-   "name": "Los Alcázares, ES (TEST es)",
+   "id": "test-es-aranguren",
+   "name": "Aranguren, ES (TEST es)",
    "role": "TEST",
    "country": "ES",
    "productSource": "pnoa",
    "labelSource": "pnoa",
    "bbox": {
-    "west": -0.868729,
-    "south": 37.729213,
-    "east": -0.857369,
-    "north": 37.738257
+    "west": -1.622784,
+    "south": 42.799067,
+    "east": -1.610545,
+    "north": 42.808111
    },
    "areaKm2": 1,
-   "why": "drawn for stratum es: Los Alcázares (30902), cell 1/4",
+   "why": "drawn for stratum es: Aranguren (31023), cell 6/1",
    "review": "blind",
    "stratum": "es",
+   "reportedApart": false
+  },
+  {
+   "id": "test-us-south-el-monte-city-ca",
+   "name": "South El Monte city, CA, US (TEST us)",
+   "role": "TEST",
+   "country": "US",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": -118.037829,
+    "south": 34.033053,
+    "east": -118.026987,
+    "north": 34.042097
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum us: South El Monte city, CA (0672996), cell 0/3",
+   "review": "blind",
+   "stratum": "us",
+   "reportedApart": false
+  },
+  {
+   "id": "test-hard-fiumicino",
+   "name": "Fiumicino, IT (TEST hard)",
+   "role": "TEST",
+   "country": "IT",
+   "productSource": "esri",
+   "labelSource": "esri",
+   "bbox": {
+    "west": 12.151372,
+    "south": 41.894696,
+    "east": 12.163438,
+    "north": 41.90374
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum hard: Fiumicino (058120), cell 17/2",
+   "review": "blind",
+   "stratum": "hard",
+   "reportedApart": true
+  },
+  {
+   "id": "test-fr-domont",
+   "name": "Domont, FR (TEST fr)",
+   "role": "TEST",
+   "country": "FR",
+   "productSource": "ign",
+   "labelSource": "ign",
+   "bbox": {
+    "west": 2.33479,
+    "south": 49.028725,
+    "east": 2.348491,
+    "north": 49.037769
+   },
+   "areaKm2": 1,
+   "why": "drawn for stratum fr: Domont (95199), cell 2/3",
+   "review": "blind",
+   "stratum": "fr",
    "reportedApart": false
   }
  ],
@@ -1269,6 +1269,83 @@
     "north": 38.066914
    },
    "pools": 5
+  },
+  {
+   "id": "test-es-los-alcazares",
+   "stratum": "es",
+   "bbox": {
+    "west": -0.868729,
+    "south": 37.729213,
+    "east": -0.857369,
+    "north": 37.738257
+   },
+   "pools": 15
+  },
+  {
+   "id": "test-us-soledad-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -121.33579,
+    "south": 36.437465,
+    "east": -121.324623,
+    "north": 36.446509
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-hard-rocca-di-papa",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.706593,
+    "south": 41.760826,
+    "east": 12.718634,
+    "north": 41.769869
+   },
+   "pools": 5
+  },
+  {
+   "id": "test-es-ansoain-antsoain",
+   "stratum": "es",
+   "bbox": {
+    "west": -1.652614,
+    "south": 42.829898,
+    "east": -1.640363,
+    "north": 42.838942
+   },
+   "pools": 3
+  },
+  {
+   "id": "test-us-sonoma-city-ca",
+   "stratum": "us",
+   "bbox": {
+    "west": -122.470442,
+    "south": 38.28348,
+    "east": -122.458996,
+    "north": 38.292523
+   },
+   "pools": 25
+  },
+  {
+   "id": "test-hard-ciampino",
+   "stratum": "hard",
+   "bbox": {
+    "west": 12.607926,
+    "south": 41.775181,
+    "east": 12.619976,
+    "north": 41.784225
+   },
+   "pools": 10
+  },
+  {
+   "id": "test-fr-deuil-la-barre",
+   "stratum": "fr",
+   "bbox": {
+    "west": 2.323411,
+    "south": 48.975612,
+    "east": 2.337096,
+    "north": 48.984656
+   },
+   "pools": 0
   }
  ]
 }

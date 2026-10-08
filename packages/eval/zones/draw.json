@@ -325,7 +325,7 @@
       "name": "Los Alcázares",
       "code": "30902"
      },
-     "status": "drawn",
+     "status": "rejected: 15 pools after review",
      "osmSha256": "75b7ab3505e79b77ea0e060043e03d186a41ab68c450ed6144b31dc59ae06e23",
      "eligibleCells": 5,
      "cell": {
@@ -339,6 +339,48 @@
        "north": 37.73825683465914
       }
      }
+    },
+    {
+     "index": 387,
+     "municipality": {
+      "name": "Ansoáin / Antsoain",
+      "code": "31016"
+     },
+     "status": "rejected: 3 pools after review",
+     "osmSha256": "de0b266a32ad382f3bab21e9c40e254f8afe003615d192f5c731fe323d1652df",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 0,
+      "col": 0,
+      "share": 0.723,
+      "bbox": {
+       "west": -1.6526139,
+       "south": 42.8298984,
+       "east": -1.6403632408012798,
+       "north": 42.838942117329566
+      }
+     }
+    },
+    {
+     "index": 388,
+     "municipality": {
+      "name": "Aranguren",
+      "code": "31023"
+     },
+     "status": "drawn",
+     "osmSha256": "d9776aee39f7fbfd28a1ba84822e5b5e6b9abd6ec643bb4bcc0013d47b1c0ba5",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 6,
+      "col": 1,
+      "share": 0.755,
+      "bbox": {
+       "west": -1.622783688669477,
+       "south": 42.79906710397742,
+       "east": -1.6105454773389543,
+       "north": 42.80811082130699
+      }
+     }
     }
    ],
    "rejected": [
@@ -346,9 +388,11 @@
     "test-es-totana",
     "test-es-la-union",
     "test-es-yecla",
-    "test-es-santomera"
+    "test-es-santomera",
+    "test-es-los-alcazares",
+    "test-es-ansoain-antsoain"
    ],
-   "zone": "test-es-los-alcazares"
+   "zone": "test-es-aranguren"
   },
   {
    "stratum": "fr",
@@ -949,7 +993,7 @@
       "name": "Deuil-la-Barre",
       "code": "95197"
      },
-     "status": "drawn",
+     "status": "rejected: 0 pools after review",
      "osmSha256": "1e92d2aba6c1582b129e29b3a94df4c4bafe6e5b883ab88c4961c878d1e8e1d1",
      "eligibleCells": 4,
      "cell": {
@@ -961,6 +1005,27 @@
        "south": 48.97561243465914,
        "east": 2.3370958105331785,
        "north": 48.98465615198871
+      }
+     }
+    },
+    {
+     "index": 817,
+     "municipality": {
+      "name": "Domont",
+      "code": "95199"
+     },
+     "status": "drawn",
+     "osmSha256": "bec28cd8d8b9ab8dc0dd41223ec3bac5e3b6d96ee8c8c440be4f5d07cbc5bbca",
+     "eligibleCells": 4,
+     "cell": {
+      "row": 2,
+      "col": 3,
+      "share": 0.719,
+      "bbox": {
+       "west": 2.3347904603862366,
+       "south": 49.028725434659144,
+       "east": 2.3484909471816486,
+       "north": 49.03776915198871
       }
      }
     }
@@ -993,9 +1058,10 @@
     "test-fr-beaumont-sur-oise",
     "test-fr-bezons",
     "test-fr-cergy",
-    "test-fr-cormeilles-en-parisis"
+    "test-fr-cormeilles-en-parisis",
+    "test-fr-deuil-la-barre"
    ],
-   "zone": "test-fr-deuil-la-barre"
+   "zone": "test-fr-domont"
   },
   {
    "stratum": "us",
@@ -1045,7 +1111,7 @@
       "name": "Soledad city, CA",
       "code": "0672520"
      },
-     "status": "drawn",
+     "status": "rejected: 10 pools after review",
      "osmSha256": "8fad34e76b9716b6f0044b223646b2a141933232438c2250ef88ee18ce1727f7",
      "eligibleCells": 5,
      "cell": {
@@ -1065,12 +1131,68 @@
       "resM": 0.31,
       "noonElevationDeg": 44.3
      }
+    },
+    {
+     "index": 265,
+     "municipality": {
+      "name": "Sonoma city, CA",
+      "code": "0672646"
+     },
+     "status": "rejected: 25 pools after review",
+     "osmSha256": "14497084f6082609ac40d95951c4e81f2b198a34368704ac233f16fd5f4a3f88",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "share": 0.361,
+      "bbox": {
+       "west": -122.47044168976775,
+       "south": 38.28347971754863,
+       "east": -122.45899637988832,
+       "north": 38.2925234348782
+      }
+     },
+     "esri": {
+      "date": "2025-10-20",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 40.3
+     }
+    },
+    {
+     "index": 266,
+     "municipality": {
+      "name": "South El Monte city, CA",
+      "code": "0672996"
+     },
+     "status": "drawn",
+     "osmSha256": "bff33a9389332064d29e5a4fc0ce2aeee8dd8e85e41d8c7cb7530deee0126c86",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 0,
+      "col": 3,
+      "share": 0.39,
+      "bbox": {
+       "west": -118.03782853351574,
+       "south": 34.03305299977478,
+       "east": -118.02698671123919,
+       "north": 34.04209671710435
+      }
+     },
+     "esri": {
+      "date": "2025-11-07",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 38.9
+     }
     }
    ],
    "rejected": [
-    "test-us-solana-beach-city-ca"
+    "test-us-solana-beach-city-ca",
+    "test-us-soledad-city-ca",
+    "test-us-sonoma-city-ca"
    ],
-   "zone": "test-us-soledad-city-ca"
+   "zone": "test-us-south-el-monte-city-ca"
   },
   {
    "stratum": "negative",
@@ -1571,7 +1693,7 @@
       "name": "Rocca di Papa",
       "code": "058086"
      },
-     "status": "drawn",
+     "status": "rejected: 5 pools after review",
      "osmSha256": "be7c8980e9ac9381ae201c3af7d4f25bb9307b2ea279eecda1394428fd92de7a",
      "eligibleCells": 2,
      "cell": {
@@ -1591,6 +1713,262 @@
       "resM": 0.34,
       "noonElevationDeg": 25.4
      }
+    },
+    {
+     "index": 641,
+     "municipality": {
+      "name": "Rocca Priora",
+      "code": "058088"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3c94278b044d58a20349387e09dcbbe457700661474d70e6da18a79bba9acaf",
+     "eligibleCells": 2,
+     "cell": {
+      "row": 4,
+      "col": 2,
+      "share": 0.329,
+      "bbox": {
+       "west": 12.762285244833476,
+       "south": 41.78721116931829,
+       "east": 12.774331867250215,
+       "north": 41.79625488664786
+      }
+     },
+     "esri": {
+      "date": "2025-09-08",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 53.2
+     }
+    },
+    {
+     "index": 642,
+     "municipality": {
+      "name": "Santa Marinella",
+      "code": "058097"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "b7340a12297b36baee68c0e62bda1e43d1e751be7252be8bbc6c897430a95dd1",
+     "eligibleCells": 0
+    },
+    {
+     "index": 643,
+     "municipality": {
+      "name": "Tivoli",
+      "code": "058104"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "07813b9e2f9728bd686c5ae6fe4d1ec7d3aa0cdbc5fdfe53db48379d9811e444",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 4,
+      "col": 8,
+      "share": 0.522,
+      "bbox": {
+       "west": 12.786563909807324,
+       "south": 41.95262026931829,
+       "east": 12.798644561033239,
+       "north": 41.96166398664786
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.4
+     }
+    },
+    {
+     "index": 644,
+     "municipality": {
+      "name": "Valmontone",
+      "code": "058110"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "8b1d3891c651353754c69436a47354adcfa910b7937be060d9a659c23241623e",
+     "eligibleCells": 0
+    },
+    {
+     "index": 645,
+     "municipality": {
+      "name": "Velletri",
+      "code": "058111"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "ac4fa04691df7cd747f0d7c8711860803c0f97bc0cdb35a73ff4630b2bc9b736",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 13,
+      "col": 6,
+      "share": 0.444,
+      "bbox": {
+       "west": 12.769627635544458,
+       "south": 41.69030412528442,
+       "east": 12.781650824801867,
+       "north": 41.69934784261399
+      }
+     },
+     "esri": {
+      "date": "2022-09-06",
+      "desc": "GE01",
+      "resM": 0.46,
+      "noonElevationDeg": 54.1
+     }
+    },
+    {
+     "index": 646,
+     "municipality": {
+      "name": "Zagarolo",
+      "code": "058114"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "0f9873c274126f54f3657a0abd85d37b1600e212b5349fabb32a4c8d22932c67",
+     "eligibleCells": 3,
+     "cell": {
+      "row": 7,
+      "col": 2,
+      "share": 0.315,
+      "bbox": {
+       "west": 12.751491940076992,
+       "south": 41.875124021307,
+       "east": 12.763552610115488,
+       "north": 41.88416773863657
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.5
+     }
+    },
+    {
+     "index": 647,
+     "municipality": {
+      "name": "Lariano",
+      "code": "058115"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "af08ff37717dd53a74b2d6908ea45023305013a3531d2cd65c307506211fabc4",
+     "eligibleCells": 0
+    },
+    {
+     "index": 648,
+     "municipality": {
+      "name": "Ladispoli",
+      "code": "058116"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "f3966b71e9fcba2b0127531be4b320b99efb14b1ee4c2d4c883f92d25884e830",
+     "eligibleCells": 1,
+     "cell": {
+      "row": 3,
+      "col": 3,
+      "share": 0.499,
+      "bbox": {
+       "west": 12.078651403153037,
+       "south": 41.95186565198871,
+       "east": 12.090730404204049,
+       "north": 41.96090936931828
+      }
+     },
+     "esri": {
+      "date": "2025-09-05",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 54.2
+     }
+    },
+    {
+     "index": 649,
+     "municipality": {
+      "name": "Ardea",
+      "code": "058117"
+     },
+     "status": "not hard imagery",
+     "osmSha256": "3a69d12ed1770e33b552dbc157bb226988f527984f41824384a6a537f0a267a0",
+     "eligibleCells": 21,
+     "cell": {
+      "row": 7,
+      "col": 3,
+      "share": 0.637,
+      "bbox": {
+       "west": 12.522932802700993,
+       "south": 41.597270521307,
+       "east": 12.534947970267991,
+       "north": 41.60631423863657
+      }
+     },
+     "esri": {
+      "date": "2024-06-17",
+      "desc": "WV03",
+      "resM": 0.31,
+      "noonElevationDeg": 71.8
+     }
+    },
+    {
+     "index": 650,
+     "municipality": {
+      "name": "Ciampino",
+      "code": "058118"
+     },
+     "status": "rejected: 10 pools after review",
+     "osmSha256": "e4c00723d843abe2a5f24a29346cb133b5cc2174c5dac4e63de233c781137eb4",
+     "eligibleCells": 7,
+     "cell": {
+      "row": 0,
+      "col": 2,
+      "share": 0.497,
+      "bbox": {
+       "west": 12.607926230785178,
+       "south": 41.7751808,
+       "east": 12.619976096177767,
+       "north": 41.78422451732957
+      }
+     },
+     "esri": {
+      "date": "2025-12-08",
+      "desc": "LG02",
+      "resM": 0.34,
+      "noonElevationDeg": 25.3
+     }
+    },
+    {
+     "index": 651,
+     "municipality": {
+      "name": "San Cesareo",
+      "code": "058119"
+     },
+     "status": "no eligible cell",
+     "osmSha256": "4055f829241fa79fd3e764417842aef832036e03539729ff570968cb3d04e3d9",
+     "eligibleCells": 0
+    },
+    {
+     "index": 652,
+     "municipality": {
+      "name": "Fiumicino",
+      "code": "058120"
+     },
+     "status": "drawn",
+     "osmSha256": "657979950c20aac8b9a57e1ff72fc06b7f8c6628db799c6739bf8a56a2401e7e",
+     "eligibleCells": 9,
+     "cell": {
+      "row": 17,
+      "col": 2,
+      "share": 0.372,
+      "bbox": {
+       "west": 12.15137240569346,
+       "south": 41.89469649460271,
+       "east": 12.163437758540189,
+       "north": 41.90374021193228
+      }
+     },
+     "esri": {
+      "date": "2025-12-09",
+      "desc": "WV02",
+      "resM": 0.5,
+      "noonElevationDeg": 25.1
+     }
     }
    ],
    "rejected": [
@@ -1598,9 +1976,11 @@
     "test-hard-frascati",
     "test-hard-grottaferrata",
     "test-hard-guidonia-montecelio",
-    "test-hard-marino"
+    "test-hard-marino",
+    "test-hard-rocca-di-papa",
+    "test-hard-ciampino"
    ],
-   "zone": "test-hard-rocca-di-papa"
+   "zone": "test-hard-fiumicino"
   }
  ]
 }
