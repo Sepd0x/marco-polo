@@ -47,6 +47,16 @@ describe('cross-tile merger', () => {
     expect(merger.getAll()[0].truncated).toBe(false);
   });
 
+  it('uses a learned score as the confidence, the best of merged fragments', () => {
+    const merger = new DetectionMerger({}, plan);
+    merger.addTileDetections(A, [makeFragment(A, { x: 236, y: 100, w: 20, h: 16 }, { score: 0.4 })]);
+    merger.addTileDetections(B, [makeFragment(B, { x: 0, y: 100, w: 20, h: 16 }, { score: 0.7 })]);
+    merger.finalize();
+    const all = merger.getAll();
+    expect(all).toHaveLength(1);
+    expect(all[0].confidence).toBe(0.7);
+  });
+
   it('does not merge distant detections in adjacent tiles', () => {
     const merger = new DetectionMerger({}, plan);
     merger.addTileDetections(A, [makeFragment(A, { x: 236, y: 20, w: 20, h: 16 })]);
