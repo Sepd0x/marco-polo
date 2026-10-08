@@ -11,6 +11,8 @@ type Events = {
   cursor: { lon: number; lat: number };
   /** The map finished loading and its store subscriptions are in place. */
   mapready: Record<string, never>;
+  /** The map view after it settles: west, south, east, north, and the zoom. */
+  view: { bbox: [number, number, number, number]; zoom: number };
 };
 
 /** Events a late subscriber still receives: their last payload is replayed. */

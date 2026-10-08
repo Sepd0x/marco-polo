@@ -14,35 +14,45 @@ export function rectRing(lat: number, lon: number, widthM: number, heightM: numb
 
 export interface DemoArea {
   name: string;
+  /** For tight spaces. */
+  short: string;
+  /** What the example shows, including the imagery it runs on. */
   hint: string;
   center: [number, number]; // lat, lon
   ring: Ring;
 }
 
-/** Pool-dense places that make a compelling first scan (~1–3 minutes each). */
+/**
+ * One small area per open source plus one on Esri. Each is about 600 by
+ * 450 m, a short scan at the source's own rate.
+ */
 export const DEMO_AREAS: DemoArea[] = [
   {
-    name: 'Vilamoura · PT',
-    hint: 'Algarve resort quarter',
+    name: 'Vilamoura, Portugal',
+    short: 'Vilamoura',
+    hint: 'Villas with gardens, DGT aerial imagery',
     center: [37.0745, -8.1155],
-    ring: rectRing(37.0745, -8.1155, 900, 700),
+    ring: rectRing(37.0745, -8.1155, 600, 450),
   },
   {
-    name: 'Scottsdale · US',
-    hint: 'Arizona backyard-pool suburbia',
+    name: 'Pozuelo de Alarcón, Spain',
+    short: 'Pozuelo',
+    hint: 'Detached houses, PNOA aerial imagery',
+    center: [40.4375, -3.8253],
+    ring: rectRing(40.4375, -3.8253, 600, 450),
+  },
+  {
+    name: 'Aix-en-Provence, France',
+    short: 'Aix-en-Provence',
+    hint: 'Hillside houses, IGN aerial imagery',
+    center: [43.5704, 5.4197],
+    ring: rectRing(43.5704, 5.4197, 600, 450),
+  },
+  {
+    name: 'Scottsdale, United States',
+    short: 'Scottsdale',
+    hint: 'Backyard pools, Esri imagery',
     center: [33.594, -111.926],
-    ring: rectRing(33.594, -111.926, 900, 700),
-  },
-  {
-    name: 'Marbella · ES',
-    hint: 'Costa del Sol villas',
-    center: [36.4899, -4.9587],
-    ring: rectRing(36.4899, -4.9587, 900, 700),
-  },
-  {
-    name: 'Palm Springs · US',
-    hint: 'Desert modernism, wall-to-wall pools',
-    center: [33.8303, -116.5453],
-    ring: rectRing(33.8303, -116.5453, 900, 700),
+    ring: rectRing(33.594, -111.926, 600, 450),
   },
 ];

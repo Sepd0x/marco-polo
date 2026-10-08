@@ -199,6 +199,12 @@ export function MapView() {
         }),
       );
       map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.lng, lat: e.lngLat.lat }));
+      const shareView = () => {
+        const b = map.getBounds();
+        emit('view', { bbox: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], zoom: map.getZoom() });
+      };
+      map.on('moveend', shareView);
+      shareView();
 
       // Panning by hand during a scan turns following off: the user takes over.
       map.on('dragstart', () => {

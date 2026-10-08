@@ -1,0 +1,66 @@
+/*
+ * Colour, type and shape tokens. Text contrast is checked by
+ * test/ui/contrast.test.ts, which reads this file: keep one value per line.
+ * The pool colour appears only where there are pools.
+ */
+:root {
+  --ground: #f4f4f1;
+  --panel: #ffffff;
+  --panel-2: #fafaf8;
+  --hover: #f1f1ee;
+  --line: #e7e7e2;
+  --line-2: #d6d6d0;
+  --edge: #8a8a92;
+  --ink: #17171a;
+  --ink-2: #47474e;
+  --ink-3: #66666e;
+  --pool: #c6f432;
+  --casing: #10140a;
+  --pool-ink: #1c2600;
+  --pool-text: #4a6600;
+  --pool-wash: #f3fbd9;
+  --danger: #b42318;
+  --shadow: 0 1px 2px rgba(16, 20, 10, 0.06), 0 4px 16px rgba(16, 20, 10, 0.08);
+  --sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --ground: #0f0f11;
+  --panel: #18181b;
+  --panel-2: #1d1d21;
+  --hover: #232328;
+  --line: #2a2a2f;
+  --line-2: #38383e;
+  --edge: #6e6e77;
+  --ink: #ededef;
+  --ink-2: #b9b9c0;
+  --ink-3: #95959d;
+  --pool-text: #c6f432;
+  --pool-wash: #242b14;
+  --danger: #f97066;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* No saved choice: follow the system. Same values as the block above. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ground: #0f0f11;
+    --panel: #18181b;
+    --panel-2: #1d1d21;
+    --hover: #232328;
+    --line: #2a2a2f;
+    --line-2: #38383e;
+    --edge: #6e6e77;
+    --ink: #ededef;
+    --ink-2: #b9b9c0;
+    --ink-3: #95959d;
+    --pool-text: #c6f432;
+    --pool-wash: #242b14;
+    --danger: #f97066;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
