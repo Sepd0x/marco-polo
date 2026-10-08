@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
-import jpeg from 'jpeg-js';
+import { decodeImage } from '../../packages/cli/src/tiles.ts';
 import { createV1Detector, DetectionMerger, metersPerPixelOfBitmap, type TileCoord } from '../../packages/core/src/index.ts';
 
 /*
@@ -24,10 +24,12 @@ function tileOf(name: string): TileCoord {
   return { z: Number(m[1]), x: Number(m[2]), y: Number(m[3]) };
 }
 
+/** The decoder the CLI, the benchmark and the training tools use. */
 function nodeDecode(buf: Buffer) {
-  const d = jpeg.decode(buf, { useTArray: true, formatAsRGBA: true });
-  return { width: d.width, height: d.height, rgba: new Uint8ClampedArray(d.data.buffer, d.data.byteOffset, d.data.byteLength) };
+  return decodeImage(buf);
 }
+
+const browserSha = JSON.parse(readFileSync(fileURLToPath(new URL('../../packages/cli/test/jpeg-browser-sha256.json', import.meta.url)), 'utf8')) as { files: Record<string, string> };
 
 /** The v1 detector on a decoded tile; 512 px tiles go in as their four z+1 children. */
 function candidates(tile: TileCoord, rgba: Uint8ClampedArray, size: number) {
@@ -54,7 +56,7 @@ function candidates(tile: TileCoord, rgba: Uint8ClampedArray, size: number) {
   return merger.getAll();
 }
 
-test('browser and jpeg-js decodes give the same candidates', async ({ page, browserName }, info) => {
+test('browser and Node decodes give the same candidates', async ({ page, browserName }, info) => {
   await page.setContent('<!doctype html><title>parity</title>');
   const rows: Record<string, unknown>[] = [];
   let total = 0;
@@ -92,9 +94,14 @@ test('browser and jpeg-js decodes give the same candidates', async ({ page, brow
     }
     const channels = (rgba.length / 4) * 3;
 
+    const sha = createHash('sha256').update(rgba).digest('hex');
+    expect(sha, `${name}: browser pixels differ from the recorded ones`).toBe(browserSha.files[`tests/parity/fixtures/${name}`]);
+    expect(maxDiff, `${name}: Node and browser pixels differ`).toBe(0);
+
     const tile = tileOf(name);
-    const a = candidates(tile, mine.rgba, mine.width);
-    const b = candidates(tile, rgba, theirs.width);
+    const whole = Number.isInteger(Math.log2(mine.width / 256));
+    const a = whole ? candidates(tile, mine.rgba, mine.width) : [];
+    const b = whole ? candidates(tile, rgba, theirs.width) : [];
     // Pair candidates by position: the same shape lands within a metre.
     let fileMatched = 0;
     let fileWorst = 0;
@@ -118,7 +125,7 @@ test('browser and jpeg-js decodes give the same candidates', async ({ page, brow
       candidatesBrowser: b.length,
       matched: fileMatched,
       worstScoreDiff: Number(fileWorst.toFixed(4)),
-      browserRgbaSha256: createHash('sha256').update(rgba).digest('hex').slice(0, 16),
+      browserRgbaSha256: sha.slice(0, 16),
     });
   }
   const report = { browser: browserName, files: files.length, candidates: total, matched, matchedShare: total ? matched / total : 1, worstScoreDiff: worst, rows };

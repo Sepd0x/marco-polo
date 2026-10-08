@@ -2,8 +2,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { defineConfig } from '@playwright/test';
 
-// Decodes the fixture JPEGs in real browsers and compares them with jpeg-js,
-// which the CLI and the training tools use. No server: bytes go in by value.
+// Decodes the fixture JPEGs in real browsers and compares them with the Node
+// decoder that the CLI, the benchmark and the training tools use. No server:
+// bytes go in by value.
 export default defineConfig({
   testDir: '.',
   testMatch: '*.spec.ts',
