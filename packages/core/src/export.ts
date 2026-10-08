@@ -8,7 +8,7 @@ import type {
   ScanResult,
 } from './types.js';
 import { findAnyProvider } from './providers.js';
-import { orientedDims } from './geo/obb.js';
+import { measuredDims } from './detect/measure.js';
 
 /*
  * Export of a scan result as GeoJSON and CSV. Every row carries where its
@@ -30,11 +30,11 @@ export function provenanceOf(provider: ImageryProvider, partId: string, zoom: nu
 
 /**
  * A ranked detection with its measured dimensions and provenance. Length and
- * width come from the minimum-area rectangle of the traced outline; a shape
- * cut by the edge of the scanned imagery is not measured.
+ * width come from the minimum-area rectangle of the traced outline, when the
+ * outline is fit for it (see `measuredDims`); otherwise they are not measured.
  */
 export function toResultDetection(d: RankedDetection, provenance: Provenance): ResultDetection {
-  return { ...d, dims: d.truncated ? null : orientedDims(d.outline), provenance };
+  return { ...d, dims: measuredDims(d), provenance };
 }
 
 export function partSummary(

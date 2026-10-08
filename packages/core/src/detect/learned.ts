@@ -27,7 +27,7 @@ export const DEFAULT_LEARNED_OPTIONS: LearnedOptions = {
   candidates: { levels: CANDIDATE_LEVELS, minPixels: 10, minAreaM2: MIN_POOL_AREA_M2, maxAreaM2: 2000 },
   floor: 0.1,
   nmsOverlap: 0.3,
-  rimPx: 0,
+  rimPx: 1,
   simplifyEpsilonPx: 1.2,
 };
 

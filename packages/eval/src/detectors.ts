@@ -7,6 +7,7 @@ import {
   DEFAULT_LEARNED_OPTIONS,
   DetectionMerger,
   detectTile,
+  measuredDims,
   detectWindow,
   scoreImage,
   sourceFamily,
@@ -56,6 +57,9 @@ export interface Detector {
 function toEval(d: Detection): EvalDetection {
   return { id: d.id, center: d.center, bbox: d.bbox, outline: d.outline.map((r) => [r]), areaM2: d.areaM2, confidence: d.confidence, kind: d.kind, truncated: d.truncated };
 }
+
+/** v2 reports the dimensions the product shows: measured, or null for "not measured". */
+const toEvalMeasured = (d: Detection): EvalDetection => ({ ...toEval(d), dims: measuredDims(d) });
 
 /** A detector built from packages/core with option overrides. */
 export function coreDetector(id: string, description: string, det: Partial<DetectorOptions> = {}, merge: Partial<MergerOptions> = {}): Detector {
@@ -120,16 +124,18 @@ function mustWindows(windows: WindowAccess | undefined): WindowAccess {
 }
 
 /** v2 on the product path: one window per scan tile, halo around it, centroid rule, then the merger. */
-export function v2Detector(opts: { halo?: number; learned?: Partial<LearnedOptions>; id?: string } = {}): Detector {
+export function v2Detector(opts: { halo?: number; learned?: Partial<LearnedOptions>; id?: string; model?: PoolModel; modelName?: string } = {}): Detector {
   const halo = opts.halo ?? DEFAULT_HALO_PX;
   const learned: LearnedOptions = { ...DEFAULT_LEARNED_OPTIONS, ...opts.learned };
+  const getModel = () => opts.model ?? loadModel();
+  const name = opts.modelName ?? MODEL_PATH.split(/[\\/]/).slice(-1)[0];
   return {
     id: opts.id ?? 'v2',
-    description: `packages/core detectWindow (halo ${halo} px, model ${MODEL_PATH.split(/[\\/]/).slice(-1)[0]}) + DetectionMerger`,
-    thresholdFor: (providerId) => defaultThreshold(loadModel(), providerId),
+    description: `packages/core detectWindow (halo ${halo} px, model ${name}) + DetectionMerger`,
+    thresholdFor: (providerId) => defaultThreshold(getModel(), providerId),
     async run(tiles, _get, windows) {
       const w = mustWindows(windows);
-      const model = loadModel();
+      const model = getModel();
       const plan = productTiles(tiles, w.providerId);
       const merger = new DetectionMerger({}, plan.tiles.map((t) => t.tile));
       let computeMs = 0;
@@ -145,7 +151,7 @@ export function v2Detector(opts: { halo?: number; learned?: Partial<LearnedOptio
         computeMs += performance.now() - t0;
       }
       merger.finalize();
-      return { computeMs, tilesMissing, detections: merger.getAll().map(toEval) };
+      return { computeMs, tilesMissing, detections: merger.getAll().map(toEvalMeasured) };
     },
   };
 }
@@ -194,16 +200,17 @@ function fromTile(d: TileDetection, id: string): EvalDetection {
  * The same scorer over the whole area stitched into one image, no tile
  * borders at all: the reference the product path is held to on the gold (P8).
  */
-export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions> } = {}): Detector {
+export function v2MosaicDetector(opts: { learned?: Partial<LearnedOptions>; model?: PoolModel } = {}): Detector {
   const learned: LearnedOptions = { ...DEFAULT_LEARNED_OPTIONS, ...opts.learned };
+  const getModel = () => opts.model ?? loadModel();
   return {
     id: 'v2-mosaic',
     description: 'v2 scorer on the whole area as one image (no tiles, no halo)',
-    thresholdFor: (providerId) => defaultThreshold(loadModel(), providerId),
+    thresholdFor: (providerId) => defaultThreshold(getModel(), providerId),
     async run(tiles, _get, windows) {
       const w = mustWindows(windows);
       if (w.providerId.startsWith('dgt')) throw new Error('the mosaic reference is built from XYZ tiles');
-      const model = loadModel();
+      const model = getModel();
       const z = tiles[0].tile.z;
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
       for (const t of tiles) {

@@ -53,9 +53,10 @@ describe('v2 window detector', () => {
     const b = detectWindow(win(east, 48), { providerId: 'pnoa' }, EVERYTHING);
     const all = [...a, ...b];
     expect(all).toHaveLength(1);
+    // Measured with the one pixel rim: 46 x 24 less the four outer corners.
     const mpp = metersPerPixel(all[0].center.lat, 19);
-    expect(all[0].areaM2 / (44 * 22 * mpp * mpp)).toBeGreaterThan(0.95);
-    expect(all[0].areaM2 / (44 * 22 * mpp * mpp)).toBeLessThan(1.05);
+    expect(all[0].areaM2 / ((46 * 24 - 4) * mpp * mpp)).toBeGreaterThan(0.97);
+    expect(all[0].areaM2 / ((46 * 24 - 4) * mpp * mpp)).toBeLessThan(1.03);
     // Its centroid (x 521.5 in the mosaic) lies in the east tile, which reports it.
     expect(b).toHaveLength(1);
     expect(all[0].touches).toEqual({ n: false, e: false, s: false, w: false });
@@ -79,9 +80,12 @@ describe('v2 window detector', () => {
     expect(d.center.lon).toBeCloseTo(c.lon, 6);
     expect(d.center.lat).toBeCloseTo(c.lat, 6);
     const mpp = metersPerPixelOfBitmap(z18, 512);
-    expect(d.areaM2 / (60 * 32 * mpp * mpp)).toBeGreaterThan(0.95);
-    expect(d.areaM2 / (60 * 32 * mpp * mpp)).toBeLessThan(1.05);
-    expect(d.bboxPx).toEqual({ minX: 200, minY: 160, maxX: 259, maxY: 191 });
+    expect(d.areaM2 / ((62 * 34 - 4) * mpp * mpp)).toBeGreaterThan(0.97);
+    expect(d.areaM2 / ((62 * 34 - 4) * mpp * mpp)).toBeLessThan(1.03);
+    expect(d.bboxPx).toEqual({ minX: 199, minY: 159, maxX: 260, maxY: 192 });
+    const bare = detectWindow(w, { providerId: 'dgt-ortos2025' }, EVERYTHING, { ...DEFAULT_LEARNED_OPTIONS, rimPx: 0 })[0];
+    expect(bare.bboxPx).toEqual({ minX: 200, minY: 160, maxX: 259, maxY: 191 });
+    expect(bare.areaM2 / ((60 * 32 - 4) * mpp * mpp)).toBeCloseTo(1, 1);
   });
 
   it('keeps one candidate where the colour levels find the same shape', () => {
