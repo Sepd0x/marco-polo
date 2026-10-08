@@ -1,10 +1,10 @@
 # Benchmark: v1 @ 0.55, --source auto
 
-- detector: `v1` (packages/core detectTile + DetectionMerger, default options), hash `57d77e98b36c`
+- detector: `v1` (packages/core detectTile + DetectionMerger as shipped (merger minimum 8 m²)), hash `6b4dd8d725d0`
 - confidence threshold: 0.55
 - imagery: `--source auto` (per zone below), z19 grid; 4273 images read, manifest `d87f078bf11f`
-- labels: frozen set `44295f4fd0b1`, see `packages/eval/README.md`; point rule v2
-- commit: 69574c2, run 2026-10-08
+- labels: frozen set `4e6b1173fe37`, see `packages/eval/README.md`; point rule v2
+- commit: 7ad4b59, run 2026-10-08
 
 A detection hits a polygon label when its centre falls inside it or the two boxes overlap with IoU >= 0.3. It hits a point label when its centre is within max(3 m, half the long side of its box) of the point and its area is at most max(4 x the median pool label of the zone, 150 m²). Each label is matched once. Precision is over detections, recall over labels. Brackets: 95% interval, block bootstrap (4 x 4 z19 tiles, 2000 replicates, seed 20261007). Area error compares the detected area with the OSM polygon, over hits on OSM polygons only; "signed" below zero means the detector under-measures. Time is detector CPU time per km², tiles already decoded.
 
@@ -12,63 +12,63 @@ A detection hits a polygon label when its centre falls inside it or the two boxe
 
 | area | labels | detections | TP | FP | FN | precision | recall | F1 | source | median area error | signed | ms/km² |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|---|--:|--:|--:|
-| Vilamoura, PT (1.00 km²) | 69 | 84 | 31 | 53 | 38 | 36.9% | 44.9% | 40.5% | dgt-ortos2025 | 20.0% (n=30) | -17.2% | 854 |
-| Scottsdale, AZ, US (0.56 km²) | 78 | 63 | 54 | 9 | 24 | 85.7% | 69.2% | 76.6% | esri-world-imagery | 30.6% (n=2) | +22.7% | 543 |
-| Odemira greenhouses, Alentejo, PT (1.00 km²) | 0 | 140 | 0 | 140 | 0 | 0.0% | n/a | n/a | dgt-ortos2025 | n/a (n=0) | n/a | 637 |
-| Puyricard, Aix-en-Provence, FR (1.00 km²) | 100 | 327 | 47 | 280 | 53 | 14.4% | 47.0% | 22.0% | ign-orthophotos | 43.8% (n=29) | -34.8% | 1081 |
-| Balma, Toulouse, FR (1.00 km²) | 66 | 27 | 20 | 7 | 46 | 74.1% | 30.3% | 43.0% | ign-orthophotos | 31.4% (n=15) | -31.4% | 674 |
-| Braga, PT (1.00 km²) | 166 | 516 | 81 | 435 | 85 | 15.7% | 48.8% | 23.8% | dgt-ortos2025 | 18.7% (n=49) | -8.1% | 1310 |
-| **all DEV** | 479 | 1157 | 233 | 924 | 246 | 20.1% | 48.6% | 28.5% |  | 23.8% (n=125) | -18.1% | 872 |
+| Vilamoura, PT (1.00 km²) | 68 | 80 | 31 | 49 | 37 | 38.8% | 45.6% | 41.9% | dgt-ortos2025 | 18.6% (n=30) | -16.0% | 533 |
+| Scottsdale, AZ, US (0.56 km²) | 78 | 63 | 53 | 10 | 25 | 84.1% | 67.9% | 75.2% | esri-world-imagery | 30.2% (n=2) | +24.0% | 484 |
+| Odemira greenhouses, Alentejo, PT (1.00 km²) | 0 | 128 | 0 | 128 | 0 | 0.0% | n/a | n/a | dgt-ortos2025 | n/a (n=0) | n/a | 546 |
+| Puyricard, Aix-en-Provence, FR (1.00 km²) | 79 | 336 | 47 | 289 | 32 | 14.0% | 59.5% | 22.7% | ign-orthophotos | 43.0% (n=29) | -34.1% | 959 |
+| Balma, Toulouse, FR (1.00 km²) | 61 | 28 | 20 | 8 | 41 | 71.4% | 32.8% | 44.9% | ign-orthophotos | 34.3% (n=15) | -33.1% | 597 |
+| Braga, PT (1.00 km²) | 166 | 501 | 79 | 422 | 87 | 15.8% | 47.6% | 23.7% | dgt-ortos2025 | 19.2% (n=47) | -6.1% | 1169 |
+| **all DEV** | 452 | 1136 | 230 | 906 | 222 | 20.2% | 50.9% | 29.0% |  | 23.3% (n=123) | -17.0% | 732 |
 
-Precision 20.1% [16.1, 25.0], recall 48.6% [43.5, 54.2], F1 28.5% [24.0, 33.6]. Errors (FP + FN) 1170 [988, 1367]. FP per km² 166.1. Macro F1 41.2%.
+Precision 20.2% [16.3, 25.0], recall 50.9% [45.4, 56.9], F1 29.0% [24.4, 34.0]. Errors (FP + FN) 1128 [956, 1306.0249999999999]. FP per km² 162.9. Macro F1 41.7%.
 
-Median area error 23.8% [20.0, 29.9], signed -18.1% [-23.8, -13.4] (n=125). Centre offset median 0.65 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): 11.9% and 15.2% (n=125).
+Median area error 23.3% [21.0, 33.0], signed -17.0% [-22.6, -11.1] (n=123). Centre offset median 0.66 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): 12.2% and 14.3% (n=123).
 
 ## DEV-2
 
 | area | labels | detections | TP | FP | FN | precision | recall | F1 | source | median area error | signed | ms/km² |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|---|--:|--:|--:|
-| Marbella, ES (1.00 km²) | 151 | 136 | 99 | 38 | 52 | 72.1% | 65.6% | 68.7% | pnoa | 41.3% (n=15) | -41.3% | 736 |
-| Birre, Cascais, PT (0.56 km²) | 149 | 498 | 114 | 384 | 35 | 22.9% | 76.5% | 35.2% | dgt-ortos2025 | 12.8% (n=4) | -4.8% | 1411 |
-| Santa Barbara de Nexe, Algarve interior, PT (1.00 km²) | 52 | 74 | 27 | 47 | 25 | 36.5% | 51.9% | 42.9% | dgt-ortos2025 | 15.5% (n=5) | +2.5% | 491 |
-| Castelnau-le-Lez, Montpellier, FR (1.00 km²) | 226 | 340 | 114 | 227 | 112 | 33.2% | 50.4% | 40.1% | ign-orthophotos | 27.1% (n=114) | -23.9% | 865 |
-| Arcadia, Phoenix, AZ, US (1.00 km²) | 182 | 142 | 124 | 19 | 58 | 86.6% | 68.1% | 76.3% | esri-world-imagery | 61.4% (n=3) | -61.4% | 455 |
-| **all DEV-2** | 760 | 1190 | 478 | 715 | 282 | 39.9% | 62.9% | 48.8% |  | 27.9% (n=141) | -24.9% | 736 |
+| Marbella, ES (1.00 km²) | 151 | 133 | 97 | 37 | 54 | 72.2% | 64.2% | 68.0% | pnoa | 37.3% (n=14) | -37.3% | 595 |
+| Birre, Cascais, PT (0.56 km²) | 149 | 472 | 113 | 359 | 36 | 23.9% | 75.8% | 36.4% | dgt-ortos2025 | 12.3% (n=4) | -3.7% | 1189 |
+| Santa Barbara de Nexe, Algarve interior, PT (1.00 km²) | 52 | 62 | 28 | 34 | 24 | 45.2% | 53.8% | 49.1% | dgt-ortos2025 | 11.7% (n=5) | +2.5% | 410 |
+| Castelnau-le-Lez, Montpellier, FR (1.00 km²) | 226 | 351 | 108 | 243 | 118 | 30.8% | 47.8% | 37.4% | ign-orthophotos | 24.5% (n=108) | -21.1% | 822 |
+| Arcadia, Phoenix, AZ, US (1.00 km²) | 182 | 143 | 122 | 22 | 60 | 84.6% | 67.0% | 74.8% | esri-world-imagery | 60.5% (n=3) | -60.5% | 464 |
+| **all DEV-2** | 760 | 1161 | 468 | 695 | 292 | 40.1% | 61.6% | 48.6% |  | 26.3% (n=134) | -22.0% | 652 |
 
-Precision 39.9% [35.5, 45.3], recall 62.9% [59.3, 66.4], F1 48.8% [45.3, 52.8]. Errors (FP + FN) 997 [834.975, 1182]. FP per km² 156.7. Macro F1 52.6%.
+Precision 40.1% [35.7, 45.7], recall 61.6% [58.0, 65.1], F1 48.6% [45.0, 52.7]. Errors (FP + FN) 987 [826, 1171.0249999999999]. FP per km² 152.3. Macro F1 53.1%.
 
-Median area error 27.9% [23.4, 32.2], signed -24.9% [-28.4, -20.8] (n=141). Centre offset median 1.01 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): 13.0% and 15.5% (n=141).
+Median area error 26.3% [20.4, 30.3], signed -22.0% [-26.8, -16.9] (n=134). Centre offset median 1.05 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): 12.7% and 15.9% (n=134).
 
 ## GOLD
 
 | area | labels | detections | TP | FP | FN | precision | recall | F1 | source | median area error | signed | ms/km² |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|---|--:|--:|--:|
-| Mougins, FR (gold) (0.20 km²) | 57 | 44 | 42 | 2 | 15 | 95.5% | 73.7% | 83.2% | ign-orthophotos | n/a (n=0) | n/a | 759 |
-| Grabels, FR (gold) (0.19 km²) | 95 | 49 | 21 | 28 | 74 | 42.9% | 22.1% | 29.2% | ign-orthophotos | n/a (n=0) | n/a | 867 |
-| Pozuelo de Alarcon, ES (gold) (0.21 km²) | 162 | 114 | 111 | 3 | 51 | 97.4% | 68.5% | 80.4% | pnoa | n/a (n=0) | n/a | 779 |
-| Mougins, FR (gold, Esri) (0.20 km²) | 35 | 19 | 19 | 0 | 16 | 100.0% | 54.3% | 70.4% | esri-world-imagery | n/a (n=0) | n/a | 573 |
-| Pozuelo de Alarcon, ES (gold, Esri) (0.21 km²) | 129 | 62 | 60 | 2 | 69 | 96.8% | 46.5% | 62.8% | esri-world-imagery | n/a (n=0) | n/a | 706 |
-| **all GOLD** | 478 | 288 | 253 | 35 | 225 | 87.8% | 52.9% | 66.1% |  | n/a (n=0) | n/a | 737 |
+| Mougins, FR (gold) (0.20 km²) | 57 | 43 | 41 | 2 | 16 | 95.3% | 71.9% | 82.0% | ign-orthophotos | n/a (n=0) | n/a | 634 |
+| Grabels, FR (gold) (0.19 km²) | 95 | 50 | 23 | 27 | 72 | 46.0% | 24.2% | 31.7% | ign-orthophotos | n/a (n=0) | n/a | 781 |
+| Pozuelo de Alarcon, ES (gold) (0.21 km²) | 162 | 117 | 113 | 4 | 49 | 96.6% | 69.8% | 81.0% | pnoa | n/a (n=0) | n/a | 776 |
+| Mougins, FR (gold, Esri) (0.20 km²) | 35 | 19 | 19 | 0 | 16 | 100.0% | 54.3% | 70.4% | esri-world-imagery | n/a (n=0) | n/a | 589 |
+| Pozuelo de Alarcon, ES (gold, Esri) (0.21 km²) | 129 | 59 | 57 | 2 | 72 | 96.6% | 44.2% | 60.6% | esri-world-imagery | n/a (n=0) | n/a | 640 |
+| **all GOLD** | 478 | 288 | 253 | 35 | 225 | 87.8% | 52.9% | 66.1% |  | n/a (n=0) | n/a | 685 |
 
-Precision 87.8% [82.6, 92.1], recall 52.9% [46.5, 58.4], F1 66.1% [60.0, 71.0]. Errors (FP + FN) 260 [196.975, 333.02499999999986]. FP per km² 34.5. Macro F1 65.2%.
+Precision 87.8% [82.9, 91.9], recall 52.9% [46.6, 58.8], F1 66.1% [60.0, 71.2]. Errors (FP + FN) 260 [192, 340]. FP per km² 34.5. Macro F1 65.1%.
 
-Median area error n/a, signed n/a (n=0). Centre offset median 0.30 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): n/a and n/a (n=0).
+Median area error n/a, signed n/a (n=0). Centre offset median 0.29 m. Length and width error (minimum-area rectangle of the outline against the OSM outline): n/a and n/a (n=0).
 
 ## Threshold sweep (micro-averaged)
 
 | threshold | DEV P | DEV R | DEV F1 | DEV-2 P | DEV-2 R | DEV-2 F1 | GOLD P | GOLD R | GOLD F1 |
 |--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| 0.30 | 18.8% | 61.6% | 28.8% | 36.6% | 70.3% | 48.1% | 82.3% | 66.1% | 73.3% |
-| 0.35 | 18.8% | 61.4% | 28.8% | 36.7% | 70.3% | 48.2% | 82.2% | 65.7% | 73.0% |
-| 0.40 | 18.7% | 61.0% | 28.6% | 36.7% | 69.9% | 48.1% | 82.3% | 65.1% | 72.7% |
-| 0.45 | 18.8% | 60.1% | 28.6% | 37.3% | 69.2% | 48.4% | 82.7% | 63.0% | 71.5% |
-| 0.50 | 19.5% | 57.2% | 29.0% | 38.3% | 67.8% | 49.0% | 84.4% | 59.0% | 69.5% |
-| 0.55 | 20.1% | 48.6% | 28.5% | 39.9% | 62.9% | 48.8% | 87.8% | 52.9% | 66.1% |
-| 0.60 | 21.7% | 40.5% | 28.2% | 42.8% | 55.0% | 48.2% | 93.2% | 46.2% | 61.8% |
-| 0.65 | 23.3% | 35.1% | 28.0% | 46.9% | 47.5% | 47.2% | 93.6% | 39.5% | 55.6% |
-| 0.70 | 23.4% | 26.9% | 25.0% | 52.9% | 36.6% | 43.2% | 95.5% | 26.6% | 41.6% |
-| 0.75 | 23.2% | 18.8% | 20.8% | 55.2% | 24.6% | 34.0% | 96.9% | 13.2% | 23.2% |
-| 0.80 | 20.7% | 9.8% | 13.3% | 53.1% | 11.2% | 18.5% | 95.2% | 4.2% | 8.0% |
+| 0.30 | 18.6% | 65.7% | 29.0% | 36.3% | 70.7% | 47.9% | 81.1% | 66.3% | 73.0% |
+| 0.35 | 18.6% | 65.5% | 29.0% | 36.3% | 70.5% | 48.0% | 81.0% | 65.9% | 72.7% |
+| 0.40 | 18.6% | 65.3% | 28.9% | 36.6% | 70.3% | 48.2% | 80.7% | 64.9% | 71.9% |
+| 0.45 | 18.6% | 64.2% | 28.8% | 37.2% | 69.5% | 48.5% | 81.4% | 63.2% | 71.1% |
+| 0.50 | 18.7% | 59.1% | 28.4% | 38.5% | 67.2% | 49.0% | 83.1% | 58.8% | 68.9% |
+| 0.55 | 20.2% | 50.9% | 29.0% | 40.1% | 61.6% | 48.6% | 87.8% | 52.9% | 66.1% |
+| 0.60 | 21.7% | 41.6% | 28.5% | 43.4% | 53.2% | 47.8% | 94.0% | 46.0% | 61.8% |
+| 0.65 | 23.9% | 35.8% | 28.7% | 49.3% | 46.4% | 47.8% | 94.8% | 37.9% | 54.1% |
+| 0.70 | 24.8% | 28.3% | 26.4% | 55.1% | 35.5% | 43.2% | 96.0% | 25.1% | 39.8% |
+| 0.75 | 23.4% | 18.8% | 20.8% | 58.4% | 23.0% | 33.0% | 95.4% | 13.0% | 22.8% |
+| 0.80 | 22.3% | 10.8% | 14.6% | 57.9% | 11.1% | 18.6% | 93.3% | 2.9% | 5.7% |
 
 ## Labels per area
 
@@ -76,11 +76,11 @@ Review "full": every window checked by eye and missed pools boxed by hand. "cand
 
 | area | role | review | pool labels | points | hand-added | ignored | absent | tiles |
 |---|---|---|--:|--:|--:|--:|--:|--:|
-| Vilamoura, PT | DEV | full | 69 | 0 | 3 | 19 | 0 | 342 |
+| Vilamoura, PT | DEV | full | 68 | 0 | 3 | 20 | 1 | 342 |
 | Scottsdale, AZ, US | DEV | full | 78 | 3 | 72 | 14 | 0 | 196 |
 | Odemira greenhouses, Alentejo, PT | DEV | full | 0 | 0 | 0 | 0 | 0 | 342 |
-| Puyricard, Aix-en-Provence, FR | DEV | full | 100 | 0 | 38 | 24 | 0 | 420 |
-| Balma, Toulouse, FR | DEV | full | 66 | 0 | 17 | 46 | 0 | 441 |
+| Puyricard, Aix-en-Provence, FR | DEV | full | 79 | 0 | 31 | 45 | 21 | 420 |
+| Balma, Toulouse, FR | DEV | full | 61 | 0 | 16 | 51 | 5 | 441 |
 | Braga, PT | DEV | blind | 166 | 0 | 91 | 45 | 0 | 400 |
 | Marbella, ES | DEV-2 | candidates | 151 | 105 | 26 | 37 | 0 | 361 |
 | Birre, Cascais, PT | DEV-2 | full | 149 | 0 | 141 | 35 | 0 | 225 |
@@ -97,22 +97,22 @@ Review "full": every window checked by eye and missed pools boxed by hand. "cand
 
 | area | FP unlabelled | FP duplicate | FN below threshold | FN partial overlap | FN not detected |
 |---|--:|--:|--:|--:|--:|
-| Vilamoura, PT | 52 | 1 | 15 | 4 | 19 |
-| Scottsdale, AZ, US | 9 | 0 | 0 | 1 | 23 |
-| Odemira greenhouses, Alentejo, PT | 140 | 0 | 0 | 0 | 0 |
-| Puyricard, Aix-en-Provence, FR | 279 | 1 | 7 | 0 | 46 |
-| Balma, Toulouse, FR | 6 | 1 | 13 | 0 | 33 |
-| Braga, PT | 435 | 0 | 28 | 3 | 54 |
-| Marbella, ES | 37 | 1 | 17 | 10 | 25 |
-| Birre, Cascais, PT | 384 | 0 | 8 | 11 | 16 |
-| Santa Barbara de Nexe, Algarve interior, PT | 46 | 1 | 4 | 3 | 18 |
-| Castelnau-le-Lez, Montpellier, FR | 226 | 1 | 22 | 4 | 86 |
-| Arcadia, Phoenix, AZ, US | 19 | 0 | 7 | 2 | 49 |
-| Mougins, FR (gold) | 2 | 0 | 4 | 5 | 6 |
-| Grabels, FR (gold) | 28 | 0 | 15 | 1 | 58 |
-| Pozuelo de Alarcon, ES (gold) | 3 | 0 | 17 | 2 | 32 |
+| Vilamoura, PT | 48 | 1 | 16 | 4 | 17 |
+| Scottsdale, AZ, US | 10 | 0 | 1 | 1 | 23 |
+| Odemira greenhouses, Alentejo, PT | 128 | 0 | 0 | 0 | 0 |
+| Puyricard, Aix-en-Provence, FR | 288 | 1 | 7 | 1 | 24 |
+| Balma, Toulouse, FR | 7 | 1 | 16 | 0 | 25 |
+| Braga, PT | 422 | 0 | 30 | 3 | 54 |
+| Marbella, ES | 36 | 1 | 20 | 9 | 25 |
+| Birre, Cascais, PT | 359 | 0 | 10 | 10 | 16 |
+| Santa Barbara de Nexe, Algarve interior, PT | 33 | 1 | 4 | 3 | 17 |
+| Castelnau-le-Lez, Montpellier, FR | 242 | 1 | 28 | 6 | 84 |
+| Arcadia, Phoenix, AZ, US | 22 | 0 | 8 | 3 | 49 |
+| Mougins, FR (gold) | 2 | 0 | 5 | 5 | 6 |
+| Grabels, FR (gold) | 27 | 0 | 13 | 3 | 56 |
+| Pozuelo de Alarcon, ES (gold) | 4 | 0 | 15 | 3 | 31 |
 | Mougins, FR (gold, Esri) | 0 | 0 | 5 | 0 | 11 |
-| Pozuelo de Alarcon, ES (gold, Esri) | 2 | 0 | 26 | 8 | 35 |
+| Pozuelo de Alarcon, ES (gold, Esri) | 2 | 0 | 28 | 8 | 36 |
 
 ## Where undetected pools were lost (core pipeline)
 
@@ -120,13 +120,13 @@ For every missed label with no detection on it, the first pipeline stage that dr
 
 | stage | DEV | DEV-2 | GOLD |
 |---|--:|--:|--:|
-| colour gate: pale water (low saturation) | 81 | 68 | 63 |
-| colour gate: dull green or grey water | 39 | 68 | 3 |
-| size/shape filter or merger | 27 | 13 | 43 |
-| colour gate: turquoise-green water (green above blue) | 8 | 25 | 10 |
-| colour gate: dark water | 2 | 10 | 9 |
-| colour gate: deep blue water (hue above the band) | 12 | 5 | 2 |
-| texture ceiling | 2 | 1 | 6 |
-| mask cleanup (pixels pass, shape lost) | 3 | 3 | 0 |
-| texture ceiling (and low confidence) | 1 | 1 | 3 |
+| colour gate: pale water (low saturation) | 66 | 65 | 64 |
+| colour gate: dull green or grey water | 26 | 66 | 3 |
+| texture ceiling (and low confidence) | 20 | 11 | 20 |
+| colour gate: turquoise-green water (green above blue) | 9 | 24 | 10 |
+| texture ceiling | 5 | 6 | 15 |
+| colour gate: dark water | 2 | 10 | 10 |
+| colour gate: deep blue water (hue above the band) | 10 | 6 | 2 |
+| size/shape filter or merger | 3 | 0 | 11 |
+| mask cleanup (pixels pass, shape lost) | 2 | 3 | 2 |
 | colour gate: no pixels | 0 | 0 | 3 |

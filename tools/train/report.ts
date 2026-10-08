@@ -3,7 +3,10 @@
  * shipped model, GOLD also on the whole mosaic (P8).
  *
  *   npx tsx tools/train/report.ts --rows <calibration rows.json> --uncal <uncalibrated model.json> --out <dir>
- *       [--zones dev,dev-2,gold] [--model <calibrated model.json>] [--python <exe>] [--cache <dir>] [--offline]
+ *       [--zones dev,dev-2,gold] [--model <calibrated model.json>] [--work <dir>] [--python <exe>] [--cache <dir>] [--offline]
+ *
+ * Writes report.json and report.md to --out; the models calibrated without
+ * each DEV zone and the tile manifest go to --work (default: a temp folder).
  *
  * Every DEV zone is scored with the calibration and thresholds fitted on the
  * other calibration zones (calibrate.py --exclude), so no DEV number comes
@@ -14,6 +17,7 @@
 import { execFileSync, execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defaultThreshold, sourceFamily, type PoolModel } from '@marco-polo/core';
@@ -54,7 +58,9 @@ async function main() {
   const shipped = JSON.parse(readFileSync(modelPath, 'utf8')) as PoolModel;
   const problems = checkFrozen(LABELS_DIR, zones.map((z) => z.id));
   if (problems.length) throw new Error(`labels differ from labels.sha256: ${problems.map((p) => `${p.zone}/${p.file}`).join(', ')}`);
-  mkdirSync(join(out, 'oof'), { recursive: true });
+  const work = resolve(arg('work', join(tmpdir(), 'marco-polo-report')));
+  mkdirSync(join(work, 'oof'), { recursive: true });
+  mkdirSync(out, { recursive: true });
 
   const sources = new Map<SourceId, TileSource>();
   const results: ZoneResult[] = [];
@@ -73,7 +79,7 @@ async function main() {
     let modelName = 'pool-v2.json';
     if (z.role === 'DEV') {
       if (!rows.zones.includes(z.id)) throw new Error(`${z.id} is a DEV zone but not a calibration zone`);
-      const file = join(out, 'oof', `${z.id}.json`);
+      const file = join(work, 'oof', `${z.id}.json`);
       execFileSync(python, ['-I', join(HERE, 'calibrate.py'), '--rows', rowsPath, '--model', uncal, '--out', file, '--exclude', z.id], { stdio: 'pipe' });
       model = JSON.parse(readFileSync(file, 'utf8')) as PoolModel;
       modelName = `calibrated without ${z.id}`;
@@ -142,7 +148,7 @@ async function main() {
   ].join('\n');
   writeFileSync(join(out, 'report.json'), JSON.stringify(json, null, 1));
   writeFileSync(join(out, 'report.md'), md);
-  writeFileSync(join(out, 'tiles.manifest'), manifest.map(([u, h]) => `${h} ${u}`).join('\n') + '\n');
+  writeFileSync(join(work, 'tiles.manifest'), manifest.map(([u, h]) => `${h} ${u}`).join('\n') + '\n');
   for (const [k, s] of Object.entries(json.groups)) {
     console.log(`${k}: P ${pct(s.scores.precision)} R ${pct(s.scores.recall)} F1 ${pct(s.scores.f1)} [${pct(s.ci.f1.lo)}, ${pct(s.ci.f1.hi)}] (TP ${s.counts.tpLabels}, FP ${s.counts.fp}, FN ${s.counts.fn})`);
   }

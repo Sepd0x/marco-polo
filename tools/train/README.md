@@ -28,7 +28,7 @@ python -I tools/train/calibrate.py --rows <work>/rows-seed0.json --model <work>/
 
 # 5. DEV out of fold, DEV-2 and GOLD with the shipped model, GOLD as one mosaic too (P8)
 npx tsx tools/train/report.ts --rows <work>/rows-seed0.json --uncal <work>/model-seed0.json \
-  --python <python> --out packages/eval/results/v2
+  --python <python> --out packages/eval/results/v2 --work <work>/report
 ```
 
 Calibration zones are the DEV zones of each family plus the Pozuelo gold zone
