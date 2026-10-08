@@ -1,0 +1,81 @@
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+#map canvas {
+  outline: none;
+}
+
+#map.drawing .maplibregl-canvas-container {
+  cursor: crosshair !important;
+}
+
+#map .maplibregl-ctrl-attrib {
+  font: 12px/1.4 var(--sans);
+  background: color-mix(in srgb, var(--panel) 86%, transparent);
+  color: var(--ink-2);
+}
+
+#map .maplibregl-ctrl-attrib a {
+  color: var(--ink-2);
+}
+
+#map .maplibregl-ctrl-attrib-button {
+  background-color: var(--panel);
+}
+
+@media (max-width: 700px) {
+  #map .maplibregl-ctrl-bottom-left,
+  #map .maplibregl-ctrl-bottom-right {
+    bottom: var(--sheet-h, 0px);
+  }
+}
+
+/*
+ * DOM markers, until the map draws pools as GL layers. No `position` here:
+ * MapLibre places the marker element itself and overriding it makes markers
+ * drift on zoom.
+ */
+.det-marker {
+  width: 11px;
+  height: 11px;
+  cursor: pointer;
+}
+
+.det-marker .core {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: var(--pool);
+  box-shadow: 0 0 0 1.5px var(--casing);
+}
+
+.det-marker.selected .core,
+.det-marker:hover .core {
+  inset: 0;
+}
+
+.det-marker .ping {
+  display: none;
+}
+
+.det-marker .rank-chip {
+  position: absolute;
+  left: 14px;
+  top: -6px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 5px;
+  font: 600 12px/20px var(--sans);
+  background: var(--pool);
+  color: var(--pool-ink);
+  box-shadow: 0 0 0 1px var(--casing);
+  white-space: nowrap;
+}
+
+.det-marker.selected .rank-chip {
+  background: var(--casing);
+  color: var(--pool);
+  box-shadow: 0 0 0 1px var(--pool);
+}

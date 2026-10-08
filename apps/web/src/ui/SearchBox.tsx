@@ -1,82 +1,86 @@
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { emit } from '../lib/bus.js';
-
-interface Result {
-  display_name: string;
-  boundingbox: [string, string, string, string]; // south, north, west, east
-  lat: string;
-  lon: string;
-}
+import { IconSearch } from './icons.js';
+import { nominatimUrl, parseCoordinates, parseNominatim, type Place } from './search.js';
 
 /**
- * Place search via Nominatim (OpenStreetMap). Queries fire on Enter only, in
- * line with the public usage policy — this is navigation, not autocomplete.
+ * Place search through Nominatim (OpenStreetMap). A query goes out on Enter
+ * only, as its usage policy asks; coordinates never leave the page.
  */
-export function SearchBox() {
+export function SearchBox({ placeholder = 'Search a place or paste coordinates' }: { placeholder?: string }) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Result[] | null>(null);
-  const [busy, setBusy] = useState(false);
+  const [results, setResults] = useState<Place[] | null>(null);
+  const [status, setStatus] = useState<'idle' | 'busy' | 'failed'>('idle');
   const inputRef = useRef<HTMLInputElement>(null);
+  const listId = useId();
 
-  async function search() {
-    const q = query.trim();
-    if (!q || busy) return;
-    // Direct coordinates ("lat, lon") skip geocoding entirely.
-    const coord = /^(-?\d{1,2}(?:\.\d+)?)[,\s]+(-?\d{1,3}(?:\.\d+)?)$/.exec(q);
-    if (coord) {
-      const lat = Number(coord[1]);
-      const lon = Number(coord[2]);
-      if (Math.abs(lat) <= 85 && Math.abs(lon) <= 180) {
-        emit('flyto', { center: [lon, lat], zoom: 16 });
-        setQuery('');
-        inputRef.current?.blur();
-        return;
-      }
-    }
-    setBusy(true);
-    try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&q=${encodeURIComponent(q)}`,
-        { headers: { Accept: 'application/json' } },
-      );
-      setResults((await res.json()) as Result[]);
-    } catch {
-      setResults([]);
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  function pick(r: Result) {
-    const [s, n, w, e] = r.boundingbox.map(Number);
-    emit('flyto', { bbox: [w, s, e, n] });
+  const done = () => {
     setResults(null);
     setQuery('');
     inputRef.current?.blur();
+  };
+
+  async function search() {
+    const q = query.trim();
+    if (!q || status === 'busy') return;
+    const coords = parseCoordinates(q);
+    if (coords) {
+      emit('flyto', { center: [coords.lon, coords.lat], zoom: 17 });
+      done();
+      return;
+    }
+    setStatus('busy');
+    try {
+      const res = await fetch(nominatimUrl(q), { headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      setResults(parseNominatim(await res.json()));
+      setStatus('idle');
+    } catch {
+      setResults([]);
+      setStatus('failed');
+    }
+  }
+
+  function pick(p: Place) {
+    if (p.bbox) emit('flyto', { bbox: p.bbox });
+    else emit('flyto', { center: [p.lon, p.lat], zoom: 16 });
+    done();
   }
 
   return (
-    <div className="search-wrap">
-      <input
-        ref={inputRef}
-        className="field"
-        placeholder={busy ? 'searching…' : 'goto place / lat,lon ⏎'}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') void search();
-          if (e.key === 'Escape') setResults(null);
-        }}
-      />
+    <div className="search">
+      <label className="search-field">
+        <span className="sr-only">Search a place</span>
+        <IconSearch />
+        <input
+          ref={inputRef}
+          type="search"
+          placeholder={status === 'busy' ? 'Searching' : placeholder}
+          value={query}
+          autoComplete="off"
+          aria-controls={results ? listId : undefined}
+          aria-expanded={results ? true : undefined}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') void search();
+            if (e.key === 'Escape') {
+              e.stopPropagation();
+              setResults(null);
+            }
+          }}
+        />
+      </label>
       {results && (
-        <div className="search-results panel">
-          {results.length === 0 && <div className="credit">no results</div>}
+        <div className="search-results" id={listId}>
+          {results.length === 0 && (
+            <p className="note">{status === 'failed' ? 'The search did not answer. Try again.' : 'No places found.'}</p>
+          )}
           {results.map((r, i) => (
-            <button key={i} onClick={() => pick(r)}>
-              {r.display_name}
+            <button key={i} className="result" onClick={() => pick(r)}>
+              {r.name}
             </button>
           ))}
-          <div className="credit">search © OpenStreetMap / Nominatim</div>
+          <p className="credit">Search by OpenStreetMap Nominatim</p>
         </div>
       )}
     </div>
