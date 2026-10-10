@@ -7,7 +7,10 @@ const EMPTY: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: 
 /** Plans larger than this draw no grid (it would be a grey smear anyway). */
 const GRID_LIMIT = 6000;
 
-const LINE = '#f4f6f8';
+const LINE = '#ffffff';
+
+/** Veil colour until the page tells the overlay the theme's ground colour. */
+const VEIL = '#efefec';
 
 /** The whole world, for the darkened outside of the area. */
 const WORLD: GeoJSON.Position[] = [
@@ -73,15 +76,15 @@ export class ScanOverlay {
         id: 'outside-fill',
         type: 'fill',
         source: 'outside',
-        paint: { 'fill-color': '#05070a', 'fill-opacity': 0, 'fill-opacity-transition': { duration: 400, delay: 0 } },
+        paint: { 'fill-color': VEIL, 'fill-opacity': 0.5, 'fill-opacity-transition': { duration: 400, delay: 0 } },
       },
       {
         id: 'plan-veil',
         type: 'fill',
         source: 'plan',
         paint: {
-          'fill-color': '#0b0f14',
-          'fill-opacity': ['case', done, 0, 0.32],
+          'fill-color': VEIL,
+          'fill-opacity': ['case', done, 0, 0.4],
         },
       },
       {
@@ -100,14 +103,14 @@ export class ScanOverlay {
         type: 'line',
         source: 'area',
         layout: { 'line-join': 'round', 'line-cap': 'round' },
-        paint: { 'line-color': OUTLINE_CASING, 'line-opacity': 0.7, 'line-width': 3.5 },
+        paint: { 'line-color': OUTLINE_CASING, 'line-opacity': 0.5, 'line-width': 3 },
       },
       {
         id: 'area-line',
         type: 'line',
         source: 'area',
         layout: { 'line-join': 'round', 'line-cap': 'round' },
-        paint: { 'line-color': LINE, 'line-width': 1.5 },
+        paint: { 'line-color': LINE, 'line-width': 1.25 },
       },
       {
         id: 'current-line',
@@ -119,7 +122,7 @@ export class ScanOverlay {
         id: 'det-fill',
         type: 'fill',
         source: 'detections',
-        paint: { 'fill-color': POOL_OUTLINE, 'fill-opacity': ['case', selected, 0.25, 0] },
+        paint: { 'fill-color': POOL_OUTLINE, 'fill-opacity': ['case', selected, 0.18, 0] },
       },
       {
         id: 'det-casing',
@@ -128,8 +131,7 @@ export class ScanOverlay {
         layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
           'line-color': OUTLINE_CASING,
-          'line-opacity': 0.85,
-          'line-width': ['case', selected, 5.5, 4],
+          'line-width': ['case', selected, 5.5, 3.5],
         },
       },
       {
@@ -139,7 +141,7 @@ export class ScanOverlay {
         layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
           'line-color': POOL_OUTLINE,
-          'line-width': ['case', selected, 2.6, ['==', ['get', 'kind'], 'hot_tub'], 1.2, 1.7],
+          'line-width': ['case', selected, 2.75, ['==', ['get', 'kind'], 'hot_tub'], 1.25, 1.75],
         },
       },
       {
@@ -227,15 +229,21 @@ export class ScanOverlay {
   }
 
   /**
-   * End of a scan: the grid and the veil go, the outside of the area darkens.
-   * Off again for a new area or scan.
+   * End of a scan: the grid and the tile veil go, and the veil outside the
+   * area thickens. Off again for a new area or scan.
    */
   setComplete(on: boolean): void {
     if (on === this.complete) return;
     this.complete = on;
     const vis = on ? 'none' : 'visible';
     for (const id of ['plan-veil', 'plan-line', 'current-line']) this.map.setLayoutProperty(id, 'visibility', vis);
-    this.map.setPaintProperty('outside-fill', 'fill-opacity', on ? 0.45 : 0);
+    this.map.setPaintProperty('outside-fill', 'fill-opacity', on ? 0.6 : 0.5);
+  }
+
+  /** Veil colour: the ground colour of the page theme, like the mask of a light table. */
+  setVeil(colour: string): void {
+    this.map.setPaintProperty('outside-fill', 'fill-color', colour);
+    this.map.setPaintProperty('plan-veil', 'fill-color', colour);
   }
 
   setDetections(list: RankedDetection[], selectedId: string | null): void {

@@ -1,10 +1,13 @@
 /**
- * Colour of the pool outlines. It is the candidate whose smallest CIEDE2000
- * difference against real surfaces (pool water, roof tiles, grass, sampled
- * from DGT, PNOA and IGN tiles) is the largest. The test in
- * test/map/outline.test.ts recomputes this from the samples and fails if
- * another candidate wins. A dark casing under the line handles bright and
- * pale ground.
+ * Colour of the pool outlines and the tools to measure a candidate colour
+ * against real surfaces (pool water, roof tiles, grass, sampled from DGT,
+ * PNOA and IGN tiles) with CIEDE2000.
+ *
+ * The outline is the magenta of the design (#FF52FF) over a dark casing
+ * (#140814). On these samples it keeps a difference above 30 from roof tiles
+ * and above 40 from grass. Against water it comes closer (about 17, the lime
+ * used before kept about 31), so the casing carries the edge there.
+ * test/map/outline.test.ts pins these numbers.
  */
 
 export type Rgb = readonly [number, number, number];
@@ -14,18 +17,17 @@ export const OUTLINE_CANDIDATES: readonly string[] = [
   '#ffffff',
   '#ffe14d',
   '#c6ff3d',
-  '#ff3df2',
+  '#ff52ff',
   '#ff8a1f',
   '#ff3b3b',
   '#3de8ff',
   '#a970ff',
 ];
 
-/** Picked from OUTLINE_CANDIDATES by `pickOutlineColour`; kept as a constant so the map does not recompute it. */
-export const POOL_OUTLINE = '#c6ff3d';
+export const POOL_OUTLINE = '#ff52ff';
 
 /** Dark line drawn under every outline. */
-export const OUTLINE_CASING = '#0b0f14';
+export const OUTLINE_CASING = '#140814';
 
 export function hexToRgb(hex: string): Rgb {
   const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex);

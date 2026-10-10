@@ -45,15 +45,23 @@ describe('outline colour', () => {
     expect([...new Set(samples.map((s) => s.source))].sort()).toEqual(['dgt', 'ign', 'pnoa']);
   });
 
-  it('is the candidate with the largest worst-case difference against the samples', () => {
-    expect(POOL_OUTLINE).toBe(pickOutlineColour(OUTLINE_CANDIDATES, samples));
+  it('is the magenta of the design, over a dark casing', async () => {
+    const { OUTLINE_CASING } = await import('../../src/map/outline.js');
+    expect(POOL_OUTLINE).toBe('#ff52ff');
+    expect(OUTLINE_CASING).toBe('#140814');
   });
 
-  it('beats the cyan and orange used before', () => {
+  it('keeps clear of roof tiles and grass; the casing carries it on water', () => {
+    const s = scoreOutlineColours([POOL_OUTLINE], samples)[0];
+    expect(s.byClass.roof).toBeGreaterThan(30);
+    expect(s.byClass.grass).toBeGreaterThan(40);
+    expect(s.worst).toBeGreaterThan(15);
+  });
+
+  it('ranks the candidates by their worst-case difference', () => {
     const scores = scoreOutlineColours(OUTLINE_CANDIDATES, samples);
-    const of = (c: string) => scores.find((s) => s.colour === c)!.worst;
-    expect(of(POOL_OUTLINE)).toBeGreaterThan(of('#3de8ff'));
-    expect(of(POOL_OUTLINE)).toBeGreaterThan(of('#ff8a1f'));
+    expect(scores.map((x) => x.worst)).toEqual([...scores.map((x) => x.worst)].sort((a, b) => b - a));
+    expect(pickOutlineColour(OUTLINE_CANDIDATES, samples)).toBe(scores[0].colour);
   });
 
   it('rejects malformed colours', () => {
