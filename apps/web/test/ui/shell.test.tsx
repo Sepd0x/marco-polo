@@ -136,7 +136,10 @@ describe('one count', () => {
     const text = q('.summary')!.textContent!;
     expect(text).toContain('Nothing was scanned');
     expect(text).not.toMatch(/scanned\b.*ha|0\.0 m²|None below/);
-    expect(q('.list-sec .note')!.textContent).toBe('Nothing was scanned.');
+    // Said once: no slider and no list when there is nothing to filter or list.
+    expect(m!.host.textContent!.match(/Nothing was scanned/g)).toHaveLength(1);
+    expect(q('.threshold')).toBeNull();
+    expect(q('.list-sec')).toBeNull();
   });
 });
 

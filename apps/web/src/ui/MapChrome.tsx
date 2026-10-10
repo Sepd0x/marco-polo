@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { IMAGERY_PROVIDERS, coverageContains, coversArea, findAnyProvider, ringBBox, type ImageryProvider } from '@marco-polo/core';
 import { useStore } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
-import { formatCaptureDate, formatCount, formatLandArea, formatResolution, plural } from '../lib/format.js';
+import { formatCaptureDate, formatCount, formatLandArea, formatLength, formatResolution, plural } from '../lib/format.js';
 import { formatDegrees, metresPerPixel, scaleFor } from '../map/frame.js';
 import { sourceKind } from './model.js';
 import { useAreaFacts, useMapView, useScanSources, useTileCounts } from './hooks.js';
@@ -139,7 +139,7 @@ function CursorCell() {
       drafting = d != null;
       label.current.textContent = d ? 'Drawing' : 'Cursor';
       if (d) {
-        const size = d.widthM != null && d.heightM != null ? `${formatCount(d.widthM)} × ${formatCount(d.heightM)} m, ` : '';
+        const size = d.widthM != null && d.heightM != null ? `${formatLength(d.widthM)} × ${formatLength(d.heightM)}, ` : '';
         value.current.textContent = `${size}${formatLandArea(d.areaM2)}`;
       } else {
         // The shape is done: back to where the pointer is.

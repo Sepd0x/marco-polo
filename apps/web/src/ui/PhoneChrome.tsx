@@ -4,6 +4,7 @@ import { SearchBox } from './SearchBox.js';
 import { ImageryNotice } from './Notice.js';
 import { AreaSection, DrawSection, ListSection, ProgressSection, SavedScans, SummarySection, ThresholdSection } from './Sections.js';
 import { useUi } from './uiState.js';
+import { useNothingScanned } from './hooks.js';
 import { IconSliders, Mark } from './icons.js';
 
 /** Phone: the mark, the search and the settings above the framed map. */
@@ -30,6 +31,7 @@ export function PhoneSheet() {
   const phase = useStore((s) => s.phase);
   const [collapsed, setCollapsed] = useState(false);
   const live = phase === 'scanning' || phase === 'paused';
+  const nothing = useNothingScanned();
 
   let body;
   if (phase === 'idle') {
@@ -52,8 +54,12 @@ export function PhoneSheet() {
     body = (
       <>
         <SummarySection phone />
-        <ThresholdSection phone />
-        <ListSection phone />
+        {!nothing && (
+          <>
+            <ThresholdSection phone />
+            <ListSection phone />
+          </>
+        )}
       </>
     );
   }

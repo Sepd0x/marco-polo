@@ -4,7 +4,6 @@ import {
   areaFacts,
   cellStates,
   chaikin,
-  chipSource,
   dimsOf,
   newestId,
   sortPools,
@@ -118,12 +117,6 @@ describe('area facts', () => {
   it('blocks an area over the limit', () => {
     const big = viewRing([-8.3, 37.0, -8.0, 37.2], 0);
     expect(areaFacts(big, { mode: 'auto' }, 5).level).toBe('block');
-  });
-
-  it('labels the chip with the fixed choice or with what auto picks here', () => {
-    expect(chipSource({ mode: 'fixed', providerId: ESRI_WORLD_IMAGERY.id }, null)?.id).toBe(ESRI_WORLD_IMAGERY.id);
-    expect(chipSource({ mode: 'auto' }, VILAMOURA)?.id).toBe('dgt-ortos2025');
-    expect(chipSource({ mode: 'auto' }, { lat: 33.59, lon: -111.93 })?.id).toBe(ESRI_WORLD_IMAGERY.id);
   });
 });
 

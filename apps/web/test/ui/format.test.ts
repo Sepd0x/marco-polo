@@ -6,6 +6,7 @@ import {
   formatDims,
   formatDuration,
   formatLandArea,
+  formatLength,
   formatResolution,
   formatScore,
   formatTimeLeft,
@@ -29,6 +30,13 @@ describe('format', () => {
   it('writes the drawn area in hectares or square kilometres', () => {
     expect(formatLandArea(131_000)).toBe('13.1 ha');
     expect(formatLandArea(2_350_000)).toBe('2.35 km²');
+    expect(formatLandArea(211_296_480_000)).toBe('211,296 km²');
+  });
+
+  it('writes ground lengths in metres, then kilometres', () => {
+    expect(formatLength(64.4)).toBe('64 m');
+    expect(formatLength(2345)).toBe('2.35 km');
+    expect(formatLength(505_340)).toBe('505 km');
   });
 
   it('gives measured sizes from the outline and says when there is none', () => {

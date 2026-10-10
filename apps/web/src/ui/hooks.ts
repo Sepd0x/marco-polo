@@ -7,7 +7,9 @@ import { partSummary, provenanceOf, type RankedDetection } from '@marco-polo/cor
 import { partProvenance } from '../lib/export.js';
 import { cutoffFn } from '../lib/score.js';
 
-export const PHONE_QUERY = '(max-width: 700px)';
+import { PHONE_QUERY } from '../lib/media.js';
+
+export { PHONE_QUERY };
 
 function matches(query: string): boolean {
   try {
@@ -132,6 +134,13 @@ export interface TileCounts {
   ok: number;
   missing: number;
   stopped: boolean;
+}
+
+/** A scan stopped before its first tile: nothing to filter or list. */
+export function useNothingScanned(): boolean {
+  const phase = useStore((s) => s.phase);
+  const t = useTileCounts();
+  return phase === 'complete' && t.stopped && t.done === 0;
 }
 
 /** Tile counts of the scan, the one source of every tile number in the interface. */

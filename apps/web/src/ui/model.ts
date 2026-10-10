@@ -7,7 +7,6 @@ import {
   findAnyProvider,
   measuredDims,
   metersPerPixelOfBitmap,
-  pickProvider,
   PLAN_LIMITS,
   rankDetections,
   ringAreaM2,
@@ -229,12 +228,6 @@ export function scannedSources(parts: ScanPartSummary[], ratePerSec: number): So
     out.push({ ...base, noCoverage: part.tilesNoCoverage });
   }
   return out;
-}
-
-/** The source the imagery chip names: the fixed choice, or what `auto` picks at a point. */
-export function chipSource(imagery: ImagerySetting, point: { lon: number; lat: number } | null): ImageryProvider | null {
-  if (imagery.mode === 'fixed') return findAnyProvider(imagery.providerId) ?? null;
-  return point ? pickProvider(point, imagery) : null;
 }
 
 export interface ThumbImage {

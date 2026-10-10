@@ -1396,6 +1396,18 @@ input[type='range']::-moz-range-thumb {
   background: var(--ink);
 }
 
+@media (forced-colors: active) {
+  .opt input[type='radio'] {
+    forced-color-adjust: none;
+    border-color: CanvasText;
+    background: Canvas;
+  }
+
+  .opt input[type='radio']:checked::after {
+    background: CanvasText;
+  }
+}
+
 .opt input[type='radio']:disabled {
   opacity: 0.45;
   cursor: default;

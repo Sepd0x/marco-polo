@@ -571,13 +571,11 @@ export function ListSection({ limit, phone = false }: { limit?: number; phone?: 
         <p className="note">
           {live
             ? 'No pools yet. They appear here as tiles finish.'
-            : tiles.stopped && tiles.done === 0
-              ? 'Nothing was scanned.'
-              : below > 0
-                ? `No pools at or above ${formatScore(minScore)}.`
-                : tiles.stopped
-                  ? 'No pools in the part scanned.'
-                  : 'No pools in this area.'}
+            : below > 0
+              ? `No pools at or above ${formatScore(minScore)}.`
+              : tiles.stopped
+                ? 'No pools in the part scanned.'
+                : 'No pools in this area.'}
         </p>
       )}
       <PoolList pools={list} newest={newest} label="Pools" limit={limit} />
