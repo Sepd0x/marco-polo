@@ -59,6 +59,37 @@ export function zoneWindows(zone: Pick<Zone, 'bbox'>): WindowDef[] {
   return out;
 }
 
+/**
+ * Whether a box lies on the ground a set of windows shows. `centre`: its
+ * centre falls in one of them. `touches`: any part of it does. The second
+ * pass only sees its own windows, so all its boxes lie inside them; a first
+ * pass box of a pool cut by a window edge can have its centre in the
+ * neighbouring window while the second pass boxed the part it saw.
+ */
+export function seenInWindows(b: BBox, windows: WindowDef[], mode: 'centre' | 'touches'): boolean {
+  const x0 = lonToWorldX(b.west, Z), x1 = lonToWorldX(b.east, Z);
+  const y0 = latToWorldY(b.north, Z), y1 = latToWorldY(b.south, Z);
+  if (mode === 'centre') {
+    const x = (x0 + x1) / 2, y = (y0 + y1) / 2;
+    return windows.some((w) => x >= w.x0 && x < w.x0 + w.size && y >= w.y0 && y < w.y0 + w.size);
+  }
+  return windows.some((w) => x1 > w.x0 && x0 < w.x0 + w.size && y1 > w.y0 && y0 < w.y0 + w.size);
+}
+
+/** Share of a box inside a set of windows, from a 10 x 10 grid of sample points. */
+export function shareInWindows(b: BBox, windows: WindowDef[]): number {
+  const x0 = lonToWorldX(b.west, Z), x1 = lonToWorldX(b.east, Z);
+  const y0 = latToWorldY(b.north, Z), y1 = latToWorldY(b.south, Z);
+  let n = 0;
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      const x = x0 + ((i + 0.5) / 10) * (x1 - x0), y = y0 + ((j + 0.5) / 10) * (y1 - y0);
+      if (windows.some((w) => x >= w.x0 && x < w.x0 + w.size && y >= w.y0 && y < w.y0 + w.size)) n++;
+    }
+  }
+  return n / 100;
+}
+
 /** The windows of the second pass: the first 20% by sha256 of zone and window id. */
 export function secondPassWindows(zone: string, windows: WindowDef[], share = SECOND_PASS_SHARE): string[] {
   const k = Math.ceil(windows.length * share);
@@ -168,20 +199,24 @@ export function dedupeBoxes(boxes: GeoBox[]): GeoBox[] {
  * Agreement of two passes over the same windows. Unsure boxes on either side
  * are "don't care": a pool box that meets one is left out of both counts.
  */
-export function agreement(a: GeoBox[], b: GeoBox[]): { matched: number; onlyA: number; onlyB: number; f1: number | null } {
+export function agreement(a: GeoBox[], b: GeoBox[], countOnlyA: (x: GeoBox) => boolean = () => true): { matched: number; onlyA: number; onlyB: number; f1: number | null } {
   const pa = a.filter((x) => x.kind === 'p' && !b.some((y) => y.kind === 'u' && sameObject(x.bbox, y.bbox)));
   const pb = b.filter((x) => x.kind === 'p' && !a.some((y) => y.kind === 'u' && sameObject(x.bbox, y.bbox)));
   const used = new Set<number>();
   let matched = 0;
+  let onlyA = 0;
   for (const x of pa) {
     const j = pb.findIndex((y, k) => !used.has(k) && sameObject(x.bbox, y.bbox));
     if (j >= 0) {
       used.add(j);
       matched++;
+    } else if (countOnlyA(x)) {
+      onlyA++;
     }
   }
-  const n = pa.length + pb.length;
-  return { matched, onlyA: pa.length - matched, onlyB: pb.length - matched, f1: n ? (2 * matched) / n : null };
+  const onlyB = pb.length - matched;
+  const n = 2 * matched + onlyA + onlyB;
+  return { matched, onlyA, onlyB, f1: n ? (2 * matched) / n : null };
 }
 
 export function boxFeature(b: BBox, id: string, role: 'pool' | 'ignore', props: Partial<LabelFeature['properties']> = {}): LabelFeature {

@@ -2,7 +2,8 @@ import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { agreement, dedupeBoxes, secondPassWindows, zoneWindows, type GeoBox } from '../src/blind.js';
+import { worldXToLon, worldYToLat } from '@marco-polo/core';
+import { agreement, dedupeBoxes, secondPassWindows, seenInWindows, shareInWindows, zoneWindows, type GeoBox } from '../src/blind.js';
 import { blockKey, bootstrapCI, drawBlocks, emptyBlock, METRICS, pairedCI, percentile, rng, type BlockCounts } from '../src/bootstrap.js';
 import { comparePaired } from '../src/compare.js';
 import type { ZoneResult } from '../src/evaluate.js';
@@ -252,6 +253,28 @@ describe('blind review (plan A3)', () => {
     expect(r.onlyA).toBe(1);
     expect(r.onlyB).toBe(1);
     expect(r.f1).toBeCloseTo(0.5);
+  });
+
+  it('a first pass box cut by a second pass window edge still counts as seen there', () => {
+    const z = 19;
+    const w = { id: 'w-00-00', x0: 1000, y0: 1000, size: 1024 };
+    const geo = (px0: number, px1: number) => ({ west: worldXToLon(px0, z), east: worldXToLon(px1, z), north: worldYToLat(1100, z), south: worldYToLat(1140, z) });
+    // A pool from x 2010 to 2070: its centre lies past the window's right edge (2024).
+    expect(seenInWindows(geo(2010, 2070), [w], 'centre')).toBe(false);
+    expect(seenInWindows(geo(2010, 2070), [w], 'touches')).toBe(true);
+    expect(seenInWindows(geo(2030, 2070), [w], 'touches')).toBe(false);
+    expect(seenInWindows(geo(1500, 1540), [w], 'centre')).toBe(true);
+    expect(shareInWindows(geo(2010, 2070), [w])).toBeCloseTo(0.2, 6);
+    expect(shareInWindows(geo(1500, 1540), [w])).toBe(1);
+  });
+
+  it('agreement: an unmatched first pass box can be left out of the count', () => {
+    const a = [box(0, 0), box(1e-3, 0)];
+    const b = [box(0.1e-4, 0)];
+    expect(agreement(a, b).onlyA).toBe(1);
+    const r = agreement(a, b, (x) => x.bbox.west < 5e-4);
+    expect(r.onlyA).toBe(0);
+    expect(r.f1).toBe(1);
   });
 
   it('boxes of one pool seen from two windows collapse into one', () => {

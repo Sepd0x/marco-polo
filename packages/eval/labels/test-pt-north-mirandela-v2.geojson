@@ -1,0 +1,4527 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-pt-north-mirandela-v2",
+ "review": "blind",
+ "source": "dgt",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0.2,
+  -0.6
+ ],
+ "osmShiftPairs": 5,
+ "windows": 100,
+ "poolsInZone": 58,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177671790122986,
+        41.49298474700211
+       ],
+       [
+        -7.17756986618042,
+        41.49298474700211
+       ],
+       [
+        -7.17756986618042,
+        41.493159536150394
+       ],
+       [
+        -7.177671790122986,
+        41.493159536150394
+       ],
+       [
+        -7.177671790122986,
+        41.49298474700211
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.1773311495780945,
+        41.49385667898085
+       ],
+       [
+        -7.177172899246216,
+        41.49385667898085
+       ],
+       [
+        -7.177172899246216,
+        41.49392096843174
+       ],
+       [
+        -7.1773311495780945,
+        41.49392096843174
+       ],
+       [
+        -7.1773311495780945,
+        41.49385667898085
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.178602516651154,
+        41.48900465036901
+       ],
+       [
+        -7.178551554679871,
+        41.48900465036901
+       ],
+       [
+        -7.178551554679871,
+        41.48904081590167
+       ],
+       [
+        -7.178602516651154,
+        41.48904081590167
+       ],
+       [
+        -7.178602516651154,
+        41.48900465036901
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b100",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.192659974098206,
+        41.47974962886051
+       ],
+       [
+        -7.192603647708893,
+        41.47974962886051
+       ],
+       [
+        -7.192603647708893,
+        41.47978178059359
+       ],
+       [
+        -7.192659974098206,
+        41.47978178059359
+       ],
+       [
+        -7.192659974098206,
+        41.47974962886051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b101",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193778455257416,
+        41.48527145512623
+       ],
+       [
+        -7.193730175495148,
+        41.48527145512623
+       ],
+       [
+        -7.193730175495148,
+        41.48530762274279
+       ],
+       [
+        -7.193778455257416,
+        41.48530762274279
+       ],
+       [
+        -7.193778455257416,
+        41.48527145512623
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b102",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.184693813323975,
+        41.49109016309901
+       ],
+       [
+        -7.1846455335617065,
+        41.49109016309901
+       ],
+       [
+        -7.1846455335617065,
+        41.491126327467434
+       ],
+       [
+        -7.184693813323975,
+        41.491126327467434
+       ],
+       [
+        -7.184693813323975,
+        41.49109016309901
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b103",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.184205651283264,
+        41.47780040024556
+       ],
+       [
+        -7.184154689311981,
+        41.47780040024556
+       ],
+       [
+        -7.184154689311981,
+        41.477832552945664
+       ],
+       [
+        -7.184205651283264,
+        41.477832552945664
+       ],
+       [
+        -7.184205651283264,
+        41.47780040024556
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b104",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191310822963715,
+        41.48087493002786
+       ],
+       [
+        -7.191273272037506,
+        41.48087493002786
+       ],
+       [
+        -7.191273272037506,
+        41.480917128441526
+       ],
+       [
+        -7.191310822963715,
+        41.480917128441526
+       ],
+       [
+        -7.191310822963715,
+        41.48087493002786
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b105",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191190123558044,
+        41.48655740242375
+       ],
+       [
+        -7.191144526004791,
+        41.48655740242375
+       ],
+       [
+        -7.191144526004791,
+        41.48658553223563
+       ],
+       [
+        -7.191190123558044,
+        41.48658553223563
+       ],
+       [
+        -7.191190123558044,
+        41.48655740242375
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b106",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.190999686717987,
+        41.4785800987266
+       ],
+       [
+        -7.190970182418823,
+        41.4785800987266
+       ],
+       [
+        -7.190970182418823,
+        41.47861827959688
+       ],
+       [
+        -7.190999686717987,
+        41.47861827959688
+       ],
+       [
+        -7.190999686717987,
+        41.4785800987266
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b107",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174796462059021,
+        41.49306310081657
+       ],
+       [
+        -7.174761593341827,
+        41.49306310081657
+       ],
+       [
+        -7.174761593341827,
+        41.49308520059325
+       ],
+       [
+        -7.174796462059021,
+        41.49308520059325
+       ],
+       [
+        -7.174796462059021,
+        41.49306310081657
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b108",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174742817878723,
+        41.493147481741524
+       ],
+       [
+        -7.174710631370544,
+        41.493147481741524
+       ],
+       [
+        -7.174710631370544,
+        41.49316958148942
+       ],
+       [
+        -7.174742817878723,
+        41.49316958148942
+       ],
+       [
+        -7.174742817878723,
+        41.493147481741524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b109",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.197761535644531,
+        41.48107587460871
+       ],
+       [
+        -7.197635471820831,
+        41.48107587460871
+       ],
+       [
+        -7.197635471820831,
+        41.481156252266594
+       ],
+       [
+        -7.197761535644531,
+        41.481156252266594
+       ],
+       [
+        -7.197761535644531,
+        41.48107587460871
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180268168449402,
+        41.49023426715324
+       ],
+       [
+        -7.1801528334617615,
+        41.49023426715324
+       ],
+       [
+        -7.1801528334617615,
+        41.49032066091908
+       ],
+       [
+        -7.180268168449402,
+        41.49032066091908
+       ],
+       [
+        -7.180268168449402,
+        41.49023426715324
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.194870114326477,
+        41.48718630173076
+       ],
+       [
+        -7.194744050502777,
+        41.48718630173076
+       ],
+       [
+        -7.194744050502777,
+        41.48726466255856
+       ],
+       [
+        -7.194870114326477,
+        41.48726466255856
+       ],
+       [
+        -7.194870114326477,
+        41.48718630173076
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193649709224701,
+        41.48436524881053
+       ],
+       [
+        -7.193526327610016,
+        41.48436524881053
+       ],
+       [
+        -7.193526327610016,
+        41.48443155701948
+       ],
+       [
+        -7.193649709224701,
+        41.48443155701948
+       ],
+       [
+        -7.193649709224701,
+        41.48436524881053
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175571620464325,
+        41.48602293367764
+       ],
+       [
+        -7.175472378730774,
+        41.48602293367764
+       ],
+       [
+        -7.175472378730774,
+        41.48610129591247
+       ],
+       [
+        -7.175571620464325,
+        41.48610129591247
+       ],
+       [
+        -7.175571620464325,
+        41.48602293367764
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18505859375,
+        41.47923720846148
+       ],
+       [
+        -7.184948623180389,
+        41.47923720846148
+       ],
+       [
+        -7.184948623180389,
+        41.47930754091299
+       ],
+       [
+        -7.18505859375,
+        41.47930754091299
+       ],
+       [
+        -7.18505859375,
+        41.47923720846148
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.185198068618774,
+        41.47931557890259
+       ],
+       [
+        -7.185066640377045,
+        41.47931557890259
+       ],
+       [
+        -7.185066640377045,
+        41.47937385429737
+       ],
+       [
+        -7.185198068618774,
+        41.47937385429737
+       ],
+       [
+        -7.185198068618774,
+        41.47931557890259
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b17",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.185643315315247,
+        41.490640115936316
+       ],
+       [
+        -7.185554802417755,
+        41.490640115936316
+       ],
+       [
+        -7.185554802417755,
+        41.49072450001747
+       ],
+       [
+        -7.185643315315247,
+        41.49072450001747
+       ],
+       [
+        -7.185643315315247,
+        41.490640115936316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b18",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180370092391968,
+        41.49046331083842
+       ],
+       [
+        -7.180292308330536,
+        41.49046331083842
+       ],
+       [
+        -7.180292308330536,
+        41.49055573174524
+       ],
+       [
+        -7.180370092391968,
+        41.49055573174524
+       ],
+       [
+        -7.180370092391968,
+        41.49046331083842
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b19",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18093603849411,
+        41.4948491402682
+       ],
+       [
+        -7.1808019280433655,
+        41.4948491402682
+       ],
+       [
+        -7.1808019280433655,
+        41.49497369911284
+       ],
+       [
+        -7.18093603849411,
+        41.49497369911284
+       ],
+       [
+        -7.18093603849411,
+        41.4948491402682
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.183915972709656,
+        41.492590967422636
+       ],
+       [
+        -7.18381941318512,
+        41.492590967422636
+       ],
+       [
+        -7.18381941318512,
+        41.49266329446364
+       ],
+       [
+        -7.183915972709656,
+        41.49266329446364
+       ],
+       [
+        -7.183915972709656,
+        41.492590967422636
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b20",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.192383706569672,
+        41.48389305202712
+       ],
+       [
+        -7.192284464836121,
+        41.48389305202712
+       ],
+       [
+        -7.192284464836121,
+        41.48396337942571
+       ],
+       [
+        -7.192383706569672,
+        41.48396337942571
+       ],
+       [
+        -7.192383706569672,
+        41.48389305202712
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b21",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.1871185302734375,
+        41.492962647191156
+       ],
+       [
+        -7.187016606330872,
+        41.492962647191156
+       ],
+       [
+        -7.187016606330872,
+        41.49303095567338
+       ],
+       [
+        -7.1871185302734375,
+        41.49303095567338
+       ],
+       [
+        -7.1871185302734375,
+        41.492962647191156
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b22",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18068927526474,
+        41.495761226908364
+       ],
+       [
+        -7.180608808994293,
+        41.495761226908364
+       ],
+       [
+        -7.180608808994293,
+        41.495847613303155
+       ],
+       [
+        -7.18068927526474,
+        41.495847613303155
+       ],
+       [
+        -7.18068927526474,
+        41.495761226908364
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b23",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.192153036594391,
+        41.47849971787356
+       ],
+       [
+        -7.192069888114929,
+        41.47849971787356
+       ],
+       [
+        -7.192069888114929,
+        41.4785800987266
+       ],
+       [
+        -7.192153036594391,
+        41.4785800987266
+       ],
+       [
+        -7.192153036594391,
+        41.47849971787356
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b24",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180517613887787,
+        41.49088523129655
+       ],
+       [
+        -7.180434465408325,
+        41.49088523129655
+       ],
+       [
+        -7.180434465408325,
+        41.490965596786545
+       ],
+       [
+        -7.180517613887787,
+        41.490965596786545
+       ],
+       [
+        -7.180517613887787,
+        41.49088523129655
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b25",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.187609374523163,
+        41.49372809988766
+       ],
+       [
+        -7.187510132789612,
+        41.49372809988766
+       ],
+       [
+        -7.187510132789612,
+        41.49379439851446
+       ],
+       [
+        -7.187609374523163,
+        41.49379439851446
+       ],
+       [
+        -7.187609374523163,
+        41.49372809988766
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b26",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18131422996521,
+        41.49166075411396
+       ],
+       [
+        -7.181228399276733,
+        41.49166075411396
+       ],
+       [
+        -7.181228399276733,
+        41.49173509130574
+       ],
+       [
+        -7.18131422996521,
+        41.49173509130574
+       ],
+       [
+        -7.18131422996521,
+        41.49166075411396
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b27",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193861603736877,
+        41.48375842507976
+       ],
+       [
+        -7.193778455257416,
+        41.48375842507976
+       ],
+       [
+        -7.193778455257416,
+        41.48383478069618
+       ],
+       [
+        -7.193861603736877,
+        41.48383478069618
+       ],
+       [
+        -7.193861603736877,
+        41.48375842507976
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b28",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.176915407180786,
+        41.494427245627676
+       ],
+       [
+        -7.176851034164429,
+        41.494427245627676
+       ],
+       [
+        -7.176851034164429,
+        41.494521669904955
+       ],
+       [
+        -7.176915407180786,
+        41.494521669904955
+       ],
+       [
+        -7.176915407180786,
+        41.494427245627676
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b29",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.179106771945953,
+        41.48913323883783
+       ],
+       [
+        -7.178956568241119,
+        41.48913323883783
+       ],
+       [
+        -7.178956568241119,
+        41.489239725970364
+       ],
+       [
+        -7.179106771945953,
+        41.489239725970364
+       ],
+       [
+        -7.179106771945953,
+        41.48913323883783
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.183325886726379,
+        41.49024431294589
+       ],
+       [
+        -7.183237373828888,
+        41.49024431294589
+       ],
+       [
+        -7.183237373828888,
+        41.49031262429457
+       ],
+       [
+        -7.183325886726379,
+        41.49031262429457
+       ],
+       [
+        -7.183325886726379,
+        41.49024431294589
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b30",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198032438755035,
+        41.483262111379936
+       ],
+       [
+        -7.197943925857544,
+        41.483262111379936
+       ],
+       [
+        -7.197943925857544,
+        41.48332842071773
+       ],
+       [
+        -7.198032438755035,
+        41.48332842071773
+       ],
+       [
+        -7.198032438755035,
+        41.483262111379936
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b31",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175853252410889,
+        41.47879109799152
+       ],
+       [
+        -7.175721824169159,
+        41.47879109799152
+       ],
+       [
+        -7.175721824169159,
+        41.47883530727427
+       ],
+       [
+        -7.175853252410889,
+        41.47883530727427
+       ],
+       [
+        -7.175853252410889,
+        41.47879109799152
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b32",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175898849964142,
+        41.48613947235152
+       ],
+       [
+        -7.17581570148468,
+        41.48613947235152
+       ],
+       [
+        -7.17581570148468,
+        41.486205778744825
+       ],
+       [
+        -7.175898849964142,
+        41.486205778744825
+       ],
+       [
+        -7.175898849964142,
+        41.48613947235152
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b33",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.187899053096771,
+        41.49317560869208
+       ],
+       [
+        -7.187829315662384,
+        41.49317560869208
+       ],
+       [
+        -7.187829315662384,
+        41.49325195321061
+       ],
+       [
+        -7.187899053096771,
+        41.49325195321061
+       ],
+       [
+        -7.187899053096771,
+        41.49317560869208
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b34",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.187837362289429,
+        41.48256887333092
+       ],
+       [
+        -7.187746167182922,
+        41.48256887333092
+       ],
+       [
+        -7.187746167182922,
+        41.482627145800244
+       ],
+       [
+        -7.187837362289429,
+        41.482627145800244
+       ],
+       [
+        -7.187837362289429,
+        41.48256887333092
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b35",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.19342976808548,
+        41.47999880437474
+       ],
+       [
+        -7.193365395069122,
+        41.47999880437474
+       ],
+       [
+        -7.193365395069122,
+        41.48007717389488
+       ],
+       [
+        -7.19342976808548,
+        41.48007717389488
+       ],
+       [
+        -7.19342976808548,
+        41.47999880437474
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b36",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.190634906291962,
+        41.48192988212601
+       ],
+       [
+        -7.19055712223053,
+        41.48192988212601
+       ],
+       [
+        -7.19055712223053,
+        41.48199217399864
+       ],
+       [
+        -7.190634906291962,
+        41.48199217399864
+       ],
+       [
+        -7.190634906291962,
+        41.48192988212601
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b37",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18318909406662,
+        41.490378926417044
+       ],
+       [
+        -7.183108627796173,
+        41.490378926417044
+       ],
+       [
+        -7.183108627796173,
+        41.4904371918626
+       ],
+       [
+        -7.18318909406662,
+        41.4904371918626
+       ],
+       [
+        -7.18318909406662,
+        41.490378926417044
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b38",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.194097638130188,
+        41.47818824112638
+       ],
+       [
+        -7.193993031978607,
+        41.47818824112638
+       ],
+       [
+        -7.193993031978607,
+        41.47823245082037
+       ],
+       [
+        -7.194097638130188,
+        41.47823245082037
+       ],
+       [
+        -7.194097638130188,
+        41.47818824112638
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b39",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177298963069916,
+        41.49435492055624
+       ],
+       [
+        -7.177108526229858,
+        41.49435492055624
+       ],
+       [
+        -7.177108526229858,
+        41.49442523659901
+       ],
+       [
+        -7.177298963069916,
+        41.49442523659901
+       ],
+       [
+        -7.177298963069916,
+        41.49435492055624
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.183414399623871,
+        41.49104596217685
+       ],
+       [
+        -7.18331515789032,
+        41.49104596217685
+       ],
+       [
+        -7.18331515789032,
+        41.49109217223111
+       ],
+       [
+        -7.183414399623871,
+        41.49109217223111
+       ],
+       [
+        -7.183414399623871,
+        41.49104596217685
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b40",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175711095333099,
+        41.493446832231484
+       ],
+       [
+        -7.1756333112716675,
+        41.493446832231484
+       ],
+       [
+        -7.1756333112716675,
+        41.493505094917694
+       ],
+       [
+        -7.175711095333099,
+        41.493505094917694
+       ],
+       [
+        -7.175711095333099,
+        41.493446832231484
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b41",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174112498760223,
+        41.49118861049908
+       ],
+       [
+        -7.174048125743866,
+        41.49118861049908
+       ],
+       [
+        -7.174048125743866,
+        41.491256920852024
+       ],
+       [
+        -7.174112498760223,
+        41.491256920852024
+       ],
+       [
+        -7.174112498760223,
+        41.49118861049908
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b42",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.186214625835419,
+        41.4795888699558
+       ],
+       [
+        -7.186150252819061,
+        41.4795888699558
+       ],
+       [
+        -7.186150252819061,
+        41.47965317356553
+       ],
+       [
+        -7.186214625835419,
+        41.47965317356553
+       ],
+       [
+        -7.186214625835419,
+        41.4795888699558
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b43",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.19255268573761,
+        41.4851770173656
+       ],
+       [
+        -7.192458808422089,
+        41.4851770173656
+       ],
+       [
+        -7.192458808422089,
+        41.485219212977796
+       ],
+       [
+        -7.19255268573761,
+        41.485219212977796
+       ],
+       [
+        -7.19255268573761,
+        41.4851770173656
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b44",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193319797515869,
+        41.47765169380006
+       ],
+       [
+        -7.193250060081482,
+        41.47765169380006
+       ],
+       [
+        -7.193250060081482,
+        41.47770394204952
+       ],
+       [
+        -7.193319797515869,
+        41.47770394204952
+       ],
+       [
+        -7.193319797515869,
+        41.47765169380006
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b45",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.183784544467926,
+        41.47882927873749
+       ],
+       [
+        -7.183709442615509,
+        41.47882927873749
+       ],
+       [
+        -7.183709442615509,
+        41.47887750701604
+       ],
+       [
+        -7.183784544467926,
+        41.47887750701604
+       ],
+       [
+        -7.183784544467926,
+        41.47882927873749
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b46",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.185790836811066,
+        41.47995258640818
+       ],
+       [
+        -7.185715734958649,
+        41.47995258640818
+       ],
+       [
+        -7.185715734958649,
+        41.4800008138508
+       ],
+       [
+        -7.185790836811066,
+        41.4800008138508
+       ],
+       [
+        -7.185790836811066,
+        41.47995258640818
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b47",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.184991538524628,
+        41.48012942018899
+       ],
+       [
+        -7.184905707836151,
+        41.48012942018899
+       ],
+       [
+        -7.184905707836151,
+        41.4801716190881
+       ],
+       [
+        -7.184991538524628,
+        41.4801716190881
+       ],
+       [
+        -7.184991538524628,
+        41.48012942018899
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b48",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174528241157532,
+        41.48273967179963
+       ],
+       [
+        -7.174474596977234,
+        41.48273967179963
+       ],
+       [
+        -7.174474596977234,
+        41.482803972282966
+       ],
+       [
+        -7.174528241157532,
+        41.482803972282966
+       ],
+       [
+        -7.174528241157532,
+        41.48273967179963
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b49",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177628874778748,
+        41.48817886521356
+       ],
+       [
+        -7.177494764328003,
+        41.48817886521356
+       ],
+       [
+        -7.177494764328003,
+        41.48827731703778
+       ],
+       [
+        -7.177628874778748,
+        41.48827731703778
+       ],
+       [
+        -7.177628874778748,
+        41.48817886521356
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.178741991519928,
+        41.48711597783023
+       ],
+       [
+        -7.17869371175766,
+        41.48711597783023
+       ],
+       [
+        -7.17869371175766,
+        41.48718630173076
+       ],
+       [
+        -7.178741991519928,
+        41.48718630173076
+       ],
+       [
+        -7.178741991519928,
+        41.48711597783023
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b50",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193542420864105,
+        41.48703962608039
+       ],
+       [
+        -7.193478047847748,
+        41.48703962608039
+       ],
+       [
+        -7.193478047847748,
+        41.487089857504884
+       ],
+       [
+        -7.193542420864105,
+        41.487089857504884
+       ],
+       [
+        -7.193542420864105,
+        41.48703962608039
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b51",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.181815803050995,
+        41.49538353620133
+       ],
+       [
+        -7.1817514300346375,
+        41.49538353620133
+       ],
+       [
+        -7.1817514300346375,
+        41.495433761156356
+       ],
+       [
+        -7.181815803050995,
+        41.495433761156356
+       ],
+       [
+        -7.181815803050995,
+        41.49538353620133
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b52",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.193719446659088,
+        41.477983268514805
+       ],
+       [
+        -7.193679213523865,
+        41.477983268514805
+       ],
+       [
+        -7.193679213523865,
+        41.47805762139982
+       ],
+       [
+        -7.193719446659088,
+        41.47805762139982
+       ],
+       [
+        -7.193719446659088,
+        41.477983268514805
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b53",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.194816470146179,
+        41.48811256083949
+       ],
+       [
+        -7.194768190383911,
+        41.48811256083949
+       ],
+       [
+        -7.194768190383911,
+        41.488166809877875
+       ],
+       [
+        -7.194816470146179,
+        41.488166809877875
+       ],
+       [
+        -7.194816470146179,
+        41.48811256083949
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b54",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18007504940033,
+        41.4851328124091
+       ],
+       [
+        -7.180018723011017,
+        41.4851328124091
+       ],
+       [
+        -7.180018723011017,
+        41.485179026681095
+       ],
+       [
+        -7.18007504940033,
+        41.485179026681095
+       ],
+       [
+        -7.18007504940033,
+        41.4851328124091
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b55",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.185227572917938,
+        41.47877703139524
+       ],
+       [
+        -7.18517392873764,
+        41.47877703139524
+       ],
+       [
+        -7.18517392873764,
+        41.47882325020015
+       ],
+       [
+        -7.185227572917938,
+        41.47882325020015
+       ],
+       [
+        -7.185227572917938,
+        41.47877703139524
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b56",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.195760607719421,
+        41.47837914640707
+       ],
+       [
+        -7.195704281330109,
+        41.47837914640707
+       ],
+       [
+        -7.195704281330109,
+        41.478421346445856
+       ],
+       [
+        -7.195760607719421,
+        41.478421346445856
+       ],
+       [
+        -7.195760607719421,
+        41.47837914640707
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b57",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198445498943329,
+        41.4830290234722
+       ],
+       [
+        -7.198394536972046,
+        41.4830290234722
+       ],
+       [
+        -7.198394536972046,
+        41.48307122048316
+       ],
+       [
+        -7.198445498943329,
+        41.48307122048316
+       ],
+       [
+        -7.198445498943329,
+        41.4830290234722
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b58",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.184117138385773,
+        41.48793173038348
+       ],
+       [
+        -7.184068858623505,
+        41.48793173038348
+       ],
+       [
+        -7.184068858623505,
+        41.48797191497288
+       ],
+       [
+        -7.184117138385773,
+        41.48797191497288
+       ],
+       [
+        -7.184117138385773,
+        41.48793173038348
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b59",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.19804584980011,
+        41.48231568889021
+       ],
+       [
+        -7.197898328304291,
+        41.48231568889021
+       ],
+       [
+        -7.197898328304291,
+        41.482396065010306
+       ],
+       [
+        -7.19804584980011,
+        41.482396065010306
+       ],
+       [
+        -7.19804584980011,
+        41.48231568889021
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.181244492530823,
+        41.49077874686875
+       ],
+       [
+        -7.181196212768555,
+        41.49077874686875
+       ],
+       [
+        -7.181196212768555,
+        41.49081892969226
+       ],
+       [
+        -7.181244492530823,
+        41.49081892969226
+       ],
+       [
+        -7.181244492530823,
+        41.49077874686875
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b60",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174651622772217,
+        41.49118861049908
+       ],
+       [
+        -7.174587249755859,
+        41.49118861049908
+       ],
+       [
+        -7.174587249755859,
+        41.49121472917195
+       ],
+       [
+        -7.174651622772217,
+        41.49121472917195
+       ],
+       [
+        -7.174651622772217,
+        41.49118861049908
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b61",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.196189761161804,
+        41.47992043475983
+       ],
+       [
+        -7.196026146411896,
+        41.47992043475983
+       ],
+       [
+        -7.196026146411896,
+        41.48002894650908
+       ],
+       [
+        -7.196189761161804,
+        41.48002894650908
+       ],
+       [
+        -7.196189761161804,
+        41.47992043475983
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b62",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.1883925795555115,
+        41.48714611665408
+       ],
+       [
+        -7.188255786895752,
+        41.48714611665408
+       ],
+       [
+        -7.188255786895752,
+        41.48725260705275
+       ],
+       [
+        -7.1883925795555115,
+        41.48725260705275
+       ],
+       [
+        -7.1883925795555115,
+        41.48714611665408
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b63",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177140712738037,
+        41.487957850369426
+       ],
+       [
+        -7.177017331123352,
+        41.487957850369426
+       ],
+       [
+        -7.177017331123352,
+        41.48805027485051
+       ],
+       [
+        -7.177140712738037,
+        41.48805027485051
+       ],
+       [
+        -7.177140712738037,
+        41.487957850369426
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b64",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175426781177521,
+        41.492189149057694
+       ],
+       [
+        -7.175338268280029,
+        41.492189149057694
+       ],
+       [
+        -7.175338268280029,
+        41.4922855856926
+       ],
+       [
+        -7.175426781177521,
+        41.4922855856926
+       ],
+       [
+        -7.175426781177521,
+        41.492189149057694
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b65",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.186016142368317,
+        41.49410780928618
+       ],
+       [
+        -7.185900807380676,
+        41.49410780928618
+       ],
+       [
+        -7.185900807380676,
+        41.4941761165608
+       ],
+       [
+        -7.186016142368317,
+        41.4941761165608
+       ],
+       [
+        -7.186016142368317,
+        41.49410780928618
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b66",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.196396291255951,
+        41.486973320540415
+       ],
+       [
+        -7.1962970495224,
+        41.486973320540415
+       ],
+       [
+        -7.1962970495224,
+        41.4870376168226
+       ],
+       [
+        -7.196396291255951,
+        41.4870376168226
+       ],
+       [
+        -7.196396291255951,
+        41.486973320540415
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b67",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191825807094574,
+        41.48293458244333
+       ],
+       [
+        -7.191742658615112,
+        41.48293458244333
+       ],
+       [
+        -7.191742658615112,
+        41.483008929647795
+       ],
+       [
+        -7.191825807094574,
+        41.483008929647795
+       ],
+       [
+        -7.191825807094574,
+        41.48293458244333
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b68",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.174514830112457,
+        41.492695439789266
+       ],
+       [
+        -7.174431681632996,
+        41.492695439789266
+       ],
+       [
+        -7.174431681632996,
+        41.49276977579369
+       ],
+       [
+        -7.174514830112457,
+        41.49276977579369
+       ],
+       [
+        -7.174514830112457,
+        41.492695439789266
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b69",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.186131477355957,
+        41.48868920570047
+       ],
+       [
+        -7.1860456466674805,
+        41.48868920570047
+       ],
+       [
+        -7.1860456466674805,
+        41.48881578559273
+       ],
+       [
+        -7.186131477355957,
+        41.48881578559273
+       ],
+       [
+        -7.186131477355957,
+        41.48868920570047
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.194945216178894,
+        41.487029579790814
+       ],
+       [
+        -7.194864749908447,
+        41.487029579790814
+       ],
+       [
+        -7.194864749908447,
+        41.487095885273206
+       ],
+       [
+        -7.194945216178894,
+        41.487095885273206
+       ],
+       [
+        -7.194945216178894,
+        41.487029579790814
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b70",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.190669775009155,
+        41.47951652831857
+       ],
+       [
+        -7.190602719783783,
+        41.47951652831857
+       ],
+       [
+        -7.190602719783783,
+        41.47959288893326
+       ],
+       [
+        -7.190669775009155,
+        41.47959288893326
+       ],
+       [
+        -7.190669775009155,
+        41.47951652831857
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b71",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191391289234161,
+        41.48881578559273
+       ],
+       [
+        -7.1912893652915955,
+        41.48881578559273
+       ],
+       [
+        -7.1912893652915955,
+        41.48886400643902
+       ],
+       [
+        -7.191391289234161,
+        41.48886400643902
+       ],
+       [
+        -7.191391289234161,
+        41.48881578559273
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b72",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191345691680908,
+        41.485526637322856
+       ],
+       [
+        -7.191251814365387,
+        41.485526637322856
+       ],
+       [
+        -7.191251814365387,
+        41.48557686992034
+       ],
+       [
+        -7.191345691680908,
+        41.48557686992034
+       ],
+       [
+        -7.191345691680908,
+        41.485526637322856
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b73",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198276519775391,
+        41.4831214549842
+       ],
+       [
+        -7.1982041001319885,
+        41.4831214549842
+       ],
+       [
+        -7.1982041001319885,
+        41.48318374571141
+       ],
+       [
+        -7.198276519775391,
+        41.48318374571141
+       ],
+       [
+        -7.198276519775391,
+        41.4831214549842
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b74",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.181976735591888,
+        41.47968532534648
+       ],
+       [
+        -7.181901633739471,
+        41.47968532534648
+       ],
+       [
+        -7.181901633739471,
+        41.47974360040878
+       ],
+       [
+        -7.181976735591888,
+        41.47974360040878
+       ],
+       [
+        -7.181976735591888,
+        41.47968532534648
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b75",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.173986434936523,
+        41.487140088890435
+       ],
+       [
+        -7.1739113330841064,
+        41.487140088890435
+       ],
+       [
+        -7.1739113330841064,
+        41.48719634799602
+       ],
+       [
+        -7.173986434936523,
+        41.48719634799602
+       ],
+       [
+        -7.173986434936523,
+        41.487140088890435
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b76",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.18293696641922,
+        41.483471086032665
+       ],
+       [
+        -7.182880640029907,
+        41.483471086032665
+       ],
+       [
+        -7.182880640029907,
+        41.48354342325544
+       ],
+       [
+        -7.18293696641922,
+        41.48354342325544
+       ],
+       [
+        -7.18293696641922,
+        41.483471086032665
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b77",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.173865735530853,
+        41.48629418716367
+       ],
+       [
+        -7.173793315887451,
+        41.48629418716367
+       ],
+       [
+        -7.173793315887451,
+        41.48635044700377
+       ],
+       [
+        -7.173865735530853,
+        41.48635044700377
+       ],
+       [
+        -7.173865735530853,
+        41.48629418716367
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b78",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.196519672870636,
+        41.479767714212336
+       ],
+       [
+        -7.196452617645264,
+        41.479767714212336
+       ],
+       [
+        -7.196452617645264,
+        41.47982598920055
+       ],
+       [
+        -7.196519672870636,
+        41.47982598920055
+       ],
+       [
+        -7.196519672870636,
+        41.479767714212336
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b79",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177717387676239,
+        41.49434286636981
+       ],
+       [
+        -7.17755913734436,
+        41.49434286636981
+       ],
+       [
+        -7.17755913734436,
+        41.49440916436739
+       ],
+       [
+        -7.177717387676239,
+        41.49440916436739
+       ],
+       [
+        -7.177717387676239,
+        41.49434286636981
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198319435119629,
+        41.479072429276165
+       ],
+       [
+        -7.198268473148346,
+        41.479072429276165
+       ],
+       [
+        -7.198268473148346,
+        41.47914678091165
+       ],
+       [
+        -7.198319435119629,
+        41.47914678091165
+       ],
+       [
+        -7.198319435119629,
+        41.479072429276165
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b80",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.190999686717987,
+        41.478357041613876
+       ],
+       [
+        -7.1909299492836,
+        41.478357041613876
+       ],
+       [
+        -7.1909299492836,
+        41.47841129882007
+       ],
+       [
+        -7.190999686717987,
+        41.47841129882007
+       ],
+       [
+        -7.190999686717987,
+        41.478357041613876
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b81",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198059260845184,
+        41.4894969017196
+       ],
+       [
+        -7.197994887828827,
+        41.4894969017196
+       ],
+       [
+        -7.197994887828827,
+        41.489553158778655
+       ],
+       [
+        -7.198059260845184,
+        41.489553158778655
+       ],
+       [
+        -7.198059260845184,
+        41.4894969017196
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b82",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.185541391372681,
+        41.478672536584355
+       ],
+       [
+        -7.1854716539382935,
+        41.478672536584355
+       ],
+       [
+        -7.1854716539382935,
+        41.47872277449523
+       ],
+       [
+        -7.185541391372681,
+        41.47872277449523
+       ],
+       [
+        -7.185541391372681,
+        41.478672536584355
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b83",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175056636333466,
+        41.49292045662203
+       ],
+       [
+        -7.174976170063019,
+        41.49292045662203
+       ],
+       [
+        -7.174976170063019,
+        41.492962647191156
+       ],
+       [
+        -7.175056636333466,
+        41.492962647191156
+       ],
+       [
+        -7.175056636333466,
+        41.49292045662203
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b84",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.198359668254852,
+        41.4809874590699
+       ],
+       [
+        -7.19829797744751,
+        41.4809874590699
+       ],
+       [
+        -7.19829797744751,
+        41.481041714073925
+       ],
+       [
+        -7.198359668254852,
+        41.481041714073925
+       ],
+       [
+        -7.198359668254852,
+        41.4809874590699
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b85",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.196042239665985,
+        41.480645852445654
+       ],
+       [
+        -7.195977866649628,
+        41.480645852445654
+       ],
+       [
+        -7.195977866649628,
+        41.48069608882686
+       ],
+       [
+        -7.196042239665985,
+        41.48069608882686
+       ],
+       [
+        -7.196042239665985,
+        41.480645852445654
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b86",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.181518077850342,
+        41.48046902007401
+       ],
+       [
+        -7.181467115879059,
+        41.48046902007401
+       ],
+       [
+        -7.181467115879059,
+        41.480531313350895
+       ],
+       [
+        -7.181518077850342,
+        41.480531313350895
+       ],
+       [
+        -7.181518077850342,
+        41.48046902007401
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b87",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.173755764961243,
+        41.486270075788674
+       ],
+       [
+        -7.173691391944885,
+        41.486270075788674
+       ],
+       [
+        -7.173691391944885,
+        41.486318298529696
+       ],
+       [
+        -7.173755764961243,
+        41.486318298529696
+       ],
+       [
+        -7.173755764961243,
+        41.486270075788674
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b88",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.182545363903046,
+        41.47989230205444
+       ],
+       [
+        -7.182478308677673,
+        41.47989230205444
+       ],
+       [
+        -7.182478308677673,
+        41.47993852006399
+       ],
+       [
+        -7.182545363903046,
+        41.47993852006399
+       ],
+       [
+        -7.182545363903046,
+        41.47989230205444
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b89",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180839478969574,
+        41.491262948232645
+       ],
+       [
+        -7.180721461772919,
+        41.491262948232645
+       ],
+       [
+        -7.180721461772919,
+        41.491351349750715
+       ],
+       [
+        -7.180839478969574,
+        41.491351349750715
+       ],
+       [
+        -7.180839478969574,
+        41.491262948232645
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.191015779972076,
+        41.47841933692082
+       ],
+       [
+        -7.190956771373749,
+        41.47841933692082
+       ],
+       [
+        -7.190956771373749,
+        41.478469575027965
+       ],
+       [
+        -7.191015779972076,
+        41.478469575027965
+       ],
+       [
+        -7.191015779972076,
+        41.47841933692082
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b90",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180646359920502,
+        41.49108011743753
+       ],
+       [
+        -7.180584669113159,
+        41.49108011743753
+       ],
+       [
+        -7.180584669113159,
+        41.491126327467434
+       ],
+       [
+        -7.180646359920502,
+        41.491126327467434
+       ],
+       [
+        -7.180646359920502,
+        41.49108011743753
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b91",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175646722316742,
+        41.47881722166225
+       ],
+       [
+        -7.175593078136444,
+        41.47881722166225
+       ],
+       [
+        -7.175593078136444,
+        41.4788634404385
+       ],
+       [
+        -7.175646722316742,
+        41.4788634404385
+       ],
+       [
+        -7.175646722316742,
+        41.47881722166225
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b92",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.177009284496307,
+        41.483061173578285
+       ],
+       [
+        -7.17695027589798,
+        41.483061173578285
+       ],
+       [
+        -7.17695027589798,
+        41.48310136118846
+       ],
+       [
+        -7.177009284496307,
+        41.48310136118846
+       ],
+       [
+        -7.177009284496307,
+        41.483061173578285
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b93",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.179388403892517,
+        41.486217834445405
+       ],
+       [
+        -7.179332077503204,
+        41.486217834445405
+       ],
+       [
+        -7.179332077503204,
+        41.486258020097814
+       ],
+       [
+        -7.179388403892517,
+        41.486258020097814
+       ],
+       [
+        -7.179388403892517,
+        41.486217834445405
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b94",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.176494300365448,
+        41.49615297824034
+       ],
+       [
+        -7.176448702812195,
+        41.49615297824034
+       ],
+       [
+        -7.176448702812195,
+        41.49620119362513
+       ],
+       [
+        -7.176494300365448,
+        41.49620119362513
+       ],
+       [
+        -7.176494300365448,
+        41.49615297824034
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b95",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.188408672809601,
+        41.48468674252388
+       ],
+       [
+        -7.1883657574653625,
+        41.48468674252388
+       ],
+       [
+        -7.1883657574653625,
+        41.4847369757725
+       ],
+       [
+        -7.188408672809601,
+        41.4847369757725
+       ],
+       [
+        -7.188408672809601,
+        41.48468674252388
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b96",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.195902764797211,
+        41.484469734442335
+       ],
+       [
+        -7.195854485034943,
+        41.484469734442335
+       ],
+       [
+        -7.195854485034943,
+        41.48451393985122
+       ],
+       [
+        -7.195902764797211,
+        41.48451393985122
+       ],
+       [
+        -7.195902764797211,
+        41.484469734442335
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b97",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.1902647614479065,
+        41.48161641243879
+       ],
+       [
+        -7.1902137994766235,
+        41.48161641243879
+       ],
+       [
+        -7.1902137994766235,
+        41.481656600944966
+       ],
+       [
+        -7.1902647614479065,
+        41.481656600944966
+       ],
+       [
+        -7.1902647614479065,
+        41.48161641243879
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b98",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.180404961109161,
+        41.49068230799064
+       ],
+       [
+        -7.180353999137878,
+        41.49068230799064
+       ],
+       [
+        -7.180353999137878,
+        41.49072249087396
+       ],
+       [
+        -7.180404961109161,
+        41.49072249087396
+       ],
+       [
+        -7.180404961109161,
+        41.49068230799064
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-pt-north-mirandela-v2/b99",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175159501964115,
+        41.478367572100595
+       ],
+       [
+        -7.175142701965099,
+        41.4783409721006
+       ],
+       [
+        -7.175068001964118,
+        41.478367472100594
+       ],
+       [
+        -7.175084801963134,
+        41.4783940721006
+       ],
+       [
+        -7.175159501964115,
+        41.478367572100595
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1091714317",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.175236301943486,
+        41.478925072100594
+       ],
+       [
+        -7.175246001943578,
+        41.4789225721006
+       ],
+       [
+        -7.175250001943819,
+        41.478916072100596
+       ],
+       [
+        -7.175248301944193,
+        41.4789059721006
+       ],
+       [
+        -7.175243301944518,
+        41.478897172100595
+       ],
+       [
+        -7.175236601944741,
+        41.478891172100596
+       ],
+       [
+        -7.1752235019449255,
+        41.478886172100594
+       ],
+       [
+        -7.1752125019448885,
+        41.4788871721006
+       ],
+       [
+        -7.175205401944674,
+        41.478892972100596
+       ],
+       [
+        -7.175206801944323,
+        41.4789024721006
+       ],
+       [
+        -7.175213501943942,
+        41.4789127721006
+       ],
+       [
+        -7.175221901943605,
+        41.4789218721006
+       ],
+       [
+        -7.175227901943504,
+        41.478924572100595
+       ],
+       [
+        -7.175236301943486,
+        41.478925072100594
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/1091734001",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.186411101701605,
+        41.4854609721006
+       ],
+       [
+        -7.186362201701639,
+        41.485460072100594
+       ],
+       [
+        -7.186364201703868,
+        41.485399872100594
+       ],
+       [
+        -7.186413101703834,
+        41.4854007721006
+       ],
+       [
+        -7.186411101701605,
+        41.4854609721006
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/259129430",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.186340801698536,
+        41.4855438721006
+       ],
+       [
+        -7.186285501696624,
+        41.4855955721006
+       ],
+       [
+        -7.186132101700025,
+        41.4855036721006
+       ],
+       [
+        -7.1861932017021415,
+        41.4854464721006
+       ],
+       [
+        -7.1862572017007205,
+        41.4854848721006
+       ],
+       [
+        -7.186342201700569,
+        41.4854889721006
+       ],
+       [
+        -7.18642860169884,
+        41.485535672100596
+       ],
+       [
+        -7.186392301697493,
+        41.485572072100595
+       ],
+       [
+        -7.186340801698536,
+        41.4855438721006
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/259129431",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "customers"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -7.195119901985371,
+        41.477793072100596
+       ],
+       [
+        -7.1950235019862845,
+        41.4777683721006
+       ],
+       [
+        -7.195039301987569,
+        41.4777336721006
+       ],
+       [
+        -7.1951358019866545,
+        41.477758372100595
+       ],
+       [
+        -7.195119901985371,
+        41.477793072100596
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/925881129",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  }
+ ]
+}

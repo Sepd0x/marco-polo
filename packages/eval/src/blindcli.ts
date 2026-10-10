@@ -24,6 +24,8 @@ import {
   renderZoneWindows,
   sameObject,
   secondPassWindows,
+  seenInWindows,
+  shareInWindows,
   WINDOW,
   Z,
   zoneWindows,
@@ -96,14 +98,10 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
     if (miss2.length) throw new Error(`pass2.json misses windows: ${miss2.join(', ')}`);
     const sub2 = windows.filter((w) => ids.includes(w.id));
     // Compare on the ground both passes looked at: the second-pass windows.
-    const inSub = (b: GeoBox) => {
-      const c = { lon: (b.bbox.west + b.bbox.east) / 2, lat: (b.bbox.south + b.bbox.north) / 2 };
-      const x = lonToWorldX(c.lon, Z), y = latToWorldY(c.lat, Z);
-      return sub2.some((w) => x >= w.x0 && x < w.x0 + w.size && y >= w.y0 && y < w.y0 + w.size);
-    };
-    const a = boxes.filter(inSub);
-    const b = dedupeBoxes(passToGeo(pass2, windows)).filter(inSub);
-    const r = agreement(a, b);
+    const a = boxes.filter((x) => seenInWindows(x.bbox, sub2, 'touches'));
+    const b = dedupeBoxes(passToGeo(pass2, windows)).filter((x) => seenInWindows(x.bbox, sub2, 'centre'));
+    // A first pass box the second pass saw only in part (under half of it inside its windows) can match, but never counts against it.
+    const r = agreement(a, b, (x) => shareInWindows(x.bbox, sub2) >= 0.5);
     // Neither pass boxed a pool (the negative stratum): nothing to disagree on, F1 stays undefined.
     const none = r.f1 === null;
     const out = { zone: zone.id, windows: ids, pass1Pools: a.filter((x) => x.kind === 'p').length, pass2Pools: b.filter((x) => x.kind === 'p').length, ...r, threshold: 0.9, ok: none || r.f1! >= 0.9, ...(none ? { note: 'neither pass boxed a pool in these windows' } : {}) };

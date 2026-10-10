@@ -19,12 +19,12 @@
   "w-08-06",
   "w-08-08"
  ],
- "pass1Pools": 44,
+ "pass1Pools": 46,
  "pass2Pools": 44,
- "matched": 40,
+ "matched": 42,
  "onlyA": 1,
- "onlyB": 3,
- "f1": 0.9523809523809523,
+ "onlyB": 1,
+ "f1": 0.9767441860465116,
  "threshold": 0.9,
  "ok": true
 }
