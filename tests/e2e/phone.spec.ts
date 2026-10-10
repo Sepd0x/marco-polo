@@ -15,4 +15,11 @@ test('on a phone the bottom sheet leaves the area in view', async ({ page }) => 
   expect(area.x + area.width).toBeLessThanOrEqual(375);
   expect(area.y).toBeGreaterThanOrEqual(0);
   expect(area.y + area.height, 'area bottom above the sheet top').toBeLessThanOrEqual(sheet!.y);
+
+  // Every pool in the list is drawn, and no number lies over an outline.
+  const rows = await ui.listRows(page).count();
+  const drawn = await ui.mapPoolDrawing(page);
+  expect(drawn.outlines, 'one outline on screen per row of the list').toBe(rows);
+  expect(drawn.outlinesOnTop, 'outlines above the numbers').toBe(true);
+  if (drawn.zoom < 17) expect(drawn.boxes, 'no boxed numbers below zoom 17').toBe(0);
 });

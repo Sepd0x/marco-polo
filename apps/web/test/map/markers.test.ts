@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { HALO_FROM, labelImageId, labelStyle } from '../../src/map/markers.js';
+import { BOX_FROM_ZOOM, HALO_FROM, labelImageId, labelStyle, RANK_MIN_ZOOM } from '../../src/map/markers.js';
 
 describe('pool labels', () => {
   it('boxes the numbers below 30 pools and keeps a halo from 30 on', () => {
@@ -12,6 +12,11 @@ describe('pool labels', () => {
   it('always boxes the open pool in the accent', () => {
     expect(labelStyle(5, true)).toBe('open');
     expect(labelStyle(50, true)).toBe('open');
+  });
+
+  it('keeps bare numbers between the first numbers and zoom 17, where a box could cover a pool', () => {
+    expect(RANK_MIN_ZOOM).toBe(16);
+    expect(BOX_FROM_ZOOM).toBe(17);
   });
 
   it('names one image per style and rank', () => {

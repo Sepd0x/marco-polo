@@ -19,7 +19,7 @@ import { browserDisplay, mapMaxZoom } from './sources.js';
 import { watchContextLoss } from './contextLoss.js';
 import { occluderPadding } from './padding.js';
 import { FrameOverlay, type FrameStyle } from './frame.js';
-import { PHONE_QUERY } from '../ui/hooks.js';
+import { PHONE_QUERY } from '../lib/media.js';
 
 const isPhone = () => globalThis.matchMedia?.(PHONE_QUERY).matches ?? false;
 
@@ -116,12 +116,13 @@ export function MapView() {
       refreshImagery();
       map.on('moveend', refreshImagery);
 
-      // Scan layers go above the imagery and the labels; markers on top.
+      // Scan layers go above the imagery and the street labels.
       const overlay = new ScanOverlay(map);
       overlay.setVeil(veilColour());
       unsubs.push(watchTheme(() => overlay.setVeil(veilColour())));
       const frame = new FrameOverlay(map, frameStyle);
-      const markers = new DetectionMarkers(map, (id) => useStore.getState().select(id));
+      // Dots and numbers under the pool outlines: a label never hides a pool.
+      const markers = new DetectionMarkers(map, (id) => useStore.getState().select(id), 'det-fill');
       setLabelsVisible(map, useStore.getState().settings.labels);
 
       const draw = new DrawTool(map, (ring: Ring) => {

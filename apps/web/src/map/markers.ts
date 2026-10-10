@@ -16,6 +16,13 @@ export const RANK_MIN_ZOOM = 16;
 /** From this many pools the rank numbers lose their box and keep a halo, so the map stays readable. */
 export const HALO_FROM = 30;
 
+/**
+ * Below this zoom every number is a bare number with a halo: a box there is
+ * as large as a pool and could cover one. The outlines are also drawn above
+ * the numbers, so no label can ever hide a pool.
+ */
+export const BOX_FROM_ZOOM = 17;
+
 export type LabelStyle = 'open' | 'box' | 'halo';
 
 /** The label of a pool: boxed below HALO_FROM pools, a bare number with a halo above; the open pool is always boxed in the accent. */
@@ -87,7 +94,8 @@ function drawLabel(style: LabelStyle, text: string): { width: number; height: nu
 export class DetectionMarkers {
   private map: maplibregl.Map;
 
-  constructor(map: maplibregl.Map, onSelect: (id: string) => void) {
+  /** `beforeId`: the pool outline layers, which go above the dots and numbers. */
+  constructor(map: maplibregl.Map, onSelect: (id: string) => void, beforeId?: string) {
     this.map = map;
     this.onSelect = onSelect;
     if (!map.getSource(MARKER_SOURCE)) {
@@ -111,7 +119,7 @@ export class DetectionMarkers {
           'circle-opacity': fadeClose,
           'circle-stroke-opacity': fadeClose,
         },
-      });
+      }, beforeId);
     }
     if (!map.getLayer(MARKER_RANK)) {
       map.addLayer({
@@ -121,14 +129,20 @@ export class DetectionMarkers {
         minzoom: RANK_MIN_ZOOM,
         layout: {
           // The label is an image inside the text, so it keeps the variable placement of text.
-          'text-field': ['format', ['image', ['get', 'label']]],
+          'text-field': [
+            'step',
+            ['zoom'],
+            ['format', ['image', ['get', 'small']]],
+            BOX_FROM_ZOOM,
+            ['format', ['image', ['get', 'label']]],
+          ],
           'text-size': 12,
           'text-variable-anchor': ['left', 'right', 'top', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right'],
           'text-radial-offset': 0.9,
           'text-allow-overlap': false,
           'symbol-sort-key': ['case', selected, -1, ['get', 'rank']],
         },
-      });
+      }, beforeId);
     }
     map.on('click', MARKER_DOT, this.onClick);
     map.on('mouseenter', MARKER_DOT, this.onEnter);
@@ -174,7 +188,7 @@ export class DetectionMarkers {
         const style = labelStyle(list.length, d.id === selectedId);
         return {
           type: 'Feature',
-          properties: { id: d.id, rank: d.rank, kind: d.kind, style, label: labelImageId(style, d.rank) },
+          properties: { id: d.id, rank: d.rank, kind: d.kind, style, label: labelImageId(style, d.rank), small: labelImageId('halo', d.rank) },
           geometry: { type: 'Point', coordinates: [d.center.lon, d.center.lat] },
         };
       }),
