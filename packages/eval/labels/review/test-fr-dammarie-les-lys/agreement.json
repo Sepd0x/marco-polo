@@ -27,12 +27,12 @@
   "w-10-01",
   "w-10-05"
  ],
- "pass1Pools": 15,
+ "pass1Pools": 22,
  "pass2Pools": 24,
- "matched": 13,
- "onlyA": 1,
- "onlyB": 9,
- "f1": 0.7222222222222222,
+ "matched": 17,
+ "onlyA": 2,
+ "onlyB": 0,
+ "f1": 0.9444444444444444,
  "threshold": 0.9,
- "ok": false
+ "ok": true
 }
