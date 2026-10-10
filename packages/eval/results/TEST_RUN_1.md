@@ -32,5 +32,10 @@ What the misses say:
 - Dammarie-les-Lys recall is 48%: half the pools there are missed.
 - Brixen: v2 misses 19 of 20 pools on Esri in the Alps.
 
+Provenance: `targets.json` names commit c5d7966, the working branch where the
+targets were computed. That branch was squashed into 06d7b86, which brought
+`targets.json` here before the run (e676b20); the run row in `TEST_RUNS.md`
+holds the sha256 of that same file.
+
 Two TEST runs remain. A second run needs a change justified on DEV and DEV-2
 alone.
