@@ -178,7 +178,7 @@ describe('progress', () => {
   });
 });
 
-describe('pool list and inspector', () => {
+describe('pool list and record', () => {
   it('moves the selection with the arrow keys and clears it with Esc', () => {
     seed('complete');
     render();

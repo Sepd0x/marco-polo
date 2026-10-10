@@ -50,13 +50,14 @@ a positive.
 
 [`packages/eval`](../packages/eval): frozen labels, each zone on the imagery
 the product scans there, 95% block bootstrap intervals. DEV zones are scored
-with a calibration fitted without them; DEV-2 ran once, with the final model.
+with a calibration fitted without them. DEV-2 is never used to tune or
+calibrate; it is scored at each model freeze.
 
 | | v1 at 0.55 | v2 |
 |---|--:|--:|
 | F1, DEV | 28.9% [24.6, 33.8] | 79.9% [76.3, 83.1] |
 | F1, DEV-2 | 48.6% [45.0, 52.7] | 74.6% [71.0, 77.9] |
-| F1, GOLD | 66.1% [60.0, 71.2] | 85.4% [82.4, 87.8] |
+| F1, GOLD | 65.8% [59.8, 71.0] | 85.4% [82.4, 87.8] |
 | false positives per km², DEV | 162.0 | 14.0 |
 | median area error, DEV (signed) | 23.3% (-17.0%) | 25.5% (-12.2%) |
 | median area error, DEV-2 (signed) | 26.3% (-22.0%) | 27.9% (-22.2%) |
@@ -71,13 +72,15 @@ with a calibration fitted without them; DEV-2 ran once, with the final model.
   (66 pools were missing); every number above uses the new labels.
 - Tile borders cost at most 1 pp of recall on the gold against scoring the
   whole area as one image (P8).
-- Not measured again with this model: the candidate ceiling, the spread over
-  five training seeds, and the time per request in a web worker (for the
-  previous model, p95 on one core of an AMD Ryzen AI 9 365: 126 ms for a
-  512 px DGT request, 42.5 ms for a 256 px tile; targets 150 and 50 ms).
-- One pixel of boundary is 17.6% of the median labelled pool at these
-  resolutions. The area targets (median error 15%, signed within 5%) are not
-  met.
+- Time per request in a web worker (production build, Chromium 141, Xeon
+  2.1 GHz, 4 cores): p95 236.7 ms per 512 px DGT request and 57.1 ms per
+  256 px tile, both above the targets of 150 and 50 ms
+  ([`tests/bench/RESULTS.md`](../tests/bench/RESULTS.md)).
+- Not measured again: the candidate ceiling and the spread over five training
+  seeds.
+- At these resolutions, one pixel along the boundary is a large share of a
+  small pool's area. The area targets (median error 15%, signed within 5%) are
+  not met.
 
 ## Limits
 
@@ -87,7 +90,11 @@ with a calibration fitted without them; DEV-2 ran once, with the final model.
   and summer, and no Esri imagery. Esri has one DEV zone, Scottsdale, where
   v2 is not better than v1.
 - Blue cars, solar panels and teal roofs still pass at times.
-- With the pixel ring the width reads wide, by about 8% (median) on DEV.
+- Width: median error 19.5% on DEV (n=170, `results/v2/report.md`). Whether
+  it reads wide or narrow is not measured.
+- A detection of 10 m² or less is tagged a hot tub (`hotTubMaxM2` in
+  `merger.ts`). Size is the only test; the app shows them unless "Include hot
+  tubs" is off.
 
 ## v1
 

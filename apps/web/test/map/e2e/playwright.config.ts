@@ -5,7 +5,7 @@ import { defineConfig } from '@playwright/test';
 
 // Map rendering checks on the production build under the Pages base path.
 // Tiles never come from the network: each test answers the real imagery
-// hosts with generated tiles (see tiles.ts), so the CSP under test is the
+// hosts with synthetic tiles (see tiles.ts), so the CSP under test is the
 // production one.
 const port = Number(process.env.MAP_E2E_PORT ?? 5402);
 

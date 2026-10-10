@@ -26,7 +26,7 @@ import { fragKey } from '../lib/fragKey.js';
 import { partOfDetection } from '../scan/ids.js';
 import { haloFor, PRODUCT_DETECTOR_ID, THUMB_PAD, thumbRect } from '../scan/tileWork.js';
 
-/** Every list and inspector crop covers the same ground width, so sizes compare at a glance. */
+/** Every list and record crop covers the same ground width, so sizes compare at a glance. */
 export { THUMB_VIEW_M } from '../scan/tileWork.js';
 
 export type SortKey = 'largest' | 'score';

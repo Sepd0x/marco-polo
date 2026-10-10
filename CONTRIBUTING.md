@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for taking an interest in Marco Polo. Issues and pull requests are welcome.
+Issues and pull requests are welcome.
 
 ## Getting set up
 
@@ -9,7 +9,7 @@ git clone https://github.com/Sepd0x/marco-polo.git
 cd marco-polo
 npm install
 npm run dev          # web app on :5173
-npm test             # engine tests
+npm test             # unit tests, all packages
 npm run typecheck    # strict TS across all packages
 ```
 
@@ -27,19 +27,18 @@ from TypeScript source (Vite in the web app, `tsx` in the CLI, vitest for tests)
 
 ## Detection changes
 
-Threshold or pipeline changes must come with evidence: run the tuning harness
-before/after on at least two of the reference areas and include the results in
-the PR description.
+Detection changes need numbers. Run the benchmark on DEV and DEV-2 before and
+after, on the imagery the product uses in each zone, and compare the two
+reports:
 
 ```bash
-cd packages/cli
-npx tsx src/dev/annotate.ts 37.0745 -8.1155 3 19 vilamoura.png   # EU resort
-npx tsx src/dev/annotate.ts 33.594 -111.926 3 19 scottsdale.png  # US desert suburb
+npm run eval -- run --zones dev,dev-2 --source auto --detector v2 --out before
+npm run eval -- run --zones dev,dev-2 --source auto --detector v2 --out after
+npm run eval -- compare --baseline before/report.json --report after/report.json
 ```
 
-Watch for both directions: new false positives (roads, roofs, cars) *and* lost
-true pools. The joint saturation/brightness gate exists because of exactly this
-loop (see `docs/DETECTION.md` §2).
+Put the F1 and the false detections per km² of DEV and DEV-2 in the PR. TEST
+is never run for tuning. See [`packages/eval/README.md`](packages/eval/README.md).
 
 ## Style
 

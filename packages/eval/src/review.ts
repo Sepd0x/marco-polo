@@ -44,7 +44,7 @@ import { zoneById } from './zones.js';
 const Z = 19;
 const WIN = 1100;
 
-/** A loose colour gate: over-generates on purpose, a person filters. */
+/** A loose colour gate: lets too much through on purpose, a person filters. */
 const LOOSE = {
   ...DEFAULT_THRESHOLDS,
   hueMin: 140,

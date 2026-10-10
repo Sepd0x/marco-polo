@@ -91,7 +91,7 @@ export const DGT_ORTOSAT2023: ImageryProvider = {
 /**
  * PNOA maximum currency mosaic (IGN Spain), 25 cm in most of Spain. CC BY 4.0
  * (Orden FOM/2807/2015; AccessConstraints in https://www.ign.es/wmts/pnoa-ma
- * capabilities). Tiles pregenerated up to level 19. Melilla is Pleiades Neo
+ * capabilities). Tiles exist up to level 19. Melilla is Pleiades Neo
  * (Airbus DS) and is left out of the coverage. Tiles carry max-age=31536000.
  */
 export const PNOA: ImageryProvider = {

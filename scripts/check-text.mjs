@@ -1,5 +1,5 @@
 // Text check over every tracked text file: no dashes used as punctuation,
-// none of the stock phrases that make prose read as generated, no mention of
+// none of the stock phrases that weaken prose, no mention of
 // tools that wrote code, no co-author trailers. Exits 1 with file:line for
 // each hit. Data files (labels, fixtures, models, lockfiles) are skipped.
 import { execFileSync } from 'node:child_process';
@@ -27,7 +27,7 @@ const RULES = [
   { id: 'osint', re: /\bosint\b/i, why: 'the product is described as a tool, without that word' },
 ];
 
-// Names of code-writing tools, kept as the first 16 hex digits of the sha256
+// Names that must not appear, kept as the first 16 hex digits of the sha256
 // of each lowercase word or phrase so this file does not list them itself.
 const TOOL_HASHES = new Set(['c857d09db23e6822', 'c70eca6b0f88f44d', '60965168ce762e94', '7d3194f79e645c42', '3ea125d0bff386e6', '5d72436256ada538', '487b91042c7cf27a', 'cdcbb68a3444fdd6', '9760d607e65eafcf', '9c26adb26ee86916']);
 const h16 = (s) => createHash('sha256').update(s).digest('hex').slice(0, 16);
@@ -65,7 +65,7 @@ for (const f of files) {
     const tool = toolName(line);
     if (tool) {
       hits++;
-      console.log(`${f}:${i + 1}: names a code-writing tool: "${tool}"`);
+      console.log(`${f}:${i + 1}: names a tool that must not appear: "${tool}"`);
     }
   });
 }

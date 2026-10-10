@@ -4,7 +4,7 @@
  *  1. the report was made by the detector code and model of this checkout;
  *  2. the labels it used are the frozen ones;
  *  3. targets.json has not changed since the first TEST run;
- *  4. the floors of the plan (P1 to P9) and the final targets hold.
+ *  4. the floors (P1 to P9) and the final targets hold.
  */
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -49,7 +49,7 @@ export function detectorHash(repoRoot: string, paths: string[] = DETECTOR_PATHS)
 
 export type Cmp = 'min' | 'max';
 
-/** A floor fixed in the plan (3.2) before any v2 number existed. */
+/** A floor fixed before any v2 number existed. */
 export interface Floor {
   id: string;
   what: string;
@@ -82,7 +82,7 @@ const stricter = (cmp: Cmp, a: number, b: number | null) => (b === null ? a : cm
 
 /**
  * Final targets from a DEV + DEV-2 comparison: each is the stricter of the
- * floor and the pessimistic end of v2's interval there (plan 3.2).
+ * floor and the pessimistic end of v2's interval there.
  */
 export function computeTargets(dev: Paired, commit: string, date: string): TargetsFile {
   const t: Record<string, number> = {};
@@ -96,7 +96,7 @@ export function computeTargets(dev: Paired, commit: string, date: string): Targe
     basis[f.id] = bound === null ? 'floor' : `stricter of floor ${f.value} and DEV+DEV-2 bound ${bound.toFixed(4)}`;
   }
   return {
-    about: 'Final targets, fixed before the first TEST run (plan 3.2). The gate fails if this file changes after a TEST run is logged in results/TEST_RUNS.md.',
+    about: 'Final targets, fixed before the first TEST run. The gate fails if this file changes after a TEST run is logged in results/TEST_RUNS.md.',
     fixedAt: date,
     commit,
     targets: t,

@@ -1,94 +1,78 @@
-# Imagery sources, limits & responsible use
+# Imagery sources and responsible use
 
-Marco Polo analyses standard **XYZ raster tiles** (Web Mercator, 256 px). It ships
-with one default source and a pluggable seam for anything else.
+The source registry is [`packages/core/src/providers.ts`](../packages/core/src/providers.ts).
+With the default setting, `auto`, the scan picks the source by place: DGT
+Ortos2025 in mainland Portugal, PNOA in Spain, IGN BD ORTHO in metropolitan
+France and Corsica, Esri World Imagery elsewhere. An area that crosses a border
+is split into parts, one source each. The Imagery picker on the map can fix one
+source instead. The CLI takes the same choice with `--source auto|dgt|pnoa|ign|esri`.
 
-## Default: Esri World Imagery
+## Sources
 
-```
-https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
-```
+| source | imagery | request | licence | kept by the app | rate ceiling |
+|---|---|---|---|---|--:|
+| DGT Ortos2025 | aerial, 25 cm, flown 29 Mar to 26 Jul 2025 | WMS in EPSG:3857, 512 px per request | CC BY 4.0 | IndexedDB | 4/s |
+| PNOA (IGN Spain) | aerial mosaic, 25 cm in most of Spain | WMTS, 256 px; the IGN TMS of the same mosaic as mirror | CC BY 4.0 | IndexedDB | 5/s |
+| IGN BD ORTHO | aerial, 20 cm | WMTS, 256 px | Licence Ouverte 2.0 (Etalab) | IndexedDB | 5/s |
+| Esri World Imagery | global mosaic; resolution and date vary by place | XYZ, 256 px | Esri terms of use | nothing | 5/s |
 
-- High-resolution aerial/satellite composite (Maxar, Earthstar Geographics et al.),
-  global coverage, generally to z19 in populated areas.
-- Served with permissive CORS, which is what allows in-browser pixel analysis.
-- **Attribution is required** and is shown on the map, in the app footer
-  attribution control, and embedded in exports:
-  *"Esri, Maxar, Earthstar Geographics, and the GIS User Community."*
-- Esri's terms permit use of this service for maps and analysis with attribution;
-  they do not permit bulk harvesting of imagery. Marco Polo is built to stay on
-  the right side of that line (see "Being a polite client" below). If you plan
-  sustained, large-scale scanning, get your own imagery entitlement. The
-  custom-endpoint setting exists for that.
+The registry also lists DGT OrtoSat2023 (30 cm satellite mosaic) as view
+only: no licence for its image files was found, so it is never scanned.
 
-## Being a polite client
+Each source's attribution is shown on the map and written into every export.
+For PNOA and IGN the export credit carries the capture date when it is known.
 
-- **Hard rate cap.** Tiles are dispatched on a timer (default 5/s, max 10/s,
-  user-visible in Settings). A scan is comparable traffic to a user panning the
-  map, just more patient.
-- **Local caching.** The browser keeps tiles in the Cache API; the CLI keeps them
-  in `.tile-cache/`. Re-scans and threshold experiments hit cache, not the
-  provider.
-- **No fan-out.** The web app has no backend; each user fetches only what their
-  own scan needs. The CLI is single-stream sequential.
-- **Backoff.** HTTP 429/5xx responses are retried with exponential backoff
-  and jitter; permanent errors are not retried.
+## Caching
 
-## Swapping the imagery source
+- DGT, PNOA and IGN tiles are open data. The app keeps them in IndexedDB on
+  the device, so a rescan reads them without a request. Settings, "Saved
+  imagery", clears them.
+- Esri tiles are never stored by the app or the CLI. In the browser, only the
+  HTTP cache keeps them, for the max-age Esri sends.
+- The CLI keeps open-licence tiles in `--cache-dir` (default `.tile-cache`)
+  and never writes Esri tiles to disk.
+- Training never uses Esri imagery.
 
-Settings → *Imagery* offers presets:
+## Rate
 
-- **Esri World Imagery**: the default, no key needed.
-- **MapTiler satellite / Mapbox satellite**: paste your own API key (free
-  tiers exist). The key is embedded in the tile template and stored only in
-  your browser's localStorage; it is never sent anywhere except to that
-  provider. Where Esri's mosaic is dated, these are often fresher and sharper.
-- **Custom XYZ**: any `https://…/{z}/{x}/{y}` template, such as your own tile server,
-  a licensed provider (Maxar, Planet), or public regional orthophoto services
-  (many national mapping agencies publish free high-resolution orthophotos,
-  often *better* than global mosaics for their country).
+Requests go through a token bucket at the rate set in Settings (default 5 per
+second, 1 to 10), never above the source's ceiling in the table. Each network
+attempt takes a token, retries and halo neighbours included; a cache hit takes
+none. 429, 5xx and network errors are retried up to 3 times with backoff. 404
+and 204 mean "no imagery here". Other 4xx errors are not retried.
 
-The basemap follows the configured source, so what you see is exactly what the
-detector analyses. Templates must be `https://`. Anything else falls back to
-the default. Check the terms of whatever you point the scanner at;
-requirements differ on attribution, caching and derived data. The CLI takes
-the same templates via `--template`.
+The detector expects RGB true colour at about the resolutions above. The
+model was trained on DGT, PNOA and IGN imagery.
 
-If you operate your own imagery, note the detector's assumptions: RGB truecolor,
-roughly 0.2 to 0.6 m/px (z18 to z19 equivalents), reasonably colour-balanced. NIR bands
-would make water detection dramatically easier (NDWI), but standard tile services
-don't carry them.
+## Network
+
+The production build sends a Content Security Policy that allows connections
+only to these origins (`apps/web/src/map/csp.ts`):
+
+- the imagery hosts in the table and the PNOA mirror;
+- the capture date lookups: `services.arcgisonline.com`, `www.ign.es`,
+  `data.geopf.fr`;
+- OpenFreeMap (`tiles.openfreemap.org`) for street names and glyphs;
+- OpenStreetMap Nominatim, only when the search box is used.
+
+Drawn areas, results and archives stay in the browser's storage. The app has
+no backend and sends no analytics.
 
 ## Responsible use
 
-This tool detects private amenities on private property from public imagery. The
-imagery is public and viewable by anyone in any map client. Marco Polo adds
-*aggregation*, and aggregation changes the ethics.
+The tool finds private amenities on private property from public imagery.
+Anyone can view that imagery in a map client. The tool adds aggregation, and
+aggregation changes the ethics.
 
-Fine (and the intended uses):
+Intended uses work on aggregate numbers: learning how a geospatial detection
+pipeline works, pool density and water use at neighbourhood or city scale,
+emergency planning (water sources), insurance portfolio models and municipal
+registry checks.
 
-- Learning how geospatial CV pipelines work, end to end.
-- Urban analysis at neighbourhood/city scale: pool density, water-use estimation,
-  urban heat / affluence research on aggregate numbers.
-- Emergency planning (identifying water sources), insurance portfolio modelling,
-  municipal registry reconciliation. The GIS industry sells these same uses
-  commercially.
+Do not use it to profile a person or a property, whether for burglary or to
+report a neighbour's undeclared pool. In most countries that enforcement is
+the tax authority's job. Do not publish per-address datasets derived from
+someone else's imagery service. Exports carry coordinates, not addresses.
 
-Not fine:
-
-- Profiling specific individuals or properties (burglary reconnaissance is the
-  obvious abuse; "which of my neighbours has an undeclared pool" is a subtler
-  one. In most jurisdictions, enforcement from aerial imagery is the tax
-  authority's job, not a neighbour's).
-- Publishing per-address datasets derived from someone else's imagery service.
-  Export files carry coordinates, not addresses, and it should stay that way.
-
-The detections are **estimates from imagery of unknown age**. Never treat a
-detection (or its absence) as a statement of current fact about a property.
-
-## Privacy posture of the app itself
-
-Everything runs client-side. Drawn areas, scan results and archives live in your
-browser's storage and never leave your machine. The only network traffic is tile
-fetches to the imagery provider and (only when you use the search box) a geocoding
-query to OpenStreetMap Nominatim. There is no analytics, no tracking, no backend.
+Detections are estimates from imagery that can be years old. A detection, or
+its absence, says nothing certain about a property today.

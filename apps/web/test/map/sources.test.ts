@@ -64,7 +64,7 @@ describe('sharpness up to the zoom where each source runs out', () => {
     }
   }
 
-  it('the Esri ends at z17.5 on a DPR 2 screen, as the plan says', () => {
+  it('the Esri ends at z17.5 on a DPR 2 screen', () => {
     expect(endZoom(19, displayTileSize({ devicePixelRatio: 2, saveData: false }))).toBe(17.5);
   });
 });

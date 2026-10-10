@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 
 /*
- * Targets fixed before measuring (plan 3.3): at 5 requests per second a
+ * Targets fixed before the first measurement: at 5 requests per second a
  * worker has 200 ms per request, so p95 per 512 px request with halo
  * <= 150 ms and per 256 px tile with halo <= 50 ms, timed inside the worker
  * (decode, no-data check, detection, thumbnails). On CI, another machine,

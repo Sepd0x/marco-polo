@@ -16,13 +16,15 @@ npm run eval -- --help
 ## Zones and roles
 
 `zones/registry.json` holds every zone with its role, its product source and
-the places phase 0 looked at.
+the places phase 0 looked at. Phase 0 is the first benchmark: ten zones on
+Esri, labelled from OSM and hand corrections. Its gold set is the union of
+what the early colour methods proposed, reviewed one by one.
 
 | role | use |
 |---|---|
 | DEV | tune here, look at galleries as often as you like |
 | DEV-2 | the five former TEST zones; confirmation only, run at a freeze |
-| GOLD | phase 0 gold (union of what the prototype methods proposed, checked by eye) |
+| GOLD | the phase 0 gold set, as boxes |
 | TEST | drawn from a pre-registered list; never tuned on, no galleries |
 | TRAIN | zones a model learns from |
 
@@ -66,11 +68,11 @@ corrections made on Esri imagery. Indoor, covered and duplicated pools are
 `ignore`: a detection there counts neither way.
 
 New zones are reviewed blind (`eval blind`): the zone is cut into 1024 px
-windows of clean imagery with only a coordinate ruler, and every pool is
-boxed by eye, with no detection and no OSM in view. OSM is merged afterwards;
-every OSM pool the review did not box is shown on its own crop and judged
-pool, absent or unsure. A second, independent pass covers 20% of the windows
-(picked by hash) and their agreement (F1) must reach 0.90.
+windows of clean imagery with only a coordinate ruler, and a blind pass
+boxes every pool with no detection and no OSM in view. OSM is merged
+afterwards; every OSM pool the blind pass did not box is shown on its own crop
+and judged pool, absent or unsure. A second independent blind pass covers 20%
+of the windows (picked by hash) and their agreement (F1) must reach 0.90.
 
 `labels/labels.sha256` freezes every label file. A run refuses changed labels
 unless it passes `--relabel "<why>"`, which re-freezes and logs the change in
@@ -105,8 +107,9 @@ DGT or PNOA answers, 404) count as missing, never as empty ground.
 ## TEST runs, targets and the gate
 
 - `eval targets --baseline v1.json --report v2.json` fixes `targets.json` from
-  DEV and DEV-2: each target is the stricter of the plan's floor and v2's
-  pessimistic interval end there. It must be committed before the first TEST
+  DEV and DEV-2: each target is the stricter of the floor written in
+  `gate.ts` before any v2 number existed and v2's pessimistic interval end
+  there. It must be committed before the first TEST
   run.
 - A detector other than v1 runs on TEST only with `--confirm-test "<why>"`,
   which logs the run in `results/TEST_RUNS.md` first. At most three. The v2

@@ -58,7 +58,7 @@ export function DrawSection({ compact = false }: { compact?: boolean }) {
         ? 'Click each corner on the map, then click the first one to close the shape.'
         : compact
           ? 'Mark the place to scan on the map.'
-          : 'Mark the place to scan on the map. Every pool inside is found, measured and listed by size.';
+          : 'Mark the place to scan on the map. Pools inside are found, measured and listed by size.';
 
   return (
     <section className="sec" aria-labelledby="draw-h">

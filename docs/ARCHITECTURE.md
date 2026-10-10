@@ -10,39 +10,37 @@ lives in `@marco-polo/core`**, and everything else is a thin host around it.
 │                                                                    │
 │  geo/       Web Mercator tile math, pixel↔WGS84, geodesic areas    │
 │  scan/      polygon→tile plans, serpentine & spiral traversals     │
-│  detect/    HSV water mask → morphology → components → contours    │
+│  detect/    v2: colour candidates → 56 features → trees + MLP      │
+│             → calibrated score; v1: colour rules (baseline)        │
 │  merge/     cross-tile fragment merger (dedupe + truncation)       │
-│  rank/      largest-first ranking                                  │
+│  rank/      largest-first order (the app also sorts by score)      │
 └──────────────────────┬──────────────────────┬──────────────────────┘
                        │                      │
         ┌──────────────▼───────────┐   ┌──────▼──────────────────┐
         │        apps/web          │   │      packages/cli       │
         │  React + MapLibre GL     │   │  Node scanner           │
         │  Web Worker pool runs    │   │  jpeg-js/pngjs decode   │
-        │  detect() off-thread     │   │  disk tile cache        │
-        │  Cache API tile cache    │   │  GeoJSON/CSV output     │
+        │  detect() off-thread     │   │  disk cache, no Esri    │
+        │  tile cache by licence   │   │  GeoJSON/CSV output     │
         │  IndexedDB scan archive  │   └─────────────────────────┘
         └──────────────────────────┘
 ```
 
 ## Why client-side?
 
-The pivotal early finding: the default imagery endpoint (Esri World Imagery) serves
-tiles with `Access-Control-Allow-Origin: *`, which means satellite pixels are
-readable from a browser canvas. That single fact makes the strongest architecture a
-**static web app**:
+The imagery sources serve tiles with CORS headers, so a browser canvas can read
+their pixels. That allows a static web app.
 
-- **Zero backend.** Nothing to deploy, secure, or pay for; the demo runs on GitHub
-  Pages. Your drawn areas and scan results never leave your machine.
-- **The user's browser is the rate limiter.** Each visitor fetches tiles for their
-  own scan at a capped rate (default 5 tiles/s), exactly as a map client would while
-  panning. There is no central scraper.
-- **Workers keep 60 fps.** Tile decoding (`createImageBitmap`) and the CV pipeline
-  run in a `Worker` pool sized to `hardwareConcurrency`, so the map stays fluid while
-  scanning.
+No backend: the demo is static files on GitHub Pages, and drawn areas and results
+stay in the browser. Each visitor fetches tiles for their own scan at a capped
+rate (default 5 tiles/s). Decoding and detection run in 2 to 4 workers (cores
+minus one, `workerPool.ts`), so the map does not wait on them (frame rate not
+measured).
 
-The CLI exists because a survey tool should also be scriptable and reproducible.
-It runs the same engine and gives the same numbers.
+The CLI runs the same engine from a script. Its default threshold is 0.55 for
+every source, while the app holds each source to its calibrated threshold (0.50
+DGT, 0.55 IGN, 0.43 Esri and PNOA), so a CLI scan at the default can list fewer
+pools than the app.
 
 ## Scan lifecycle (web)
 
@@ -54,11 +52,11 @@ draw polygon ──► buildScanPlan(polygon, zoom, order)        [core]
              ScanController.start()
                      │  timer tick (1000/rate ms) → dispatch ≤1 tile
                      ▼
-        fetchTileBlob() ──► Cache API hit? ──► createImageBitmap()
+         fetchTile() ──► app cache hit? ──► createImageBitmap()
                      │                              │ transfer
                      ▼                              ▼
              tile fails: retry ×3,          WorkerPool.detect()
-             then count + move on                   │ detectTile() [core]
+             then count + move on                   │ detectWindow() [core]
                                                     ▼
                               TileDetection[] + RGBA thumbnail crops
                                                     │
@@ -73,8 +71,7 @@ draw polygon ──► buildScanPlan(polygon, zoom, order)        [core]
 ```
 
 Pause stops the dispatch timer (in-flight tiles finish); abort additionally cancels
-in-flight fetches via `AbortController` and finalizes with partial results. Those
-are real results, not a truncated file format.
+in-flight fetches via `AbortController` and finalizes with partial results.
 
 ## The merger (dedupe) in one paragraph
 
@@ -85,7 +82,7 @@ at that latitude/zoom) and joins them, transitively. Merged detections re-emit a
 `update` events (the UI reorders the ranking live); a cluster that grows past the
 plausible-pool ceiling is reclassified as open water and removed. A cluster stays
 `truncated: true` only while a touched edge borders a tile that is unscanned or
-outside the plan. That makes "this measurement is a lower bound" a fact, not a guess.
+outside the plan, so its measurement is a lower bound.
 
 ## State & rendering
 
@@ -109,7 +106,7 @@ outside the plan. That makes "this measurement is a lower bound" a fact, not a g
 
 | Decision | Cost | Why it wins |
 |---|---|---|
-| Classical CV instead of a learned model | misses camouflaged/indoor pools; some teal-roof false positives | zero setup, explainable, runs anywhere, tunable in the open; a `Detector`-shaped seam is left for an ONNX plug-in |
-| Client-side scanning | scan lifetime tied to the tab | no backend, no keys, privacy by construction, deployable as static files |
-| Area from pixel count × resolution² | ±10 to 15% vs. survey-grade | honest, fast, and correct *in expectation*; confidence exposes the rest |
+| Small learned scorer (300 trees + 32/16 MLP) in plain TypeScript instead of a large network | misses covered pools and pools under trees; blue cars, panels and teal roofs still pass at times | 84 KB gzip, no runtime dependency, same scores in the browser, Node and the Python reference within 1e-5 |
+| Client-side scanning | scan lifetime tied to the tab | no backend to run; areas and results stay in the browser |
+| Area from the mask grown by one pixel ring | median area error 25.5% on DEV, 18.6% on TEST; areas run small (signed -12.2% DEV, -15.2% TEST) | simple and the same in every engine; the area targets are not met (docs/DETECTION.md) |
 | Rank numbers as canvas images in symbol layers | a small image per rank and label style (box, halo, open) | no cap on markers, no glyph server dependency, same font as the list |

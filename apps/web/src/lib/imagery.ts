@@ -1,8 +1,8 @@
 import { ESRI_WORLD_IMAGERY, findProvider, type ImageryProvider, type ImagerySetting } from '@marco-polo/core';
 
 /**
- * Source for the current setting. `auto` falls back to Esri until the
- * per-area picker lands; a fixed choice must still exist and be scannable.
+ * Source the map shows before an area is drawn: Esri for `auto`, or the fixed
+ * choice when it exists and can be scanned.
  */
 export function resolveImagery(setting: ImagerySetting): ImageryProvider {
   if (setting.mode === 'fixed') {
