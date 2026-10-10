@@ -32,9 +32,13 @@ def load(work, recipe, names):
     nf = len(names)
     rows, feats = [], []
     seen = set()
-    for z in recipe['zones']:
+    court_only = recipe['courts'].get('zones', []) if recipe.get('courts') else []
+    for z in recipe['zones'] + court_only:
         zdir = os.path.join(work, z['id'])
-        wins = json.load(open(os.path.join(zdir, 'windows.json'), encoding='utf-8'))['windows']
+        wins = [] if z in court_only else json.load(open(os.path.join(zdir, 'windows.json'), encoding='utf-8'))['windows']
+        if recipe.get('courts'):
+            # Windows around sports pitches: only the candidates on a pitch carry a target (0).
+            wins = wins + json.load(open(os.path.join(zdir, 'courts.json'), encoding='utf-8'))['windows']
         for w in wins:
             b = w['bbox']
             for copy in range(recipe['copies']):
@@ -146,7 +150,7 @@ def main():
     y = np.array([r['y'] for r in rows])
     zones = np.array([r['zone'] for r in rows])
     keep = y >= 0
-    print(f'{len(rows)} candidates, {int((y == 1).sum())} pool, {int((y == 0).sum())} not, {int((y == -1).sum())} left out (ambiguous)')
+    print(f'{len(rows)} candidates, {int((y == 1).sum())} pool, {int((y == 0).sum())} not, {int((y == -1).sum())} left out (ambiguous or off-pitch)')
 
     # Plan B5: out-of-fold scores, leave one zone out; confident "not a pool" rows become ignore.
     oof = np.full(len(rows), np.nan)
@@ -157,7 +161,9 @@ def main():
             continue
         m = gbdt(recipe, 0).fit(X[train], y[train])
         oof[test] = m.predict_proba(X[test])[:, 1]
-    flagged = keep & (y == 0) & (oof > recipe['negatives']['ignoreAbove'])
+    # Pitch candidates are negatives because OSM maps a pitch there, not because nobody boxed them: never flagged.
+    court = np.array([r.get('court', 0) == 1 for r in rows])
+    flagged = keep & (y == 0) & ~court & (oof > recipe['negatives']['ignoreAbove'])
     review = [
         {'zone': r['zone'], 'window': r['window'], 'copy': r['copy'], 'lon': round(r['lon'], 7), 'lat': round(r['lat'], 7), 'areaM2': r['areaM2'], 'oof': round(float(o), 4)}
         for r, o, f in zip(rows, oof, flagged)
@@ -221,6 +227,7 @@ FEATURE_NAMES = [
     'a_v', 'a_s', 'a_vsd', 'a_r', 'a_g', 'a_b', 'a_perm', 'a_green', 'a_deck', 'a_dark', 'a_tex',
     'b_v', 'b_s', 'b_vsd', 'b_perm', 'b_green', 'b_deck', 'b_dark', 'b_tex',
     'contrast_a', 'contrast_b', 'tile_v', 'tile_s',
+    'obb_fill', 'obb_len_m', 'obb_wid_m', 'obb_aspect', 'court_dev', 'hole_frac', 'in_line', 'a_deck_min', 'b_vasym',
 ]
 
 if __name__ == '__main__':

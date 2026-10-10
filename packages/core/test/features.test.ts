@@ -89,4 +89,55 @@ describe('candidate features', () => {
     expect(candidates).toHaveLength(1);
     expect(candidates[0].cx).toBeGreaterThan(64);
   });
+
+  it('measure a padel-sized court with its painted line as a court', () => {
+    // 20 x 10 m at 0.25 m/px, split across its width by a 1 px white line.
+    const px = makeTile(256, 256, GREY_RGB, [
+      { x: 60, y: 100, w: 80, h: 40, rgb: POOL_RGB },
+      { x: 99, y: 104, w: 1, h: 32, rgb: [240, 240, 240] },
+    ]);
+    const { candidates } = analyseWindow(px, 256, 256, all, () => MPP, opts);
+    const f = candidates.find((c) => c.level === 0)!.features;
+    expect(at(f, 'obb_len_m')).toBeCloseTo(20, 0);
+    expect(at(f, 'obb_wid_m')).toBeCloseTo(10, 0);
+    expect(at(f, 'court_dev')).toBeLessThan(0.05);
+    expect(at(f, 'obb_fill')).toBeGreaterThan(0.97);
+    // The clean-up closes the 1 px line into the shape; it still shows as bright grey pixels.
+    expect(at(f, 'in_line')).toBeGreaterThan(0.01);
+  });
+
+  it('give a rotated rectangle a full oriented box', () => {
+    // A 60 x 20 px bar drawn at 45 degrees: its axis-aligned box is mostly empty.
+    const px = makeTile(256, 256, GREY_RGB);
+    for (let t = 0; t < 60; t++) {
+      for (let u = -10; u < 10; u++) {
+        for (const [dx, dy] of [[0, 0], [1, 0]]) {
+          const x = Math.round(100 + t * 0.7071 - u * 0.7071) + dx;
+          const y = Math.round(80 + t * 0.7071 + u * 0.7071) + dy;
+          px.set([...POOL_RGB, 255], (y * 256 + x) * 4);
+        }
+      }
+    }
+    const f = analyseWindow(px, 256, 256, all, () => MPP, opts).candidates.find((c) => c.level === 0)!.features;
+    expect(at(f, 'fill')).toBeLessThan(0.6);
+    expect(at(f, 'obb_fill')).toBeGreaterThan(0.85);
+    expect(at(f, 'obb_aspect')).toBeGreaterThan(2.5);
+  });
+
+  it('tell a shape with a bright rim on every side from one lit on a single side', () => {
+    const rimmed = makeTile(256, 256, GREY_RGB, [
+      { x: 96, y: 76, w: 48, h: 28, rgb: [235, 235, 230] },
+      { x: 100, y: 80, w: 40, h: 20, rgb: POOL_RGB },
+    ]);
+    const lopsided = makeTile(256, 256, GREY_RGB, [
+      { x: 140, y: 60, w: 30, h: 60, rgb: [235, 235, 230] },
+      { x: 100, y: 80, w: 40, h: 20, rgb: POOL_RGB },
+    ]);
+    const a = analyseWindow(rimmed, 256, 256, all, () => MPP, opts).candidates.find((c) => c.level === 0)!.features;
+    const b = analyseWindow(lopsided, 256, 256, all, () => MPP, opts).candidates.find((c) => c.level === 0)!.features;
+    expect(at(a, 'a_deck_min')).toBeGreaterThan(0.9);
+    expect(at(a, 'in_line')).toBe(0);
+    expect(at(b, 'a_deck_min')).toBe(0);
+    expect(at(b, 'b_vasym')).toBeGreaterThan(at(a, 'b_vasym'));
+  });
 });

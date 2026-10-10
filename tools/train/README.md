@@ -44,8 +44,9 @@ TEST are never used to calibrate.
 - The trainer refuses labels whose sha256 differs from the recipe, and
   feature names that differ from the detector's.
 
-## Last run (8 October 2026)
+## Last run (10 October 2026)
 
-52 978 training candidates, 6 818 of them pools; 104 confident negatives
-ignored. DEV F1 out of fold for seeds 0 to 4: 73.7, 70.8, 74.2, 76.7 and 73.2
-(mean 73.7, standard deviation 2.1).
+142 057 candidates, 9 149 of them pools and 49 518 negatives (the rest left
+out: ambiguous, or off the pitches in the pitch windows); 64 confident
+negatives ignored. Out-of-fold AUC by training zone between 0.992 and 0.998.
+Seed 0 only: the spread over seeds 1 to 4 was not measured for this model.

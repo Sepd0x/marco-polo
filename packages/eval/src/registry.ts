@@ -16,8 +16,10 @@ export const ROLES: readonly Role[] = ['DEV', 'DEV-2', 'GOLD', 'TEST', 'TRAIN'];
  *               OSM shown; OSM merged afterwards and checked point by point
  *   gold-union  phase 0 gold: union of the regions the methods proposed,
  *               checked by eye; pools no method proposed can be missing
+ *   courts      training only: OSM sports pitches, whose candidates are hard
+ *               negatives; nothing else in the zone is labelled
  */
-export type Review = 'full' | 'candidates' | 'blind' | 'gold-union';
+export type Review = 'full' | 'candidates' | 'blind' | 'gold-union' | 'courts';
 
 export interface ZoneDef {
   id: string;

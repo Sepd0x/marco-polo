@@ -17,12 +17,21 @@ export const FEATURE_NAMES = [
   'a_v', 'a_s', 'a_vsd', 'a_r', 'a_g', 'a_b', 'a_perm', 'a_green', 'a_deck', 'a_dark', 'a_tex',
   'b_v', 'b_s', 'b_vsd', 'b_perm', 'b_green', 'b_deck', 'b_dark', 'b_tex',
   'contrast_a', 'contrast_b', 'tile_v', 'tile_s',
+  'obb_fill', 'obb_len_m', 'obb_wid_m', 'obb_aspect', 'court_dev', 'hole_frac', 'in_line', 'a_deck_min', 'b_vasym',
 ] as const;
 
 export const FEATURE_COUNT = FEATURE_NAMES.length;
 
 const MAX_RING = 10;
 const INNER_RING = 3;
+
+// Cosine and sine of 0, 5, ..., 85 degrees as literals: Math.cos may differ
+// in the last bit between engines, and the features must not.
+const OBB_COS = [1.0, 0.996194698091746, 0.984807753012208, 0.965925826289068, 0.939692620785908, 0.90630778703665, 0.866025403784439, 0.819152044288992, 0.766044443118978, 0.707106781186548, 0.642787609686539, 0.573576436351046, 0.5, 0.422618261740699, 0.342020143325669, 0.258819045102521, 0.17364817766693, 0.087155742747658];
+const OBB_SIN = [0.0, 0.087155742747658, 0.17364817766693, 0.258819045102521, 0.342020143325669, 0.422618261740699, 0.5, 0.573576436351046, 0.642787609686539, 0.707106781186547, 0.766044443118978, 0.819152044288992, 0.866025403784439, 0.90630778703665, 0.939692620785908, 0.965925826289068, 0.984807753012208, 0.996194698091746];
+
+/** Playing surfaces of padel and tennis (doubles, singles), metres. Painted courts pass the blue and green gates. */
+const COURTS: readonly [number, number][] = [[20, 10], [23.77, 10.97], [23.77, 8.23]];
 
 /** Everything a feature needs that is shared by all candidates of one window. */
 export interface FeatureContext {
@@ -127,6 +136,11 @@ export function componentFeatures(
   }
 
   const rings = [acc(), acc(), acc()];
+  // Per side of the shape (east, west, south, north of the centroid): deck share of the inner ring, brightness of the outer ring.
+  const cxs = c.sumX / c.pixelCount;
+  const cys = c.sumY / c.pixelCount;
+  const sideDeck = [0, 0, 0, 0], sideDeckN = [0, 0, 0, 0];
+  const sideV = [0, 0, 0, 0], sideVN = [0, 0, 0, 0];
   let perim = 0;
   let edgeGrad = 0;
   let edgeN = 0;
@@ -163,6 +177,17 @@ export function componentFeatures(
       if (g > r && g >= b && h > 60 && h < 160 && s > 0.12) a.green++;
       if (v > 0.62 && s < 0.18) a.deck++;
       if (v < 0.22) a.dark++;
+      if (ring > 0) {
+        const dx = x - cxs, dy = y - cys;
+        const side = Math.abs(dx) >= Math.abs(dy) ? (dx >= 0 ? 0 : 1) : dy >= 0 ? 2 : 3;
+        if (ring === 1) {
+          sideDeckN[side]++;
+          if (v > 0.62 && s < 0.18) sideDeck[side]++;
+        } else {
+          sideVN[side]++;
+          sideV[side] += v;
+        }
+      }
       if (x > 0 && y > 0 && x < W - 1 && y < H - 1) {
         // Forward differences, sampled only where both neighbours belong to the same region.
         let same: boolean;
@@ -244,4 +269,108 @@ export function componentFeatures(
   f[o++] = mean(B, B.v) - mean(I, I.v);
   f[o++] = ctx.contextV;
   f[o++] = ctx.contextS;
+
+  const obb = orientedBox(labels, W, c);
+  const len = obb.long * mPerPx, wid = obb.short * mPerPx;
+  let court = Infinity;
+  for (const [cl, cw] of COURTS) court = Math.min(court, Math.max(Math.abs(len / cl - 1), Math.abs(wid / cw - 1)));
+  const holes = enclosedHoles(labels, W, c, val, sat);
+  let deckMin = 1;
+  for (let k = 0; k < 4; k++) deckMin = Math.min(deckMin, sideDeckN[k] ? sideDeck[k] / sideDeckN[k] : 0);
+  let vMin = Infinity, vMax = -Infinity;
+  for (let k = 0; k < 4; k++) {
+    if (!sideVN[k]) continue;
+    const m = sideV[k] / sideVN[k];
+    vMin = Math.min(vMin, m);
+    vMax = Math.max(vMax, m);
+  }
+  f[o++] = c.pixelCount / obb.area;
+  f[o++] = len;
+  f[o++] = wid;
+  f[o++] = obb.long / obb.short;
+  f[o++] = court;
+  f[o++] = holes.count / (holes.count + c.pixelCount);
+  f[o++] = (holes.bright + holes.brightInside) / (holes.count + c.pixelCount);
+  f[o++] = deckMin;
+  f[o++] = vMax >= vMin ? vMax - vMin : 0;
+}
+
+/**
+ * Smallest rectangle around the shape among 18 orientations 5 degrees apart,
+ * from the corners of its border pixels. Sides in px.
+ */
+export function orientedBox(labels: Int32Array, W: number, c: Component): { long: number; short: number; area: number } {
+  const lo = new Float64Array(36).fill(Infinity);
+  const hi = new Float64Array(36).fill(-Infinity);
+  for (let y = c.minY; y <= c.maxY; y++) {
+    for (let x = c.minX; x <= c.maxX; x++) {
+      const i = y * W + x;
+      if (labels[i] !== c.label) continue;
+      const border = x === c.minX || x === c.maxX || y === c.minY || y === c.maxY || labels[i - 1] !== c.label || labels[i + 1] !== c.label || labels[i - W] !== c.label || labels[i + W] !== c.label;
+      if (!border) continue;
+      for (let cy = y; cy <= y + 1; cy++) {
+        for (let cx = x; cx <= x + 1; cx++) {
+          for (let k = 0; k < 18; k++) {
+            const u = cx * OBB_COS[k] + cy * OBB_SIN[k];
+            const v = cy * OBB_COS[k] - cx * OBB_SIN[k];
+            if (u < lo[2 * k]) lo[2 * k] = u;
+            if (u > hi[2 * k]) hi[2 * k] = u;
+            if (v < lo[2 * k + 1]) lo[2 * k + 1] = v;
+            if (v > hi[2 * k + 1]) hi[2 * k + 1] = v;
+          }
+        }
+      }
+    }
+  }
+  let best = { long: 1, short: 1, area: Infinity };
+  for (let k = 0; k < 18; k++) {
+    const a = hi[2 * k] - lo[2 * k], b = hi[2 * k + 1] - lo[2 * k + 1];
+    if (a * b < best.area) best = { long: Math.max(a, b), short: Math.min(a, b), area: a * b };
+  }
+  return best;
+}
+
+/**
+ * Pixels inside the shape's box that the shape encloses (not reachable from
+ * the box border without crossing it), how many of them are bright and grey,
+ * and how many bright grey pixels the shape itself holds. The painted lines
+ * of a court are bright and grey; the mask clean-up often closes them into
+ * the shape. Pool water has few such pixels.
+ */
+export function enclosedHoles(labels: Int32Array, W: number, c: Component, val: Float32Array, sat: Float32Array): { count: number; bright: number; brightInside: number } {
+  const bw = c.maxX - c.minX + 1, bh = c.maxY - c.minY + 1;
+  const seen = new Uint8Array(bw * bh);
+  const stack: number[] = [];
+  const push = (lx: number, ly: number) => {
+    const k = ly * bw + lx;
+    if (seen[k] || labels[(ly + c.minY) * W + lx + c.minX] === c.label) return;
+    seen[k] = 1;
+    stack.push(k);
+  };
+  for (let lx = 0; lx < bw; lx++) { push(lx, 0); push(lx, bh - 1); }
+  for (let ly = 0; ly < bh; ly++) { push(0, ly); push(bw - 1, ly); }
+  while (stack.length) {
+    const k = stack.pop()!;
+    const lx = k % bw, ly = (k / bw) | 0;
+    if (lx > 0) push(lx - 1, ly);
+    if (lx < bw - 1) push(lx + 1, ly);
+    if (ly > 0) push(lx, ly - 1);
+    if (ly < bh - 1) push(lx, ly + 1);
+  }
+  let count = 0, bright = 0, brightInside = 0;
+  for (let ly = 0; ly < bh; ly++) {
+    for (let lx = 0; lx < bw; lx++) {
+      const k = ly * bw + lx;
+      const i = (ly + c.minY) * W + lx + c.minX;
+      if (seen[k]) continue;
+      const grey = val[i] > 0.62 && sat[i] < 0.25;
+      if (labels[i] === c.label) {
+        if (grey) brightInside++;
+        continue;
+      }
+      count++;
+      if (grey) bright++;
+    }
+  }
+  return { count, bright, brightInside };
 }

@@ -678,6 +678,40 @@
    "why": "v2 training zone: OSM labels on IGN BD ORTHO; OSM recall measured blind on 10 windows",
    "labelSource": "ign",
    "review": "blind"
+  },
+  {
+   "id": "train-courts-maia",
+   "name": "Maia and Matosinhos, PT",
+   "role": "TRAIN",
+   "country": "PT",
+   "productSource": "dgt",
+   "bbox": {
+    "west": -8.7,
+    "south": 41.17,
+    "east": -8.58,
+    "north": 41.27
+   },
+   "areaKm2": 111.1,
+   "why": "court negatives: painted tennis, padel, pickleball and basketball courts pass the water colour gates and were a large false positive group in DEV (most on Esri, which is never used for training); only OSM pitches are labelled here",
+   "labelSource": "dgt",
+   "review": "courts"
+  },
+  {
+   "id": "train-courts-lyon",
+   "name": "Lyon west, FR",
+   "role": "TRAIN",
+   "country": "FR",
+   "productSource": "ign",
+   "bbox": {
+    "west": 4.73,
+    "south": 45.73,
+    "east": 4.84,
+    "north": 45.81
+   },
+   "areaKm2": 75.56,
+   "why": "court negatives: painted tennis, padel, pickleball and basketball courts pass the water colour gates and were a large false positive group in DEV (most on Esri, which is never used for training); only OSM pitches are labelled here",
+   "labelSource": "ign",
+   "review": "courts"
   }
  ],
  "seen": [

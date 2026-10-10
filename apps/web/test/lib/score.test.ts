@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { thresholds } from '@marco-polo/core/models/pool-v2.json';
+import { thresholds as shipped } from '@marco-polo/core/models/pool-v2.json';
+
+// A family with one calibration zone has no threshold of its own and reads the default.
+const t = shipped as Record<string, number | undefined>;
+const thresholds = { dgt: t.dgt ?? t.default!, pnoa: t.pnoa ?? t.default!, esri: t.esri ?? t.default!, default: t.default! };
 import { cutoffFn, cutoffsInUse, recommendedFor } from '../../src/lib/score.js';
 
 const parts = [

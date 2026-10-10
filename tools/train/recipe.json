@@ -7,6 +7,15 @@
   { "id": "train-leliana", "source": "pnoa", "labelsSha256": "3579066d305ad147c88b5f775b2dd069a23c6d0be148a8c14df71a3687613276" },
   { "id": "train-carry", "source": "ign", "labelsSha256": "190b7dbf53cec36f6c8807b421161e51b45ef2977e575562876360e9d3a0bb6e" }
  ],
+ "courts": {
+  "file": "tools/train/courts.geojson",
+  "sha256": "50a051b3ddc6d4514d90a906d601626b0206b942b3aa0bbcad1bf9ddbbb20b48",
+  "windowPx": 512,
+  "zones": [
+   { "id": "train-courts-maia", "source": "dgt" },
+   { "id": "train-courts-lyon", "source": "ign" }
+  ]
+ },
  "halo": 48,
  "copies": 3,
  "augmentSeed": 0,

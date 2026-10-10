@@ -5,8 +5,12 @@
 
 Rows come from calibrate.ts: raw score of every detection on the calibration
 zones and whether the benchmark counted it as a hit. Each family gets a
-monotone map from raw score to probability; its threshold is the calibrated
-value with the best F1 there (ties: the higher one). `default` pools all rows.
+monotone map from raw score to probability. Its threshold follows plan B6:
+the value with the best F1 out of fold over the family's zones (each zone
+scored by a map fitted on the others; ties: the higher one). A family with a
+single calibration zone has no out-of-fold estimate and gets no map of its
+own: it reads `default`, which pools all zones, with a threshold chosen out
+of fold the same way.
 
 --exclude leaves zones out of the fit: report.ts calibrates each DEV zone
 without it, so the DEV numbers it reports are out of fold. --parity writes
@@ -38,6 +42,43 @@ def fit(scores, ys, n_labels):
     return iso, cal, float(best[1]), float(best[0])
 
 
+def best_threshold(p, ys, n_labels):
+    """Calibrated value with the best F1 (ties: the higher one)."""
+    best = (-1.0, 0.5)
+    for t in sorted(set(np.round(p, 6).tolist())):
+        if t <= 0:
+            continue
+        sel = p >= t - 1e-12
+        tp = float(ys[sel].sum())
+        fp = float(sel.sum() - tp)
+        fn = max(0.0, n_labels - tp)
+        f1 = 2 * tp / (2 * tp + fp + fn) if tp else 0.0
+        if f1 > best[0] + 1e-12 or (abs(f1 - best[0]) <= 1e-12 and t > best[1]):
+            best = (f1, t)
+    return float(best[1]), float(best[0])
+
+
+def oof_threshold(rows, zones, labels_by_zone):
+    """Threshold from out-of-fold probabilities over `zones`, or None with fewer than two zones."""
+    if len(zones) < 2:
+        return None
+    ps, ys = [], []
+    for z in zones:
+        train = [r for r in rows if r['zone'] != z]
+        test = [r for r in rows if r['zone'] == z]
+        yt = np.array([r['y'] for r in train], dtype=np.float64)
+        if not test:
+            continue
+        if len(set(yt.tolist())) < 2:
+            return None
+        iso = IsotonicRegression(y_min=0.0, y_max=1.0, increasing=True, out_of_bounds='clip').fit(
+            np.array([r['score'] for r in train], dtype=np.float64), yt)
+        ps.append(iso.predict(np.array([r['score'] for r in test], dtype=np.float64)))
+        ys.append(np.array([r['y'] for r in test], dtype=np.float64))
+    n = sum(labels_by_zone[z] for z in zones)
+    return best_threshold(np.concatenate(ps), np.concatenate(ys), n)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--rows', required=True)
@@ -58,19 +99,32 @@ def main():
         fam = data['familyByZone'][z]
         labels[fam] = labels.get(fam, 0) + data['labelsByZone'][z]
     fams = sorted({r['family'] for r in rows})
+    labels_by_zone = {z: data['labelsByZone'][z] for z in zones}
+    zones_of = {fam: [z for z in zones if data['familyByZone'][z] == fam] for fam in fams}
+    zones_of['default'] = list(zones)
     report, isos = {}, {}
-    for fam in fams + ['default']:
+    for fam in ['default'] + fams:
         sel = [r for r in rows if fam == 'default' or r['family'] == fam]
         s = np.array([r['score'] for r in sel], dtype=np.float64)
         y = np.array([r['y'] for r in sel], dtype=np.float64)
         n = sum(labels.values()) if fam == 'default' else labels[fam]
         if len(set(y.tolist())) < 2:
             continue
-        iso, cal, thr, f1 = fit(s, y, n)
+        iso, cal, thr_in, f1_in = fit(s, y, n)
+        own = oof_threshold(sel, zones_of[fam], labels_by_zone)
+        if fam != 'default' and own is None:
+            # One zone of its own: the family reads the pooled map and threshold (model.ts falls back to default).
+            report[fam] = {'detections': len(sel), 'hits': int(y.sum()), 'labels': n, 'uses': 'default (one calibration zone, no out-of-fold estimate)', 'inSampleThreshold': round(thr_in, 4), 'inSampleF1': round(f1_in, 4)}
+            print(fam, report[fam])
+            continue
+        if own is not None:
+            thr, how = own[0], f'out of fold over its {len(zones_of[fam])} zones'
+        else:
+            thr, how = thr_in, 'in sample (too few zones for out of fold)'
         isos[fam] = iso
         model['calibration'][fam] = cal
         model['thresholds'][fam] = round(thr, 6)
-        report[fam] = {'detections': len(sel), 'hits': int(y.sum()), 'labels': n, 'threshold': round(thr, 4), 'f1AtThreshold': round(f1, 4)}
+        report[fam] = {'detections': len(sel), 'hits': int(y.sum()), 'labels': n, 'threshold': round(thr, 4), 'thresholdFrom': how, 'inSampleThreshold': round(thr_in, 4), 'inSampleF1': round(f1_in, 4)}
         print(fam, report[fam])
     model['meta']['calibration'] = {'zones': zones, 'excluded': a.exclude, 'byFamily': report}
     text = json.dumps(model, separators=(',', ':'))

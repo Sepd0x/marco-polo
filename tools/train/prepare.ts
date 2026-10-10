@@ -14,9 +14,10 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FEATURE_NAMES, worldXToLon, worldYToLat, type BBox } from '@marco-polo/core';
+import { FEATURE_NAMES, latToWorldY, lonToWorldX, worldXToLon, worldYToLat, type BBox } from '@marco-polo/core';
 import { parseCandidatesArgs, runCandidates } from '../../packages/cli/src/commands/candidates.js';
 import { dedupeBoxes, passToGeo, sameObject, Z, zoneWindows, type PassFile } from '../../packages/eval/src/blind.js';
+import { pointInPolygons, polygonsCentroid } from '../../packages/eval/src/geom.js';
 import { featureToLabel, shiftFeature } from '../../packages/eval/src/labels.js';
 import { recallWindows } from '../../packages/eval/src/osmrecall.js';
 import type { LabelFeature } from '../../packages/eval/src/overpass.js';
@@ -41,6 +42,59 @@ export interface Recipe {
   copies: number;
   augmentSeed: number;
   augment: Record<string, unknown>;
+  /** Sports pitches from OSM inside the training zones: their candidates are hard negatives. */
+  courts?: { file: string; sha256: string; windowPx: number; zones: { id: string; source: string }[] };
+}
+
+interface CourtFeature {
+  type: 'Feature';
+  geometry: { type: 'Polygon'; coordinates: number[][][] };
+  properties: { id: string; zone: string; sport: string; kind?: 'pitch' | 'pool' };
+}
+
+/**
+ * Windows around the pitches of one zone that lie outside its reviewed
+ * windows, one per pitch unless an earlier window already holds its centre.
+ * Inside them only OSM features are labelled: a candidate whose centre falls
+ * in a pitch is "not a pool", one in an outdoor OSM pool is a pool (club pools
+ * sit next to the courts and look like them), every other one is left out.
+ */
+export function courtWindows(
+  courts: CourtFeature[],
+  reviewed: { bbox: BBox }[],
+  osmShiftM: [number, number],
+  windowPx: number,
+): { windows: { id: string; bbox: BBox }[]; courts: CourtFeature[] } {
+  const shifted = courts.map((c) => {
+    const f = shiftFeature({ type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: [c.geometry.coordinates] }, properties: { id: c.properties.id, role: 'ignore' } } as LabelFeature, osmShiftM);
+    return { ...c, geometry: { type: 'Polygon' as const, coordinates: (f.geometry.coordinates as number[][][][])[0] } };
+  });
+  const inBox = (lon: number, lat: number, b: BBox) => lon >= b.west && lon < b.east && lat <= b.north && lat > b.south;
+  const windows: { id: string; bbox: BBox }[] = [];
+  const kept: CourtFeature[] = [];
+  for (const c of shifted) {
+    const ctr = polygonsCentroid([c.geometry.coordinates as [number, number][][]]);
+    if (c.properties.kind === 'pool') {
+      kept.push(c);
+      continue;
+    }
+    if (reviewed.some((w) => inBox(ctr.lon, ctr.lat, w.bbox))) continue;
+    kept.push(c);
+    if (windows.some((w) => inBox(ctr.lon, ctr.lat, w.bbox))) continue;
+    const x0 = Math.round(lonToWorldX(ctr.lon, Z) - windowPx / 2);
+    const y0 = Math.round(latToWorldY(ctr.lat, Z) - windowPx / 2);
+    windows.push({
+      id: `court-${c.properties.id.replace('/', '-')}`,
+      bbox: { west: worldXToLon(x0, Z), east: worldXToLon(x0 + windowPx, Z), north: worldYToLat(y0, Z), south: worldYToLat(y0 + windowPx, Z) },
+    });
+  }
+  return { windows, courts: kept };
+}
+
+/** 1 for a candidate whose centre lies in an OSM pool, 0 in a pitch, -1 (left out) anywhere else. */
+export function courtTarget(lon: number, lat: number, courts: CourtFeature[]): 1 | 0 | -1 {
+  const hit = courts.find((c) => pointInPolygons({ lon, lat }, [c.geometry.coordinates as [number, number][][]]));
+  return !hit ? -1 : hit.properties.kind === 'pool' ? 1 : 0;
 }
 
 function arg(name: string, fallback: string): string {
@@ -115,6 +169,13 @@ async function main() {
   const augmentFile = join(work, 'augment.json');
   writeFileSync(augmentFile, JSON.stringify(recipe.augment, null, 1));
   const manifest: Record<string, unknown>[] = [];
+  let allCourts: CourtFeature[] = [];
+  if (recipe.courts) {
+    const raw = readFileSync(resolve(ROOT, recipe.courts.file));
+    const sha = createHash('sha256').update(raw.toString('utf8').replace(/\r\n/g, '\n')).digest('hex');
+    if (sha !== recipe.courts.sha256) throw new Error(`courts: file changed (sha256 ${sha}); update the recipe on purpose`);
+    allCourts = (JSON.parse(raw.toString('utf8')) as { features: CourtFeature[] }).features;
+  }
   for (const z of recipe.zones) {
     const sha = labelsSha256(z.id);
     if (sha !== z.labelsSha256) throw new Error(`${z.id}: labels changed (sha256 ${sha}); update the recipe on purpose`);
@@ -144,6 +205,43 @@ async function main() {
         writeFileSync(`${out}.meta.json`, JSON.stringify({ zone: z.id, window: w.id, copy, bbox: w.bbox, rows: rows.length }));
         manifest.push({ zone: z.id, window: w.id, copy, rows: rows.length });
         process.stdout.write(`  ${w.id} copy ${copy}: ${rows.length} candidates\n`);
+      }
+    }
+    if (!recipe.courts) continue;
+    const recall = JSON.parse(readFileSync(join(REVIEW, z.id, 'osm-recall.json'), 'utf8')) as { osmShiftM: [number, number] };
+    await courtCandidates(z, zdir, windows, recall.osmShiftM);
+  }
+  // Zones that only contribute pitches: no reviewed windows, OSM shift not measured (a pitch is far larger than a metre or two).
+  for (const z of recipe.courts?.zones ?? []) {
+    const zdir = join(work, z.id);
+    mkdirSync(zdir, { recursive: true });
+    await courtCandidates(z, zdir, [], [0, 0]);
+  }
+
+  async function courtCandidates(z: { id: string; source: string }, zdir: string, windows: { bbox: BBox }[], osmShiftM: [number, number]) {
+    const cw = courtWindows(allCourts.filter((c) => c.properties.zone === z.id), windows, osmShiftM, recipe.courts!.windowPx);
+    writeFileSync(join(zdir, 'courts.json'), JSON.stringify({ zone: z.id, source: z.source, windows: cw.windows, courts: cw.courts.map((c) => c.properties.id) }, null, 1));
+    console.log(`${z.id}: ${cw.windows.length} court windows, ${cw.courts.filter((c) => c.properties.kind !== 'pool').length} pitches, ${cw.courts.filter((c) => c.properties.kind === 'pool').length} pools`);
+    for (const w of cw.windows) {
+      for (let copy = 0; copy < recipe.copies; copy++) {
+        const out = join(zdir, `${w.id}-c${copy}`);
+        if (existsSync(`${out}.meta.json`)) {
+          const meta = JSON.parse(readFileSync(`${out}.meta.json`, 'utf8')) as { rows: number };
+          manifest.push({ zone: z.id, window: w.id, copy, rows: meta.rows, court: true });
+          continue;
+        }
+        const b = w.bbox;
+        const argv = ['--bbox', `${b.south},${b.west},${b.north},${b.east}`, '--source', z.source, '--out', out, '--halo', String(recipe.halo), '--cache-dir', cache, '--quiet'];
+        if (copy > 0) argv.push('--augment', augmentFile, '--copy', String(copy), '--seed', String(recipe.augmentSeed));
+        const args = parseCandidatesArgs(argv);
+        if (args === 'help') throw new Error('unexpected help');
+        const { rows, features: f } = await runCandidates(args);
+        const labelled = rows.map((r) => ({ ...r, y: courtTarget(r.lon, r.lat, cw.courts), court: 1 }));
+        writeFileSync(`${out}.jsonl`, labelled.map((r) => JSON.stringify(r)).join('\n') + (rows.length ? '\n' : ''));
+        writeFileSync(`${out}.f64`, Buffer.from(f.buffer, f.byteOffset, f.byteLength));
+        writeFileSync(`${out}.meta.json`, JSON.stringify({ zone: z.id, window: w.id, copy, bbox: w.bbox, rows: rows.length, court: true }));
+        manifest.push({ zone: z.id, window: w.id, copy, rows: rows.length, court: true });
+        process.stdout.write(`  ${w.id} copy ${copy}: ${rows.length} candidates, ${labelled.filter((r) => r.y === 0).length} on a pitch, ${labelled.filter((r) => r.y === 1).length} on a pool\n`);
       }
     }
   }
