@@ -97,7 +97,10 @@ outside the plan. That makes "this measurement is a lower bound" a fact, not a g
 - The tile grid uses feature state per tile; detection outlines are GeoJSON with
   data-driven paint (magenta over a dark casing). Markers are GL layers: a dot for
   the overview and the rank number, an image drawn on a canvas in the interface
-  font and placed as text, so it needs no glyph server.
+  font and placed as text, so it needs no glyph server. Each pool also carries
+  an invisible keep-out icon as large as the pool on screen; the numbers collide
+  with it, so none covers a pool, and `map/labelPlace.ts` gives each zoom level
+  only the sides where a number lies nearer to its own pool than to any other.
 - The map is locked north up and flat. `FrameOverlay` draws the survey frame over
   it (neat line, fiducials, graduation, coordinates, réseau) and recomputes it on
   every move; the coordinates in the margin are only true without rotation.
