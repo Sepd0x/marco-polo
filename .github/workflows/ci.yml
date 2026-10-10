@@ -32,8 +32,17 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Install Chromium for the end-to-end tests
-        run: npx playwright install --with-deps chromium
+      - name: Text check over every tracked file
+        run: node scripts/check-text.mjs
+
+      - name: README numbers match the reports
+        run: node scripts/check-readme.mjs
+
+      - name: Install Chromium and Firefox for the browser tests
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: JPEG decode parity, browsers against Node
+        run: npm run parity
 
       - name: End-to-end tests on a production build
         run: npm run e2e

@@ -23,6 +23,8 @@ interface Sample {
   name: string;
   tile: { z: number; x: number; y: number };
   tilePx: number;
+  /** Pixels of context on each side, as the file name says (`halo43`); 0 for plain tiles. */
+  halo: number;
   providerId: string;
   b64: string;
 }
@@ -35,14 +37,14 @@ function samples(): Sample[] {
     const m = /^(.*)-(\d+)-(\d+)-(\d+)\.jpg$/.exec(f)!;
     const tilePx = f.startsWith('dgt-') ? 512 : 256;
     const providerId = f.startsWith('dgt-') ? 'dgt-ortos2025' : f.startsWith('ign-') ? 'ign-orthophotos' : 'pnoa';
-    out.push({ name: f, tile: { z: +m[2], x: +m[3], y: +m[4] }, tilePx, providerId, b64: readFileSync(join(parity, f)).toString('base64') });
+    out.push({ name: f, tile: { z: +m[2], x: +m[3], y: +m[4] }, tilePx, halo: Number(/halo(\d+)/.exec(f)?.[1] ?? 0), providerId, b64: readFileSync(join(parity, f)).toString('base64') });
   }
   const open = join(root, 'packages/eval/fixtures/open/tiles');
   for (const src of readdirSync(open)) {
     for (const f of readdirSync(join(open, src))) {
       const [z, x, y] = f.replace('.jpg', '').split('-').map(Number);
       const providerId = src === 'dgt' ? 'dgt-ortos2025' : src === 'ign' ? 'ign-orthophotos' : 'pnoa';
-      out.push({ name: `${src}/${f}`, tile: { z, x, y }, tilePx: 256, providerId, b64: readFileSync(join(open, src, f)).toString('base64') });
+      out.push({ name: `${src}/${f}`, tile: { z, x, y }, tilePx: 256, halo: 0, providerId, b64: readFileSync(join(open, src, f)).toString('base64') });
     }
   }
   return out;
@@ -73,7 +75,7 @@ test('detection worker time per tile', async ({ page, browserName }, info) => {
             resolve({ ms: r.ms, rtt: performance.now() - t0, error: r.error, noData: r.noData, pieces: r.pieces.length });
           };
           worker.postMessage(
-            { id, scanId: 'bench', providerId: s.providerId, tile: s.tile, tilePx: s.tilePx, halo: 0, bytes: bytes.buffer, thumbs: true },
+            { id, scanId: 'bench', providerId: s.providerId, tile: s.tile, tilePx: s.tilePx, halo: s.halo, bytes: bytes.buffer, thumbs: true },
             [bytes.buffer],
           );
         });

@@ -12,7 +12,14 @@ export default defineConfig({
   reporter: 'list',
   workers: 1,
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } },
+    {
+      name: 'chromium',
+      // PW_CHROMIUM_PATH points at another Chromium build when the bundled one cannot start.
+      use: {
+        browserName: 'chromium',
+        launchOptions: process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {},
+      },
+    },
     {
       name: 'firefox',
       // PW_FIREFOX_PATH points at another Firefox build when the bundled one cannot start.
