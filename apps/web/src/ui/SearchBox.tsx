@@ -59,6 +59,7 @@ export function SearchBox({ placeholder = 'Search a place or paste coordinates',
           placeholder={status === 'busy' ? 'Searching' : placeholder}
           value={query}
           autoComplete="off"
+          aria-keyshortcuts={shortcut ? '/' : undefined}
           aria-controls={results ? listId : undefined}
           aria-expanded={results ? true : undefined}
           onChange={(e) => setQuery(e.target.value)}

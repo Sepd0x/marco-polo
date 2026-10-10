@@ -93,7 +93,7 @@ describe('one count', () => {
     expect(big).toBe('4');
     expect(header).toBe('4');
     expect(qa('[role="option"]')).toHaveLength(4);
-    expect(q('.more')!.textContent).toContain('1 more scored below 0.55.');
+    expect(q('.more')!.textContent).toContain('1 more below 0.55.');
   });
 
   it('"Show it" brings the pool below the threshold into the list', () => {
@@ -115,17 +115,28 @@ describe('one count', () => {
     expect(strip).toContain('40/40');
   });
 
-  it('counts the tiles with imagery in the strip and says how many are missing', () => {
+  it('names failed tiles as failed, in the strip and in the summary', () => {
     seed('complete', { stats: { ...useStore.getState().stats, tilesFailed: 2 } });
     render();
-    expect(q('.strip')!.textContent).toContain('38/40, 2 missing');
+    expect(q('.strip')!.textContent).toContain('40/40, 2 failed');
     expect(q('.summary')!.textContent).toContain('2 failed');
   });
 
-  it('tells a stopped scan apart from a finished one', () => {
-    seed('complete', { stats: { ...useStore.getState().stats, tilesDone: 12 } });
+  it('tells a stopped scan apart from a finished one, with the ground it read', () => {
+    seed('complete', { stats: { ...useStore.getState().stats, tilesDone: 12, scannedAreaM2: 81_000 } });
     render();
     expect(q('#sum-h')!.textContent).toBe('Scan stopped');
+    expect(q('.summary')!.textContent).toContain('8.1 ha of');
+    expect(q('.summary')!.textContent).toContain('28 not scanned');
+  });
+
+  it('says nothing was scanned when the scan stopped before the first tile', () => {
+    seed('complete', { ranked: [], stats: { ...useStore.getState().stats, tilesDone: 0 } });
+    render();
+    const text = q('.summary')!.textContent!;
+    expect(text).toContain('Nothing was scanned');
+    expect(text).not.toMatch(/scanned\b.*ha|0\.0 m²|None below/);
+    expect(q('.list-sec .note')!.textContent).toBe('Nothing was scanned.');
   });
 });
 
@@ -136,6 +147,8 @@ describe('progress', () => {
     expect(qa('.cells i')).toHaveLength(40);
     expect(qa('.cells i.done')).toHaveLength(26);
     expect(q('.prog-row span')!.textContent).toBe('26 of 40 tiles');
+    // The strip gives the same count as the progress.
+    expect(q('.strip')!.textContent).toContain('26/40');
     expect(q('[role="progressbar"]')!.getAttribute('aria-valuenow')).toBe('26');
     expect(byText('button', 'Pause')).toBeTruthy();
     expect(byText('button', 'Stop')).toBeTruthy();
@@ -218,6 +231,21 @@ describe('pool list and inspector', () => {
     click(q('#pool-a'));
     expect(useStore.getState().selectedId).toBeNull();
     expect(q('.rec')).toBeNull();
+  });
+});
+
+describe('pools past the rows drawn', () => {
+  it('still opens the record of a pool picked on the map past the first 200', async () => {
+    const { pool } = await import('./fixtures.js');
+    const many = Array.from({ length: 201 }, (_, i) => pool(`m${i}`, 20 - i * 0.05, 5, i, 0, 0.9));
+    const { rankDetections } = await import('@marco-polo/core');
+    const ranked = rankDetections(many);
+    seed('complete', { ranked, selectedId: ranked[200].id });
+    render();
+    expect(qa('[role="option"]')).toHaveLength(200);
+    const rec = q('.solo .rec')!;
+    expect(rec.getAttribute('aria-label')).toBe('Pool 201');
+    expect(q('.solo .row .n')!.textContent).toBe('201');
   });
 });
 
@@ -305,6 +333,18 @@ describe('phone', () => {
     click(qa('[role="option"]')[1]);
     expect(useStore.getState().selectedId).toBe('b');
     expect(q('.rec')!.getAttribute('aria-label')).toBe('Pool 2');
+  });
+
+  it('opens the credits from a button, not from a click on the text', () => {
+    asPhone(true);
+    seed('complete');
+    render();
+    const btn = byText('button', 'Credits')!;
+    expect(btn.getAttribute('aria-expanded')).toBe('false');
+    click(q('#map-attrib'));
+    expect(btn.getAttribute('aria-expanded')).toBe('false');
+    click(btn);
+    expect(byText('button', 'Less')!.getAttribute('aria-expanded')).toBe('true');
   });
 
   it('hides and shows the sheet from its handle', () => {

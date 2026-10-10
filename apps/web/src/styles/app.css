@@ -455,6 +455,13 @@
   margin-top: 8px;
   color: var(--ink-3);
   font-size: 12px;
+  white-space: nowrap;
+}
+
+.prog-meta span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Summary */
@@ -865,9 +872,8 @@ input[type='range']::-moz-range-thumb {
 }
 
 .new-tag {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--ink-2);
+  font-weight: 600;
 }
 
 .seg {
@@ -1361,9 +1367,38 @@ input[type='range']::-moz-range-thumb {
   background: var(--hover);
 }
 
-.opt input {
+/* Square radios, like the rest of the controls. */
+.opt input[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 12px;
+  height: 12px;
   margin: 3px 0 0;
-  accent-color: var(--ink);
+  border: 1px solid var(--edge);
+  background: var(--panel);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.opt input[type='radio']::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+}
+
+.opt input[type='radio']:checked {
+  border-color: var(--ink);
+}
+
+.opt input[type='radio']:checked::after {
+  background: var(--ink);
+}
+
+.opt input[type='radio']:disabled {
+  opacity: 0.45;
+  cursor: default;
 }
 
 .opt > span {
@@ -1575,12 +1610,29 @@ input[type='range']::-moz-range-thumb {
   align-items: center;
 }
 
+.attrib-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 .phone-strip .attrib {
+  flex: 1;
+  min-width: 0;
   padding: 0;
   line-height: 19px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.attrib-btn {
+  flex: none;
+  height: 24px;
+  margin-top: -2px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  background: var(--panel);
+  color: var(--ink-2);
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -1591,7 +1643,7 @@ input[type='range']::-moz-range-thumb {
   text-overflow: ellipsis;
 }
 
-.phone-strip .attrib.open .maplibregl-ctrl-attrib-inner {
+.attrib-line.open .maplibregl-ctrl-attrib-inner {
   white-space: normal;
 }
 
@@ -1640,7 +1692,29 @@ input[type='range']::-moz-range-thumb {
 }
 
 .sheet .sec {
-  padding: 6px 16px 12px;
+  padding: 4px 16px 10px;
+}
+
+.meta-inline {
+  color: var(--ink-3);
+  font-size: 12px;
+  min-width: 0;
+}
+
+.sheet .summary .sec-h {
+  margin-bottom: 2px;
+}
+
+.sheet .readout {
+  margin: 6px 0 4px;
+}
+
+.sheet .big b {
+  font-size: 40px;
+}
+
+.sheet .threshold .score-track {
+  margin-top: 2px;
 }
 
 .sheet .note {
@@ -1758,6 +1832,39 @@ input[type='range']::-moz-range-thumb {
   .switch:checked::after {
     left: 20px;
   }
+}
+
+/* A pool picked on the map past the rows drawn: its row and record after the list. */
+.solo {
+  position: relative;
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+}
+
+.solo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ink);
+}
+
+.row.static {
+  cursor: default;
+  border-bottom: 0;
+  background: none;
+}
+
+.row.static::before {
+  display: none;
+}
+
+.rec.flow {
+  position: static;
 }
 
 @media (prefers-reduced-motion: reduce) {

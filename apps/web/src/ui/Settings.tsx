@@ -110,7 +110,7 @@ export function SettingsDialog({ onClose }: { onClose: () => void }) {
                 onChange={(e) => update({ ratePerSec: Number(e.target.value) })}
                 style={{ ['--fill' as string]: `${((settings.ratePerSec - 1) / 9) * 100}%` }}
               />
-              <output htmlFor={rateId}>{settings.ratePerSec} per s</output>
+              <output htmlFor={rateId}>{settings.ratePerSec} tiles/s</output>
             </span>
           </div>
           <Toggle

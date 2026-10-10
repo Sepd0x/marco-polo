@@ -8,6 +8,7 @@ import { DEMO_AREAS } from '../lib/demoAreas.js';
 import { emit } from '../lib/bus.js';
 import {
   formatArea,
+  formatClock,
   formatCount,
   formatDuration,
   formatLandArea,
@@ -266,7 +267,7 @@ export function ProgressSection({ phone = false }: { phone?: boolean }) {
         <Cells total={stats.tilesTotal} done={stats.tilesDone} current={current} paused={paused} />
       </div>
       <div className="prog-meta">
-        <span>{paused ? 'Waiting for you' : formatTimeLeft(stats.etaMs)}</span>
+        <span>{paused ? 'Resume to go on' : formatTimeLeft(stats.etaMs)}</span>
         <span>{metaRight}</span>
       </div>
       {phone && stats.tilesFailed > 0 && <p className="warn">{plural(stats.tilesFailed, 'tile')} failed.</p>}
@@ -296,10 +297,9 @@ function exportPools(pools: RankedDetection[], kind: 'csv' | 'geojson') {
   else download('pools.geojson', toGeoJSON(pools), 'application/geo+json');
 }
 
-/** How the list's minimum reads in a sentence. */
-function cutoffText(cutoffs: number[], recommended: boolean): string {
-  const values = cutoffs.map(formatScore).join(' or ');
-  return recommended ? `the recommended minimum (${values})` : values;
+/** The list's minimum as the summary writes it: one value, or one per source. */
+function cutoffText(cutoffs: number[]): string {
+  return cutoffs.map(formatScore).join(' or ');
 }
 
 export function ExportButtons({ pools }: { pools: RankedDetection[] }) {
@@ -323,14 +323,15 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   const parts = useStore((s) => s.parts);
   const update = useStore((s) => s.updateSettings);
   const scanName = useStore((s) => s.scanName);
-  const cutoffs = cutoffsInUse(settings, parts);
-  const minText = cutoffText(cutoffs, settings.recommendedScore);
+  const minText = cutoffText(cutoffsInUse(settings, parts));
   const resetScan = useStore((s) => s.resetScan);
   const facts = useAreaFacts();
   const tiles = useTileCounts();
   const { shown, below, lowestBelow } = usePools();
 
   const stopped = tiles.stopped;
+  // Stopped before the first tile: nothing was scanned, and the summary says only that.
+  const nothing = stopped && stats.tilesDone === 0;
   const poolArea = shown.reduce((a, d) => a + d.areaM2, 0);
   const landArea = facts?.areaM2 ?? stats.areaM2;
   const finishedAt = stats.startedAt ? stats.startedAt + stats.elapsedMs : null;
@@ -354,60 +355,78 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
       .filter(Boolean)
       .join(', ');
 
-  const when =
-    finishedAt == null
-      ? null
-      : stopped
+  // A stopped scan counts the ground of the tiles it read, out of the whole area.
+  const scannedText = stopped ? `${formatLandArea(stats.scannedAreaM2)} of ${formatLandArea(landArea)}` : formatLandArea(landArea);
+
+  let when: string | null = null;
+  if (finishedAt != null) {
+    if (phone)
+      when = stopped
+        ? `${formatCount(stats.tilesDone)} of ${plural(stats.tilesTotal, 'tile')}`
+        : `${formatDuration(stats.elapsedMs)}, ${formatClock(finishedAt)}`;
+    else
+      when = stopped
         ? `After ${formatCount(stats.tilesDone)} of ${plural(stats.tilesTotal, 'tile')}, ${formatWhen(finishedAt)}`
         : `Finished in ${formatDuration(stats.elapsedMs)}, ${formatWhen(finishedAt)}`;
+  }
   const meta = [scanName.trim() || null, when].filter(Boolean).join('. ');
 
   return (
     <section className="sec summary" aria-labelledby="sum-h">
       <div className="sec-h">
         <h2 id="sum-h">{stopped ? 'Scan stopped' : 'Scan complete'}</h2>
+        {phone && meta && <span className="meta-inline trunc">{meta}</span>}
+        <span className="grow" />
         <button className="btn small" onClick={resetScan}>
           New scan
         </button>
       </div>
-      {meta && <p className="meta">{meta}</p>}
-      <div className="readout">
-        <div className="big" aria-live="polite">
-          <b>{formatCount(shown.length)}</b>
-          <span>{shown.length === 1 ? 'pool' : 'pools'}</span>
-        </div>
-        <dl className="stats">
-          <div>
-            <dt>pool area</dt>
-            <dd>{formatArea(poolArea)}</dd>
+      {!phone && meta && <p className="meta">{meta}</p>}
+      {nothing ? (
+        <p className="lead stopped-note">Stopped before the first tile was read. Nothing was scanned, so there are no pools to list.</p>
+      ) : (
+        <>
+          <div className="readout">
+            <div className="big" aria-live="polite">
+              <b>{formatCount(shown.length)}</b>
+              <span>{shown.length === 1 ? 'pool' : 'pools'}</span>
+            </div>
+            <dl className="stats">
+              <div>
+                <dt>pool area</dt>
+                <dd>{formatArea(poolArea)}</dd>
+              </div>
+              <div>
+                <dt>scanned</dt>
+                <dd>{scannedText}</dd>
+              </div>
+              <div>
+                <dt>{tilesNote}</dt>
+                <dd>{plural(stats.tilesTotal, 'tile')}</dd>
+              </div>
+            </dl>
           </div>
-          <div>
-            <dt>scanned</dt>
-            <dd>{formatLandArea(landArea)}</dd>
-          </div>
-          <div>
-            <dt>{tilesNote}</dt>
-            <dd>{plural(stats.tilesTotal, 'tile')}</dd>
-          </div>
-        </dl>
-      </div>
-      <p className="more">
-        {below > 0 ? (
-          <>
-            {formatCount(below)} more scored below {minText}.{' '}
-            <button
-              className="link"
-              onClick={() =>
-                lowestBelow != null && update({ minConfidence: thresholdToShowAll(lowestBelow), recommendedScore: false })
-              }
-            >
-              Show {below === 1 ? 'it' : 'them'}
-            </button>
-          </>
-        ) : (
-          <>None below {minText}.</>
-        )}
-      </p>
+          {(below > 0 || !stopped) && (
+            <p className="more">
+              {below > 0 ? (
+                <>
+                  {formatCount(below)} more below {minText}.{' '}
+                  <button
+                    className="link"
+                    onClick={() =>
+                      lowestBelow != null && update({ minConfidence: thresholdToShowAll(lowestBelow), recommendedScore: false })
+                    }
+                  >
+                    Show {below === 1 ? 'it' : 'them'}
+                  </button>
+                </>
+              ) : (
+                <>None below {minText}.</>
+              )}
+            </p>
+          )}
+        </>
+      )}
       {problem && (
         <div className="warn-row" role="alert">
           <p className="warn">{problem}</p>
@@ -418,7 +437,7 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
           )}
         </div>
       )}
-      {!phone && (
+      {!phone && !nothing && (
         <div className="export-row">
           <span className="k">Export</span>
           <span className="grow" />
@@ -452,7 +471,7 @@ function ScoreHistogram() {
 const SLIDER_MAX = 0.95;
 const TICKS = Array.from({ length: 21 }, (_, i) => i * 5);
 
-export function ThresholdSection() {
+export function ThresholdSection({ phone = false }: { phone?: boolean }) {
   const settings = useStore((s) => s.settings);
   const parts = useStore((s) => s.parts);
   const update = useStore((s) => s.updateSettings);
@@ -491,9 +510,15 @@ export function ThresholdSection() {
       </div>
       <div className="scale-l" aria-hidden="true">
         <span style={{ left: 0 }}>0.00</span>
-        <span style={{ left: '25%' }}>0.25</span>
-        <span style={{ left: '50%' }}>0.50</span>
-        <span style={{ left: '75%' }}>0.75</span>
+        {phone ? (
+          value > 0.12 && value < 0.88 && <span style={{ left: `${value * 100}%` }}>{formatScore(value)}</span>
+        ) : (
+          <>
+            <span style={{ left: '25%' }}>0.25</span>
+            <span style={{ left: '50%' }}>0.50</span>
+            <span style={{ left: '75%' }}>0.75</span>
+          </>
+        )}
         <span style={{ left: '100%' }}>1.00</span>
       </div>
       {!recommended && (
@@ -530,6 +555,7 @@ export function ListSection({ limit, phone = false }: { limit?: number; phone?: 
   const live = phase === 'scanning' || phase === 'paused';
   const list = live ? shown : sortPools(shown, sort);
   const minScore = useStore((s) => s.settings.minConfidence);
+  const tiles = useTileCounts();
 
   return (
     <section className="list-sec" aria-labelledby="list-h">
@@ -545,9 +571,13 @@ export function ListSection({ limit, phone = false }: { limit?: number; phone?: 
         <p className="note">
           {live
             ? 'No pools yet. They appear here as tiles finish.'
-            : below > 0
-              ? `No pools at or above ${formatScore(minScore)}.`
-              : 'No pools in this area.'}
+            : tiles.stopped && tiles.done === 0
+              ? 'Nothing was scanned.'
+              : below > 0
+                ? `No pools at or above ${formatScore(minScore)}.`
+                : tiles.stopped
+                  ? 'No pools in the part scanned.'
+                  : 'No pools in this area.'}
         </p>
       )}
       <PoolList pools={list} newest={newest} label="Pools" limit={limit} />

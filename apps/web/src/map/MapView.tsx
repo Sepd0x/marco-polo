@@ -19,9 +19,9 @@ import { browserDisplay, mapMaxZoom } from './sources.js';
 import { watchContextLoss } from './contextLoss.js';
 import { occluderPadding } from './padding.js';
 import { FrameOverlay, type FrameStyle } from './frame.js';
+import { PHONE_QUERY } from '../ui/hooks.js';
 
-const PHONE = '(max-width: 700px)';
-const isPhone = () => globalThis.matchMedia?.(PHONE).matches ?? false;
+const isPhone = () => globalThis.matchMedia?.(PHONE_QUERY).matches ?? false;
 
 /** Desktop frames carry coordinates in the margin; the phone keeps marks and crosses only. */
 function frameStyle(): FrameStyle {
@@ -49,22 +49,6 @@ function watchTheme(fn: () => void): () => void {
     mo.disconnect();
     mq?.removeEventListener?.('change', fn);
   };
-}
-
-/**
- * The attribution sits in the data strip under the map when the page has a
- * slot for it, else in the map corner. It moves back into the slot when the
- * layout switches between desktop and phone.
- */
-function placeAttribution(map: maplibregl.Map, control: maplibregl.AttributionControl, el: HTMLElement | null): HTMLElement | null {
-  const slot = document.getElementById('map-attrib');
-  if (!slot) {
-    if (!el) map.addControl(control, 'bottom-right');
-    return null;
-  }
-  const node = el ?? control.onAdd(map);
-  if (node.parentElement !== slot) slot.appendChild(node);
-  return node;
 }
 
 // MapLibre 6 loads its worker as a separate module file; point it at the
@@ -126,6 +110,8 @@ export function MapView() {
       const refreshImagery = () => {
         baseImagery.update();
         scannedImagery.sync(baseImagery);
+        // The data strip names the imagery the map really shows outside an area.
+        emit('basesource', { id: baseImagery.atCentre.id });
       };
       refreshImagery();
       map.on('moveend', refreshImagery);
@@ -228,7 +214,7 @@ export function MapView() {
             if (!id) return;
             const det = useStore.getState().detections[id];
             if (!det) return;
-            // After the inspector has rendered, so the pool lands clear of it.
+            // After the record has rendered; clear of the tools and keys on the map.
             requestAnimationFrame(() =>
               map.flyTo({
                 center: [det.center.lon, det.center.lat],
@@ -272,7 +258,7 @@ export function MapView() {
           }
         }),
       );
-      map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.lng, lat: e.lngLat.lat }));
+      map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.wrap().lng, lat: e.lngLat.lat }));
       map.on('mouseout', () => emit('cursor', null));
       let cameraFrame = 0;
       const shareCamera = () => {
@@ -303,12 +289,16 @@ export function MapView() {
         if (e.sourceId || e.tile) return;
         console.error(e.error);
       });
+      // The credits live in the data strip under the map. The control is made
+      // once and its node follows the strip's slot when the layout changes.
       const attribution = new maplibregl.AttributionControl({ compact: false });
-      let attribEl = placeAttribution(map, attribution, null);
-      map.on('resize', () => {
-        attribEl = placeAttribution(map, attribution, attribEl);
-      });
-      unsubs.push(() => attribEl?.remove());
+      const attribNode = attribution.onAdd(map);
+      unsubs.push(
+        on('attribslot', ({ el }) => {
+          if (el && attribNode.parentElement !== el) el.appendChild(attribNode);
+        }),
+        () => attribution.onRemove(),
+      );
 
       emit('mapready', {});
 

@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, type KeyboardEvent } from 'react';
 import type { RankedDetection } from '@marco-polo/core';
 import { useStore } from '../state/store.js';
-import { formatArea, formatCount, formatScore } from '../lib/format.js';
+import { formatCount, formatPoolArea, formatScore } from '../lib/format.js';
 import { dimsOf, thumbFor, thumbFrame } from './model.js';
 import { PoolThumb } from './PoolThumb.js';
 import { PoolRecord } from './Record.js';
@@ -42,10 +42,15 @@ export function PoolList({
   const openRow = useRef<HTMLElement | null>(null);
   const shown = pools.slice(0, limit);
   const open = shown.find((d) => d.id === selectedId) ?? null;
+  // A pool past the rows drawn (picked on the map) still opens, after the list.
+  const solo = open ? null : (pools.find((d) => d.id === selectedId) ?? null);
+  const soloRef = useRef<HTMLDivElement>(null);
+  const openId = open?.id ?? null;
 
-  // Room for the record under the open row, and the record placed in it.
+  // Room for the record under the open row, and the record placed in it. It
+  // is placed again when the record or the list changes size.
   useLayoutEffect(() => {
-    const row = open ? listRef.current?.querySelector<HTMLElement>(`#${rowId(open.id)}`) : null;
+    const row = openId ? listRef.current?.querySelector<HTMLElement>(`#${rowId(openId)}`) : null;
     if (openRow.current && openRow.current !== row) openRow.current.style.paddingBottom = '';
     openRow.current = row ?? null;
     const rec = recRef.current;
@@ -58,13 +63,19 @@ export function PoolList({
     if (typeof ResizeObserver === 'undefined') return;
     const ro = new ResizeObserver(place);
     ro.observe(rec);
+    if (listRef.current) ro.observe(listRef.current);
     return () => ro.disconnect();
-  });
+  }, [openId, pools]);
 
+  // The open pool comes into view: its record first, then its row, so the row wins when both do not fit.
   useEffect(() => {
     if (!selectedId) return;
-    const row = listRef.current?.querySelector<HTMLElement>(`#${rowId(selectedId)}`);
-    row?.scrollIntoView?.({ block: 'nearest' });
+    if (soloRef.current) {
+      soloRef.current.scrollIntoView?.({ block: 'nearest' });
+      return;
+    }
+    recRef.current?.scrollIntoView?.({ block: 'nearest' });
+    listRef.current?.querySelector<HTMLElement>(`#${rowId(selectedId)}`)?.scrollIntoView?.({ block: 'nearest' });
   }, [selectedId]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLUListElement>) => {
@@ -118,7 +129,7 @@ export function PoolList({
                 <span className="n">{d.rank}</span>
                 <PoolThumb detection={d} image={thumbFor(d, thumbs, thumbFrame(d, parts))} width={40} />
                 <span className="a">
-                  <b>{formatArea(d.areaM2)}</b>
+                  <b>{formatPoolArea(d.areaM2)}</b>
                   {d.kind === 'hot_tub' && <span className="kind-tag">Hot tub</span>}
                   {isNew && <span className="new-tag">New</span>}
                 </span>
@@ -133,6 +144,20 @@ export function PoolList({
         </ul>
         {open && <PoolRecord detection={open} ref={recRef} />}
       </div>
+      {solo && (
+        <div className="solo" ref={soloRef}>
+          <div className="row sel static">
+            <span className="n">{solo.rank}</span>
+            <span />
+            <span className="a">
+              <b>{formatPoolArea(solo.areaM2)}</b>
+            </span>
+            <span className="d">{dimsCell(solo)}</span>
+            <span className="s">{formatScore(solo.confidence)}</span>
+          </div>
+          <PoolRecord detection={solo} flow />
+        </div>
+      )}
       {pools.length > limit && limit === RENDER_CAP && (
         <p className="note">
           Showing the first {formatCount(limit)}. The CSV and GeoJSON have all {formatCount(pools.length)}.

@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import { IMAGERY_PROVIDERS, coverageContains, coversArea, ringBBox, type ImageryProvider } from '@marco-polo/core';
+import { useEffect, useRef, useState } from 'react';
+import { IMAGERY_PROVIDERS, coverageContains, coversArea, findAnyProvider, ringBBox, type ImageryProvider } from '@marco-polo/core';
 import { useStore } from '../state/store.js';
 import { emit, on } from '../lib/bus.js';
-import { formatCaptureDate, formatCount, formatLandArea, formatResolution } from '../lib/format.js';
+import { formatCaptureDate, formatCount, formatLandArea, formatResolution, plural } from '../lib/format.js';
 import { formatDegrees, metresPerPixel, scaleFor } from '../map/frame.js';
-import { chipSource, sourceKind } from './model.js';
+import { sourceKind } from './model.js';
 import { useAreaFacts, useMapView, useScanSources, useTileCounts } from './hooks.js';
 import { useUi } from './uiState.js';
 import { IconChevron, IconMinus, IconPlus, IconRect, IconShape } from './icons.js';
@@ -18,18 +18,11 @@ function centreOf(area: [number, number][] | null, view: { bbox: [number, number
   return null;
 }
 
-/** The source the data strip names: the scanned one once a scan exists, else the one that would be used here. */
-export function useChipSource(): ImageryProvider | { name: string } | null {
-  const phase = useStore((s) => s.phase);
-  const imagery = useStore((s) => s.settings.imagery);
-  const area = useStore((s) => s.area);
-  const view = useMapView();
-  const scanned = useScanSources();
-  if (phase === 'scanning' || phase === 'paused' || phase === 'complete') {
-    if (scanned.length === 1) return { name: scanned[0].name };
-    if (scanned.length > 1) return { name: `${scanned.length} sources` };
-  }
-  return chipSource(imagery, centreOf(area, view));
+/** The imagery the map shows outside any area, as the map reports it. */
+function useBaseSource(): ImageryProvider | null {
+  const [id, setId] = useState<string | null>(null);
+  useEffect(() => on('basesource', (e) => setId(e.id)), []);
+  return id ? (findAnyProvider(id) ?? null) : null;
 }
 
 interface StripSource {
@@ -40,12 +33,16 @@ interface StripSource {
   zoom: number | null;
 }
 
-/** What the strip says about the imagery: the scan's sources, the planned ones, or the one the map would use here. */
+/**
+ * What the strip says about the imagery: always what the map shows. With no
+ * area that is the background layer the map is drawing; with an area, the
+ * sources it is (or will be) scanned on, which the map shows inside it.
+ */
 function useStripSource(): StripSource {
   const phase = useStore((s) => s.phase);
   const scanned = useScanSources();
   const planned = useAreaFacts();
-  const chip = useChipSource();
+  const base = useBaseSource();
   const list = phase === 'idle' ? [] : phase === 'ready' ? (planned?.sources ?? []) : scanned;
   if (list.length === 1) {
     const s = list[0];
@@ -55,25 +52,28 @@ function useStripSource(): StripSource {
     const zooms = new Set(list.map((s) => s.zoom));
     return { name: `${list.length} sources`, kind: null, res: 'Mixed', date: 'Mixed', zoom: zooms.size === 1 ? list[0].zoom : null };
   }
-  if (chip && 'id' in chip) {
-    return { name: chip.name, kind: sourceKind(chip.id), res: formatResolution(chip.nativeResM), date: formatCaptureDate(chip.date), zoom: null };
+  if (base) {
+    return { name: base.name, kind: sourceKind(base.id), res: formatResolution(base.nativeResM), date: formatCaptureDate(base.date), zoom: null };
   }
-  return { name: chip?.name ?? null, kind: null, res: null, date: null, zoom: null };
+  return { name: null, kind: null, res: null, date: null, zoom: null };
 }
 
 const KIND_LABEL: Record<string, string> = { aerial: 'Aerial', satellite: 'Satellite' };
 
-/** The tile count as the strip shows it: planned, read so far, or read at the end with what is missing. */
+/**
+ * The tile count as the strip shows it: the plan, then tiles done of the
+ * total (the same number as the progress), with failed tiles and tiles
+ * without imagery named as the summary names them.
+ */
 function useTilesText(zoom: number | null): string {
   const phase = useStore((s) => s.phase);
   const planned = useAreaFacts();
   const t = useTileCounts();
   const z = zoom != null ? `, z${zoom}` : '';
   if (phase === 'idle') return 'No area';
-  if (phase === 'ready') return planned ? `${planned.approximate ? 'About ' : ''}${formatCount(planned.tiles)}${z}` : 'No area';
-  const read = `${formatCount(t.ok)}/${formatCount(t.total)}`;
-  if (phase === 'complete' && t.missing > 0) return `${read}, ${formatCount(t.missing)} missing`;
-  return `${read}${z}`;
+  if (phase === 'ready') return planned ? `${planned.approximate ? 'About ' : ''}${plural(planned.tiles, 'tile')}${z}` : 'No area';
+  const issues = [t.failed ? `${formatCount(t.failed)} failed` : null, t.noCoverage ? `${formatCount(t.noCoverage)} no imagery` : null].filter(Boolean);
+  return `${formatCount(t.done)}/${formatCount(t.total)}${issues.length ? `, ${issues.join(', ')}` : z}`;
 }
 
 /* Scale bar: worked out from the camera on every move, written straight into the DOM. */
@@ -115,7 +115,7 @@ function ScaleBar({ maxPx, ticks }: { maxPx: number; ticks: boolean }) {
 /** The scale on the map corner, for when the strip has no room for it. */
 export function MapScale() {
   return (
-    <div className="map-scale">
+    <div className="map-scale" data-map-occluder>
       <ScaleBar maxPx={100} ticks />
     </div>
   );
@@ -127,9 +127,12 @@ function CursorCell() {
   const value = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     let drafting = false;
+    let last: { lon: number; lat: number } | null = null;
+    const position = () => (last ? `${formatDegrees(last.lat, 6)}, ${formatDegrees(last.lon, 6)}` : 'Point at the map');
     const offCursor = on('cursor', (c) => {
+      last = c;
       if (drafting || !value.current) return;
-      value.current.textContent = c ? `${formatDegrees(c.lat, 6)}, ${formatDegrees(c.lon, 6)}` : 'Point at the map';
+      value.current.textContent = position();
     });
     const offDraft = on('draft', (d) => {
       if (!label.current || !value.current) return;
@@ -138,6 +141,9 @@ function CursorCell() {
       if (d) {
         const size = d.widthM != null && d.heightM != null ? `${formatCount(d.widthM)} × ${formatCount(d.heightM)} m, ` : '';
         value.current.textContent = `${size}${formatLandArea(d.areaM2)}`;
+      } else {
+        // The shape is done: back to where the pointer is.
+        value.current.textContent = position();
       }
     });
     return () => {
@@ -187,7 +193,8 @@ function ImageryCell({ name }: { name: string | null }) {
 export function DataStrip({ phone }: { phone: boolean }) {
   const src = useStripSource();
   const tiles = useTilesText(src.zoom);
-  const [attribOpen, toggleAttrib] = useAttribToggle();
+  const attribOpen = useUi((s) => s.attribOpen);
+  const setAttribOpen = useUi((s) => s.setAttribOpen);
 
   if (phone) {
     const line = [src.name, src.res, tiles].filter(Boolean).join(', ');
@@ -199,12 +206,12 @@ export function DataStrip({ phone }: { phone: boolean }) {
           </span>
           <ScaleBar maxPx={64} ticks={false} />
         </div>
-        <div
-          className={`attrib${attribOpen ? ' open' : ''}`}
-          id="map-attrib"
-          onClick={toggleAttrib}
-          title={attribOpen ? undefined : 'Show the credits in full'}
-        />
+        <div className={`attrib-line${attribOpen ? ' open' : ''}`}>
+          <div className="attrib" id="map-attrib" ref={attribSlot} />
+          <button className="attrib-btn" aria-expanded={attribOpen} aria-controls="map-attrib" onClick={() => setAttribOpen(!attribOpen)}>
+            {attribOpen ? 'Less' : 'Credits'}
+          </button>
+        </div>
       </div>
     );
   }
@@ -215,11 +222,11 @@ export function DataStrip({ phone }: { phone: boolean }) {
         <ImageryCell name={src.name} />
         <div className="cell">
           <span className="k">{(src.kind && KIND_LABEL[src.kind]) || 'Resolution'}</span>
-          <span>{src.res ?? 'Unknown'}</span>
+          <span>{src.res ?? 'Not given'}</span>
         </div>
         <div className="cell">
           <span className="k">Captured</span>
-          <span>{src.date ?? 'Unknown'}</span>
+          <span>{src.date ?? 'Not given'}</span>
         </div>
         <div className="cell">
           <span className="k">CRS</span>
@@ -234,15 +241,14 @@ export function DataStrip({ phone }: { phone: boolean }) {
         </div>
         <CursorCell />
       </div>
-      <div className="attrib" id="map-attrib" />
+      <div className="attrib" id="map-attrib" ref={attribSlot} />
     </div>
   );
 }
 
-function useAttribToggle(): [boolean, () => void] {
-  const open = useUi((s) => s.attribOpen);
-  const set = useUi((s) => s.setAttribOpen);
-  return [open, () => set(!open)];
+/** Tells the map where its credits go; a stable ref, so it fires on mount and unmount only. */
+function attribSlot(el: HTMLDivElement | null): void {
+  emit('attribslot', { el });
 }
 
 /** Zoom and the two drawing tools, in the corner of the map. */
@@ -252,7 +258,7 @@ export function MapTools() {
   const setDrawMode = useStore((s) => s.setDrawMode);
   const busy = phase === 'scanning' || phase === 'paused';
   return (
-    <div className="tools" role="toolbar" aria-label="Map tools">
+    <div className="tools" role="toolbar" aria-label="Map tools" data-map-occluder>
       <button aria-label="Zoom in" title="Zoom in" onClick={() => emit('zoomby', { delta: 1 })}>
         <IconPlus />
       </button>
@@ -374,7 +380,7 @@ const Swatch = ({ kind }: { kind: 'wait' | 'busy' | 'done' | 'pool' }) => (
 /** What the tile states on the map mean, shown while a scan runs. */
 export function Legend() {
   return (
-    <div className="legend" role="note" aria-label="Map key">
+    <div className="legend" role="note" aria-label="Map key" data-map-occluder>
       <span>
         <Swatch kind="wait" />
         Waiting

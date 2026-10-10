@@ -6,12 +6,25 @@ export function formatCount(n: number): string {
   return Math.round(n).toLocaleString(EN);
 }
 
-/** Pool-sized areas: "8.5 m²", "100 m²", "1,367 m²". */
+/** Pool-sized areas: "8.5 m²", "100 m²", "1,367 m²"; nothing at all is "0 m²". */
 export function formatArea(m2: number): string {
+  if (m2 === 0) return '0 m²';
   if (m2 >= 1_000_000) return `${(m2 / 1_000_000).toFixed(2)} km²`;
   if (m2 >= 10_000) return `${(m2 / 10_000).toFixed(1)} ha`;
   if (m2 >= 10) return `${formatCount(m2)} m²`;
   return `${m2.toFixed(1)} m²`;
+}
+
+/** One pool, always to a tenth so a column of them lines up: "92.5 m²", "9.7 m²". */
+export function formatPoolArea(m2: number): string {
+  return `${m2.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} m²`;
+}
+
+/** Clock time of a moment: "11:27" today, "3 Oct 11:27" another day. */
+export function formatClock(ts: number, now: number = Date.now()): string {
+  const d = new Date(ts);
+  const time = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  return new Date(ts).toDateString() === new Date(now).toDateString() ? time : `${d.getDate()} ${MONTHS[d.getMonth()]} ${time}`;
 }
 
 /** Land areas, the drawn shape: "0.4 ha", "13.1 ha", "2.35 km²". */

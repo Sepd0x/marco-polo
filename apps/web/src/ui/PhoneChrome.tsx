@@ -52,7 +52,7 @@ export function PhoneSheet() {
     body = (
       <>
         <SummarySection phone />
-        <ThresholdSection />
+        <ThresholdSection phone />
         <ListSection phone />
       </>
     );
