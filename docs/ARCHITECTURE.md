@@ -90,12 +90,17 @@ outside the plan. That makes "this measurement is a lower bound" a fact, not a g
 ## State & rendering
 
 - **zustand** store with `subscribeWithSelector`: React components subscribe to
-  slices; the MapLibre layer managers (`ScanOverlay`, `DetectionMarkers`) subscribe
-  imperatively, so the map path never triggers a React re-render.
-- Scanned coverage renders as a single MultiPolygon feature (one `setData` per
-  ~180 ms), the tile grid as a single MultiLineString; detection outlines are
-  GeoJSON with data-driven paint, and markers are DOM elements for full CSS control
-  (radar ping animation, live rank chips).
+  slices; the MapLibre layer managers (`ScanOverlay`, `DetectionMarkers`,
+  `FrameOverlay`) subscribe imperatively, so the map path never triggers a React
+  re-render. The scale bar and the cursor in the data strip are written straight
+  into the DOM from bus events for the same reason.
+- The tile grid uses feature state per tile; detection outlines are GeoJSON with
+  data-driven paint (magenta over a dark casing). Markers are GL layers: a dot for
+  the overview and the rank number, an image drawn on a canvas in the interface
+  font and placed as text, so it needs no glyph server.
+- The map is locked north up and flat. `FrameOverlay` draws the survey frame over
+  it (neat line, fiducials, graduation, coordinates, réseau) and recomputes it on
+  every move; the coordinates in the margin are only true without rotation.
 - Detection **thumbnails are real pixels**: the worker crops the detection bbox from
   the tile it analysed and ships the RGBA buffer back (transferable), where it
   becomes a data-URL for the ranked list and the archive.
@@ -107,4 +112,4 @@ outside the plan. That makes "this measurement is a lower bound" a fact, not a g
 | Classical CV instead of a learned model | misses camouflaged/indoor pools; some teal-roof false positives | zero setup, explainable, runs anywhere, tunable in the open; a `Detector`-shaped seam is left for an ONNX plug-in |
 | Client-side scanning | scan lifetime tied to the tab | no backend, no keys, privacy by construction, deployable as static files |
 | Area from pixel count × resolution² | ±10 to 15% vs. survey-grade | honest, fast, and correct *in expectation*; confidence exposes the rest |
-| DOM markers over symbol layers | capped at 250 markers | full CSS animation control, no glyph server dependency |
+| Rank numbers as canvas images in symbol layers | one small image per rank shown | no cap on markers, no glyph server dependency, same font as the list |
