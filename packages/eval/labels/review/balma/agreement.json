@@ -1,0 +1,19 @@
+{
+ "zone": "balma",
+ "windows": [
+  "w-00-00",
+  "w-01-01",
+  "w-01-04",
+  "w-03-02",
+  "w-03-04",
+  "w-04-03"
+ ],
+ "pass1Pools": 45,
+ "pass2Pools": 50,
+ "matched": 44,
+ "onlyA": 0,
+ "onlyB": 0,
+ "f1": 1,
+ "threshold": 0.9,
+ "ok": true
+}

@@ -6435,6 +6435,6140 @@
     },
     "reason": "hand: covered or empty in imagery"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5046736598014832,
+        43.603789901268186
+       ],
+       [
+        1.5048158168792725,
+        43.603789901268186
+       ],
+       [
+        1.5048158168792725,
+        43.603908378885855
+       ],
+       [
+        1.5046736598014832,
+        43.603908378885855
+       ],
+       [
+        1.5046736598014832,
+        43.603789901268186
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4978662133216858,
+        43.60344029382316
+       ],
+       [
+        1.498037874698639,
+        43.60344029382316
+       ],
+       [
+        1.498037874698639,
+        43.60352963814126
+       ],
+       [
+        1.4978662133216858,
+        43.60352963814126
+       ],
+       [
+        1.4978662133216858,
+        43.60344029382316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5062105655670166,
+        43.60429488621305
+       ],
+       [
+        1.506325900554657,
+        43.60429488621305
+       ],
+       [
+        1.506325900554657,
+        43.60439005597794
+       ],
+       [
+        1.5062105655670166,
+        43.60439005597794
+       ],
+       [
+        1.5062105655670166,
+        43.60429488621305
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5020745992660522,
+        43.60386370702463
+       ],
+       [
+        1.5021979808807373,
+        43.60386370702463
+       ],
+       [
+        1.5021979808807373,
+        43.6039511084612
+       ],
+       [
+        1.5020745992660522,
+        43.6039511084612
+       ],
+       [
+        1.5020745992660522,
+        43.60386370702463
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5062695741653442,
+        43.613061526088316
+       ],
+       [
+        1.5064090490341187,
+        43.613061526088316
+       ],
+       [
+        1.5064090490341187,
+        43.61312366873057
+       ],
+       [
+        1.5062695741653442,
+        43.61312366873057
+       ],
+       [
+        1.5062695741653442,
+        43.613061526088316
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5051162242889404,
+        43.60866282906564
+       ],
+       [
+        1.5052396059036255,
+        43.60866282906564
+       ],
+       [
+        1.5052396059036255,
+        43.608732744646865
+       ],
+       [
+        1.5051162242889404,
+        43.608732744646865
+       ],
+       [
+        1.5051162242889404,
+        43.60866282906564
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5056392550468445,
+        43.60429488621305
+       ],
+       [
+        1.5057572722434998,
+        43.60429488621305
+       ],
+       [
+        1.5057572722434998,
+        43.60436480687131
+       ],
+       [
+        1.5056392550468445,
+        43.60436480687131
+       ],
+       [
+        1.5056392550468445,
+        43.60429488621305
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5028256177902222,
+        43.612956660233905
+       ],
+       [
+        1.5029409527778625,
+        43.612956660233905
+       ],
+       [
+        1.5029409527778625,
+        43.61302657082383
+       ],
+       [
+        1.5028256177902222,
+        43.61302657082383
+       ],
+       [
+        1.5028256177902222,
+        43.612956660233905
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4985555410385132,
+        43.60384622672208
+       ],
+       [
+        1.4986494183540344,
+        43.60384622672208
+       ],
+       [
+        1.4986494183540344,
+        43.60393168593071
+       ],
+       [
+        1.4985555410385132,
+        43.60393168593071
+       ],
+       [
+        1.4985555410385132,
+        43.60384622672208
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4966726303100586,
+        43.61117779677068
+       ],
+       [
+        1.4967745542526245,
+        43.61117779677068
+       ],
+       [
+        1.4967745542526245,
+        43.611255477496535
+       ],
+       [
+        1.4966726303100586,
+        43.611255477496535
+       ],
+       [
+        1.4966726303100586,
+        43.61117779677068
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.49926096200943,
+        43.610202895130264
+       ],
+       [
+        1.499360203742981,
+        43.610202895130264
+       ],
+       [
+        1.499360203742981,
+        43.61028251916364
+       ],
+       [
+        1.49926096200943,
+        43.61028251916364
+       ],
+       [
+        1.49926096200943,
+        43.610202895130264
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5060952305793762,
+        43.61469274916694
+       ],
+       [
+        1.5062427520751953,
+        43.61469274916694
+       ],
+       [
+        1.5062427520751953,
+        43.61474518060335
+       ],
+       [
+        1.5060952305793762,
+        43.61474518060335
+       ],
+       [
+        1.5060952305793762,
+        43.61469274916694
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.504029929637909,
+        43.60426381033884
+       ],
+       [
+        1.5041157603263855,
+        43.60426381033884
+       ],
+       [
+        1.5041157603263855,
+        43.60435315343392
+       ],
+       [
+        1.504029929637909,
+        43.60435315343392
+       ],
+       [
+        1.504029929637909,
+        43.60426381033884
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.503354012966156,
+        43.61100301477066
+       ],
+       [
+        1.5034693479537964,
+        43.61100301477066
+       ],
+       [
+        1.5034693479537964,
+        43.6110632175169
+       ],
+       [
+        1.503354012966156,
+        43.6110632175169
+       ],
+       [
+        1.503354012966156,
+        43.61100301477066
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5041640400886536,
+        43.612438154155356
+       ],
+       [
+        1.50425523519516,
+        43.612438154155356
+       ],
+       [
+        1.50425523519516,
+        43.61251389127709
+       ],
+       [
+        1.5041640400886536,
+        43.61251389127709
+       ],
+       [
+        1.5041640400886536,
+        43.612438154155356
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5064385533332825,
+        43.61094475399111
+       ],
+       [
+        1.5065377950668335,
+        43.61094475399111
+       ],
+       [
+        1.5065377950668335,
+        43.61101078287034
+       ],
+       [
+        1.5064385533332825,
+        43.61101078287034
+       ],
+       [
+        1.5064385533332825,
+        43.61094475399111
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5062668919563293,
+        43.61378975614436
+       ],
+       [
+        1.5063554048538208,
+        43.61378975614436
+       ],
+       [
+        1.5063554048538208,
+        43.6138635496313
+       ],
+       [
+        1.5062668919563293,
+        43.6138635496313
+       ],
+       [
+        1.5062668919563293,
+        43.61378975614436
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-17",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5036356449127197,
+        43.603644231746344
+       ],
+       [
+        1.503726840019226,
+        43.603644231746344
+       ],
+       [
+        1.503726840019226,
+        43.60371221090043
+       ],
+       [
+        1.5036356449127197,
+        43.60371221090043
+       ],
+       [
+        1.5036356449127197,
+        43.603644231746344
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-18",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4963185787200928,
+        43.60431819310817
+       ],
+       [
+        1.4963990449905396,
+        43.60431819310817
+       ],
+       [
+        1.4963990449905396,
+        43.60439394045493
+       ],
+       [
+        1.4963185787200928,
+        43.60439394045493
+       ],
+       [
+        1.4963185787200928,
+        43.60431819310817
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-19",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5001031756401062,
+        43.61229250557626
+       ],
+       [
+        1.5001890063285828,
+        43.61229250557626
+       ],
+       [
+        1.5001890063285828,
+        43.61236047495706
+       ],
+       [
+        1.5001031756401062,
+        43.61236047495706
+       ],
+       [
+        1.5001031756401062,
+        43.61229250557626
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-20",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5062159299850464,
+        43.60761020132596
+       ],
+       [
+        1.5063285827636719,
+        43.60761020132596
+       ],
+       [
+        1.5063285827636719,
+        43.60766069680423
+       ],
+       [
+        1.5062159299850464,
+        43.60766069680423
+       ],
+       [
+        1.5062159299850464,
+        43.60761020132596
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-21",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4950177073478699,
+        43.61219929030051
+       ],
+       [
+        1.4951303601264954,
+        43.61219929030051
+       ],
+       [
+        1.4951303601264954,
+        43.61224978192614
+       ],
+       [
+        1.4950177073478699,
+        43.61224978192614
+       ],
+       [
+        1.4950177073478699,
+        43.61219929030051
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-22",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5036490559577942,
+        43.60875216562722
+       ],
+       [
+        1.5037322044372559,
+        43.60875216562722
+       ],
+       [
+        1.5037322044372559,
+        43.608818196913546
+       ],
+       [
+        1.5036490559577942,
+        43.608818196913546
+       ],
+       [
+        1.5036490559577942,
+        43.60875216562722
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-23",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4955058693885803,
+        43.605359225213974
+       ],
+       [
+        1.4956104755401611,
+        43.605359225213974
+       ],
+       [
+        1.4956104755401611,
+        43.60540778037618
+       ],
+       [
+        1.4955058693885803,
+        43.60540778037618
+       ],
+       [
+        1.4955058693885803,
+        43.605359225213974
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-24",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5063929557800293,
+        43.61160892353237
+       ],
+       [
+        1.5064653754234314,
+        43.61160892353237
+       ],
+       [
+        1.5064653754234314,
+        43.611678835689
+       ],
+       [
+        1.5063929557800293,
+        43.611678835689
+       ],
+       [
+        1.5063929557800293,
+        43.61160892353237
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-25",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.505376398563385,
+        43.604081239253716
+       ],
+       [
+        1.5054729580879211,
+        43.604081239253716
+       ],
+       [
+        1.5054729580879211,
+        43.60412785320046
+       ],
+       [
+        1.505376398563385,
+        43.60412785320046
+       ],
+       [
+        1.505376398563385,
+        43.604081239253716
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-26",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.499558687210083,
+        43.60405016326914
+       ],
+       [
+        1.499636471271515,
+        43.60405016326914
+       ],
+       [
+        1.499636471271515,
+        43.60410648847935
+       ],
+       [
+        1.499558687210083,
+        43.60410648847935
+       ],
+       [
+        1.499558687210083,
+        43.60405016326914
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-27",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4997893571853638,
+        43.610090256073754
+       ],
+       [
+        1.4998483657836914,
+        43.610090256073754
+       ],
+       [
+        1.4998483657836914,
+        43.61016211204796
+       ],
+       [
+        1.4997893571853638,
+        43.61016211204796
+       ],
+       [
+        1.4997893571853638,
+        43.610090256073754
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-28",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5031206607818604,
+        43.604203600786896
+       ],
+       [
+        1.5031957626342773,
+        43.604203600786896
+       ],
+       [
+        1.5031957626342773,
+        43.60425798361065
+       ],
+       [
+        1.5031206607818604,
+        43.60425798361065
+       ],
+       [
+        1.5031206607818604,
+        43.604203600786896
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-29",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.506473422050476,
+        43.60568357295404
+       ],
+       [
+        1.5065377950668335,
+        43.60568357295404
+       ],
+       [
+        1.5065377950668335,
+        43.605743781024735
+       ],
+       [
+        1.506473422050476,
+        43.605743781024735
+       ],
+       [
+        1.506473422050476,
+        43.60568357295404
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-30",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5062078833580017,
+        43.61188857167125
+       ],
+       [
+        1.5062910318374634,
+        43.61188857167125
+       ],
+       [
+        1.5062910318374634,
+        43.61193517956798
+       ],
+       [
+        1.5062078833580017,
+        43.61193517956798
+       ],
+       [
+        1.5062078833580017,
+        43.61188857167125
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-31",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.502232849597931,
+        43.61439757874588
+       ],
+       [
+        1.5023159980773926,
+        43.61439757874588
+       ],
+       [
+        1.5023159980773926,
+        43.61444418469816
+       ],
+       [
+        1.502232849597931,
+        43.61444418469816
+       ],
+       [
+        1.502232849597931,
+        43.61439757874588
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-32",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5025761723518372,
+        43.6130226869043
+       ],
+       [
+        1.5026378631591797,
+        43.6130226869043
+       ],
+       [
+        1.5026378631591797,
+        43.61307900371294
+       ],
+       [
+        1.5025761723518372,
+        43.61307900371294
+       ],
+       [
+        1.5025761723518372,
+        43.6130226869043
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-33",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.494317650794983,
+        43.6147044006012
+       ],
+       [
+        1.4943954348564148,
+        43.6147044006012
+       ],
+       [
+        1.4943954348564148,
+        43.61474518060335
+       ],
+       [
+        1.494317650794983,
+        43.61474518060335
+       ],
+       [
+        1.494317650794983,
+        43.6147044006012
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-34",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.494140625,
+        43.61462089860576
+       ],
+       [
+        1.4942076802253723,
+        43.61462089860576
+       ],
+       [
+        1.4942076802253723,
+        43.614667504384954
+       ],
+       [
+        1.494140625,
+        43.614667504384954
+       ],
+       [
+        1.494140625,
+        43.61462089860576
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-35",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5051054954528809,
+        43.607775282539976
+       ],
+       [
+        1.505175232887268,
+        43.607775282539976
+       ],
+       [
+        1.505175232887268,
+        43.607819951496474
+       ],
+       [
+        1.5051054954528809,
+        43.607819951496474
+       ],
+       [
+        1.5051054954528809,
+        43.607775282539976
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-36",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5043222904205322,
+        43.6123080414415
+       ],
+       [
+        1.5043705701828003,
+        43.6123080414415
+       ],
+       [
+        1.5043705701828003,
+        43.61236824288141
+       ],
+       [
+        1.5043222904205322,
+        43.61236824288141
+       ],
+       [
+        1.5043222904205322,
+        43.6123080414415
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-37",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4948943257331848,
+        43.61252942708514
+       ],
+       [
+        1.4949426054954529,
+        43.61252942708514
+       ],
+       [
+        1.4949426054954529,
+        43.61258962830344
+       ],
+       [
+        1.4948943257331848,
+        43.61258962830344
+       ],
+       [
+        1.4948943257331848,
+        43.61252942708514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-38",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.493566632270813,
+        43.61314308829311
+       ],
+       [
+        1.4936122298240662,
+        43.61314308829311
+       ],
+       [
+        1.4936122298240662,
+        43.613205230851094
+       ],
+       [
+        1.493566632270813,
+        43.613205230851094
+       ],
+       [
+        1.493566632270813,
+        43.61314308829311
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-39",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4963212609291077,
+        43.61033301239847
+       ],
+       [
+        1.496385633945465,
+        43.61033301239847
+       ],
+       [
+        1.496385633945465,
+        43.6103737953649
+       ],
+       [
+        1.4963212609291077,
+        43.6103737953649
+       ],
+       [
+        1.4963212609291077,
+        43.61033301239847
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-40",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.505778729915619,
+        43.605368936249555
+       ],
+       [
+        1.5058404207229614,
+        43.605368936249555
+       ],
+       [
+        1.5058404207229614,
+        43.60540972258186
+       ],
+       [
+        1.505778729915619,
+        43.60540972258186
+       ],
+       [
+        1.505778729915619,
+        43.605368936249555
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-41",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5019109845161438,
+        43.60968242324248
+       ],
+       [
+        1.5019780397415161,
+        43.60968242324248
+       ],
+       [
+        1.5019780397415161,
+        43.60971932251719
+       ],
+       [
+        1.5019109845161438,
+        43.60971932251719
+       ],
+       [
+        1.5019109845161438,
+        43.60968242324248
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-42",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4937570691108704,
+        43.61316444980466
+       ],
+       [
+        1.493813395500183,
+        43.61316444980466
+       ],
+       [
+        1.493813395500183,
+        43.613207172804984
+       ],
+       [
+        1.4937570691108704,
+        43.613207172804984
+       ],
+       [
+        1.4937570691108704,
+        43.61316444980466
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-43",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5007522702217102,
+        43.61111371009632
+       ],
+       [
+        1.5008246898651123,
+        43.61111371009632
+       ],
+       [
+        1.5008246898651123,
+        43.61114284041131
+       ],
+       [
+        1.5007522702217102,
+        43.61114284041131
+       ],
+       [
+        1.5007522702217102,
+        43.61111371009632
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-44",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4991509914398193,
+        43.60424633015255
+       ],
+       [
+        1.499207317829132,
+        43.60424633015255
+       ],
+       [
+        1.499207317829132,
+        43.60428323276211
+       ],
+       [
+        1.4991509914398193,
+        43.60428323276211
+       ],
+       [
+        1.4991509914398193,
+        43.60424633015255
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-45",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.501379907131195,
+        43.61159727149836
+       ],
+       [
+        1.5014362335205078,
+        43.61159727149836
+       ],
+       [
+        1.5014362335205078,
+        43.611634169598304
+       ],
+       [
+        1.501379907131195,
+        43.611634169598304
+       ],
+       [
+        1.501379907131195,
+        43.61159727149836
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-46",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4944329857826233,
+        43.61167689368574
+       ],
+       [
+        1.4944812655448914,
+        43.61167689368574
+       ],
+       [
+        1.4944812655448914,
+        43.61171961774283
+       ],
+       [
+        1.4944329857826233,
+        43.61171961774283
+       ],
+       [
+        1.4944329857826233,
+        43.61167689368574
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-47",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5029221773147583,
+        43.610383505590924
+       ],
+       [
+        1.502978503704071,
+        43.610383505590924
+       ],
+       [
+        1.502978503704071,
+        43.61041846239163
+       ],
+       [
+        1.5029221773147583,
+        43.61041846239163
+       ],
+       [
+        1.5029221773147583,
+        43.610383505590924
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-48",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5007200837135315,
+        43.6109661162835
+       ],
+       [
+        1.5007925033569336,
+        43.6109661162835
+       ],
+       [
+        1.5007925033569336,
+        43.61099330464466
+       ],
+       [
+        1.5007200837135315,
+        43.61099330464466
+       ],
+       [
+        1.5007200837135315,
+        43.6109661162835
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-49",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4954066276550293,
+        43.60540001155287
+       ],
+       [
+        1.4954736828804016,
+        43.60540001155287
+       ],
+       [
+        1.4954736828804016,
+        43.605429144635146
+       ],
+       [
+        1.4954066276550293,
+        43.605429144635146
+       ],
+       [
+        1.4954066276550293,
+        43.60540001155287
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-50",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5043330192565918,
+        43.61124965144558
+       ],
+       [
+        1.5044000744819641,
+        43.61124965144558
+       ],
+       [
+        1.5044000744819641,
+        43.611278781694736
+       ],
+       [
+        1.5043330192565918,
+        43.611278781694736
+       ],
+       [
+        1.5043330192565918,
+        43.61124965144558
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-51",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4963454008102417,
+        43.60789957868449
+       ],
+       [
+        1.4963909983634949,
+        43.60789957868449
+       ],
+       [
+        1.4963909983634949,
+        43.60794230542483
+       ],
+       [
+        1.4963454008102417,
+        43.60794230542483
+       ],
+       [
+        1.4963454008102417,
+        43.60789957868449
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-52",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5037322044372559,
+        43.60699454150877
+       ],
+       [
+        1.5037831664085388,
+        43.60699454150877
+       ],
+       [
+        1.5037831664085388,
+        43.60703144243243
+       ],
+       [
+        1.5037322044372559,
+        43.60703144243243
+       ],
+       [
+        1.5037322044372559,
+        43.60699454150877
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-53",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5052825212478638,
+        43.61323047624692
+       ],
+       [
+        1.5053388476371765,
+        43.61323047624692
+       ],
+       [
+        1.5053388476371765,
+        43.613263489440875
+       ],
+       [
+        1.5052825212478638,
+        43.613263489440875
+       ],
+       [
+        1.5052825212478638,
+        43.61323047624692
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-54",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.501455008983612,
+        43.6111719707122
+       ],
+       [
+        1.5015140175819397,
+        43.6111719707122
+       ],
+       [
+        1.5015140175819397,
+        43.61120110099897
+       ],
+       [
+        1.501455008983612,
+        43.61120110099897
+       ],
+       [
+        1.501455008983612,
+        43.6111719707122
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-55",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4958062767982483,
+        43.614209212654096
+       ],
+       [
+        1.4958491921424866,
+        43.614209212654096
+       ],
+       [
+        1.4958491921424866,
+        43.614248051071826
+       ],
+       [
+        1.4958062767982483,
+        43.614248051071826
+       ],
+       [
+        1.4958062767982483,
+        43.614209212654096
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-56",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4997866749763489,
+        43.60931342925035
+       ],
+       [
+        1.4998456835746765,
+        43.60931342925035
+       ],
+       [
+        1.4998456835746765,
+        43.60934061835861
+       ],
+       [
+        1.4997866749763489,
+        43.60934061835861
+       ],
+       [
+        1.4997866749763489,
+        43.60931342925035
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-57",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5016534924507141,
+        43.604829000291836
+       ],
+       [
+        1.5016964077949524,
+        43.604829000291836
+       ],
+       [
+        1.5016964077949524,
+        43.604865902543956
+       ],
+       [
+        1.5016534924507141,
+        43.604865902543956
+       ],
+       [
+        1.5016534924507141,
+        43.604829000291836
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-58",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4968335628509521,
+        43.60960085634438
+       ],
+       [
+        1.4968737959861755,
+        43.60960085634438
+       ],
+       [
+        1.4968737959861755,
+        43.609639697738224
+       ],
+       [
+        1.4968335628509521,
+        43.609639697738224
+       ],
+       [
+        1.4968335628509521,
+        43.60960085634438
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-59",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5001782774925232,
+        43.61120498503614
+       ],
+       [
+        1.500231921672821,
+        43.61120498503614
+       ],
+       [
+        1.500231921672821,
+        43.61123411530693
+       ],
+       [
+        1.5001782774925232,
+        43.61123411530693
+       ],
+       [
+        1.5001782774925232,
+        43.61120498503614
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-60",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5013745427131653,
+        43.61070976827406
+       ],
+       [
+        1.5014120936393738,
+        43.61070976827406
+       ],
+       [
+        1.5014120936393738,
+        43.61075055098502
+       ],
+       [
+        1.5013745427131653,
+        43.61075055098502
+       ],
+       [
+        1.5013745427131653,
+        43.61070976827406
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-61",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4964178204536438,
+        43.61222647810418
+       ],
+       [
+        1.496460735797882,
+        43.61222647810418
+       ],
+       [
+        1.496460735797882,
+        43.61226143383372
+       ],
+       [
+        1.4964178204536438,
+        43.61226143383372
+       ],
+       [
+        1.4964178204536438,
+        43.61222647810418
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-62",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4958170056343079,
+        43.61266148129155
+       ],
+       [
+        1.4958545565605164,
+        43.61266148129155
+       ],
+       [
+        1.4958545565605164,
+        43.61270032070885
+       ],
+       [
+        1.4958170056343079,
+        43.61270032070885
+       ],
+       [
+        1.4958170056343079,
+        43.61266148129155
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-63",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4956668019294739,
+        43.61430048289596
+       ],
+       [
+        1.495715081691742,
+        43.61430048289596
+       ],
+       [
+        1.495715081691742,
+        43.61432766974974
+       ],
+       [
+        1.4956668019294739,
+        43.61432766974974
+       ],
+       [
+        1.4956668019294739,
+        43.61430048289596
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-64",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5007227659225464,
+        43.61043011465401
+       ],
+       [
+        1.5007710456848145,
+        43.61043011465401
+       ],
+       [
+        1.5007710456848145,
+        43.610451477129196
+       ],
+       [
+        1.5007227659225464,
+        43.610451477129196
+       ],
+       [
+        1.5007227659225464,
+        43.61043011465401
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-65",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.497683823108673,
+        43.611288491774644
+       ],
+       [
+        1.4977294206619263,
+        43.611288491774644
+       ],
+       [
+        1.4977294206619263,
+        43.611309853944945
+       ],
+       [
+        1.497683823108673,
+        43.611309853944945
+       ],
+       [
+        1.497683823108673,
+        43.611288491774644
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-66",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box on ign, matching no earlier label",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5017125010490417,
+        43.613267373344854
+       ],
+       [
+        1.5018492937088013,
+        43.613267373344854
+       ],
+       [
+        1.5018492937088013,
+        43.613383890347585
+       ],
+       [
+        1.5017125010490417,
+        43.613383890347585
+       ],
+       [
+        1.5017125010490417,
+        43.613267373344854
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-67",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.50625079870224,
+        43.60490668921733
+       ],
+       [
+        1.5064063668251038,
+        43.60490668921733
+       ],
+       [
+        1.5064063668251038,
+        43.60500574245182
+       ],
+       [
+        1.50625079870224,
+        43.60500574245182
+       ],
+       [
+        1.50625079870224,
+        43.60490668921733
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-68",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5024206042289734,
+        43.61221482618984
+       ],
+       [
+        1.5025708079338074,
+        43.61221482618984
+       ],
+       [
+        1.5025708079338074,
+        43.61231386738993
+       ],
+       [
+        1.5024206042289734,
+        43.61231386738993
+       ],
+       [
+        1.5024206042289734,
+        43.61221482618984
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-69",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4941996335983276,
+        43.61257603448522
+       ],
+       [
+        1.494339108467102,
+        43.61257603448522
+       ],
+       [
+        1.494339108467102,
+        43.612663423263015
+       ],
+       [
+        1.4941996335983276,
+        43.612663423263015
+       ],
+       [
+        1.4941996335983276,
+        43.61257603448522
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-70",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5020987391471863,
+        43.61439175299931
+       ],
+       [
+        1.5022113919258118,
+        43.61439175299931
+       ],
+       [
+        1.5022113919258118,
+        43.614496616351296
+       ],
+       [
+        1.5020987391471863,
+        43.614496616351296
+       ],
+       [
+        1.5020987391471863,
+        43.61439175299931
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-71",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.502428650856018,
+        43.60901046406971
+       ],
+       [
+        1.5025761723518372,
+        43.60901046406971
+       ],
+       [
+        1.5025761723518372,
+        43.60907843715969
+       ],
+       [
+        1.502428650856018,
+        43.60907843715969
+       ],
+       [
+        1.502428650856018,
+        43.60901046406971
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-72",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.495240330696106,
+        43.608602623916696
+       ],
+       [
+        1.4953476190567017,
+        43.608602623916696
+       ],
+       [
+        1.4953476190567017,
+        43.608690018468
+       ],
+       [
+        1.495240330696106,
+        43.608690018468
+       ],
+       [
+        1.495240330696106,
+        43.608602623916696
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-73",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5018090605735779,
+        43.6071732194549
+       ],
+       [
+        1.501908302307129,
+        43.6071732194549
+       ],
+       [
+        1.501908302307129,
+        43.60726450037471
+       ],
+       [
+        1.5018090605735779,
+        43.60726450037471
+       ],
+       [
+        1.5018090605735779,
+        43.6071732194549
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-74",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4962032437324524,
+        43.610602956281
+       ],
+       [
+        1.496337354183197,
+        43.610602956281
+       ],
+       [
+        1.496337354183197,
+        43.61066704349961
+       ],
+       [
+        1.4962032437324524,
+        43.61066704349961
+       ],
+       [
+        1.4962032437324524,
+        43.610602956281
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-75",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.505725085735321,
+        43.60384428446592
+       ],
+       [
+        1.5058296918869019,
+        43.60384428446592
+       ],
+       [
+        1.5058296918869019,
+        43.60391809015564
+       ],
+       [
+        1.505725085735321,
+        43.60391809015564
+       ],
+       [
+        1.505725085735321,
+        43.60384428446592
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-76",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5035122632980347,
+        43.61087484098116
+       ],
+       [
+        1.5036088228225708,
+        43.61087484098116
+       ],
+       [
+        1.5036088228225708,
+        43.61095446412496
+       ],
+       [
+        1.5035122632980347,
+        43.61095446412496
+       ],
+       [
+        1.5035122632980347,
+        43.61087484098116
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-77",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5003499388694763,
+        43.61070782623952
+       ],
+       [
+        1.5004438161849976,
+        43.61070782623952
+       ],
+       [
+        1.5004438161849976,
+        43.61078744960444
+       ],
+       [
+        1.5003499388694763,
+        43.61078744960444
+       ],
+       [
+        1.5003499388694763,
+        43.61070782623952
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-78",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5032467246055603,
+        43.6107583191173
+       ],
+       [
+        1.5033245086669922,
+        43.6107583191173
+       ],
+       [
+        1.5033245086669922,
+        43.61084571053635
+       ],
+       [
+        1.5032467246055603,
+        43.61084571053635
+       ],
+       [
+        1.5032467246055603,
+        43.6107583191173
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-79",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5039092302322388,
+        43.612960544157694
+       ],
+       [
+        1.5039816498756409,
+        43.612960544157694
+       ],
+       [
+        1.5039816498756409,
+        43.61303628062156
+       ],
+       [
+        1.5039092302322388,
+        43.61303628062156
+       ],
+       [
+        1.5039092302322388,
+        43.612960544157694
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-80",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5033754706382751,
+        43.61462672433013
+       ],
+       [
+        1.5034854412078857,
+        43.61462672433013
+       ],
+       [
+        1.5034854412078857,
+        43.614675272011304
+       ],
+       [
+        1.5033754706382751,
+        43.614675272011304
+       ],
+       [
+        1.5033754706382751,
+        43.61462672433013
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-81",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5045663714408875,
+        43.61282849060795
+       ],
+       [
+        1.504652202129364,
+        43.61282849060795
+       ],
+       [
+        1.504652202129364,
+        43.61289063349101
+       ],
+       [
+        1.5045663714408875,
+        43.61289063349101
+       ],
+       [
+        1.5045663714408875,
+        43.61282849060795
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-82",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.504652202129364,
+        43.608214202152325
+       ],
+       [
+        1.5047246217727661,
+        43.608214202152325
+       ],
+       [
+        1.5047246217727661,
+        43.60828606036783
+       ],
+       [
+        1.504652202129364,
+        43.60828606036783
+       ],
+       [
+        1.504652202129364,
+        43.608214202152325
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-83",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5061461925506592,
+        43.61108846381191
+       ],
+       [
+        1.5062320232391357,
+        43.61108846381191
+       ],
+       [
+        1.5062320232391357,
+        43.61114672445225
+       ],
+       [
+        1.5061461925506592,
+        43.61114672445225
+       ],
+       [
+        1.5061461925506592,
+        43.61108846381191
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-84",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4987701177597046,
+        43.61244009613403
+       ],
+       [
+        1.498858630657196,
+        43.61244009613403
+       ],
+       [
+        1.498858630657196,
+        43.612494471511376
+       ],
+       [
+        1.4987701177597046,
+        43.612494471511376
+       ],
+       [
+        1.4987701177597046,
+        43.61244009613403
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-85",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4993923902511597,
+        43.60385205349016
+       ],
+       [
+        1.4994728565216064,
+        43.60385205349016
+       ],
+       [
+        1.4994728565216064,
+        43.603908378885855
+       ],
+       [
+        1.4993923902511597,
+        43.603908378885855
+       ],
+       [
+        1.4993923902511597,
+        43.60385205349016
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-86",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5042605996131897,
+        43.611674951682424
+       ],
+       [
+        1.5043410658836365,
+        43.611674951682424
+       ],
+       [
+        1.5043410658836365,
+        43.61173126975313
+       ],
+       [
+        1.5042605996131897,
+        43.61173126975313
+       ],
+       [
+        1.5042605996131897,
+        43.611674951682424
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-87",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4986628293991089,
+        43.60400743376415
+       ],
+       [
+        1.4987379312515259,
+        43.60400743376415
+       ],
+       [
+        1.4987379312515259,
+        43.604067643512444
+       ],
+       [
+        1.4986628293991089,
+        43.604067643512444
+       ],
+       [
+        1.4986628293991089,
+        43.60400743376415
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-88",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5021094679832458,
+        43.60802193245087
+       ],
+       [
+        1.5021872520446777,
+        43.60802193245087
+       ],
+       [
+        1.5021872520446777,
+        43.60807825394222
+       ],
+       [
+        1.5021094679832458,
+        43.60807825394222
+       ],
+       [
+        1.5021094679832458,
+        43.60802193245087
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-89",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.494414210319519,
+        43.609991211211835
+       ],
+       [
+        1.4945000410079956,
+        43.609991211211835
+       ],
+       [
+        1.4945000410079956,
+        43.610039762635125
+       ],
+       [
+        1.494414210319519,
+        43.610039762635125
+       ],
+       [
+        1.494414210319519,
+        43.609991211211835
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-90",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.499534547328949,
+        43.611304027899244
+       ],
+       [
+        1.499609649181366,
+        43.611304027899244
+       ],
+       [
+        1.499609649181366,
+        43.61135840430376
+       ],
+       [
+        1.499534547328949,
+        43.61135840430376
+       ],
+       [
+        1.499534547328949,
+        43.611304027899244
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-91",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4965975284576416,
+        43.61180894976412
+       ],
+       [
+        1.4966592192649841,
+        43.61180894976412
+       ],
+       [
+        1.4966592192649841,
+        43.611873035697656
+       ],
+       [
+        1.4965975284576416,
+        43.611873035697656
+       ],
+       [
+        1.4965975284576416,
+        43.61180894976412
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-92",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4968094229698181,
+        43.60893278044424
+       ],
+       [
+        1.4968764781951904,
+        43.60893278044424
+       ],
+       [
+        1.4968764781951904,
+        43.60899104317275
+       ],
+       [
+        1.4968094229698181,
+        43.60899104317275
+       ],
+       [
+        1.4968094229698181,
+        43.60893278044424
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-93",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4970669150352478,
+        43.612115784826635
+       ],
+       [
+        1.4971420168876648,
+        43.612115784826635
+       ],
+       [
+        1.4971420168876648,
+        43.61216627652237
+       ],
+       [
+        1.4970669150352478,
+        43.61216627652237
+       ],
+       [
+        1.4970669150352478,
+        43.612115784826635
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-94",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5034854412078857,
+        43.608767702407
+       ],
+       [
+        1.5035685896873474,
+        43.608767702407
+       ],
+       [
+        1.5035685896873474,
+        43.60881042853069
+       ],
+       [
+        1.5034854412078857,
+        43.60881042853069
+       ],
+       [
+        1.5034854412078857,
+        43.608767702407
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-95",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5006986260414124,
+        43.60991352885307
+       ],
+       [
+        1.5007898211479187,
+        43.60991352885307
+       ],
+       [
+        1.5007898211479187,
+        43.609952370044994
+       ],
+       [
+        1.5006986260414124,
+        43.609952370044994
+       ],
+       [
+        1.5006986260414124,
+        43.60991352885307
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-96",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4952805638313293,
+        43.609371691610136
+       ],
+       [
+        1.4953744411468506,
+        43.609371691610136
+       ],
+       [
+        1.4953744411468506,
+        43.60940859107547
+       ],
+       [
+        1.4952805638313293,
+        43.60940859107547
+       ],
+       [
+        1.4952805638313293,
+        43.609371691610136
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-97",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5029677748680115,
+        43.610121328938
+       ],
+       [
+        1.5030723810195923,
+        43.610121328938
+       ],
+       [
+        1.5030723810195923,
+        43.61015434383867
+       ],
+       [
+        1.5029677748680115,
+        43.61015434383867
+       ],
+       [
+        1.5029677748680115,
+        43.610121328938
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-98",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4972224831581116,
+        43.61378975614436
+       ],
+       [
+        1.4973029494285583,
+        43.61378975614436
+       ],
+       [
+        1.4973029494285583,
+        43.613832478700466
+       ],
+       [
+        1.4972224831581116,
+        43.613832478700466
+       ],
+       [
+        1.4972224831581116,
+        43.61378975614436
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-99",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5036088228225708,
+        43.60728197968399
+       ],
+       [
+        1.503678560256958,
+        43.60728197968399
+       ],
+       [
+        1.503678560256958,
+        43.60733053329419
+       ],
+       [
+        1.5036088228225708,
+        43.60733053329419
+       ],
+       [
+        1.5036088228225708,
+        43.60728197968399
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-100",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5009507536888123,
+        43.61013298125796
+       ],
+       [
+        1.5010178089141846,
+        43.61013298125796
+       ],
+       [
+        1.5010178089141846,
+        43.6101815325668
+       ],
+       [
+        1.5009507536888123,
+        43.6101815325668
+       ],
+       [
+        1.5009507536888123,
+        43.61013298125796
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-101",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4943739771842957,
+        43.610420404435516
+       ],
+       [
+        1.4944571256637573,
+        43.610420404435516
+       ],
+       [
+        1.4944571256637573,
+        43.610457303257476
+       ],
+       [
+        1.4943739771842957,
+        43.610457303257476
+       ],
+       [
+        1.4943739771842957,
+        43.610420404435516
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-102",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5045824646949768,
+        43.6105854779368
+       ],
+       [
+        1.5046656131744385,
+        43.6105854779368
+       ],
+       [
+        1.5046656131744385,
+        43.61062237665749
+       ],
+       [
+        1.5045824646949768,
+        43.61062237665749
+       ],
+       [
+        1.5045824646949768,
+        43.6105854779368
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-103",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4969998598098755,
+        43.6123022154925
+       ],
+       [
+        1.4971017837524414,
+        43.6123022154925
+       ],
+       [
+        1.4971017837524414,
+        43.61233134523184
+       ],
+       [
+        1.4969998598098755,
+        43.61233134523184
+       ],
+       [
+        1.4969998598098755,
+        43.6123022154925
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-104",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5028202533721924,
+        43.611119536160444
+       ],
+       [
+        1.5028846263885498,
+        43.611119536160444
+       ],
+       [
+        1.5028846263885498,
+        43.61116420263334
+       ],
+       [
+        1.5028202533721924,
+        43.61116420263334
+       ],
+       [
+        1.5028202533721924,
+        43.611119536160444
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-105",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.493918001651764,
+        43.61161474954853
+       ],
+       [
+        1.493990421295166,
+        43.61161474954853
+       ],
+       [
+        1.493990421295166,
+        43.611653589641804
+       ],
+       [
+        1.493918001651764,
+        43.611653589641804
+       ],
+       [
+        1.493918001651764,
+        43.61161474954853
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-106",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4990946650505066,
+        43.607349954727304
+       ],
+       [
+        1.4991563558578491,
+        43.607349954727304
+       ],
+       [
+        1.4991563558578491,
+        43.60739462399966
+       ],
+       [
+        1.4990946650505066,
+        43.60739462399966
+       ],
+       [
+        1.4990946650505066,
+        43.607349954727304
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-107",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5050491690635681,
+        43.60488144032755
+       ],
+       [
+        1.505100131034851,
+        43.60488144032755
+       ],
+       [
+        1.505100131034851,
+        43.60493388031755
+       ],
+       [
+        1.5050491690635681,
+        43.60493388031755
+       ],
+       [
+        1.5050491690635681,
+        43.60488144032755
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-108",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4940226078033447,
+        43.612605164091924
+       ],
+       [
+        1.4940842986106873,
+        43.612605164091924
+       ],
+       [
+        1.4940842986106873,
+        43.61264788748958
+       ],
+       [
+        1.4940226078033447,
+        43.61264788748958
+       ],
+       [
+        1.4940226078033447,
+        43.612605164091924
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-109",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5058109164237976,
+        43.60757330075735
+       ],
+       [
+        1.505875289440155,
+        43.60757330075735
+       ],
+       [
+        1.505875289440155,
+        43.60761408559503
+       ],
+       [
+        1.5058109164237976,
+        43.60761408559503
+       ],
+       [
+        1.5058109164237976,
+        43.60757330075735
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-110",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5004947781562805,
+        43.60669156464798
+       ],
+       [
+        1.5005537867546082,
+        43.60669156464798
+       ],
+       [
+        1.5005537867546082,
+        43.606734292246415
+       ],
+       [
+        1.5004947781562805,
+        43.606734292246415
+       ],
+       [
+        1.5004947781562805,
+        43.60669156464798
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-111",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4998430013656616,
+        43.609915470913265
+       ],
+       [
+        1.4999181032180786,
+        43.609915470913265
+       ],
+       [
+        1.4999181032180786,
+        43.609948485926935
+       ],
+       [
+        1.4998430013656616,
+        43.609948485926935
+       ],
+       [
+        1.4998430013656616,
+        43.609915470913265
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-112",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5059289336204529,
+        43.60750726810438
+       ],
+       [
+        1.5059959888458252,
+        43.60750726810438
+       ],
+       [
+        1.5059959888458252,
+        43.60754416871351
+       ],
+       [
+        1.5059289336204529,
+        43.60754416871351
+       ],
+       [
+        1.5059289336204529,
+        43.60750726810438
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-113",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5006744861602783,
+        43.612041989195085
+       ],
+       [
+        1.500730812549591,
+        43.612041989195085
+       ],
+       [
+        1.500730812549591,
+        43.61208471299281
+       ],
+       [
+        1.5006744861602783,
+        43.61208471299281
+       ],
+       [
+        1.5006744861602783,
+        43.612041989195085
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-114",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4994272589683533,
+        43.61250806534804
+       ],
+       [
+        1.4994809031486511,
+        43.61250806534804
+       ],
+       [
+        1.4994809031486511,
+        43.612552730789695
+       ],
+       [
+        1.4994272589683533,
+        43.612552730789695
+       ],
+       [
+        1.4994272589683533,
+        43.61250806534804
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-115",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.499357521533966,
+        43.606380817564485
+       ],
+       [
+        1.4994138479232788,
+        43.606380817564485
+       ],
+       [
+        1.4994138479232788,
+        43.60642160321072
+       ],
+       [
+        1.499357521533966,
+        43.60642160321072
+       ],
+       [
+        1.499357521533966,
+        43.606380817564485
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-116",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5032601356506348,
+        43.60756164794151
+       ],
+       [
+        1.5033164620399475,
+        43.60756164794151
+       ],
+       [
+        1.5033164620399475,
+        43.60760243278709
+       ],
+       [
+        1.5032601356506348,
+        43.60760243278709
+       ],
+       [
+        1.5032601356506348,
+        43.60756164794151
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-117",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.501259207725525,
+        43.61263235171213
+       ],
+       [
+        1.5013155341148376,
+        43.61263235171213
+       ],
+       [
+        1.5013155341148376,
+        43.61267313311938
+       ],
+       [
+        1.501259207725525,
+        43.61267313311938
+       ],
+       [
+        1.501259207725525,
+        43.61263235171213
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-118",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5034183859825134,
+        43.608820139009104
+       ],
+       [
+        1.5034720301628113,
+        43.608820139009104
+       ],
+       [
+        1.5034720301628113,
+        43.60886286509554
+       ],
+       [
+        1.5034183859825134,
+        43.60886286509554
+       ],
+       [
+        1.5034183859825134,
+        43.608820139009104
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-119",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4969569444656372,
+        43.60447551441402
+       ],
+       [
+        1.497010588645935,
+        43.60447551441402
+       ],
+       [
+        1.497010588645935,
+        43.604516301352085
+       ],
+       [
+        1.4969569444656372,
+        43.604516301352085
+       ],
+       [
+        1.4969569444656372,
+        43.60447551441402
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-120",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5056875348091125,
+        43.607515036655556
+       ],
+       [
+        1.5057411789894104,
+        43.607515036655556
+       ],
+       [
+        1.5057411789894104,
+        43.60755582153274
+       ],
+       [
+        1.5056875348091125,
+        43.60755582153274
+       ],
+       [
+        1.5056875348091125,
+        43.607515036655556
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-121",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5052449703216553,
+        43.608291886705864
+       ],
+       [
+        1.5053120255470276,
+        43.608291886705864
+       ],
+       [
+        1.5053120255470276,
+        43.60832296049919
+       ],
+       [
+        1.5052449703216553,
+        43.60832296049919
+       ],
+       [
+        1.5052449703216553,
+        43.608291886705864
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-122",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.505676805973053,
+        43.60746454105501
+       ],
+       [
+        1.505727767944336,
+        43.60746454105501
+       ],
+       [
+        1.505727767944336,
+        43.607503383828416
+       ],
+       [
+        1.505676805973053,
+        43.607503383828416
+       ],
+       [
+        1.505676805973053,
+        43.60746454105501
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-123",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4990141987800598,
+        43.61420532881094
+       ],
+       [
+        1.499059796333313,
+        43.61420532881094
+       ],
+       [
+        1.499059796333313,
+        43.614248051071826
+       ],
+       [
+        1.4990141987800598,
+        43.614248051071826
+       ],
+       [
+        1.4990141987800598,
+        43.61420532881094
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-124",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5054193139076233,
+        43.607278095393475
+       ],
+       [
+        1.5054702758789062,
+        43.607278095393475
+       ],
+       [
+        1.5054702758789062,
+        43.607314996143195
+       ],
+       [
+        1.5054193139076233,
+        43.607314996143195
+       ],
+       [
+        1.5054193139076233,
+        43.607278095393475
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-125",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.500709354877472,
+        43.60732664900682
+       ],
+       [
+        1.5007603168487549,
+        43.60732664900682
+       ],
+       [
+        1.5007603168487549,
+        43.60736354972675
+       ],
+       [
+        1.500709354877472,
+        43.60736354972675
+       ],
+       [
+        1.500709354877472,
+        43.60732664900682
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-126",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5010124444961548,
+        43.60784131489873
+       ],
+       [
+        1.5010634064674377,
+        43.60784131489873
+       ],
+       [
+        1.5010634064674377,
+        43.60787821530292
+       ],
+       [
+        1.5010124444961548,
+        43.60787821530292
+       ],
+       [
+        1.5010124444961548,
+        43.60784131489873
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-127",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4948675036430359,
+        43.60833267105631
+       ],
+       [
+        1.4949184656143188,
+        43.60833267105631
+       ],
+       [
+        1.4949184656143188,
+        43.60836957115908
+       ],
+       [
+        1.4948675036430359,
+        43.60836957115908
+       ],
+       [
+        1.4948675036430359,
+        43.60833267105631
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-128",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5013021230697632,
+        43.61397423969192
+       ],
+       [
+        1.5013530850410461,
+        43.61397423969192
+       ],
+       [
+        1.5013530850410461,
+        43.614011136333524
+       ],
+       [
+        1.5013021230697632,
+        43.614011136333524
+       ],
+       [
+        1.5013021230697632,
+        43.61397423969192
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-129",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4967155456542969,
+        43.61448884870187
+       ],
+       [
+        1.4967665076255798,
+        43.61448884870187
+       ],
+       [
+        1.4967665076255798,
+        43.61452574502773
+       ],
+       [
+        1.4967155456542969,
+        43.61452574502773
+       ],
+       [
+        1.4967155456542969,
+        43.61448884870187
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-130",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5054649114608765,
+        43.6091308734909
+       ],
+       [
+        1.5055158734321594,
+        43.6091308734909
+       ],
+       [
+        1.5055158734321594,
+        43.60916583101965
+       ],
+       [
+        1.5054649114608765,
+        43.60916583101965
+       ],
+       [
+        1.5054649114608765,
+        43.6091308734909
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-131",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.49576336145401,
+        43.61112924626607
+       ],
+       [
+        1.495814323425293,
+        43.61112924626607
+       ],
+       [
+        1.495814323425293,
+        43.61116420263334
+       ],
+       [
+        1.49576336145401,
+        43.61116420263334
+       ],
+       [
+        1.49576336145401,
+        43.61112924626607
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-132",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4946824312210083,
+        43.613935401097365
+       ],
+       [
+        1.4947360754013062,
+        43.613935401097365
+       ],
+       [
+        1.4947360754013062,
+        43.61396841390434
+       ],
+       [
+        1.4946824312210083,
+        43.61396841390434
+       ],
+       [
+        1.4946824312210083,
+        43.613935401097365
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-133",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5003257989883423,
+        43.60493776475944
+       ],
+       [
+        1.5003740787506104,
+        43.60493776475944
+       ],
+       [
+        1.5003740787506104,
+        43.60497272472512
+       ],
+       [
+        1.5003257989883423,
+        43.60497272472512
+       ],
+       [
+        1.5003257989883423,
+        43.60493776475944
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-134",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5021604299545288,
+        43.608124864791726
+       ],
+       [
+        1.5022087097167969,
+        43.608124864791726
+       ],
+       [
+        1.5022087097167969,
+        43.60815982290516
+       ],
+       [
+        1.5021604299545288,
+        43.60815982290516
+       ],
+       [
+        1.5021604299545288,
+        43.608124864791726
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-135",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.497361958026886,
+        43.60826469712354
+       ],
+       [
+        1.497410237789154,
+        43.60826469712354
+       ],
+       [
+        1.497410237789154,
+        43.608299655155704
+       ],
+       [
+        1.497361958026886,
+        43.608299655155704
+       ],
+       [
+        1.497361958026886,
+        43.60826469712354
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-136",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4946717023849487,
+        43.60868613426841
+       ],
+       [
+        1.4947199821472168,
+        43.60868613426841
+       ],
+       [
+        1.4947199821472168,
+        43.608721092055646
+       ],
+       [
+        1.4946717023849487,
+        43.608721092055646
+       ],
+       [
+        1.4946717023849487,
+        43.60868613426841
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-137",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4952054619789124,
+        43.614110174575366
+       ],
+       [
+        1.4952537417411804,
+        43.614110174575366
+       ],
+       [
+        1.4952537417411804,
+        43.61414512921001
+       ],
+       [
+        1.4952054619789124,
+        43.61414512921001
+       ],
+       [
+        1.4952054619789124,
+        43.614110174575366
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-138",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4982900023460388,
+        43.60663718402425
+       ],
+       [
+        1.498335599899292,
+        43.60663718402425
+       ],
+       [
+        1.498335599899292,
+        43.606674085167136
+       ],
+       [
+        1.4982900023460388,
+        43.606674085167136
+       ],
+       [
+        1.4982900023460388,
+        43.60663718402425
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-139",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5011599659919739,
+        43.60904153749181
+       ],
+       [
+        1.5012109279632568,
+        43.60904153749181
+       ],
+       [
+        1.5012109279632568,
+        43.609074552985184
+       ],
+       [
+        1.5011599659919739,
+        43.609074552985184
+       ],
+       [
+        1.5011599659919739,
+        43.60904153749181
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-140",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5059074759483337,
+        43.60741598755297
+       ],
+       [
+        1.505953073501587,
+        43.60741598755297
+       ],
+       [
+        1.505953073501587,
+        43.60745094607839
+       ],
+       [
+        1.5059074759483337,
+        43.60745094607839
+       ],
+       [
+        1.5059074759483337,
+        43.60741598755297
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-141",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5005403757095337,
+        43.60992906533285
+       ],
+       [
+        1.5005886554718018,
+        43.60992906533285
+       ],
+       [
+        1.5005886554718018,
+        43.60996208033906
+       ],
+       [
+        1.5005403757095337,
+        43.60996208033906
+       ],
+       [
+        1.5005403757095337,
+        43.60992906533285
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-142",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.502678096294403,
+        43.61077968147591
+       ],
+       [
+        1.5027236938476562,
+        43.61077968147591
+       ],
+       [
+        1.5027236938476562,
+        43.61081463804635
+       ],
+       [
+        1.502678096294403,
+        43.61081463804635
+       ],
+       [
+        1.502678096294403,
+        43.61077968147591
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-143",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.503104567527771,
+        43.61051944859066
+       ],
+       [
+        1.5031474828720093,
+        43.61051944859066
+       ],
+       [
+        1.5031474828720093,
+        43.610556347351846
+       ],
+       [
+        1.503104567527771,
+        43.610556347351846
+       ],
+       [
+        1.503104567527771,
+        43.61051944859066
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-144",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.505977213382721,
+        43.611294317821844
+       ],
+       [
+        1.5060228109359741,
+        43.611294317821844
+       ],
+       [
+        1.5060228109359741,
+        43.61132733207863
+       ],
+       [
+        1.505977213382721,
+        43.61132733207863
+       ],
+       [
+        1.505977213382721,
+        43.611294317821844
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-145",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5036222338676453,
+        43.611298201852996
+       ],
+       [
+        1.5036678314208984,
+        43.611298201852996
+       ],
+       [
+        1.5036678314208984,
+        43.61133121610765
+       ],
+       [
+        1.5036222338676453,
+        43.61133121610765
+       ],
+       [
+        1.5036222338676453,
+        43.611298201852996
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-146",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5004196763038635,
+        43.61261875790357
+       ],
+       [
+        1.5004652738571167,
+        43.61261875790357
+       ],
+       [
+        1.5004652738571167,
+        43.61265177143332
+       ],
+       [
+        1.5004196763038635,
+        43.61265177143332
+       ],
+       [
+        1.5004196763038635,
+        43.61261875790357
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-147",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4939582347869873,
+        43.61152347523057
+       ],
+       [
+        1.4940038323402405,
+        43.61152347523057
+       ],
+       [
+        1.4940038323402405,
+        43.61155260534709
+       ],
+       [
+        1.4939582347869873,
+        43.61155260534709
+       ],
+       [
+        1.4939582347869873,
+        43.61152347523057
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-148",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5026512742042542,
+        43.60853270818422
+       ],
+       [
+        1.5026915073394775,
+        43.60853270818422
+       ],
+       [
+        1.5026915073394775,
+        43.60856378185313
+       ],
+       [
+        1.5026512742042542,
+        43.60856378185313
+       ],
+       [
+        1.5026512742042542,
+        43.60853270818422
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-149",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5032413601875305,
+        43.61142443272885
+       ],
+       [
+        1.503281593322754,
+        43.61142443272885
+       ],
+       [
+        1.503281593322754,
+        43.61145550490381
+       ],
+       [
+        1.5032413601875305,
+        43.61145550490381
+       ],
+       [
+        1.5032413601875305,
+        43.61142443272885
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-150",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4961925148963928,
+        43.610381563545836
+       ],
+       [
+        1.4962327480316162,
+        43.610381563545836
+       ],
+       [
+        1.4962327480316162,
+        43.610410694215446
+       ],
+       [
+        1.4961925148963928,
+        43.610410694215446
+       ],
+       [
+        1.4961925148963928,
+        43.610381563545836
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-151",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5044590830802917,
+        43.61059130405209
+       ],
+       [
+        1.5044993162155151,
+        43.61059130405209
+       ],
+       [
+        1.5044993162155151,
+        43.61062043462012
+       ],
+       [
+        1.5044590830802917,
+        43.61062043462012
+       ],
+       [
+        1.5044590830802917,
+        43.61059130405209
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-152",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5014389157295227,
+        43.60796172666042
+       ],
+       [
+        1.5014764666557312,
+        43.60796172666042
+       ],
+       [
+        1.5014764666557312,
+        43.60799085850203
+       ],
+       [
+        1.5014389157295227,
+        43.60799085850203
+       ],
+       [
+        1.5014389157295227,
+        43.60796172666042
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-153",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.5004706382751465,
+        43.60736354972675
+       ],
+       [
+        1.50050550699234,
+        43.60736354972675
+       ],
+       [
+        1.50050550699234,
+        43.607388797574714
+       ],
+       [
+        1.5004706382751465,
+        43.607388797574714
+       ],
+       [
+        1.5004706382751465,
+        43.60736354972675
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-154",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        1.4978447556495667,
+        43.60801804820814
+       ],
+       [
+        1.4978796243667603,
+        43.60801804820814
+       ],
+       [
+        1.4978796243667603,
+        43.608043295781385
+       ],
+       [
+        1.4978447556495667,
+        43.608043295781385
+       ],
+       [
+        1.4978447556495667,
+        43.60801804820814
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/balma/ign-blind-155",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box on ign, matching no earlier label",
+    "reason": "unsure in the blind pass",
+    "drawnOn": "ign"
+   }
   }
  ]
 }
