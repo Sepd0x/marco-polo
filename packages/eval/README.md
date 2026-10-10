@@ -109,7 +109,11 @@ DGT or PNOA answers, 404) count as missing, never as empty ground.
   pessimistic interval end there. It must be committed before the first TEST
   run.
 - A detector other than v1 runs on TEST only with `--confirm-test "<why>"`,
-  which logs the run in `results/TEST_RUNS.md` first. At most three.
+  which logs the run in `results/TEST_RUNS.md` first. At most three. The v2
+  report comes from `tools/train/report.ts`, which takes the same flag.
+- `results/v1/report.json` and `results/v2/report.json` cover DEV, DEV-2, GOLD
+  and TEST on the same frozen labels; `results/TEST_RUN_1.md` reads the first
+  TEST run against the targets.
 - `eval gate` reads the committed reports and fails when the detector code or
   model changed since the run, the labels differ from the frozen ones,
   `targets.json` changed after the first TEST run, a floor or target is missed,
