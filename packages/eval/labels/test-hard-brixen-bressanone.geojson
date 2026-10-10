@@ -1,0 +1,3230 @@
+{
+ "type": "FeatureCollection",
+ "zone": "test-hard-brixen-bressanone",
+ "review": "blind",
+ "source": "esri",
+ "attribution": "Hand labels drawn on the source named above; OSM features (c) OpenStreetMap contributors. ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "osmShiftM": [
+  0,
+  2.2
+ ],
+ "osmShiftPairs": 8,
+ "windows": 121,
+ "poolsInZone": 20,
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.662362813949585,
+        46.721406095880816
+       ],
+       [
+        11.66248083114624,
+        46.721406095880816
+       ],
+       [
+        11.66248083114624,
+        46.7215219388174
+       ],
+       [
+        11.662362813949585,
+        46.7215219388174
+       ],
+       [
+        11.662362813949585,
+        46.721406095880816
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b1",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.651065349578857,
+        46.72050324796273
+       ],
+       [
+        11.651169955730438,
+        46.72050324796273
+       ],
+       [
+        11.651169955730438,
+        46.720547379373066
+       ],
+       [
+        11.651065349578857,
+        46.720547379373066
+       ],
+       [
+        11.651065349578857,
+        46.72050324796273
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b10",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.661955118179321,
+        46.7166342540307
+       ],
+       [
+        11.662035584449768,
+        46.7166342540307
+       ],
+       [
+        11.662035584449768,
+        46.71669126118309
+       ],
+       [
+        11.661955118179321,
+        46.71669126118309
+       ],
+       [
+        11.661955118179321,
+        46.7166342540307
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b11",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660801768302917,
+        46.72709497736352
+       ],
+       [
+        11.660901010036469,
+        46.72709497736352
+       ],
+       [
+        11.660901010036469,
+        46.7271409419652
+       ],
+       [
+        11.660801768302917,
+        46.7271409419652
+       ],
+       [
+        11.660801768302917,
+        46.72709497736352
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b12",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.659685969352722,
+        46.71861843528869
+       ],
+       [
+        11.659790575504303,
+        46.71861843528869
+       ],
+       [
+        11.659790575504303,
+        46.71866072936838
+       ],
+       [
+        11.659685969352722,
+        46.71866072936838
+       ],
+       [
+        11.659685969352722,
+        46.71861843528869
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b13",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65675163269043,
+        46.72474153741717
+       ],
+       [
+        11.656826734542847,
+        46.72474153741717
+       ],
+       [
+        11.656826734542847,
+        46.72480037466718
+       ],
+       [
+        11.65675163269043,
+        46.72480037466718
+       ],
+       [
+        11.65675163269043,
+        46.72474153741717
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b14",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.648586988449097,
+        46.72736892581065
+       ],
+       [
+        11.648654043674469,
+        46.72736892581065
+       ],
+       [
+        11.648654043674469,
+        46.72742959876846
+       ],
+       [
+        11.648586988449097,
+        46.72742959876846
+       ],
+       [
+        11.648586988449097,
+        46.72736892581065
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b15",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6632479429245,
+        46.71955625275157
+       ],
+       [
+        11.663304269313812,
+        46.71955625275157
+       ],
+       [
+        11.663304269313812,
+        46.719613256816956
+       ],
+       [
+        11.6632479429245,
+        46.719613256816956
+       ],
+       [
+        11.6632479429245,
+        46.71955625275157
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b16",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.648050546646118,
+        46.71613222070122
+       ],
+       [
+        11.648230254650116,
+        46.71613222070122
+       ],
+       [
+        11.648230254650116,
+        46.71625175286998
+       ],
+       [
+        11.648050546646118,
+        46.71625175286998
+       ],
+       [
+        11.648050546646118,
+        46.71613222070122
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b17",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.645845770835876,
+        46.716614025671845
+       ],
+       [
+        11.646025478839874,
+        46.716614025671845
+       ],
+       [
+        11.646025478839874,
+        46.7167262010209
+       ],
+       [
+        11.645845770835876,
+        46.7167262010209
+       ],
+       [
+        11.645845770835876,
+        46.716614025671845
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b18",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.66225552558899,
+        46.711827047179035
+       ],
+       [
+        11.662432551383972,
+        46.711827047179035
+       ],
+       [
+        11.662432551383972,
+        46.71193923247891
+       ],
+       [
+        11.66225552558899,
+        46.71193923247891
+       ],
+       [
+        11.66225552558899,
+        46.711827047179035
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b19",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.650950014591217,
+        46.71075115992049
+       ],
+       [
+        11.651051938533783,
+        46.71075115992049
+       ],
+       [
+        11.651051938533783,
+        46.71087254314608
+       ],
+       [
+        11.650950014591217,
+        46.71087254314608
+       ],
+       [
+        11.650950014591217,
+        46.71075115992049
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b2",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6492360830307,
+        46.72104569404298
+       ],
+       [
+        11.64937287569046,
+        46.72104569404298
+       ],
+       [
+        11.64937287569046,
+        46.72118360319385
+       ],
+       [
+        11.6492360830307,
+        46.72118360319385
+       ],
+       [
+        11.6492360830307,
+        46.72104569404298
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b20",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.648066639900208,
+        46.71602188307966
+       ],
+       [
+        11.648240983486176,
+        46.71602188307966
+       ],
+       [
+        11.648240983486176,
+        46.71611567007236
+       ],
+       [
+        11.648066639900208,
+        46.71611567007236
+       ],
+       [
+        11.648066639900208,
+        46.71602188307966
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b21",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.659519672393799,
+        46.72846286714814
+       ],
+       [
+        11.65963500738144,
+        46.72846286714814
+       ],
+       [
+        11.65963500738144,
+        46.728602595872346
+       ],
+       [
+        11.659519672393799,
+        46.728602595872346
+       ],
+       [
+        11.659519672393799,
+        46.72846286714814
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b22",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.648088097572327,
+        46.71594832453996
+       ],
+       [
+        11.64827048778534,
+        46.71594832453996
+       ],
+       [
+        11.64827048778534,
+        46.7160347558138
+       ],
+       [
+        11.648088097572327,
+        46.7160347558138
+       ],
+       [
+        11.648088097572327,
+        46.71594832453996
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b23",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657341718673706,
+        46.71573868215168
+       ],
+       [
+        11.657489240169525,
+        46.71573868215168
+       ],
+       [
+        11.657489240169525,
+        46.715825113761305
+       ],
+       [
+        11.657341718673706,
+        46.715825113761305
+       ],
+       [
+        11.657341718673706,
+        46.71573868215168
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b24",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657105684280396,
+        46.72510926917691
+       ],
+       [
+        11.657242476940155,
+        46.72510926917691
+       ],
+       [
+        11.657242476940155,
+        46.72519200847739
+       ],
+       [
+        11.657105684280396,
+        46.72519200847739
+       ],
+       [
+        11.657105684280396,
+        46.72510926917691
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b25",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.656118631362915,
+        46.71242475305541
+       ],
+       [
+        11.656244695186615,
+        46.71242475305541
+       ],
+       [
+        11.656244695186615,
+        46.712509350890834
+       ],
+       [
+        11.656118631362915,
+        46.712509350890834
+       ],
+       [
+        11.656118631362915,
+        46.71242475305541
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b26",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657341718673706,
+        46.71588579970237
+       ],
+       [
+        11.657478511333466,
+        46.71588579970237
+       ],
+       [
+        11.657478511333466,
+        46.71596119729164
+       ],
+       [
+        11.657341718673706,
+        46.71596119729164
+       ],
+       [
+        11.657341718673706,
+        46.71588579970237
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b27",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.663658320903778,
+        46.72264909599376
+       ],
+       [
+        11.663781702518463,
+        46.72264909599376
+       ],
+       [
+        11.663781702518463,
+        46.722728161600244
+       ],
+       [
+        11.663658320903778,
+        46.722728161600244
+       ],
+       [
+        11.663658320903778,
+        46.72264909599376
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b28",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.647557020187378,
+        46.720339593667646
+       ],
+       [
+        11.647683084011078,
+        46.720339593667646
+       ],
+       [
+        11.647683084011078,
+        46.720416823846286
+       ],
+       [
+        11.647557020187378,
+        46.720416823846286
+       ],
+       [
+        11.647557020187378,
+        46.720339593667646
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b29",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657341718673706,
+        46.71707192030199
+       ],
+       [
+        11.657462418079376,
+        46.71707192030199
+       ],
+       [
+        11.657462418079376,
+        46.71715283300535
+       ],
+       [
+        11.657341718673706,
+        46.71715283300535
+       ],
+       [
+        11.657341718673706,
+        46.71707192030199
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b3",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660056114196777,
+        46.719035858015516
+       ],
+       [
+        11.660179495811462,
+        46.719035858015516
+       ],
+       [
+        11.660179495811462,
+        46.71911125120336
+       ],
+       [
+        11.660056114196777,
+        46.71911125120336
+       ],
+       [
+        11.660056114196777,
+        46.719035858015516
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b30",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.646859645843506,
+        46.723958260412914
+       ],
+       [
+        11.646966934204102,
+        46.723958260412914
+       ],
+       [
+        11.646966934204102,
+        46.72404100147876
+       ],
+       [
+        11.646859645843506,
+        46.72404100147876
+       ],
+       [
+        11.646859645843506,
+        46.723958260412914
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b31",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660198271274567,
+        46.71834444240415
+       ],
+       [
+        11.660276055335999,
+        46.71834444240415
+       ],
+       [
+        11.660276055335999,
+        46.71844558087924
+       ],
+       [
+        11.660198271274567,
+        46.71844558087924
+       ],
+       [
+        11.660198271274567,
+        46.71834444240415
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b32",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660302877426147,
+        46.72305729392624
+       ],
+       [
+        11.66038066148758,
+        46.72305729392624
+       ],
+       [
+        11.66038066148758,
+        46.723158423567256
+       ],
+       [
+        11.660302877426147,
+        46.723158423567256
+       ],
+       [
+        11.660302877426147,
+        46.72305729392624
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b33",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.651306748390198,
+        46.721707654752294
+       ],
+       [
+        11.651416718959808,
+        46.721707654752294
+       ],
+       [
+        11.651416718959808,
+        46.72177752790883
+       ],
+       [
+        11.651306748390198,
+        46.72177752790883
+       ],
+       [
+        11.651306748390198,
+        46.721707654752294
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b34",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.662341356277466,
+        46.714484488748006
+       ],
+       [
+        11.662445962429047,
+        46.714484488748006
+       ],
+       [
+        11.662445962429047,
+        46.71455621027094
+       ],
+       [
+        11.662341356277466,
+        46.71455621027094
+       ],
+       [
+        11.662341356277466,
+        46.714484488748006
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b35",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.649193167686462,
+        46.71581224097716
+       ],
+       [
+        11.64926290512085,
+        46.71581224097716
+       ],
+       [
+        11.64926290512085,
+        46.71590970626648
+       ],
+       [
+        11.649193167686462,
+        46.71590970626648
+       ],
+       [
+        11.649193167686462,
+        46.71581224097716
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b36",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.659353375434875,
+        46.716801597435946
+       ],
+       [
+        11.659457981586456,
+        46.716801597435946
+       ],
+       [
+        11.659457981586456,
+        46.716865960145924
+       ],
+       [
+        11.659353375434875,
+        46.716865960145924
+       ],
+       [
+        11.659353375434875,
+        46.716801597435946
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b37",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.655590236186981,
+        46.71912596205701
+       ],
+       [
+        11.655692160129547,
+        46.71912596205701
+       ],
+       [
+        11.655692160129547,
+        46.719190321994525
+       ],
+       [
+        11.655590236186981,
+        46.719190321994525
+       ],
+       [
+        11.655590236186981,
+        46.71912596205701
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b38",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.658661365509033,
+        46.726456984647434
+       ],
+       [
+        11.658803522586823,
+        46.726456984647434
+       ],
+       [
+        11.658803522586823,
+        46.72649927258258
+       ],
+       [
+        11.658661365509033,
+        46.72649927258258
+       ],
+       [
+        11.658661365509033,
+        46.726456984647434
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b39",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.663551032543182,
+        46.722498319399776
+       ],
+       [
+        11.663679778575897,
+        46.722498319399776
+       ],
+       [
+        11.663679778575897,
+        46.72257370774945
+       ],
+       [
+        11.663551032543182,
+        46.72257370774945
+       ],
+       [
+        11.663551032543182,
+        46.722498319399776
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b4",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65801227092743,
+        46.725568930351514
+       ],
+       [
+        11.65810078382492,
+        46.725568930351514
+       ],
+       [
+        11.65810078382492,
+        46.725633282603404
+       ],
+       [
+        11.65801227092743,
+        46.725633282603404
+       ],
+       [
+        11.65801227092743,
+        46.725568930351514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b40",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660740077495575,
+        46.722152634886456
+       ],
+       [
+        11.660804450511932,
+        46.722152634886456
+       ],
+       [
+        11.660804450511932,
+        46.722239056222435
+       ],
+       [
+        11.660740077495575,
+        46.722239056222435
+       ],
+       [
+        11.660740077495575,
+        46.722152634886456
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b41",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657953262329102,
+        46.71409461623799
+       ],
+       [
+        11.658014953136444,
+        46.71409461623799
+       ],
+       [
+        11.658014953136444,
+        46.71417737243079
+       ],
+       [
+        11.657953262329102,
+        46.71417737243079
+       ],
+       [
+        11.657953262329102,
+        46.71409461623799
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b42",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.664701700210571,
+        46.71136910804444
+       ],
+       [
+        11.664784848690033,
+        46.71136910804444
+       ],
+       [
+        11.664784848690033,
+        46.71142979899647
+       ],
+       [
+        11.664701700210571,
+        46.71142979899647
+       ],
+       [
+        11.664701700210571,
+        46.71136910804444
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b43",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.659444570541382,
+        46.71513181801553
+       ],
+       [
+        11.659543812274933,
+        46.71513181801553
+       ],
+       [
+        11.659543812274933,
+        46.7151814707921
+       ],
+       [
+        11.659444570541382,
+        46.7151814707921
+       ],
+       [
+        11.659444570541382,
+        46.71513181801553
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b44",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.646607518196106,
+        46.73017635755775
+       ],
+       [
+        11.646679937839508,
+        46.73017635755775
+       ],
+       [
+        11.646679937839508,
+        46.730244381268214
+       ],
+       [
+        11.646607518196106,
+        46.730244381268214
+       ],
+       [
+        11.646607518196106,
+        46.73017635755775
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b45",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65873646736145,
+        46.72181798074756
+       ],
+       [
+        11.658803522586823,
+        46.72181798074756
+       ],
+       [
+        11.658803522586823,
+        46.72188233747394
+       ],
+       [
+        11.65873646736145,
+        46.72188233747394
+       ],
+       [
+        11.65873646736145,
+        46.72181798074756
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b46",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660337746143341,
+        46.71926019841119
+       ],
+       [
+        11.660412847995758,
+        46.71926019841119
+       ],
+       [
+        11.660412847995758,
+        46.71930984738909
+       ],
+       [
+        11.660337746143341,
+        46.71930984738909
+       ],
+       [
+        11.660337746143341,
+        46.71926019841119
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b47",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.66273832321167,
+        46.71505090228174
+       ],
+       [
+        11.662829518318176,
+        46.71505090228174
+       ],
+       [
+        11.662829518318176,
+        46.71508952116982
+       ],
+       [
+        11.66273832321167,
+        46.71508952116982
+       ],
+       [
+        11.66273832321167,
+        46.71505090228174
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b48",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.649952232837677,
+        46.725561575803546
+       ],
+       [
+        11.650021970272064,
+        46.725561575803546
+       ],
+       [
+        11.650021970272064,
+        46.72561121898283
+       ],
+       [
+        11.649952232837677,
+        46.72561121898283
+       ],
+       [
+        11.649952232837677,
+        46.725561575803546
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b49",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.659594774246216,
+        46.72596975169897
+       ],
+       [
+        11.659677922725677,
+        46.72596975169897
+       ],
+       [
+        11.659677922725677,
+        46.72606719864072
+       ],
+       [
+        11.659594774246216,
+        46.72606719864072
+       ],
+       [
+        11.659594774246216,
+        46.72596975169897
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b5",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657998859882355,
+        46.72740753588261
+       ],
+       [
+        11.658068597316742,
+        46.72740753588261
+       ],
+       [
+        11.658068597316742,
+        46.72745717736309
+       ],
+       [
+        11.657998859882355,
+        46.72745717736309
+       ],
+       [
+        11.657998859882355,
+        46.72740753588261
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b50",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65973424911499,
+        46.720836071458514
+       ],
+       [
+        11.659779846668243,
+        46.720836071458514
+       ],
+       [
+        11.659779846668243,
+        46.72090410694801
+       ],
+       [
+        11.65973424911499,
+        46.72090410694801
+       ],
+       [
+        11.65973424911499,
+        46.720836071458514
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b51",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.66297972202301,
+        46.71834260352104
+       ],
+       [
+        11.663052141666412,
+        46.71834260352104
+       ],
+       [
+        11.663052141666412,
+        46.71838489781693
+       ],
+       [
+        11.66297972202301,
+        46.71838489781693
+       ],
+       [
+        11.66297972202301,
+        46.71834260352104
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b52",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.663049459457397,
+        46.71383715171551
+       ],
+       [
+        11.66309505701065,
+        46.71383715171551
+       ],
+       [
+        11.66309505701065,
+        46.71389783989216
+       ],
+       [
+        11.663049459457397,
+        46.71389783989216
+       ],
+       [
+        11.663049459457397,
+        46.71383715171551
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b53",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.663285493850708,
+        46.72156055307433
+       ],
+       [
+        11.663336455821991,
+        46.72156055307433
+       ],
+       [
+        11.663336455821991,
+        46.72161019993548
+       ],
+       [
+        11.663285493850708,
+        46.72161019993548
+       ],
+       [
+        11.663285493850708,
+        46.72156055307433
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b54",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.649622321128845,
+        46.71517595381919
+       ],
+       [
+        11.649697422981262,
+        46.71517595381919
+       ],
+       [
+        11.649697422981262,
+        46.71520905564825
+       ],
+       [
+        11.649622321128845,
+        46.71520905564825
+       ],
+       [
+        11.649622321128845,
+        46.71517595381919
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b55",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.653098464012146,
+        46.72327794017134
+       ],
+       [
+        11.653154790401459,
+        46.72327794017134
+       ],
+       [
+        11.653154790401459,
+        46.72331471445779
+       ],
+       [
+        11.653098464012146,
+        46.72331471445779
+       ],
+       [
+        11.653098464012146,
+        46.72327794017134
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b56",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.664084792137146,
+        46.7164742658943
+       ],
+       [
+        11.664141118526459,
+        46.7164742658943
+       ],
+       [
+        11.664141118526459,
+        46.716509205872626
+       ],
+       [
+        11.664084792137146,
+        46.716509205872626
+       ],
+       [
+        11.664084792137146,
+        46.7164742658943
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b57",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.647535562515259,
+        46.72041866265872
+       ],
+       [
+        11.647591888904572,
+        46.72041866265872
+       ],
+       [
+        11.647591888904572,
+        46.72045360008297
+       ],
+       [
+        11.647535562515259,
+        46.72045360008297
+       ],
+       [
+        11.647535562515259,
+        46.72041866265872
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b58",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660922467708588,
+        46.71606785711606
+       ],
+       [
+        11.660986840724945,
+        46.71606785711606
+       ],
+       [
+        11.660986840724945,
+        46.716097280478806
+       ],
+       [
+        11.660922467708588,
+        46.716097280478806
+       ],
+       [
+        11.660922467708588,
+        46.71606785711606
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b59",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.662137508392334,
+        46.71987253261245
+       ],
+       [
+        11.662258207798004,
+        46.71987253261245
+       ],
+       [
+        11.662258207798004,
+        46.719938730488224
+       ],
+       [
+        11.662137508392334,
+        46.719938730488224
+       ],
+       [
+        11.662137508392334,
+        46.71987253261245
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b6",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.64813905954361,
+        46.71682734252915
+       ],
+       [
+        11.648195385932922,
+        46.71682734252915
+       ],
+       [
+        11.648195385932922,
+        46.71685676547778
+       ],
+       [
+        11.64813905954361,
+        46.71685676547778
+       ],
+       [
+        11.64813905954361,
+        46.71682734252915
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b60",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657212972640991,
+        46.72473969875207
+       ],
+       [
+        11.657253205776215,
+        46.72473969875207
+       ],
+       [
+        11.657253205776215,
+        46.72477831070595
+       ],
+       [
+        11.657212972640991,
+        46.72477831070595
+       ],
+       [
+        11.657212972640991,
+        46.72473969875207
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b61",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.650762259960175,
+        46.72181798074756
+       ],
+       [
+        11.650799810886383,
+        46.72181798074756
+       ],
+       [
+        11.650799810886383,
+        46.72183636839151
+       ],
+       [
+        11.650762259960175,
+        46.72183636839151
+       ],
+       [
+        11.650762259960175,
+        46.72181798074756
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b62",
+    "source": "visual",
+    "role": "ignore",
+    "method": "blind box",
+    "reason": "unsure in the blind pass"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65799081325531,
+        46.7248647278359
+       ],
+       [
+        11.65810078382492,
+        46.7248647278359
+       ],
+       [
+        11.65810078382492,
+        46.72492908092785
+       ],
+       [
+        11.65799081325531,
+        46.72492908092785
+       ],
+       [
+        11.65799081325531,
+        46.7248647278359
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b7",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.657695770263672,
+        46.720015961240655
+       ],
+       [
+        11.657800376415253,
+        46.720015961240655
+       ],
+       [
+        11.657800376415253,
+        46.72007296482035
+       ],
+       [
+        11.657695770263672,
+        46.72007296482035
+       ],
+       [
+        11.657695770263672,
+        46.720015961240655
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b8",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.656585335731506,
+        46.71104174355052
+       ],
+       [
+        11.656684577465057,
+        46.71104174355052
+       ],
+       [
+        11.656684577465057,
+        46.71109875661078
+       ],
+       [
+        11.656585335731506,
+        46.71109875661078
+       ],
+       [
+        11.656585335731506,
+        46.71104174355052
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "visual/test-hard-brixen-bressanone/b9",
+    "source": "visual",
+    "role": "pool",
+    "method": "blind box",
+    "reason": "box"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6529563,
+        46.71923260229781
+       ],
+       [
+        11.6529318,
+        46.719245202297806
+       ],
+       [
+        11.6529023,
+        46.71926080229781
+       ],
+       [
+        11.6529029,
+        46.71927910229781
+       ],
+       [
+        11.6529185,
+        46.71929210229781
+       ],
+       [
+        11.6529424,
+        46.71930120229781
+       ],
+       [
+        11.6529724,
+        46.719304702297805
+       ],
+       [
+        11.6529958,
+        46.71929890229781
+       ],
+       [
+        11.6530119,
+        46.71928370229781
+       ],
+       [
+        11.6530169,
+        46.71926200229781
+       ],
+       [
+        11.6530275,
+        46.719245202297806
+       ],
+       [
+        11.6530475,
+        46.71922650229781
+       ],
+       [
+        11.6530586,
+        46.71920820229781
+       ],
+       [
+        11.6530492,
+        46.719186102297805
+       ],
+       [
+        11.6530258,
+        46.719175802297805
+       ],
+       [
+        11.6530002,
+        46.71916660229781
+       ],
+       [
+        11.6529707,
+        46.71916590229781
+       ],
+       [
+        11.6529524,
+        46.71917620229781
+       ],
+       [
+        11.6529513,
+        46.71919450229781
+       ],
+       [
+        11.6529607,
+        46.71921430229781
+       ],
+       [
+        11.6529563,
+        46.71923260229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/234905209",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6485276,
+        46.71573640229781
+       ],
+       [
+        11.648545,
+        46.715703402297805
+       ],
+       [
+        11.6484237,
+        46.71567340229781
+       ],
+       [
+        11.6484064,
+        46.715706502297806
+       ],
+       [
+        11.6485276,
+        46.71573640229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/234905210",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.65475,
+        46.71949120229781
+       ],
+       [
+        11.6549333,
+        46.719500602297806
+       ],
+       [
+        11.6549261,
+        46.719566802297805
+       ],
+       [
+        11.6547427,
+        46.71955740229781
+       ],
+       [
+        11.65475,
+        46.71949120229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/234905211",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6578456,
+        46.726888702297806
+       ],
+       [
+        11.6579131,
+        46.72690070229781
+       ],
+       [
+        11.6579436,
+        46.726819902297805
+       ],
+       [
+        11.6578762,
+        46.72680790229781
+       ],
+       [
+        11.6578456,
+        46.726888702297806
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/234954393",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6517233,
+        46.71424080229781
+       ],
+       [
+        11.651724,
+        46.71419880229781
+       ],
+       [
+        11.6518598,
+        46.714199802297806
+       ],
+       [
+        11.6518615,
+        46.71423590229781
+       ],
+       [
+        11.6517233,
+        46.71424080229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/335196306",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "access": "private"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.660439,
+        46.72226120229781
+       ],
+       [
+        11.6604846,
+        46.72225150229781
+       ],
+       [
+        11.6604459,
+        46.72216620229781
+       ],
+       [
+        11.6604003,
+        46.722175902297806
+       ],
+       [
+        11.660439,
+        46.72226120229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/374954112",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "OSM only, checked on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6604839,
+        46.72262490229781
+       ],
+       [
+        11.6605275,
+        46.722634302297806
+       ],
+       [
+        11.6605581,
+        46.722568002297805
+       ],
+       [
+        11.6605145,
+        46.72255850229781
+       ],
+       [
+        11.6604839,
+        46.72262490229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/374954113",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6627319,
+        46.71998060229781
+       ],
+       [
+        11.6628477,
+        46.71989780229781
+       ],
+       [
+        11.6627981,
+        46.719865302297805
+       ],
+       [
+        11.6626822,
+        46.719948002297805
+       ],
+       [
+        11.6627319,
+        46.71998060229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/374954114",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6581221,
+        46.71883190229781
+       ],
+       [
+        11.6581238,
+        46.71884960229781
+       ],
+       [
+        11.6581465,
+        46.71886310229781
+       ],
+       [
+        11.6581861,
+        46.71886590229781
+       ],
+       [
+        11.6582268,
+        46.71886130229781
+       ],
+       [
+        11.6582649,
+        46.718851202297806
+       ],
+       [
+        11.6582939,
+        46.71883890229781
+       ],
+       [
+        11.6583152,
+        46.71882030229781
+       ],
+       [
+        11.6583258,
+        46.71879670229781
+       ],
+       [
+        11.6583291,
+        46.71876310229781
+       ],
+       [
+        11.6583143,
+        46.718736302297806
+       ],
+       [
+        11.6582865,
+        46.71872320229781
+       ],
+       [
+        11.6582496,
+        46.71871750229781
+       ],
+       [
+        11.6582213,
+        46.71871950229781
+       ],
+       [
+        11.6581943,
+        46.71873220229781
+       ],
+       [
+        11.6581742,
+        46.71875860229781
+       ],
+       [
+        11.6581673,
+        46.71878830229781
+       ],
+       [
+        11.6581516,
+        46.71880840229781
+       ],
+       [
+        11.6581221,
+        46.71883190229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/39183524",
+    "source": "osm",
+    "role": "ignore",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "name": "Kinderbecken - Vasca bimbi"
+    },
+    "reason": "OSM only, unsure on the imagery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6578735,
+        46.71873000229781
+       ],
+       [
+        11.6579473,
+        46.71874630229781
+       ],
+       [
+        11.6579833,
+        46.718747202297806
+       ],
+       [
+        11.6580061,
+        46.71874210229781
+       ],
+       [
+        11.6580299,
+        46.718728302297805
+       ],
+       [
+        11.6580538,
+        46.718699802297806
+       ],
+       [
+        11.658085,
+        46.71867400229781
+       ],
+       [
+        11.6581182,
+        46.718654102297805
+       ],
+       [
+        11.6581548,
+        46.71863870229781
+       ],
+       [
+        11.6581977,
+        46.718627402297805
+       ],
+       [
+        11.6582399,
+        46.71861940229781
+       ],
+       [
+        11.6582733,
+        46.718606802297806
+       ],
+       [
+        11.6583036,
+        46.71858680229781
+       ],
+       [
+        11.6583192,
+        46.71856670229781
+       ],
+       [
+        11.6583321,
+        46.71854480229781
+       ],
+       [
+        11.6583321,
+        46.71852200229781
+       ],
+       [
+        11.6583293,
+        46.718503402297806
+       ],
+       [
+        11.6583209,
+        46.718488102297805
+       ],
+       [
+        11.658307,
+        46.71846950229781
+       ],
+       [
+        11.6582827,
+        46.71844890229781
+       ],
+       [
+        11.6582496,
+        46.718434102297806
+       ],
+       [
+        11.6582118,
+        46.718426202297806
+       ],
+       [
+        11.6581766,
+        46.71842480229781
+       ],
+       [
+        11.6581271,
+        46.71843360229781
+       ],
+       [
+        11.6580723,
+        46.71845940229781
+       ],
+       [
+        11.6580081,
+        46.71850720229781
+       ],
+       [
+        11.6579704,
+        46.718541102297806
+       ],
+       [
+        11.6579445,
+        46.71857280229781
+       ],
+       [
+        11.6579196,
+        46.71861320229781
+       ],
+       [
+        11.6578735,
+        46.71873000229781
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/39183525",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "name": "Funbecken - Vasche con giochi"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6577337,
+        46.718229202297806
+       ],
+       [
+        11.6575536,
+        46.71867030229781
+       ],
+       [
+        11.6578339,
+        46.71872450229781
+       ],
+       [
+        11.6579171,
+        46.71852780229781
+       ],
+       [
+        11.6579758,
+        46.71848230229781
+       ],
+       [
+        11.6580394,
+        46.71843870229781
+       ],
+       [
+        11.6580996,
+        46.718404202297805
+       ],
+       [
+        11.6581762,
+        46.718364802297806
+       ],
+       [
+        11.6580555,
+        46.71825240229781
+       ],
+       [
+        11.6580039,
+        46.71828040229781
+       ],
+       [
+        11.6577337,
+        46.718229202297806
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/39183830",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "sport": "swimming",
+     "name": "Sportbecken - Vasca sportiva"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        11.6577332,
+        46.719489002297806
+       ],
+       [
+        11.6576803,
+        46.71947180229781
+       ],
+       [
+        11.6576982,
+        46.719433702297806
+       ],
+       [
+        11.6576838,
+        46.71943040229781
+       ],
+       [
+        11.6577161,
+        46.71935450229781
+       ],
+       [
+        11.657777,
+        46.71937190229781
+       ],
+       [
+        11.6578325,
+        46.71939180229781
+       ],
+       [
+        11.6578831,
+        46.71941490229781
+       ],
+       [
+        11.6579438,
+        46.719450102297806
+       ],
+       [
+        11.6579823,
+        46.719479802297805
+       ],
+       [
+        11.6580113,
+        46.71950570229781
+       ],
+       [
+        11.6579189,
+        46.71955260229781
+       ],
+       [
+        11.6578671,
+        46.719509102297806
+       ],
+       [
+        11.6578156,
+        46.719478602297805
+       ],
+       [
+        11.6577526,
+        46.719448202297805
+       ],
+       [
+        11.6577332,
+        46.719489002297806
+       ]
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "way/39313241",
+    "source": "osm",
+    "role": "pool",
+    "tags": {
+     "leisure": "swimming_pool",
+     "covered": "no",
+     "name": "Solebecken - Piscina di acqua salata"
+    },
+    "method": "blind box confirmed, OSM outline"
+   }
+  }
+ ]
+}
