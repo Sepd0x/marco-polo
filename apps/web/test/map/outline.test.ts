@@ -2,8 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
   ciede2000,
   hexToRgb,
-  OUTLINE_CANDIDATES,
-  pickOutlineColour,
   POOL_OUTLINE,
   rgbToLab,
   scoreOutlineColours,
@@ -45,15 +43,27 @@ describe('outline colour', () => {
     expect([...new Set(samples.map((s) => s.source))].sort()).toEqual(['dgt', 'ign', 'pnoa']);
   });
 
-  it('is the candidate with the largest worst-case difference against the samples', () => {
-    expect(POOL_OUTLINE).toBe(pickOutlineColour(OUTLINE_CANDIDATES, samples));
+  it('is the magenta of the design, over a dark casing', async () => {
+    const { OUTLINE_CASING } = await import('../../src/map/outline.js');
+    expect(POOL_OUTLINE).toBe('#ff52ff');
+    expect(OUTLINE_CASING).toBe('#140814');
   });
 
-  it('beats the cyan and orange used before', () => {
-    const scores = scoreOutlineColours(OUTLINE_CANDIDATES, samples);
-    const of = (c: string) => scores.find((s) => s.colour === c)!.worst;
-    expect(of(POOL_OUTLINE)).toBeGreaterThan(of('#3de8ff'));
-    expect(of(POOL_OUTLINE)).toBeGreaterThan(of('#ff8a1f'));
+  it('keeps clear of roof tiles and grass', () => {
+    const s = scoreOutlineColours([POOL_OUTLINE], samples)[0];
+    expect(s.byClass.roof).toBeGreaterThan(30);
+    expect(s.byClass.grass).toBeGreaterThan(40);
+  });
+
+  it('on water, where the magenta is closest, leaves the edge to its casing', async () => {
+    const { OUTLINE_CASING } = await import('../../src/map/outline.js');
+    const { contrastRatio } = await import('../../src/lib/theme.js');
+    const [line, casing] = scoreOutlineColours([POOL_OUTLINE, OUTLINE_CASING], samples).sort((x, y) =>
+      x.colour === POOL_OUTLINE ? -1 : y.colour === POOL_OUTLINE ? 1 : 0,
+    );
+    expect(line.byClass.water).toBeGreaterThan(15);
+    expect(casing.byClass.water).toBeGreaterThan(25);
+    expect(contrastRatio(POOL_OUTLINE, OUTLINE_CASING)).toBeGreaterThan(7);
   });
 
   it('rejects malformed colours', () => {

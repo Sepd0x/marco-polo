@@ -103,7 +103,7 @@ export function seed(phase: Phase, extra: Record<string, unknown> = {}) {
   };
   if (phase === 'scanning' || phase === 'paused' || phase === 'complete') base.ranked = ranked();
   useStore.setState({ ...base, ...extra } as never);
-  useUi.setState({ sort: 'largest', settingsOpen: false, sourcePickerOpen: false, sheetList: false });
+  useUi.setState({ sort: 'largest', settingsOpen: false, sourcePickerOpen: false, attribOpen: false });
 }
 
 export interface Mounted {

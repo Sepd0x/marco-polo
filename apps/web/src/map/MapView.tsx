@@ -18,6 +18,38 @@ import { anchorLayers, BaseImagery, mapParts, ScannedImagery } from './sourceLay
 import { browserDisplay, mapMaxZoom } from './sources.js';
 import { watchContextLoss } from './contextLoss.js';
 import { occluderPadding } from './padding.js';
+import { FrameOverlay, type FrameStyle } from './frame.js';
+import { PHONE_QUERY } from '../lib/media.js';
+
+const isPhone = () => globalThis.matchMedia?.(PHONE_QUERY).matches ?? false;
+
+/** Desktop frames carry coordinates in the margin; the phone keeps marks and crosses only. */
+function frameStyle(): FrameStyle {
+  return isPhone()
+    ? { labels: false, fid: 6, gap: 3, cross: 3, labelEvery: 70 }
+    : { labels: true, fid: 8, gap: 5, cross: 5, labelEvery: 110 };
+}
+
+/** The ground colour of the page theme, which the map uses for its veil. */
+function veilColour(): string {
+  try {
+    return getComputedStyle(document.documentElement).getPropertyValue('--veil').trim() || '#efefec';
+  } catch {
+    return '#efefec';
+  }
+}
+
+/** Calls `fn` whenever the page theme changes, by the toggle or by the system. */
+function watchTheme(fn: () => void): () => void {
+  const mo = new MutationObserver(fn);
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  const mq = globalThis.matchMedia?.('(prefers-color-scheme: dark)');
+  mq?.addEventListener?.('change', fn);
+  return () => {
+    mo.disconnect();
+    mq?.removeEventListener?.('change', fn);
+  };
+}
 
 // MapLibre 6 loads its worker as a separate module file; point it at the
 // copy Vite emits so it resolves under any base path.
@@ -44,18 +76,27 @@ export function MapView() {
         glyphs: GLYPHS_URL,
         sources: { [LABEL_SOURCE]: labelSource() },
         layers: [
-          { id: 'bg', type: 'background', paint: { 'background-color': '#0b0f14' } },
+          { id: 'bg', type: 'background', paint: { 'background-color': '#2b2b28' } },
           ...anchorLayers(),
           ...labelLayers(),
         ],
       },
       center: [-8.0, 37.2],
       zoom: 5.2,
-      attributionControl: { compact: true },
+      // North up and flat, always: the coordinates in the frame margin are only true then.
+      bearing: 0,
+      pitch: 0,
+      maxPitch: 0,
+      dragRotate: false,
+      pitchWithRotate: false,
+      touchPitch: false,
+      attributionControl: false,
       maxZoom: mapMaxZoom(ESRI_WORLD_IMAGERY),
       fadeDuration: 120,
     });
     exposeForTests(map);
+    map.touchZoomRotate.disableRotation();
+    map.keyboard.disableRotation();
 
     const unsubs: Array<() => void> = [watchContextLoss(map)];
     let base: BaseImagery | null = null;
@@ -69,13 +110,19 @@ export function MapView() {
       const refreshImagery = () => {
         baseImagery.update();
         scannedImagery.sync(baseImagery);
+        // The data strip names the imagery the map really shows outside an area.
+        emit('basesource', { id: baseImagery.atCentre.id });
       };
       refreshImagery();
       map.on('moveend', refreshImagery);
 
-      // Scan layers go above the imagery and the labels; markers on top.
+      // Scan layers go above the imagery and the street labels.
       const overlay = new ScanOverlay(map);
-      const markers = new DetectionMarkers(map, (id) => useStore.getState().select(id));
+      overlay.setVeil(veilColour());
+      unsubs.push(watchTheme(() => overlay.setVeil(veilColour())));
+      const frame = new FrameOverlay(map, frameStyle);
+      // Dots and numbers under the pool outlines: a label never hides a pool.
+      const markers = new DetectionMarkers(map, (id) => useStore.getState().select(id), 'det-fill');
       setLabelsVisible(map, useStore.getState().settings.labels);
 
       const draw = new DrawTool(map, (ring: Ring) => {
@@ -168,7 +215,7 @@ export function MapView() {
             if (!id) return;
             const det = useStore.getState().detections[id];
             if (!det) return;
-            // After the inspector has rendered, so the pool lands clear of it.
+            // After the record has rendered; clear of the tools and keys on the map.
             requestAnimationFrame(() =>
               map.flyTo({
                 center: [det.center.lon, det.center.lat],
@@ -197,6 +244,7 @@ export function MapView() {
       });
 
       unsubs.push(
+        on('zoomby', ({ delta }) => map.easeTo({ zoom: map.getZoom() + delta, duration: 250 })),
         on('flyto', (e) => {
           if (e.bbox) {
             map.fitBounds(
@@ -211,7 +259,18 @@ export function MapView() {
           }
         }),
       );
-      map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.lng, lat: e.lngLat.lat }));
+      map.on('mousemove', (e) => emit('cursor', { lon: e.lngLat.wrap().lng, lat: e.lngLat.lat }));
+      map.on('mouseout', () => emit('cursor', null));
+      let cameraFrame = 0;
+      const shareCamera = () => {
+        if (cameraFrame) return;
+        cameraFrame = requestAnimationFrame(() => {
+          cameraFrame = 0;
+          emit('camera', { zoom: map.getZoom(), lat: map.getCenter().lat });
+        });
+      };
+      map.on('move', shareCamera);
+      shareCamera();
       const shareView = () => {
         const b = map.getBounds();
         emit('view', { bbox: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], zoom: map.getZoom() });
@@ -231,14 +290,23 @@ export function MapView() {
         if (e.sourceId || e.tile) return;
         console.error(e.error);
       });
-      foldAttribution(map);
-      map.on('resize', () => foldAttribution(map));
+      // The credits live in the data strip under the map. The control is made
+      // once and its node follows the strip's slot when the layout changes.
+      const attribution = new maplibregl.AttributionControl({ compact: false });
+      const attribNode = attribution.onAdd(map);
+      unsubs.push(
+        on('attribslot', ({ el }) => {
+          if (el && attribNode.parentElement !== el) el.appendChild(attribNode);
+        }),
+        () => attribution.onRemove(),
+      );
 
       emit('mapready', {});
 
       unsubs.push(() => {
         draw.dispose();
         overlay.dispose();
+        frame.dispose();
         markers.clear();
       });
     });
@@ -284,17 +352,6 @@ function fitResults(map: maplibregl.Map): void {
 function clearOffset(map: maplibregl.Map): [number, number] {
   const pad = occluderPadding(map.getContainer(), 0);
   return [(pad.left - pad.right) / 2, (pad.top - pad.bottom) / 2];
-}
-
-/**
- * On a phone the attribution starts folded behind its button: open, it covers
- * the area above the sheet. MapLibre unfolds it on load and on resize.
- */
-function foldAttribution(map: maplibregl.Map): void {
-  if (!globalThis.matchMedia?.('(max-width: 700px)').matches) return;
-  const el = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
-  el?.classList.remove('maplibregl-compact-show');
-  el?.removeAttribute('open');
 }
 
 let lastFollow = 0;

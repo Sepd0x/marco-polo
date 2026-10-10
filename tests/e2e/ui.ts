@@ -110,6 +110,9 @@ type MapLike = {
   isMoving(): boolean;
   getCenter(): { lng: number; lat: number };
   getZoom(): number;
+  queryRenderedFeatures(opts: { layers: string[] }): unknown[];
+  getStyle(): { layers: { id: string }[] };
+  listImages(): string[];
 };
 
 /** Pools drawn on the map (one marker each). */
@@ -118,6 +121,32 @@ export function mapPoolCount(page: Page): Promise<number> {
     const map = (window as unknown as { __mpMap: MapLike }).__mpMap;
     const data = await map.getSource('det-points')!.getData();
     return data.features.length;
+  });
+}
+
+/** Pool numbers the map has drawn on screen. */
+export function mapLabelCount(page: Page): Promise<number> {
+  return page.evaluate(() => {
+    const map = (window as unknown as { __mpMap: MapLike }).__mpMap;
+    return map.queryRenderedFeatures({ layers: ['det-rank'] }).length;
+  });
+}
+
+/**
+ * How the map draws the pools: outlines on screen (one per pool), whether the
+ * outlines lie above the numbers, the zoom, and boxed label images in use.
+ */
+export function mapPoolDrawing(page: Page): Promise<{ outlines: number; outlinesOnTop: boolean; zoom: number; boxes: number }> {
+  return page.evaluate(() => {
+    const map = (window as unknown as { __mpMap: MapLike }).__mpMap;
+    const feats = map.queryRenderedFeatures({ layers: ['det-line'] }) as { properties: { id: string } }[];
+    const order = map.getStyle().layers.map((l) => l.id);
+    return {
+      outlines: new Set(feats.map((f) => f.properties.id)).size,
+      outlinesOnTop: order.indexOf('det-line') > order.indexOf('det-rank'),
+      zoom: map.getZoom(),
+      boxes: map.listImages().filter((i) => i.startsWith('rank:box:')).length,
+    };
   });
 }
 

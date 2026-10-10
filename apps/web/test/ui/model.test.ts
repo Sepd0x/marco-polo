@@ -4,10 +4,10 @@ import {
   areaFacts,
   cellStates,
   chaikin,
-  chipSource,
   dimsOf,
   newestId,
   sortPools,
+  scoreBins,
   splitByScore,
   thresholdToShowAll,
   thumbFor,
@@ -61,6 +61,17 @@ describe('one count', () => {
     expect(below).toBe(1);
   });
 
+  it('bins every kept pool for the histogram, listed and below apart', () => {
+    const { shown, under } = splitByScore(ranked(), 0.55, true);
+    const bins = scoreBins(shown, under);
+    expect(bins).toHaveLength(100);
+    expect(bins.reduce((n, b) => n + b.above, 0)).toBe(shown.length);
+    expect(bins.reduce((n, b) => n + b.below, 0)).toBe(under.length);
+    expect(bins[91]).toEqual({ above: 1, below: 0 });
+    expect(bins[40]).toEqual({ above: 0, below: 1 });
+    expect(scoreBins([{ ...shown[0], confidence: 1 }], [])[99].above).toBe(1);
+  });
+
   it('sorts by score without changing the rank numbers', () => {
     const { shown } = splitByScore(ranked(), 0, true);
     const byScore = sortPools(shown, 'score');
@@ -106,12 +117,6 @@ describe('area facts', () => {
   it('blocks an area over the limit', () => {
     const big = viewRing([-8.3, 37.0, -8.0, 37.2], 0);
     expect(areaFacts(big, { mode: 'auto' }, 5).level).toBe('block');
-  });
-
-  it('labels the chip with the fixed choice or with what auto picks here', () => {
-    expect(chipSource({ mode: 'fixed', providerId: ESRI_WORLD_IMAGERY.id }, null)?.id).toBe(ESRI_WORLD_IMAGERY.id);
-    expect(chipSource({ mode: 'auto' }, VILAMOURA)?.id).toBe('dgt-ortos2025');
-    expect(chipSource({ mode: 'auto' }, { lat: 33.59, lon: -111.93 })?.id).toBe(ESRI_WORLD_IMAGERY.id);
   });
 });
 

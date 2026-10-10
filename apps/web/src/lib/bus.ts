@@ -8,7 +8,18 @@ export interface FlyToEvent {
 
 type Events = {
   flyto: FlyToEvent;
-  cursor: { lon: number; lat: number };
+  /** Zoom the map in (positive) or out (negative) by this many levels. */
+  zoomby: { delta: number };
+  /** The pointer over the map, or null once it leaves. */
+  cursor: { lon: number; lat: number } | null;
+  /** The camera while it moves, for the scale. */
+  camera: { zoom: number; lat: number };
+  /** The shape being drawn: size of a rectangle in metres, and its area; null when no draft. */
+  draft: { widthM: number | null; heightM: number | null; areaM2: number } | null;
+  /** The imagery the map shows outside any area, by provider id. */
+  basesource: { id: string };
+  /** The element the map's credits go in, or null when it leaves the page. */
+  attribslot: { el: HTMLElement | null };
   /** The map finished loading and its store subscriptions are in place. */
   mapready: Record<string, never>;
   /** The map view after it settles: west, south, east, north, and the zoom. */
@@ -16,7 +27,7 @@ type Events = {
 };
 
 /** Events a late subscriber still receives: their last payload is replayed. */
-const STICKY: ReadonlySet<keyof Events> = new Set(['mapready']);
+const STICKY: ReadonlySet<keyof Events> = new Set(['mapready', 'camera', 'basesource', 'attribslot']);
 
 type Handler<T> = (payload: T) => void;
 

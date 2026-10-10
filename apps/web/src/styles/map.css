@@ -11,8 +11,10 @@
   cursor: crosshair !important;
 }
 
+/* Attribution left in the map corner when the page has no strip for it. */
 #map .maplibregl-ctrl-attrib {
-  font: 12px/1.4 var(--sans);
+  font: 12px/1.4 var(--font);
+  font-stretch: 75%;
   background: color-mix(in srgb, var(--panel) 86%, transparent);
   color: var(--ink-2);
 }
@@ -21,61 +23,46 @@
   color: var(--ink-2);
 }
 
-#map .maplibregl-ctrl-attrib-button {
-  background-color: var(--panel);
-}
-
-@media (max-width: 700px) {
-  #map .maplibregl-ctrl-bottom-left,
-  #map .maplibregl-ctrl-bottom-right {
-    bottom: var(--sheet-h, 0px);
-  }
-}
-
 /*
- * DOM markers, until the map draws pools as GL layers. No `position` here:
- * MapLibre places the marker element itself and overriding it makes markers
- * drift on zoom.
+ * The survey frame drawn over the map (map/frame.ts). The SVG has the size of
+ * the map and overflows into the margins of the frame for the graduation.
  */
-.det-marker {
-  width: 11px;
-  height: 11px;
-  cursor: pointer;
-}
-
-.det-marker .core {
+.frame-svg {
   position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: var(--pool);
-  box-shadow: 0 0 0 1.5px var(--casing);
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.det-marker.selected .core,
-.det-marker:hover .core {
-  inset: 0;
+.frame-svg .neat,
+.frame-svg .ticks {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 
-.det-marker .ping {
-  display: none;
+.frame-svg .fid {
+  fill: var(--ink);
 }
 
-.det-marker .rank-chip {
-  position: absolute;
-  left: 14px;
-  top: -6px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 5px;
-  font: 600 12px/20px var(--sans);
-  background: var(--pool);
-  color: var(--pool-ink);
-  box-shadow: 0 0 0 1px var(--casing);
-  white-space: nowrap;
+.frame-svg .reseau {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1;
 }
 
-.det-marker.selected .rank-chip {
-  background: var(--casing);
-  color: var(--pool);
-  box-shadow: 0 0 0 1px var(--pool);
+.frame-svg .reseau-casing {
+  fill: none;
+  stroke: #000000;
+  stroke-opacity: 0.55;
+  stroke-width: 3;
+}
+
+.frame-svg text {
+  font: 12px var(--font);
+  font-stretch: 75%;
+  fill: var(--ink-2);
 }

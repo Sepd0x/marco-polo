@@ -22,6 +22,9 @@ test('a scan of a fixture area lists the same pools everywhere', async ({ page, 
   await ui.scanArea(page);
   const n = await agreedCount(page);
   expect(n).toBeGreaterThan(0);
+  // The result view frames the pools with their numbers, as in the list.
+  await ui.waitForMapStill(page);
+  await expect.poll(() => ui.mapLabelCount(page)).toBeGreaterThan(0);
   await expect(ui.noTilesMissing(page)).toBeVisible();
   await expect(ui.summaryAlerts(page)).toHaveCount(0);
   expect(net.fixture.length).toBeGreaterThan(0);

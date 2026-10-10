@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-  <rect x="1.5" y="1.5" width="15" height="15" rx="4" fill="#17171a"/>
-  <rect x="4.5" y="6" width="9" height="6" rx="2" fill="#c6f432"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><style>.i{stroke:#141414}@media (prefers-color-scheme:dark){.i{stroke:#ECECE8}}</style><path class="i" d="M2 14V3H6V10H10V3H15" fill="none" stroke-width="2"/><rect x="13" y="4" width="2" height="7" fill="#FF52FF"/></svg>

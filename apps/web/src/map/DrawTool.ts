@@ -1,5 +1,6 @@
 import * as maplibregl from 'maplibre-gl';
-import type { Ring } from '@marco-polo/core';
+import { ringAreaM2, type Ring } from '@marco-polo/core';
+import { emit } from '../lib/bus.js';
 
 type Mode = 'rect' | 'polygon' | null;
 
@@ -73,6 +74,7 @@ export class DrawTool {
     this.cursor = null;
     this.setDraft(EMPTY);
     this.onDraftChange(false);
+    emit('draft', null);
   }
 
   private onMouseDown = (e: maplibregl.MapMouseEvent): void => {
@@ -171,6 +173,10 @@ export class DrawTool {
   }
 
   private renderRect(a: [number, number], b: [number, number]): void {
+    const kx = 111_320 * Math.cos((((a[1] + b[1]) / 2) * Math.PI) / 180);
+    const widthM = Math.abs(b[0] - a[0]) * kx;
+    const heightM = Math.abs(b[1] - a[1]) * 110_574;
+    emit('draft', { widthM, heightM, areaM2: widthM * heightM });
     const ring = [
       [a[0], a[1]],
       [b[0], a[1]],
@@ -202,6 +208,7 @@ export class DrawTool {
         }),
       ),
     ];
+    emit('draft', pts.length >= 3 ? { widthM: null, heightM: null, areaM2: ringAreaM2(pts as Ring) } : null);
     if (pts.length >= 3) {
       features.push({
         type: 'Feature',

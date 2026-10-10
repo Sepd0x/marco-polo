@@ -9,18 +9,22 @@ body,
   height: 100%;
 }
 
+/* One family everywhere, always at width 75. Martian Mono is monospaced, so every figure is tabular. */
 body {
-  font: 400 13px/1.45 var(--sans);
+  font: 400 13px/1.45 var(--font);
+  font-stretch: 75%;
   color: var(--ink);
   background: var(--ground);
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'tnum' 1;
   overflow: hidden;
 }
 
 button,
-input {
+input,
+output,
+select {
   font: inherit;
+  font-stretch: inherit;
   color: inherit;
 }
 
@@ -32,12 +36,8 @@ h3 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--pool-text);
+  outline: 2px solid var(--ink);
   outline-offset: 2px;
-}
-
-.mono {
-  font-family: var(--mono);
 }
 
 .sr-only {
@@ -53,18 +53,31 @@ h3 {
 }
 
 kbd {
-  font-family: var(--mono);
+  font: inherit;
   font-size: 12px;
-  line-height: 1;
-  padding: 2px 4px;
+  line-height: 18px;
+  padding: 0 5px;
   border: 1px solid var(--line-2);
-  border-radius: 4px;
+  border-radius: 2px;
   color: var(--ink-3);
   margin-left: 2px;
 }
 
-@media (max-width: 700px) {
-  body {
-    font-size: 14px;
-  }
+.k {
+  color: var(--ink-3);
+}
+
+.k2 {
+  color: var(--ink-2);
+}
+
+.grow {
+  flex: 1;
+}
+
+.trunc {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
 }

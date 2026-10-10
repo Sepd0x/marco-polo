@@ -13,6 +13,7 @@ import {
   ThresholdSection,
 } from './Sections.js';
 import { useUi } from './uiState.js';
+import { useNothingScanned } from './hooks.js';
 import { IconMoon, IconSliders, IconSun, Mark } from './icons.js';
 
 function ThemeButton() {
@@ -33,11 +34,12 @@ function ThemeButton() {
   );
 }
 
-/** Desktop: everything about the scan in one column, the map gets the rest. */
+/** Desktop: everything about the scan in one column of rules, the framed map gets the rest. */
 export function SidePanel() {
   const phase = useStore((s) => s.phase);
   const setSettingsOpen = useUi((s) => s.setSettingsOpen);
   const live = phase === 'scanning' || phase === 'paused';
+  const nothing = useNothingScanned();
 
   return (
     <aside className="side" aria-label="Scan">
@@ -52,7 +54,7 @@ export function SidePanel() {
           <IconSliders />
         </button>
       </div>
-      <SearchBox />
+      <SearchBox shortcut />
       <div className="scroll">
         <ImageryNotice />
         {phase === 'idle' && (
@@ -77,8 +79,12 @@ export function SidePanel() {
         {phase === 'complete' && (
           <>
             <SummarySection />
-            <ThresholdSection />
-            <ListSection />
+            {!nothing && (
+              <>
+                <ThresholdSection />
+                <ListSection />
+              </>
+            )}
           </>
         )}
       </div>
