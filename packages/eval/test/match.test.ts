@@ -6,7 +6,7 @@ import { stitchRings } from '../src/overpass.js';
 import { colourFamily, failedRules } from '../src/diagnose.js';
 import type { EvalDetection, Label } from '../src/types.js';
 
-// Small boxes near Vilamoura; 1e-4° ≈ 11 m north–south, ≈ 9 m east–west here.
+// Small boxes near Vilamoura. Here 1e-4° is about 11 m along a meridian and about 9 m along a parallel.
 const LON = -8.1;
 const LAT = 37.07;
 

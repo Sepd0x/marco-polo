@@ -13,17 +13,17 @@ npm test             # engine tests
 npm run typecheck    # strict TS across all packages
 ```
 
-Node 20+ is required. There is no build step for development — every package runs
+Node 24+ is required. There is no build step for development. Every package runs
 from TypeScript source (Vite in the web app, `tsx` in the CLI, vitest for tests).
 
 ## Where things live
 
 | Path | What it is | Rules |
 |---|---|---|
-| `packages/core` | the engine | **zero dependencies, no DOM/Node APIs** — it must run in a worker, a browser and Node unchanged. New behaviour needs unit tests. |
+| `packages/core` | the engine | **zero dependencies, no DOM/Node APIs**. It must run in a worker, a browser and Node unchanged. New behaviour needs unit tests. |
 | `apps/web` | the product | React + MapLibre. Map rendering goes through the imperative managers (`map/overlay.ts`, `map/markers.ts`), not React state. |
 | `packages/cli` | headless scanner | keep flags documented in `--help`. |
-| `docs/` | design docs | if you change detection behaviour, update `DETECTION.md` — the numbers in there are meant to be the real ones. |
+| `docs/` | design docs | if you change detection behaviour, update `DETECTION.md`. Its numbers should be the real ones. |
 
 ## Detection changes
 
@@ -39,7 +39,7 @@ npx tsx src/dev/annotate.ts 33.594 -111.926 3 19 scottsdale.png  # US desert sub
 
 Watch for both directions: new false positives (roads, roofs, cars) *and* lost
 true pools. The joint saturation/brightness gate exists because of exactly this
-loop — see `docs/DETECTION.md` §2.
+loop (see `docs/DETECTION.md` §2).
 
 ## Style
 

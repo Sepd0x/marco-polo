@@ -18,51 +18,51 @@ https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/til
 - Esri's terms permit use of this service for maps and analysis with attribution;
   they do not permit bulk harvesting of imagery. Marco Polo is built to stay on
   the right side of that line (see "Being a polite client" below). If you plan
-  sustained, large-scale scanning, get your own imagery entitlement — that's what
-  the custom-endpoint setting is for.
+  sustained, large-scale scanning, get your own imagery entitlement. The
+  custom-endpoint setting exists for that.
 
 ## Being a polite client
 
-- **Hard rate cap** — tiles are dispatched on a timer (default 5/s, max 10/s,
+- **Hard rate cap.** Tiles are dispatched on a timer (default 5/s, max 10/s,
   user-visible in Settings). A scan is comparable traffic to a user panning the
   map, just more patient.
-- **Local caching** — the browser keeps tiles in the Cache API; the CLI keeps them
+- **Local caching.** The browser keeps tiles in the Cache API; the CLI keeps them
   in `.tile-cache/`. Re-scans and threshold experiments hit cache, not the
   provider.
-- **No fan-out** — the web app has no backend; each user fetches only what their
+- **No fan-out.** The web app has no backend; each user fetches only what their
   own scan needs. The CLI is single-stream sequential.
-- **Backoff** — HTTP 429/5xx retry with exponential backoff and jitter; permanent
-  errors are not retried.
+- **Backoff.** HTTP 429/5xx responses are retried with exponential backoff
+  and jitter; permanent errors are not retried.
 
 ## Swapping the imagery source
 
 Settings → *Imagery* offers presets:
 
-- **Esri World Imagery** — default, keyless.
-- **MapTiler satellite / Mapbox satellite** — paste your own API key (free
+- **Esri World Imagery**: the default, no key needed.
+- **MapTiler satellite / Mapbox satellite**: paste your own API key (free
   tiers exist). The key is embedded in the tile template and stored only in
   your browser's localStorage; it is never sent anywhere except to that
   provider. Where Esri's mosaic is dated, these are often fresher and sharper.
-- **Custom XYZ** — any `https://…/{z}/{x}/{y}` template: your own tile server,
+- **Custom XYZ**: any `https://…/{z}/{x}/{y}` template, such as your own tile server,
   a licensed provider (Maxar, Planet), or public regional orthophoto services
-  (many national mapping agencies publish free high-resolution orthophotos —
+  (many national mapping agencies publish free high-resolution orthophotos,
   often *better* than global mosaics for their country).
 
 The basemap follows the configured source, so what you see is exactly what the
-detector analyses. Templates must be `https://` — anything else falls back to
+detector analyses. Templates must be `https://`. Anything else falls back to
 the default. Check the terms of whatever you point the scanner at;
 requirements differ on attribution, caching and derived data. The CLI takes
 the same templates via `--template`.
 
 If you operate your own imagery, note the detector's assumptions: RGB truecolor,
-roughly 0.2–0.6 m/px (z18–z19 equivalents), reasonably colour-balanced. NIR bands
+roughly 0.2 to 0.6 m/px (z18 to z19 equivalents), reasonably colour-balanced. NIR bands
 would make water detection dramatically easier (NDWI), but standard tile services
 don't carry them.
 
 ## Responsible use
 
 This tool detects private amenities on private property from public imagery. The
-imagery is public and viewable by anyone in any map client — Marco Polo adds
+imagery is public and viewable by anyone in any map client. Marco Polo adds
 *aggregation*, and aggregation changes the ethics.
 
 Fine (and the intended uses):
@@ -71,15 +71,15 @@ Fine (and the intended uses):
 - Urban analysis at neighbourhood/city scale: pool density, water-use estimation,
   urban heat / affluence research on aggregate numbers.
 - Emergency planning (identifying water sources), insurance portfolio modelling,
-  municipal registry reconciliation — the same use-cases the GIS industry runs
+  municipal registry reconciliation. The GIS industry sells these same uses
   commercially.
 
 Not fine:
 
 - Profiling specific individuals or properties (burglary reconnaissance is the
   obvious abuse; "which of my neighbours has an undeclared pool" is a subtler
-  one — in most jurisdictions enforcement from aerial imagery is the tax
-  authority's prerogative, not a neighbour's).
+  one. In most jurisdictions, enforcement from aerial imagery is the tax
+  authority's job, not a neighbour's).
 - Publishing per-address datasets derived from someone else's imagery service.
   Export files carry coordinates, not addresses, and it should stay that way.
 
