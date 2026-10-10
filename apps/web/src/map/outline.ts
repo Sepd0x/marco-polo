@@ -1,7 +1,8 @@
 /**
- * Colour of the pool outlines and the tools to measure a candidate colour
+ * Colour of the pool outlines, and CIEDE2000 tools that measure a colour
  * against real surfaces (pool water, roof tiles, grass, sampled from DGT,
- * PNOA and IGN tiles) with CIEDE2000.
+ * PNOA and IGN tiles). The tools serve test/map/outline.test.ts, which keeps
+ * the chosen colours honest against those samples.
  *
  * The outline is the magenta of the design (#FF52FF) over a dark casing
  * (#140814). On these samples it keeps a difference above 30 from roof tiles
@@ -12,17 +13,6 @@
 
 export type Rgb = readonly [number, number, number];
 export type Lab = readonly [number, number, number];
-
-export const OUTLINE_CANDIDATES: readonly string[] = [
-  '#ffffff',
-  '#ffe14d',
-  '#c6ff3d',
-  '#ff52ff',
-  '#ff8a1f',
-  '#ff3b3b',
-  '#3de8ff',
-  '#a970ff',
-];
 
 export const POOL_OUTLINE = '#ff52ff';
 
@@ -139,10 +129,6 @@ export function scoreOutlineColours(candidates: readonly string[], samples: read
       return { colour, worst, byClass };
     })
     .sort((a, b) => b.worst - a.worst);
-}
-
-export function pickOutlineColour(candidates: readonly string[], samples: readonly SurfaceSample[]): string {
-  return scoreOutlineColours(candidates, samples)[0].colour;
 }
 
 /**

@@ -112,4 +112,4 @@ outside the plan. That makes "this measurement is a lower bound" a fact, not a g
 | Classical CV instead of a learned model | misses camouflaged/indoor pools; some teal-roof false positives | zero setup, explainable, runs anywhere, tunable in the open; a `Detector`-shaped seam is left for an ONNX plug-in |
 | Client-side scanning | scan lifetime tied to the tab | no backend, no keys, privacy by construction, deployable as static files |
 | Area from pixel count × resolution² | ±10 to 15% vs. survey-grade | honest, fast, and correct *in expectation*; confidence exposes the rest |
-| Rank numbers as canvas images in symbol layers | one small image per rank shown | no cap on markers, no glyph server dependency, same font as the list |
+| Rank numbers as canvas images in symbol layers | a small image per rank and label style (box, halo, open) | no cap on markers, no glyph server dependency, same font as the list |

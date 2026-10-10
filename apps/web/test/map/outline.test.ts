@@ -2,8 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
   ciede2000,
   hexToRgb,
-  OUTLINE_CANDIDATES,
-  pickOutlineColour,
   POOL_OUTLINE,
   rgbToLab,
   scoreOutlineColours,
@@ -51,17 +49,21 @@ describe('outline colour', () => {
     expect(OUTLINE_CASING).toBe('#140814');
   });
 
-  it('keeps clear of roof tiles and grass; the casing carries it on water', () => {
+  it('keeps clear of roof tiles and grass', () => {
     const s = scoreOutlineColours([POOL_OUTLINE], samples)[0];
     expect(s.byClass.roof).toBeGreaterThan(30);
     expect(s.byClass.grass).toBeGreaterThan(40);
-    expect(s.worst).toBeGreaterThan(15);
   });
 
-  it('ranks the candidates by their worst-case difference', () => {
-    const scores = scoreOutlineColours(OUTLINE_CANDIDATES, samples);
-    expect(scores.map((x) => x.worst)).toEqual([...scores.map((x) => x.worst)].sort((a, b) => b - a));
-    expect(pickOutlineColour(OUTLINE_CANDIDATES, samples)).toBe(scores[0].colour);
+  it('on water, where the magenta is closest, leaves the edge to its casing', async () => {
+    const { OUTLINE_CASING } = await import('../../src/map/outline.js');
+    const { contrastRatio } = await import('../../src/lib/theme.js');
+    const [line, casing] = scoreOutlineColours([POOL_OUTLINE, OUTLINE_CASING], samples).sort((x, y) =>
+      x.colour === POOL_OUTLINE ? -1 : y.colour === POOL_OUTLINE ? 1 : 0,
+    );
+    expect(line.byClass.water).toBeGreaterThan(15);
+    expect(casing.byClass.water).toBeGreaterThan(25);
+    expect(contrastRatio(POOL_OUTLINE, OUTLINE_CASING)).toBeGreaterThan(7);
   });
 
   it('rejects malformed colours', () => {
