@@ -7,7 +7,7 @@
  * Network requests go through the scan's token bucket, one token per attempt.
  */
 import { createStore, clear as idbClear, get as idbGet, set as idbSet, type UseStore } from 'idb-keyval';
-import type { CachePolicy } from '@marco-polo/core';
+import type { CachePolicy, MirrorChoice } from '@marco-polo/core';
 import { abortError, delay, isAbort, type TokenBucket } from './pacer.js';
 
 /** The Cache API store of older builds; it held Esri and keyed-provider tiles. */
@@ -125,6 +125,10 @@ export interface TileBytes {
 
 export interface FetchTileOptions {
   bucket: TokenBucket;
+  /** The same tile on the provider's mirror; tried when `url` fails. The cache keeps `url`. */
+  mirrorUrl?: string;
+  /** Shared across a provider's tiles: which server goes first. */
+  mirror?: MirrorChoice;
   fetch: FetchFn;
   cache?: TileCache | null;
   policy?: CachePolicy;
@@ -145,7 +149,9 @@ export class TileHttpError extends Error {
  * One tile: from the cache when the policy allows, otherwise from the
  * network, paced and retried. 404 and 204 come back as answers (they mean
  * "no imagery here"); other 4xx throw at once; 429, 5xx and network errors
- * are retried with backoff, each attempt taking a fresh token.
+ * are retried with backoff, each attempt taking a fresh token. With a mirror,
+ * attempts alternate between the two servers, the one that last answered
+ * first, and the bytes are cached under `url` whichever answered.
  */
 export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileBytes> {
   const policy = o.policy ?? 'http';
@@ -154,17 +160,20 @@ export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileB
 
   const retries = o.retries ?? 3;
   const timeoutMs = o.timeoutMs ?? 20_000;
+  const urls = o.mirror ? o.mirror.order(url, o.mirrorUrl) : [url];
   let lastError: unknown = null;
   for (let attempt = 0; attempt <= retries; attempt++) {
+    const asked = urls[attempt % urls.length];
     await o.bucket.take(o.signal);
     const ac = new AbortController();
     const onAbort = () => ac.abort(abortError(o.signal));
     o.signal?.addEventListener('abort', onAbort, { once: true });
     const timer = setTimeout(() => ac.abort(new Error(`timed out after ${timeoutMs} ms`)), timeoutMs);
     try {
-      const res = await o.fetch(url, { signal: ac.signal });
+      const res = await o.fetch(asked, { signal: ac.signal });
       if (res.status === 429 || res.status >= 500) throw new TileHttpError(res.status);
       if (res.status === 404 || res.status === 204) {
+        o.mirror?.answered(asked, o.mirrorUrl);
         return { status: res.status, bytes: new Uint8Array(0), cached: false, attempts: attempt + 1 };
       }
       if (res.status < 200 || res.status >= 300) {
@@ -173,6 +182,7 @@ export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileB
         throw err;
       }
       const bytes = new Uint8Array(await res.arrayBuffer());
+      o.mirror?.answered(asked, o.mirrorUrl);
       if (o.cache && looksLikeImage(bytes)) await o.cache.put(policy, url, bytes);
       return { status: res.status, bytes, cached: false, attempts: attempt + 1 };
     } catch (err) {
@@ -180,7 +190,8 @@ export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileB
       if (err instanceof Error && err.name === 'TileFatalError') throw err;
       if (isAbort(err) && !ac.signal.aborted) throw err;
       lastError = err;
-      if (attempt < retries) await delay(500 * 2 ** attempt, o.signal);
+      // Straight to the other server when there is one; back off only between rounds.
+      if (attempt < retries && (attempt + 1) % urls.length === 0) await delay(500 * 2 ** attempt, o.signal);
     } finally {
       clearTimeout(timer);
       o.signal?.removeEventListener('abort', onAbort);

@@ -60,6 +60,8 @@ const PNOA: ImageryProvider = {
   kind: 'xyz',
   template:
     'https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage&style=default&tilematrixset=GoogleMapsCompatible&tilematrix={z}&tilerow={y}&tilecol={x}&format=image/jpeg',
+  // Same bytes as the WMTS (checked on the Pozuelo fixture); the cache and the manifest keep the WMTS URL.
+  mirror: 'https://tms-pnoa-ma.idee.es/1.0.0/pnoa-ma/{z}/{x}/{-y}.jpeg',
   tileSize: 256,
   requestPx: 256,
   minZoom: 0,

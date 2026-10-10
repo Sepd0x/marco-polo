@@ -177,6 +177,13 @@ export interface ImageryProvider {
   rate: RateLimit;
   /** Next source to try for a plan part when this one has no data there. */
   fallback?: string;
+  /**
+   * A second XYZ template that serves the same bytes, tried when a request
+   * to `template` fails (5xx, timeout, network). Caches, manifests and
+   * provenance keep the `template` URL, so a run reads the same pixels
+   * whichever server answered.
+   */
+  mirror?: string;
 }
 
 /** User choice of imagery. `auto` picks a source per area by coverage. */

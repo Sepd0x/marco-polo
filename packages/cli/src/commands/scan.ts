@@ -249,9 +249,10 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
       probed.clear();
       let withData = 0;
       for (const t of sampleTiles(part, PROBE_TILES)) {
-        const url = tileRequest(part.provider, t).url;
+        const req = tileRequest(part.provider, t);
+        const url = req.url;
         try {
-          const r = await fetcher.get(url);
+          const r = await fetcher.get(url, req.mirrorUrl);
           probed.set(url, r);
           if (r.image && !noDataReason(asResponse(r))) withData++;
         } catch {
@@ -278,8 +279,9 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
     let done = 0;
     for (const { tile } of part.plan.tiles) {
       try {
-        const url = tileRequest(part.provider, tile).url;
-        const r = probed.get(url) ?? (await fetcher.get(url));
+        const req = tileRequest(part.provider, tile);
+        const url = req.url;
+        const r = probed.get(url) ?? (await fetcher.get(url, req.mirrorUrl));
         if (noDataReason(asResponse(r))) noCoverage++;
         else if (!r.image) {
           failed++;

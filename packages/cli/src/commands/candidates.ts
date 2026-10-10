@@ -300,7 +300,8 @@ export async function runCandidates(args: CandidatesArgs, fetcher?: TileFetcher)
   const getTile = async (t: TileCoord): Promise<DecodedTile | null> => {
     const key = `${t.x}/${t.y}`;
     if (tileCache.has(key)) return tileCache.get(key)!;
-    const r = await f.get(tileRequest(p, t).url);
+    const req = tileRequest(p, t);
+    const r = await f.get(req.url, req.mirrorUrl);
     const img = r.image && !noDataReason({ status: r.status, bytes: r.bytes, pixels: r.image.rgba, width: r.image.width, height: r.image.height }) ? r.image : null;
     if (tileCache.size > 512) tileCache.delete(tileCache.keys().next().value!);
     tileCache.set(key, img);
@@ -315,7 +316,7 @@ export async function runCandidates(args: CandidatesArgs, fetcher?: TileFetcher)
     let win: TileWindow | null = null;
     if (p.kind === 'wms') {
       const req = tileRequest(p, t, halo);
-      const r = await f.get(req.url);
+      const r = await f.get(req.url, req.mirrorUrl);
       if (r.image && r.image.width === req.width && !noDataReason({ status: r.status, bytes: r.bytes, pixels: r.image.rgba, width: r.image.width, height: r.image.height })) {
         win = windowFromBitmap(t, new Uint8ClampedArray(r.image.rgba), r.image.width, r.image.height, halo);
       }

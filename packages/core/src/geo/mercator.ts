@@ -102,13 +102,15 @@ export function tileBBox3857(tile: TileCoord): [number, number, number, number] 
 }
 
 /**
- * Fill a tile URL template: `{z}/{x}/{y}` for XYZ, `{bbox-epsg-3857}` for WMS
- * (the tile bounds, no halo).
+ * Fill a tile URL template: `{z}/{x}/{y}` for XYZ (`{-y}` for a TMS row,
+ * counted from the bottom), `{bbox-epsg-3857}` for WMS (the tile bounds, no
+ * halo).
  */
 export function tileUrl(template: string, tile: TileCoord): string {
   let url = template
     .replaceAll('{z}', String(tile.z))
     .replaceAll('{x}', String(tile.x))
+    .replaceAll('{-y}', String(2 ** tile.z - 1 - tile.y))
     .replaceAll('{y}', String(tile.y));
   if (url.includes('{bbox-epsg-3857}')) {
     url = url.replaceAll('{bbox-epsg-3857}', tileBBox3857(tile).map(formatMetres).join(','));

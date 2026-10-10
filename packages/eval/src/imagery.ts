@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { metersPerPixel, TILE_SIZE, tileBBox, tileUrl, type ImageryProvider, type TileCoord, type TileWindow } from '@marco-polo/core';
+import { metersPerPixel, MirrorChoice, TILE_SIZE, tileBBox, tileUrl, type ImageryProvider, type TileCoord, type TileWindow } from '@marco-polo/core';
 import { decodeImage, sleep, type DecodedTile } from '../../cli/src/tiles.js';
 import { UA } from './overpass.js';
 import { ESRI_PLACEHOLDER_BYTES, isBlankTile, wmsUrl } from './sources.js';
@@ -28,6 +28,7 @@ export class TileSource {
   readonly opts: TileSourceOptions;
   private last = 0;
   private mem = new Map<string, DecodedTile | null>();
+  private readonly mirror = new MirrorChoice();
   /** sha256 of every image read, by URL: the tile manifest of a run. */
   readonly manifest = new Map<string, string>();
   fetched = 0;
@@ -54,7 +55,9 @@ export class TileSource {
   async get(tile: TileCoord): Promise<DecodedTile | null> {
     const key = `${tile.z}/${tile.x}/${tile.y}`;
     if (this.mem.has(key)) return this.mem.get(key)!;
-    const result = await this.fetchImage(this.urlFor(tile), `${tile.z}-${tile.x}-${tile.y}`);
+    const p = this.opts.provider;
+    const mirrorUrl = p.kind === 'xyz' && p.mirror ? tileUrl(p.mirror, tile) : undefined;
+    const result = await this.fetchImage(this.urlFor(tile), `${tile.z}-${tile.x}-${tile.y}`, mirrorUrl);
     if (this.mem.size > 4000) this.mem.clear();
     this.mem.set(key, result);
     return result;
@@ -82,7 +85,8 @@ export class TileSource {
     return { tile, tilePx, halo, width, height: width, pixels, mPerPx };
   }
 
-  private async fetchImage(url: string, name: string): Promise<DecodedTile | null> {
+  /** `mirrorUrl`: the same bytes from the provider's mirror; cache path and manifest keep `url`. */
+  private async fetchImage(url: string, name: string, mirrorUrl?: string): Promise<DecodedTile | null> {
     const hash = createHash('sha256').update(url).digest('hex').slice(0, 24);
     const path = join(this.opts.cacheDir, `${name}-${hash}.bin`);
     let buf: Buffer | null = null;
@@ -94,7 +98,7 @@ export class TileSource {
     }
     if (!buf) {
       if (this.opts.offline) throw new Error(`offline and not cached: ${url}`);
-      buf = await this.download(url, path);
+      buf = await this.download(url, path, mirrorUrl);
       if (!buf) return null;
     }
     if (!buf.length) {
@@ -116,19 +120,22 @@ export class TileSource {
     return img;
   }
 
-  private async download(url: string, path: string): Promise<Buffer | null> {
+  private async download(url: string, path: string, mirrorUrl?: string): Promise<Buffer | null> {
+    const urls = this.mirror.order(url, mirrorUrl);
     for (let attempt = 0; attempt < 4; attempt++) {
+      const asked = urls[attempt % urls.length];
       const wait = this.last + 1000 / this.opts.ratePerSec - Date.now();
       if (wait > 0) await sleep(wait);
       this.last = Date.now();
       try {
-        const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
+        const res = await fetch(asked, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
         if (res.status === 404) {
           await mkdir(this.opts.cacheDir, { recursive: true });
           await writeFile(path, Buffer.alloc(0));
           return Buffer.alloc(0);
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        this.mirror.answered(asked, mirrorUrl);
         const type = res.headers.get('content-type') ?? '';
         if (!/^image\//.test(type)) throw new Error(`not an image: ${type}`);
         const buf = Buffer.from(await res.arrayBuffer());
@@ -137,7 +144,8 @@ export class TileSource {
         this.fetched++;
         return buf;
       } catch {
-        await sleep(1000 * 2 ** attempt);
+        // Straight to the other server when there is one; back off only between rounds.
+        if ((attempt + 1) % urls.length === 0) await sleep(1000 * 2 ** attempt);
       }
     }
     this.failures++;

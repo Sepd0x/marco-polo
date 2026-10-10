@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import jpeg from 'jpeg-js';
-import { decodeImage, encodePng } from '../src/tiles.js';
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { decodeImage, encodePng, Pacer, TileFetcher } from '../src/tiles.js';
 
 function gradient(w: number, h: number): Uint8ClampedArray {
   const rgba = new Uint8ClampedArray(w * h * 4);
@@ -38,5 +41,26 @@ describe('tile decoding', () => {
 
   it('rejects anything that is not JPEG or PNG', () => {
     expect(() => decodeImage(Buffer.from('<html>no tile</html>'))).toThrow(/Unrecognised/);
+  });
+});
+
+describe('tile fetching with a mirror', () => {
+  it('asks the mirror when the main server fails, caches under the main URL, then asks the mirror first', async () => {
+    const png = encodePng(gradient(4, 4), 4, 4);
+    const asked: string[] = [];
+    const fetch = async (url: string) => {
+      asked.push(url);
+      const body = new Uint8Array(png);
+      return url.startsWith('https://main/') ? new Response(null, { status: 504 }) : new Response(body, { status: 200 });
+    };
+    const cacheDir = mkdtempSync(join(tmpdir(), 'mp-mirror-'));
+    const f = new TileFetcher({ pacer: new Pacer(1000), cachePolicy: 'persistent', cacheDir, fetch, wait: async () => {} });
+    const a = await f.get('https://main/1', 'https://mirror/1');
+    expect(a.status).toBe(200);
+    expect(asked).toEqual(['https://main/1', 'https://mirror/1']);
+    expect((await f.get('https://main/1', 'https://mirror/1')).cached).toBe(true);
+    await f.get('https://main/2', 'https://mirror/2');
+    expect(asked.at(-1)).toBe('https://mirror/2');
+    expect(asked).toHaveLength(3);
   });
 });

@@ -42,10 +42,13 @@ describe('CSP of the production build (dist/index.html)', () => {
 
   it('lets every imagery source through connect-src and img-src', () => {
     for (const p of IMAGERY_PROVIDERS) {
-      const origin = new URL(p.template.replace(/\{[^}]*\}/g, '0')).origin;
-      expect(csp.get('connect-src'), p.id).toContain(origin);
-      expect(csp.get('img-src'), p.id).toContain(origin);
+      for (const t of p.mirror ? [p.template, p.mirror] : [p.template]) {
+        const origin = new URL(t.replace(/\{[^}]*\}/g, '0')).origin;
+        expect(csp.get('connect-src'), p.id).toContain(origin);
+        expect(csp.get('img-src'), p.id).toContain(origin);
+      }
     }
+    expect(csp.get('connect-src')).toContain('https://tms-pnoa-ma.idee.es');
   });
 
   it('lets the date lookups, the labels and the search through connect-src', () => {

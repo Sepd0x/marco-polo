@@ -11,7 +11,8 @@ export const SEARCH_ORIGIN = 'https://nominatim.openstreetmap.org';
 
 /** Origins the imagery sources are fetched from, from the source registry. */
 export function imageryOrigins(): string[] {
-  return [...new Set(IMAGERY_PROVIDERS.map((p) => new URL(p.template.replace(/\{[^}]*\}/g, '0')).origin))];
+  const templates = IMAGERY_PROVIDERS.flatMap((p) => (p.mirror ? [p.template, p.mirror] : [p.template]));
+  return [...new Set(templates.map((t) => new URL(t.replace(/\{[^}]*\}/g, '0')).origin))];
 }
 
 /** Every origin the app talks to. */

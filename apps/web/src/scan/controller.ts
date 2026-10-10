@@ -5,6 +5,7 @@ import {
   fallbackPart,
   lonLatToTile,
   metersPerPixelOfBitmap,
+  MirrorChoice,
   NEIGHBOUR_OFFSETS,
   neighbourTile,
   partCentre,
@@ -20,6 +21,7 @@ import {
   type Ring,
   type ScanTile,
   type TileCoord,
+  type TileRequest,
   type TraversalOrder,
 } from '@marco-polo/core';
 import { useStore, visibleRanked, type ArchiveSummary, type PartView, type TileOutcome } from '../state/store.js';
@@ -128,6 +130,8 @@ export class ScanController {
   private readonly detectorId: string;
   private abort = new AbortController();
   private bucket: TokenBucket;
+  /** Per provider with a mirror: which of its two servers goes first. */
+  private readonly mirrors = new Map<string, MirrorChoice>();
   private pool: Pool | null = null;
   private runs: PartRun[] = [];
   private cellKeys = new WeakMap<PlanPart, Set<string>>();
@@ -358,7 +362,7 @@ export class ScanController {
         await this.gate();
         const req = tileRequest(provider, t, this.wmsHalo(provider));
         try {
-          const got = await this.get(provider, req.url);
+          const got = await this.get(provider, req);
           r.probed.set(req.url, got);
           answered++;
           if (got.status !== 200) continue;
@@ -405,8 +409,12 @@ export class ScanController {
     return part.provider.date;
   }
 
-  private get(provider: ImageryProvider, url: string): Promise<TileBytes> {
-    return fetchTile(url, {
+  private get(provider: ImageryProvider, req: TileRequest): Promise<TileBytes> {
+    let mirror = this.mirrors.get(provider.id);
+    if (!mirror && req.mirrorUrl) this.mirrors.set(provider.id, (mirror = new MirrorChoice()));
+    return fetchTile(req.url, {
+      mirrorUrl: req.mirrorUrl,
+      mirror,
       bucket: this.bucket,
       fetch: this.deps.fetch,
       cache: this.deps.cache,
@@ -438,12 +446,12 @@ export class ScanController {
   }
 
   /** A tile's bytes, through the shared halo table when the part has one. */
-  private use(r: PartRun, url: string): Promise<TileBytes> {
-    const e = r.shared.get(url);
-    if (!e) return this.get(r.part.provider, url);
-    e.bytes ??= this.get(r.part.provider, url);
+  private use(r: PartRun, req: TileRequest): Promise<TileBytes> {
+    const e = r.shared.get(req.url);
+    if (!e) return this.get(r.part.provider, req);
+    e.bytes ??= this.get(r.part.provider, req);
     const bytes = e.bytes;
-    if (--e.uses <= 0) r.shared.delete(url);
+    if (--e.uses <= 0) r.shared.delete(req.url);
     return bytes;
   }
 
@@ -455,7 +463,7 @@ export class ScanController {
         const n = neighbourTile(tile, dx, dy);
         if (!n) return null;
         try {
-          const got = await this.use(r, tileRequest(provider, n).url);
+          const got = await this.use(r, tileRequest(provider, n));
           return got.status === 200 ? got.bytes.slice().buffer : null;
         } catch (err) {
           if (!this.alive()) throw new ScanCancelled();
@@ -498,7 +506,7 @@ export class ScanController {
       const req = tileRequest(provider, tile, this.wmsHalo(provider));
       const probed = r.probed.get(req.url);
       r.probed.delete(req.url);
-      const got = probed ?? (await this.use(r, req.url));
+      const got = probed ?? (await this.use(r, req));
       if (got.status === 404 || got.status === 204) {
         outcome = 'nocoverage';
       } else {

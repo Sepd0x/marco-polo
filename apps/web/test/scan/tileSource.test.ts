@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { MirrorChoice } from '@marco-polo/core';
 import { TokenBucket } from '../../src/scan/pacer.js';
 import { fetchTile, looksLikeImage, TileCache } from '../../src/scan/tileSource.js';
 import { fakeNet, memoryStore, tileBody } from './harness.js';
@@ -22,6 +23,24 @@ describe('tile fetching', () => {
     expect(r.attempts).toBe(3);
     expect(bucket.granted).toBe(3);
     expect(net.calls).toHaveLength(3);
+  });
+
+  it('falls back to the mirror when the main server fails, caches under the main URL, then asks the mirror first', async () => {
+    const net = fakeNet(5);
+    net.respond = (u) => (u.startsWith('https://main/') ? { status: 504 } : { status: 200 });
+    const bucket = new TokenBucket(10);
+    const cache = new TileCache(memoryStore());
+    const mirror = new MirrorChoice();
+    const p = fetchTile('https://main/1', { bucket, fetch: net.fetch, cache, policy: 'persistent', mirrorUrl: 'https://mirror/1', mirror });
+    await vi.advanceTimersByTimeAsync(10_000);
+    const r = await p;
+    expect(r.status).toBe(200);
+    expect(net.calls.map((c) => c.url)).toEqual(['https://main/1', 'https://mirror/1']);
+    expect(await cache.get('persistent', 'https://main/1')).not.toBeNull();
+    const q = fetchTile('https://main/2', { bucket, fetch: net.fetch, mirrorUrl: 'https://mirror/2', mirror });
+    await vi.advanceTimersByTimeAsync(10_000);
+    expect((await q).attempts).toBe(1);
+    expect(net.calls.at(-1)!.url).toBe('https://mirror/2');
   });
 
   it('answers 404 as a result (no imagery), and fails a 403 at once', async () => {

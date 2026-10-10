@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
 import { decodeJpeg, JpegUnsupported } from './jpeg.js';
-import { tileUrl, type CachePolicy, type TileCoord } from '@marco-polo/core';
+import { MirrorChoice, tileUrl, type CachePolicy, type TileCoord } from '@marco-polo/core';
 
 export interface DecodedTile {
   rgba: Uint8ClampedArray;
@@ -104,6 +104,7 @@ export interface TileFetcherOptions {
  */
 export class TileFetcher {
   private readonly opts: Required<Omit<TileFetcherOptions, 'cacheDir'>> & { cacheDir: string | null };
+  private readonly mirror = new MirrorChoice();
   requests = 0;
 
   constructor(opts: TileFetcherOptions) {
@@ -119,21 +120,28 @@ export class TileFetcher {
     };
   }
 
-  async get(url: string): Promise<FetchedTile> {
+  /**
+   * `mirrorUrl`: the same tile from the provider's mirror. Attempts alternate
+   * between the two, the one that last answered first; the cache keeps `url`.
+   */
+  async get(url: string, mirrorUrl?: string): Promise<FetchedTile> {
     const hit = await this.fromCache(url);
     if (hit) return { status: 200, bytes: hit, image: tryDecode(hit), cached: true };
 
+    const urls = this.mirror.order(url, mirrorUrl);
     let lastError: unknown;
     for (let attempt = 0; attempt <= this.opts.retries; attempt++) {
+      const asked = urls[attempt % urls.length];
       await this.opts.pacer.take();
       this.requests++;
       try {
         const doFetch = this.opts.fetch;
-        const res = await doFetch(url, {
+        const res = await doFetch(asked, {
           headers: { 'User-Agent': USER_AGENT },
           signal: AbortSignal.timeout(this.opts.timeoutMs),
         });
         if (res.status === 429 || res.status >= 500) throw new Error(`HTTP ${res.status}`);
+        this.mirror.answered(asked, mirrorUrl);
         const bytes = new Uint8Array(await res.arrayBuffer());
         if (res.status === 404 || res.status === 204) return { status: res.status, bytes, image: null, cached: false };
         if (res.status < 200 || res.status >= 300) return { status: res.status, bytes, image: null, cached: false };
@@ -142,7 +150,8 @@ export class TileFetcher {
         return { status: res.status, bytes, image, cached: false };
       } catch (err) {
         lastError = err;
-        if (attempt < this.opts.retries) await this.opts.wait(500 * 2 ** attempt);
+        // Straight to the other server when there is one; back off only between rounds.
+        if (attempt < this.opts.retries && (attempt + 1) % urls.length === 0) await this.opts.wait(500 * 2 ** attempt);
       }
     }
     throw new Error(`tile request failed after ${this.opts.retries + 1} attempts: ${String(lastError)}`);

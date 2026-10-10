@@ -9,6 +9,8 @@ export interface TileRequest {
   height: number;
   /** Halo included in the bitmap on every side, px. */
   halo: number;
+  /** Same bytes from the provider's mirror, when it has one (XYZ only). */
+  mirrorUrl?: string;
 }
 
 /**
@@ -36,5 +38,30 @@ export function wmsTileRequest(provider: ImageryProvider, tile: TileCoord, haloP
  */
 export function tileRequest(provider: ImageryProvider, tile: TileCoord, haloPx = 0): TileRequest {
   if (provider.kind === 'wms') return wmsTileRequest(provider, tile, haloPx);
-  return { url: tileUrl(provider.template, tile), width: provider.requestPx, height: provider.requestPx, halo: 0 };
+  const req: TileRequest = { url: tileUrl(provider.template, tile), width: provider.requestPx, height: provider.requestPx, halo: 0 };
+  if (provider.mirror) req.mirrorUrl = tileUrl(provider.mirror, tile);
+  return req;
+}
+
+/**
+ * Which server a fetcher asks first, for a provider with a mirror. Both serve
+ * the same bytes; once the main one fails and the mirror answers, the mirror
+ * goes first for the rest of the session, so an outage costs one failed
+ * request instead of one per tile. A mirror failure hands the lead back.
+ */
+export class MirrorChoice {
+  private mirrorFirst = false;
+
+  /** URLs to try, in order. */
+  order(url: string, mirrorUrl?: string): string[] {
+    if (!mirrorUrl) return [url];
+    return this.mirrorFirst ? [mirrorUrl, url] : [url, mirrorUrl];
+  }
+
+  /** Record which URL answered. */
+  answered(url: string, mirrorUrl?: string): void {
+    if (!mirrorUrl) return;
+    if (url === mirrorUrl) this.mirrorFirst = true;
+    else this.mirrorFirst = false;
+  }
 }

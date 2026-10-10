@@ -79,7 +79,7 @@ export class RasterSlot {
     const keys: string[] = [];
     this.pieces = rasterPieces(this.prefix, provider, display, {
       bounds,
-      url: region
+      url: region || provider.mirror
         ? (_template, px) => {
             const c = registerClip(provider, region, px);
             keys.push(c.key);

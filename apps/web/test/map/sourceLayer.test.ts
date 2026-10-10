@@ -72,7 +72,8 @@ describe('RasterSlot', () => {
     slot.set(PNOA, DPR2);
     expect([...map.sources.keys()]).toEqual(['base']);
     expect(map.sources.get('base')).toMatchObject({ tileSize: 128, maxzoom: PNOA.maxZoom, attribution: PNOA.attribution });
-    expect((map.sources.get('base')!.tiles as string[])[0]).toContain('www.ign.es/wmts/pnoa-ma');
+    // PNOA has a mirror, so its tiles go through the protocol that asks the mirror when the WMTS fails.
+    expect((map.sources.get('base')!.tiles as string[])[0]).toMatch(/^mpclip:\/\/c\d+\/256\/\{z\}\/\{x\}\/\{y\}$/);
     expect(map.layers.map((l) => [l.id, l.before])).toEqual([['base', ANCHORS[1]]]);
   });
 

@@ -101,6 +101,8 @@ export const PNOA: ImageryProvider = {
   template:
     'https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&version=1.0.0&layer=OI.OrthoimageCoverage' +
     '&style=default&tilematrixset=GoogleMapsCompatible&tilematrix={z}&tilerow={y}&tilecol={x}&format=image/jpeg',
+  // The IGN TMS of the same mosaic: byte-identical tiles (checked 10 Oct 2026 on the Pozuelo fixture), up when the WMTS is not.
+  mirror: 'https://tms-pnoa-ma.idee.es/1.0.0/pnoa-ma/{z}/{x}/{-y}.jpeg',
   layer: 'OI.OrthoimageCoverage',
   tileSize: 256,
   requestPx: 256,

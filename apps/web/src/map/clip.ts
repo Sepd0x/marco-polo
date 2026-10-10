@@ -2,6 +2,7 @@ import * as maplibregl from 'maplibre-gl';
 import {
   latToWorldY,
   lonToWorldX,
+  MirrorChoice,
   pointInRing,
   tileBBox,
   tileUrl,
@@ -18,7 +19,8 @@ import { templateFor } from './sources.js';
  * a tile wholly inside is passed through untouched, a tile wholly outside is
  * never fetched, and only tiles on the edge are redrawn with the outside made
  * transparent. Used for the scanned source inside the drawn area and for
- * national sources at their borders.
+ * national sources at their borders. A source with a mirror always goes
+ * through it too (with no region), so a failed tile is asked of the mirror.
  */
 
 export interface ClipRegion {
@@ -157,7 +159,8 @@ export function regionBounds(region: ClipRegion): [number, number, number, numbe
 
 interface ClipEntry {
   provider: ImageryProvider;
-  region: ClipRegion;
+  /** null: nothing is cut, the protocol only adds the mirror. */
+  region: ClipRegion | null;
 }
 
 const PROTOCOL = 'mpclip';
@@ -166,7 +169,7 @@ let counter = 0;
 let installed = false;
 
 /** Registers a clipped view of a source and returns its tile URL template. */
-export function registerClip(provider: ImageryProvider, region: ClipRegion, imagePx: number): { key: string; url: string } {
+export function registerClip(provider: ImageryProvider, region: ClipRegion | null, imagePx: number): { key: string; url: string } {
   install();
   const key = `c${++counter}`;
   entries.set(key, { provider, region });
@@ -195,20 +198,45 @@ async function loadClipped(url: string, abort: AbortController): Promise<{ data:
   if (!m || !entry) throw new Error(`unknown clipped tile ${url}`);
   const px = Number(m[2]);
   const tile: TileCoord = { z: Number(m[3]), x: Number(m[4]), y: Number(m[5]) };
-  const rel = tileRelation(tile, entry.region);
+  const region = entry.region;
+  const rel = region ? tileRelation(tile, region) : 'inside';
   if (rel === 'outside') return { data: await transparent() };
-  const res = await fetch(tileUrl(templateFor(entry.provider, px), tile), { signal: abort.signal });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-  const bytes = await res.arrayBuffer();
-  if (rel === 'inside') return { data: bytes };
+  const bytes = await fetchShown(entry.provider, px, tile, abort.signal);
+  if (rel === 'inside' || !region) return { data: bytes };
   const image = await createImageBitmap(new Blob([bytes]));
   const canvas = new OffscreenCanvas(image.width, image.height);
   const ctx = canvas.getContext('2d');
   if (!ctx) return { data: bytes };
-  clipTo(ctx, tile, entry.region, image.width);
+  clipTo(ctx, tile, region, image.width);
   ctx.drawImage(image, 0, 0);
   image.close();
   return { data: canvas.transferToImageBitmap() };
+}
+
+const mirrors = new Map<string, MirrorChoice>();
+
+/** One shown tile; with a mirror, the two servers in the order the last answer set. */
+async function fetchShown(provider: ImageryProvider, px: number, tile: TileCoord, signal: AbortSignal): Promise<ArrayBuffer> {
+  const url = tileUrl(templateFor(provider, px), tile);
+  const mirrorUrl = provider.mirror ? tileUrl(provider.mirror, tile) : undefined;
+  let choice = mirrors.get(provider.id);
+  if (!choice) mirrors.set(provider.id, (choice = new MirrorChoice()));
+  let last: Error | null = null;
+  for (const asked of choice.order(url, mirrorUrl)) {
+    try {
+      const res = await fetch(asked, { signal });
+      if (res.ok) {
+        choice.answered(asked, mirrorUrl);
+        return await res.arrayBuffer();
+      }
+      last = new Error(`${res.status} ${res.statusText}`);
+      if (res.status < 500 && res.status !== 429) break;
+    } catch (err) {
+      if (signal.aborted) throw err;
+      last = err instanceof Error ? err : new Error(String(err));
+    }
+  }
+  throw last ?? new Error('no tile');
 }
 
 /** Sets the canvas clip to the region, in the pixels of a `size` px tile. */

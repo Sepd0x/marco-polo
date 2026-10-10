@@ -8,8 +8,8 @@ import {
   tileUrl,
 } from '../src/geo/mercator.js';
 import { convexHull, minAreaRect, orientedDims } from '../src/geo/obb.js';
-import { tileRequest, wmsTileRequest } from '../src/geo/wms.js';
-import { DGT_ORTOS2025, ESRI_WORLD_IMAGERY } from '../src/providers.js';
+import { MirrorChoice, tileRequest, wmsTileRequest } from '../src/geo/wms.js';
+import { DGT_ORTOS2025, ESRI_WORLD_IMAGERY, PNOA } from '../src/providers.js';
 import type { Ring } from '../src/types.js';
 
 describe('EPSG:3857 tile bounds', () => {
@@ -154,5 +154,29 @@ describe('oriented dimensions', () => {
     expect(r.length).toBeCloseTo(4, 9);
     expect(r.width).toBeCloseTo(2, 9);
     expect(r.headingDeg).toBeCloseTo(90, 9);
+  });
+});
+
+describe('provider mirrors', () => {
+  it('fill a TMS row from the bottom with {-y}', () => {
+    expect(tileUrl('https://t/{z}/{x}/{-y}.jpeg', { z: 19, x: 256571, y: 197648 })).toBe('https://t/19/256571/326639.jpeg');
+    expect(tileUrl('{z}/{-y}', { z: 0, x: 0, y: 0 })).toBe('0/0');
+  });
+
+  it('give PNOA requests the URL of the same tile on the IGN TMS', () => {
+    const req = tileRequest(PNOA, { z: 19, x: 256571, y: 197648 });
+    expect(req.url).toContain('tilerow=197648&tilecol=256571');
+    expect(req.mirrorUrl).toBe('https://tms-pnoa-ma.idee.es/1.0.0/pnoa-ma/19/256571/326639.jpeg');
+    expect(tileRequest(DGT_ORTOS2025, { z: 18, x: 1, y: 1 }).mirrorUrl).toBeUndefined();
+  });
+
+  it('ask the mirror first once the main server failed and the mirror answered', () => {
+    const m = new MirrorChoice();
+    expect(m.order('a')).toEqual(['a']);
+    expect(m.order('a', 'b')).toEqual(['a', 'b']);
+    m.answered('b', 'b');
+    expect(m.order('c', 'd')).toEqual(['d', 'c']);
+    m.answered('c', 'd');
+    expect(m.order('c', 'd')).toEqual(['c', 'd']);
   });
 });
