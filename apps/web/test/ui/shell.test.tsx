@@ -130,6 +130,40 @@ describe('one count', () => {
     expect(q('.summary')!.textContent).toContain('28 not scanned');
   });
 
+  it('names every kind of missing tile when a scan stopped, and says when the tiles read had no imagery', () => {
+    const tiles = useStore.getState().planTiles ?? [];
+    const part = (done: number, failed: number, empty: number) => ({
+      id: 'main',
+      providerId: 'esri-world-imagery',
+      providerName: 'Esri World Imagery',
+      attribution: '',
+      licence: '',
+      date: null,
+      zoom: 19,
+      nativeResM: null,
+      tiles: [] as typeof tiles,
+      tilesDone: done,
+      tilesFailed: failed,
+      tilesNoCoverage: empty,
+      areaM2: 0,
+      status: 'done',
+      fellBackFrom: null,
+    });
+    const stats = useStore.getState().stats;
+    seed('complete', { ranked: [], parts: [part(6, 0, 6)], stats: { ...stats, tilesTotal: 9, tilesDone: 6, tilesFailed: 0 } });
+    render();
+    let text = q('.summary')!.textContent!;
+    expect(text).toContain('3 not scanned, 6 no imagery');
+    expect(text).toContain('The imagery has nothing here');
+    m!.unmount();
+
+    seed('complete', { parts: [part(10, 1, 2)], stats: { ...stats, tilesTotal: 40, tilesDone: 12, tilesFailed: 1 } });
+    render();
+    text = q('.summary')!.textContent!;
+    expect(text).toContain('28 not scanned, 1 failed, 2 no imagery');
+    expect(text).not.toContain('The imagery has nothing here');
+  });
+
   it('says nothing was scanned when the scan stopped before the first tile', () => {
     seed('complete', { ranked: [], stats: { ...useStore.getState().stats, tilesDone: 0 } });
     render();
