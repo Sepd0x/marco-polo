@@ -33,6 +33,12 @@ export function isMultiple(v: number, step: number): boolean {
   return Math.abs(v / step - Math.round(v / step)) < 1e-6;
 }
 
+/** A longitude brought back into -180 to 180, for display after the map crosses the antimeridian. */
+export function wrapLongitude(lon: number): number {
+  const w = ((((lon + 180) % 360) + 360) % 360) - 180;
+  return w === -180 && lon > 0 ? 180 : w;
+}
+
 /** Decimal degrees with the typographic minus and the degree sign, as everywhere in the interface. */
 export function formatDegrees(v: number, decimals: number): string {
   const s = (Math.abs(v) < 0.5 * 10 ** -decimals ? 0 : v).toFixed(decimals);
@@ -173,11 +179,11 @@ export class FrameOverlay {
       let last = -Infinity;
       for (const lon of multiples(west, east, step)) {
         const x = xOf(lon);
-        const text = formatDegrees(lon, dec);
+        const text = formatDegrees(wrapLongitude(lon), dec);
         const w = text.length * CHAR_W;
-        let lx = x + 4;
-        // A label that would sit on the middle fiducial moves to its far side.
-        if (lx < cx + half + 4 && lx + w > cx - half - 4) lx = Math.max(lx, cx + half + 4);
+        const lx = x + 4;
+        // A label that would sit on the middle fiducial is left out: moved, it reads as the next tick's.
+        if (lx < cx + half + 4 && lx + w > cx - half - 4) continue;
         if (x < 2 || lx < last + 10 || lx + w > W - 2) continue;
         labels.push(`<text x="${lx.toFixed(1)}" y="-11">${text}</text>`);
         last = lx + w;
@@ -187,8 +193,8 @@ export class FrameOverlay {
         const y = yOf(lat);
         const text = formatDegrees(lat, dec);
         const w = text.length * CHAR_W;
-        let ly = y - 4;
-        if (ly > cy - half - 4 && ly - w < cy + half + 4) ly = Math.min(ly, cy - half - 4);
+        const ly = y - 4;
+        if (ly > cy - half - 4 && ly - w < cy + half + 4) continue;
         if (y > H - 2 || ly > last - 10 || ly - w < 2) continue;
         labels.push(`<text transform="translate(-11 ${ly.toFixed(1)}) rotate(-90)">${text}</text>`);
         last = ly - w;
