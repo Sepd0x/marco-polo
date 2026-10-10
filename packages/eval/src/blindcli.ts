@@ -104,9 +104,11 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
     const a = boxes.filter(inSub);
     const b = dedupeBoxes(passToGeo(pass2, windows)).filter(inSub);
     const r = agreement(a, b);
-    const out = { zone: zone.id, windows: ids, pass1Pools: a.filter((x) => x.kind === 'p').length, pass2Pools: b.filter((x) => x.kind === 'p').length, ...r, threshold: 0.9, ok: r.f1 !== null && r.f1 >= 0.9 };
+    // Neither pass boxed a pool (the negative stratum): nothing to disagree on, F1 stays undefined.
+    const none = r.f1 === null;
+    const out = { zone: zone.id, windows: ids, pass1Pools: a.filter((x) => x.kind === 'p').length, pass2Pools: b.filter((x) => x.kind === 'p').length, ...r, threshold: 0.9, ok: none || r.f1! >= 0.9, ...(none ? { note: 'neither pass boxed a pool in these windows' } : {}) };
     await writeFile(join(rd, 'agreement.json'), JSON.stringify(out, null, 1) + '\n', 'utf8');
-    console.log(`${zone.id}: agreement F1 ${r.f1 === null ? 'n/a' : r.f1.toFixed(3)} (matched ${r.matched}, only pass 1 ${r.onlyA}, only pass 2 ${r.onlyB})${out.ok ? '' : ' BELOW 0.90: review the zone again'}`);
+    console.log(`${zone.id}: agreement F1 ${none ? 'n/a, neither pass boxed a pool' : r.f1!.toFixed(3)} (matched ${r.matched}, only pass 1 ${r.onlyA}, only pass 2 ${r.onlyB})${out.ok ? '' : ' BELOW 0.90: review the zone again'}`);
     return;
   }
 

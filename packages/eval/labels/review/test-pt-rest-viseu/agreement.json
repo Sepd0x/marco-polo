@@ -1,0 +1,18 @@
+{
+ "zone": "test-pt-rest-viseu",
+ "windows": [
+  "w-00-01",
+  "w-00-02",
+  "w-01-03",
+  "w-03-01",
+  "w-04-02"
+ ],
+ "pass1Pools": 15,
+ "pass2Pools": 19,
+ "matched": 14,
+ "onlyA": 1,
+ "onlyB": 1,
+ "f1": 0.9333333333333333,
+ "threshold": 0.9,
+ "ok": true
+}

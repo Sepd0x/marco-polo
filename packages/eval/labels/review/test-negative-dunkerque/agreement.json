@@ -1,0 +1,22 @@
+{
+ "zone": "test-negative-dunkerque",
+ "windows": [
+  "w-00-01",
+  "w-01-00",
+  "w-01-01",
+  "w-01-03",
+  "w-02-01",
+  "w-02-04",
+  "w-03-05",
+  "w-04-05"
+ ],
+ "pass1Pools": 0,
+ "pass2Pools": 0,
+ "matched": 0,
+ "onlyA": 0,
+ "onlyB": 0,
+ "f1": null,
+ "threshold": 0.9,
+ "ok": true,
+ "note": "neither pass boxed a pool in these windows"
+}
