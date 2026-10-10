@@ -79,8 +79,13 @@ export interface LoadOptions {
   source?: string;
   /** Shift of raw OSM geometry onto that source, metres [east, north]; null = not measured. */
   osmShiftM?: [number, number] | null;
-  /** Shift of hand labels from the source they were drawn on, metres [east, north]. */
+  /** Shift of hand labels from the zone's label source onto `source`, metres [east, north]. */
   visualShiftM?: [number, number];
+  /**
+   * The same shift onto any other source, for hand labels drawn on that source
+   * (`drawnOn`): they move by `visualShiftM` minus the shift of their own source.
+   */
+  visualShiftFor?: (source: string) => [number, number] | undefined;
 }
 
 /** Pools that are not in a given source's imagery (built later, filled in, covered): ignored there. */
@@ -105,9 +110,20 @@ export async function loadLabels(
   if (!osmShift && all.some((f) => f.properties.source === 'osm')) {
     throw new Error(`${zone}: OSM shift on ${opts.source ?? 'this source'} not measured (eval offset), refusing to guess`);
   }
-  // A hand label drawn on the source being read (`drawnOn`) is already in place; other hand labels take the visual shift.
-  const move = (f: LabelFeature) =>
-    f.properties.source === 'osm' ? shiftFeature(f, osmShift!) : f.properties.drawnOn && f.properties.drawnOn === opts.source ? f : shiftFeature(f, visualShift);
+  // A hand label drawn on the source being read (`drawnOn`) is already in place;
+  // one drawn on another source moves by the difference of the two shifts; the
+  // rest were drawn on the label source and take the visual shift.
+  const drawnShift = (on: string): [number, number] => {
+    const own = opts.visualShiftFor?.(on);
+    if (!own) throw new Error(`${zone}: labels drawn on ${on} need the label shift onto ${on}, refusing to guess`);
+    return [visualShift[0] - own[0], visualShift[1] - own[1]];
+  };
+  const move = (f: LabelFeature) => {
+    if (f.properties.source === 'osm') return shiftFeature(f, osmShift!);
+    const on = f.properties.drawnOn;
+    if (!on) return shiftFeature(f, visualShift);
+    return on === opts.source ? f : shiftFeature(f, drawnShift(on));
+  };
   // A hand-made feature with an OSM id replaces that OSM feature (used to mark a
   // mapped pool as `ignore` when the imagery shows it covered or not built yet).
   const byId = new Map<string, LabelFeature>();

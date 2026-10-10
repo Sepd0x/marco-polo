@@ -90,7 +90,7 @@ async function main() {
   const lab = async (sid: SourceId) => {
     const s = shiftsFor(zone, sid);
     if (!s) throw new Error(`${zone.id}: no label shift for ${sid}`);
-    return (await loadLabels(zone.id, { source: sid, osmShiftM: s.osm, visualShiftM: s.visual })).labels;
+    return (await loadLabels(zone.id, { source: sid, osmShiftM: s.osm, visualShiftM: s.visual, visualShiftFor: (on) => shiftsFor(zone, on as SourceId)?.visual })).labels;
   };
   const openLabels = await lab(open);
   const esriLabels = await lab('esri');

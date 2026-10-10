@@ -14,6 +14,7 @@ import { MODEL_PATH, v2Detector } from '../../packages/eval/src/detectors.js';
 import { evaluateZone } from '../../packages/eval/src/evaluate.js';
 import { TileSource } from '../../packages/eval/src/imagery.js';
 import { loadLabels } from '../../packages/eval/src/labels.js';
+import type { SourceId } from '../../packages/eval/src/candidates.js';
 import { SOURCES } from '../../packages/eval/src/sources.js';
 import { shiftsFor, sourceFor, zoneById } from '../../packages/eval/src/zones.js';
 
@@ -51,7 +52,7 @@ async function main() {
     const src = new TileSource({ provider: SOURCES[sid], cacheDir: cache, ratePerSec: 4 });
     const shifts = shiftsFor(z, sid);
     if (!shifts) throw new Error(`${id}: no label shift for ${sid}`);
-    const lab = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual });
+    const lab = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual, visualShiftFor: (on) => shiftsFor(z, on as SourceId)?.visual });
     const run = await evaluateZone(z, lab.labels, { visual: lab.visual, overrides: lab.overrides, absent: lab.absent }, { ...det, thresholdFor: undefined }, src, 0);
     const fam = sourceFamily(src.provider.id);
     const conf = new Map(run.shown.map((d) => [d.id, d.confidence]));

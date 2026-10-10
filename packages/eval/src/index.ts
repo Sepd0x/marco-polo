@@ -279,7 +279,7 @@ async function cmdRun(o: Opts) {
     if (!shifts) throw new Error(`${z.id}: labels have no measured shift onto ${sid} (eval offset --source ${sid} --zone ${z.id})`);
     const src = sources.get(sid) ?? tileSource(o, sid);
     sources.set(sid, src);
-    const { labels, visual, overrides, absent } = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual });
+    const { labels, visual, overrides, absent } = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual, visualShiftFor: (on) => shiftsFor(z, on as SourceId)?.visual });
     const t0 = Date.now();
     const run = await evaluateZone(z, labels, { visual, overrides, absent }, detector, src, o.minConf, o.match);
     const r = run.result;

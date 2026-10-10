@@ -96,7 +96,9 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
   if (what === 'supplement') {
     const shifts = shiftsFor(zone, sid);
     if (!shifts) throw new Error(`${zone.id}: no label shift for ${sid}`);
-    const { labels } = await loadLabels(zone.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual });
+    const mine = `visual/${zone.id}/${sid}-blind-`;
+    // Compare with every label except the boxes an earlier run of this command added, which this run replaces.
+    const labels = (await loadLabels(zone.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual, visualShiftFor: (on) => shiftsFor(zone, on as SourceId)?.visual })).labels.filter((l) => !l.id.startsWith(mine));
     const extraPath = join(LABELS_DIR, `${zone.id}.extra.geojson`);
     const extra = existsSync(extraPath) ? readJson<{ features: LabelFeature[] } & Record<string, unknown>>(extraPath) : { type: 'FeatureCollection', zone: zone.id, features: [] as LabelFeature[] };
     const added: LabelFeature[] = [];
@@ -106,7 +108,7 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
       added.push(boxFeature(b.bbox, id, b.kind === 'p' ? 'pool' : 'ignore', { method: `blind box on ${sid}, matching no earlier label`, reason: b.kind === 'u' ? 'unsure in the blind pass' : undefined, drawnOn: sid }));
     }
     const unboxed = labels.filter((l) => l.role === 'pool' && pointInBBox(l.centroid, zone.bbox) && !boxes.some((b) => sameObject(l.bbox, b.bbox))).length;
-    extra.features = [...extra.features.filter((f) => !f.properties.id.startsWith(`visual/${zone.id}/${sid}-blind-`)), ...added];
+    extra.features = [...extra.features.filter((f) => !f.properties.id.startsWith(mine)), ...added];
     await writeFile(extraPath, JSON.stringify(extra, null, 1) + '\n', 'utf8');
     console.log(`${zone.id}: ${boxes.length} blind boxes, ${added.filter((f) => f.properties.role === 'pool').length} new pools and ${added.filter((f) => f.properties.role === 'ignore').length} new unsure added to ${zone.id}.extra.geojson; ${unboxed} pool labels in the zone have no blind box`);
     return;

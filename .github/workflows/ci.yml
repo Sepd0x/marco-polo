@@ -38,6 +38,9 @@ jobs:
       - name: README numbers match the reports
         run: node scripts/check-readme.mjs
 
+      - name: Benchmark zones keep their distances
+        run: npm run eval -- zones check
+
       - name: Install Chromium and Firefox for the browser tests
         run: npx playwright install --with-deps chromium firefox
 

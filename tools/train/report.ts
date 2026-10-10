@@ -29,11 +29,12 @@ import { BOOT } from '../../packages/eval/src/bootstrap.js';
 import { v2Detector, v2MosaicDetector } from '../../packages/eval/src/detectors.js';
 import { evaluateZone, type ZoneResult } from '../../packages/eval/src/evaluate.js';
 import { checkFrozen, labelsHash } from '../../packages/eval/src/freeze.js';
-import { detectorHash, logTestRun } from '../../packages/eval/src/gate.js';
+import { DETECTOR_PATHS, detectorHash, logTestRun } from '../../packages/eval/src/gate.js';
 import { TileSource } from '../../packages/eval/src/imagery.js';
 import { LABELS_DIR, loadLabels } from '../../packages/eval/src/labels.js';
 import { aggregate, groups, markdownReport, type RunMeta } from '../../packages/eval/src/report.js';
-import { SOURCES, type SourceId } from '../../packages/eval/src/sources.js';
+import type { SourceId } from '../../packages/eval/src/candidates.js';
+import { SOURCES } from '../../packages/eval/src/sources.js';
 import { selectZones, shiftsFor, sourceFor } from '../../packages/eval/src/zones.js';
 import type { CalibrationRows } from './calibrate.js';
 
@@ -65,6 +66,10 @@ async function main() {
   if (zones.some((z) => z.role === 'TEST')) {
     const why = arg('confirm-test', '');
     if (!why) throw new Error('TEST zones selected: pass --confirm-test "<why>" (logged in packages/eval/results/TEST_RUNS.md, at most 3 runs)');
+    // The run is logged under the detector hash of this checkout, so it must score exactly that detector.
+    const dirty = execSync(`git status --porcelain -- ${DETECTOR_PATHS.join(' ')}`, { cwd: ROOT, encoding: 'utf8' }).trim();
+    if (dirty) throw new Error(`TEST runs score the committed detector only; uncommitted changes:\n${dirty}`);
+    if (modelPath !== join(ROOT, 'packages/core/models/pool-v2.json')) throw new Error('TEST runs score packages/core/models/pool-v2.json only (drop --model)');
     const eval_ = join(ROOT, 'packages/eval');
     const commit = execSync('git rev-parse --short HEAD', { cwd: ROOT, encoding: 'utf8' }).trim();
     const row = logTestRun(join(eval_, 'results/TEST_RUNS.md'), join(eval_, 'targets.json'), { date: new Date().toISOString().slice(0, 10), commit, detector: 'v2', detectorHash: detectorHash(ROOT), why });
@@ -85,7 +90,7 @@ async function main() {
     sources.set(sid, src);
     const shifts = shiftsFor(z, sid);
     if (!shifts) throw new Error(`${z.id}: no label shift for ${sid}`);
-    const lab = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual });
+    const lab = await loadLabels(z.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual, visualShiftFor: (on) => shiftsFor(z, on as SourceId)?.visual });
     const info = { visual: lab.visual, overrides: lab.overrides, absent: lab.absent };
     let model = shipped;
     let modelName = 'pool-v2.json';

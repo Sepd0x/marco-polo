@@ -19,6 +19,7 @@ export interface TileSourceOptions {
 /**
  * Tile reader for the benchmark: disk cache first, then a slow, single-stream
  * network fetch. Same cache layout as the CLI so the two can share a folder.
+ * Esri tiles are never written to disk.
  *
  * `get` always returns a 256 px tile on the z grid, the unit v1 reads. XYZ
  * sources are fetched as they are; WMS sources are asked for the tile's
@@ -38,6 +39,11 @@ export class TileSource {
 
   constructor(opts: TileSourceOptions) {
     this.opts = opts;
+  }
+
+  /** Esri's terms forbid storing its data: its tiles stay in memory for one run, never on disk. */
+  private get storable(): boolean {
+    return this.opts.provider.id !== 'esri-world-imagery';
   }
 
   get provider(): ImageryProvider {
@@ -130,8 +136,10 @@ export class TileSource {
       try {
         const res = await fetch(asked, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
         if (res.status === 404) {
-          await mkdir(this.opts.cacheDir, { recursive: true });
-          await writeFile(path, Buffer.alloc(0));
+          if (this.storable) {
+            await mkdir(this.opts.cacheDir, { recursive: true });
+            await writeFile(path, Buffer.alloc(0));
+          }
           return Buffer.alloc(0);
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -139,8 +147,10 @@ export class TileSource {
         const type = res.headers.get('content-type') ?? '';
         if (!/^image\//.test(type)) throw new Error(`not an image: ${type}`);
         const buf = Buffer.from(await res.arrayBuffer());
-        await mkdir(this.opts.cacheDir, { recursive: true });
-        await writeFile(path, buf);
+        if (this.storable) {
+          await mkdir(this.opts.cacheDir, { recursive: true });
+          await writeFile(path, buf);
+        }
         this.fetched++;
         return buf;
       } catch {

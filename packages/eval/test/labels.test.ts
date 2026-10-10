@@ -29,4 +29,18 @@ describe('label loading', () => {
     expect(a.bbox.west).toBeGreaterThan(1 + 1e-5);
     expect(b.bbox.west).toBeCloseTo(1.01, 9);
   });
+
+  it('moves a label drawn on a third source by the difference of the two shifts', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'mp-labels-'));
+    writeFileSync(join(dir, 'z.geojson'), JSON.stringify({ type: 'FeatureCollection', features: [] }));
+    writeFileSync(
+      join(dir, 'z.extra.geojson'),
+      JSON.stringify({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: square(1, 0), properties: { id: 'b', source: 'visual', role: 'pool', drawnOn: 'ign' } }] }),
+    );
+    // Label source esri; ign sits 10 m east of it, dgt 4 m east: an ign label read on dgt moves 6 m west.
+    const shifts: Record<string, [number, number]> = { esri: [0, 0], ign: [10, 0], dgt: [4, 0] };
+    const { labels } = await loadLabels('z', { dir, source: 'dgt', osmShiftM: [0, 0], visualShiftM: shifts.dgt, visualShiftFor: (on) => shifts[on] });
+    expect(labels[0].bbox.west).toBeCloseTo(1 - 6 / 111320, 9);
+    await expect(loadLabels('z', { dir, source: 'dgt', osmShiftM: [0, 0], visualShiftM: shifts.dgt })).rejects.toThrow(/drawn on ign/);
+  });
 });
