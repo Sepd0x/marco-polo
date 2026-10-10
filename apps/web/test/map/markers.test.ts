@@ -14,8 +14,8 @@ describe('pool labels', () => {
     expect(labelStyle(50, true)).toBe('open');
   });
 
-  it('keeps bare numbers between the first numbers and zoom 17, where a box could cover a pool', () => {
-    expect(RANK_MIN_ZOOM).toBe(16);
+  it('shows bare numbers from zoom 15 and boxes from 17, where a box no longer covers a pool', () => {
+    expect(RANK_MIN_ZOOM).toBe(15);
     expect(BOX_FROM_ZOOM).toBe(17);
   });
 

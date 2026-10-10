@@ -339,7 +339,8 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   // Only the scan this page ran can retry: an archived scan keeps no tile list.
   const canRetry = !stopped && stats.tilesFailed > 0 && scanId != null && currentScan()?.scanId === scanId;
   let problem: string | null = null;
-  if (!stopped && stats.tilesTotal > 0 && tiles.ok <= 0) {
+  // A stopped scan that read tiles but got no imagery from any says so too.
+  if (stats.tilesTotal > 0 && (!stopped || stats.tilesDone > 0) && tiles.ok <= 0) {
     problem =
       stats.tilesFailed > 0
         ? 'No tile could be loaded. Check your connection, then retry.'
@@ -348,12 +349,12 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
     problem = `${plural(stats.tilesFailed, 'tile')} could not be loaded, so pools there are missing.`;
   }
 
-  let tilesNote = 'none missing';
-  if (stopped) tilesNote = `${formatCount(stats.tilesTotal - stats.tilesDone)} not scanned`;
-  else if (tiles.missing > 0)
-    tilesNote = [tiles.failed ? `${formatCount(tiles.failed)} failed` : null, tiles.noCoverage ? `${formatCount(tiles.noCoverage)} no imagery` : null]
-      .filter(Boolean)
-      .join(', ');
+  const tileParts = [
+    stopped ? `${formatCount(stats.tilesTotal - stats.tilesDone)} not scanned` : null,
+    tiles.failed ? `${formatCount(tiles.failed)} failed` : null,
+    tiles.noCoverage ? `${formatCount(tiles.noCoverage)} no imagery` : null,
+  ].filter(Boolean);
+  const tilesNote = tileParts.length ? tileParts.join(', ') : 'none missing';
 
   // A stopped scan counts the ground of the tiles it read, out of the whole area.
   const scannedText = stopped ? `${formatLandArea(stats.scannedAreaM2)} of ${formatLandArea(landArea)}` : formatLandArea(landArea);

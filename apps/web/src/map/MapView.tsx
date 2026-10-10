@@ -322,6 +322,10 @@ export function MapView() {
   return <div id="map" ref={container} />;
 }
 
+/** Margin around the framed result, px. A phone map is about 350 px wide, so it keeps a thin one. */
+const RESULT_MARGIN = 60;
+const RESULT_MARGIN_PHONE = 16;
+
 /** After a scan: frame the pools found, clear of the panels; the area when there are none. */
 function fitResults(map: maplibregl.Map): void {
   const { ranked, area } = useStore.getState();
@@ -344,7 +348,7 @@ function fitResults(map: maplibregl.Map): void {
       [west, south],
       [east, north],
     ],
-    { padding: occluderPadding(map.getContainer(), 60), duration: 900, maxZoom: 18 },
+    { padding: occluderPadding(map.getContainer(), isPhone() ? RESULT_MARGIN_PHONE : RESULT_MARGIN), duration: 900, maxZoom: 18 },
   );
 }
 
