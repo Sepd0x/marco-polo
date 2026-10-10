@@ -15,7 +15,6 @@ export const LABEL_ATTRIBUTION =
   '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>';
 
 export const FONT_REGULAR = ['Noto Sans Regular'];
-export const FONT_BOLD = ['Noto Sans Bold'];
 
 const NAME: maplibregl.ExpressionSpecification = ['coalesce', ['get', 'name:latin'], ['get', 'name']];
 
@@ -56,8 +55,9 @@ export function labelLayers(): maplibregl.LayerSpecification[] {
         'symbol-placement': 'line',
         'text-field': NAME,
         'text-font': FONT_REGULAR,
-        'text-size': ['interpolate', ['linear'], ['zoom'], 15, 11, 19, 13],
+        'text-size': 12,
         'text-letter-spacing': 0.02,
+        'text-transform': 'none',
       },
       paint: TEXT_PAINT,
     },
@@ -70,7 +70,7 @@ export function labelLayers(): maplibregl.LayerSpecification[] {
       layout: {
         'text-field': ['get', 'housenumber'],
         'text-font': FONT_REGULAR,
-        'text-size': 11,
+        'text-size': 12,
       },
       paint: { ...TEXT_PAINT, 'text-color': '#e8edf2' },
     },
@@ -82,18 +82,10 @@ export function labelLayers(): maplibregl.LayerSpecification[] {
       filter: ['in', ['get', 'class'], ['literal', ['city', 'town', 'village', 'suburb', 'neighbourhood', 'hamlet']]],
       layout: {
         'text-field': NAME,
-        'text-font': FONT_BOLD,
-        'text-size': [
-          'match',
-          ['get', 'class'],
-          'city',
-          16,
-          'town',
-          14,
-          ['suburb', 'village'],
-          13,
-          12,
-        ],
+        // Quiet beside the interface type: one weight, 13 px at most, as written.
+        'text-font': FONT_REGULAR,
+        'text-size': ['match', ['get', 'class'], ['city', 'town'], 13, 12],
+        'text-transform': 'none',
         'text-max-width': 8,
         'symbol-sort-key': ['match', ['get', 'class'], 'city', 0, 'town', 1, 'village', 2, 'suburb', 3, 4],
       },
