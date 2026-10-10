@@ -33,7 +33,7 @@ function ThemeButton() {
   );
 }
 
-/** Desktop: everything about the scan in one column, the map gets the rest. */
+/** Desktop: everything about the scan in one column of rules, the framed map gets the rest. */
 export function SidePanel() {
   const phase = useStore((s) => s.phase);
   const setSettingsOpen = useUi((s) => s.setSettingsOpen);
@@ -52,7 +52,7 @@ export function SidePanel() {
           <IconSliders />
         </button>
       </div>
-      <SearchBox />
+      <SearchBox shortcut />
       <div className="scroll">
         <ImageryNotice />
         {phase === 'idle' && (

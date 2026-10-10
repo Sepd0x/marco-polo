@@ -5,15 +5,14 @@ import { useUi } from './uiState.js';
 import { viewRing } from './model.js';
 import { useSetArea } from './Sections.js';
 import { SidePanel } from './SidePanel.js';
-import { PhoneChrome } from './PhoneChrome.js';
-import { ImageryChip, Legend, useChipSource } from './MapChrome.js';
-import { Inspector } from './Inspector.js';
+import { PhoneSheet, PhoneTop } from './PhoneChrome.js';
+import { DataStrip, Legend, MapScale, MapTools } from './MapChrome.js';
 import { SettingsDialog } from './Settings.js';
 
 const typing = (t: EventTarget | null) =>
   t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t instanceof HTMLSelectElement;
 
-/** Keys: R rectangle, P shape, V scan this view, Esc closes the innermost thing open. */
+/** Keys: R rectangle, P shape, V scan this view, / search, Esc closes the innermost thing open. */
 function useKeys() {
   const view = useMapView();
   const setArea = useSetArea();
@@ -28,6 +27,14 @@ function useKeys() {
         return;
       }
       if (typing(e.target) || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.key === '/') {
+        const input = document.querySelector<HTMLInputElement>('.search input');
+        if (input) {
+          e.preventDefault();
+          input.focus();
+        }
+        return;
+      }
       if (s.phase !== 'idle' && s.phase !== 'ready') return;
       const k = e.key.toLowerCase();
       if (k === 'r') s.setDrawMode(s.drawMode === 'rect' ? null : 'rect');
@@ -39,30 +46,32 @@ function useKeys() {
   }, [view, setArea]);
 }
 
-/** Page layout. The map is passed in so tests can render the rest without WebGL. */
+/**
+ * Page layout. The map sits in a frame like a survey photograph: margins for
+ * the graduation, the data strip underneath. The map is passed in so tests
+ * can render the rest without WebGL.
+ */
 export function Shell({ map }: { map: ReactNode }) {
   const phone = useIsPhone();
   const phase = useStore((s) => s.phase);
   const settingsOpen = useUi((s) => s.settingsOpen);
   const setSettingsOpen = useUi((s) => s.setSettingsOpen);
-  const source = useChipSource();
   const live = phase === 'scanning' || phase === 'paused';
   useKeys();
 
   return (
     <div className={`app${phone ? ' phone' : ''}`}>
-      {!phone && <SidePanel />}
-      <main className="map-wrap" aria-label="Map">
-        {map}
-        {!phone && (
-          <>
-            <ImageryChip />
-            {live && <Legend />}
-            <Inspector phone={false} sourceName={source?.name ?? null} />
-          </>
-        )}
-        {phone && <PhoneChrome sourceName={source?.name ?? null} />}
+      {phone ? <PhoneTop /> : <SidePanel />}
+      <main className="frame" aria-label="Map">
+        <div className="viewport">
+          {map}
+          {!phone && <MapTools />}
+          {!phone && live && <Legend />}
+          <MapScale />
+        </div>
+        <DataStrip phone={phone} />
       </main>
+      {phone && <PhoneSheet />}
       {settingsOpen && <SettingsDialog onClose={() => setSettingsOpen(false)} />}
     </div>
   );

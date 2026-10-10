@@ -12,8 +12,7 @@ export function PoolThumb({
   width,
   height = width,
   viewM = THUMB_VIEW_M,
-  scaleBar = false,
-  caption,
+  scaleM,
   className = '',
 }: {
   detection: RankedDetection;
@@ -21,8 +20,8 @@ export function PoolThumb({
   width: number;
   height?: number;
   viewM?: number;
-  scaleBar?: boolean;
-  caption?: string;
+  /** Length of a scale bar in metres; none when absent. */
+  scaleM?: number;
   className?: string;
 }) {
   const s = width / viewM;
@@ -57,17 +56,16 @@ export function PoolThumb({
       {img}
       <svg className="thumb-outline" viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
         {paths.map((d, i) => (
-          <path key={`c${i}`} d={d} className="casing" strokeWidth={small ? 2.4 : 3.5} />
+          <path key={`c${i}`} d={d} className="casing" strokeWidth={small ? 2.4 : 3} />
         ))}
         {paths.map((d, i) => (
-          <path key={`p${i}`} d={d} className="pool-line" strokeWidth={small ? 1.2 : 1.6} />
+          <path key={`p${i}`} d={d} className="pool-line" strokeWidth={small ? 1.2 : 1.4} />
         ))}
       </svg>
-      {caption && <span className="thumb-cap">{caption}</span>}
-      {scaleBar && (
+      {scaleM != null && (
         <span className="mini-scale" aria-hidden="true">
-          5 m
-          <i style={{ width: Math.round(5 * s) }} />
+          {scaleM} m
+          <i style={{ width: Math.round(scaleM * s) }} />
         </span>
       )}
     </span>

@@ -8,7 +8,6 @@ import { DEMO_AREAS } from '../lib/demoAreas.js';
 import { emit } from '../lib/bus.js';
 import {
   formatArea,
-  formatCaptureDate,
   formatCount,
   formatDuration,
   formatLandArea,
@@ -19,8 +18,8 @@ import {
   plural,
 } from '../lib/format.js';
 import { cutoffsInUse } from '../lib/score.js';
-import { cellStates, MAX_CELLS, sortPools, thresholdToShowAll, viewRing, type AreaFacts, type SourceFacts } from './model.js';
-import { useAreaFacts, useMapView, usePools, useScanSources } from './hooks.js';
+import { cellStates, MAX_CELLS, scoreBins, sortPools, thresholdToShowAll, viewRing, type AreaFacts, type SourceFacts } from './model.js';
+import { useAreaFacts, useMapView, usePools, useScanSources, useTileCounts } from './hooks.js';
 import { useUi } from './uiState.js';
 import { PoolList } from './PoolList.js';
 import { IconDownload, IconPause, IconPlay, IconRect, IconShape, IconStop, IconView } from './icons.js';
@@ -138,7 +137,7 @@ function tilesText(facts: AreaFacts): string {
 
 export function AreaFactsList({ facts, showTime }: { facts: AreaFacts; showTime: boolean }) {
   return (
-    <dl className="facts">
+    <dl className="kv">
       <dt>Size</dt>
       <dd>{formatLandArea(facts.areaM2)}</dd>
       <dt>Tiles</dt>
@@ -148,7 +147,6 @@ export function AreaFactsList({ facts, showTime }: { facts: AreaFacts; showTime:
         {facts.sources.length === 0 && 'Worked out when the scan starts'}
         {facts.sources.map((s) => (
           <span className="src" key={s.id}>
-            <i className="dot-src" aria-hidden="true" />
             {sourceText(s)}
           </span>
         ))}
@@ -274,7 +272,7 @@ export function ProgressSection({ phone = false }: { phone?: boolean }) {
       {phone && stats.tilesFailed > 0 && <p className="warn">{plural(stats.tilesFailed, 'tile')} failed.</p>}
       <div className="btns">
         {paused ? (
-          <button className={`btn${phone ? ' grow' : ''}`} onClick={resumeScan}>
+          <button className={`btn primary${phone ? ' grow' : ''}`} onClick={resumeScan}>
             <IconPlay />
             Resume
           </button>
@@ -284,7 +282,7 @@ export function ProgressSection({ phone = false }: { phone?: boolean }) {
             Pause
           </button>
         )}
-        <button className={`btn quiet${phone ? ' grow edge' : ''}`} onClick={cancelScan}>
+        <button className={`btn quiet${phone ? ' grow' : ''}`} onClick={cancelScan}>
           <IconStop />
           Stop
         </button>
@@ -298,58 +296,49 @@ function exportPools(pools: RankedDetection[], kind: 'csv' | 'geojson') {
   else download('pools.geojson', toGeoJSON(pools), 'application/geo+json');
 }
 
-export function SourceLine({ sources }: { sources: SourceFacts[] }) {
-  if (sources.length === 0) return null;
-  return (
-    <p className="imgline">
-      <i className="dot-src" aria-hidden="true" />
-      <span>
-        {sources.map((s, i) => {
-          const bits = [s.kind, formatResolution(s.resM), formatCaptureDate(s.date)].filter(Boolean);
-          return (
-            <span key={s.id}>
-              {i > 0 && '; '}
-              <b>{s.name}</b>
-              {bits.length ? `, ${bits.join(', ')}` : ''}
-            </span>
-          );
-        })}
-        . The map inside your area shows this same imagery.
-      </span>
-    </p>
-  );
-}
-
 /** How the list's minimum reads in a sentence. */
 function cutoffText(cutoffs: number[], recommended: boolean): string {
   const values = cutoffs.map(formatScore).join(' or ');
   return recommended ? `the recommended minimum (${values})` : values;
 }
 
-export function SummarySection({ compact = false }: { compact?: boolean }) {
+export function ExportButtons({ pools }: { pools: RankedDetection[] }) {
+  return (
+    <>
+      <button className="btn small" disabled={pools.length === 0} onClick={() => exportPools(pools, 'csv')}>
+        <IconDownload />
+        CSV
+      </button>
+      <button className="btn small" disabled={pools.length === 0} onClick={() => exportPools(pools, 'geojson')}>
+        <IconDownload />
+        GeoJSON
+      </button>
+    </>
+  );
+}
+
+export function SummarySection({ phone = false }: { phone?: boolean }) {
   const stats = useStore((s) => s.stats);
   const settings = useStore((s) => s.settings);
   const parts = useStore((s) => s.parts);
   const update = useStore((s) => s.updateSettings);
+  const scanName = useStore((s) => s.scanName);
   const cutoffs = cutoffsInUse(settings, parts);
   const minText = cutoffText(cutoffs, settings.recommendedScore);
   const resetScan = useStore((s) => s.resetScan);
-  const sources = useScanSources();
   const facts = useAreaFacts();
+  const tiles = useTileCounts();
   const { shown, below, lowestBelow } = usePools();
 
-  const stopped = stats.tilesTotal > 0 && stats.tilesDone < stats.tilesTotal;
+  const stopped = tiles.stopped;
   const poolArea = shown.reduce((a, d) => a + d.areaM2, 0);
   const landArea = facts?.areaM2 ?? stats.areaM2;
-  const noCoverage = sources.reduce((a, s) => a + (s.noCoverage ?? 0), 0);
-  const missing = stats.tilesFailed + noCoverage;
   const finishedAt = stats.startedAt ? stats.startedAt + stats.elapsedMs : null;
   const scanId = useStore((s) => s.scanId);
   // Only the scan this page ran can retry: an archived scan keeps no tile list.
   const canRetry = !stopped && stats.tilesFailed > 0 && scanId != null && currentScan()?.scanId === scanId;
-  const scanned = stats.tilesDone - stats.tilesFailed - noCoverage;
   let problem: string | null = null;
-  if (!stopped && stats.tilesTotal > 0 && scanned <= 0) {
+  if (!stopped && stats.tilesTotal > 0 && tiles.ok <= 0) {
     problem =
       stats.tilesFailed > 0
         ? 'No tile could be loaded. Check your connection, then retry.'
@@ -360,31 +349,47 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
 
   let tilesNote = 'none missing';
   if (stopped) tilesNote = `${formatCount(stats.tilesTotal - stats.tilesDone)} not scanned`;
-  else if (missing > 0)
-    tilesNote = [stats.tilesFailed ? `${formatCount(stats.tilesFailed)} failed` : null, noCoverage ? `${formatCount(noCoverage)} no imagery` : null]
+  else if (tiles.missing > 0)
+    tilesNote = [tiles.failed ? `${formatCount(tiles.failed)} failed` : null, tiles.noCoverage ? `${formatCount(tiles.noCoverage)} no imagery` : null]
       .filter(Boolean)
       .join(', ');
 
+  const when =
+    finishedAt == null
+      ? null
+      : stopped
+        ? `After ${formatCount(stats.tilesDone)} of ${plural(stats.tilesTotal, 'tile')}, ${formatWhen(finishedAt)}`
+        : `Finished in ${formatDuration(stats.elapsedMs)}, ${formatWhen(finishedAt)}`;
+  const meta = [scanName.trim() || null, when].filter(Boolean).join('. ');
+
   return (
-    <section className="sec" aria-labelledby="sum-h">
-      <div className="done-h">
-        <div>
-          <h2 id="sum-h">{stopped ? 'Scan stopped' : 'Scan complete'}</h2>
-          {finishedAt != null && (
-            <p>
-              {stopped
-                ? `After ${formatCount(stats.tilesDone)} of ${plural(stats.tilesTotal, 'tile')}, ${formatWhen(finishedAt)}`
-                : `Finished in ${formatDuration(stats.elapsedMs)}, ${formatWhen(finishedAt)}`}
-            </p>
-          )}
-        </div>
-        <button className="btn" onClick={resetScan}>
+    <section className="sec summary" aria-labelledby="sum-h">
+      <div className="sec-h">
+        <h2 id="sum-h">{stopped ? 'Scan stopped' : 'Scan complete'}</h2>
+        <button className="btn small" onClick={resetScan}>
           New scan
         </button>
       </div>
-      <div className="big" aria-live="polite">
-        <b>{formatCount(shown.length)}</b>
-        <span>{shown.length === 1 ? 'pool' : 'pools'}</span>
+      {meta && <p className="meta">{meta}</p>}
+      <div className="readout">
+        <div className="big" aria-live="polite">
+          <b>{formatCount(shown.length)}</b>
+          <span>{shown.length === 1 ? 'pool' : 'pools'}</span>
+        </div>
+        <dl className="stats">
+          <div>
+            <dt>pool area</dt>
+            <dd>{formatArea(poolArea)}</dd>
+          </div>
+          <div>
+            <dt>scanned</dt>
+            <dd>{formatLandArea(landArea)}</dd>
+          </div>
+          <div>
+            <dt>{tilesNote}</dt>
+            <dd>{plural(stats.tilesTotal, 'tile')}</dd>
+          </div>
+        </dl>
       </div>
       <p className="more">
         {below > 0 ? (
@@ -403,22 +408,6 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
           <>None below {minText}.</>
         )}
       </p>
-      {!compact && (
-        <div className="stats">
-          <div>
-            <b>{formatArea(poolArea)}</b>
-            <span>pool area</span>
-          </div>
-          <div>
-            <b>{formatLandArea(landArea)}</b>
-            <span>scanned</span>
-          </div>
-          <div>
-            <b>{plural(stats.tilesTotal, 'tile')}</b>
-            <span>{tilesNote}</span>
-          </div>
-        </div>
-      )}
       {problem && (
         <div className="warn-row" role="alert">
           <p className="warn">{problem}</p>
@@ -429,20 +418,39 @@ export function SummarySection({ compact = false }: { compact?: boolean }) {
           )}
         </div>
       )}
-      <SourceLine sources={sources} />
-      <div className="btns">
-        <button className="btn" disabled={shown.length === 0} onClick={() => exportPools(shown, 'csv')}>
-          <IconDownload />
-          CSV
-        </button>
-        <button className="btn" disabled={shown.length === 0} onClick={() => exportPools(shown, 'geojson')}>
-          <IconDownload />
-          GeoJSON
-        </button>
-      </div>
+      {!phone && (
+        <div className="export-row">
+          <span className="k">Export</span>
+          <span className="grow" />
+          <ExportButtons pools={shown} />
+        </div>
+      )}
     </section>
   );
 }
+
+/** Histogram of the scores over the slider: listed pools in ink, the ones below the minimum lighter. */
+function ScoreHistogram() {
+  const { shown, under } = usePools();
+  const bins = scoreBins(shown, under);
+  const max = Math.max(1, ...bins.map((b) => b.above + b.below));
+  return (
+    <div className="hist" aria-hidden="true">
+      {bins.map((b, i) =>
+        b.above + b.below === 0 ? null : (
+          <span key={i} className="bin" style={{ left: `${i + 0.5}%`, height: `${Math.max(8, ((b.above + b.below) / max) * 100)}%` }}>
+            {b.above > 0 && <i style={{ flexGrow: b.above }} />}
+            {b.below > 0 && <i className="lo" style={{ flexGrow: b.below }} />}
+          </span>
+        ),
+      )}
+    </div>
+  );
+}
+
+/** The slider stops at 0.95; the track drawn under it runs to 1.00 so the histogram fits. */
+const SLIDER_MAX = 0.95;
+const TICKS = Array.from({ length: 21 }, (_, i) => i * 5);
 
 export function ThresholdSection() {
   const settings = useStore((s) => s.settings);
@@ -453,38 +461,49 @@ export function ThresholdSection() {
   const value = cutoffs[0];
   const recommended = settings.recommendedScore;
   return (
-    <section className="sec">
-      <div className="slider">
+    <section className="sec threshold">
+      <div className="slider-h">
         <label htmlFor={id}>Minimum score</label>
+        <span className="grow" />
+        {recommended && <span className="k">{cutoffs.length > 1 ? 'recommended for each source' : 'recommended'}</span>}
+        <output htmlFor={id}>{cutoffs.map(formatScore).join('/')}</output>
+      </div>
+      <div className="score-track" style={{ ['--v' as string]: `${value * 100}%` }}>
+        <ScoreHistogram />
+        <div className="rail" aria-hidden="true">
+          <i />
+        </div>
+        <div className="ticks" aria-hidden="true">
+          {TICKS.map((t) => (
+            <i key={t} className={t % 25 === 0 ? 'm' : undefined} style={{ left: `${t}%` }} />
+          ))}
+        </div>
         <input
           id={id}
           type="range"
           min={0}
-          max={0.95}
+          max={SLIDER_MAX}
           step={0.05}
           value={value}
           aria-valuetext={recommended ? `Recommended, ${cutoffs.map(formatScore).join(' or ')}` : formatScore(value)}
           onChange={(e) => update({ minConfidence: Number(e.target.value), recommendedScore: false })}
-          style={{ ['--fill' as string]: `${(value / 0.95) * 100}%` }}
         />
-        <output htmlFor={id}>{cutoffs.map(formatScore).join('/')}</output>
       </div>
-      <p className="slider-note">
-        {recommended ? (
-          cutoffs.length > 1 ? (
-            'Recommended for each source.'
-          ) : (
-            'Recommended for this imagery.'
-          )
-        ) : (
-          <>
-            Set by you.{' '}
-            <button className="link" onClick={() => update({ recommendedScore: true })}>
-              Use the recommended minimum
-            </button>
-          </>
-        )}
-      </p>
+      <div className="scale-l" aria-hidden="true">
+        <span style={{ left: 0 }}>0.00</span>
+        <span style={{ left: '25%' }}>0.25</span>
+        <span style={{ left: '50%' }}>0.50</span>
+        <span style={{ left: '75%' }}>0.75</span>
+        <span style={{ left: '100%' }}>1.00</span>
+      </div>
+      {!recommended && (
+        <p className="slider-note">
+          Set by you.{' '}
+          <button className="link" onClick={() => update({ recommendedScore: true })}>
+            Use the recommended minimum
+          </button>
+        </p>
+      )}
     </section>
   );
 }
@@ -504,7 +523,7 @@ export function SortControl() {
   );
 }
 
-export function ListSection({ limit, onPick }: { limit?: number; onPick?: (id: string) => void }) {
+export function ListSection({ limit, phone = false }: { limit?: number; phone?: boolean }) {
   const phase = useStore((s) => s.phase);
   const sort = useUi((s) => s.sort);
   const { shown, newest, below } = usePools();
@@ -518,7 +537,9 @@ export function ListSection({ limit, onPick }: { limit?: number; onPick?: (id: s
         <h2 id="list-h">
           {live ? 'Found so far' : 'Pools'} <span className="count">{formatCount(shown.length)}</span>
         </h2>
+        <span className="grow" />
         {live ? <span className="aside">Largest first</span> : <SortControl />}
+        {phone && !live && <ExportButtons pools={shown} />}
       </div>
       {shown.length === 0 && (
         <p className="note">
@@ -529,7 +550,7 @@ export function ListSection({ limit, onPick }: { limit?: number; onPick?: (id: s
               : 'No pools in this area.'}
         </p>
       )}
-      <PoolList pools={list} newest={newest} label="Pools" limit={limit} onPick={onPick} />
+      <PoolList pools={list} newest={newest} label="Pools" limit={limit} />
       {live && shown.length > 1 && <p className="note">The order can still change until the scan ends.</p>}
     </section>
   );
@@ -549,15 +570,14 @@ export function SavedScans() {
         {archive.map((a) => (
           <li key={a.id}>
             <span className="saved-main">
-              <span className="saved-name">{a.name}</span>
+              <span className="saved-name" title={a.name}>
+                {a.name}
+              </span>
               <span className="saved-sub">
                 {plural(a.pools, 'pool')}, {formatLandArea(a.areaM2)}, {formatWhen(a.savedAt)}
               </span>
             </span>
-            <button
-              className="btn small"
-              onClick={() => void openArchived(a.id)}
-            >
+            <button className="btn small" onClick={() => void openArchived(a.id)}>
               Open
             </button>
             <button

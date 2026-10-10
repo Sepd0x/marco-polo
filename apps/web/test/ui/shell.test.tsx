@@ -30,7 +30,8 @@ afterEach(() => {
 });
 
 const PHASES: Phase[] = ['idle', 'ready', 'scanning', 'paused', 'complete'];
-const ALLOWED = /^[\x20-\x7e²×·óé]*$/;
+// The design writes coordinates in decimal degrees with the degree sign and the typographic minus.
+const ALLOWED = /^[\x20-\x7e²×·óé°\u2212]*$/;
 
 describe('interface text', () => {
   for (const phone of [false, true]) {
@@ -104,12 +105,21 @@ describe('one count', () => {
     expect(q('.more')!.textContent).toBe('None below 0.40.');
   });
 
-  it('says which imagery was scanned and that the map shows it', () => {
+  it('names the scanned imagery and its tiles in the strip under the map', () => {
     seed('complete');
     render();
-    const line = q('.imgline')!.textContent!;
-    expect(line).toContain('The map inside your area shows this same imagery.');
-    expect(line).toMatch(/Esri World Imagery|DGT Ortos2025/);
+    const strip = q('.strip')!.textContent!;
+    expect(strip).toContain('Imagery');
+    expect(strip).toMatch(/Esri World Imagery|DGT Ortos2025/);
+    expect(strip).toContain('EPSG:3857');
+    expect(strip).toContain('40/40');
+  });
+
+  it('counts the tiles with imagery in the strip and says how many are missing', () => {
+    seed('complete', { stats: { ...useStore.getState().stats, tilesFailed: 2 } });
+    render();
+    expect(q('.strip')!.textContent).toContain('38/40, 2 missing');
+    expect(q('.summary')!.textContent).toContain('2 failed');
   });
 
   it('tells a stopped scan apart from a finished one', () => {
@@ -177,34 +187,46 @@ describe('pool list and inspector', () => {
     expect(qa('[role="option"] .n').map((n) => n.textContent)).toEqual(['1', '3', '4', '2']);
   });
 
-  it('shows measured size, the score and a secondary Google Maps link', () => {
+  it('opens the pool inside its row with size, heading, score, position and a secondary Google Maps link', () => {
     seed('complete', { selectedId: 'a' });
     render();
-    const insp = q('.insp')!;
-    expect(insp.getAttribute('role')).toBe('dialog');
-    expect(insp.textContent).toContain('Pool #1');
-    expect(insp.textContent).toContain('10.0 × 5.0 m from outline');
-    expect(insp.textContent).toContain('0.91');
-    const link = [...insp.querySelectorAll('a')].find((a) => a.textContent?.includes('Open in Google Maps'))!;
+    const rec = q('.rec')!;
+    expect(rec.getAttribute('aria-label')).toBe('Pool 1');
+    expect(rec.textContent).toContain('10.0 × 5.0 m');
+    expect(rec.textContent).toContain('Heading');
+    expect(rec.textContent).toContain('0.91');
+    expect(rec.textContent).toMatch(/37\.07\d{4}°/);
+    expect(rec.textContent).toMatch(/\u22128\.11\d{4}°/);
+    expect(byText('button', 'Copy position')).toBeTruthy();
+    const link = [...rec.querySelectorAll('a')].find((a) => a.textContent?.includes('Open in Google Maps'))!;
     expect(link.href).toMatch(/^https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=-?\d+\.\d{6}%2C-?\d+\.\d{6}$/);
     expect(link.className).not.toContain('primary');
+    // The record is not inside the listbox, which holds options only.
+    expect(q('[role="listbox"]')!.contains(rec)).toBe(false);
   });
 
-  it('says "Size not measured" for a pool cut by the imagery edge', () => {
+  it('says "Not measured" for a pool cut by the imagery edge, and gives no heading', () => {
     seed('complete', { selectedId: 'd' });
     render();
-    expect(q('.insp')!.textContent).toContain('Size not measured');
-    expect(q('.insp')!.textContent).not.toContain('from outline');
+    expect(q('.rec')!.textContent).toContain('Not measured');
+    expect(q('.rec')!.textContent).not.toContain('Heading');
   });
 
-  it('steps to the next pool in list order', () => {
+  it('closes the record when its row is clicked again', () => {
     seed('complete', { selectedId: 'a' });
     render();
-    click(q('[aria-label="Next pool"]'));
-    expect(useStore.getState().selectedId).toBe('b');
-    click(q('[aria-label="Previous pool"]'));
-    click(q('[aria-label="Previous pool"]'));
-    expect(useStore.getState().selectedId).toBe('e');
+    click(q('#pool-a'));
+    expect(useStore.getState().selectedId).toBeNull();
+    expect(q('.rec')).toBeNull();
+  });
+});
+
+describe('histogram', () => {
+  it('draws one bar per score bin over the slider, listed pools apart from those below', () => {
+    seed('complete');
+    render();
+    expect(qa('.hist .bin')).toHaveLength(5);
+    expect(qa('.hist .bin i.lo')).toHaveLength(1);
   });
 });
 
@@ -271,19 +293,28 @@ describe('settings', () => {
 });
 
 describe('phone', () => {
-  it('keeps the map full screen with a sheet and a pill that opens the list', () => {
+  it('puts the summary, the slider and the list in the sheet under the map, and opens a pool in its row', () => {
     asPhone(true);
     seed('complete');
     render();
     expect(q('.side')).toBeNull();
-    const pill = q('.pill')!;
-    expect(pill.textContent).toContain('4 pools');
-    click(pill);
-    expect(pill.getAttribute('aria-expanded')).toBe('true');
-    expect(qa('[role="option"]')).toHaveLength(4);
+    const sheet = q('.sheet')!;
+    expect(sheet.querySelector('.big b')!.textContent).toBe('4');
+    expect(sheet.querySelector('#list-h .count')!.textContent).toBe('4');
+    expect(sheet.querySelectorAll('[role="option"]')).toHaveLength(4);
     click(qa('[role="option"]')[1]);
     expect(useStore.getState().selectedId).toBe('b');
-    expect(q('.m-card')!.textContent).toContain('Pool #2');
+    expect(q('.rec')!.getAttribute('aria-label')).toBe('Pool 2');
+  });
+
+  it('hides and shows the sheet from its handle', () => {
+    asPhone(true);
+    seed('complete');
+    render();
+    const grab = q('.grab')!;
+    expect(grab.getAttribute('aria-label')).toBe('Hide the panel');
+    click(grab);
+    expect(q('.grab')!.getAttribute('aria-label')).toBe('Show the panel');
   });
 });
 

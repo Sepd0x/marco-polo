@@ -1,5 +1,6 @@
 import { useId, useRef, useState } from 'react';
 import { emit } from '../lib/bus.js';
+import { formatDegrees } from '../map/frame.js';
 import { IconSearch } from './icons.js';
 import { nominatimUrl, parseCoordinates, parseNominatim, type Place } from './search.js';
 
@@ -7,7 +8,7 @@ import { nominatimUrl, parseCoordinates, parseNominatim, type Place } from './se
  * Place search through Nominatim (OpenStreetMap). A query goes out on Enter
  * only, as its usage policy asks; coordinates never leave the page.
  */
-export function SearchBox({ placeholder = 'Search a place or paste coordinates' }: { placeholder?: string }) {
+export function SearchBox({ placeholder = 'Search a place or paste coordinates', shortcut = false }: { placeholder?: string; shortcut?: boolean }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Place[] | null>(null);
   const [status, setStatus] = useState<'idle' | 'busy' | 'failed'>('idle');
@@ -69,6 +70,11 @@ export function SearchBox({ placeholder = 'Search a place or paste coordinates' 
             }
           }}
         />
+        {shortcut && (
+          <kbd className="search-key" aria-hidden="true">
+            /
+          </kbd>
+        )}
       </label>
       {results && (
         <div className="search-results" id={listId}>
@@ -76,8 +82,11 @@ export function SearchBox({ placeholder = 'Search a place or paste coordinates' 
             <p className="note">{status === 'failed' ? 'The search did not answer. Try again.' : 'No places found.'}</p>
           )}
           {results.map((r, i) => (
-            <button key={i} className="result" onClick={() => pick(r)}>
-              {r.name}
+            <button key={i} className="result" onClick={() => pick(r)} title={r.name}>
+              <span className="result-name">{r.name}</span>
+              <span className="result-sub">
+                {formatDegrees(r.lat, 4)}, {formatDegrees(r.lon, 4)}
+              </span>
             </button>
           ))}
           <p className="credit">Search by OpenStreetMap Nominatim</p>

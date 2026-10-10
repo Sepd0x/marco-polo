@@ -56,6 +56,8 @@ export interface PoolsView {
   shown: RankedDetection[];
   below: number;
   lowestBelow: number | null;
+  /** Pools below the minimum, for the histogram; never listed. */
+  under: RankedDetection[];
   newest: string | null;
 }
 
@@ -70,9 +72,9 @@ export function usePools(): PoolsView {
   const planTiles = useStore((s) => s.planTiles);
   return useMemo(() => {
     const cut = cutoffFn({ minConfidence: minScore, recommendedScore: recommended }, parts);
-    const { shown, below, lowestBelow } = splitByScore(ranked, cut, showHotTubs);
+    const { shown, below, lowestBelow, under } = splitByScore(ranked, cut, showHotTubs);
     const live = phase === 'scanning' || phase === 'paused';
-    return { shown, below, lowestBelow, newest: live ? newestId(shown, planTiles) : null };
+    return { shown, below, lowestBelow, under, newest: live ? newestId(shown, planTiles) : null };
   }, [ranked, minScore, recommended, showHotTubs, parts, phase, planTiles]);
 }
 
@@ -118,4 +120,35 @@ export function useAreaFacts(): AreaFacts | null {
   const imagery = useStore((s) => s.settings.imagery);
   const rate = useStore((s) => s.settings.ratePerSec);
   return useMemo(() => (area ? areaFacts(area, imagery, rate) : null), [area, imagery, rate]);
+}
+
+export interface TileCounts {
+  total: number;
+  done: number;
+  failed: number;
+  /** Tiles the imagery had nothing for. */
+  noCoverage: number;
+  /** Tiles read with imagery: done less failed and empty ones. */
+  ok: number;
+  missing: number;
+  stopped: boolean;
+}
+
+/** Tile counts of the scan, the one source of every tile number in the interface. */
+export function useTileCounts(): TileCounts {
+  const stats = useStore((s) => s.stats);
+  const sources = useScanSources();
+  return useMemo(() => {
+    const noCoverage = sources.reduce((a, s) => a + (s.noCoverage ?? 0), 0);
+    const missing = stats.tilesFailed + noCoverage;
+    return {
+      total: stats.tilesTotal,
+      done: stats.tilesDone,
+      failed: stats.tilesFailed,
+      noCoverage,
+      ok: Math.max(0, stats.tilesDone - missing),
+      missing,
+      stopped: stats.tilesTotal > 0 && stats.tilesDone < stats.tilesTotal,
+    };
+  }, [stats, sources]);
 }

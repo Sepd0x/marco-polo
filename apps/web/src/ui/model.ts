@@ -63,13 +63,33 @@ export function splitByScore(
   ranked: RankedDetection[],
   minScore: number | ((d: RankedDetection) => number),
   showHotTubs: boolean,
-): { shown: RankedDetection[]; below: number; lowestBelow: number | null } {
+): { shown: RankedDetection[]; below: number; lowestBelow: number | null; under: RankedDetection[] } {
   const cut = typeof minScore === 'number' ? () => minScore : minScore;
   const kept = ranked.filter((d) => showHotTubs || d.kind !== 'hot_tub');
   const above = kept.filter((d) => d.confidence >= cut(d));
   const under = kept.filter((d) => d.confidence < cut(d));
   const lowestBelow = under.length ? Math.min(...under.map((d) => d.confidence)) : null;
-  return { shown: rankDetections(above), below: under.length, lowestBelow };
+  return { shown: rankDetections(above), below: under.length, lowestBelow, under };
+}
+
+export interface ScoreBin {
+  /** Pools in this bin at or above their minimum, listed. */
+  above: number;
+  /** Pools in this bin below their minimum, counted only. */
+  below: number;
+}
+
+/**
+ * The histogram over the score slider: every pool the scan kept, in bins of
+ * 0.01 so the 0.05 steps of the slider fall on bin edges. A score of 1 goes
+ * in the last bin.
+ */
+export function scoreBins(shown: readonly RankedDetection[], under: readonly RankedDetection[], bins = 100): ScoreBin[] {
+  const out: ScoreBin[] = Array.from({ length: bins }, () => ({ above: 0, below: 0 }));
+  const at = (score: number) => Math.min(bins - 1, Math.max(0, Math.floor(score * bins + 1e-9)));
+  for (const d of shown) out[at(d.confidence)].above++;
+  for (const d of under) out[at(d.confidence)].below++;
+  return out;
 }
 
 /** The slider value that brings every pool below the threshold into the list. */

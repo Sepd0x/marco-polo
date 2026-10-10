@@ -8,6 +8,7 @@ import {
   dimsOf,
   newestId,
   sortPools,
+  scoreBins,
   splitByScore,
   thresholdToShowAll,
   thumbFor,
@@ -59,6 +60,17 @@ describe('one count', () => {
     const { shown, below } = splitByScore(ranked(), 0.55, false);
     expect(shown.some((d) => d.kind === 'hot_tub')).toBe(false);
     expect(below).toBe(1);
+  });
+
+  it('bins every kept pool for the histogram, listed and below apart', () => {
+    const { shown, under } = splitByScore(ranked(), 0.55, true);
+    const bins = scoreBins(shown, under);
+    expect(bins).toHaveLength(100);
+    expect(bins.reduce((n, b) => n + b.above, 0)).toBe(shown.length);
+    expect(bins.reduce((n, b) => n + b.below, 0)).toBe(under.length);
+    expect(bins[91]).toEqual({ above: 1, below: 0 });
+    expect(bins[40]).toEqual({ above: 0, below: 1 });
+    expect(scoreBins([{ ...shown[0], confidence: 1 }], [])[99].above).toBe(1);
   });
 
   it('sorts by score without changing the rank numbers', () => {
