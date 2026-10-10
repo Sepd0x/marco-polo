@@ -1,9 +1,13 @@
 /**
- * The v2 benchmark report: DEV scored out of fold, DEV-2 and GOLD with the
- * shipped model, GOLD also on the whole mosaic (P8).
+ * The v2 benchmark report: DEV scored out of fold, DEV-2, GOLD and TEST with
+ * the shipped model, GOLD also on the whole mosaic (P8).
  *
  *   npx tsx tools/train/report.ts --rows <calibration rows.json> --uncal <uncalibrated model.json> --out <dir>
  *       [--zones dev,dev-2,gold] [--model <calibrated model.json>] [--work <dir>] [--python <exe>] [--cache <dir>] [--offline]
+ *       [--confirm-test "<why>"]
+ *
+ * TEST zones need --confirm-test, which logs the run in
+ * packages/eval/results/TEST_RUNS.md before anything is scored (at most 3).
  *
  * Writes report.json and report.md to --out; the models calibrated without
  * each DEV zone and the tile manifest go to --work (default: a temp folder).
@@ -25,7 +29,7 @@ import { BOOT } from '../../packages/eval/src/bootstrap.js';
 import { v2Detector, v2MosaicDetector } from '../../packages/eval/src/detectors.js';
 import { evaluateZone, type ZoneResult } from '../../packages/eval/src/evaluate.js';
 import { checkFrozen, labelsHash } from '../../packages/eval/src/freeze.js';
-import { detectorHash } from '../../packages/eval/src/gate.js';
+import { detectorHash, logTestRun } from '../../packages/eval/src/gate.js';
 import { TileSource } from '../../packages/eval/src/imagery.js';
 import { LABELS_DIR, loadLabels } from '../../packages/eval/src/labels.js';
 import { aggregate, groups, markdownReport, type RunMeta } from '../../packages/eval/src/report.js';
@@ -58,6 +62,14 @@ async function main() {
   const shipped = JSON.parse(readFileSync(modelPath, 'utf8')) as PoolModel;
   const problems = checkFrozen(LABELS_DIR, zones.map((z) => z.id));
   if (problems.length) throw new Error(`labels differ from labels.sha256: ${problems.map((p) => `${p.zone}/${p.file}`).join(', ')}`);
+  if (zones.some((z) => z.role === 'TEST')) {
+    const why = arg('confirm-test', '');
+    if (!why) throw new Error('TEST zones selected: pass --confirm-test "<why>" (logged in packages/eval/results/TEST_RUNS.md, at most 3 runs)');
+    const eval_ = join(ROOT, 'packages/eval');
+    const commit = execSync('git rev-parse --short HEAD', { cwd: ROOT, encoding: 'utf8' }).trim();
+    const row = logTestRun(join(eval_, 'results/TEST_RUNS.md'), join(eval_, 'targets.json'), { date: new Date().toISOString().slice(0, 10), commit, detector: 'v2', detectorHash: detectorHash(ROOT), why });
+    console.log(`TEST run ${row.n} of 3 logged`);
+  }
   const work = resolve(arg('work', join(tmpdir(), 'marco-polo-report')));
   mkdirSync(join(work, 'oof'), { recursive: true });
   mkdirSync(out, { recursive: true });
@@ -131,7 +143,7 @@ async function main() {
     '',
     '## Calibration',
     '',
-    'DEV zones are scored with the isotonic calibration and threshold fitted on the other calibration zones (out of fold). A family with no other calibration zone (Esri: Scottsdale only) falls back to the calibration pooled over all families. DEV-2 and GOLD use the shipped model, calibrated on every calibration zone; Pozuelo is the PNOA calibration zone, so its GOLD line is in sample.',
+    'DEV zones are scored with the isotonic calibration and threshold fitted on the other calibration zones (out of fold). A family with no other calibration zone (Esri: Scottsdale only) falls back to the calibration pooled over all families. DEV-2, GOLD and TEST use the shipped model, calibrated on every calibration zone; Pozuelo is the PNOA calibration zone, so its GOLD line is in sample.',
     '',
     '| DEV zone | family | threshold |',
     '|---|---|--:|',
