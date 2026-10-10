@@ -1,45 +1,46 @@
 /*
  * Colour, type and shape tokens. Text contrast is checked by
- * test/ui/contrast.test.ts, which reads this file: keep one value per line.
- * The pool colour appears only where there are pools.
+ * test/ui/css.test.ts, which reads this file: keep one value per line.
+ *
+ * Neutrals of photographic paper and graphite; one accent, the magenta of the
+ * wax pencil a photo interpreter marks prints with. The accent lives on the
+ * map outlines and in the mark only, always over its dark casing. It is never
+ * used for text or buttons.
  */
 :root {
-  --ground: #f4f4f1;
-  --panel: #ffffff;
-  --panel-2: #fafaf8;
-  --hover: #f1f1ee;
-  --line: #e7e7e2;
-  --line-2: #d6d6d0;
-  --edge: #8a8a92;
-  --ink: #17171a;
-  --ink-2: #47474e;
-  --ink-3: #66666e;
-  --pool: #c6f432;
-  --casing: #10140a;
-  --pool-ink: #1c2600;
-  --pool-text: #4a6600;
-  --pool-wash: #f3fbd9;
+  --ground: #efefec;
+  --panel: #fafaf8;
+  --panel-2: #f1f1ef;
+  --hover: #eaeae8;
+  --line: #dadad5;
+  --line-2: #c4c4be;
+  --edge: #85857f;
+  --ink: #141414;
+  --ink-2: #454545;
+  --ink-3: #636363;
+  --accent: #ff52ff;
+  --casing: #140814;
+  --on-accent: #140814;
   --danger: #b42318;
-  --shadow: 0 1px 2px rgba(16, 20, 10, 0.06), 0 4px 16px rgba(16, 20, 10, 0.08);
-  --sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+  --veil: #efefec;
+  --shadow: 0 1px 2px rgba(20, 20, 20, 0.06), 0 6px 20px rgba(20, 20, 20, 0.1);
+  --font: 'Martian Mono', ui-monospace, 'Cascadia Mono', monospace;
   color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --ground: #0f0f11;
-  --panel: #18181b;
-  --panel-2: #1d1d21;
-  --hover: #232328;
-  --line: #2a2a2f;
-  --line-2: #38383e;
-  --edge: #6e6e77;
-  --ink: #ededef;
-  --ink-2: #b9b9c0;
-  --ink-3: #95959d;
-  --pool-text: #c6f432;
-  --pool-wash: #242b14;
+  --ground: #161614;
+  --panel: #1c1c1a;
+  --panel-2: #242422;
+  --hover: #2b2b28;
+  --line: #33332f;
+  --line-2: #47473f;
+  --edge: #7b7b74;
+  --ink: #ecece8;
+  --ink-2: #bbbbb5;
+  --ink-3: #9a9a93;
   --danger: #f97066;
+  --veil: #161614;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
   color-scheme: dark;
 }
@@ -47,19 +48,18 @@
 /* No saved choice: follow the system. Same values as the block above. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ground: #0f0f11;
-    --panel: #18181b;
-    --panel-2: #1d1d21;
-    --hover: #232328;
-    --line: #2a2a2f;
-    --line-2: #38383e;
-    --edge: #6e6e77;
-    --ink: #ededef;
-    --ink-2: #b9b9c0;
-    --ink-3: #95959d;
-    --pool-text: #c6f432;
-    --pool-wash: #242b14;
+    --ground: #161614;
+    --panel: #1c1c1a;
+    --panel-2: #242422;
+    --hover: #2b2b28;
+    --line: #33332f;
+    --line-2: #47473f;
+    --edge: #7b7b74;
+    --ink: #ecece8;
+    --ink-2: #bbbbb5;
+    --ink-3: #9a9a93;
     --danger: #f97066;
+    --veil: #161614;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
     color-scheme: dark;
   }

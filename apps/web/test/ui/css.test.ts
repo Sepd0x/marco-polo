@@ -27,19 +27,17 @@ const TEXT_PAIRS: [string, string][] = [
   ['ink', 'ground'],
   ['ink', 'panel-2'],
   ['ink', 'hover'],
-  ['ink', 'pool-wash'],
   ['ink-2', 'panel'],
+  ['ink-2', 'ground'],
   ['ink-2', 'hover'],
   ['ink-2', 'panel-2'],
   ['ink-3', 'panel'],
+  ['ink-3', 'ground'],
   ['ink-3', 'panel-2'],
   ['ink-3', 'hover'],
-  ['ink-3', 'pool-wash'],
-  ['pool-text', 'panel'],
-  ['pool-text', 'pool-wash'],
-  ['pool-ink', 'pool'],
   ['danger', 'panel'],
   ['panel', 'ink'],
+  ['on-accent', 'accent'],
 ];
 
 describe('colour tokens', () => {
@@ -64,8 +62,13 @@ describe('colour tokens', () => {
     expect(tokens(media, ":root:not([data-theme='light']) {")).toEqual(darkOverrides);
   });
 
-  it('keeps the pool colour and its casing apart', () => {
-    expect(contrastRatio(light.pool, light.casing)).toBeGreaterThan(14);
+  it('keeps the accent and its casing apart', () => {
+    expect(contrastRatio(light.accent, light.casing)).toBeGreaterThan(7);
+  });
+
+  it('keeps the dark theme graphite, never near black', () => {
+    expect(dark.ground).toBe('#161614');
+    expect(dark.panel).toBe('#1c1c1a');
   });
 });
 
@@ -104,8 +107,17 @@ describe('motion', () => {
 describe('focus', () => {
   it('draws a visible ring on keyboard focus, in a text colour that passes contrast', () => {
     const base = style('base.css');
-    expect(base).toMatch(/:focus-visible\s*{\s*outline: 2px solid var\(--pool-text\)/);
-    expect(contrastRatio(light['pool-text'], light.panel)).toBeGreaterThanOrEqual(3);
-    expect(contrastRatio(dark['pool-text'], dark.panel)).toBeGreaterThanOrEqual(3);
+    expect(base).toMatch(/:focus-visible\s*{\s*outline: 2px solid var\(--ink\)/);
+    expect(contrastRatio(light.ink, light.panel)).toBeGreaterThanOrEqual(3);
+    expect(contrastRatio(dark.ink, dark.panel)).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe('type', () => {
+  it('uses one family, Martian Mono, at width 75', () => {
+    const fonts = style('fonts.css');
+    expect([...fonts.matchAll(/font-family:\s*'([^']+)'/g)].map((m) => m[1])).toEqual(['Martian Mono']);
+    expect(css).toMatch(/--font: 'Martian Mono'/);
+    expect(style('base.css')).toMatch(/body\s*{[^}]*font-stretch: 75%/);
   });
 });
