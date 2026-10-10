@@ -6,8 +6,12 @@ export const MARKER_SOURCE = 'det-points';
 export const MARKER_DOT = 'det-dot';
 export const MARKER_RANK = 'det-rank';
 
-/** Rank labels appear from this zoom; below it they would only collide. */
-export const RANK_MIN_ZOOM = 17;
+/**
+ * Rank labels appear from this zoom. A finished scan is framed whole and
+ * often lands just under 17, so the numbers start at 16; MapLibre's
+ * placement hides the ones that would collide, lower ranks first.
+ */
+export const RANK_MIN_ZOOM = 16;
 
 /** From this many pools the rank numbers lose their box and keep a halo, so the map stays readable. */
 export const HALO_FROM = 30;
@@ -24,7 +28,10 @@ const LABEL_PREFIX = 'rank:';
 
 export const labelImageId = (style: LabelStyle, rank: number) => `${LABEL_PREFIX}${style}:${rank}`;
 
-const FONT = '600 12px "Martian Mono", ui-monospace, monospace';
+const FAMILY = '"Martian Mono", ui-monospace, monospace';
+/** The width goes in the shorthand too, for browsers without `fontStretch` on the canvas. */
+const FONT = `600 condensed 12px ${FAMILY}`;
+const FONT_PLAIN = `600 12px ${FAMILY}`;
 const RATIO = 2;
 
 /**
@@ -37,6 +44,7 @@ function drawLabel(style: LabelStyle, text: string): { width: number; height: nu
   if (!ctx) return null;
   const setFont = () => {
     ctx.font = FONT;
+    if (!ctx.font.includes('Martian')) ctx.font = FONT_PLAIN;
     if ('fontStretch' in ctx) ctx.fontStretch = 'condensed';
   };
   setFont();
@@ -86,11 +94,9 @@ export class DetectionMarkers {
       map.addSource(MARKER_SOURCE, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
     }
     map.setMissingStyleImageResolver(this.resolve);
-    // Labels drawn before the font arrives would fall back to another face.
-    void document.fonts?.load(FONT).catch(() => undefined);
     const selected: maplibregl.ExpressionSpecification = ['==', ['get', 'style'], 'open'];
     // Close in, the outline and the number mark the pool; the dot would hide its water.
-    const fadeClose: maplibregl.ExpressionSpecification = ['interpolate', ['linear'], ['zoom'], RANK_MIN_ZOOM - 1, 1, RANK_MIN_ZOOM, 0];
+    const fadeClose: maplibregl.ExpressionSpecification = ['interpolate', ['linear'], ['zoom'], RANK_MIN_ZOOM - 0.5, 1, RANK_MIN_ZOOM + 0.5, 0];
     if (!map.getLayer(MARKER_DOT)) {
       map.addLayer({
         id: MARKER_DOT,
@@ -131,8 +137,18 @@ export class DetectionMarkers {
 
   private onSelect: (id: string) => void;
 
-  private resolve = (id: string): void => {
+  /**
+   * Draws a missing rank label. It waits for the interface font, so a label
+   * is never cached with a fallback face (MapLibre awaits the promise).
+   */
+  private resolve = async (id: string): Promise<void> => {
     if (!id.startsWith(LABEL_PREFIX) || this.map.hasImage(id)) return;
+    try {
+      await document.fonts?.load(FONT_PLAIN);
+    } catch {
+      // the fallback face is better than no number
+    }
+    if (this.map.hasImage(id)) return;
     const [style, rank] = id.slice(LABEL_PREFIX.length).split(':');
     const img = drawLabel(style as LabelStyle, rank);
     if (img) this.map.addImage(id, img, { pixelRatio: RATIO });

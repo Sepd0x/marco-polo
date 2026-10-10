@@ -110,6 +110,7 @@ type MapLike = {
   isMoving(): boolean;
   getCenter(): { lng: number; lat: number };
   getZoom(): number;
+  queryRenderedFeatures(opts: { layers: string[] }): unknown[];
 };
 
 /** Pools drawn on the map (one marker each). */
@@ -118,6 +119,14 @@ export function mapPoolCount(page: Page): Promise<number> {
     const map = (window as unknown as { __mpMap: MapLike }).__mpMap;
     const data = await map.getSource('det-points')!.getData();
     return data.features.length;
+  });
+}
+
+/** Pool numbers the map has drawn on screen. */
+export function mapLabelCount(page: Page): Promise<number> {
+  return page.evaluate(() => {
+    const map = (window as unknown as { __mpMap: MapLike }).__mpMap;
+    return map.queryRenderedFeatures({ layers: ['det-rank'] }).length;
   });
 }
 
