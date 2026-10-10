@@ -125,6 +125,8 @@ export interface LabelFeature {
     radius_m?: number;
     method?: string;
     note?: string;
+    /** Source a hand label was drawn on; on that source it takes no visual shift. */
+    drawnOn?: string;
   };
 }
 

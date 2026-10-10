@@ -6,6 +6,8 @@
  *   osm-sheet  after pass 1: crops of every OSM pool the pass did not box, for a pool/absent/unsure verdict
  *   merge      pass 1 + OSM verdicts -> labels/<zone>.geojson
  *   agree      F1 between pass 1 and pass 2 on the second-pass windows -> labels/review/<zone>/agreement.json
+ *   supplement for a zone that already has labels (DEV): blind boxes that match no label are added to
+ *              labels/<zone>.extra.geojson, marked as drawn on the source (re-freeze with run --relabel)
  *
  * Review files live in labels/review/<zone>/: pass1.json, pass2.json, osm.geojson
  * (from `eval labels`), osm-check.json ({ "<osm id>": "pool" | "absent" | "unsure" }).
@@ -36,10 +38,10 @@ import type { SourceId } from './candidates.js';
 import { Raster } from './draw.js';
 import { bboxIoU, distanceM, pointInBBox } from './geom.js';
 import type { TileSource } from './imagery.js';
-import { featureToLabel, LABELS_DIR, shiftFeature } from './labels.js';
+import { featureToLabel, LABELS_DIR, loadLabels, shiftFeature } from './labels.js';
 import { median } from './metrics.js';
 import type { LabelFeature } from './overpass.js';
-import { sourceFor, zoneById } from './zones.js';
+import { shiftsFor, sourceFor, zoneById } from './zones.js';
 
 export interface BlindContext {
   zone?: string;
@@ -90,6 +92,25 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
   const miss = missingWindows(pass1, windows.map((w) => w.id));
   if (miss.length) throw new Error(`pass1.json misses windows: ${miss.join(', ')}`);
   const boxes = dedupeBoxes(passToGeo(pass1, windows));
+
+  if (what === 'supplement') {
+    const shifts = shiftsFor(zone, sid);
+    if (!shifts) throw new Error(`${zone.id}: no label shift for ${sid}`);
+    const { labels } = await loadLabels(zone.id, { source: sid, osmShiftM: shifts.osm, visualShiftM: shifts.visual });
+    const extraPath = join(LABELS_DIR, `${zone.id}.extra.geojson`);
+    const extra = existsSync(extraPath) ? readJson<{ features: LabelFeature[] } & Record<string, unknown>>(extraPath) : { type: 'FeatureCollection', zone: zone.id, features: [] as LabelFeature[] };
+    const added: LabelFeature[] = [];
+    for (const b of boxes) {
+      if (labels.some((l) => sameObject(l.bbox, b.bbox))) continue;
+      const id = `visual/${zone.id}/${sid}-blind-${added.length + 1}`;
+      added.push(boxFeature(b.bbox, id, b.kind === 'p' ? 'pool' : 'ignore', { method: `blind box on ${sid}, matching no earlier label`, reason: b.kind === 'u' ? 'unsure in the blind pass' : undefined, drawnOn: sid }));
+    }
+    const unboxed = labels.filter((l) => l.role === 'pool' && pointInBBox(l.centroid, zone.bbox) && !boxes.some((b) => sameObject(l.bbox, b.bbox))).length;
+    extra.features = [...extra.features.filter((f) => !f.properties.id.startsWith(`visual/${zone.id}/${sid}-blind-`)), ...added];
+    await writeFile(extraPath, JSON.stringify(extra, null, 1) + '\n', 'utf8');
+    console.log(`${zone.id}: ${boxes.length} blind boxes, ${added.filter((f) => f.properties.role === 'pool').length} new pools and ${added.filter((f) => f.properties.role === 'ignore').length} new unsure added to ${zone.id}.extra.geojson; ${unboxed} pool labels in the zone have no blind box`);
+    return;
+  }
 
   if (what === 'agree') {
     const ids = secondPassWindows(zone.id, windows);
@@ -177,7 +198,7 @@ export async function blindCommand(sub: string[], ctx: BlindContext): Promise<vo
     console.log(`${zone.id}: ${features.length} features, ${pools} pools inside the zone (blind boxes ${boxes.length}, OSM pools ${osmPools.length}, OSM only ${osmOnly.length})`);
     return;
   }
-  throw new Error('blind render | second | osm-sheet | merge | agree');
+  throw new Error('blind render | second | osm-sheet | merge | agree | supplement');
 }
 
 const center = (b: BBox): LonLat => ({ lon: (b.west + b.east) / 2, lat: (b.south + b.north) / 2 });

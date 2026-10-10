@@ -105,7 +105,9 @@ export async function loadLabels(
   if (!osmShift && all.some((f) => f.properties.source === 'osm')) {
     throw new Error(`${zone}: OSM shift on ${opts.source ?? 'this source'} not measured (eval offset), refusing to guess`);
   }
-  const move = (f: LabelFeature) => shiftFeature(f, f.properties.source === 'osm' ? osmShift! : visualShift);
+  // A hand label drawn on the source being read (`drawnOn`) is already in place; other hand labels take the visual shift.
+  const move = (f: LabelFeature) =>
+    f.properties.source === 'osm' ? shiftFeature(f, osmShift!) : f.properties.drawnOn && f.properties.drawnOn === opts.source ? f : shiftFeature(f, visualShift);
   // A hand-made feature with an OSM id replaces that OSM feature (used to mark a
   // mapped pool as `ignore` when the imagery shows it covered or not built yet).
   const byId = new Map<string, LabelFeature>();
