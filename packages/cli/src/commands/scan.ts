@@ -82,6 +82,9 @@ export interface ScanArgs {
 
 export const SCAN_HELP = `marco-polo scan: find and measure swimming pools in an area (headless)
 
+The CLI still runs the v1 detector; the web app runs v2, which finds more
+pools and far fewer false ones (packages/eval/results).
+
 usage:
   npm run scan -- --bbox "<south,west,north,east>" [options]
   npm run scan -- --area <polygon.geojson> [options]
