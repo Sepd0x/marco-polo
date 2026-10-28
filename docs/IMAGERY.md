@@ -52,7 +52,7 @@ only to these origins (`apps/web/src/map/csp.ts`):
 - the imagery hosts in the table and the PNOA mirror;
 - the capture date lookups: `services.arcgisonline.com`, `www.ign.es`,
   `data.geopf.fr`;
-- OpenFreeMap (`tiles.openfreemap.org`) for street names and glyphs;
+- OpenFreeMap (`tiles.openfreemap.org`) for street names (the glyphs are the app's own, Martian Mono, in `apps/web/public/glyphs/`);
 - OpenStreetMap Nominatim, only when the search box is used.
 
 Drawn areas, results and archives stay in the browser's storage. The app has

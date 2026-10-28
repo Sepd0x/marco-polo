@@ -8,13 +8,24 @@ import { LABEL_ORIGIN } from './csp.js';
  */
 
 export const LABEL_SOURCE = 'ofm';
-export const GLYPHS_URL = `${LABEL_ORIGIN}/fonts/{fontstack}/{range}.pbf`;
+
+/**
+ * Glyphs come from the app's own origin: Martian Mono at width 75, the
+ * interface face, made by `apps/web/scripts/glyphs.mjs` into
+ * `public/glyphs/` with its licence beside it. An absolute URL, built by
+ * hand so the braces stay unencoded.
+ */
+export function glyphsUrl(origin: string = globalThis.location?.origin ?? '', base: string = import.meta.env?.BASE_URL ?? '/'): string {
+  const root = base.endsWith('/') ? base : `${base}/`;
+  return `${origin}${root}glyphs/{fontstack}/{range}.pbf`;
+}
 export const LABEL_TILEJSON = `${LABEL_ORIGIN}/planet`;
 /** As the OpenFreeMap TileJSON gives it. */
 export const LABEL_ATTRIBUTION =
   '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>';
 
-export const FONT_REGULAR = ['Noto Sans Regular'];
+/** The glyph folder name in `public/glyphs/`; one face, so no fallback stack. */
+export const FONT_REGULAR = ['Martian Mono Regular'];
 
 const NAME: maplibregl.ExpressionSpecification = ['coalesce', ['get', 'name:latin'], ['get', 'name']];
 

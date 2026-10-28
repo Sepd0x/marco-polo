@@ -3,7 +3,7 @@
 import { IMAGERY_PROVIDERS } from '../../../../packages/core/src/providers.js';
 import { CAPTURE_LOOKUP_HOSTS } from '../../../../packages/core/src/imagery/dates.js';
 
-/** Vector labels, their TileJSON and glyphs. */
+/** Vector labels and their TileJSON. The glyphs are the app's own (public/glyphs/). */
 export const LABEL_ORIGIN = 'https://tiles.openfreemap.org';
 
 /** Place search. */
