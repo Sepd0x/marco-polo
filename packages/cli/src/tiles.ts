@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import jpeg from 'jpeg-js';
 import { PNG } from 'pngjs';
 import { decodeJpeg, JpegUnsupported } from './jpeg.js';
+import { errorText } from './redact.js';
 import { MirrorChoice, tileUrl, type CachePolicy, type TileCoord } from '@marco-polo/core';
 
 export interface DecodedTile {
@@ -154,7 +155,8 @@ export class TileFetcher {
         if (attempt < this.opts.retries && (attempt + 1) % urls.length === 0) await this.opts.wait(500 * 2 ** attempt);
       }
     }
-    throw new Error(`tile request failed after ${this.opts.retries + 1} attempts: ${String(lastError)}`);
+    // Request URLs can carry a provider key; none of it goes into the message.
+    throw new Error(`tile request failed after ${this.opts.retries + 1} attempts: ${errorText(lastError)}`);
   }
 
   private path(url: string): string {
