@@ -176,6 +176,10 @@ async function main() {
     if (sha !== recipe.courts.sha256) throw new Error(`courts: file changed (sha256 ${sha}); update the recipe on purpose`);
     allCourts = (JSON.parse(raw.toString('utf8')) as { features: CourtFeature[] }).features;
   }
+  for (const z of [...recipe.zones, ...(recipe.courts?.zones ?? [])]) {
+    // Esri's terms forbid using its data to train systems.
+    if (z.source.startsWith('esri')) throw new Error(`${z.id}: Esri imagery may not train the scorer`);
+  }
   for (const z of recipe.zones) {
     const sha = labelsSha256(z.id);
     if (sha !== z.labelsSha256) throw new Error(`${z.id}: labels changed (sha256 ${sha}); update the recipe on purpose`);
