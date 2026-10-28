@@ -128,6 +128,42 @@ def export_mlp(scaler, net):
     }
 
 
+COURTS = [(20.0, 10.0), (23.77, 10.97), (23.77, 8.23)]
+
+
+def court_dev(length, width):
+    """features.ts court_dev: distance of the rotated box to the padel and tennis court sizes."""
+    return min(max(abs(length / cl - 1), abs(width / cw - 1)) for cl, cw in COURTS)
+
+
+def size_copies(recipe, seed, X, y, names):
+    """
+    Copies of candidates with their size features scaled up, so the scorer sees
+    pools and non-pools of 400 m² and more. Only 19 of 3709 label outlines
+    reach 400 m², and without such rows the trees read any large size as "not
+    a pool". Each candidate between `fromM2` limits becomes, with probability
+    `p`, a copy of area drawn log-uniform in `toM2`: area, extent and rotated
+    box sides scaled, the court distance recomputed, every colour, ring and
+    pixel-count feature left as it is.
+    """
+    a = recipe.get('sizeAugment')
+    if not a:
+        return X[:0], y[:0]
+    ix = {n: i for i, n in enumerate(names)}
+    rng = np.random.default_rng([a['seed'], seed])
+    area = np.exp(X[:, ix['log_area']])
+    pick = (area >= a['fromM2'][0]) & (area < a['fromM2'][1]) & (rng.random(len(X)) < a['p'])
+    Xs, ys = X[pick].copy(), y[pick].copy()
+    lo, hi = np.log(a['toM2'][0]), np.log(a['toM2'][1])
+    target = np.exp(rng.uniform(lo, hi, len(Xs)))
+    k = np.sqrt(target / area[pick])
+    Xs[:, ix['log_area']] = np.log(target)
+    for n in ('extent_m', 'obb_len_m', 'obb_wid_m'):
+        Xs[:, ix[n]] *= k
+    Xs[:, ix['court_dev']] = [court_dev(L, W) for L, W in zip(Xs[:, ix['obb_len_m']], Xs[:, ix['obb_wid_m']])]
+    return Xs, ys
+
+
 def blend(recipe, g, n):
     w = recipe['gbdtWeight']
     return w * g + (1 - w) * n
@@ -179,6 +215,10 @@ def main():
     print('out-of-fold AUC by zone (GBDT, before B5):', auc)
 
     Xt, yt = X[ok], y[ok]
+    pools = int(yt.sum())
+    Xs, ys = size_copies(recipe, seed, Xt, yt, names)
+    print(f'size copies: {len(ys)} ({int(ys.sum())} pools)')
+    Xt, yt = np.vstack([Xt, Xs]), np.concatenate([yt, ys])
     g = gbdt(recipe, seed).fit(Xt, yt)
     scaler, net = fit_mlp(recipe, seed, Xt, yt)
 
@@ -195,7 +235,8 @@ def main():
             'recipeSha256': hashlib.sha256(recipe_bytes.replace(b'\r\n', b'\n')).hexdigest(),
             'zones': [z['id'] for z in recipe['zones']],
             'trainRows': int(ok.sum()),
-            'trainPools': int(yt.sum()),
+            'sizeCopies': int(len(ys)),
+            'trainPools': pools,
             'ignoredByB5': int(flagged.sum()),
             'oofAuc': auc,
             'licence': 'Trained on DGT Ortos2025 (CC BY 4.0), PNOA (CC BY 4.0 scne.es), IGN BD ORTHO (Licence Ouverte 2.0) and OpenStreetMap labels (ODbL); see ATTRIBUTION.md',
