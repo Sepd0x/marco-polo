@@ -10,3 +10,6 @@ One entry per `--relabel`. Never edit past entries.
 
 - 2026-10-28, commit 14e6d6a, zones large-pools: large-pool set for the v3 round: 78 outlines of 300 m² or more (39 of 400 m² or more, 3 ignore) in Albufeira, Quarteira, Orihuela Costa, Sanchinarro, Estepona, Cap d'Agde and La Grande Motte, each checked by eye at z19 on its product source (DGT, PNOA, IGN); OSM outlines kept, missing ones drawn; only 19 of 3709 earlier label outlines reach 400 m². A class of its own, never in the zone totals; no outline within 50 km of a TEST zone
   files: large-pools.geojson
+
+- 2026-10-28, commit 38e8b68, zones large-pools: large-pool set, final version from the same pass: 133 outlines of 300 m² or more (67 of 400 m² or more, 9 ignore), areas added to the seven of the first version; same method, each outline checked by eye at z19 on its product source (DGT, PNOA, IGN); no outline within 50 km of a TEST zone
+  files: large-pools.geojson

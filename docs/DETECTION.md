@@ -82,16 +82,17 @@ scored at each model freeze. v1 and v3 from `results/v3`, v2 from
 | median area error, DEV (signed) | 23.3% (-17.0%) | 25.5% (-12.2%) | 23.8% (-2.0%) |
 | median area error, DEV-2 (signed) | 26.3% (-22.0%) | 27.9% (-22.2%) | 24.1% (-14.5%) |
 | median area error, TEST (signed) | 26.1% (-25.2%) | 18.6% (-15.2%) | 14.6% (-8.1%) |
-| pools of 400 m² or more found, large-pool set | 37 of 40 | 14 of 40 | 29 of 40 |
+| pools of 400 m² or more found, large-pool set | 60 of 69 | 25 of 69 | 46 of 69 |
 
 - TEST run 2 ([`results/TEST_RUN_2.md`](../packages/eval/results/TEST_RUN_2.md)):
   P1, P2, P3, P5, P7, P8 and P9 pass; P4 (Dunkerque, 31 false detections per
   km² where v1 has 8) and P6 (signed area -8.1%, target within 5%) fail.
-- Large pools: `labels/large-pools.geojson`, 40 outlines of 400 m² or more
-  in seven areas on DGT, PNOA and IGN, none near a TEST zone, each scanned
+- Large pools: `labels/large-pools.geojson`, 69 outlines of 400 m² or more
+  in twelve areas on DGT, PNOA and IGN, none near a TEST zone, each scanned
   on its own imagery (`eval large`). The set holds only large pools, so it
-  gives recall, not precision. By source, v3: PNOA 11 of 13, IGN 6 of 7,
-  DGT 12 of 20.
+  gives recall, not precision. By source, v3: PNOA 16 of 22, IGN 7 of 9,
+  DGT 23 of 38. The size copies were chosen on DEV and on the first 40
+  outlines of the set, which are part of these 69.
 - Duplicates (a second detection on a pool already matched): DEV 15 to 7,
   DEV-2 22 to 12, GOLD 8 to 2.
 - Five training seeds, DEV out of fold: 80.6, 80.6, 81.6, 81.0, 81.8. Seed 0
@@ -106,7 +107,7 @@ scored at each model freeze. v1 and v3 from `results/v3`, v2 from
 
 ## Limits
 
-- v1 still finds more of the large pools (37 of 40 against 29). A pool cut
+- v1 still finds more of the large pools (60 of 69 against 46). A pool cut
   by the window is scored and measured on the part that window sees.
 - Area: v3 still reads pools smaller than OSM on DEV-2 and TEST (signed
   -14.5% and -8.1%). The median error target (15%) is met on TEST, not on

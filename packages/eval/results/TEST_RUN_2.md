@@ -44,8 +44,8 @@ What changed, and what the run says:
 - Mirandela and Viseu lose 2 to 2.5 pp, Dammarie-les-Lys gains 2: none of
   the five strata moves outside its interval.
 - Pools of 400 m² or more are not in the TEST labels in any number; the
-  class is measured on the large-pool set, apart (`v3/large/`): v1 37 of
-  40, the v2 model 14, v3 29.
+  class is measured on the large-pool set, apart (`v3/large/`): of 69
+  pools of 400 m² or more, v1 finds 60, the v2 model 25, v3 46.
 
 One TEST run remains. A third run needs a change justified on DEV and DEV-2
 alone.
