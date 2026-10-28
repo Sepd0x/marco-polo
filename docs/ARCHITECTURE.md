@@ -37,10 +37,11 @@ rate (default 5 tiles/s). Decoding and detection run in 2 to 4 workers (cores
 minus one, `workerPool.ts`), so the map does not wait on them (frame rate not
 measured).
 
-The CLI runs the same engine from a script. Its default threshold is 0.55 for
-every source, while the app holds each source to its calibrated threshold (0.50
-DGT, 0.55 IGN, 0.43 Esri and PNOA), so a CLI scan at the default can list fewer
-pools than the app.
+The CLI runs the same engine from a script: detector v2 with the same windows,
+halo, sources and merger, and each source held to its calibrated threshold, so a
+CLI scan and an app scan of the same area list the same pools
+(`packages/cli/test/parity.test.ts`). `--threshold` sets one value for every
+source, and `--detector v1` runs the first detector.
 
 ## Scan lifecycle (web)
 

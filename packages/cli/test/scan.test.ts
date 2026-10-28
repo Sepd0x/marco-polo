@@ -45,6 +45,7 @@ function args(over: Partial<ScanArgs> = {}): ScanArgs {
     rate: 10,
     order: 'serpentine',
     threshold: 0.55,
+    detector: 'v1',
     cacheDir: mkdtempSync(join(tmpdir(), 'mp-cache-')),
     allowLarge: false,
     dates: true,
@@ -108,7 +109,7 @@ describe('scan arguments', () => {
   });
 
   it('documents what the command accepts', () => {
-    for (const flag of ['--bbox', '--area', '--source', '--out', '--rate', '--order', '--threshold', '--cache-dir', '--allow-large', '--no-dates', '--quiet']) {
+    for (const flag of ['--bbox', '--area', '--source', '--out', '--rate', '--order', '--threshold', '--detector', '--cache-dir', '--allow-large', '--no-dates', '--quiet']) {
       expect(SCAN_HELP).toContain(flag);
     }
     expect(SCAN_HELP).not.toMatch(/--zoom|--template|mapbox|maptiler/i);
@@ -239,9 +240,9 @@ describe('scan run', () => {
       url.includes('dgterritorio') ? { status: 200, body: new Uint8Array(encodePng(white, 512, 512)) } : { status: 200, body: tilePng(256, null) },
     );
     const logs: string[] = [];
-    const result = await runScan(braga, args({ dates: false }), { fetch, wait: noWait, log: (l) => logs.push(l) });
+    const result = await runScan(braga, args({ dates: false }), { fetch, wait: noWait, warn: (l) => logs.push(l) });
     expect(result.parts[0].provenance.providerId).toBe('esri-world-imagery');
-    expect(logs.join('\n')).toMatch(/DGT Ortos2025 has no imagery.*Esri/);
+    expect(logs.join('\n')).toMatch(/DGT Ortos2025 answered 1 of 1 sample tiles and has no imagery here; using Esri World Imagery/);
     expect(calls.some((c) => c.includes('ortosat2023'))).toBe(false);
   });
 

@@ -167,6 +167,32 @@ describe('scan controller', () => {
     expect(s.parts[0].tilesNoCoverage).toBe(2);
   });
 
+  it('lets go of every halo tile, and fetches each tile once, with probes, 404s and failures in the part', async () => {
+    const r = rig({ halo: 48, detectorId: 'v2-test', latencyMs: 5, workMs: 1 });
+    const plan = splitPlanBySource(US_AREA).parts[0].plan.tiles;
+    const missing = new Set(plan.filter((_, i) => i % 4 === 1).map((t) => tileRequest(ESRI_WORLD_IMAGERY, t.tile).url));
+    const broken = tileRequest(ESRI_WORLD_IMAGERY, plan[2].tile).url;
+    r.net.respond = (url) => (missing.has(url) ? { status: 404 } : url === broken ? { status: 500 } : { status: 200 });
+    const c = new ScanController(request(), r.deps);
+    // The halo table after each tile: what is left must be needed by a tile still to come.
+    const sizes: number[] = [];
+    const shared = () => (c as unknown as { runs: { shared: Map<string, unknown> }[] }).runs[0].shared;
+    const unsub = useStore.subscribe((s) => s.stats.tilesDone, () => sizes.push(shared().size));
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(600_000);
+    await done;
+    unsub();
+    expect(useStore.getState().stats.tilesDone).toBe(plan.length);
+    expect(useStore.getState().stats.tilesNoCoverage).toBe(missing.size);
+    expect(shared().size).toBe(0);
+    // With the last tile in flight, only its own neighbours may still be held.
+    expect(sizes[sizes.length - 2]).toBeLessThanOrEqual(9);
+    // A probed tile is not asked for again as a neighbour (the broken one is retried, by probe and by scan).
+    const perUrl = new Map<string, number>();
+    for (const call of tileCalls(r.net)) perUrl.set(call.url, (perUrl.get(call.url) ?? 0) + 1);
+    for (const [url, n] of perUrl) if (url !== broken) expect(n, url).toBe(1);
+  });
+
   it('lists failed tiles and scans only those again on retry', async () => {
     const r = rig({ fragments: () => [] });
     const plan = splitPlanBySource(US_AREA).parts[0].plan.tiles;
@@ -285,6 +311,38 @@ describe('scan controller', () => {
     expect(s.stats.tilesDone).toBe(split.parts.reduce((n, p) => n + p.plan.tiles.length, 0));
   });
 
+  it('a retry runs each source at its own rate and follows the rate slider', async () => {
+    const r = rig({ latencyMs: 1, workMs: 1 });
+    const border = square(42.045, -8.645, 300);
+    const isDgt = (url: string) => url.includes('dgterritorio.gov.pt');
+    // Every tile of both sources (PNOA, then DGT) fails the first time.
+    let broken = true;
+    r.net.respond = () => (broken ? { status: 500 } : { status: 200 });
+    useStore.getState().updateSettings({ ratePerSec: 10 });
+    const c = new ScanController(request(border, { ratePerSec: 10 }), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(600_000);
+    await done;
+    const failed = useStore.getState().stats.tilesFailed;
+    expect(failed).toBeGreaterThan(20);
+    broken = false;
+    // The slider moved between the scan and the retry, then again during it.
+    useStore.getState().updateSettings({ ratePerSec: 3 });
+    const before = r.net.calls.length;
+    const t0 = Date.now();
+    const again = c.retryFailed();
+    await vi.advanceTimersByTimeAsync(2_000);
+    useStore.getState().updateSettings({ ratePerSec: 2 });
+    await vi.advanceTimersByTimeAsync(600_000);
+    await again;
+    expect(useStore.getState().stats.tilesFailed).toBe(0);
+    const retried = r.net.calls.slice(before).filter((x) => !x.url.includes('GetFeatureInfo'));
+    expect(retried.length).toBe(failed);
+    expect(maxInWindow(retried.filter((x) => x.at < t0 + 2_000).map((x) => x.at))).toBeLessThanOrEqual(3);
+    expect(maxInWindow(retried.filter((x) => x.at >= t0 + 2_500).map((x) => x.at))).toBeLessThanOrEqual(2);
+    expect(retried.some((x) => isDgt(x.url))).toBe(true);
+  });
+
   it('refuses an area above the tile limit without a single request', async () => {
     const r = rig();
     const c = new ScanController(request(square(40.4, -3.7, 30_000)), r.deps);
@@ -312,6 +370,24 @@ describe('scan controller', () => {
     const calls = r.net.calls.length;
     await vi.advanceTimersByTimeAsync(10_000);
     expect(r.net.calls.length).toBe(calls);
+  });
+
+  it('stop finishes even when the detection workers never answer', async () => {
+    const r = rig({ fragments: poolsOnEvenColumns });
+    const make = r.deps.makePool;
+    // Workers that never load: their jobs neither resolve nor reject.
+    r.deps.makePool = () => ({ ...make(), run: () => new Promise<never>(() => {}) });
+    const c = new ScanController(request(), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(3_000);
+    c.stop();
+    await vi.advanceTimersByTimeAsync(5_000);
+    let settled = false;
+    void done.then(() => (settled = true));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(settled).toBe(true);
+    expect(useStore.getState().phase).toBe('complete');
+    expect(useStore.getState().stats.stopped).toBe(true);
   });
 
   it('dispose stops all traffic and writes nothing more', async () => {

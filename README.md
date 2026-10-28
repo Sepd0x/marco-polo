@@ -58,7 +58,7 @@ It runs in the browser, with no server. Imagery follows the place: DGT in Portug
 npm install
 npm run dev       # localhost:5173
 npm run verify    # bench and gate miss targets today
-npm run scan -- --bbox "41.565,-8.385,41.574,-8.373"   # CLI, still v1
+npm run scan -- --bbox "41.565,-8.385,41.574,-8.373"   # CLI, same detector as the app
 ```
 
 ## Licence

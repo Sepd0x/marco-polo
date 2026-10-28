@@ -50,10 +50,58 @@ export function noDataReason(
     if (sha256Hex(res.bytes) in placeholders) return 'placeholder';
   }
   if (res.pixels && res.width && res.height) {
-    if (blankShare(res.pixels) >= BLANK_SHARE) return 'blank';
-    if (flatness(res.pixels, res.width, res.height) < FLAT_THRESHOLD) return 'flat';
+    if (isBlank(res.pixels)) return 'blank';
+    if (isFlat(res.pixels, res.width, res.height)) return 'flat';
   }
   return null;
+}
+
+/**
+ * `blankShare(pixels) >= BLANK_SHARE`, stopping once enough pixels are not
+ * blank that the share cannot reach it (a real tile stops at the first row).
+ */
+function isBlank(pixels: Uint8ClampedArray | Uint8Array): boolean {
+  const n = pixels.length >> 2;
+  if (n === 0) return 1 >= BLANK_SHARE;
+  let blank = 0;
+  const step = 4096;
+  for (let from = 0; from < pixels.length; from += step) {
+    const to = Math.min(pixels.length, from + step);
+    for (let i = from; i < to; i += 4) {
+      if (pixels[i + 3] === 0 || (pixels[i] >= 250 && pixels[i + 1] >= 250 && pixels[i + 2] >= 250)) blank++;
+    }
+    // Even if every pixel left were blank, the share would stay below the bar.
+    if ((blank + ((pixels.length - to) >> 2)) / n < BLANK_SHARE) return false;
+  }
+  return blank / n >= BLANK_SHARE;
+}
+
+/**
+ * `flatness(...) < FLAT_THRESHOLD`, stopping as soon as the running sum alone
+ * reaches the threshold (the sum only grows, so the answer cannot change).
+ */
+function isFlat(pixels: Uint8ClampedArray | Uint8Array, width: number, height: number): boolean {
+  if (width < 2 || height < 2) return 0 < FLAT_THRESHOLD;
+  const count = (width - 1) * height + width * (height - 1);
+  const lum = (p: number) => 0.299 * pixels[p * 4] + 0.587 * pixels[p * 4 + 1] + 0.114 * pixels[p * 4 + 2];
+  let sum = 0;
+  let row = new Float32Array(width);
+  let below = new Float32Array(width);
+  for (let x = 0; x < width; x++) row[x] = lum(x);
+  for (let y = 0; y < height; y++) {
+    const last = y + 1 >= height;
+    if (!last) for (let x = 0; x < width; x++) below[x] = lum((y + 1) * width + x);
+    for (let x = 0; x < width; x++) {
+      const v = row[x];
+      if (x + 1 < width) sum += Math.abs(row[x + 1] - v);
+      if (!last) sum += Math.abs(below[x] - v);
+    }
+    if (sum / count >= FLAT_THRESHOLD) return false;
+    const t = row;
+    row = below;
+    below = t;
+  }
+  return sum / count < FLAT_THRESHOLD;
 }
 
 /** Share of pixels that are fully transparent or white (all channels >= 250). */
