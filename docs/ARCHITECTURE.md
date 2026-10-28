@@ -11,8 +11,8 @@ the web app and the CLI are hosts around it.
 │                                                                    │
 │  geo/       Web Mercator tile math, pixel↔WGS84, geodesic areas    │
 │  scan/      polygon→tile plans, serpentine & spiral traversals     │
-│  detect/    v2: colour candidates → 56 features → trees + MLP      │
-│             → calibrated score; v1: colour rules (baseline)        │
+│  detect/    learned: colour candidates → 56 features → trees + MLP │
+│             → calibrated score; colour rules of v0.1 (baseline)    │
 │  merge/     cross-tile fragment merger (dedupe + truncation)       │
 │  rank/      largest-first order (the app also sorts by score)      │
 └──────────────────────┬──────────────────────┬──────────────────────┘
@@ -38,11 +38,11 @@ rate (default 5 tiles/s). Decoding and detection run in 2 to 4 workers (cores
 minus one, `workerPool.ts`), so the map does not wait on them (frame rate not
 measured).
 
-The CLI runs the same engine from a script: detector v2 with the same windows,
+The CLI runs the same engine from a script: the learned detector with the same windows,
 halo, sources and merger, and each source held to its calibrated threshold, so a
 CLI scan and an app scan of the same area list the same pools
 (`packages/cli/test/parity.test.ts`). `--threshold` sets one value for every
-source, and `--detector v1` runs the first detector, at 0.55 unless
+source, and `--detector v1` runs the colour rules of v0.1, at 0.55 unless
 `--threshold` says otherwise.
 
 ## Scan lifecycle (web)

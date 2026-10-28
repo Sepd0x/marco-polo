@@ -1,6 +1,6 @@
 # tools/train
 
-Training, calibration and the benchmark report of the v2 pool scorer. Python
+Training, calibration and the benchmark report of the learned pool scorer. Python
 3.14 on the CPU, versions pinned in `requirements.txt`. Nothing here computes
 candidates or features: they come from the product code through
 `marco-polo candidates`.
@@ -45,7 +45,7 @@ TEST are never used to calibrate.
 - The trainer refuses labels whose sha256 differs from the recipe, and
   feature names that differ from the detector's.
 
-## Last run (28 October 2026, v3)
+## Last run (28 October 2026, v1.0)
 
 142 057 candidates, 9 149 of them pools and 49 518 negatives; 61 confident
 negatives ignored; 2 628 size copies (663 pools). Out-of-fold AUC by training

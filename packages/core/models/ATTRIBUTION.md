@@ -1,6 +1,6 @@
 # pool-v2.json
 
-The pool scorer of the learned (v2) detector, third model (v3, 28 October
+The pool scorer of the learned detector, third model (release v1.0, 28 October
 2026; the file keeps its name so the detector seam and the app read it
 unchanged): gradient-boosted trees and a small neural network over
 56 features of each candidate, with an isotonic calibration and a threshold
@@ -15,7 +15,7 @@ Labels are hand boxes from a blind review of 10 windows per zone, with the
 OpenStreetMap outline where OpenStreetMap has the pool. Around the sports
 pitches OpenStreetMap maps in each zone (and in two zones kept for pitches
 only), candidates on a pitch are negatives and candidates on an outdoor
-OpenStreetMap pool are positives (`tools/train/courts.geojson`). Since v3 the
+OpenStreetMap pool are positives (`tools/train/courts.geojson`). Since v1.0 the
 trainer also adds copies of candidates with their size features scaled to
 400 to 1800 m² (`sizeAugment` in the recipe), computed from the same rows.
 
@@ -36,7 +36,7 @@ not covered by the ODbL.
 The calibration uses detections on the DEV zones on DGT and IGN and on the
 Pozuelo gold zone (PNOA). Esri's terms forbid using its data to train
 systems, so no Esri imagery trains or calibrates the model: Scottsdale, the
-Esri DEV zone, left the calibration with v3. Esri detections read the
+Esri DEV zone, left the calibration in v1.0. Esri detections read the
 calibration pooled over the open sources, with a threshold fixed to the
 pooled one.
 

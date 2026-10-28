@@ -6,7 +6,7 @@ precision, recall, F1, area, length, width and centre errors, each with a 95%
 interval, plus contact sheets of every error outside TEST.
 
 ```bash
-npm run eval                                      # v1 on DEV and DEV-2, Esri, frozen labels
+npm run eval                                      # colour rules (v0.1) on DEV and DEV-2, Esri, frozen labels
 npm run eval -- run --zones dev --source auto     # each zone on the source the product scans there
 npm run eval -- zones check                       # registry rules
 npm run eval -- gate                              # committed reports against targets.json
@@ -108,16 +108,17 @@ DGT or PNOA answers, 404) count as missing, never as empty ground.
 
 - `eval targets --baseline v1.json --report v2.json` fixes `targets.json` from
   DEV and DEV-2: each target is the stricter of the floor written in
-  `gate.ts` before any v2 number existed and v2's pessimistic interval end
+  `gate.ts` before any learned-detector number existed and the v0.2
+  pessimistic interval end
   there. It must be committed before the first TEST
   run.
-- A detector other than v1 runs on TEST only with `--confirm-test "<why>"`,
-  which logs the run in `results/TEST_RUNS.md` first. At most three. The v2
-  report comes from `tools/train/report.ts`, which takes the same flag.
-- `results/v1/report.json` and `results/v2/report.json` cover DEV, DEV-2, GOLD
-  and TEST on the same frozen labels; `results/TEST_RUN_1.md` reads the first
-  TEST run against the targets. The second run (v3 model) is in `results/v3`,
-  with v1 rerun on the same code in `results/v3/v1`
+- A detector other than the colour rules runs on TEST only with `--confirm-test "<why>"`,
+  which logs the run in `results/TEST_RUNS.md` first. At most three. The
+  learned detector's report comes from `tools/train/report.ts`, which takes the same flag.
+- `results/v1/report.json` (v0.1) and `results/v2/report.json` (v0.2) cover
+  DEV, DEV-2, GOLD and TEST on the same frozen labels; `results/TEST_RUN_1.md`
+  reads the first TEST run against the targets. The second run (v1.0) is in
+  `results/v3`, with v0.1 rerun on the same code in `results/v3/v1`
   (`eval gate --report results/v3/report.json --baseline results/v3/v1/report.json`);
   `results/TEST_RUN_2.md` reads it.
 - `eval gate` reads the committed reports and fails when the detector code or

@@ -11,7 +11,7 @@ fixed before measuring: p95 at most 150 ms per 512 px request with its halo,
 | 2026-10-28 | e7b2f13 | Chromium 156, headless | AMD Ryzen AI 9 365, 10 cores | 73.3 / 106.3 ms | 16.3 / 25.7 ms | both within target |
 | 2026-10-28 | e63fdb2 | Chromium 156, headless | AMD Ryzen AI 9 365, 10 cores | 50.9 / 74.4 ms | 11.8 / 18.3 ms | both within target |
 
-v2 misses both targets on this machine. The scan does not wait on it at the
+The learned detector misses both targets on this machine. The scan does not wait on it at the
 default rate: the app runs 2 to 4 workers (cores minus one), so 3 workers at
 the 512 px p95 would handle about 12 requests per second (worked out, not
 measured) against the 5 the scan sends. Firefox: not measured (no Firefox
@@ -25,7 +25,7 @@ is the target itself, so timings like the ones above fail the bench step.
 
 Same detections, scores, polygons, thumbnail crops and candidate features
 bit for bit: `apps/web/test/scan/detectorGolden.test.ts` pins them on every
-fixture tile (bitmap with halo, XYZ with eight neighbours, v1), recorded at
+fixture tile (bitmap with halo, XYZ with eight neighbours, colour rules), recorded at
 e7b2f13 before any change. The parity test still matches 433 of 433
 candidates with a worst score difference of 0.
 
@@ -37,7 +37,7 @@ Four runs of each build, interleaved old and new:
 |---|--:|--:|--:|
 | e7b2f13 | 93.7 / 155.6 ms | 21.8 / 36.8 ms | 74.4 / 134.1, 16.8 / 31.2 ms |
 | e63fdb2 | 72.1 / 111.9 ms | 15.4 / 27.7 ms | 50.9 / 74.4, 11.8 / 18.3 ms |
-| d0d5880 (v3 model) | 45.1 / 60.3 ms, one run | 10.0 / 14.9 ms, one run | same run |
+| d0d5880 (v1.0 model) | 45.1 / 60.3 ms, one run | 10.0 / 14.9 ms, one run | same run |
 
 Where the worker time goes now (Chromium, mean per request, from the
 `stages` the worker reports): 512 px: decode 2.6, no-data 0.4, detection
@@ -73,4 +73,4 @@ The 256 px sample is a bare tile (halo 0). The scan sends XYZ tiles with
 their eight neighbours, a 352 px window, so the product's 256 px requests
 cost more than this row says.
 
-The v3 model row (28 Oct, Ryzen AI 9 365, Chromium 156 headless) is a single quiet run with no other jobs on the machine, so it is not comparable with the medians above, which ran under load. Both targets pass. Firefox still fails to launch here (spawn UNKNOWN).
+The v1.0 model row (28 Oct, Ryzen AI 9 365, Chromium 156 headless) is a single quiet run with no other jobs on the machine, so it is not comparable with the medians above, which ran under load. Both targets pass. Firefox still fails to launch here (spawn UNKNOWN).
