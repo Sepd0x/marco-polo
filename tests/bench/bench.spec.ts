@@ -66,13 +66,21 @@ test('detection worker time per tile', async ({ page, browserName }, info) => {
       const worker = new Worker(url, { type: 'module' });
       let seq = 0;
       const run = (s: (typeof list)[number]) =>
-        new Promise<{ ms: number; rtt: number; error?: string; noData: unknown; pieces: number }>((resolve) => {
+        new Promise<{ ms: number; rtt: number; error?: string; noData: unknown; pieces: number; stages?: Record<string, number>; detections: number }>((resolve) => {
           const bytes = Uint8Array.from(atob(s.b64), (c) => c.charCodeAt(0));
           const id = ++seq;
           const t0 = performance.now();
           worker.onmessage = (e) => {
             const r = e.data;
-            resolve({ ms: r.ms, rtt: performance.now() - t0, error: r.error, noData: r.noData, pieces: r.pieces.length });
+            resolve({
+              ms: r.ms,
+              rtt: performance.now() - t0,
+              error: r.error,
+              noData: r.noData,
+              pieces: r.pieces.length,
+              stages: r.stages,
+              detections: r.pieces.reduce((n: number, p: { detections: unknown[] }) => n + p.detections.length, 0),
+            });
           };
           worker.postMessage(
             { id, scanId: 'bench', providerId: s.providerId, tile: s.tile, tilePx: s.tilePx, halo: s.halo, bytes: bytes.buffer, thumbs: true },
@@ -81,11 +89,11 @@ test('detection worker time per tile', async ({ page, browserName }, info) => {
         });
       // Warm-up: module load and first decode.
       for (const s of list.slice(0, 3)) await run(s);
-      const rows: { name: string; tilePx: number; ms: number; rtt: number; error?: string }[] = [];
+      const rows: { name: string; tilePx: number; ms: number; rtt: number; error?: string; stages?: Record<string, number>; detections: number }[] = [];
       for (let r = 0; r < rounds; r++) {
         for (const s of list) {
           const x = await run(s);
-          rows.push({ name: s.name, tilePx: s.tilePx, ms: x.ms, rtt: x.rtt, error: x.error });
+          rows.push({ name: s.name, tilePx: s.tilePx, ms: x.ms, rtt: x.rtt, error: x.error, stages: x.stages, detections: x.detections });
         }
       }
       worker.terminate();
@@ -99,7 +107,11 @@ test('detection worker time per tile', async ({ page, browserName }, info) => {
   const report: Record<string, unknown> = { browser: browserName, userAgent: result.ua, cpu: cpus()[0]?.model, rounds: ROUNDS, ci: !!process.env.CI };
   for (const px of [512, 256] as const) {
     const ms = result.rows.filter((r) => r.tilePx === px).map((r) => r.ms);
-    const rtt = result.rows.filter((r) => r.tilePx === px).map((r) => r.rtt);
+    const rows = result.rows.filter((r) => r.tilePx === px);
+    const rtt = rows.map((r) => r.rtt);
+    // Mean time per stage inside the worker, ms.
+    const stages: Record<string, number> = {};
+    for (const r of rows) for (const [k, v] of Object.entries(r.stages ?? {})) stages[k] = (stages[k] ?? 0) + v / rows.length;
     report[`px${px}`] = {
       samples: ms.length,
       p50: +pct(ms, 50).toFixed(1),
@@ -107,6 +119,8 @@ test('detection worker time per tile', async ({ page, browserName }, info) => {
       max: +Math.max(...ms).toFixed(1),
       roundTripP95: +pct(rtt, 95).toFixed(1),
       targetP95: TARGET_MS[px] * SLACK,
+      meanStages: Object.fromEntries(Object.entries(stages).map(([k, v]) => [k, +v.toFixed(2)])),
+      meanDetections: +(rows.reduce((n, r) => n + r.detections, 0) / rows.length).toFixed(1),
     };
   }
   writeFileSync(info.outputPath(`bench-${browserName}.json`), JSON.stringify(report, null, 2));
