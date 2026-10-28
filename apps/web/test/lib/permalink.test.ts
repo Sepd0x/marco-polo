@@ -57,6 +57,19 @@ describe('permalink', () => {
     off();
   });
 
+  it('takes a link pasted into the address bar of an open tab', () => {
+    const off = bindPermalink();
+    emit('mapready', {});
+    expect(useStore.getState().area).toBeNull();
+    history.replaceState(null, '', `/${encodePermalink(US_AREA)}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    expect(useStore.getState().area).toEqual(US_AREA);
+    history.replaceState(null, '', `/${encodePermalink(PT_AREA)}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    expect(useStore.getState().area).toEqual(PT_AREA);
+    off();
+  });
+
   it('applies the area only once the map is ready', () => {
     history.replaceState(null, '', `/${encodePermalink(US_AREA)}`);
     const off = bindPermalink();

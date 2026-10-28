@@ -7,6 +7,12 @@
   outline: none;
 }
 
+/* Reached by Tab, the map takes the arrow keys: say so with a ring inside the neat line. */
+#map canvas:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -3px;
+}
+
 #map.drawing .maplibregl-canvas-container {
   cursor: crosshair !important;
 }

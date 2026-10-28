@@ -147,26 +147,37 @@ export function writePermalink(ring: Ring | null, source: string | null = null):
  * in step with the drawn area. Returns a function that stops both.
  */
 export function bindPermalink(): () => void {
-  const shared = decodePermalink(window.location.hash);
-  let offReady: (() => void) | null = null;
-  let applied = false;
-  if (shared) {
-    offReady = on('mapready', () => {
-      if (applied) return;
-      applied = true;
-      const s = useStore.getState();
-      if (s.phase === 'scanning' || s.phase === 'paused') return;
-      // The map fits itself to a new area.
-      s.setArea(shared.ring, null, { source: shared.source });
-    });
-  }
+  let pending = decodePermalink(window.location.hash);
+  let ready = false;
+  const apply = () => {
+    const shared = pending;
+    pending = null;
+    if (!shared) return;
+    const s = useStore.getState();
+    if (s.phase === 'scanning' || s.phase === 'paused') return;
+    if (JSON.stringify(s.area) === JSON.stringify(shared.ring) && (s.areaSource ?? null) === (shared.source ?? null)) return;
+    // The map fits itself to a new area.
+    s.setArea(shared.ring, null, { source: shared.source });
+  };
+  const offReady = on('mapready', () => {
+    if (ready) return;
+    ready = true;
+    apply();
+  });
+  // A link pasted into the address bar of an open tab only changes the hash.
+  const onHash = () => {
+    pending = decodePermalink(window.location.hash);
+    if (ready) apply();
+  };
+  window.addEventListener('hashchange', onHash);
   const offArea = useStore.subscribe(
     (s) => [s.area, s.areaSource] as const,
     ([area, source]) => writePermalink(area, source),
     { equalityFn: (a, b) => a[0] === b[0] && a[1] === b[1] },
   );
   return () => {
-    offReady?.();
+    offReady();
+    window.removeEventListener('hashchange', onHash);
     offArea();
   };
 }
