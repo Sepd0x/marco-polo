@@ -366,7 +366,7 @@ export class ScanController {
           r.probed.set(req.url, got);
           answered++;
           if (got.status !== 200) continue;
-          const res = await this.pool!.run(
+          const res = await this.work(
             { scanId: this.scanId, providerId: provider.id, tile: t, tilePx: provider.requestPx, halo: req.halo, bytes: got.bytes.slice().buffer, probe: true },
           );
           if (!res.error && !res.noData) withData++;
@@ -445,6 +445,29 @@ export class ScanController {
     }
   }
 
+  /**
+   * One job on the pool, given up when the scan is stopped or disposed: a
+   * worker that never answers must not keep Stop from finishing.
+   */
+  private work(job: Omit<WorkJob, 'id'>): Promise<WorkResult> {
+    const signal = this.abort.signal;
+    if (signal.aborted) return Promise.reject(new ScanCancelled());
+    return new Promise<WorkResult>((resolve, reject) => {
+      const onAbort = () => reject(new ScanCancelled());
+      signal.addEventListener('abort', onAbort, { once: true });
+      this.pool!.run(job).then(
+        (r) => {
+          signal.removeEventListener('abort', onAbort);
+          resolve(r);
+        },
+        (e) => {
+          signal.removeEventListener('abort', onAbort);
+          reject(e);
+        },
+      );
+    });
+  }
+
   /** A tile's bytes, through the shared halo table when the part has one. */
   private use(r: PartRun, req: TileRequest): Promise<TileBytes> {
     const e = r.shared.get(req.url);
@@ -511,7 +534,7 @@ export class ScanController {
         outcome = 'nocoverage';
       } else {
         const neighbours = await this.neighbours(r, tile);
-        const res = await this.pool!.run(
+        const res = await this.work(
           {
             scanId: this.scanId,
             providerId: provider.id,

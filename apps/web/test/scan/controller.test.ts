@@ -314,6 +314,24 @@ describe('scan controller', () => {
     expect(r.net.calls.length).toBe(calls);
   });
 
+  it('stop finishes even when the detection workers never answer', async () => {
+    const r = rig({ fragments: poolsOnEvenColumns });
+    const make = r.deps.makePool;
+    // Workers that never load: their jobs neither resolve nor reject.
+    r.deps.makePool = () => ({ ...make(), run: () => new Promise<never>(() => {}) });
+    const c = new ScanController(request(), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(3_000);
+    c.stop();
+    await vi.advanceTimersByTimeAsync(5_000);
+    let settled = false;
+    void done.then(() => (settled = true));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(settled).toBe(true);
+    expect(useStore.getState().phase).toBe('complete');
+    expect(useStore.getState().stats.stopped).toBe(true);
+  });
+
   it('dispose stops all traffic and writes nothing more', async () => {
     const r = rig({ fragments: poolsOnEvenColumns });
     const c = new ScanController(request(), r.deps);
