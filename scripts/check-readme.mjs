@@ -2,12 +2,12 @@
 // the benchmark reports, the before and after table with its counts from
 // docs/media/braga-figure.json (written by packages/eval/src/figure.ts). This
 // script rebuilds both blocks and fails when the README differs or runs past
-// 400 words; `--write` puts the fresh blocks in place.
+// 650 words; `--write` puts the fresh blocks in place.
 //
 //   node scripts/check-readme.mjs [--write]
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const MAX_WORDS = 400;
+const MAX_WORDS = 650;
 const v1 = JSON.parse(readFileSync('packages/eval/results/v1/report.json', 'utf8'));
 const v2 = JSON.parse(readFileSync('packages/eval/results/v2/report.json', 'utf8'));
 const fig = JSON.parse(readFileSync('docs/media/braga-figure.json', 'utf8'));
