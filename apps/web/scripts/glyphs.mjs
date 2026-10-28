@@ -18,7 +18,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { brotliDecompressSync } from 'node:zlib';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -292,7 +292,11 @@ async function build() {
   console.log(`${codepoints.length} glyphs in ${byRange.size} ranges, 256 files, ${(bytes / 1024).toFixed(1)} KB -> ${OUT}`);
 }
 
-if (process.argv[2] === '--decode') {
+const isMain = Boolean(process.argv[1]) && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (!isMain) {
+  // Imported (the tests read decodeRange): build nothing.
+} else if (process.argv[2] === '--decode') {
   const r = decodeRange(readFileSync(process.argv[3]));
   console.log(r.name, r.range, r.glyphs.length, 'glyphs');
   const pick = process.argv.slice(4);

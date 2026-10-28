@@ -54,7 +54,12 @@ function fixtures(): Fixture[] {
 }
 
 const sha = (data: string | Uint8Array) => createHash('sha256').update(data).digest('hex');
-const copy = (b: Uint8Array) => b.slice().buffer as ArrayBuffer;
+// A Node Buffer can sit in a shared pool: copy the bytes, never take .buffer whole.
+const copy = (b: Uint8Array): ArrayBuffer => {
+  const out = new Uint8Array(b.byteLength);
+  out.set(b);
+  return out.buffer;
+};
 
 const decode = async (bytes: Uint8Array): Promise<DecodedImage> => {
   const d = decodeImage(bytes);
