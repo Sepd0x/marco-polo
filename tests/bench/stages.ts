@@ -1,7 +1,8 @@
 /*
  * Detection time per stage, in Node, on the bench fixtures (same decode as
  * tests/bench/profile.ts). Replays analyseWindow and detectWindow step by
- * step with the same calls, so the shares add up to the detector time.
+ * step with the same calls. Each tile's stage counts with its fastest round,
+ * so load from other processes on the machine weighs less.
  *
  *   npx tsx tests/bench/stages.ts [rounds]
  */
@@ -50,11 +51,18 @@ const decoded = tiles.map((t) => ({ t, img: decodeImage(t.bytes) }));
 
 type Acc = Record<string, number>;
 const acc: Record<number, Acc> = { 512: {}, 256: {} };
-const add = (px: number, k: string, ms: number) => (acc[px][k] = (acc[px][k] ?? 0) + ms);
+const best = new Map<string, number>();
+let tileNo = 0;
+const add = (px: number, k: string, ms: number) => {
+  const key = `${tileNo}|${px}|${k}`;
+  best.set(key, Math.min(best.get(key) ?? Infinity, ms));
+};
 const count: Record<number, number> = { 512: 0, 256: 0 };
 
 for (let r = 0; r < rounds; r++) {
+  tileNo = 0;
   for (const { t, img } of decoded) {
+    tileNo++;
     const px = t.px;
     let t0 = performance.now();
     noDataReason({ status: 200, bytes: t.bytes, pixels: img.rgba, width: img.width, height: img.height });
@@ -108,8 +116,12 @@ for (let r = 0; r < rounds; r++) {
     for (const s of kept) toTileDetection(s, pixels, width, height, frame, analysis, DEFAULT_LEARNED_OPTIONS);
     t1 = performance.now();
     add(px, 'scoring + nms + outlines', t1 - t0);
-    count[px]++;
+    if (r === 0) count[px]++;
   }
+}
+for (const [key, ms] of best) {
+  const [, px, k] = key.split('|');
+  acc[+px][k] = (acc[+px][k] ?? 0) + ms;
 }
 for (const px of [512, 256]) {
   console.log(`\n${px} px, mean per tile over ${count[px]} runs`);
