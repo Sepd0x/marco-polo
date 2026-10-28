@@ -59,6 +59,15 @@ async function hydrateArchived(scanId: string | null): Promise<void> {
   useStore.setState({ parts: rec.parts.map(partFromSaved) });
 }
 
+/**
+ * Once at app start. The tile store of older builds held request URLs with
+ * visitors' MapTiler and Mapbox keys in them; the settings forget those keys
+ * at boot, so the store goes at boot too, not only when a scan starts.
+ */
+export function bootScan(): Promise<void> {
+  return dropLegacyCache();
+}
+
 export function currentScan(): ScanController | null {
   return controller;
 }
