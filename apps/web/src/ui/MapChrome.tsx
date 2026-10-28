@@ -197,7 +197,8 @@ export function DataStrip({ phone }: { phone: boolean }) {
   const setAttribOpen = useUi((s) => s.setAttribOpen);
 
   if (phone) {
-    const line = [src.name, src.res, tiles].filter(Boolean).join(', ');
+    // One sentence: "Esri World Imagery, no area", "…, about 12 tiles, z19".
+    const line = [src.name, src.res, tiles.replace(/^(No|About) /, (w) => w.toLowerCase())].filter(Boolean).join(', ');
     return (
       <div className="strip phone-strip">
         <div className="strip-line">

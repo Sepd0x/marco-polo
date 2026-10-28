@@ -414,7 +414,7 @@ describe('error boundary', () => {
       console.error = spy;
       window.removeEventListener('error', quiet);
     }
-    expect(q('[role="alert"]')!.textContent).toContain('Something went wrong');
+    expect(q('[role="alert"]')!.textContent).toContain('The page stopped');
     expect(byText('button', 'Reload the page')).toBeTruthy();
   });
 });
