@@ -54,7 +54,7 @@ export interface FakeNet {
   fetch: FetchFn;
   calls: FetchCall[];
   /** Answer for a URL; default 200 with a data tile. */
-  respond: (url: string, attempt: number) => { status: number; body?: Uint8Array };
+  respond: (url: string, attempt: number) => { status: number; body?: Uint8Array; networkError?: boolean };
   latencyMs: number;
 }
 
@@ -71,6 +71,10 @@ export function fakeNet(latencyMs = 30): FakeNet {
       const answer = net.respond(url, n);
       return new Promise((resolve, reject) => {
         const t = setTimeout(() => {
+          if (answer.networkError) {
+            reject(new TypeError('Failed to fetch'));
+            return;
+          }
           const body = answer.body ?? (answer.status === 200 ? tileBody('data') : new Uint8Array(0));
           resolve({ status: answer.status, arrayBuffer: async () => body.slice().buffer });
         }, net.latencyMs);

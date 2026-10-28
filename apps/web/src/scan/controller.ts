@@ -29,6 +29,7 @@ import { fragKey } from '../lib/fragKey.js';
 import { formatArea } from '../lib/format.js';
 import { ScanMachine, phaseOf, type ScanState } from './machine.js';
 import { isAbort, TokenBucket } from './pacer.js';
+import { NetworkWatch, TileOfflineError } from './network.js';
 import { fetchTile, type FetchFn, type TileBytes, type TileCache } from './tileSource.js';
 import { pieceTiles, type WorkJob, type WorkResult } from './tileWork.js';
 import { detectionId, newScanId } from './ids.js';
@@ -66,6 +67,8 @@ export interface ControllerDeps {
   /** Look up capture dates (one request per part). */
   dates?: boolean;
   scanId?: string;
+  /** What the scan knows about the connection (tests). */
+  network?: NetworkWatch;
 }
 
 /** Thrown inside the run loop once the scan is stopped or disposed. */
@@ -137,6 +140,10 @@ export class ScanController {
   private cellKeys = new WeakMap<PlanPart, Set<string>>();
   private ticker: ReturnType<typeof setInterval> | null = null;
   private resumeWaiters: (() => void)[] = [];
+  private readonly net: NetworkWatch;
+  /** A tile gave up because the device looked offline, in the run that just ran. */
+  private offlineSeen = false;
+  private removeOnline: (() => void) | null = null;
   private inflight = new Set<Promise<void>>();
   private slotsFree = 0;
   private slotWaiters: (() => void)[] = [];
@@ -156,6 +163,7 @@ export class ScanController {
     this.halo = deps.halo ?? 0;
     this.detectorId = deps.detectorId ?? 'v1';
     this.bucket = new TokenBucket(Math.max(1, Math.min(10, request.ratePerSec)));
+    this.net = deps.network ?? new NetworkWatch();
     this.machine.onChange((s) => this.onState(s));
   }
 
@@ -188,6 +196,7 @@ export class ScanController {
       areaM2: split.parts.reduce((s, p) => s + p.areaM2, 0),
     });
     this.watchRate();
+    this.watchOnline();
     this.finished = this.run(this.runs, false);
     return this.finished;
   }
@@ -210,6 +219,7 @@ export class ScanController {
     const runs = this.runs.filter((r) => r.failed.length > 0);
     if (runs.length === 0 || !this.machine.send('retry')) return this.finished;
     this.abort = new AbortController();
+    this.net.reset();
     this.bucket = new TokenBucket(this.bucket.perSecond);
     // The slider counts during a retry as during the scan (each part sets its own ceiling in run()).
     this.unsubRate?.();
@@ -243,8 +253,27 @@ export class ScanController {
       this.slotWaiters = [];
       for (const fn of sw) fn();
     }
-    if (s === 'disposed') this.teardown();
+    if (s === 'disposed') {
+      this.removeOnline?.();
+      this.removeOnline = null;
+      this.teardown();
+    }
     if (phase && s !== 'done') this.store.getState().setScanPhase(this.scanId, phase);
+  }
+
+  /**
+   * When the browser comes back online, forget the failed requests and, if
+   * the scan ended because the device was offline, scan its failed tiles again.
+   */
+  private watchOnline(): void {
+    if (typeof window === 'undefined' || this.removeOnline) return;
+    const onOnline = () => {
+      this.net.reset();
+      const s = this.store.getState();
+      if (this.machine.state === 'done' && s.scanId === this.scanId && s.offline && s.stats.tilesFailed > 0) void this.retryFailed();
+    };
+    window.addEventListener('online', onOnline);
+    this.removeOnline = () => window.removeEventListener('online', onOnline);
   }
 
   private teardown(): void {
@@ -304,6 +333,7 @@ export class ScanController {
     this.slotsFree = this.pool.size + 2;
     this.done = 0;
     this.runStarted = Date.now();
+    this.offlineSeen = false;
     this.ticker = setInterval(() => this.store.getState().tickElapsed(this.scanId), 1000);
     try {
       for (const r of runs) {
@@ -402,7 +432,7 @@ export class ScanController {
     for (const url of q.urls) {
       await this.gate();
       try {
-        const got = await fetchTile(url, { bucket: this.bucket, fetch: this.deps.fetch, signal: this.abort.signal, retries: 1, timeoutMs: 10_000 });
+        const got = await fetchTile(url, { bucket: this.bucket, fetch: this.deps.fetch, signal: this.abort.signal, retries: 1, timeoutMs: 10_000, net: this.net });
         if (got.status !== 200) continue;
         const info = q.parse(new TextDecoder().decode(got.bytes));
         if (info?.date) return info.date;
@@ -425,6 +455,7 @@ export class ScanController {
       cache: this.deps.cache,
       policy: provider.cachePolicy,
       signal: this.abort.signal,
+      net: this.net,
     });
   }
 
@@ -589,6 +620,7 @@ export class ScanController {
       if (err instanceof ScanCancelled || isAbort(err) || !this.alive()) return;
       outcome = 'failed';
       events = [];
+      if (err instanceof TileOfflineError) this.offlineSeen = true;
     } finally {
       if (holdsNeighbours) this.giveBackNeighbours(r, tile);
     }
@@ -681,7 +713,7 @@ export class ScanController {
     this.teardown();
     const s = this.store.getState();
     if (s.scanId !== this.scanId) return;
-    s.finishScan(this.scanId, { stopped });
+    s.finishScan(this.scanId, { stopped, offline: this.offlineSeen && !stopped && s.stats.tilesFailed > 0 });
     if (!this.deps.save || !s.area) return;
     const after = this.store.getState();
     const name =
