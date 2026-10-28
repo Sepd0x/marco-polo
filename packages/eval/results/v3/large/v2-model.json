@@ -1,0 +1,300 @@
+{
+ "detector": "v2",
+ "labels": "b71e762d065ac47a4be669466ebfd6da2223956708d6b7cb807c6b0aeb7d3b63",
+ "bySource": {
+  "pnoa": {
+   "labels": 13,
+   "hits": 5
+  },
+  "ign": {
+   "labels": 7,
+   "hits": 4
+  },
+  "dgt": {
+   "labels": 20,
+   "hits": 5
+  }
+ },
+ "rows": [
+  {
+   "id": "way/1318064278",
+   "source": "pnoa",
+   "areaM2": 770,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/1318064280",
+   "source": "pnoa",
+   "areaM2": 485,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/es-estepona/blob9",
+   "source": "pnoa",
+   "areaM2": 485,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/es-estepona/blob3",
+   "source": "pnoa",
+   "areaM2": 440,
+   "hit": true,
+   "detM2": 459
+  },
+  {
+   "id": "mp-large/es-madrid-sanchinarro/blob1",
+   "source": "pnoa",
+   "areaM2": 938,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/es-madrid-sanchinarro/blob25",
+   "source": "pnoa",
+   "areaM2": 465,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/1169016717",
+   "source": "pnoa",
+   "areaM2": 418,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/405715167",
+   "source": "pnoa",
+   "areaM2": 541,
+   "hit": true,
+   "detM2": 431
+  },
+  {
+   "id": "way/1152630396",
+   "source": "pnoa",
+   "areaM2": 482,
+   "hit": true,
+   "detM2": 68
+  },
+  {
+   "id": "mp-large/es-orihuela-costa/blob1",
+   "source": "pnoa",
+   "areaM2": 467,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/1152630167",
+   "source": "pnoa",
+   "areaM2": 465,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/404909966",
+   "source": "pnoa",
+   "areaM2": 412,
+   "hit": true,
+   "detM2": 172
+  },
+  {
+   "id": "way/394753440",
+   "source": "pnoa",
+   "areaM2": 402,
+   "hit": true,
+   "detM2": 400
+  },
+  {
+   "id": "way/72021474",
+   "source": "ign",
+   "areaM2": 1364,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/696216672",
+   "source": "ign",
+   "areaM2": 983,
+   "hit": true,
+   "detM2": 10
+  },
+  {
+   "id": "way/715701562",
+   "source": "ign",
+   "areaM2": 930,
+   "hit": true,
+   "detM2": 17
+  },
+  {
+   "id": "way/72405208",
+   "source": "ign",
+   "areaM2": 699,
+   "hit": true,
+   "detM2": 294
+  },
+  {
+   "id": "way/72022081",
+   "source": "ign",
+   "areaM2": 511,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/172381437",
+   "source": "ign",
+   "areaM2": 802,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/1134309575",
+   "source": "ign",
+   "areaM2": 416,
+   "hit": true,
+   "detM2": 49
+  },
+  {
+   "id": "way/241551050",
+   "source": "dgt",
+   "areaM2": 850,
+   "hit": true,
+   "detM2": 813
+  },
+  {
+   "id": "mp-large/pt-albufeira/blob6",
+   "source": "dgt",
+   "areaM2": 814,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/604210252",
+   "source": "dgt",
+   "areaM2": 773,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/pt-albufeira/blob17",
+   "source": "dgt",
+   "areaM2": 689,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/180850319",
+   "source": "dgt",
+   "areaM2": 665,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/755409281",
+   "source": "dgt",
+   "areaM2": 629,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/92648436",
+   "source": "dgt",
+   "areaM2": 551,
+   "hit": true,
+   "detM2": 459
+  },
+  {
+   "id": "mp-large/pt-albufeira/blob34",
+   "source": "dgt",
+   "areaM2": 527,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/411296007",
+   "source": "dgt",
+   "areaM2": 522,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/pt-albufeira/blob37",
+   "source": "dgt",
+   "areaM2": 507,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/170198082",
+   "source": "dgt",
+   "areaM2": 487,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/1098841394",
+   "source": "dgt",
+   "areaM2": 459,
+   "hit": true,
+   "detM2": 513
+  },
+  {
+   "id": "way/174474804",
+   "source": "dgt",
+   "areaM2": 432,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/91011154",
+   "source": "dgt",
+   "areaM2": 430,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "mp-large/pt-albufeira/blob35",
+   "source": "dgt",
+   "areaM2": 413,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/643319814",
+   "source": "dgt",
+   "areaM2": 412,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/92323644",
+   "source": "dgt",
+   "areaM2": 408,
+   "hit": true,
+   "detM2": 331
+  },
+  {
+   "id": "way/92323645",
+   "source": "dgt",
+   "areaM2": 408,
+   "hit": false,
+   "detM2": null
+  },
+  {
+   "id": "way/608417097",
+   "source": "dgt",
+   "areaM2": 407,
+   "hit": true,
+   "detM2": 283
+  },
+  {
+   "id": "way/1078237299",
+   "source": "dgt",
+   "areaM2": 794,
+   "hit": false,
+   "detM2": null
+  }
+ ]
+}
