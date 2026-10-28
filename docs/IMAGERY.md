@@ -52,7 +52,8 @@ model was trained on DGT, PNOA and IGN imagery.
 
 ## Network
 
-The production build sends a Content Security Policy that allows connections
+The production build carries a Content Security Policy in a meta tag (GitHub
+Pages cannot send headers, so `frame-ancestors` is not set) that allows connections
 only to these origins (`apps/web/src/map/csp.ts`):
 
 - the imagery hosts in the table and the PNOA mirror;

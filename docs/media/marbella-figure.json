@@ -1,5 +1,5 @@
 {
- "args": "--zone marbella --panels v1,v2 --name v2 --size 800 --px 880",
+ "args": "--zone marbella --panels v1,current --name v3 --size 800 --px 880",
  "zone": "marbella",
  "role": "DEV-2",
  "source": "pnoa",
@@ -18,10 +18,10 @@
    "falseDetections": 1,
    "missed": 14
   },
-  "v2": {
-   "title": "v2 on PNOA (IGN Spain)",
+  "v3": {
+   "title": "v3 on PNOA (IGN Spain)",
    "hits": 23,
-   "falseDetections": 2,
+   "falseDetections": 1,
    "missed": 5
   }
  }
