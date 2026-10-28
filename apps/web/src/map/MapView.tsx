@@ -126,6 +126,9 @@ export function MapView() {
       setLabelsVisible(map, useStore.getState().settings.labels);
 
       const draw = new DrawTool(map, (ring: Ring) => {
+        // The ring comes on the main world copy; the camera goes there too, so framing it is no pan round the globe.
+        const c = map.getCenter();
+        if (Math.abs(c.lng) > 180) map.jumpTo({ center: c.wrap() });
         const { settings } = useStore.getState();
         const estimate = estimateTileCount(ring, settings.zoom);
         useStore.getState().setArea(ring, estimate);
