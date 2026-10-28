@@ -194,3 +194,27 @@ describe('detector windows', () => {
     expect(neighbourTile({ z: 2, x: 0, y: 0 }, 0, -1)).toBeNull();
   });
 });
+
+describe('noDataReason stopping early', () => {
+  // The full-scan answer, as the check was written before it learnt to stop early.
+  const reference = (pixels: Uint8Array, w: number, h: number) =>
+    blankShare(pixels) >= 0.995 ? 'blank' : flatness(pixels, w, h) < FLAT_THRESHOLD ? 'flat' : null;
+
+  it('gives the full-scan answer on tiles near both bars', () => {
+    let seed = 11;
+    const rand = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    for (let t = 0; t < 400; t++) {
+      const w = 8 + Math.floor(rand() * 60), h = 8 + Math.floor(rand() * 60);
+      const px = new Uint8Array(w * h * 4);
+      const base = Math.floor(rand() * 256);
+      const noisy = rand() * 0.02;
+      const white = rand() < 0.3 ? 0.99 + rand() * 0.01 : rand();
+      for (let i = 0; i < w * h; i++) {
+        const v = rand() < white ? 255 : rand() < noisy ? Math.floor(rand() * 256) : base;
+        px[i * 4] = px[i * 4 + 1] = px[i * 4 + 2] = v;
+        px[i * 4 + 3] = rand() < 0.001 ? 0 : 255;
+      }
+      expect(noDataReason({ pixels: px, width: w, height: h })).toBe(reference(px, w, h));
+    }
+  });
+});
