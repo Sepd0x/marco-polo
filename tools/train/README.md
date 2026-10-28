@@ -32,7 +32,8 @@ npx tsx tools/train/report.ts --rows <work>/rows-seed0.json --uncal <work>/model
 ```
 
 Calibration zones are the DEV zones of each family plus the Pozuelo gold zone
-for PNOA. In step 5 each DEV zone is scored with a calibration fitted without
+for PNOA, never an Esri zone: Esri's terms forbid using its data to train
+systems. Esri reads the pooled map, with a threshold fixed to the pooled one. In step 5 each DEV zone is scored with a calibration fitted without
 it, so no DEV number comes from a calibration that saw that zone. DEV-2 and
 TEST are never used to calibrate.
 
@@ -44,9 +45,11 @@ TEST are never used to calibrate.
 - The trainer refuses labels whose sha256 differs from the recipe, and
   feature names that differ from the detector's.
 
-## Last run (10 October 2026)
+## Last run (28 October 2026, v3)
 
-142 057 candidates, 9 149 of them pools and 49 518 negatives (the rest left
-out: ambiguous, or off the pitches in the pitch windows); 64 confident
-negatives ignored. Out-of-fold AUC by training zone between 0.992 and 0.998.
-Seed 0 only: the spread over seeds 1 to 4 was not measured for this model.
+142 057 candidates, 9 149 of them pools and 49 518 negatives; 61 confident
+negatives ignored; 2 628 size copies (663 pools). Out-of-fold AUC by training
+zone between 0.992 and 0.998. `prepare.ts --shard i/n` ran in 12 processes.
+DEV out of fold over seeds 0 to 4: 80.6, 80.6, 81.6, 81.0, 81.8; seed 0
+ships. Without the size copies seed 0 gave 80.1 and found 12 of the 40 large
+pools; with copies at probability 1 instead of 0.3, 80.2 and 26 of 40.

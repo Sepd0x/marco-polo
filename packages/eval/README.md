@@ -116,7 +116,10 @@ DGT or PNOA answers, 404) count as missing, never as empty ground.
   report comes from `tools/train/report.ts`, which takes the same flag.
 - `results/v1/report.json` and `results/v2/report.json` cover DEV, DEV-2, GOLD
   and TEST on the same frozen labels; `results/TEST_RUN_1.md` reads the first
-  TEST run against the targets.
+  TEST run against the targets. The second run (v3 model) is in `results/v3`,
+  with v1 rerun on the same code in `results/v3/v1`
+  (`eval gate --report results/v3/report.json --baseline results/v3/v1/report.json`);
+  `results/TEST_RUN_2.md` reads it.
 - `eval gate` reads the committed reports and fails when the detector code or
   model changed since the run, the labels differ from the frozen ones,
   `targets.json` changed after the first TEST run, a floor or target is missed,
@@ -124,5 +127,11 @@ DGT or PNOA answers, 404) count as missing, never as empty ground.
 - `eval adjudicate prepare|apply` pools the unmatched detections of two runs,
   shuffled and shown without saying which version found them; confirmed pools
   form a second label set with its own sha256.
+- Pools of 400 m² or more are a class of their own: every report counts the
+  outline labels that large and the hits among them, and `eval large` scores
+  a detector on `labels/large-pools.geojson`, outlines of large pools in
+  areas of their own on DGT, PNOA and IGN, frozen like any label file. Each
+  outline is scanned on its imagery with a 30 m margin; the set gives recall
+  only. `eval large-import` adds outlines to DEV and TRAIN labels.
 - `eval osm-recall` scores OSM against a blind count in 10 windows of a zone;
   training zones need 0.90.

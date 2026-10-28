@@ -31,7 +31,13 @@ For PNOA and IGN the export credit carries the capture date when it is known.
   HTTP cache keeps them, for the max-age Esri sends.
 - The CLI keeps open-licence tiles in `--cache-dir` (default `.tile-cache`)
   and never writes Esri tiles to disk.
-- Training never uses Esri imagery.
+- Esri's terms forbid using its data to train systems. No Esri imagery
+  trains or calibrates the detector: the training zones and the calibration
+  zones are all DGT, PNOA or IGN, and the training tools refuse an Esri zone.
+  Esri stays a source to view and scan. Its detections take the calibration
+  pooled over the other sources and a threshold of their own, fixed to the
+  pooled threshold rather than fitted on Esri (see
+  [DETECTION.md](DETECTION.md)). The benchmark still scores Esri zones.
 
 ## Rate
 

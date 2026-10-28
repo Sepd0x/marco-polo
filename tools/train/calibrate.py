@@ -12,6 +12,10 @@ single calibration zone has no out-of-fold estimate and gets no map of its
 own: it reads `default`, which pools all zones, with a threshold chosen out
 of fold the same way.
 
+No Esri row is accepted: Esri's terms forbid using its data to train
+systems. Esri reads the pooled map, and its threshold is fixed to the pooled
+threshold, written as its own entry so the product and the docs name it.
+
 --exclude leaves zones out of the fit: report.ts calibrates each DEV zone
 without it, so the DEV numbers it reports are out of fold. --parity writes
 the reference scores the TypeScript test compares the shipped model with.
@@ -22,6 +26,9 @@ import json
 
 import numpy as np
 from sklearn.isotonic import IsotonicRegression
+
+
+NO_TRAINING_FAMILIES = ['esri']
 
 
 def fit(scores, ys, n_labels):
@@ -92,6 +99,8 @@ def main():
     model = json.load(open(a.model, encoding='utf-8'))
     if model['calibration']:
         raise SystemExit('give the uncalibrated model')
+    if any(r['family'] in NO_TRAINING_FAMILIES for r in data['rows']):
+        raise SystemExit(f'rows from {NO_TRAINING_FAMILIES} imagery: its terms forbid using it to calibrate')
     rows = [r for r in data['rows'] if r['zone'] not in a.exclude]
     zones = [z for z in data['zones'] if z not in a.exclude]
     labels = {}
@@ -126,6 +135,9 @@ def main():
         model['thresholds'][fam] = round(thr, 6)
         report[fam] = {'detections': len(sel), 'hits': int(y.sum()), 'labels': n, 'threshold': round(thr, 4), 'thresholdFrom': how, 'inSampleThreshold': round(thr_in, 4), 'inSampleF1': round(f1_in, 4)}
         print(fam, report[fam])
+    for fam in NO_TRAINING_FAMILIES:
+        model['thresholds'][fam] = model['thresholds']['default']
+        report[fam] = {'uses': 'default map; threshold fixed to the pooled threshold, never fitted on its imagery (terms of use)'}
     model['meta']['calibration'] = {'zones': zones, 'excluded': a.exclude, 'byFamily': report}
     text = json.dumps(model, separators=(',', ':'))
     with open(a.out, 'w', encoding='utf-8', newline='\n') as fh:

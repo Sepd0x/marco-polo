@@ -36,7 +36,7 @@ import { aggregate, groups, markdownReport, type RunMeta } from '../../packages/
 import type { SourceId } from '../../packages/eval/src/candidates.js';
 import { SOURCES } from '../../packages/eval/src/sources.js';
 import { selectZones, shiftsFor, sourceFor } from '../../packages/eval/src/zones.js';
-import type { CalibrationRows } from './calibrate.js';
+import { NO_TRAINING_SOURCES, type CalibrationRows } from './calibrate.js';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(HERE, '../..');
@@ -94,7 +94,11 @@ async function main() {
     const info = { visual: lab.visual, overrides: lab.overrides, absent: lab.absent };
     let model = shipped;
     let modelName = 'pool-v2.json';
-    if (z.role === 'DEV') {
+    if (z.role === 'DEV' && NO_TRAINING_SOURCES.includes(sid)) {
+      // Never a calibration zone (terms of use): the shipped model has not seen it either.
+      if (rows.zones.includes(z.id)) throw new Error(`${z.id} is scanned on ${sid} and must not be a calibration zone`);
+      oof[z.id] = { family: sourceFamily(src.provider.id), threshold: defaultThreshold(shipped, src.provider.id), calibrationZones: rows.zones };
+    } else if (z.role === 'DEV') {
       if (!rows.zones.includes(z.id)) throw new Error(`${z.id} is a DEV zone but not a calibration zone`);
       const file = join(work, 'oof', `${z.id}.json`);
       execFileSync(python, ['-I', join(HERE, 'calibrate.py'), '--rows', rowsPath, '--model', uncal, '--out', file, '--exclude', z.id], { stdio: 'pipe' });
@@ -148,7 +152,7 @@ async function main() {
     '',
     '## Calibration',
     '',
-    'DEV zones are scored with the isotonic calibration and threshold fitted on the other calibration zones (out of fold). A family with no other calibration zone (Esri: Scottsdale only) falls back to the calibration pooled over all families. DEV-2, GOLD and TEST use the shipped model, calibrated on every calibration zone; Pozuelo is the PNOA calibration zone, so its GOLD line is in sample.',
+    'DEV zones are scored with the isotonic calibration and threshold fitted on the other calibration zones (out of fold). No Esri zone calibrates (the terms of Esri forbid using its data to train systems): Esri reads the map pooled over the other families, with the pooled threshold, and its DEV zone is scored with the shipped model, which never saw it. A family with no other calibration zone (PNOA: Pozuelo only) falls back to the pooled calibration. DEV-2, GOLD and TEST use the shipped model, calibrated on every calibration zone; Pozuelo is the PNOA calibration zone, so its GOLD line is in sample.',
     '',
     '| DEV zone | family | threshold |',
     '|---|---|--:|',

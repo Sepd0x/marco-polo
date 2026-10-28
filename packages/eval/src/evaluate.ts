@@ -40,6 +40,15 @@ export interface UnmatchedRecord {
   duplicate: boolean;
 }
 
+/** Pools of this area or more form a class of their own in the report: the labels hold few of them. */
+export const LARGE_POOL_M2 = 400;
+
+/** Pool labels drawn as outlines of `LARGE_POOL_M2` or more, and how many of them `hit` holds. */
+export function largePoolCounts(pools: Label[], hit: ReadonlySet<string>): { labels: number; hits: number } {
+  const large = pools.filter((l) => l.role === 'pool' && !l.point && l.areaM2 >= LARGE_POOL_M2);
+  return { labels: large.length, hits: large.filter((l) => hit.has(l.id)).length };
+}
+
 export interface ZoneResult {
   zone: string;
   name: string;
@@ -68,6 +77,8 @@ export interface ZoneResult {
   detectionsAll: number;
   sweep: Array<{ threshold: number; counts: ScopedCounts; scores: Scores }>;
   items: GalleryItem[];
+  /** Pools of LARGE_POOL_M2 or more in scope (absent from reports written before 28 Oct 2026). */
+  large?: { labels: number; hits: number };
 }
 
 export interface ZoneRun {
@@ -228,6 +239,7 @@ export async function evaluateZone(
       detectionsAll: all.length,
       sweep,
       items,
+      large: largePoolCounts(pools, new Set(tpInScope.map((p) => p.label.id))),
     },
   };
 }

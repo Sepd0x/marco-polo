@@ -7,6 +7,11 @@
  * Calibration zones (plan B6): the DEV zones of each source family. There is
  * no DEV zone on PNOA, so PNOA uses the Pozuelo gold zone (a DEV-type zone).
  * DEV-2, the other GOLD zones and TEST are never read here.
+ *
+ * No zone scanned on Esri imagery: Esri's terms forbid using its data to
+ * train systems, and fitting a calibration on it is training. Esri stays a
+ * source the product can scan, with the pooled calibration of the other
+ * families and a threshold fixed to the pooled one (calibrate.py).
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { DEFAULT_LEARNED_OPTIONS, sourceFamily, type PoolModel } from '@marco-polo/core';
@@ -18,7 +23,10 @@ import type { SourceId } from '../../packages/eval/src/candidates.js';
 import { SOURCES } from '../../packages/eval/src/sources.js';
 import { shiftsFor, sourceFor, zoneById } from '../../packages/eval/src/zones.js';
 
-export const CALIBRATION_ZONES = ['vilamoura', 'odemira', 'braga', 'aix', 'balma', 'scottsdale', 'gold-pozuelo'];
+export const CALIBRATION_ZONES = ['vilamoura', 'odemira', 'braga', 'aix', 'balma', 'gold-pozuelo'];
+
+/** Sources whose imagery may never train or calibrate the scorer. */
+export const NO_TRAINING_SOURCES: readonly string[] = ['esri'];
 
 /** Lowest score kept: the calibration has to see the low end too. */
 export const CALIBRATION_FLOOR = 0.02;
@@ -49,6 +57,7 @@ async function main() {
   for (const id of CALIBRATION_ZONES) {
     const z = zoneById(id);
     const sid = sourceFor(z, 'auto');
+    if (NO_TRAINING_SOURCES.includes(sid)) throw new Error(`${id}: scanned on ${sid}, which may not calibrate the scorer`);
     const src = new TileSource({ provider: SOURCES[sid], cacheDir: cache, ratePerSec: 4 });
     const shifts = shiftsFor(z, sid);
     if (!shifts) throw new Error(`${id}: no label shift for ${sid}`);

@@ -27,6 +27,7 @@
   "jpeg": { "p": 0.6, "quality": [50, 85] }
  },
  "negatives": { "ignoreAbove": 0.9, "folds": "leave one zone out" },
+ "sizeAugment": { "about": "scaled copies of candidates for the sizes the labels lack (train.py size_copies)", "fromM2": [40, 400], "toM2": [400, 1800], "p": 0.3, "seed": 0 },
  "gbdt": { "n_estimators": 300, "num_leaves": 15, "learning_rate": 0.05, "min_child_samples": 20, "subsample": 0.8, "subsample_freq": 1, "colsample_bytree": 0.8 },
  "mlp": { "hidden_layer_sizes": [32, 16], "alpha": 0.001, "max_iter": 400, "early_stopping": true },
  "gbdtWeight": 0.5,

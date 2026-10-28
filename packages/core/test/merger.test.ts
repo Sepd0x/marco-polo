@@ -119,4 +119,70 @@ describe('cross-tile merger', () => {
     expect(ranked[0].rank).toBe(1);
     expect(ranked[0].areaM2).toBeGreaterThan(ranked[1].areaM2);
   });
+
+  // v2 fragments are whole shapes from windows with a halo: they never touch an edge.
+  const whole = { n: false, e: false, s: false, w: false };
+
+  it('keeps one detection when two tiles report the same scored shape across their border', () => {
+    const merger = new DetectionMerger({}, plan);
+    // A sees the pool cut by its window (the part up to its halo), B sees it whole and scores it higher.
+    const cut = makeFragment(A, { x: 230, y: 100, w: 40, h: 30 }, { score: 0.6, touches: whole });
+    const full = makeFragment(B, { x: -26, y: 100, w: 60, h: 30 }, { score: 0.8, touches: whole });
+    merger.addTileDetections(A, [cut]);
+    const events = merger.addTileDetections(B, [full]);
+    expect(events.filter((e) => e.type === 'add')).toHaveLength(0);
+    expect(events.filter((e) => e.type === 'update')).toHaveLength(1);
+    const all = merger.getAll();
+    expect(all).toHaveLength(1);
+    expect(all[0].pixelCount).toBe(60 * 30);
+    expect(all[0].areaM2).toBeCloseTo(full.areaM2, 6);
+    expect(all[0].confidence).toBe(0.8);
+  });
+
+  it('keeps the earlier view when it scores better', () => {
+    const merger = new DetectionMerger({}, plan);
+    merger.addTileDetections(A, [makeFragment(A, { x: 220, y: 100, w: 30, h: 30 }, { score: 0.9, touches: whole })]);
+    merger.addTileDetections(B, [makeFragment(B, { x: -40, y: 95, w: 60, h: 40 }, { score: 0.5, touches: whole })]);
+    const all = merger.getAll();
+    expect(all).toHaveLength(1);
+    expect(all[0].pixelCount).toBe(30 * 30);
+    expect(all[0].tiles).toEqual([A]);
+    expect(all[0].confidence).toBe(0.9);
+  });
+
+  it('keeps two scored shapes of neighbouring tiles that barely overlap', () => {
+    const merger = new DetectionMerger({}, plan);
+    merger.addTileDetections(A, [makeFragment(A, { x: 226, y: 100, w: 32, h: 20 }, { score: 0.8, touches: whole })]);
+    merger.addTileDetections(B, [makeFragment(B, { x: -1, y: 100, w: 30, h: 20 }, { score: 0.8, touches: whole })]);
+    expect(merger.getAll()).toHaveLength(2);
+  });
+
+  it('never folds two scored shapes of the same tile together', () => {
+    const merger = new DetectionMerger({}, plan);
+    merger.addTileDetections(A, [
+      makeFragment(A, { x: 100, y: 100, w: 40, h: 30 }, { score: 0.8, touches: whole }),
+      makeFragment(A, { x: 110, y: 105, w: 10, h: 10 }, { score: 0.7, touches: whole }),
+    ]);
+    expect(merger.getAll()).toHaveLength(2);
+  });
+
+  it('joins a strip across four tiles into one detection in any processing order', () => {
+    const row = [0, 1, 2, 3].map((i): TileCoord => ({ z: Z, x: 250400 + i, y: 201560 }));
+    // A 20 px strip from x 200 of tile 0 to x 56 of tile 3: it touches the facing edges of each pair.
+    const frag = (i: number) =>
+      i === 0 ? makeFragment(row[0], { x: 200, y: 100, w: 56, h: 20 })
+      : i === 3 ? makeFragment(row[3], { x: 0, y: 100, w: 56, h: 20 })
+      : makeFragment(row[i], { x: 0, y: 100, w: 256, h: 20 });
+    const orders = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 1, 0, 2], [1, 3, 0, 2], [2, 0, 3, 1], [3, 2, 1, 0]];
+    for (const order of orders) {
+      const merger = new DetectionMerger({}, row);
+      for (const i of order) merger.addTileDetections(row[i], [frag(i)]);
+      merger.finalize();
+      const all = merger.getAll();
+      expect(all, `order ${order.join(',')}`).toHaveLength(1);
+      expect(all[0].pixelCount).toBe(56 * 20 * 2 + 256 * 20 * 2);
+      expect(all[0].truncated).toBe(false);
+    }
+  });
 });
+

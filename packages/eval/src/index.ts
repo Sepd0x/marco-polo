@@ -25,6 +25,7 @@ import { DETECTORS } from './detectors.js';
 import { drawStatus, drawStratum, rejectAfterReview } from './drawzones.js';
 import { diagnoseMisses } from './diagnose.js';
 import { evaluateZone, type ZoneResult } from './evaluate.js';
+import { LARGE_SET, largeImportCommand, largeNearTest, largeRecall } from './large.js';
 import { checkFrozen, fileSha256, labelsHash, readFreeze, relabel, sha256, writeFreeze, zoneLabelFiles } from './freeze.js';
 import { writeGallery } from './gallery.js';
 import { computeTargets, detectorHash, logTestRun, readTestRuns, runGate, type ReportFile, type TargetsFile } from './gate.js';
@@ -34,7 +35,7 @@ import { measureOffset } from './offset.js';
 import { buildFixture, specLabels, type FixtureSpec } from './fixture.js';
 import { sourceShiftM } from './imgshift.js';
 import { osmRecallCommand } from './osmrecall.js';
-import { buildingQuery, overpass, poolQuery, toLabelFeatures } from './overpass.js';
+import { buildingQuery, overpass, poolQuery, toLabelFeatures, type LabelFeature } from './overpass.js';
 import { checkRegistry, loadRegistry } from './registry.js';
 import { aggregate, groups, markdownReport, type RunMeta, type Taxonomy } from './report.js';
 import { buildExtra, renderReview } from './review.js';
@@ -65,6 +66,7 @@ interface Opts {
   offline: boolean;
   review?: string;
   relabel?: string;
+  file?: string;
   confirmTest?: string;
   report?: string;
   baseline?: string;
@@ -139,6 +141,7 @@ function parse(argv: string[]): Opts {
       case '--pools': o.pools = Number(v()); break;
       case '--dir': o.dir = resolve(v()); break;
       case '--write': o.write = true; break;
+      case '--file': o.file = resolve(v()); break;
       case '-h':
       case '--help':
         help();
@@ -161,6 +164,8 @@ commands:
   labels       fetch OSM labels for the areas from Overpass into packages/eval/labels/
   review       render numbered review windows of one area with candidates (phase 0 method)
   extra        turn a review file into labels/<area>.extra.geojson
+  large        recall on the frozen large-pool set, labels/large-pools.geojson (--detector, --relabel to freeze it)
+  large-import add hand outlines of pools of 400 m² or more to DEV and TRAIN zones (--file, dry run unless --write)
   freeze       write labels.sha256 for zones that have never been frozen
   zones        list | check | draw --stratum <id> | reject --stratum <id> --pools <n> | status | candidates (rebuild the list, audit only)
                draw, reject and status follow rules v2 (zones/test-candidates-v2.json)
@@ -436,6 +441,31 @@ async function main() {
     case 'review': {
       if (!o.zone) throw new Error('review needs --zone');
       return renderReview(o.zone, tileSource(o, 'esri'), o.out, process.env.REVIEW_GATE === 'blue' ? 'blue' : 'loose');
+    }
+    case 'large': {
+      // Recall on the frozen large-pool set (labels/large-pools.geojson), apart from every zone total.
+      ensureFrozen(o, [{ id: LARGE_SET } as Zone]);
+      const features = (JSON.parse(readFileSync(join(LABELS_DIR, `${LARGE_SET}.geojson`), 'utf8')) as { features: LabelFeature[] }).features;
+      const near = largeNearTest(features, allZones(), loadRegistry().minDistanceKm);
+      if (near.length) throw new Error(`large-pool outlines within ${loadRegistry().minDistanceKm} km of a TEST zone: ${near.join(', ')}`);
+      const detector = DETECTORS[o.detector];
+      if (!detector) throw new Error(`unknown detector ${o.detector}`);
+      const sources = new Map<SourceId, TileSource>();
+      const r = await largeRecall(detector, features, (s) => sources.get(s) ?? (sources.set(s, tileSource(o, s)), sources.get(s)!), o.minConf);
+      let n = 0, h = 0;
+      for (const [s, b] of Object.entries(r.bySource)) {
+        console.log(`${s.padEnd(5)} ${b.hits} of ${b.labels} pools of 400 m² or more found`);
+        n += b.labels;
+        h += b.hits;
+      }
+      console.log(`all   ${h} of ${n} (recall ${n ? ((100 * h) / n).toFixed(1) : 'n/a'}%), detector ${o.detector}, labels ${labelsHash(LABELS_DIR, [LARGE_SET]).slice(0, 12)}`);
+      await mkdir(o.out, { recursive: true });
+      writeFileSync(join(o.out, 'large.json'), JSON.stringify({ detector: o.detector, labels: labelsHash(LABELS_DIR, [LARGE_SET]), ...r }, null, 1));
+      return;
+    }
+    case 'large-import': {
+      if (!o.file) throw new Error('large-import needs --file <outlines.geojson>');
+      return largeImportCommand(o.file, LABELS_DIR, !!o.write);
     }
     case 'extra': {
       if (!o.zone || !o.review) throw new Error('extra needs --zone and --review');

@@ -41,6 +41,8 @@ export interface GroupSummary {
   medianAreaAbsRel: number | null;
   medianAreaSignedRel: number | null;
   areaPairs: number;
+  /** Pools of 400 m² or more (LARGE_POOL_M2), from the zones that report them. */
+  large: { labels: number; hits: number };
   medianCenterOffsetM: number | null;
   medianLengthErr: number | null;
   medianWidthErr: number | null;
@@ -66,8 +68,10 @@ export function aggregate(results: ZoneResult[]): GroupSummary {
   ) as GroupSummary['ci'];
   const pairs = results.flatMap((r) => r.pairs);
   const dims = pairs.filter((p) => p.labelDims && p.detDims);
+  const large = results.reduce((a, r) => ({ labels: a.labels + (r.large?.labels ?? 0), hits: a.hits + (r.large?.hits ?? 0) }), { labels: 0, hits: 0 });
   return {
     zones: results.map((r) => r.zone),
+    large,
     counts,
     scores: s,
     ci: intervals,
@@ -151,6 +155,8 @@ export function markdownReport(meta: RunMeta, results: ZoneResult[], tax: Taxono
         `Centre offset median ${a.medianCenterOffsetM === null ? 'n/a' : `${a.medianCenterOffsetM.toFixed(2)} m`}. ` +
         `Length and width error (minimum-area rectangle of the outline against the OSM outline): ${pct(a.medianLengthErr)} and ${pct(a.medianWidthErr)} (n=${a.dimsPairs}).`,
     );
+    L.push('');
+    L.push(`Pools of 400 m² or more (outlines): ${a.large.hits} of ${a.large.labels} found${a.large.labels ? ` (recall ${pct(a.large.hits / a.large.labels)})` : ''}.`);
     L.push('');
   }
 
