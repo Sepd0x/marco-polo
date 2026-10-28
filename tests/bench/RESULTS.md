@@ -37,6 +37,7 @@ Four runs of each build, interleaved old and new:
 |---|--:|--:|--:|
 | e7b2f13 | 93.7 / 155.6 ms | 21.8 / 36.8 ms | 74.4 / 134.1, 16.8 / 31.2 ms |
 | e63fdb2 | 72.1 / 111.9 ms | 15.4 / 27.7 ms | 50.9 / 74.4, 11.8 / 18.3 ms |
+| d0d5880 (v3 model) | 45.1 / 60.3 ms, one run | 10.0 / 14.9 ms, one run | same run |
 
 Where the worker time goes now (Chromium, mean per request, from the
 `stages` the worker reports): 512 px: decode 2.6, no-data 0.4, detection
@@ -71,3 +72,5 @@ spawn UNKNOWN`), as before; not measured.
 The 256 px sample is a bare tile (halo 0). The scan sends XYZ tiles with
 their eight neighbours, a 352 px window, so the product's 256 px requests
 cost more than this row says.
+
+The v3 model row (28 Oct, Ryzen AI 9 365, Chromium 156 headless) is a single quiet run with no other jobs on the machine, so it is not comparable with the medians above, which ran under load. Both targets pass. Firefox still fails to launch here (spawn UNKNOWN).

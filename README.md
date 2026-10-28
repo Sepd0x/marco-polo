@@ -82,7 +82,7 @@ v1 was built for Esri: 55.9% on tuning and 70.3% held out there (older labels). 
 <!-- /limits -->
 
 - Covered, empty and shaded pools are missed; blue cars, solar panels and teal roofs pass at times.
-- Worker speed: within target on a Ryzen AI 9 365 laptop, estimated to miss the 512 px one on a 4-core 2.1 GHz Xeon; measured with the previous model ([bench](tests/bench/RESULTS.md)).
+- Worker speed: within target on a Ryzen AI 9 365 laptop (p95 60 ms per 512 px request, target 150); slower CPUs are not measured with v3 ([bench](tests/bench/RESULTS.md)).
 - Firefox and Safari are not measured.
 
 ## Privacy and security
