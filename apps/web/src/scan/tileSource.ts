@@ -9,6 +9,7 @@
 import { createStore, clear as idbClear, get as idbGet, set as idbSet, type UseStore } from 'idb-keyval';
 import type { CachePolicy, MirrorChoice } from '@marco-polo/core';
 import { abortError, delay, isAbort, type TokenBucket } from './pacer.js';
+import { TileOfflineError, type NetworkWatch } from './network.js';
 
 /** The Cache API store of older builds; it held Esri and keyed-provider tiles. */
 const LEGACY_CACHE = 'marco-polo-tiles-v1';
@@ -136,6 +137,8 @@ export interface FetchTileOptions {
   /** Retries after the first attempt, for network errors, 429 and 5xx. */
   retries?: number;
   timeoutMs?: number;
+  /** Shared across a scan: gives up at once, without backoff, while the device looks offline. */
+  net?: NetworkWatch;
 }
 
 export class TileHttpError extends Error {
@@ -151,13 +154,16 @@ export class TileHttpError extends Error {
  * "no imagery here"); other 4xx throw at once; 429, 5xx and network errors
  * are retried with backoff, each attempt taking a fresh token. With a mirror,
  * attempts alternate between the two servers, the one that last answered
- * first, and the bytes are cached under `url` whichever answered.
+ * first, and the bytes are cached under `url` whichever answered. With a
+ * `net` watch, a device that looks offline fails the tile at once with a
+ * TileOfflineError instead of backing off.
  */
 export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileBytes> {
   const policy = o.policy ?? 'http';
   const hit = o.cache ? await o.cache.get(policy, url) : null;
   if (hit) return { status: 200, bytes: hit, cached: true, attempts: 0 };
 
+  if (o.net?.blocked) throw new TileOfflineError();
   const retries = o.retries ?? 3;
   const timeoutMs = o.timeoutMs ?? 20_000;
   const urls = o.mirror ? o.mirror.order(url, o.mirrorUrl) : [url];
@@ -165,12 +171,14 @@ export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileB
   for (let attempt = 0; attempt <= retries; attempt++) {
     const asked = urls[attempt % urls.length];
     await o.bucket.take(o.signal);
+    if (o.net?.blocked) throw new TileOfflineError();
     const ac = new AbortController();
     const onAbort = () => ac.abort(abortError(o.signal));
     o.signal?.addEventListener('abort', onAbort, { once: true });
     const timer = setTimeout(() => ac.abort(new Error(`timed out after ${timeoutMs} ms`)), timeoutMs);
     try {
       const res = await o.fetch(asked, { signal: ac.signal });
+      o.net?.responded();
       if (res.status === 429 || res.status >= 500) throw new TileHttpError(res.status);
       if (res.status === 404 || res.status === 204) {
         o.mirror?.answered(asked, o.mirrorUrl);
@@ -190,6 +198,11 @@ export async function fetchTile(url: string, o: FetchTileOptions): Promise<TileB
       if (err instanceof Error && err.name === 'TileFatalError') throw err;
       if (isAbort(err) && !ac.signal.aborted) throw err;
       lastError = err;
+      // No answer at all (not our own timeout): a few in a row, or one while offline, mean offline.
+      if (!(err instanceof TileHttpError) && !ac.signal.aborted) {
+        o.net?.noAnswer();
+        if (o.net?.blocked) throw new TileOfflineError();
+      }
       // Straight to the other server when there is one; back off only between rounds.
       if (attempt < retries && (attempt + 1) % urls.length === 0) await delay(500 * 2 ** attempt, o.signal);
     } finally {

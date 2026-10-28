@@ -20,6 +20,42 @@ describe('progress announcements', () => {
     ).toBe('Scan complete: 1 pool found, 2 tiles failed, 1 tile without imagery.');
   });
 
+  it('says "Scan failed" with the retry hint when every tile failed, not "Scan complete"', () => {
+    const m = progressMessage;
+    const all = stats(6, 6, { tilesFailed: 6 });
+    const failed = m({ phase: 'scanning', stats: stats(5, 6, { tilesFailed: 5 }) }, { phase: 'complete', stats: all, pools: 0, sources: [] });
+    expect(failed).toBe('Scan failed. No tile could be loaded. Check your connection, then retry.');
+    expect(failed).not.toMatch(/complete/i);
+    // Tiles the source had no imagery for do not make a failed scan complete either.
+    expect(
+      m({ phase: 'scanning', stats: stats(5, 6) }, { phase: 'complete', stats: stats(6, 6, { tilesFailed: 4, tilesNoCoverage: 2 }), pools: 0, sources: [], noCoverage: 2 }),
+    ).toMatch(/^Scan failed/);
+    // Offline: the cause and the way out.
+    expect(m({ phase: 'scanning', stats: stats(5, 6) }, { phase: 'complete', stats: all, pools: 0, sources: [], offline: true })).toBe(
+      'Scan failed. Your device is offline. The scan resumes when you are back online, or retry now.',
+    );
+    // A scan with some tiles read is complete, with the failures counted.
+    expect(m({ phase: 'scanning', stats: stats(5, 6) }, { phase: 'complete', stats: stats(6, 6, { tilesFailed: 5 }), pools: 0, sources: [] })).toBe(
+      'Scan complete: 0 pools found, 5 tiles failed.',
+    );
+    // A stopped scan is stopped, whatever failed.
+    expect(m({ phase: 'scanning', stats: stats(3, 6, { tilesFailed: 3 }) }, { phase: 'complete', stats: stats(3, 6, { tilesFailed: 3, stopped: true }), pools: 0, sources: [] })).toMatch(
+      /^Scan stopped/,
+    );
+  });
+
+  it('reads a failed scan from the store the way the summary shows it', () => {
+    resetStore();
+    const stop = startAnnouncer();
+    const region = document.querySelector('[role="status"]')!;
+    const s = useStore.getState();
+    s.beginScan('scan-f', { parts: [], areaM2: 0 });
+    useStore.setState({ stats: { ...useStore.getState().stats, tilesTotal: 4, tilesDone: 4, tilesFailed: 4 } });
+    useStore.getState().finishScan('scan-f', { offline: true });
+    expect(region.textContent).toMatch(/^Scan failed\. Your device is offline/);
+    stop();
+  });
+
   it('mounts one polite status region and fills it from the store', () => {
     resetStore();
     const stop = startAnnouncer();

@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MirrorChoice } from '@marco-polo/core';
 import { TokenBucket } from '../../src/scan/pacer.js';
-import { fetchTile, looksLikeImage, TileCache } from '../../src/scan/tileSource.js';
+import { NetworkWatch, TileOfflineError } from '../../src/scan/network.js';
+import { fetchTile, looksLikeImage, TileCache, TileHttpError } from '../../src/scan/tileSource.js';
 import { fakeNet, memoryStore, tileBody } from './harness.js';
 
 beforeEach(() => {
@@ -54,6 +55,77 @@ describe('tile fetching', () => {
     await vi.advanceTimersByTimeAsync(10_000);
     expect(String(await b)).toContain('403');
     expect(net.calls.filter((c) => c.url.endsWith('403'))).toHaveLength(1);
+  });
+
+  describe('offline', () => {
+    const down = { status: 0, networkError: true };
+
+    it('gives up after one attempt, without backoff, while the browser says offline', async () => {
+      const net = fakeNet(5);
+      net.respond = () => down;
+      const watch = new NetworkWatch({ online: () => false });
+      const t0 = Date.now();
+      const p = fetchTile('https://x/1', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch }).catch((e) => e);
+      await vi.advanceTimersByTimeAsync(1_000);
+      expect(await p).toBeInstanceOf(TileOfflineError);
+      expect(net.calls).toHaveLength(1);
+      expect(Date.now() - t0).toBeLessThan(1_001);
+      // The network is closed for a spell: the next tile does not even ask.
+      const q = fetchTile('https://x/2', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch }).catch((e) => e);
+      await vi.advanceTimersByTimeAsync(100);
+      expect(await q).toBeInstanceOf(TileOfflineError);
+      expect(net.calls).toHaveLength(1);
+      // After the spell one request tests the connection again.
+      await vi.advanceTimersByTimeAsync(6_000);
+      const r = fetchTile('https://x/3', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch }).catch((e) => e);
+      await vi.advanceTimersByTimeAsync(1_000);
+      expect(await r).toBeInstanceOf(TileOfflineError);
+      expect(net.calls).toHaveLength(2);
+    });
+
+    it('treats a few requests in a row with no answer as offline even when the browser says online', async () => {
+      const net = fakeNet(5);
+      net.respond = () => down;
+      const watch = new NetworkWatch({ online: () => true });
+      const t0 = Date.now();
+      const p = fetchTile('https://x/1', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch }).catch((e) => e);
+      await vi.advanceTimersByTimeAsync(10_000);
+      expect(await p).toBeInstanceOf(TileOfflineError);
+      expect(net.calls).toHaveLength(3);
+      expect(Date.now() - t0).toBeLessThan(10_001);
+    });
+
+    it('rides out one dropped request, and any answer opens the network again', async () => {
+      const net = fakeNet(5);
+      net.respond = (_u, attempt) => (attempt === 1 ? down : { status: 200 });
+      const watch = new NetworkWatch({ online: () => true });
+      const p = fetchTile('https://x/1', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch });
+      await vi.advanceTimersByTimeAsync(10_000);
+      expect((await p).attempts).toBe(2);
+      expect(watch.blocked).toBe(false);
+      // Two failures, then a 404 (an answer): the count starts again.
+      watch.noAnswer();
+      watch.noAnswer();
+      net.respond = () => ({ status: 404 });
+      const q = fetchTile('https://x/2', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch });
+      await vi.advanceTimersByTimeAsync(1_000);
+      expect((await q).status).toBe(404);
+      watch.noAnswer();
+      expect(watch.blocked).toBe(false);
+    });
+
+    it('keeps the retries and backoff for server errors', async () => {
+      const net = fakeNet(5);
+      net.respond = () => ({ status: 503 });
+      const watch = new NetworkWatch({ online: () => true });
+      const t0 = Date.now();
+      const p = fetchTile('https://x/1', { bucket: new TokenBucket(5), fetch: net.fetch, net: watch }).catch((e) => e);
+      await vi.advanceTimersByTimeAsync(20_000);
+      expect(await p).toBeInstanceOf(TileHttpError);
+      expect(net.calls).toHaveLength(4);
+      expect(watch.blocked).toBe(false);
+      expect(Date.now() - t0).toBeGreaterThanOrEqual(3_500);
+    });
   });
 
   it('serves cache hits without a token or a request', async () => {

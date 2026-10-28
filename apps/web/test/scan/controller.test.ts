@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { pointInRing, splitPlanBySource, tileRequest, DGT_ORTOS2025, ESRI_WORLD_IMAGERY, type TileCoord } from '@marco-polo/core';
 import { ScanController, type ScanRequest } from '../../src/scan/controller.js';
+import { NetworkWatch } from '../../src/scan/network.js';
 import { useStore, visibleRanked } from '../../src/state/store.js';
 import { maxInWindow, poolsOnEvenColumns, PT_AREA, resetStore, rig, square, tileBody, tileCalls, US_AREA } from './harness.js';
 import { makeFragment } from '../../../../packages/core/test/helpers.js';
@@ -222,6 +223,91 @@ describe('scan controller', () => {
     expect(s.stats.tilesDone).toBe(plan.length);
     expect(r.net.calls.slice(before).map((x) => x.url)).toEqual([bad]);
     expect(r.saved).toHaveLength(2);
+  });
+
+  describe('offline', () => {
+    const down = { status: 0, networkError: true };
+
+    it('fails in seconds, says offline, and scans the failed tiles again when the browser is back online', async () => {
+      let online = false;
+      const r = rig();
+      r.net.respond = () => (online ? { status: 200 } : down);
+      const c = new ScanController(request(), { ...r.deps, network: new NetworkWatch({ online: () => online }) });
+      let settled = false;
+      const done = start(c).then(() => (settled = true));
+      await vi.advanceTimersByTimeAsync(5_000);
+      expect(settled).toBe(true);
+      await done;
+      const plan = splitPlanBySource(US_AREA).parts[0].plan.tiles.length;
+      let s = useStore.getState();
+      expect(s.phase).toBe('complete');
+      expect(s.stats.tilesFailed).toBe(plan);
+      expect(s.offline).toBe(true);
+      // A handful of requests, not four attempts with backoff for every tile.
+      expect(r.net.calls.length).toBeLessThan(10);
+
+      online = true;
+      window.dispatchEvent(new Event('online'));
+      expect(useStore.getState().phase).toBe('scanning');
+      expect(useStore.getState().offline).toBe(false);
+      await vi.advanceTimersByTimeAsync(60_000);
+      await c.finished;
+      s = useStore.getState();
+      expect(s.phase).toBe('complete');
+      expect(s.stats.tilesFailed).toBe(0);
+      expect(s.stats.tilesDone).toBe(plan);
+      expect(s.offline).toBe(false);
+      c.dispose();
+    });
+
+    it('also fails fast when the browser says online but no request gets an answer', async () => {
+      const r = rig();
+      r.net.respond = () => down;
+      const c = new ScanController(request(), { ...r.deps, network: new NetworkWatch({ online: () => true }) });
+      const done = start(c);
+      await vi.advanceTimersByTimeAsync(15_000);
+      await done;
+      const s = useStore.getState();
+      expect(s.phase).toBe('complete');
+      expect(s.stats.tilesFailed).toBe(s.stats.tilesTotal);
+      expect(s.offline).toBe(true);
+      // The user's own retry works without an online event, and asks again.
+      r.net.respond = () => ({ status: 200 });
+      const again = c.retryFailed();
+      await vi.advanceTimersByTimeAsync(60_000);
+      await again;
+      expect(useStore.getState().stats.tilesFailed).toBe(0);
+      c.dispose();
+    });
+
+    it('does not call server errors offline: they keep their retries', async () => {
+      const r = rig();
+      r.net.respond = () => ({ status: 503 });
+      const c = new ScanController(request(), { ...r.deps, network: new NetworkWatch({ online: () => true }) });
+      const done = start(c);
+      await vi.advanceTimersByTimeAsync(10_000);
+      expect(useStore.getState().phase).toBe('scanning');
+      await vi.advanceTimersByTimeAsync(600_000);
+      await done;
+      const s = useStore.getState();
+      expect(s.stats.tilesFailed).toBe(s.stats.tilesTotal);
+      expect(s.offline).toBe(false);
+      c.dispose();
+    });
+
+    it('a stale online event does nothing once the scan is disposed', async () => {
+      const r = rig();
+      r.net.respond = () => down;
+      const c = new ScanController(request(), { ...r.deps, network: new NetworkWatch({ online: () => false }) });
+      const done = start(c);
+      await vi.advanceTimersByTimeAsync(5_000);
+      await done;
+      c.dispose();
+      const calls = r.net.calls.length;
+      window.dispatchEvent(new Event('online'));
+      await vi.advanceTimersByTimeAsync(10_000);
+      expect(r.net.calls.length).toBe(calls);
+    });
   });
 
   it('a 403 fails the tile at once, without retries', async () => {
