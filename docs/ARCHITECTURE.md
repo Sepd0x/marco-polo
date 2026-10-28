@@ -1,7 +1,8 @@
 # Architecture
 
-Marco Polo is a monorepo with one rule: **everything that reasons about the world
-lives in `@marco-polo/core`**, and everything else is a thin host around it.
+Marco Polo is a monorepo. Detection, tile maths, scan plans and the merger live
+in `@marco-polo/core`, which has no dependencies and uses no DOM or Node APIs;
+the web app and the CLI are hosts around it.
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
@@ -20,7 +21,7 @@ lives in `@marco-polo/core`**, and everything else is a thin host around it.
         │        apps/web          │   │      packages/cli       │
         │  React + MapLibre GL     │   │  Node scanner           │
         │  Web Worker pool runs    │   │  jpeg-js/pngjs decode   │
-        │  detect() off-thread     │   │  disk cache, no Esri    │
+        │  detect() off-thread     │   │  disk cache, not Esri   │
         │  tile cache by licence   │   │  GeoJSON/CSV output     │
         │  IndexedDB scan archive  │   └─────────────────────────┘
         └──────────────────────────┘
@@ -41,7 +42,8 @@ The CLI runs the same engine from a script: detector v2 with the same windows,
 halo, sources and merger, and each source held to its calibrated threshold, so a
 CLI scan and an app scan of the same area list the same pools
 (`packages/cli/test/parity.test.ts`). `--threshold` sets one value for every
-source, and `--detector v1` runs the first detector.
+source, and `--detector v1` runs the first detector, at 0.55 unless
+`--threshold` says otherwise.
 
 ## Scan lifecycle (web)
 
@@ -74,7 +76,7 @@ draw polygon ──► buildScanPlan(polygon, zoom, order)        [core]
 Pause stops the dispatch timer (in-flight tiles finish); abort additionally cancels
 in-flight fetches via `AbortController` and finalizes with partial results.
 
-## The merger (dedupe) in one paragraph
+## The merger
 
 Every detection that touches a tile edge *might* continue in the neighbour tile. The
 merger keeps clusters indexed by tile; when a new fragment arrives it probes the 8
@@ -102,15 +104,15 @@ outside the plan, so its measurement is a lower bound.
 - The map is locked north up and flat. `FrameOverlay` draws the survey frame over
   it (neat line, fiducials, graduation, coordinates, réseau) and recomputes it on
   every move; the coordinates in the margin are only true without rotation.
-- Detection **thumbnails are real pixels**: the worker crops the detection bbox from
+- Detection thumbnails are real pixels: the worker crops the detection bbox from
   the tile it analysed and ships the RGBA buffer back (transferable), where it
   becomes a data-URL for the ranked list and the archive.
 
-## Trade-offs made deliberately
+## Trade-offs
 
-| Decision | Cost | Why it wins |
+| Decision | Cost | Why |
 |---|---|---|
 | Small learned scorer (300 trees + 32/16 MLP) in plain TypeScript instead of a large network | misses covered pools and pools under trees; blue cars, panels and teal roofs still pass at times | 84 KB gzip, no runtime dependency, same scores in the browser, Node and the Python reference within 1e-5 |
 | Client-side scanning | scan lifetime tied to the tab | no backend to run; areas and results stay in the browser |
-| Area from the mask grown by one pixel ring | median area error 25.5% on DEV, 18.6% on TEST; areas run small (signed -12.2% DEV, -15.2% TEST) | simple and the same in every engine; the area targets are not met (docs/DETECTION.md) |
+| Area from the mask grown by one pixel ring | median area error 25.5% on DEV; on TEST 18.6% over all 24 outlines, 18.4% on the 14 labels both versions found (the figure the gate checks); areas run small (signed -12.2% DEV, -15.2% TEST) | simple and the same in every engine; the area targets are not met (docs/DETECTION.md) |
 | Rank numbers as canvas images in symbol layers | a small image per rank and label style (box, halo, open) | no cap on markers, no glyph server dependency, same font as the list |

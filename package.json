@@ -2,7 +2,7 @@
   "name": "marco-polo",
   "private": true,
   "version": "0.1.0",
-  "description": "Draw an area on a map; it finds, measures and ranks the swimming pools in aerial and satellite imagery.",
+  "description": "Draw an area on a map; it finds, measures and ranks the swimming pools in the aerial imagery.",
   "license": "MIT",
   "type": "module",
   "workspaces": [
