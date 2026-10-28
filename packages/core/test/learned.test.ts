@@ -53,10 +53,12 @@ describe('v2 window detector', () => {
     const b = detectWindow(win(east, 48), { providerId: 'pnoa' }, EVERYTHING);
     const all = [...a, ...b];
     expect(all).toHaveLength(1);
-    // Measured with the one pixel rim: 46 x 24 less the four outer corners.
+    // Measured with the one pixel rim (46 x 24 less the four outer corners)
+    // and half of the next ring (48 x 26 less 12 corner pixels, minus the first).
     const mpp = metersPerPixel(all[0].center.lat, 19);
-    expect(all[0].areaM2 / ((46 * 24 - 4) * mpp * mpp)).toBeGreaterThan(0.97);
-    expect(all[0].areaM2 / ((46 * 24 - 4) * mpp * mpp)).toBeLessThan(1.03);
+    const px = 46 * 24 - 4 + 0.5 * (48 * 26 - 12 - (46 * 24 - 4));
+    expect(all[0].areaM2 / (px * mpp * mpp)).toBeGreaterThan(0.97);
+    expect(all[0].areaM2 / (px * mpp * mpp)).toBeLessThan(1.03);
     // Its centroid (x 521.5 in the mosaic) lies in the east tile, which reports it.
     expect(b).toHaveLength(1);
     expect(all[0].touches).toEqual({ n: false, e: false, s: false, w: false });
@@ -80,10 +82,18 @@ describe('v2 window detector', () => {
     expect(d.center.lon).toBeCloseTo(c.lon, 6);
     expect(d.center.lat).toBeCloseTo(c.lat, 6);
     const mpp = metersPerPixelOfBitmap(z18, 512);
-    expect(d.areaM2 / ((62 * 34 - 4) * mpp * mpp)).toBeGreaterThan(0.97);
-    expect(d.areaM2 / ((62 * 34 - 4) * mpp * mpp)).toBeLessThan(1.03);
+    const rim1 = 62 * 34 - 4, rim2 = 64 * 36 - 12;
+    expect(d.areaM2 / ((rim1 + 0.5 * (rim2 - rim1)) * mpp * mpp)).toBeGreaterThan(0.97);
+    expect(d.areaM2 / ((rim1 + 0.5 * (rim2 - rim1)) * mpp * mpp)).toBeLessThan(1.03);
     expect(d.bboxPx).toEqual({ minX: 199, minY: 159, maxX: 260, maxY: 192 });
-    const bare = detectWindow(w, { providerId: 'dgt-ortos2025' }, EVERYTHING, { ...DEFAULT_LEARNED_OPTIONS, rimPx: 0 })[0];
+    // Without the outer ring: the one pixel rim alone; all of it: two rims. The outline is the same.
+    const inner = detectWindow(w, { providerId: 'dgt-ortos2025' }, EVERYTHING, { ...DEFAULT_LEARNED_OPTIONS, outerRingWeight: 0 })[0];
+    const full = detectWindow(w, { providerId: 'dgt-ortos2025' }, EVERYTHING, { ...DEFAULT_LEARNED_OPTIONS, outerRingWeight: 1 })[0];
+    expect(d.areaM2).toBeCloseTo(inner.areaM2 + 0.5 * (full.areaM2 - inner.areaM2), 6);
+    expect(full.areaM2 / inner.areaM2).toBeGreaterThan(rim2 / rim1 - 0.01);
+    expect(full.areaM2 / inner.areaM2).toBeLessThan(rim2 / rim1 + 0.01);
+    expect(inner.outline).toEqual(d.outline);
+    const bare = detectWindow(w, { providerId: 'dgt-ortos2025' }, EVERYTHING, { ...DEFAULT_LEARNED_OPTIONS, rimPx: 0, outerRingWeight: 0 })[0];
     expect(bare.bboxPx).toEqual({ minX: 200, minY: 160, maxX: 259, maxY: 191 });
     expect(bare.areaM2 / ((60 * 32 - 4) * mpp * mpp)).toBeCloseTo(1, 1);
   });

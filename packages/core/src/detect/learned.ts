@@ -19,6 +19,11 @@ export interface LearnedOptions {
    * the coping, so the bare mask under-measures pools.
    */
   rimPx: number;
+  /**
+   * Share of the next ring out (ring `rimPx + 1`) counted in the area. Those
+   * pixels mix water and coping; the outline stays on the `rimPx` shape.
+   */
+  outerRingWeight: number;
   /** Outline simplification tolerance, px. */
   simplifyEpsilonPx: number;
 }
@@ -28,6 +33,7 @@ export const DEFAULT_LEARNED_OPTIONS: LearnedOptions = {
   floor: 0.1,
   nmsOverlap: 0.3,
   rimPx: 1,
+  outerRingWeight: 0.5,
   simplifyEpsilonPx: 1.2,
 };
 
@@ -162,7 +168,8 @@ export function toTileDetection(
   }
   const px = c.pixelCount;
   const shape = grownShape(cand.labels, width, height, c, options.rimPx);
-  const areaM2 = shape.count * cand.mPerPx * cand.mPerPx;
+  const outer = options.outerRingWeight > 0 ? grownShape(cand.labels, width, height, c, options.rimPx + 1).count - shape.count : 0;
+  const areaM2 = (shape.count + options.outerRingWeight * outer) * cand.mPerPx * cand.mPerPx;
   const outlinePx = simplifyRing(removeCollinear(traceOutline(shape.labels, shape.w, shape.h, 1)), options.simplifyEpsilonPx);
   const outline: Ring = outlinePx.map(([x, y]) => {
     const p = geo(x + shape.x0, y + shape.y0);
