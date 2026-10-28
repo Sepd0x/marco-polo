@@ -1,6 +1,6 @@
 {
   "name": "@marco-polo/core",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Pure TypeScript engine for Marco Polo: Web Mercator tile math, water-signature computer vision, cross-tile detection merging, and pool ranking. Zero dependencies, runs in browsers, workers, and Node.",
   "license": "MIT",
   "type": "module",
