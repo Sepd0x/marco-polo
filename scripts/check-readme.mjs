@@ -1,61 +1,117 @@
-// The numbers in README.md come from committed files: the results table from
-// the benchmark reports, the before and after table with its counts from
-// docs/media/braga-figure.json (written by packages/eval/src/figure.ts). This
-// script rebuilds both blocks and fails when the README differs or runs past
-// 650 words; `--write` puts the fresh blocks in place.
+// The detection numbers in README.md come from committed files: the benchmark
+// reports in packages/eval/results and the figure counts in
+// docs/media/<zone>-figure.json (written by packages/eval/src/figure.ts).
+// This script rebuilds every generated block and fails when the README
+// differs or runs past 650 words; `--write` puts the fresh blocks in place.
 //
 //   node scripts/check-readme.mjs [--write]
+//
+// When a new model is frozen and scored, point CURRENT at its report and
+// FIGURE at the figure drawn with it; every block follows.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const MAX_WORDS = 650;
-const v1 = JSON.parse(readFileSync('packages/eval/results/v1/report.json', 'utf8'));
-const v2 = JSON.parse(readFileSync('packages/eval/results/v2/report.json', 'utf8'));
-const fig = JSON.parse(readFileSync('docs/media/braga-figure.json', 'utf8'));
+const CURRENT = { name: 'v2', report: 'packages/eval/results/v2/report.json' };
+const FIGURE = 'docs/media/marbella-figure.json';
+
+const read = (p) => JSON.parse(readFileSync(p, 'utf8'));
+const v1 = read('packages/eval/results/v1/report.json');
+const v1esri = read('packages/eval/results/v1/esri/report.json');
+const cur = read(CURRENT.report);
+const fig = read(FIGURE);
+const NOW = CURRENT.name;
 
 const pct = (x) => (x === null || x === undefined ? 'n/a' : (100 * x).toFixed(1));
-const f1 = (g) => (g ? `${pct(g.scores.f1)}% [${pct(g.ci.f1.lo)}, ${pct(g.ci.f1.hi)}]` : 'not measured');
+const ci = (g) => `[${pct(g.ci.f1.lo)}, ${pct(g.ci.f1.hi)}]`;
+const f1 = (g) => (g ? `${pct(g.scores.f1)}% ${ci(g)}` : 'not measured');
+const signed = (x) => `${x < 0 ? '-' : '+'}${pct(Math.abs(x))}%`;
+const zone = (r, id) => r.zones.find((z) => z.zone === id);
+const SHORT = { 'la Nucia': 'La Nucía', 'Santa Fe Springs city': 'Santa Fe Springs', 'Brixen - Bressanone': 'Brixen' };
+const place = (z) => {
+  const first = z.name.split(',')[0];
+  return SHORT[first] ?? first;
+};
+const groupBy = (r, pred) => Object.entries(r.groups).find(([k]) => pred(k))?.[1];
+const testZones = cur.groups.TEST.zones.map((id) => zone(cur, id)).sort((a, b) => b.scores.f1 - a.scores.f1);
+const biggest = testZones.reduce((a, b) => (b.counts.labels > a.counts.labels ? b : a));
+const negative = groupBy(cur, (k) => k.startsWith('TEST negative'));
+const negativeV1 = groupBy(v1, (k) => k.startsWith('TEST negative'));
+const hard = groupBy(cur, (k) => k.startsWith('TEST hard'));
+const hardV1 = groupBy(v1, (k) => k.startsWith('TEST hard'));
+const hardZone = hard && zone(cur, hard.zones[0]);
+const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const count = (n) => WORDS[n] ?? String(n);
+const date = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-function resultsBlock() {
-  const sets = [
-    ['DEV', 'tuning zones, scored out of fold'],
-    ['DEV-2', 'held out from tuning'],
-    ['GOLD', 'proposed by earlier methods, reviewed one by one'],
-    ['TEST', 'drawn by lot, labelled blind'],
-  ];
-  const rows = ['| zones | what they are | pools | v1 F1 | v2 F1 |', '|---|---|--:|--:|--:|'];
-  const n = (g) => `${g.zones.length} ${g.zones.length === 1 ? 'zone' : 'zones'}`;
-  for (const [key, what] of sets) {
-    const a = v1.groups[key], b = v2.groups[key];
-    if (!a && !b) continue;
-    rows.push(`| ${key}, ${n(b ?? a)} | ${what} | ${(b ?? a).counts.labels} | ${f1(a)} | ${f1(b)} |`);
-  }
-  const neg = Object.keys(v2.groups).find((k) => k.startsWith('TEST negative'));
-  if (neg && v1.groups[neg]) {
-    rows.push(`| TEST, ${n(v2.groups[neg])} with no pools | false detections per km² | 0 | ${v1.groups[neg].fpPerKm2.toFixed(1)} | ${v2.groups[neg].fpPerKm2.toFixed(1)} |`);
-  }
-  const note = `F1 with its 95% interval (block bootstrap). Both versions on the same frozen labels (\`${v2.meta.labelsHash.slice(0, 12)}\`) and the product imagery of each zone; ${v1.meta.commit === v2.meta.commit ? `both run at ${v2.meta.commit}` : `v1 run at ${v1.meta.commit}, v2 at ${v2.meta.commit}`}, ${v2.meta.date}.`;
-  return [rows.join('\n'), '', note].join('\n');
+function headlineBlock() {
+  const t = cur.groups.TEST;
+  return `On ${count(t.zones.length)} places drawn by lot and labelled blind, ${NOW} scores F1 ${f1(t)} against ${pct(v1.groups.TEST.scores.f1)}% for v1. It misses three of the nine targets fixed before that run; see [Limits](#limits).`;
 }
 
-// The before and after table: one column per panel of braga-figure.json.
-const PANELS = [
-  { key: 'v1-esri', title: 'v1 on Esri, as it shipped', img: 'docs/media/braga-v1-esri.png', alt: 'v1 on Esri: one outline, on no pool' },
-  { key: 'v1', title: 'v1 on DGT', img: 'docs/media/braga-v1.png', alt: 'v1 on DGT: most outlines on trees' },
-  { key: 'v2', title: 'v2 on DGT', img: 'docs/media/braga-v2.png', alt: 'v2 on DGT: outlines on the pools' },
-];
-
 function figureBlock() {
+  const a = fig.panels.v1, b = fig.panels.v2;
+  const z1 = zone(v1, fig.zone), z2 = zone(cur, fig.zone);
   const cell = (p) => `${p.hits} found, ${p.falseDetections} wrong, ${p.missed} missed`;
-  const row = (cells) => `| ${cells.join(' | ')} |`;
+  const src = fig.sourceName.split(' ')[0];
+  const role = { 'DEV-2': 'a held-out zone, never used to tune', DEV: 'a tuning zone, so it flatters' }[fig.role] ?? fig.role;
   return [
-    row(PANELS.map((c) => c.title)),
-    `|${PANELS.map(() => ':-:').join('|')}|`,
-    row(PANELS.map((c) => `<img src="${c.img}" width="270" alt="${c.alt}">`)),
-    row(PANELS.map((c) => cell(fig.panels[c.key]))),
+    `${place(z2)}, ${src} aerial photo, ${fig.sizeM} m across: ${role}.`,
+    '',
+    `| v1 | ${NOW} |`,
+    '|:-:|:-:|',
+    `| <img src="docs/media/${fig.zone}-v1.jpg" width="440" alt="v1 on the ${src} photo: half the pools have no outline"> | <img src="docs/media/${fig.zone}-v2.jpg" width="440" alt="${NOW} on the ${src} photo: outlines on most pools"> |`,
+    `| ${cell(a)} | ${cell(b)} |`,
+    '',
+    `Over the whole zone the gap is narrower: v1 ${pct(z1.scores.f1)}%, ${NOW} ${pct(z2.scores.f1)}%.`,
   ].join('\n');
 }
 
-const BLOCKS = { results: resultsBlock(), figure: figureBlock() };
+function resultsBlock() {
+  const sets = [
+    ['DEV', 'Tuning'],
+    ['DEV-2', 'Held out'],
+    ['GOLD', 'Reviewed'],
+    ['TEST', 'Test'],
+  ];
+  const rows = [`| zones | n | pools | v1 F1 | ${NOW} F1 |`, '|---|--:|--:|--:|--:|'];
+  for (const [key, label] of sets) {
+    const a = v1.groups[key], b = cur.groups[key];
+    if (!a && !b) continue;
+    rows.push(`| ${label} (${key}) | ${(b ?? a).zones.length} | ${(b ?? a).counts.labels} | ${f1(a)} | ${f1(b)} |`);
+  }
+  if (negative && negativeV1) {
+    rows.push(`| Test, no pools: false detections per km² | ${negative.zones.length} | 0 | ${negativeV1.fpPerKm2.toFixed(1)} | ${negative.fpPerKm2.toFixed(1)} |`);
+  }
+  const when = v1.meta.commit === cur.meta.commit ? `both run at ${cur.meta.commit} on ${date(cur.meta.date)}` : `v1 run at ${v1.meta.commit}, ${NOW} at ${cur.meta.commit} on ${date(cur.meta.date)}`;
+  const note = `F1 with its 95% interval; same labels and imagery for both, ${when}.`;
+  return [rows.join('\n'), '', note].join('\n');
+}
+
+function notesBlock() {
+  const t = cur.groups.TEST;
+  const per = testZones.map((z) => `${place(z)} ${pct(z.scores.f1)}%`).join(', ');
+  const d = v1esri.groups;
+  const lines = [
+    `TEST beats tuning because F1 is counted over pools and ${place(biggest)} holds ${biggest.counts.labels} of the ${t.counts.labels}. Per place: ${per}; mean ${pct(t.macroF1)}%.`,
+  ];
+  if (hardZone) {
+    lines.push('', `Reported apart: ${place(hardZone)}, winter Esri imagery in the Alps, where ${NOW} finds ${hard.counts.tpLabels} of ${hard.counts.labels} pools and v1 does better.`);
+  }
+  lines.push('', `v1 was built for Esri, where it scored ${pct(d.DEV.scores.f1)}% on tuning and ${pct(d['DEV-2'].scores.f1)}% held out (older labels). On the open photos tree canopy passes its colour rules; ${NOW} is what made them usable.`);
+  return lines.join('\n');
+}
+
+function limitsBlock() {
+  const t = cur.groups.TEST;
+  const fr = testZones.reduce((a, b) => (b.scores.recall < a.scores.recall ? b : a));
+  return [
+    `- Areas come out small: median error ${pct(t.medianAreaAbsRel)}% on TEST over ${t.areaPairs} outlines (target 15%), signed ${signed(t.medianAreaSignedRel)} (target within 5%).`,
+    negative && negativeV1 ? `- In the test zone with no pools, a port, ${negative.fpPerKm2.toFixed(0)} false detections per km² (v1: ${negativeV1.fpPerKm2.toFixed(0)}).` : null,
+    `- Recall is uneven: ${pct(fr.scores.recall).replace(/\.0$/, '')}% in ${place(fr)}.`,
+  ].filter(Boolean).join('\n');
+}
+
+const BLOCKS = { headline: headlineBlock(), figure: figureBlock(), results: resultsBlock(), notes: notesBlock(), limits: limitsBlock() };
 
 let readme = readFileSync('README.md', 'utf8');
 let fresh = readme;
@@ -68,7 +124,7 @@ for (const [name, body] of Object.entries(BLOCKS)) {
   fresh = fresh.replace(re, (_, a, b) => `${a}\n\n${body}\n\n${b}`);
 }
 
-// Words a reader sees: markup, links targets and comments left out.
+// Words a reader sees: markup, link targets and comments left out.
 const visible = fresh
   .replace(/<!--[\s\S]*?-->/g, ' ')
   .replace(/<[^>]+>/g, ' ')
