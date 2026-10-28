@@ -311,6 +311,38 @@ describe('scan controller', () => {
     expect(s.stats.tilesDone).toBe(split.parts.reduce((n, p) => n + p.plan.tiles.length, 0));
   });
 
+  it('a retry runs each source at its own rate and follows the rate slider', async () => {
+    const r = rig({ latencyMs: 1, workMs: 1 });
+    const border = square(42.045, -8.645, 300);
+    const isDgt = (url: string) => url.includes('dgterritorio.gov.pt');
+    // Every tile of both sources (PNOA, then DGT) fails the first time.
+    let broken = true;
+    r.net.respond = () => (broken ? { status: 500 } : { status: 200 });
+    useStore.getState().updateSettings({ ratePerSec: 10 });
+    const c = new ScanController(request(border, { ratePerSec: 10 }), r.deps);
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(600_000);
+    await done;
+    const failed = useStore.getState().stats.tilesFailed;
+    expect(failed).toBeGreaterThan(20);
+    broken = false;
+    // The slider moved between the scan and the retry, then again during it.
+    useStore.getState().updateSettings({ ratePerSec: 3 });
+    const before = r.net.calls.length;
+    const t0 = Date.now();
+    const again = c.retryFailed();
+    await vi.advanceTimersByTimeAsync(2_000);
+    useStore.getState().updateSettings({ ratePerSec: 2 });
+    await vi.advanceTimersByTimeAsync(600_000);
+    await again;
+    expect(useStore.getState().stats.tilesFailed).toBe(0);
+    const retried = r.net.calls.slice(before).filter((x) => !x.url.includes('GetFeatureInfo'));
+    expect(retried.length).toBe(failed);
+    expect(maxInWindow(retried.filter((x) => x.at < t0 + 2_000).map((x) => x.at))).toBeLessThanOrEqual(3);
+    expect(maxInWindow(retried.filter((x) => x.at >= t0 + 2_500).map((x) => x.at))).toBeLessThanOrEqual(2);
+    expect(retried.some((x) => isDgt(x.url))).toBe(true);
+  });
+
   it('refuses an area above the tile limit without a single request', async () => {
     const r = rig();
     const c = new ScanController(request(square(40.4, -3.7, 30_000)), r.deps);

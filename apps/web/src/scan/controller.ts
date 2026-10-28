@@ -211,6 +211,9 @@ export class ScanController {
     if (runs.length === 0 || !this.machine.send('retry')) return this.finished;
     this.abort = new AbortController();
     this.bucket = new TokenBucket(this.bucket.perSecond);
+    // The slider counts during a retry as during the scan (each part sets its own ceiling in run()).
+    this.unsubRate?.();
+    this.watchRate();
     this.store.getState().retryStarted(this.scanId);
     this.finished = this.run(runs, true);
     return this.finished;
@@ -307,6 +310,8 @@ export class ScanController {
         if (retry) {
           const tiles = r.failed;
           r.failed = [];
+          this.provider = r.part.provider;
+          this.bucket.setRate(this.rateFor(r.part.provider, this.store.getState().settings.ratePerSec));
           await this.scanTiles(r, tiles);
         } else {
           await this.scanPart(r);
