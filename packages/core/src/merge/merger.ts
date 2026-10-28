@@ -159,6 +159,8 @@ export class DetectionMerger {
         if (other.emitted && !other.suppressed) events.push({ type: 'remove', id: other.id });
         this.clusters.delete(other);
         for (const set of this.byTile.values()) set.delete(other);
+        // The merged cluster must stay reachable from every tile the absorbed one was seen from.
+        for (const f of other.fragments) this.indexCluster(target, f.tile);
       }
       target.fragments.push(frag);
       target.bbox = unionBBox(target.bbox, frag.bbox);

@@ -165,4 +165,24 @@ describe('cross-tile merger', () => {
     ]);
     expect(merger.getAll()).toHaveLength(2);
   });
+
+  it('joins a strip across four tiles into one detection in any processing order', () => {
+    const row = [0, 1, 2, 3].map((i): TileCoord => ({ z: Z, x: 250400 + i, y: 201560 }));
+    // A 20 px strip from x 200 of tile 0 to x 56 of tile 3: it touches the facing edges of each pair.
+    const frag = (i: number) =>
+      i === 0 ? makeFragment(row[0], { x: 200, y: 100, w: 56, h: 20 })
+      : i === 3 ? makeFragment(row[3], { x: 0, y: 100, w: 56, h: 20 })
+      : makeFragment(row[i], { x: 0, y: 100, w: 256, h: 20 });
+    const orders = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 1, 0, 2], [1, 3, 0, 2], [2, 0, 3, 1], [3, 2, 1, 0]];
+    for (const order of orders) {
+      const merger = new DetectionMerger({}, row);
+      for (const i of order) merger.addTileDetections(row[i], [frag(i)]);
+      merger.finalize();
+      const all = merger.getAll();
+      expect(all, `order ${order.join(',')}`).toHaveLength(1);
+      expect(all[0].pixelCount).toBe(56 * 20 * 2 + 256 * 20 * 2);
+      expect(all[0].truncated).toBe(false);
+    }
+  });
 });
+
