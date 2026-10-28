@@ -49,7 +49,7 @@ TEST are never used to calibrate.
 
 142 057 candidates, 9 149 of them pools and 49 518 negatives; 61 confident
 negatives ignored; 2 628 size copies (663 pools). Out-of-fold AUC by training
-zone between 0.992 and 0.999. `prepare.ts --shard i/n` ran in 12 processes.
+zone between 0.992 and 0.998. `prepare.ts --shard i/n` ran in 12 processes.
 DEV out of fold over seeds 0 to 4: 80.6, 80.6, 81.6, 81.0, 81.8; seed 0
 ships. Without the size copies seed 0 gave 80.1 and found 12 of the 40 large
 pools; with copies at probability 1 instead of 0.3, 80.2 and 26 of 40.
