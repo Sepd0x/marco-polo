@@ -123,6 +123,8 @@ interface AppState {
   lastCompleted: ScanTile | null;
   lastOutcome: TileOutcome | null;
   failedTiles: ScanTile[];
+  /** The scan ended with tiles failed because the device looked offline. */
+  offline: boolean;
   noCoverageTiles: ScanTile[];
   lastEvent: string | null;
   scanError: string | null;
@@ -145,7 +147,7 @@ interface AppState {
   tileFinished(scanId: string, update: TileUpdate): void;
   applyMergerEvents(scanId: string, events: MergerEvent[], thumbs?: Record<string, Blob>): void;
   retryStarted(scanId: string): void;
-  finishScan(scanId: string, opts?: { stopped?: boolean }): void;
+  finishScan(scanId: string, opts?: { stopped?: boolean; offline?: boolean }): void;
   failScan(scanId: string | null, message: string): void;
   /** Clock tick of a running scan; ignored for any other scan. */
   tickElapsed(scanId: string): void;
@@ -207,6 +209,7 @@ const SCAN_RESET = {
   lastCompleted: null,
   lastOutcome: null,
   failedTiles: [],
+  offline: false,
   noCoverageTiles: [],
   lastEvent: null,
   scanError: null,
@@ -389,6 +392,7 @@ export const useStore = create<AppState>()(
           return {
             phase: 'scanning',
             failedTiles: [],
+            offline: false,
             parts,
             stats: {
               ...s.stats,
@@ -404,6 +408,7 @@ export const useStore = create<AppState>()(
         forScan(scanId, (s) => ({
           phase: 'complete',
           currentTile: null,
+          offline: opts?.offline ?? false,
           stats: {
             ...s.stats,
             elapsedMs: s.stats.startedAt ? Date.now() - s.stats.startedAt : s.stats.elapsedMs,

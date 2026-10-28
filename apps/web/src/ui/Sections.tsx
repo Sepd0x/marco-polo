@@ -19,6 +19,7 @@ import {
   plural,
 } from '../lib/format.js';
 import { cutoffsInUse } from '../lib/score.js';
+import { allTilesFailed, failureHint } from '../lib/tileOutcome.js';
 import { cellStates, MAX_CELLS, scoreBins, sortPools, thresholdToShowAll, viewRing, type AreaFacts, type SourceFacts } from './model.js';
 import { useAreaFacts, useMapView, usePools, useScanSources, useTileCounts } from './hooks.js';
 import { useUi } from './uiState.js';
@@ -336,6 +337,7 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   const landArea = facts?.areaM2 ?? stats.areaM2;
   const finishedAt = stats.startedAt ? stats.startedAt + stats.elapsedMs : null;
   const scanId = useStore((s) => s.scanId);
+  const offline = useStore((s) => s.offline);
   // Only the scan this page ran can retry: an archived scan keeps no tile list.
   const canRetry = !stopped && stats.tilesFailed > 0 && scanId != null && currentScan()?.scanId === scanId;
   let problem: string | null = null;
@@ -343,10 +345,12 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   if (stats.tilesTotal > 0 && (!stopped || stats.tilesDone > 0) && tiles.ok <= 0) {
     problem =
       stats.tilesFailed > 0
-        ? 'No tile could be loaded. Check your connection, then retry.'
+        ? failureHint(offline)
         : 'The imagery has nothing here. Try another place or another source.';
   } else if (stats.tilesFailed > 0) {
-    problem = `${plural(stats.tilesFailed, 'tile')} could not be loaded, so pools there are missing.`;
+    problem = offline
+      ? `${plural(stats.tilesFailed, 'tile')} could not be loaded because your device went offline, so pools there are missing. They are retried when you are back online.`
+      : `${plural(stats.tilesFailed, 'tile')} could not be loaded, so pools there are missing.`;
   }
 
   const tileParts = [
@@ -357,7 +361,7 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   const tilesNote = tileParts.length ? tileParts.join(', ') : 'none missing';
 
   // Every tile failed (offline, say): nothing was read, and the summary does not call it complete.
-  const failed = !stopped && stats.tilesTotal > 0 && stats.tilesFailed > 0 && tiles.ok <= 0;
+  const failed = allTilesFailed(tiles);
   // A stopped scan counts the ground of the tiles it read, out of the whole area.
   const scannedText = failed
     ? `none of ${formatLandArea(landArea)}`

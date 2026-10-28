@@ -4,6 +4,7 @@
  * the DOM directly so it works whatever panel is on screen.
  */
 import { useStore, visibleRanked, type Phase, type ScanStats } from '../state/store.js';
+import { allTilesFailed, failureHint } from '../lib/tileOutcome.js';
 
 let region: HTMLElement | null = null;
 let stop: (() => void) | null = null;
@@ -15,7 +16,7 @@ function plural(n: number, word: string): string {
 /** Text for a moment of the scan, or null when nothing is worth saying. */
 export function progressMessage(
   prev: { phase: Phase; stats: ScanStats } | null,
-  next: { phase: Phase; stats: ScanStats; pools: number; sources: string[] },
+  next: { phase: Phase; stats: ScanStats; pools: number; sources: string[]; noCoverage?: number; offline?: boolean },
 ): string | null {
   const { phase, stats } = next;
   if (phase === 'scanning' && prev?.phase !== 'scanning' && prev?.phase !== 'paused') {
@@ -25,6 +26,12 @@ export function progressMessage(
   if (phase === 'paused' && prev?.phase === 'scanning') return `Scan paused at ${percent(stats)}%.`;
   if (phase === 'scanning' && prev?.phase === 'paused') return 'Scan resumed.';
   if (phase === 'complete' && prev && prev.phase !== 'complete' && prev.phase !== 'idle') {
+    // Every tile failed: the visible summary says "Scan failed", so does the reader.
+    if (
+      !stats.stopped &&
+      allTilesFailed({ total: stats.tilesTotal, done: stats.tilesDone, failed: stats.tilesFailed, noCoverage: next.noCoverage ?? stats.tilesNoCoverage })
+    )
+      return `Scan failed. ${failureHint(next.offline ?? false)}`;
     const parts = [plural(next.pools, 'pool') + ' found'];
     if (stats.tilesFailed) parts.push(`${plural(stats.tilesFailed, 'tile')} failed`);
     if (stats.tilesNoCoverage) parts.push(`${plural(stats.tilesNoCoverage, 'tile')} without imagery`);
@@ -67,13 +74,16 @@ export function startAnnouncer(): () => void {
 
   let prev: { phase: Phase; stats: ScanStats } | null = null;
   const unsub = useStore.subscribe(
-    (s) => ({ phase: s.phase, stats: s.stats, pools: visibleRanked(s).length, sources: s.parts.map((p) => p.providerName) }),
+    (s) => ({ phase: s.phase, stats: s.stats, pools: visibleRanked(s).length, sources: s.parts.map((p) => p.providerName),
+      noCoverage: s.parts.reduce((n, p) => n + p.tilesNoCoverage, 0),
+      offline: s.offline,
+    }),
     (next) => {
       const text = progressMessage(prev, next);
       prev = { phase: next.phase, stats: next.stats };
       if (text && region) region.textContent = text;
     },
-    { equalityFn: (a, b) => a.phase === b.phase && a.stats === b.stats && a.pools === b.pools },
+    { equalityFn: (a, b) => a.phase === b.phase && a.stats === b.stats && a.pools === b.pools && a.offline === b.offline },
   );
   stop = () => {
     unsub();
