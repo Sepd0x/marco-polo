@@ -1,6 +1,7 @@
 # Contributing
 
-Issues and pull requests are welcome.
+This is a personal project. Bug reports are welcome; open an issue before a
+large pull request.
 
 ## Getting set up
 
@@ -48,5 +49,4 @@ is never run for tuning. See [`packages/eval/README.md`](packages/eval/README.md
 
 ## Conduct
 
-Be decent. Technical disagreement is welcome; hostility is not. (If something
-needs moderating, open an issue and it will be dealt with.)
+Keep it technical.

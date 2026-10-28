@@ -2,13 +2,18 @@
  * The before and after pictures of the README: one crop of a zone, drawn on
  * the open imagery, with what v1 and v2 found there.
  *
- *   npx tsx src/figure.ts --zone braga --out ../../docs/media [--size 1000] [--px 520] [--cache <dir>] [--offline]
+ *   npx tsx src/figure.ts --zone marbella --out ../../docs/media [--panels v1,v2]
+ *     [--name v2] [--size 1000] [--px 880] [--cache <dir>] [--offline]
  *
- * Three panels, all on the product imagery of the zone (DGT in Portugal):
+ * Panels, all drawn on the product imagery of the zone (DGT in Portugal,
+ * PNOA in Spain, IGN in France):
  *   v1-esri  v1 as it shipped, on Esri; its outlines are moved onto the open
  *            imagery by the measured label shift, so no Esri pixel is written
  *   v1       v1 on the open imagery
- *   v2       v2 on the open imagery, at its calibrated threshold
+ *   v2       the shipped model on the open imagery, at its calibrated
+ *            threshold (MARCO_POLO_MODEL picks another model file; --name is
+ *            the title it gets, and the file is still <zone>-v2.jpg)
+ * The README figure is v1 and v2 on a DEV-2 zone (never used to tune).
  * Accent outline: hit a label. Orange: no label there. White dashed: a
  * labelled pool nothing found. The crop is the window with the most labels
  * unless --center "lat,lon" is given. Counts per panel go to figure.json.
@@ -16,7 +21,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { buildScanPlan, latToWorldY, lonToWorldX, worldXToLon, worldYToLat, type BBox, type Ring } from '@marco-polo/core';
-import { encodePng } from '../../cli/src/tiles.js';
+import jpeg from 'jpeg-js';
 import { v1Detector, v2Detector, type Detector, type WindowAccess } from './detectors.js';
 import { Raster, type RGB } from './draw.js';
 import { TileSource } from './imagery.js';
@@ -76,12 +81,15 @@ function densest(labels: Label[], zone: BBox, size: number): [number, number] {
 }
 
 async function main() {
-  const zone = zoneById(arg('zone', 'braga'));
+  const zone = zoneById(arg('zone', 'marbella'));
+  if (zone.role === 'TEST') throw new Error(`${zone.id} is a TEST zone: its imagery is not drawn outside a logged run`);
   const out = resolve(arg('out'));
   const size = Number(arg('size', '1000'));
-  const px = Number(arg('px', '520'));
+  const px = Number(arg('px', '880'));
   const cache = arg('cache', '.tile-cache');
   const offline = process.argv.includes('--offline');
+  const wanted = arg('panels', 'v1,v2').split(',');
+  const name = arg('name', 'v2');
   const open = zone.productSource as SourceId;
   const src = (id: SourceId) => new TileSource({ provider: SOURCES[id], cacheDir: cache, ratePerSec: 4, offline });
   const openSrc = src(open);
@@ -93,10 +101,10 @@ async function main() {
     return (await loadLabels(zone.id, { source: sid, osmShiftM: s.osm, visualShiftM: s.visual, visualShiftFor: (on) => shiftsFor(zone, on as SourceId)?.visual })).labels;
   };
   const openLabels = await lab(open);
-  const esriLabels = await lab('esri');
+  const esriLabels = wanted.includes('v1-esri') ? await lab('esri') : [];
   // Moves a detection on Esri onto the open imagery: the inverse of the label shift between the two.
   const toOpen = (sh: [number, number]): [number, number] => [-sh[0], -sh[1]];
-  const esriToOpen = toOpen(shiftsFor(zone, 'esri')!.visual.map((v, i) => v - shiftsFor(zone, open)!.visual[i]) as [number, number]);
+  const esriToOpen = wanted.includes('v1-esri') ? toOpen(shiftsFor(zone, 'esri')!.visual.map((v, i) => v - shiftsFor(zone, open)!.visual[i]) as [number, number]) : ([0, 0] as [number, number]);
 
   const c = process.argv.includes('--center') ? arg('center').split(',').map(Number) : null;
   const [ox, oy] = c ? [Math.round(wx(c[1]) - size / 2), Math.round(wy(c[0]) - size / 2)] : densest(openLabels, zone.bbox, size);
@@ -106,15 +114,20 @@ async function main() {
   const inView = (lon: number, lat: number) => lon >= view.west && lon <= view.east && lat >= view.south && lat <= view.north;
 
   const base = await openSrc.crop(Z, ox, oy, size, size);
-  const panels: Array<{ id: string; title: string; dets: EvalDetection[]; labels: Label[]; shift: [number, number] }> = [
-    { id: 'v1-esri', title: 'v1 on Esri (as it shipped)', dets: await detect(v1Detector, esriSrc, scan), labels: esriLabels, shift: esriToOpen },
-    { id: 'v1', title: `v1 on ${SOURCES[open].name}`, dets: await detect(v1Detector, openSrc, scan), labels: openLabels, shift: [0, 0] },
-    { id: 'v2', title: `v2 on ${SOURCES[open].name}`, dets: await detect(v2Detector(), openSrc, scan), labels: openLabels, shift: [0, 0] },
-  ];
+  const all = {
+    'v1-esri': async () => ({ title: 'v1 on Esri (as it shipped)', dets: await detect(v1Detector, esriSrc, scan), labels: esriLabels, shift: esriToOpen }),
+    v1: async () => ({ title: `v1 on ${SOURCES[open].name}`, dets: await detect(v1Detector, openSrc, scan), labels: openLabels, shift: [0, 0] as [number, number] }),
+    v2: async () => ({ title: `${name} on ${SOURCES[open].name}`, dets: await detect(v2Detector(), openSrc, scan), labels: openLabels, shift: [0, 0] as [number, number] }),
+  };
+  const panels: Array<{ id: string; title: string; dets: EvalDetection[]; labels: Label[]; shift: [number, number] }> = [];
+  for (const id of wanted) {
+    if (!(id in all)) throw new Error(`--panels: unknown panel ${id}`);
+    panels.push({ id, ...(await all[id as keyof typeof all]()) });
+  }
   await mkdir(out, { recursive: true });
   const k = px / size;
   const P = ([lon, lat]: number[]): [number, number] => [(wx(lon) - ox) * k, (wy(lat) - oy) * k];
-  const summary: Record<string, unknown> = { zone: zone.id, source: open, view, sizeM: null, panels: {} };
+  const summary: Record<string, unknown> = { args: `--zone ${zone.id} --panels ${wanted.join(',')} --name ${name} --size ${size} --px ${px}`, zone: zone.id, role: zone.role, source: open, sourceName: SOURCES[open].name, view, sizeM: null, panels: {} };
   for (const p of panels) {
     const mr = matchDetections(p.dets, p.labels, { ...DEFAULT_MATCH, pointMaxAreaM2: pointAreaCap(p.labels) });
     const hit = new Set(mr.pairs.map((q) => q.det.id));
@@ -139,7 +152,7 @@ async function main() {
     }
     const counts = { hits: drawn.filter((d) => hit.has(d.id)).length, falseDetections: drawn.filter((d) => !hit.has(d.id)).length, missed: missed.length };
     (summary.panels as Record<string, unknown>)[p.id] = { title: p.title, ...counts };
-    await writeFile(join(out, `${zone.id}-${p.id}.png`), encodePng(r.data, px, px));
+    await writeFile(join(out, `${zone.id}-${p.id}.jpg`), jpeg.encode({ data: Buffer.from(r.data.buffer, r.data.byteOffset, r.data.byteLength), width: px, height: px }, 88).data);
     console.log(`${p.id.padEnd(8)} ${p.title.padEnd(32)} hits ${counts.hits}  false ${counts.falseDetections}  missed ${counts.missed}`);
   }
   summary.sizeM = Math.round((size * 40075016.686 * Math.cos((((view.north + view.south) / 2) * Math.PI) / 180)) / (256 * 2 ** Z));

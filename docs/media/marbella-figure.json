@@ -1,0 +1,28 @@
+{
+ "args": "--zone marbella --panels v1,v2 --name v2 --size 800 --px 880",
+ "zone": "marbella",
+ "role": "DEV-2",
+ "source": "pnoa",
+ "sourceName": "PNOA (IGN Spain)",
+ "view": {
+  "west": -4.958522021770477,
+  "east": -4.956376254558563,
+  "north": 36.493127101548744,
+  "south": 36.491402039551474
+ },
+ "sizeM": 192,
+ "panels": {
+  "v1": {
+   "title": "v1 on PNOA (IGN Spain)",
+   "hits": 14,
+   "falseDetections": 1,
+   "missed": 14
+  },
+  "v2": {
+   "title": "v2 on PNOA (IGN Spain)",
+   "hits": 23,
+   "falseDetections": 2,
+   "missed": 5
+  }
+ }
+}
