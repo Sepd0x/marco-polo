@@ -63,6 +63,8 @@ export interface WorkResult {
   thumbs: WorkThumb[];
   /** Time spent on this job inside the worker, ms. */
   ms: number;
+  /** Where `ms` went: decoding (centre and neighbours), the no-data check, detection, thumbnails. */
+  stages?: { decode: number; noData: number; detect: number; thumbs: number };
   error?: string;
 }
 
@@ -174,16 +176,25 @@ export async function runJob(
   const now = deps.now ?? (() => performance.now());
   const t0 = now();
   const base = { id: job.id, scanId: job.scanId };
+  const stages = { decode: 0, noData: 0, detect: 0, thumbs: 0 };
+  let mark = t0;
+  const lap = (k: keyof typeof stages) => {
+    const t = now();
+    stages[k] += t - mark;
+    mark = t;
+  };
   try {
     const bytes = new Uint8Array(job.bytes);
     const centre = await deps.decode(bytes);
+    lap('decode');
     // An XYZ centre comes bare (its halo is in the neighbours); a WMS bitmap holds its halo.
     const expected = job.neighbours ? job.tilePx : job.tilePx + 2 * job.halo;
     if (centre.width !== expected || centre.height !== expected) {
       throw new Error(`tile decoded at ${centre.width}x${centre.height}, expected ${expected}x${expected}`);
     }
     const noData = noDataReason({ status: 200, bytes, pixels: centre.pixels, width: centre.width, height: centre.height });
-    if (noData || job.probe) return { ...base, noData, pieces: [], thumbs: [], ms: now() - t0 };
+    lap('noData');
+    if (noData || job.probe) return { ...base, noData, pieces: [], thumbs: [], ms: now() - t0, stages };
 
     let neighbours: (DecodedImage | null)[] | null = null;
     if (job.neighbours && job.halo > 0 && deps.detector.id !== 'v1') {
@@ -198,6 +209,7 @@ export async function runJob(
           }
         }),
       );
+      lap('decode');
     }
 
     const pieces: WorkPiece[] = [];
@@ -205,6 +217,7 @@ export async function runJob(
     for (const { window, offset } of windows(deps.detector, job, centre, neighbours)) {
       const detections = deps.detector.detectTile(window, { providerId: job.providerId });
       pieces.push({ tile: window.tile, detections });
+      lap('detect');
       if (!job.thumbs) continue;
       for (const d of detections) {
         const r = thumbRect(d.bboxPx, window.tilePx, offset, window.mPerPx);
@@ -220,8 +233,9 @@ export async function runJob(
           // A thumbnail is optional.
         }
       }
+      lap('thumbs');
     }
-    return { ...base, noData: null, pieces, thumbs, ms: now() - t0 };
+    return { ...base, noData: null, pieces, thumbs, ms: now() - t0, stages };
   } catch (err) {
     return { ...base, noData: null, pieces: [], thumbs: [], ms: now() - t0, error: err instanceof Error ? err.message : String(err) };
   }

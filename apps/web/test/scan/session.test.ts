@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useStore } from '../../src/state/store.js';
-import { cancelScan, currentScan, pauseScan, resumeScan, retryFailed, setScanDeps, startScan } from '../../src/scan/session.js';
+import { bootScan, cancelScan, currentScan, pauseScan, resumeScan, retryFailed, setScanDeps, startScan } from '../../src/scan/session.js';
 import { poolsOnEvenColumns, resetStore, rig, US_AREA, US_TILE, type Rig } from './harness.js';
 import { makeFragment } from '../../../../packages/core/test/helpers.js';
 import { DetectionMerger } from '@marco-polo/core';
@@ -94,5 +94,19 @@ describe('scan session', () => {
     // Nothing failed, so retry does nothing.
     await retryFailed();
     expect(useStore.getState().phase).toBe('complete');
+  });
+});
+
+describe('app start', () => {
+  it('drops the old tile store, whose URLs may hold provider keys, before any scan', async () => {
+    const deleted: string[] = [];
+    vi.stubGlobal('caches', { delete: async (name: string) => (deleted.push(name), true) });
+    try {
+      await bootScan();
+      expect(deleted).toEqual(['marco-polo-tiles-v1']);
+      expect(currentScan()).toBeNull();
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

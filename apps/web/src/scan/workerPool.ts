@@ -9,10 +9,16 @@ interface Pending {
 
 export type RunJob = (job: Omit<WorkJob, 'id'>, transfer?: Transferable[]) => Promise<WorkResult>;
 
-/** Detection workers sized to the machine; each job goes to the least busy one. */
+/** Detection workers sized to the machine; each job goes to the least busy live one. */
 export class WorkerPool {
   private workers: Worker[] = [];
   private load: number[] = [];
+  /**
+   * Workers that reported an error: a script that failed to load (a tab left
+   * open across a redeploy asks for a worker file that is gone) or threw while
+   * starting. They get no more jobs; when none is left, every job fails at once.
+   */
+  private dead: boolean[] = [];
   private pending = new Map<number, Pending>();
   private seq = 0;
 
@@ -24,14 +30,17 @@ export class WorkerPool {
       const w = make();
       w.onmessage = (e: MessageEvent<WorkResult>) => this.settle(e.data.id, (p) => p.resolve(e.data));
       w.onerror = (e) => {
-        // A crashed worker fails only its own jobs; those tiles are reported as failed.
+        // A crashed worker fails only its own jobs (their bytes went to it); those tiles are reported as failed.
         e.preventDefault?.();
+        this.dead[i] = true;
+        w.terminate();
         for (const [id, p] of this.pending) {
           if (p.worker === i) this.settle(id, (q) => q.reject(new Error(e.message || 'worker error')));
         }
       };
       this.workers.push(w);
       this.load.push(0);
+      this.dead.push(false);
     }
   }
 
@@ -49,8 +58,11 @@ export class WorkerPool {
 
   run: RunJob = (job, transfer = []) => {
     if (this.workers.length === 0) return Promise.reject(abortError());
-    let best = 0;
-    for (let i = 1; i < this.load.length; i++) if (this.load[i] < this.load[best]) best = i;
+    let best = -1;
+    for (let i = 0; i < this.load.length; i++) {
+      if (!this.dead[i] && (best < 0 || this.load[i] < this.load[best])) best = i;
+    }
+    if (best < 0) return Promise.reject(new Error('no detection worker could start'));
     const id = ++this.seq;
     this.load[best]++;
     return new Promise<WorkResult>((resolve, reject) => {

@@ -211,6 +211,9 @@ export class ScanController {
     if (runs.length === 0 || !this.machine.send('retry')) return this.finished;
     this.abort = new AbortController();
     this.bucket = new TokenBucket(this.bucket.perSecond);
+    // The slider counts during a retry as during the scan (each part sets its own ceiling in run()).
+    this.unsubRate?.();
+    this.watchRate();
     this.store.getState().retryStarted(this.scanId);
     this.finished = this.run(runs, true);
     return this.finished;
@@ -307,6 +310,8 @@ export class ScanController {
         if (retry) {
           const tiles = r.failed;
           r.failed = [];
+          this.provider = r.part.provider;
+          this.bucket.setRate(this.rateFor(r.part.provider, this.store.getState().settings.ratePerSec));
           await this.scanTiles(r, tiles);
         } else {
           await this.scanPart(r);
@@ -366,7 +371,7 @@ export class ScanController {
           r.probed.set(req.url, got);
           answered++;
           if (got.status !== 200) continue;
-          const res = await this.pool!.run(
+          const res = await this.work(
             { scanId: this.scanId, providerId: provider.id, tile: t, tilePx: provider.requestPx, halo: req.halo, bytes: got.bytes.slice().buffer, probe: true },
           );
           if (!res.error && !res.noData) withData++;
@@ -443,6 +448,34 @@ export class ScanController {
         if (n) count(n);
       }
     }
+    // Probe answers serve the neighbours that ask before their own turn.
+    for (const [url, got] of r.probed) {
+      const e = r.shared.get(url);
+      if (e) e.bytes = Promise.resolve(got);
+    }
+  }
+
+  /**
+   * One job on the pool, given up when the scan is stopped or disposed: a
+   * worker that never answers must not keep Stop from finishing.
+   */
+  private work(job: Omit<WorkJob, 'id'>): Promise<WorkResult> {
+    const signal = this.abort.signal;
+    if (signal.aborted) return Promise.reject(new ScanCancelled());
+    return new Promise<WorkResult>((resolve, reject) => {
+      const onAbort = () => reject(new ScanCancelled());
+      signal.addEventListener('abort', onAbort, { once: true });
+      this.pool!.run(job).then(
+        (r) => {
+          signal.removeEventListener('abort', onAbort);
+          resolve(r);
+        },
+        (e) => {
+          signal.removeEventListener('abort', onAbort);
+          reject(e);
+        },
+      );
+    });
   }
 
   /** A tile's bytes, through the shared halo table when the part has one. */
@@ -453,6 +486,22 @@ export class ScanController {
     const bytes = e.bytes;
     if (--e.uses <= 0) r.shared.delete(req.url);
     return bytes;
+  }
+
+  /** Give back a use of the halo table without fetching. */
+  private giveBack(r: PartRun, url: string): void {
+    const e = r.shared.get(url);
+    if (!e) return;
+    if (--e.uses <= 0) r.shared.delete(url);
+  }
+
+  /** The uses a centre tile holds on its eight neighbours, given back when it will not ask for them. */
+  private giveBackNeighbours(r: PartRun, tile: TileCoord): void {
+    if (this.halo === 0 || r.part.provider.kind !== 'xyz') return;
+    for (const [dx, dy] of NEIGHBOUR_OFFSETS) {
+      const n = neighbourTile(tile, dx, dy);
+      if (n) this.giveBack(r, tileRequest(r.part.provider, n).url);
+    }
   }
 
   private async neighbours(r: PartRun, tile: TileCoord): Promise<(ArrayBuffer | null)[] | undefined> {
@@ -490,6 +539,8 @@ export class ScanController {
       this.inflight.add(p);
     }
     await this.settleInflight();
+    // Whatever is left in the halo table belongs to tiles that are not coming.
+    r.shared.clear();
     if (!this.alive()) return;
     this.publish(r, r.merger.finalize());
     this.update(r, { status: 'done' });
@@ -502,16 +553,20 @@ export class ScanController {
     const tile = scanTile.tile;
     let outcome: TileOutcome = 'done';
     let events: MergerEvent[] = [];
+    // Uses this tile holds on its neighbours in the halo table until it asks for them.
+    let holdsNeighbours = true;
     try {
       const req = tileRequest(provider, tile, this.wmsHalo(provider));
       const probed = r.probed.get(req.url);
       r.probed.delete(req.url);
+      if (probed) this.giveBack(r, req.url);
       const got = probed ?? (await this.use(r, req));
       if (got.status === 404 || got.status === 204) {
         outcome = 'nocoverage';
       } else {
+        holdsNeighbours = false;
         const neighbours = await this.neighbours(r, tile);
-        const res = await this.pool!.run(
+        const res = await this.work(
           {
             scanId: this.scanId,
             providerId: provider.id,
@@ -534,6 +589,8 @@ export class ScanController {
       if (err instanceof ScanCancelled || isAbort(err) || !this.alive()) return;
       outcome = 'failed';
       events = [];
+    } finally {
+      if (holdsNeighbours) this.giveBackNeighbours(r, tile);
     }
     if (!this.alive()) return;
     if (outcome === 'failed') r.failed.push(scanTile);

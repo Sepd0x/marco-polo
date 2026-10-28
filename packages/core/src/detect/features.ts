@@ -50,33 +50,15 @@ export interface FeatureContext {
   contextS: number;
 }
 
-interface Acc {
-  n: number;
-  h: number;
-  h2: number;
-  s: number;
-  s2: number;
-  v: number;
-  v2: number;
-  r: number;
-  g: number;
-  b: number;
-  br: number;
-  gr: number;
-  bg: number;
-  strict: number;
-  gate: number;
-  perm: number;
-  green: number;
-  deck: number;
-  dark: number;
-  tex: number;
-  texN: number;
-}
+// Per-ring accumulators, ACC_STRIDE numbers each, in one Float64Array.
+const K_N = 0, K_H = 1, K_H2 = 2, K_S = 3, K_S2 = 4, K_V = 5, K_V2 = 6, K_R = 7, K_G = 8, K_B = 9, K_BR = 10, K_GR = 11, K_BG = 12;
+const K_STRICT = 13, K_GATE = 14, K_PERM = 15, K_GREEN = 16, K_DECK = 17, K_DARK = 18, K_TEX = 19, K_TEXN = 20;
+const ACC_STRIDE = 21;
+const mean = (a: Float64Array, o: number, k: number) => (a[o + K_N] ? a[o + k] / a[o + K_N] : 0);
+const sd = (a: Float64Array, o: number, k: number, k2: number) => (a[o + K_N] ? Math.sqrt(Math.max(0, a[o + k2] / a[o + K_N] - (a[o + k] / a[o + K_N]) ** 2)) : 0);
 
-const acc = (): Acc => ({ n: 0, h: 0, h2: 0, s: 0, s2: 0, v: 0, v2: 0, r: 0, g: 0, b: 0, br: 0, gr: 0, bg: 0, strict: 0, gate: 0, perm: 0, green: 0, deck: 0, dark: 0, tex: 0, texN: 0 });
-const mean = (a: Acc, k: number) => (a.n ? k / a.n : 0);
-const sd = (a: Acc, k: number, k2: number) => (a.n ? Math.sqrt(Math.max(0, k2 / a.n - (k / a.n) ** 2)) : 0);
+/** Distance grid of the window around a candidate, kept between calls. */
+let distScratch = new Uint8Array(0);
 
 /**
  * Write the features of component `c` (labelled `c.label` in `labels`) into
@@ -101,41 +83,51 @@ export function componentFeatures(
   const ww = wx1 - wx0 + 1;
   const wh = wy1 - wy0 + 1;
 
-  // Chessboard distance to the shape, up to MAX_RING, by breadth-first growth.
-  const d = new Uint8Array(ww * wh).fill(255);
-  let frontier: number[] = [];
+  // Chessboard distance to the shape, up to MAX_RING (255 beyond): two raster
+  // passes, exact for the chessboard metric, the same grid a breadth-first
+  // growth from the shape gives.
+  if (distScratch.length < ww * wh) distScratch = new Uint8Array(ww * wh * 2);
+  const d = distScratch.subarray(0, ww * wh);
+  d.fill(254);
   for (let y = c.minY; y <= c.maxY; y++) {
     for (let x = c.minX; x <= c.maxX; x++) {
-      if (labels[y * W + x] === c.label) {
-        const k = (y - wy0) * ww + (x - wx0);
-        d[k] = 0;
-        frontier.push(k);
-      }
+      if (labels[y * W + x] === c.label) d[(y - wy0) * ww + (x - wx0)] = 0;
     }
   }
-  for (let step = 1; step <= MAX_RING && frontier.length; step++) {
-    const next: number[] = [];
-    for (const k of frontier) {
-      const kx = k % ww;
-      const ky = (k / ww) | 0;
-      for (let dy = -1; dy <= 1; dy++) {
-        const ny = ky + dy;
-        if (ny < 0 || ny >= wh) continue;
-        for (let dx = -1; dx <= 1; dx++) {
-          const nx = kx + dx;
-          if (nx < 0 || nx >= ww) continue;
-          const nk = ny * ww + nx;
-          if (d[nk] > step) {
-            d[nk] = step;
-            next.push(nk);
-          }
-        }
+  for (let ky = 0; ky < wh; ky++) {
+    const row = ky * ww;
+    for (let kx = 0; kx < ww; kx++) {
+      const k = row + kx;
+      let m = d[k];
+      if (m === 0) continue;
+      if (kx > 0 && d[k - 1] + 1 < m) m = d[k - 1] + 1;
+      if (ky > 0) {
+        const u = k - ww;
+        if (d[u] + 1 < m) m = d[u] + 1;
+        if (kx > 0 && d[u - 1] + 1 < m) m = d[u - 1] + 1;
+        if (kx + 1 < ww && d[u + 1] + 1 < m) m = d[u + 1] + 1;
       }
+      d[k] = m;
     }
-    frontier = next;
+  }
+  for (let ky = wh - 1; ky >= 0; ky--) {
+    const row = ky * ww;
+    for (let kx = ww - 1; kx >= 0; kx--) {
+      const k = row + kx;
+      let m = d[k];
+      if (m === 0) continue;
+      if (kx + 1 < ww && d[k + 1] + 1 < m) m = d[k + 1] + 1;
+      if (ky + 1 < wh) {
+        const u = k + ww;
+        if (d[u] + 1 < m) m = d[u] + 1;
+        if (kx + 1 < ww && d[u + 1] + 1 < m) m = d[u + 1] + 1;
+        if (kx > 0 && d[u - 1] + 1 < m) m = d[u - 1] + 1;
+      }
+      d[k] = m > MAX_RING ? 255 : m;
+    }
   }
 
-  const rings = [acc(), acc(), acc()];
+  const acc = new Float64Array(3 * ACC_STRIDE);
   // Per side of the shape (east, west, south, north of the centroid): deck share of the inner ring, brightness of the outer ring.
   const cxs = c.sumX / c.pixelCount;
   const cys = c.sumY / c.pixelCount;
@@ -157,26 +149,26 @@ export function componentFeatures(
       const g = pixels[i * 4 + 1];
       const b = pixels[i * 4 + 2];
       const h = hue[i], s = sat[i], v = val[i];
-      const a = rings[ring];
-      a.n++;
-      a.h += h;
-      a.h2 += h * h;
-      a.s += s;
-      a.s2 += s * s;
-      a.v += v;
-      a.v2 += v * v;
-      a.r += r;
-      a.g += g;
-      a.b += b;
-      a.br += b - r;
-      a.gr += g - r;
-      a.bg += b - g;
-      if (isStrictPoolPixel(h, s, DEFAULT_THRESHOLDS)) a.strict++;
-      if (ctx.strictGate[i]) a.gate++;
-      if (ctx.permissiveGate[i]) a.perm++;
-      if (g > r && g >= b && h > 60 && h < 160 && s > 0.12) a.green++;
-      if (v > 0.62 && s < 0.18) a.deck++;
-      if (v < 0.22) a.dark++;
+      const o = ring * ACC_STRIDE;
+      acc[o + K_N]++;
+      acc[o + K_H] += h;
+      acc[o + K_H2] += h * h;
+      acc[o + K_S] += s;
+      acc[o + K_S2] += s * s;
+      acc[o + K_V] += v;
+      acc[o + K_V2] += v * v;
+      acc[o + K_R] += r;
+      acc[o + K_G] += g;
+      acc[o + K_B] += b;
+      acc[o + K_BR] += b - r;
+      acc[o + K_GR] += g - r;
+      acc[o + K_BG] += b - g;
+      if (isStrictPoolPixel(h, s, DEFAULT_THRESHOLDS)) acc[o + K_STRICT]++;
+      if (ctx.strictGate[i]) acc[o + K_GATE]++;
+      if (ctx.permissiveGate[i]) acc[o + K_PERM]++;
+      if (g > r && g >= b && h > 60 && h < 160 && s > 0.12) acc[o + K_GREEN]++;
+      if (v > 0.62 && s < 0.18) acc[o + K_DECK]++;
+      if (v < 0.22) acc[o + K_DARK]++;
       if (ring > 0) {
         const dx = x - cxs, dy = y - cys;
         const side = Math.abs(dx) >= Math.abs(dy) ? (dx >= 0 ? 0 : 1) : dy >= 0 ? 2 : 3;
@@ -199,8 +191,8 @@ export function componentFeatures(
           same = right > 0 && right <= MAX_RING && down > 0 && down <= MAX_RING;
         }
         if (same) {
-          a.tex += Math.abs(val[i + 1] - v) + Math.abs(val[i + W] - v);
-          a.texN++;
+          acc[o + K_TEX] += Math.abs(val[i + 1] - v) + Math.abs(val[i + W] - v);
+          acc[o + K_TEXN]++;
         }
       }
       if (ring === 0) {
@@ -217,28 +209,28 @@ export function componentFeatures(
     }
   }
 
-  const [I, A, B] = rings;
+  const I = 0, A = ACC_STRIDE, Bo = 2 * ACC_STRIDE;
   const areaM2 = c.pixelCount * mPerPx * mPerPx;
   const touches = c.minX === 0 || c.minY === 0 || c.maxX === W - 1 || c.maxY === H - 1 ? 1 : 0;
   const f = out;
   let o = offset;
   f[o++] = level;
-  f[o++] = mean(I, I.h);
-  f[o++] = mean(I, I.s);
-  f[o++] = mean(I, I.v);
-  f[o++] = sd(I, I.h, I.h2);
-  f[o++] = sd(I, I.s, I.s2);
-  f[o++] = sd(I, I.v, I.v2);
-  f[o++] = mean(I, I.r) / 255;
-  f[o++] = mean(I, I.g) / 255;
-  f[o++] = mean(I, I.b) / 255;
-  f[o++] = mean(I, I.br) / 255;
-  f[o++] = mean(I, I.gr) / 255;
-  f[o++] = mean(I, I.bg) / 255;
-  f[o++] = mean(I, I.strict);
-  f[o++] = mean(I, I.gate);
-  f[o++] = I.texN ? I.tex / I.texN : -1;
-  f[o++] = I.n ? I.texN / I.n : 0;
+  f[o++] = mean(acc, I, K_H);
+  f[o++] = mean(acc, I, K_S);
+  f[o++] = mean(acc, I, K_V);
+  f[o++] = sd(acc, I, K_H, K_H2);
+  f[o++] = sd(acc, I, K_S, K_S2);
+  f[o++] = sd(acc, I, K_V, K_V2);
+  f[o++] = mean(acc, I, K_R) / 255;
+  f[o++] = mean(acc, I, K_G) / 255;
+  f[o++] = mean(acc, I, K_B) / 255;
+  f[o++] = mean(acc, I, K_BR) / 255;
+  f[o++] = mean(acc, I, K_GR) / 255;
+  f[o++] = mean(acc, I, K_BG) / 255;
+  f[o++] = mean(acc, I, K_STRICT);
+  f[o++] = mean(acc, I, K_GATE);
+  f[o++] = acc[I + K_TEXN] ? acc[I + K_TEX] / acc[I + K_TEXN] : -1;
+  f[o++] = acc[I + K_N] ? acc[I + K_TEXN] / acc[I + K_N] : 0;
   f[o++] = Math.log(areaM2);
   f[o++] = c.pixelCount / (bwC * bhC);
   f[o++] = Math.max(bwC, bhC) / Math.min(bwC, bhC);
@@ -246,27 +238,27 @@ export function componentFeatures(
   f[o++] = Math.max(bwC, bhC) * mPerPx;
   f[o++] = edgeN ? edgeGrad / edgeN : 0;
   f[o++] = touches;
-  f[o++] = mean(A, A.v);
-  f[o++] = mean(A, A.s);
-  f[o++] = sd(A, A.v, A.v2);
-  f[o++] = mean(A, A.r) / 255;
-  f[o++] = mean(A, A.g) / 255;
-  f[o++] = mean(A, A.b) / 255;
-  f[o++] = mean(A, A.perm);
-  f[o++] = mean(A, A.green);
-  f[o++] = mean(A, A.deck);
-  f[o++] = mean(A, A.dark);
-  f[o++] = A.texN ? A.tex / A.texN : 0;
-  f[o++] = mean(B, B.v);
-  f[o++] = mean(B, B.s);
-  f[o++] = sd(B, B.v, B.v2);
-  f[o++] = mean(B, B.perm);
-  f[o++] = mean(B, B.green);
-  f[o++] = mean(B, B.deck);
-  f[o++] = mean(B, B.dark);
-  f[o++] = B.texN ? B.tex / B.texN : 0;
-  f[o++] = mean(A, A.v) - mean(I, I.v);
-  f[o++] = mean(B, B.v) - mean(I, I.v);
+  f[o++] = mean(acc, A, K_V);
+  f[o++] = mean(acc, A, K_S);
+  f[o++] = sd(acc, A, K_V, K_V2);
+  f[o++] = mean(acc, A, K_R) / 255;
+  f[o++] = mean(acc, A, K_G) / 255;
+  f[o++] = mean(acc, A, K_B) / 255;
+  f[o++] = mean(acc, A, K_PERM);
+  f[o++] = mean(acc, A, K_GREEN);
+  f[o++] = mean(acc, A, K_DECK);
+  f[o++] = mean(acc, A, K_DARK);
+  f[o++] = acc[A + K_TEXN] ? acc[A + K_TEX] / acc[A + K_TEXN] : 0;
+  f[o++] = mean(acc, Bo, K_V);
+  f[o++] = mean(acc, Bo, K_S);
+  f[o++] = sd(acc, Bo, K_V, K_V2);
+  f[o++] = mean(acc, Bo, K_PERM);
+  f[o++] = mean(acc, Bo, K_GREEN);
+  f[o++] = mean(acc, Bo, K_DECK);
+  f[o++] = mean(acc, Bo, K_DARK);
+  f[o++] = acc[Bo + K_TEXN] ? acc[Bo + K_TEX] / acc[Bo + K_TEXN] : 0;
+  f[o++] = mean(acc, A, K_V) - mean(acc, I, K_V);
+  f[o++] = mean(acc, Bo, K_V) - mean(acc, I, K_V);
   f[o++] = ctx.contextV;
   f[o++] = ctx.contextS;
 
@@ -302,24 +294,40 @@ export function componentFeatures(
 export function orientedBox(labels: Int32Array, W: number, c: Component): { long: number; short: number; area: number } {
   const lo = new Float64Array(36).fill(Infinity);
   const hi = new Float64Array(36).fill(-Infinity);
+  // Every cosine and sine here is >= 0, so on one row of corners u grows and
+  // v shrinks with x: the extremes over a row are at its first and last
+  // corner, which belong to the first and last pixel of the shape on the two
+  // pixel rows that share it (both border pixels). Same values, same extremes.
+  const rows = c.maxY - c.minY + 1;
+  const first = new Int32Array(rows).fill(-1);
+  const last = new Int32Array(rows).fill(-1);
   for (let y = c.minY; y <= c.maxY; y++) {
-    for (let x = c.minX; x <= c.maxX; x++) {
-      const i = y * W + x;
-      if (labels[i] !== c.label) continue;
-      const border = x === c.minX || x === c.maxX || y === c.minY || y === c.maxY || labels[i - 1] !== c.label || labels[i + 1] !== c.label || labels[i - W] !== c.label || labels[i + W] !== c.label;
-      if (!border) continue;
-      for (let cy = y; cy <= y + 1; cy++) {
-        for (let cx = x; cx <= x + 1; cx++) {
-          for (let k = 0; k < 18; k++) {
-            const u = cx * OBB_COS[k] + cy * OBB_SIN[k];
-            const v = cy * OBB_COS[k] - cx * OBB_SIN[k];
-            if (u < lo[2 * k]) lo[2 * k] = u;
-            if (u > hi[2 * k]) hi[2 * k] = u;
-            if (v < lo[2 * k + 1]) lo[2 * k + 1] = v;
-            if (v > hi[2 * k + 1]) hi[2 * k + 1] = v;
-          }
-        }
-      }
+    const row = y * W;
+    let x = c.minX;
+    while (x <= c.maxX && labels[row + x] !== c.label) x++;
+    if (x > c.maxX) continue;
+    first[y - c.minY] = x;
+    let x1 = c.maxX;
+    while (labels[row + x1] !== c.label) x1--;
+    last[y - c.minY] = x1;
+  }
+  for (let cy = c.minY; cy <= c.maxY + 1; cy++) {
+    let a = Infinity, b = -Infinity;
+    for (let y = cy - 1; y <= cy; y++) {
+      if (y < c.minY || y > c.maxY || first[y - c.minY] < 0) continue;
+      if (first[y - c.minY] < a) a = first[y - c.minY];
+      if (last[y - c.minY] + 1 > b) b = last[y - c.minY] + 1;
+    }
+    if (a === Infinity) continue;
+    for (let k = 0; k < 18; k++) {
+      const ua = a * OBB_COS[k] + cy * OBB_SIN[k];
+      const ub = b * OBB_COS[k] + cy * OBB_SIN[k];
+      const va = cy * OBB_COS[k] - a * OBB_SIN[k];
+      const vb = cy * OBB_COS[k] - b * OBB_SIN[k];
+      if (ua < lo[2 * k]) lo[2 * k] = ua;
+      if (ub > hi[2 * k]) hi[2 * k] = ub;
+      if (vb < lo[2 * k + 1]) lo[2 * k + 1] = vb;
+      if (va > hi[2 * k + 1]) hi[2 * k + 1] = va;
     }
   }
   let best = { long: 1, short: 1, area: Infinity };
@@ -340,22 +348,32 @@ export function orientedBox(labels: Int32Array, W: number, c: Component): { long
 export function enclosedHoles(labels: Int32Array, W: number, c: Component, val: Float32Array, sat: Float32Array): { count: number; bright: number; brightInside: number } {
   const bw = c.maxX - c.minX + 1, bh = c.maxY - c.minY + 1;
   const seen = new Uint8Array(bw * bh);
-  const stack: number[] = [];
-  const push = (lx: number, ly: number) => {
-    const k = ly * bw + lx;
-    if (seen[k] || labels[(ly + c.minY) * W + lx + c.minX] === c.label) return;
-    seen[k] = 1;
-    stack.push(k);
-  };
-  for (let lx = 0; lx < bw; lx++) { push(lx, 0); push(lx, bh - 1); }
-  for (let ly = 0; ly < bh; ly++) { push(0, ly); push(bw - 1, ly); }
-  while (stack.length) {
-    const k = stack.pop()!;
-    const lx = k % bw, ly = (k / bw) | 0;
-    if (lx > 0) push(lx - 1, ly);
-    if (lx < bw - 1) push(lx + 1, ly);
-    if (ly > 0) push(lx, ly - 1);
-    if (ly < bh - 1) push(lx, ly + 1);
+  // Each box pixel is pushed at most once.
+  const stack = new Int32Array(bw * bh);
+  let sp = 0;
+  const label = c.label;
+  const base = c.minY * W + c.minX;
+  for (let lx = 0; lx < bw; lx++) {
+    for (const ly of bh > 1 ? [0, bh - 1] : [0]) {
+      const k = ly * bw + lx;
+      if (!seen[k] && labels[base + ly * W + lx] !== label) { seen[k] = 1; stack[sp++] = k; }
+    }
+  }
+  for (let ly = 0; ly < bh; ly++) {
+    for (const lx of bw > 1 ? [0, bw - 1] : [0]) {
+      const k = ly * bw + lx;
+      if (!seen[k] && labels[base + ly * W + lx] !== label) { seen[k] = 1; stack[sp++] = k; }
+    }
+  }
+  while (sp) {
+    const k = stack[--sp];
+    const ly = (k / bw) | 0;
+    const lx = k - ly * bw;
+    const i = base + ly * W + lx;
+    if (lx > 0 && !seen[k - 1] && labels[i - 1] !== label) { seen[k - 1] = 1; stack[sp++] = k - 1; }
+    if (lx < bw - 1 && !seen[k + 1] && labels[i + 1] !== label) { seen[k + 1] = 1; stack[sp++] = k + 1; }
+    if (ly > 0 && !seen[k - bw] && labels[i - W] !== label) { seen[k - bw] = 1; stack[sp++] = k - bw; }
+    if (ly < bh - 1 && !seen[k + bw] && labels[i + W] !== label) { seen[k + bw] = 1; stack[sp++] = k + bw; }
   }
   let count = 0, bright = 0, brightInside = 0;
   for (let ly = 0; ly < bh; ly++) {
