@@ -23,8 +23,69 @@ function words(m: Uint8Array): Uint32Array | null {
   return m.byteOffset % 4 === 0 ? new Uint32Array(m.buffer, m.byteOffset, m.length >> 2) : null;
 }
 
+/** Each byte of a word to 0 or 1 (any non-zero byte is a set pixel). */
+function bits(x: number): number {
+  x = ((x & 0xf0f0f0f0) >>> 4) | (x & 0x0f0f0f0f);
+  x = ((x & 0x0c0c0c0c) >>> 2) | (x & 0x03030303);
+  return ((x & 0x02020202) >>> 1) | (x & 0x01010101);
+}
+
+/**
+ * Rows that start on a word (width a multiple of 4, aligned buffers): four
+ * pixels per step, one byte each, so a shift by 8 bits moves a word's
+ * pixels one column. Empty words are skipped; the result is the per-pixel
+ * rule's, byte for byte.
+ */
+function wordRows(mask: Uint8Array, out: Uint8Array, width: number, height: number): boolean {
+  return width % 4 === 0 && mask.byteOffset % 4 === 0 && out.byteOffset % 4 === 0 && mask.length === width * height && out.length === width * height;
+}
+
+function erodeWords(mask: Uint8Array, width: number, height: number, out: Uint8Array): void {
+  out.fill(0);
+  const src = new Uint32Array(mask.buffer, mask.byteOffset, mask.length >> 2);
+  const dst = new Uint32Array(out.buffer, out.byteOffset, out.length >> 2);
+  const q = width >> 2;
+  const nw = src.length;
+  const lastRow = nw - q;
+  let j = 0, k = 0, rowEnd = q;
+  for (; j < nw; j++) {
+    if (src[j] === 0) continue;
+    while (j >= rowEnd) rowEnd += q;
+    k = j - (rowEnd - q);
+    const m = bits(src[j]);
+    // Out-of-image neighbours count as set.
+    const up = j >= q ? bits(src[j - q]) : 0x01010101;
+    const down = j < lastRow ? bits(src[j + q]) : 0x01010101;
+    const left = k > 0 ? (m << 8) | (bits(src[j - 1]) >>> 24) : (m << 8) | 1;
+    const right = k < q - 1 ? (m >>> 8) | (bits(src[j + 1]) << 24) : (m >>> 8) | 0x01000000;
+    dst[j] = m & up & down & left & right;
+  }
+}
+
+function dilateWords(mask: Uint8Array, width: number, height: number, out: Uint8Array): void {
+  out.fill(0);
+  const src = new Uint32Array(mask.buffer, mask.byteOffset, mask.length >> 2);
+  const dst = new Uint32Array(out.buffer, out.byteOffset, out.length >> 2);
+  const q = width >> 2;
+  const nw = src.length;
+  const lastRow = nw - q;
+  let j = 0, k = 0, rowEnd = q;
+  for (; j < nw; j++) {
+    if (src[j] === 0) continue;
+    while (j >= rowEnd) rowEnd += q;
+    k = j - (rowEnd - q);
+    const m = bits(src[j]);
+    dst[j] |= m | (m << 8) | (m >>> 8);
+    if (k > 0) dst[j - 1] |= (m & 0xff) << 24;
+    if (k < q - 1) dst[j + 1] |= m >>> 24;
+    if (j >= q) dst[j - q] |= m;
+    if (j < lastRow) dst[j + q] |= m;
+  }
+}
+
 /** `erode` written into `out` (which must not be `mask`). */
 function erodeInto(mask: Uint8Array, width: number, height: number, out: Uint8Array): void {
+  if (wordRows(mask, out, width, height)) return erodeWords(mask, width, height, out);
   out.fill(0);
   const n = width * height;
   const lastRow = n - width;
@@ -58,6 +119,7 @@ function erodeInto(mask: Uint8Array, width: number, height: number, out: Uint8Ar
 
 /** `dilate` written into `out` (which must not be `mask`). */
 function dilateInto(mask: Uint8Array, width: number, height: number, out: Uint8Array): void {
+  if (wordRows(mask, out, width, height)) return dilateWords(mask, width, height, out);
   out.fill(0);
   const n = width * height;
   const lastRow = n - width;
