@@ -5,6 +5,14 @@ import { LABEL_ORIGIN } from './csp.js';
  * Place, street, water and house number labels from OpenFreeMap vector
  * tiles, drawn over the imagery. Text is white with a dark halo so it reads
  * on any ground.
+ *
+ * Place, street and water names can still be cut by the canvas edge, which
+ * is the frame's neat line. MapLibre's collision index only drops a label
+ * that lies wholly off the viewport (a fixed 100 px margin), and no layout
+ * option changes that: `text-padding` only spaces labels from each other.
+ * Keeping them inside would take guard symbols along the edges, rebuilt on
+ * every move, which flicker while panning, so only the pool numbers are kept
+ * inside (`labelPlace.anchorsInView`).
  */
 
 export const LABEL_SOURCE = 'ofm';
