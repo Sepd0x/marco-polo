@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { planLargeImport } from '../src/large.js';
+import { largeNearTest, planLargeImport } from '../src/large.js';
 import type { LabelFeature } from '../src/overpass.js';
 import type { Zone } from '../src/zones.js';
 
@@ -35,5 +35,16 @@ describe('large-pool import', () => {
       expect(p.skipped[0].why).toContain(role);
     }
     expect(planLargeImport([features[2]], [zone('elsewhere', 'DEV', far)], () => []).skipped[0].why).toContain('outside');
+  });
+});
+
+describe('large-pool set', () => {
+  it('names the outlines too close to a TEST zone', () => {
+    const near = { west: LON - 0.1, south: LAT - 0.1, east: LON + 0.1, north: LAT + 0.1 };
+    const outline = (id: string, dx: number): LabelFeature => ({ type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: [rect(dx, 0, 4e-4, 2e-4).geometry.coordinates] }, properties: { id, source: 'visual', role: 'pool' } });
+    // 1° of longitude is about 89 km here.
+    const features = [outline('close', 0), outline('far', 1)];
+    expect(largeNearTest(features, [zone('t', 'TEST', near), zone('d', 'DEV', near)], 50)).toEqual(['close']);
+    expect(largeNearTest(features, [zone('d', 'DEV', near)], 50)).toEqual([]);
   });
 });

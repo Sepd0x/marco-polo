@@ -15,7 +15,13 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { expandBBoxMeters } from '@marco-polo/core';
+import type { SourceId } from './candidates.js';
+import type { Detector } from './detectors.js';
+import { evaluateZone } from './evaluate.js';
 import { pointInBBox, pointInPolygons, polygonsAreaM2, polygonsCentroid } from './geom.js';
+import type { TileSource } from './imagery.js';
+import { haversineKm, zoneCenter } from './registry.js';
 import { LARGE_POOL_M2 } from './evaluate.js';
 import { featureToLabel } from './labels.js';
 import type { LabelFeature } from './overpass.js';
@@ -121,4 +127,51 @@ export function largeImportCommand(file: string, labelsDir: string, write: boole
     writeFileSync(path, JSON.stringify(fc, null, 1) + '\n');
   }
   console.log('written: the next run needs --relabel "<why>"');
+}
+
+/** The frozen set of large-pool outlines (a label "zone" of its own in labels.sha256). */
+export const LARGE_SET = 'large-pools';
+
+/** Margin around each outline scanned for it, metres. */
+export const LARGE_SCAN_MARGIN_M = 30;
+
+export interface LargeRecall {
+  /** Per imagery family: outlines, hits and the scores of the best detection on each. */
+  bySource: Record<string, { labels: number; hits: number }>;
+  rows: { id: string; source: string; areaM2: number; hit: boolean; detM2: number | null }[];
+}
+
+const SOURCE_OF: Record<string, SourceId> = { 'dgt-ortos2025': 'dgt', dgt: 'dgt', pnoa: 'pnoa', ign: 'ign' };
+
+/**
+ * Recall of a detector on the large-pool set: each outline of 400 m² or more
+ * is scanned on its own imagery in a box `LARGE_SCAN_MARGIN_M` around it, at
+ * the detector's threshold for that source, with the benchmark's matching.
+ * The set holds only large pools, so precision is not measured here. OSM
+ * outlines are not shifted: a pool of 400 m² is far larger than the shift.
+ */
+export async function largeRecall(detector: Detector, features: LabelFeature[], src: (s: SourceId) => TileSource, threshold: number): Promise<LargeRecall> {
+  const labels = features.map(featureToLabel);
+  const out: LargeRecall = { bySource: {}, rows: [] };
+  for (let i = 0; i < labels.length; i++) {
+    const l = labels[i];
+    if (l.role !== 'pool' || l.point || l.areaM2 < LARGE_POOL_M2) continue;
+    const sid = SOURCE_OF[String((features[i].properties as Record<string, unknown>).imagery ?? '')];
+    if (!sid) throw new Error(`${l.id}: no imagery named`);
+    const bbox = expandBBoxMeters(l.bbox, LARGE_SCAN_MARGIN_M);
+    const zone = { id: `large/${l.id}`, name: l.id, role: 'DEV', bbox, areaKm2: 0, review: 'full', productSource: sid, labelSource: sid, country: '', why: 'large-pool set' } as unknown as Zone;
+    const run = await evaluateZone(zone, labels, { visual: 0, overrides: 0, absent: 0 }, detector, src(sid), threshold);
+    const pair = run.result.pairs.find((p) => p.label === l.id);
+    out.rows.push({ id: l.id, source: sid, areaM2: Math.round(l.areaM2), hit: !!pair, detM2: pair ? Math.round(pair.detM2) : null });
+    const b = (out.bySource[sid] ??= { labels: 0, hits: 0 });
+    b.labels++;
+    if (pair) b.hits++;
+  }
+  return out;
+}
+
+/** Outlines of the set closer than `minKm` to a TEST zone: refused, the set must stay away from TEST. */
+export function largeNearTest(features: LabelFeature[], zones: Zone[], minKm: number): string[] {
+  const tests = zones.filter((z) => z.role === 'TEST');
+  return features.map(featureToLabel).filter((l) => tests.some((t) => haversineKm(zoneCenter(t), [l.centroid.lat, l.centroid.lon]) < minKm)).map((l) => l.id);
 }
