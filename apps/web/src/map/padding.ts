@@ -39,3 +39,18 @@ export function occluderPadding(container: HTMLElement, margin: number, root: Pa
   [pad.top, pad.bottom] = fit(pad.top, pad.bottom, h);
   return pad;
 }
+
+/** The panels over the map as rectangles in container px; the numbers on the map keep off them. */
+export function occluderRects(container: HTMLElement, root: ParentNode = document): { left: number; top: number; right: number; bottom: number }[] {
+  const box = container.getBoundingClientRect();
+  const out: { left: number; top: number; right: number; bottom: number }[] = [];
+  for (const el of root.querySelectorAll<HTMLElement>('[data-map-occluder]')) {
+    const r = el.getBoundingClientRect();
+    if (r.width <= 0 || r.height <= 0) continue;
+    const rect = { left: r.left - box.left, top: r.top - box.top, right: r.right - box.left, bottom: r.bottom - box.top };
+    // Only what lies over the map; a strip under it covers nothing.
+    if (rect.right <= 0 || rect.bottom <= 0 || rect.left >= box.width || rect.top >= box.height) continue;
+    out.push(rect);
+  }
+  return out;
+}
