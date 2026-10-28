@@ -1,16 +1,21 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import {
+  buildTileWindow,
   captureLookup,
-  createV1Detector,
+  DEFAULT_HALO_PX,
   DetectionMerger,
   estimatePlan,
   fallbackPart,
   IMAGERY_PROVIDERS,
+  lonLatToTile,
   metersPerPixelOfBitmap,
+  NEIGHBOUR_OFFSETS,
+  neighbourTile,
   noDataReason,
   partCentre,
   partSummary,
+  pointInRing,
   provenanceOf,
   rankDetections,
   sampleTiles,
@@ -20,8 +25,10 @@ import {
   toCSV,
   toGeoJSON,
   toResultDetection,
+  windowFromBitmap,
   type Detection,
   type Detector,
+  type ImageryProvider,
   type ImagerySetting,
   type PlanPart,
   type Provenance,
@@ -31,8 +38,13 @@ import {
   type ScanResult,
   type TileCoord,
   type TileDetection,
+  type TileRequest,
+  type TileWindow,
 } from '@marco-polo/core';
 import { parseFlags, UsageError, type FlagSpec } from '../args.js';
+import { makeDetector, type DetectorChoice } from '../detector.js';
+import { errorText, redact } from '../redact.js';
+import { recommendedFor } from '../threshold.js';
 import { Pacer, TileFetcher, type DecodedTile, type FetchedTile, type FetchLike } from '../tiles.js';
 
 /** Short names accepted by --source, next to the full ids. */
@@ -46,14 +58,22 @@ export const SOURCE_ALIASES: Readonly<Record<string, string>> = {
 const SCANNABLE = IMAGERY_PROVIDERS.filter((p) => p.scanAllowed).map((p) => p.id);
 const SOURCE_CHOICES = ['auto', ...Object.keys(SOURCE_ALIASES), ...SCANNABLE.filter((id) => !(id in SOURCE_ALIASES))];
 
+/** Requests per second when --rate is not given, and the highest value --rate takes. */
+export const DEFAULT_RATE = 5;
+export const MAX_RATE = 10;
+
+/** Lowest score listed by the v1 detector when --threshold is not given. */
+export const V1_THRESHOLD = 0.55;
+
 const SPEC: Record<string, FlagSpec> = {
   bbox: { kind: 'string' },
   area: { kind: 'string' },
   source: { kind: 'string', choices: SOURCE_CHOICES },
   out: { kind: 'string' },
-  rate: { kind: 'number', min: 1, max: 10 },
+  rate: { kind: 'number', min: 1, max: MAX_RATE },
   order: { kind: 'string', choices: ['serpentine', 'spiral'] },
   threshold: { kind: 'number', min: 0, max: 1 },
+  detector: { kind: 'string', choices: ['v2', 'v1'] },
   'cache-dir': { kind: 'string' },
   'allow-large': { kind: 'flag' },
   'no-dates': { kind: 'flag' },
@@ -73,17 +93,27 @@ export interface ScanArgs {
   /** Requests per second asked for; each source is also held to its own ceiling. */
   rate: number;
   order: 'serpentine' | 'spiral';
-  threshold: number;
+  /** One cutoff for every source; null uses the one the detector was calibrated to on each source. */
+  threshold: number | null;
+  /** v2 unless v1 is asked for. */
+  detector?: DetectorChoice;
   cacheDir: string;
   allowLarge: boolean;
   dates: boolean;
   quiet: boolean;
 }
 
+/** "dgt 4, pnoa 5, ..." from the sources' own ceilings, so the help cannot drift from them. */
+function ceilings(): string {
+  return Object.entries(SOURCE_ALIASES)
+    .map(([alias, id]) => `${alias} ${IMAGERY_PROVIDERS.find((p) => p.id === id)?.rate.maxPerSec}`)
+    .join(', ');
+}
+
 export const SCAN_HELP = `marco-polo scan: find and measure swimming pools in an area (headless)
 
-The CLI still runs the v1 detector; the web app runs v2, which finds more
-pools and far fewer false ones (packages/eval/results).
+Runs the same detector (v2), windows, sources and merger as the web app, so a
+scan of an area here and in the app list the same pools.
 
 usage:
   npm run scan -- --bbox "<south,west,north,east>" [options]
@@ -96,10 +126,15 @@ options:
                        per place (DGT in mainland Portugal, PNOA in Spain, IGN in
                        France, Esri elsewhere) and splits an area that crosses a border
   --out <path>         output basename (default ./scans/scan, writes .geojson and .csv)
-  --rate <n>           tile requests per second, 1 to 10 (default 5); never above
-                       the source's own ceiling
+  --rate <n>           tile requests per second, 1 to ${MAX_RATE} (default ${DEFAULT_RATE}). Each source
+                       also has its own ceiling, and the lower of the two applies
+                       (${ceilings()}). Retries and the neighbour tiles read
+                       for the halo of 256 px sources count as requests
   --order <o>          serpentine or spiral (default serpentine)
-  --threshold <c>      lowest confidence listed, 0 to 1 (default 0.55)
+  --threshold <c>      lowest confidence listed, 0 to 1, the same for every source.
+                       Default: the value the model was calibrated to on each
+                       source (${V1_THRESHOLD} with --detector v1)
+  --detector <v>       v2 (default) or v1, the first detector, kept for comparisons
   --cache-dir <dir>    disk cache for open-licence sources (default .tile-cache);
                        Esri tiles are never written to disk
   --allow-large        scan areas above 10 000 z19 tiles
@@ -120,9 +155,10 @@ export function parseScanArgs(argv: string[]): ScanArgs | 'help' {
     area: values.area as string | undefined,
     setting: id === 'auto' ? { mode: 'auto' } : { mode: 'fixed', providerId: id },
     out: (values.out as string | undefined) ?? './scans/scan',
-    rate: (values.rate as number | undefined) ?? 5,
+    rate: (values.rate as number | undefined) ?? DEFAULT_RATE,
     order: ((values.order as string | undefined) ?? 'serpentine') as ScanArgs['order'],
-    threshold: (values.threshold as number | undefined) ?? 0.55,
+    threshold: (values.threshold as number | undefined) ?? null,
+    detector: ((values.detector as string | undefined) ?? 'v2') as DetectorChoice,
     cacheDir: (values['cache-dir'] as string | undefined) ?? '.tile-cache',
     allowLarge: values['allow-large'] === true,
     dates: values['no-dates'] !== true,
@@ -192,7 +228,8 @@ export function splitForV1(tile: TileCoord, image: DecodedTile): DetectorTile[] 
   return out;
 }
 
-function childTiles(tiles: TileCoord[], factor: number): TileCoord[] {
+/** Tiles the merger of a part sees for one scan tile: the tile itself, or for v1 its z+1 children. */
+function mergerTiles(tiles: TileCoord[], factor: number): TileCoord[] {
   if (factor === 1) return tiles;
   const out: TileCoord[] = [];
   for (const t of tiles) {
@@ -209,17 +246,57 @@ export interface ScanDeps {
   wait?: (ms: number) => Promise<void>;
   log?: (line: string) => void;
   progress?: (line: string) => void;
+  /** Replaces the detector chosen by `args.detector`. Any id but 'v1' is read with the v2 halo. */
   detector?: Detector;
 }
 
 /** Number of probe tiles asked of a part's source before scanning it. */
 export const PROBE_TILES = 5;
 
+/** Halo the detector reads, px of a 256 px tile; a 512 px WMS request gets twice that. v1 reads none. */
+export function haloFor(detectorId: string): number {
+  return detectorId === 'v1' ? 0 : DEFAULT_HALO_PX;
+}
+
+/** Neighbour tiles still needed by an XYZ scan, counted so each is requested once and dropped after its last use. */
+type Shared = Map<string, { tile: Promise<FetchedTile> | null; uses: number }>;
+
+/** Pixels of the neighbours that are there, by offset from the centre tile. */
+type Neighbours = Map<string, Uint8ClampedArray>;
+
+const offsetKey = (dx: number, dy: number) => `${dx},${dy}`;
+
+/**
+ * What the detector is handed for one scan tile. v1 reads bare 256 px pieces.
+ * v2 reads one window: the tile plus its halo, taken from the same bitmap
+ * (WMS, which asked for it) or assembled from the eight neighbours (XYZ).
+ */
+function windowsOf(tile: TileCoord, image: DecodedTile, req: TileRequest, halo: number, neighbours: Neighbours | null): TileWindow[] {
+  if (neighbours === null) {
+    return splitForV1(tile, image).map((p) => ({
+      tile: p.tile,
+      tilePx: 256,
+      halo: 0,
+      width: 256,
+      height: 256,
+      pixels: p.pixels,
+      mPerPx: metersPerPixelOfBitmap(p.tile, 256),
+    }));
+  }
+  if (req.halo > 0) return [windowFromBitmap(tile, image.rgba, image.width, image.height, req.halo)];
+  const tilePx = image.width;
+  const at = (dx: number, dy: number) => (dx === 0 && dy === 0 ? image.rgba : (neighbours.get(offsetKey(dx, dy)) ?? null));
+  return [buildTileWindow(tile, tilePx, halo, at)];
+}
+
 export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): Promise<ScanResult> {
-  const log = deps.log ?? (() => {});
+  const sink = deps.log ?? (() => {});
+  const log = (line: string) => sink(redact(line));
   const progress = deps.progress ?? (() => {});
-  const detector = deps.detector ?? createV1Detector();
-  if (detector.id !== 'v1') throw new Error(`the CLI does not know detector ${detector.id} yet`);
+  const detector = deps.detector ?? makeDetector(args.detector ?? 'v2');
+  const v1 = detector.id === 'v1';
+  const halo = haloFor(detector.id);
+  const cutoffFor = (p: ImageryProvider) => args.threshold ?? (v1 ? V1_THRESHOLD : recommendedFor(p.id));
 
   const estimate = estimatePlan(area, args.setting);
   if (estimate.level === 'block' && !args.allowLarge) {
@@ -232,7 +309,8 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
 
   const split = splitPlanBySource(area, args.setting, args.order);
   const summaries: ScanPartSummary[] = [];
-  const found: { d: Detection; provenance: Provenance }[] = [];
+  const found: { d: Detection; provenance: Provenance; cutoff: number }[] = [];
+  const cutoffs: number[] = [];
 
   for (let part of split.parts) {
     const fetcherFor = (p: PlanPart) =>
@@ -244,25 +322,30 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
         wait: deps.wait,
       });
     let fetcher = fetcherFor(part);
+    /** Halo inside one WMS request, px of the bitmap it asks for; XYZ sources assemble theirs from neighbours. */
+    const wmsHalo = (p: ImageryProvider) => (p.kind === 'wms' ? (halo * p.requestPx) / 256 : 0);
 
-    // Probe: if none of the sample tiles has imagery, the whole part moves on
-    // (auto only; a fixed choice is kept and its empty tiles are reported).
+    // Probe: if the source answered for the sample tiles and none has imagery,
+    // the whole part moves on (auto only; a fixed choice is kept and its empty
+    // tiles are reported). A source that did not answer at all says nothing
+    // about coverage, so its tiles fail instead.
     const probed = new Map<string, FetchedTile>();
     for (;;) {
       probed.clear();
       let withData = 0;
+      let answered = 0;
       for (const t of sampleTiles(part, PROBE_TILES)) {
-        const req = tileRequest(part.provider, t);
-        const url = req.url;
+        const req = tileRequest(part.provider, t, wmsHalo(part.provider));
         try {
-          const r = await fetcher.get(url, req.mirrorUrl);
-          probed.set(url, r);
+          const r = await fetcher.get(req.url, req.mirrorUrl);
+          probed.set(req.url, r);
+          answered++;
           if (r.image && !noDataReason(asResponse(r))) withData++;
         } catch {
-          // A failed probe counts as no data.
+          // No answer at all (offline, server down).
         }
       }
-      if (withData > 0 || args.setting.mode === 'fixed') break;
+      if (withData > 0 || answered === 0 || args.setting.mode === 'fixed') break;
       const next = fallbackPart(part, area, args.order);
       if (!next) break;
       log(`${part.provider.name} has no imagery in part ${part.id}; using ${next.provider.name}`);
@@ -270,59 +353,111 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
       fetcher = fetcherFor(part);
     }
 
+    const provider = part.provider;
     const date = await partDate(part, fetcher, args.dates);
-    const provenance = provenanceOf(part.provider, part.id, part.plan.zoom, date);
-    log(`part ${part.id}: ${part.provider.name}, ${part.plan.tiles.length} tiles at z${part.plan.zoom}, captured ${date ?? 'date not measured'}`);
+    const provenance = provenanceOf(provider, part.id, part.plan.zoom, date);
+    log(`part ${part.id}: ${provider.name}, ${part.plan.tiles.length} tiles at z${part.plan.zoom}, captured ${date ?? 'date not measured'}`);
 
-    const factor = part.provider.requestPx / 256;
-    const merger = new DetectionMerger({}, childTiles(part.plan.tiles.map((t) => t.tile), factor));
+    const factor = v1 ? provider.requestPx / 256 : 1;
+    const merger = new DetectionMerger({}, mergerTiles(part.plan.tiles.map((t) => t.tile), factor));
+    const shared: Shared = new Map();
+    if (halo > 0 && provider.kind === 'xyz') {
+      const count = (t: TileCoord) => {
+        const url = tileRequest(provider, t).url;
+        const e = shared.get(url);
+        if (e) e.uses++;
+        else shared.set(url, { tile: null, uses: 1 });
+      };
+      for (const { tile } of part.plan.tiles) {
+        count(tile);
+        for (const [dx, dy] of NEIGHBOUR_OFFSETS) {
+          const n = neighbourTile(tile, dx, dy);
+          if (n) count(n);
+        }
+      }
+    }
+    /** A tile through the shared table when the part has one. */
+    const use = (req: TileRequest, have?: FetchedTile): Promise<FetchedTile> => {
+      const e = shared.get(req.url);
+      if (!e) return have ? Promise.resolve(have) : fetcher.get(req.url, req.mirrorUrl);
+      e.tile ??= have ? Promise.resolve(have) : fetcher.get(req.url, req.mirrorUrl);
+      const got = e.tile;
+      if (--e.uses <= 0) shared.delete(req.url);
+      return got;
+    };
+    const neighboursOf = async (tile: TileCoord): Promise<Neighbours> => {
+      const got: Neighbours = new Map();
+      if (halo === 0 || provider.kind !== 'xyz') return got;
+      await Promise.all(
+        NEIGHBOUR_OFFSETS.map(async ([dx, dy]) => {
+          const n = neighbourTile(tile, dx, dy);
+          if (!n) return;
+          try {
+            const r = await use(tileRequest(provider, n));
+            const img = r.status === 200 ? r.image : null;
+            if (img && img.width === provider.requestPx && img.height === provider.requestPx) got.set(offsetKey(dx, dy), img.rgba);
+          } catch {
+            // A missing neighbour leaves its part of the halo empty.
+          }
+        }),
+      );
+      return got;
+    };
+
     let noCoverage = 0;
     let failed = 0;
     let firstError = '';
     let done = 0;
     for (const { tile } of part.plan.tiles) {
       try {
-        const req = tileRequest(part.provider, tile);
-        const url = req.url;
-        const r = probed.get(url) ?? (await fetcher.get(url, req.mirrorUrl));
+        const req = tileRequest(provider, tile, wmsHalo(provider));
+        const pre = probed.get(req.url);
+        probed.delete(req.url);
+        const r = await use(req, pre);
+        const expected = provider.requestPx + 2 * req.halo;
         if (noDataReason(asResponse(r))) noCoverage++;
         else if (!r.image) {
           failed++;
           firstError ||= `HTTP ${r.status}, not an image`;
-        }
-        else {
-          for (const piece of splitForV1(tile, r.image)) {
-            const dets: TileDetection[] = detector.detectTile(
-              {
-                tile: piece.tile,
-                tilePx: 256,
-                halo: 0,
-                width: 256,
-                height: 256,
-                pixels: piece.pixels,
-                mPerPx: metersPerPixelOfBitmap(piece.tile, 256),
-              },
-              { providerId: part.provider.id },
-            );
-            merger.addTileDetections(piece.tile, dets);
+        } else if (r.image.width !== expected || r.image.height !== expected) {
+          failed++;
+          firstError ||= `tile decoded at ${r.image.width}x${r.image.height}, expected ${expected}x${expected}`;
+        } else {
+          for (const w of windowsOf(tile, r.image, req, halo, v1 ? null : await neighboursOf(tile))) {
+            const dets: TileDetection[] = detector.detectTile(w, { providerId: provider.id });
+            merger.addTileDetections(w.tile, dets);
           }
         }
       } catch (err) {
         failed++;
-        firstError ||= err instanceof Error ? err.message : String(err);
+        firstError ||= errorText(err);
       }
       done++;
       progress(`part ${part.id} tile ${done}/${part.plan.tiles.length}, ${merger.getAll().length} found`);
     }
     merger.finalize();
-    for (const d of merger.getAll()) found.push({ d, provenance });
+
+    // Scan tiles stick out of the area, and the tiles of two parts overlap along
+    // their border: a pool counts for the part that holds its centre, inside the area.
+    const cells = new Set(part.cells.map((t) => `${t.x},${t.y}`));
+    const owns = (lon: number, lat: number): boolean => {
+      if (!pointInRing(lon, lat, area)) return false;
+      if (split.parts.length === 1) return true;
+      const c = lonLatToTile(lon, lat, part.cellZoom);
+      return cells.has(`${c.x},${c.y}`);
+    };
+    const cutoff = cutoffFor(provider);
+    cutoffs.push(cutoff);
+    for (const d of merger.getAll()) {
+      if (owns(d.center.lon, d.center.lat)) found.push({ d, provenance, cutoff });
+    }
     summaries.push(partSummary(part.id, provenance, part.plan.tiles.length, noCoverage, part.areaM2));
     if (failed) log(`part ${part.id}: ${failed} tiles failed (first: ${firstError})`);
   }
 
   // Merger ids restart in every part, so they get the part id in front.
   const kept = found
-    .filter((f) => f.d.confidence >= args.threshold)
+    .filter((f) => f.d.confidence >= f.cutoff)
     .map((f) => ({ d: { ...f.d, id: `${f.provenance.partId}-${f.d.id}` }, provenance: f.provenance }));
   const provenanceById = new Map(kept.map((f) => [f.d.id, f.provenance]));
   const detections: ResultDetection[] = rankDetections(kept.map((f) => f.d)).map((d) =>
@@ -332,7 +467,8 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
     formatVersion: 2,
     createdAt: new Date(deps.now ? deps.now() : Date.now()).toISOString(),
     area,
-    threshold: args.threshold,
+    // With one cutoff per source this is the lowest in use, as in the app's archive.
+    threshold: cutoffs.length ? Math.min(...cutoffs) : (args.threshold ?? V1_THRESHOLD),
     parts: summaries,
     detections,
     belowThreshold: found.length - kept.length,
@@ -371,12 +507,13 @@ export async function writeOutputs(result: ScanResult, out: string): Promise<str
 }
 
 export async function scanCommand(argv: string[], deps: ScanDeps = {}): Promise<number> {
-  const log = deps.log ?? ((l: string) => console.log(l));
+  const sink = deps.log ?? ((l: string) => console.log(l));
+  const log = (l: string) => sink(redact(l));
   let args: ScanArgs | 'help';
   try {
     args = parseScanArgs(argv);
     if (args === 'help') {
-      log(SCAN_HELP);
+      sink(SCAN_HELP);
       return 0;
     }
     const area = await resolveArea(args);
@@ -384,12 +521,13 @@ export async function scanCommand(argv: string[], deps: ScanDeps = {}): Promise<
     const result = await runScan(area, args, {
       ...deps,
       log: args.quiet ? () => {} : log,
-      progress: tty ? (l) => process.stdout.write(`\r\x1b[2K  ${l}`) : deps.progress,
+      progress: tty ? (l) => process.stdout.write(`\r\x1b[2K  ${redact(l)}`) : deps.progress,
     });
     if (tty) process.stdout.write('\r\x1b[2K');
     const written = await writeOutputs(result, args.out);
     if (!args.quiet) {
-      log(`${result.detections.length} detections at or above ${args.threshold}, ${result.belowThreshold} below`);
+      const cut = args.threshold === null ? 'the cutoff of their source' : String(args.threshold);
+      log(`${result.detections.length} detections at or above ${cut}, ${result.belowThreshold} below`);
       for (const p of result.parts) {
         log(`  ${p.id} ${p.provenance.providerName}: ${p.tiles} tiles, ${p.tilesNoCoverage} without imagery`);
       }
@@ -398,10 +536,10 @@ export async function scanCommand(argv: string[], deps: ScanDeps = {}): Promise<
     return 0;
   } catch (err) {
     if (err instanceof UsageError) {
-      process.stderr.write(`error: ${err.message}\n`);
+      process.stderr.write(`error: ${redact(err.message)}\n`);
       return 2;
     }
-    process.stderr.write(`error: ${err instanceof Error ? err.message : String(err)}\n`);
+    process.stderr.write(`error: ${errorText(err)}\n`);
     return 1;
   }
 }

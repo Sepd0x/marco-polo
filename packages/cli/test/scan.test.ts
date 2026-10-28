@@ -45,6 +45,7 @@ function args(over: Partial<ScanArgs> = {}): ScanArgs {
     rate: 10,
     order: 'serpentine',
     threshold: 0.55,
+    detector: 'v1',
     cacheDir: mkdtempSync(join(tmpdir(), 'mp-cache-')),
     allowLarge: false,
     dates: true,
@@ -108,7 +109,7 @@ describe('scan arguments', () => {
   });
 
   it('documents what the command accepts', () => {
-    for (const flag of ['--bbox', '--area', '--source', '--out', '--rate', '--order', '--threshold', '--cache-dir', '--allow-large', '--no-dates', '--quiet']) {
+    for (const flag of ['--bbox', '--area', '--source', '--out', '--rate', '--order', '--threshold', '--detector', '--cache-dir', '--allow-large', '--no-dates', '--quiet']) {
       expect(SCAN_HELP).toContain(flag);
     }
     expect(SCAN_HELP).not.toMatch(/--zoom|--template|mapbox|maptiler/i);
