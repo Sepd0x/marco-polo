@@ -91,7 +91,7 @@ describe('a key in a request URL', () => {
     });
     expect(code).toBe(0);
     // The tiles failed, and the log says so without the key.
-    expect(lines.join('\n')).toMatch(/tiles failed/);
+    expect([...lines, ...written].join('\n')).toMatch(/tiles failed/);
     for (const f of [`${out}.geojson`, `${out}.csv`]) expect(readFileSync(f, 'utf8')).not.toContain(KEY);
     expect(readdirSync(cacheDir).join(' ')).not.toContain(KEY);
     expect([...lines, ...written].join('\n')).not.toContain(KEY);

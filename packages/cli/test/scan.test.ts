@@ -240,9 +240,9 @@ describe('scan run', () => {
       url.includes('dgterritorio') ? { status: 200, body: new Uint8Array(encodePng(white, 512, 512)) } : { status: 200, body: tilePng(256, null) },
     );
     const logs: string[] = [];
-    const result = await runScan(braga, args({ dates: false }), { fetch, wait: noWait, log: (l) => logs.push(l) });
+    const result = await runScan(braga, args({ dates: false }), { fetch, wait: noWait, warn: (l) => logs.push(l) });
     expect(result.parts[0].provenance.providerId).toBe('esri-world-imagery');
-    expect(logs.join('\n')).toMatch(/DGT Ortos2025 has no imagery.*Esri/);
+    expect(logs.join('\n')).toMatch(/DGT Ortos2025 answered 1 of 1 sample tiles and has no imagery here; using Esri World Imagery/);
     expect(calls.some((c) => c.includes('ortosat2023'))).toBe(false);
   });
 

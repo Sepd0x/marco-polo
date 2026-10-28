@@ -131,9 +131,9 @@ describe('v2 windows', () => {
     const t = lonLatToTile(-8.42, 41.55, 18);
     const { fetch } = net(() => 512);
     const lines: string[] = [];
-    const result = await runScan(overTiles(18, t.x, t.y, 1, 1), args(), { fetch, wait: noWait, detector: recorder().detector, log: (l) => lines.push(l) });
+    const result = await runScan(overTiles(18, t.x, t.y, 1, 1), args(), { fetch, wait: noWait, detector: recorder().detector, warn: (l) => lines.push(l) });
     expect(result.detections).toHaveLength(0);
-    expect(lines.join('\n')).toMatch(/1 tiles failed \(first: tile decoded at 512x512, expected 704x704\)/);
+    expect(lines.join('\n')).toMatch(/1 tiles failed on DGT Ortos2025 \(first: tile decoded at 512x512, expected 704x704\); no pools are listed for them: 18\/\d+\/\d+/);
   });
 
   it('gives v1 bare pieces and no halo', async () => {

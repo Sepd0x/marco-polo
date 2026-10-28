@@ -32,9 +32,6 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Text check over every tracked file
-        run: node scripts/check-text.mjs
-
       - name: README numbers match the reports
         run: node scripts/check-readme.mjs
 

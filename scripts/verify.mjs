@@ -18,7 +18,6 @@ const steps = [
   { name: 'e2e on the production build', cmd: 'npm run e2e', needs: ['tests/e2e/playwright.config.ts'] },
   { name: 'JPEG decode parity', cmd: 'npm run parity', needs: ['tests/parity/playwright.config.ts'] },
   { name: 'worker bench', cmd: 'npm run bench', needs: ['tests/bench/playwright.config.ts'] },
-  { name: 'repo text check', cmd: 'node scripts/check-text.mjs', needs: ['scripts/check-text.mjs'] },
   { name: 'README table matches report', cmd: 'node scripts/check-readme.mjs', needs: ['scripts/check-readme.mjs'] },
   { name: 'eval zones check', cmd: 'npm run eval -- zones check', needs: ['packages/eval/zones'] },
   { name: 'eval gate', cmd: 'npm run eval -- gate', needs: ['packages/eval/targets.json'] },

@@ -124,7 +124,13 @@ options:
   --area <file>        area as a GeoJSON Polygon, MultiPolygon (first polygon) or Feature
   --source <name>      imagery: auto (default), dgt, pnoa, ign or esri. auto picks
                        per place (DGT in mainland Portugal, PNOA in Spain, IGN in
-                       France, Esri elsewhere) and splits an area that crosses a border
+                       France, Esri elsewhere) and splits an area that crosses a border.
+                       With auto, a part moves to the next source only when its
+                       first source answers every sample tile and has no imagery
+                       there; a notice on stderr says when and why. A source that
+                       does not answer (timeout, HTTP 5xx or 429, any other error
+                       status) is never replaced: its tiles are retried with
+                       backoff, then listed on stderr as failed
   --out <path>         output basename (default ./scans/scan, writes .geojson and .csv)
   --rate <n>           tile requests per second, 1 to ${MAX_RATE} (default ${DEFAULT_RATE}). Each source
                        also has its own ceiling, and the lower of the two applies
@@ -139,7 +145,8 @@ options:
                        Esri tiles are never written to disk
   --allow-large        scan areas above 10 000 z19 tiles
   --no-dates           skip the capture date lookups
-  --quiet              no live progress
+  --quiet              no live progress (notices on stderr about a change of
+                       source or failed tiles are still printed)
   -h, --help           this text
 `;
 
@@ -245,6 +252,8 @@ export interface ScanDeps {
   now?: () => number;
   wait?: (ms: number) => Promise<void>;
   log?: (line: string) => void;
+  /** Notices that must not be lost: a change of source and tiles that failed. Stderr by default; --quiet does not silence it. */
+  warn?: (line: string) => void;
   progress?: (line: string) => void;
   /** Replaces the detector chosen by `args.detector`. Any id but 'v1' is read with the v2 halo. */
   detector?: Detector;
@@ -292,6 +301,8 @@ function windowsOf(tile: TileCoord, image: DecodedTile, req: TileRequest, halo: 
 export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): Promise<ScanResult> {
   const sink = deps.log ?? (() => {});
   const log = (line: string) => sink(redact(line));
+  const warnSink = deps.warn ?? ((line: string) => void process.stderr.write(`${line}\n`));
+  const warn = (line: string) => warnSink(redact(line));
   const progress = deps.progress ?? (() => {});
   const detector = deps.detector ?? makeDetector(args.detector ?? 'v2');
   const v1 = detector.id === 'v1';
@@ -325,30 +336,56 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
     /** Halo inside one WMS request, px of the bitmap it asks for; XYZ sources assemble theirs from neighbours. */
     const wmsHalo = (p: ImageryProvider) => (p.kind === 'wms' ? (halo * p.requestPx) / 256 : 0);
 
-    // Probe: if the source answered for the sample tiles and none has imagery,
-    // the whole part moves on (auto only; a fixed choice is kept and its empty
-    // tiles are reported). A source that did not answer at all says nothing
-    // about coverage, so its tiles fail instead.
+    // Probe: the source is asked for a few sample tiles. Only when it answered
+    // for all of them and none has imagery (auto only; a fixed choice is kept
+    // and its empty tiles are reported) does the whole part move on. A tile
+    // that did not get a proper answer (timeout, 5xx, 429 or another error
+    // status, after the retries) says nothing about coverage: the source is
+    // kept and the tiles that fail are reported.
     const probed = new Map<string, FetchedTile>();
     for (;;) {
       probed.clear();
+      const samples = sampleTiles(part, PROBE_TILES);
       let withData = 0;
-      let answered = 0;
-      for (const t of sampleTiles(part, PROBE_TILES)) {
+      let noImagery = 0;
+      let failedProbes = 0;
+      let firstProbeError = '';
+      for (const t of samples) {
         const req = tileRequest(part.provider, t, wmsHalo(part.provider));
         try {
           const r = await fetcher.get(req.url, req.mirrorUrl);
+          if (noDataReason(asResponse(r))) noImagery++;
+          else if (r.image) withData++;
+          else {
+            failedProbes++;
+            firstProbeError ||= `HTTP ${r.status}, not an image`;
+          }
           probed.set(req.url, r);
-          answered++;
-          if (r.image && !noDataReason(asResponse(r))) withData++;
-        } catch {
-          // No answer at all (offline, server down).
+        } catch (err) {
+          failedProbes++;
+          firstProbeError ||= errorText(err);
         }
       }
-      if (withData > 0 || answered === 0 || args.setting.mode === 'fixed') break;
+      if (samples.length === 0) break;
+      if (withData > 0 || args.setting.mode === 'fixed') {
+        if (failedProbes > 0 && withData === 0) {
+          warn(`part ${part.id}: ${part.provider.name} did not answer properly for ${failedProbes} of ${samples.length} sample tiles (first: ${firstProbeError}); keeping it`);
+        }
+        break;
+      }
+      if (failedProbes > 0) {
+        warn(
+          `part ${part.id}: ${part.provider.name} did not answer properly for ${failedProbes} of ${samples.length} sample tiles ` +
+            `(first: ${firstProbeError}); not switching source, its tiles will be retried and any that fail listed. Run the scan again when it is back`,
+        );
+        break;
+      }
       const next = fallbackPart(part, area, args.order);
       if (!next) break;
-      log(`${part.provider.name} has no imagery in part ${part.id}; using ${next.provider.name}`);
+      warn(
+        `part ${part.id}: ${part.provider.name} answered ${noImagery} of ${samples.length} sample tiles and has no imagery here; ` +
+          `using ${next.provider.name} instead`,
+      );
       part = next;
       fetcher = fetcherFor(part);
     }
@@ -407,6 +444,7 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
     let noCoverage = 0;
     let failed = 0;
     let firstError = '';
+    const failedTiles: TileCoord[] = [];
     let done = 0;
     for (const { tile } of part.plan.tiles) {
       try {
@@ -418,9 +456,11 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
         if (noDataReason(asResponse(r))) noCoverage++;
         else if (!r.image) {
           failed++;
+          failedTiles.push(tile);
           firstError ||= `HTTP ${r.status}, not an image`;
         } else if (r.image.width !== expected || r.image.height !== expected) {
           failed++;
+          failedTiles.push(tile);
           firstError ||= `tile decoded at ${r.image.width}x${r.image.height}, expected ${expected}x${expected}`;
         } else {
           for (const w of windowsOf(tile, r.image, req, halo, v1 ? null : await neighboursOf(tile))) {
@@ -430,6 +470,7 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
         }
       } catch (err) {
         failed++;
+        failedTiles.push(tile);
         firstError ||= errorText(err);
       }
       done++;
@@ -452,7 +493,14 @@ export async function runScan(area: Ring, args: ScanArgs, deps: ScanDeps = {}): 
       if (owns(d.center.lon, d.center.lat)) found.push({ d, provenance, cutoff });
     }
     summaries.push(partSummary(part.id, provenance, part.plan.tiles.length, noCoverage, part.areaM2));
-    if (failed) log(`part ${part.id}: ${failed} tiles failed (first: ${firstError})`);
+    if (failed) {
+      const shown = failedTiles.slice(0, 10).map((t) => `${t.z}/${t.x}/${t.y}`).join(' ');
+      const more = failedTiles.length > 10 ? ` and ${failedTiles.length - 10} more` : '';
+      warn(
+        `part ${part.id}: ${failed} tiles failed on ${provider.name} (first: ${firstError}); no pools are listed for them: ${shown}${more}. ` +
+          'The source was kept; run the scan again to cover them',
+      );
+    }
   }
 
   // Merger ids restart in every part, so they get the part id in front.
@@ -520,6 +568,12 @@ export async function scanCommand(argv: string[], deps: ScanDeps = {}): Promise<
     const tty = !args.quiet && process.stdout.isTTY;
     const result = await runScan(area, args, {
       ...deps,
+      warn:
+        deps.warn ??
+        ((l) => {
+          // Clear the live progress line first so the notice is not glued to it.
+          process.stderr.write(`${tty ? '\r\x1b[2K' : ''}${l}\n`);
+        }),
       log: args.quiet ? () => {} : log,
       progress: tty ? (l) => process.stdout.write(`\r\x1b[2K  ${redact(l)}`) : deps.progress,
     });
