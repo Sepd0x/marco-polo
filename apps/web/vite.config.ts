@@ -26,5 +26,19 @@ export default defineConfig({
   },
   build: {
     target: 'es2022',
+    // MapLibre alone is about 1 MB minified and cannot be cut; the app code
+    // and everything else stay far under this, so a new heavy dependency
+    // still trips the warning.
+    chunkSizeWarningLimit: 1100,
+    rollupOptions: {
+      output: {
+        // MapLibre is most of the bundle and changes rarely: its own chunk
+        // caches across deploys of the app code and keeps the entry small.
+        manualChunks(id: string) {
+          if (id.includes('/node_modules/maplibre-gl/')) return 'maplibre';
+          return undefined;
+        },
+      },
+    },
   },
 });
