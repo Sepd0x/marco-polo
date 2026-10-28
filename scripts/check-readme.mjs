@@ -6,12 +6,13 @@
 //
 //   node scripts/check-readme.mjs [--write]
 //
-// When a new model is frozen and scored, point CURRENT at its report and
+// When a new model is frozen and scored, point CURRENT at its report, its
+// TEST run and the number of targets that run missed (from `eval gate`), and
 // FIGURE at the figure drawn with it; every block follows.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const MAX_WORDS = 650;
-const CURRENT = { name: 'v2', report: 'packages/eval/results/v2/report.json' };
+const CURRENT = { name: 'v2', report: 'packages/eval/results/v2/report.json', testRun: 'packages/eval/results/TEST_RUN_1.md', missed: 3 };
 const FIGURE = 'docs/media/marbella-figure.json';
 
 const read = (p) => JSON.parse(readFileSync(p, 'utf8'));
@@ -19,6 +20,7 @@ const v1 = read('packages/eval/results/v1/report.json');
 const v1esri = read('packages/eval/results/v1/esri/report.json');
 const cur = read(CURRENT.report);
 const fig = read(FIGURE);
+const targets = read('packages/eval/targets.json').targets;
 const NOW = CURRENT.name;
 
 const pct = (x) => (x === null || x === undefined ? 'n/a' : (100 * x).toFixed(1));
@@ -45,8 +47,12 @@ const date = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', {
 
 function headlineBlock() {
   const t = cur.groups.TEST;
-  return `On ${count(t.zones.length)} places drawn by lot and labelled blind, ${NOW} scores F1 ${f1(t)} against ${pct(v1.groups.TEST.scores.f1)}% for v1. It misses three of the nine targets fixed before that run; see [Limits](#limits).`;
+  return `On ${count(t.zones.length)} places drawn by lot and labelled blind, ${NOW} scores F1 ${f1(t)} against ${pct(v1.groups.TEST.scores.f1)}% for v1. It misses ${count(CURRENT.missed)} of the ${count(Object.keys(targets).length)} targets fixed before [that run](${CURRENT.testRun}); see [Limits](#limits).`;
 }
+
+// F1 of a figure panel from its counts, to say whether the crop flatters.
+const cropF1 = (p) => (2 * p.hits) / (2 * p.hits + p.falseDetections + p.missed);
+const gapWord = (crop, whole) => (whole < crop - 0.02 ? 'narrower' : whole > crop + 0.02 ? 'wider' : 'about the same');
 
 function figureBlock() {
   const a = fig.panels.v1, b = fig.panels.v2;
@@ -62,7 +68,7 @@ function figureBlock() {
     `| <img src="docs/media/${fig.zone}-v1.jpg" width="440" alt="v1 on the ${src} photo: half the pools have no outline"> | <img src="docs/media/${fig.zone}-v2.jpg" width="440" alt="${NOW} on the ${src} photo: outlines on most pools"> |`,
     `| ${cell(a)} | ${cell(b)} |`,
     '',
-    `Over the whole zone the gap is narrower: v1 ${pct(z1.scores.f1)}%, ${NOW} ${pct(z2.scores.f1)}%.`,
+    `Over the whole zone the gap is ${gapWord(cropF1(b) - cropF1(a), z2.scores.f1 - z1.scores.f1)}: v1 ${pct(z1.scores.f1)}%, ${NOW} ${pct(z2.scores.f1)}%.`,
   ].join('\n');
 }
 
@@ -91,9 +97,8 @@ function notesBlock() {
   const t = cur.groups.TEST;
   const per = testZones.map((z) => `${place(z)} ${pct(z.scores.f1)}%`).join(', ');
   const d = v1esri.groups;
-  const lines = [
-    `TEST beats tuning because F1 is counted over pools and ${place(biggest)} holds ${biggest.counts.labels} of the ${t.counts.labels}. Per place: ${per}; mean ${pct(t.macroF1)}%.`,
-  ];
+  const why = t.scores.f1 > cur.groups.DEV.scores.f1 ? `TEST beats tuning because F1 is counted over pools and ${place(biggest)} holds ${biggest.counts.labels} of the ${t.counts.labels}.` : `F1 is counted over pools, and ${place(biggest)} holds ${biggest.counts.labels} of the ${t.counts.labels} TEST pools.`;
+  const lines = [`${why} Per place: ${per}; mean ${pct(t.macroF1)}%.`];
   if (hardZone) {
     lines.push('', `Reported apart: ${place(hardZone)}, winter Esri imagery in the Alps, where ${NOW} finds ${hard.counts.tpLabels} of ${hard.counts.labels} pools and v1 does better.`);
   }
@@ -105,7 +110,7 @@ function limitsBlock() {
   const t = cur.groups.TEST;
   const fr = testZones.reduce((a, b) => (b.scores.recall < a.scores.recall ? b : a));
   return [
-    `- Areas come out small: median error ${pct(t.medianAreaAbsRel)}% on TEST over ${t.areaPairs} outlines (target 15%), signed ${signed(t.medianAreaSignedRel)} (target within 5%).`,
+    `- ${t.medianAreaSignedRel < 0 ? 'Areas come out small' : 'Areas'}: median error ${pct(t.medianAreaAbsRel)}% on TEST over ${t.areaPairs} outlines (target ${pct(targets.P5).replace(/\.0$/, '')}%), signed ${signed(t.medianAreaSignedRel)} (target within ${pct(targets.P6).replace(/\.0$/, '')}%).`,
     negative && negativeV1 ? `- In the test zone with no pools, a port, ${negative.fpPerKm2.toFixed(0)} false detections per km² (v1: ${negativeV1.fpPerKm2.toFixed(0)}).` : null,
     `- Recall is uneven: ${pct(fr.scores.recall).replace(/\.0$/, '')}% in ${place(fr)}.`,
   ].filter(Boolean).join('\n');

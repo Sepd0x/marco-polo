@@ -17,7 +17,7 @@ Draw an area on the map. It finds the swimming pools in the aerial photo, measur
 
 <!-- headline: written by scripts/check-readme.mjs -->
 
-On five places drawn by lot and labelled blind, v2 scores F1 89.6% [87.7, 91.1] against 37.0% for v1. It misses three of the nine targets fixed before that run; see [Limits](#limits).
+On five places drawn by lot and labelled blind, v2 scores F1 89.6% [87.7, 91.1] against 37.0% for v1. It misses three of the nine targets fixed before [that run](packages/eval/results/TEST_RUN_1.md); see [Limits](#limits).
 
 <!-- /headline -->
 
@@ -46,7 +46,7 @@ Magenta: pool found. Orange: no pool there. White dashes: pool missed. Drawn by 
 
 ## Results
 
-How it is measured: [method](packages/eval/README.md), [TEST run 1](packages/eval/results/TEST_RUN_1.md).
+How it is measured: [method](packages/eval/README.md), [log of TEST runs](packages/eval/results/TEST_RUNS.md).
 
 <!-- results: written by scripts/check-readme.mjs -->
 
@@ -102,7 +102,7 @@ npm test
 npm run scan -- --bbox "36.491,-4.959,36.494,-4.956"   # CLI, detector v2
 ```
 
-`npm run verify` runs everything, including the release gate, which fails on the three missed targets.
+`npm run verify` runs everything, including the release gate, which fails today on the missed targets.
 
 ## Licence
 
