@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" width="900" height="290" role="img" aria-label="You draw an area. The browser fetches the open aerial photo tiles for that country from the imagery servers, finds candidate shapes by colour, scores each with a model in web workers and lists the pools with outline, area and size. There is no backend and nothing is sent back.">
+<rect x="0.5" y="0.5" width="899" height="289" rx="12" fill="#1C1C1A" stroke="#33332F"/>
+<rect x="18" y="118" width="864" height="154" rx="9" fill="none" stroke="#7B7B74" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="34" y="254" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#ECECE8">Your browser</text>
+<text x="130" y="254" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#9A9A93">the scan, the model and the results stay here</text>
+<rect x="218" y="22" width="300" height="58" rx="9" fill="#242422" stroke="#47473F"/>
+<text x="234" y="47" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Imagery servers</text>
+<text x="234" y="67" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">DGT, PNOA, IGN; Esri elsewhere</text>
+<path d="M278 80 V134" stroke="#7B7B74" stroke-width="1.5"/>
+<path d="M273 129 L278 135 L283 129" fill="none" stroke="#7B7B74" stroke-width="1.5"/>
+<text x="288" y="104" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">tile images in</text>
+<text x="866" y="47" text-anchor="end" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">No backend, no account,</text>
+<text x="866" y="67" text-anchor="end" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">nothing sent back</text>
+<rect x="30" y="140" width="152" height="82" rx="9" fill="#242422" stroke="#47473F" stroke-width="1"/>
+<text x="44" y="167" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Area</text>
+<text x="44" y="190" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">rectangle or polygon</text>
+<text x="44" y="207" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">drawn on the map</text>
+<path d="M184 181 H199" stroke="#7B7B74" stroke-width="1.5"/>
+<path d="M194 176 L199 181 L194 186" fill="none" stroke="#7B7B74" stroke-width="1.5"/>
+<rect x="202" y="140" width="152" height="82" rx="9" fill="#242422" stroke="#47473F" stroke-width="1"/>
+<text x="216" y="167" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Tiles</text>
+<text x="216" y="190" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">open aerial photo</text>
+<text x="216" y="207" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">for that country</text>
+<path d="M356 181 H371" stroke="#7B7B74" stroke-width="1.5"/>
+<path d="M366 176 L371 181 L366 186" fill="none" stroke="#7B7B74" stroke-width="1.5"/>
+<rect x="374" y="140" width="152" height="82" rx="9" fill="#242422" stroke="#47473F" stroke-width="1"/>
+<text x="388" y="167" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Candidates</text>
+<text x="388" y="190" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">colour levels</text>
+<text x="388" y="207" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">shapes of 3 to 2000 m²</text>
+<path d="M528 181 H543" stroke="#7B7B74" stroke-width="1.5"/>
+<path d="M538 176 L543 181 L538 186" fill="none" stroke="#7B7B74" stroke-width="1.5"/>
+<rect x="546" y="140" width="152" height="82" rx="9" fill="#242422" stroke="#ECECE8" stroke-width="1.5"/>
+<text x="560" y="167" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Model</text>
+<text x="560" y="190" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">trees and a small</text>
+<text x="560" y="207" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">network, web workers</text>
+<path d="M700 181 H715" stroke="#7B7B74" stroke-width="1.5"/>
+<path d="M710 176 L715 181 L710 186" fill="none" stroke="#7B7B74" stroke-width="1.5"/>
+<rect x="718" y="140" width="152" height="82" rx="9" fill="#242422" stroke="#47473F" stroke-width="1"/>
+<text x="732" y="167" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14" font-weight="600" fill="#ECECE8">Pools</text>
+<text x="732" y="190" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">outline, area, size</text>
+<text x="732" y="207" font-family="'Segoe UI Variable Text','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#9A9A93">ranked by size or score</text>
+<rect x="840" y="154" width="16" height="10" rx="3" fill="none" stroke="#140814" stroke-width="4"/>
+<rect x="840" y="154" width="16" height="10" rx="3" fill="none" stroke="#FF52FF" stroke-width="2"/>
+</svg>

@@ -2,21 +2,23 @@
 // reports in packages/eval/results, the large-pool runs, and the figure
 // counts in docs/media/<zone>-figure.json (written by
 // packages/eval/src/figure.ts). This script rebuilds every generated block
-// and fails when the README differs or runs past 650 words; `--write` puts
+// and fails when the README differs or runs past 1100 words; `--write` puts
 // the fresh blocks in place.
 //
 //   node scripts/check-readme.mjs [--write]
 //
 // When a new model is frozen and scored, point CURRENT at its report, the v1
-// report of the same round, its TEST run, the number of targets that run
+// (colour rules) report of the same round, its TEST run, the number of targets that run
 // missed (from `eval gate`) and its large-pool run; move the old one to
-// PREVIOUS; draw the figure again. Every block follows.
+// PREVIOUS; draw the figure again. Every block follows. `name` is the
+// internal name (results folder, figure file); `label` is the release the
+// README prints.
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const MAX_WORDS = 650;
+const MAX_WORDS = 1100;
 const R = 'packages/eval/results';
-const CURRENT = { name: 'v3', report: `${R}/v3/report.json`, v1: `${R}/v3/v1/report.json`, testRun: `${R}/TEST_RUN_2.md`, missed: 2, large: `${R}/v3/large/v3.json` };
-const PREVIOUS = { name: 'v2', report: `${R}/v2/report.json`, testRun: `${R}/TEST_RUN_1.md`, large: `${R}/v3/large/v2-model.json` };
+const CURRENT = { name: 'v3', label: 'v1.0', report: `${R}/v3/report.json`, v1: `${R}/v3/v1/report.json`, testRun: `${R}/TEST_RUN_2.md`, missed: 2, large: `${R}/v3/large/v3.json` };
+const PREVIOUS = { name: 'v2', label: 'v0.2', report: `${R}/v2/report.json`, testRun: `${R}/TEST_RUN_1.md`, large: `${R}/v3/large/v2-model.json` };
 const V1_LARGE = `${R}/v3/large/v1.json`;
 const FIGURE = 'docs/media/marbella-figure.json';
 
@@ -27,7 +29,8 @@ const cur = read(CURRENT.report);
 const prev = read(PREVIOUS.report);
 const fig = read(FIGURE);
 const targets = read('packages/eval/targets.json').targets;
-const NOW = CURRENT.name, PREV = PREVIOUS.name;
+const NOW = CURRENT.name;
+const CUR_L = CURRENT.label, PREV_L = PREVIOUS.label, V1_L = 'v0.1';
 
 const pct = (x) => (x === null || x === undefined ? 'n/a' : (100 * x).toFixed(1));
 const whole = (x) => pct(x).replace(/\.0$/, '');
@@ -58,7 +61,7 @@ const date = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', {
 
 function headlineBlock() {
   const t = cur.groups.TEST;
-  return `On ${count(t.zones.length)} places drawn by lot and labelled blind, ${NOW} scores F1 ${f1(t)} against ${pct(v1.groups.TEST.scores.f1)}% for v1. It misses ${count(CURRENT.missed)} of the ${count(Object.keys(targets).length)} targets fixed before the first run; see [Limits](#limits).`;
+  return `On ${count(t.zones.length)} places drawn by lot and labelled blind, ${CUR_L} scores F1 ${f1(t)} against ${pct(v1.groups.TEST.scores.f1)}% for ${V1_L}. It misses ${count(CURRENT.missed)} of the ${count(Object.keys(targets).length)} targets fixed before the first run; see [Limits](#limits).`;
 }
 
 // F1 of a figure panel from its counts, to say whether the crop flatters.
@@ -75,12 +78,12 @@ function figureBlock() {
   return [
     `${place(z2)}, ${src} aerial photo, ${fig.sizeM} m across, ${role}.`,
     '',
-    `| v1 | ${NOW}, current |`,
+    `| ${V1_L}, colour rules | ${CUR_L}, current |`,
     '|:-:|:-:|',
-    `| <img src="docs/media/${fig.zone}-v1.jpg" width="440" alt="v1 on the ${src} photo: half the pools have no outline"> | <img src="docs/media/${fig.zone}-${NOW}.jpg" width="440" alt="${NOW} on the ${src} photo: outlines on most pools"> |`,
+    `| <img src="docs/media/${fig.zone}-v1.jpg" width="440" alt="${V1_L} on the ${src} photo: half the pools have no outline"> | <img src="docs/media/${fig.zone}-${NOW}.jpg" width="440" alt="${CUR_L} on the ${src} photo: outlines on most pools"> |`,
     `| ${cell(a)} | ${cell(b)} |`,
     '',
-    `Over the whole zone the gap is ${gapWord(cropF1(b) - cropF1(a), z2.scores.f1 - z1.scores.f1)}: v1 ${pct(z1.scores.f1)}%, ${NOW} ${pct(z2.scores.f1)}%.`,
+    `Over the whole zone the gap is ${gapWord(cropF1(b) - cropF1(a), z2.scores.f1 - z1.scores.f1)}: ${V1_L} ${pct(z1.scores.f1)}%, ${CUR_L} ${pct(z2.scores.f1)}%.`,
   ].join('\n');
 }
 
@@ -91,7 +94,7 @@ function resultsBlock() {
     ['GOLD', 'Reviewed'],
     ['TEST', 'Test'],
   ];
-  const rows = [`| zones | pools | v1 F1 | ${NOW} F1 |`, '|---|--:|--:|--:|'];
+  const rows = [`| zones | pools | ${V1_L} F1 | ${CUR_L} F1 |`, '|---|--:|--:|--:|'];
   for (const [key, label] of sets) {
     const a = v1.groups[key], b = cur.groups[key];
     if (!a && !b) continue;
@@ -101,7 +104,7 @@ function resultsBlock() {
   if (neg && negV1) {
     rows.push(`| Test, no pools: false detections per km² | 0 | ${negV1.fpPerKm2.toFixed(1)} | ${neg.fpPerKm2.toFixed(1)} |`);
   }
-  const when = v1.meta.date === cur.meta.date ? `both run on ${date(cur.meta.date)}` : `v1 run on ${date(v1.meta.date)}, ${NOW} on ${date(cur.meta.date)}`;
+  const when = v1.meta.date === cur.meta.date ? `both run on ${date(cur.meta.date)}` : `${V1_L} run on ${date(v1.meta.date)}, ${CUR_L} on ${date(cur.meta.date)}`;
   const note = `F1 with its 95% interval; same labels and imagery for both, ${when} ([method](packages/eval/README.md), [TEST run](${CURRENT.testRun})).`;
   return [rows.join('\n'), '', note].join('\n');
 }
@@ -115,11 +118,11 @@ function notesBlock() {
   // Against the model before: F1 counts as unchanged when each lies inside the other's interval.
   const sameF1 = t.scores.f1 >= p.ci.f1.lo && t.scores.f1 <= p.ci.f1.hi && p.scores.f1 >= t.ci.f1.lo && p.scores.f1 <= t.ci.f1.hi;
   const neg = negativeOf(cur), negPrev = negativeOf(prev);
-  lines.push('', `Against ${PREV}, the [previous model](${PREVIOUS.testRun}), ${NOW} ${sameF1 ? 'gives up no F1' : `moves F1`} (${pct(p.scores.f1)}% to ${pct(t.scores.f1)}%) for better areas (median error ${pct(p.medianAreaAbsRel)}% to ${pct(t.medianAreaAbsRel)}%) and large pools (${L.prev.found} to ${L.cur.found} of ${L.cur.of} pools of 400 m² or more${L.v1.found > L.cur.found ? `, where v1 still finds ${L.v1.found}` : ''}), with ${neg.fpPerKm2 > negPrev.fpPerKm2 ? 'more' : 'fewer'} false detections in the zone with no pools (${negPrev.fpPerKm2.toFixed(0)} to ${neg.fpPerKm2.toFixed(0)} per km²).`);
+  lines.push('', `Against ${PREV_L}, the [previous model](${PREVIOUS.testRun}), ${CUR_L} ${sameF1 ? 'gives up no F1' : `moves F1`} (${pct(p.scores.f1)}% to ${pct(t.scores.f1)}%) for better areas (median error ${pct(p.medianAreaAbsRel)}% to ${pct(t.medianAreaAbsRel)}%) and large pools (${L.prev.found} to ${L.cur.found} of ${L.cur.of} pools of 400 m² or more${L.v1.found > L.cur.found ? `, where ${V1_L} still finds ${L.v1.found}` : ''}), with ${neg.fpPerKm2 > negPrev.fpPerKm2 ? 'more' : 'fewer'} false detections in the zone with no pools (${negPrev.fpPerKm2.toFixed(0)} to ${neg.fpPerKm2.toFixed(0)} per km²).`);
   if (hardZone) {
-    lines.push('', `Reported apart: ${place(hardZone)}, winter Esri imagery in the Alps, where ${NOW} finds ${hard.counts.tpLabels} of ${hard.counts.labels} pools${hardV1.scores.f1 > hard.scores.f1 ? ' and v1 does better' : ''}.`);
+    lines.push('', `Reported apart: ${place(hardZone)}, winter Esri imagery in the Alps, where ${CUR_L} finds ${hard.counts.tpLabels} of ${hard.counts.labels} pools${hardV1.scores.f1 > hard.scores.f1 ? ` and ${V1_L} does better` : ''}.`);
   }
-  lines.push('', `v1 was built for Esri: ${pct(d.DEV.scores.f1)}% on tuning and ${pct(d['DEV-2'].scores.f1)}% held out there (older labels). On the open photos tree canopy passes its colour rules.`);
+  lines.push('', `${V1_L} was built for Esri: ${pct(d.DEV.scores.f1)}% on tuning and ${pct(d['DEV-2'].scores.f1)}% held out there (older labels). On the open photos tree canopy passes its colour rules.`);
   return lines.join('\n');
 }
 
@@ -129,7 +132,7 @@ function limitsBlock() {
   const absMet = t.medianAreaAbsRel <= targets.P5;
   return [
     `- ${t.medianAreaSignedRel < 0 ? 'Areas still come out small' : 'Areas'}: signed median error ${signed(t.medianAreaSignedRel)} on TEST, target within ${whole(targets.P6)}%. The median error (${pct(t.medianAreaAbsRel)}%, ${t.areaPairs} outlines) ${absMet ? 'meets' : 'misses'} its ${whole(targets.P5)}% target.`,
-    neg && negV1 ? `- The test zone with no pools is a port: ${neg.fpPerKm2.toFixed(0)} false detections per km², against ${negV1.fpPerKm2.toFixed(0)} for v1.` : null,
+    neg && negV1 ? `- The test zone with no pools is a port: ${neg.fpPerKm2.toFixed(0)} false detections per km², against ${negV1.fpPerKm2.toFixed(0)} for ${V1_L}.` : null,
   ].filter(Boolean).join('\n');
 }
 

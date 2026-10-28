@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 46" width="200" height="46" role="img" aria-label="Open the app">
+<rect width="200" height="46" rx="6" fill="#141414"/>
+<g fill="none" stroke="#FAFAF8" stroke-width="1.6" stroke-linecap="square">
+<path d="M19 17 V14 H22 M34 14 H37 V17 M37 29 V32 H34 M22 32 H19 V29"/>
+</g>
+<rect x="23" y="19" width="10" height="8" rx="2.5" fill="none" stroke="#140814" stroke-width="3.6"/>
+<rect x="23" y="19" width="10" height="8" rx="2.5" fill="none" stroke="#FF52FF" stroke-width="1.8"/>
+<text x="52" y="28.5" font-family="'Martian Mono','Cascadia Mono',Consolas,'SFMono-Regular',Menlo,monospace" font-size="14.5" font-weight="600" fill="#FAFAF8">Open the app</text>
+</svg>
