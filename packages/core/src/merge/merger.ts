@@ -12,6 +12,14 @@ export interface MergerOptions {
   hotTubMaxM2: number;
   /** Merge adjacency tolerance, in pixels at the scan zoom. */
   adjacencyPx: number;
+  /**
+   * Two scored detections from different tiles are one object when their
+   * boxes share more than this share of the smaller box (the overlap rule
+   * the learned detector applies inside a window). Neighbouring windows
+   * overlap by their halo: a shape cut by one window's edge, or read at
+   * another colour level there, can put its centroid in both tiles.
+   */
+  duplicateOverlap: number;
 }
 
 export const DEFAULT_MERGER_OPTIONS: MergerOptions = {
@@ -19,6 +27,7 @@ export const DEFAULT_MERGER_OPTIONS: MergerOptions = {
   maxAreaM2: 2000,
   hotTubMaxM2: 10,
   adjacencyPx: 2.5,
+  duplicateOverlap: 0.3,
 };
 
 export type MergerEvent =
@@ -116,6 +125,10 @@ export class DetectionMerger {
 
   private placeFragment(frag: TileDetection, events: MergerEvent[]): Cluster {
     const touchesEdge = frag.touches.n || frag.touches.e || frag.touches.s || frag.touches.w;
+    if (frag.score !== undefined && !touchesEdge) {
+      const dup = this.duplicateOf(frag);
+      if (dup) return dup;
+    }
     let matches: Cluster[] = [];
 
     if (touchesEdge) {
@@ -152,6 +165,28 @@ export class DetectionMerger {
     }
     this.indexCluster(target, frag.tile);
     return target;
+  }
+
+  /**
+   * The cluster of another tile that holds the same object as the scored,
+   * whole fragment `frag`, after keeping one view of it: the better scored
+   * one (ties: more pixels), as the selection inside a window does.
+   */
+  private duplicateOf(frag: TileDetection): Cluster | null {
+    const key = tileKey(frag.tile);
+    for (const c of this.clustersAround(frag.tile)) {
+      if (c.suppressed || c.fragments.length !== 1) continue;
+      const other = c.fragments[0];
+      if (other.score === undefined || tileKey(other.tile) === key) continue;
+      if (other.touches.n || other.touches.e || other.touches.s || other.touches.w) continue;
+      if (boxOverlap(frag.bbox, other.bbox) <= this.opts.duplicateOverlap) continue;
+      const keep = frag.score! > other.score || (frag.score === other.score && frag.pixelCount > other.pixelCount) ? frag : other;
+      c.fragments = [keep];
+      c.bbox = keep.bbox;
+      this.indexCluster(c, frag.tile);
+      return c;
+    }
+    return null;
   }
 
   private reemit(c: Cluster, events: MergerEvent[]): void {
@@ -277,4 +312,13 @@ export class DetectionMerger {
     }
     set.add(c);
   }
+}
+
+/** Intersection of two boxes over the area of the smaller one, in degrees (both boxes are small). */
+function boxOverlap(a: BBox, b: BBox): number {
+  const iw = Math.min(a.east, b.east) - Math.max(a.west, b.west);
+  const ih = Math.min(a.north, b.north) - Math.max(a.south, b.south);
+  if (iw <= 0 || ih <= 0) return 0;
+  const area = (x: BBox) => (x.east - x.west) * (x.north - x.south);
+  return (iw * ih) / Math.min(area(a), area(b));
 }
