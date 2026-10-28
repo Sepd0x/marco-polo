@@ -124,6 +124,6 @@ for (const [key, ms] of best) {
   acc[+px][k] = (acc[+px][k] ?? 0) + ms;
 }
 for (const px of [512, 256]) {
-  console.log(`\n${px} px, mean per tile over ${count[px]} runs`);
+  console.log(`\n${px} px: ms per tile (its fastest of ${rounds} rounds), mean over ${count[px]} tiles`);
   for (const [k, v] of Object.entries(acc[px])) console.log(`  ${(v / count[px]).toFixed(2).padStart(8)}  ${k}`);
 }
