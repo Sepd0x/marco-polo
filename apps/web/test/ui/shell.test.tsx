@@ -122,6 +122,19 @@ describe('one count', () => {
     expect(q('.summary')!.textContent).toContain('2 failed');
   });
 
+  it('calls a scan whose every tile failed a failed scan, not a complete one with no pools', () => {
+    const stats = useStore.getState().stats;
+    seed('complete', { ranked: [], stats: { ...stats, tilesDone: stats.tilesTotal, tilesFailed: stats.tilesTotal } });
+    render();
+    expect(q('#sum-h')!.textContent).toBe('Scan failed');
+    const text = m!.host.textContent!;
+    expect(text).toContain('none of');
+    expect(text).toContain('No tile could be loaded');
+    expect(text).toContain('No tile could be read');
+    expect(text).not.toContain('No pools in this area');
+    expect(text).not.toContain('None below');
+  });
+
   it('tells a stopped scan apart from a finished one, with the ground it read', () => {
     seed('complete', { stats: { ...useStore.getState().stats, tilesDone: 12, scannedAreaM2: 81_000 } });
     render();
