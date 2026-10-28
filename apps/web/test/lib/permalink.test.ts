@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { bindPermalink, decodePermalink, encodePermalink, validRing } from '../../src/lib/permalink.js';
+import { bindPermalink, decodePermalink, encodePermalink, validRing, wrapRing } from '../../src/lib/permalink.js';
 import { emit, resetSticky } from '../../src/lib/bus.js';
 import { SETTINGS_KEY } from '../../src/state/settings.js';
 import { useStore } from '../../src/state/store.js';
@@ -57,6 +57,19 @@ describe('permalink', () => {
     off();
   });
 
+  it('takes a link pasted into the address bar of an open tab', () => {
+    const off = bindPermalink();
+    emit('mapready', {});
+    expect(useStore.getState().area).toBeNull();
+    history.replaceState(null, '', `/${encodePermalink(US_AREA)}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    expect(useStore.getState().area).toEqual(US_AREA);
+    history.replaceState(null, '', `/${encodePermalink(PT_AREA)}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    expect(useStore.getState().area).toEqual(PT_AREA);
+    off();
+  });
+
   it('applies the area only once the map is ready', () => {
     history.replaceState(null, '', `/${encodePermalink(US_AREA)}`);
     const off = bindPermalink();
@@ -108,5 +121,38 @@ describe('permalink', () => {
     ];
     for (const h of bad) expect(decodePermalink(h)).toBeNull();
     expect(validRing([[0, 0], [0.001, 0], [0.001, 0.001], [0, 0]])).toHaveLength(3);
+  });
+});
+
+describe('areas drawn past the antimeridian', () => {
+  // Honolulu as MapLibre gives it after flying east from Japan: longitude about 203.
+  const far: [number, number][] = [
+    [202.14, 21.3],
+    [202.15, 21.3],
+    [202.15, 21.31],
+    [202.14, 21.31],
+  ];
+
+  it('move onto the main world copy, by whole turns', () => {
+    const w = wrapRing(far)!;
+    w.forEach(([lon, lat], i) => {
+      expect(lon).toBeCloseTo(far[i][0] - 360, 9);
+      expect(lat).toBe(far[i][1]);
+    });
+    expect(wrapRing(w)).toEqual(w);
+    expect(wrapRing(far.map(([x, y]) => [x - 720, y]))![0][0]).toBeCloseTo(-157.86, 9);
+  });
+
+  it('are refused when they still cross 180', () => {
+    expect(wrapRing([[179.9, 0], [180.1, 0], [180.1, 0.1], [179.9, 0.1]])).toBeNull();
+  });
+
+  it('open from a link written on the far copy', () => {
+    const ring = validRing(far)!;
+    expect(ring).not.toBeNull();
+    for (const [lon] of ring) expect(Math.abs(lon)).toBeLessThanOrEqual(180);
+    const hash = `#aoi=${Buffer.from(JSON.stringify({ v: 2, r: far })).toString('base64url')}`;
+    const back = decodePermalink(hash);
+    expect(back?.ring[0][0]).toBeCloseTo(202.14 - 360, 6);
   });
 });

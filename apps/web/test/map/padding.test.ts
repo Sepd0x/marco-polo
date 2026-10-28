@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { occluderPadding } from '../../src/map/padding.js';
+import { occluderPadding, occluderRects } from '../../src/map/padding.js';
 
 function box(el: HTMLElement, left: number, top: number, width: number, height: number) {
   el.getBoundingClientRect = () => ({ left, top, width, height, right: left + width, bottom: top + height, x: left, y: top, toJSON: () => ({}) }) as DOMRect;
@@ -29,5 +29,17 @@ describe('occluderPadding', () => {
     const map = document.getElementById('map')!;
     box(map, 0, 0, 800, 600);
     expect(occluderPadding(map, 30)).toEqual({ top: 30, bottom: 30, left: 30, right: 30 });
+  });
+});
+
+describe('occluderRects', () => {
+  it('gives the panels over the map in container px, and leaves out a strip under it', () => {
+    document.body.innerHTML = '<div id="map"></div><div data-map-occluder id="tools"></div><div data-map-occluder id="strip"></div><div data-map-occluder id="gone"></div>';
+    const map = document.getElementById('map')!;
+    box(map, 430, 30, 820, 700);
+    box(document.getElementById('tools')!, 442, 42, 32, 120);
+    box(document.getElementById('strip')!, 430, 730, 820, 22);
+    box(document.getElementById('gone')!, 0, 0, 0, 0);
+    expect(occluderRects(map)).toEqual([{ left: 12, top: 12, right: 44, bottom: 132 }]);
   });
 });

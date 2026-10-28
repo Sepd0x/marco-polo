@@ -13,7 +13,7 @@ import { emit, on } from '../lib/bus.js';
 import { DrawTool } from './DrawTool.js';
 import { ScanOverlay } from './overlay.js';
 import { DetectionMarkers } from './markers.js';
-import { GLYPHS_URL, LABEL_SOURCE, labelLayers, labelSource, setLabelsVisible } from './labels.js';
+import { glyphsUrl, LABEL_SOURCE, labelLayers, labelSource, setLabelsVisible } from './labels.js';
 import { anchorLayers, BaseImagery, mapParts, ScannedImagery } from './sourceLayer.js';
 import { browserDisplay, mapMaxZoom } from './sources.js';
 import { watchContextLoss } from './contextLoss.js';
@@ -73,7 +73,7 @@ export function MapView() {
       container: container.current,
       style: {
         version: 8,
-        glyphs: GLYPHS_URL,
+        glyphs: glyphsUrl(),
         sources: { [LABEL_SOURCE]: labelSource() },
         layers: [
           { id: 'bg', type: 'background', paint: { 'background-color': '#2b2b28' } },
@@ -126,6 +126,9 @@ export function MapView() {
       setLabelsVisible(map, useStore.getState().settings.labels);
 
       const draw = new DrawTool(map, (ring: Ring) => {
+        // The ring comes on the main world copy; the camera goes there too, so framing it is no pan round the globe.
+        const c = map.getCenter();
+        if (Math.abs(c.lng) > 180) map.jumpTo({ center: c.wrap() });
         const { settings } = useStore.getState();
         const estimate = estimateTileCount(ring, settings.zoom);
         useStore.getState().setArea(ring, estimate);

@@ -3,7 +3,7 @@ import { lonLatToTile, tileBBox, type Ring } from '@marco-polo/core';
 
 vi.mock('maplibre-gl', () => ({ addProtocol: vi.fn() }));
 
-const { cellRelation, regionBounds, ringRelation, tileRelation } = await import('../../src/map/clip.js');
+const { cellRelation, cellsUnder, regionBounds, ringRelation, tileRelation } = await import('../../src/map/clip.js');
 
 const square: Ring = [[0, 0], [10, 0], [10, 10], [0, 10]];
 
@@ -41,6 +41,55 @@ describe('cellRelation', () => {
   it('a finer tile takes the relation of its cell', () => {
     expect(cellRelation({ z: 20, x: 1, y: 1 }, cells)).toBe('inside');
     expect(cellRelation({ z: 20, x: 3, y: 3 }, cells)).toBe('outside');
+  });
+});
+
+describe('cells under a zoomed out tile', () => {
+  // An Elvas to Badajoz area split between two sources: some 6000 z19 cells on one side.
+  const zoom = 19;
+  const a = lonLatToTile(-7.05, 38.89, zoom);
+  const b = lonLatToTile(-6.98, 38.86, zoom);
+  const keys = new Set<string>();
+  for (let x = a.x; x <= b.x; x++) for (let y = a.y; y <= b.y; y++) if ((x + y) % 7 !== 0) keys.add(`${x},${y}`);
+  const cells = { zoom, keys };
+
+  it('give the cells of the tile, as offsets in it', () => {
+    const t = { z: 18, x: a.x >> 1, y: a.y >> 1 };
+    const under = cellsUnder(t, cells);
+    for (const [i, j] of under) {
+      expect(i).toBeGreaterThanOrEqual(0);
+      expect(i).toBeLessThan(2);
+      expect(keys.has(`${(t.x << 1) + i},${(t.y << 1) + j}`)).toBe(true);
+    }
+    expect(under.length).toBeGreaterThan(0);
+  });
+
+  it('cost the cells of the area, not 4^(19 - z) cells per tile, down to zoom 0', () => {
+    const t0 = performance.now();
+    let total = 0;
+    for (let z = 12; z >= 0; z--) {
+      const s = zoom - z;
+      const t = { z, x: a.x >> s, y: a.y >> s };
+      const rel = cellRelation(t, cells);
+      expect(rel).toBe('partial');
+      total += cellsUnder(t, cells).length;
+    }
+    // The old walk took 1.9 s for one tile at zoom 7 and grew 4x per level.
+    expect(performance.now() - t0).toBeLessThan(500);
+    expect(total).toBeGreaterThan(0);
+  });
+
+  it('leave a tile away from the area outside', () => {
+    expect(cellRelation({ z: 12, x: (a.x >> 7) + 3, y: a.y >> 7 }, cells)).toBe('outside');
+  });
+
+  it('count a tile inside when every cell under it is owned', () => {
+    const t = { z: 17, x: 10, y: 10 };
+    const all = new Set<string>();
+    for (let x = 40; x < 44; x++) for (let y = 40; y < 44; y++) all.add(`${x},${y}`);
+    expect(cellRelation(t, { zoom: 19, keys: all })).toBe('inside');
+    all.delete('41,41');
+    expect(cellRelation(t, { zoom: 19, keys: all })).toBe('partial');
   });
 });
 

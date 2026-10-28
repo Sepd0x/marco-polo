@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   anchorGeometry,
+  anchorsInView,
+  EDGE_INSET,
   EM_PX,
   HIDDEN,
   ICON_PADDING,
@@ -110,5 +112,61 @@ describe('anchors per zoom level', () => {
     const around = [pool(-3.826 + d, 40.437, 3, 3), pool(-3.826 - d, 40.437, 3, 3), pool(-3.826, 40.437 + d * 0.76, 3, 3), pool(-3.826, 40.437 - d * 0.76, 3, 3)];
     const [list] = levelAnchors([c, ...around], Array(5).fill(LABEL), 18);
     expect(list).toEqual(HIDDEN);
+  });
+});
+
+describe('numbers inside the view', () => {
+  const view = { left: 0, top: 0, right: 400, bottom: 300 };
+  const box = { x: 0, y: 0, hw: 4 / 2 ** 17, hh: 4 / 2 ** 17, image: '', size0: 0, extent0: 0 };
+  const level = 16;
+  const all = (['left', 'right', 'top', 'bottom'] as const).flatMap((a) => [a, anchorGeometry(a, 8, 8, LABEL).offset] as AnchorList);
+
+  it('keep every side for a pool in the middle', () => {
+    expect(anchorsInView(all, { x: 200, y: 150 }, box, LABEL, level, view)).toEqual(all);
+  });
+
+  it('drop the side that would cross the edge, under the frame', () => {
+    // A pool 10 px from the right edge: a number on its right (anchor left) would be cut.
+    const fit = anchorsOf(anchorsInView(all, { x: 390, y: 150 }, box, LABEL, level, view));
+    expect(fit).not.toContain('left');
+    expect(fit).toContain('right');
+    const top = anchorsOf(anchorsInView(all, { x: 200, y: 8 }, box, LABEL, level, view));
+    expect(top).not.toContain('bottom');
+    expect(top).toContain('top');
+  });
+
+  it('keep each number whole and EDGE_INSET clear of the edge', () => {
+    for (const at of [
+      { x: 2, y: 2 },
+      { x: 398, y: 150 },
+      { x: 200, y: 297 },
+      { x: 25, y: 280 },
+    ]) {
+      const fit = anchorsInView(all, at, box, LABEL, level, view);
+      for (const a of anchorsOf(fit)) {
+        if (a === 'center') continue;
+        const g = anchorGeometry(a as 'left', 8, 8, LABEL);
+        const x = at.x + g.dx;
+        const y = at.y + g.dy;
+        expect(x - LABEL.width / 2).toBeGreaterThanOrEqual(EDGE_INSET);
+        expect(x + LABEL.width / 2).toBeLessThanOrEqual(view.right - EDGE_INSET);
+        expect(y - LABEL.height / 2).toBeGreaterThanOrEqual(EDGE_INSET);
+        expect(y + LABEL.height / 2).toBeLessThanOrEqual(view.bottom - EDGE_INSET);
+      }
+    }
+  });
+
+  it('hide the number when no side fits, and leave a hidden one hidden', () => {
+    const tiny = { left: 0, top: 0, right: 20, bottom: 20 };
+    expect(anchorsInView(all, { x: 10, y: 10 }, box, LABEL, level, tiny)).toEqual(HIDDEN);
+    expect(anchorsInView(HIDDEN, { x: 200, y: 150 }, box, LABEL, level, view)).toBe(HIDDEN);
+  });
+
+  it('keep off the panels over the map', () => {
+    // The tool bar at the top left: a pool just right of it keeps its number off the bar.
+    const tools = { left: 12, top: 12, right: 44, bottom: 120 };
+    const fit = anchorsOf(anchorsInView(all, { x: 60, y: 60 }, box, LABEL, level, view, [tools]));
+    expect(fit).not.toContain('right');
+    expect(fit).toContain('left');
   });
 });

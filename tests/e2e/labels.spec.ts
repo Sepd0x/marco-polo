@@ -50,6 +50,46 @@ async function scanAndCheck(page: Page): Promise<void> {
   }
 }
 
+/** Every number on screen lies wholly inside the map, clear of the frame's neat line. */
+async function checkInside(page: Page): Promise<number> {
+  const { labels, zoom } = await ui.mapLabelPlacement(page);
+  const size = await page.evaluate(() => {
+    const el = (window as unknown as { __mpMap: { getContainer(): HTMLElement } }).__mpMap.getContainer();
+    return { w: el.clientWidth, h: el.clientHeight };
+  });
+  for (const l of labels) {
+    const at = `number of ${l.id} at zoom ${zoom.toFixed(2)}: ${JSON.stringify(l.box)} in ${size.w}x${size.h}`;
+    expect(l.box.x0, at).toBeGreaterThanOrEqual(1);
+    expect(l.box.y0, at).toBeGreaterThanOrEqual(1);
+    expect(l.box.x1, at).toBeLessThanOrEqual(size.w - 1);
+    expect(l.box.y1, at).toBeLessThanOrEqual(size.h - 1);
+  }
+  return labels.length;
+}
+
+/** Pans the map so the pool nearest the centre lands `px` inside an edge. */
+async function poolToEdge(page: Page, edge: 'left' | 'right' | 'top' | 'bottom', px: number): Promise<void> {
+  await page.evaluate(
+    async ({ edge, px }) => {
+      type M = {
+        getContainer(): HTMLElement;
+        getSource(id: string): { getData(): Promise<{ features: { geometry: { coordinates: [number, number] } }[] }> };
+        project(p: [number, number]): { x: number; y: number };
+        panBy(o: [number, number], a: { animate: boolean }): void;
+      };
+      const map = (window as unknown as { __mpMap: M }).__mpMap;
+      const el = map.getContainer();
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      const pts = (await map.getSource('det-points').getData()).features.map((f) => map.project(f.geometry.coordinates));
+      const c = pts.reduce((a, p) => (Math.hypot(p.x - w / 2, p.y - h / 2) < Math.hypot(a.x - w / 2, a.y - h / 2) ? p : a));
+      const to = { left: [px, c.y], right: [w - px, c.y], top: [c.x, px], bottom: [c.x, h - px] }[edge];
+      map.panBy([c.x - to[0], c.y - to[1]], { animate: false });
+    },
+    { edge, px },
+  );
+}
+
 test.describe('phone', () => {
   test.use({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
 
@@ -63,5 +103,18 @@ test.describe('desktop', () => {
 
   test('each pool number sits by its own pool, never on another', async ({ page }) => {
     await scanAndCheck(page);
+  });
+
+  test('a pool at the edge of the map keeps its number whole, inside the frame', async ({ page }) => {
+    await ui.scanArea(page);
+    await settle(page);
+    await ui.jumpToZoom(page, 18.2);
+    await settle(page);
+    for (const edge of ['left', 'right', 'top', 'bottom'] as const) {
+      await poolToEdge(page, edge, 6);
+      await settle(page);
+      await checkInside(page);
+      await checkLabels(page);
+    }
   });
 });

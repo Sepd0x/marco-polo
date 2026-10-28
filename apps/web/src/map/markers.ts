@@ -1,7 +1,19 @@
 import type * as maplibregl from 'maplibre-gl';
 import type { RankedDetection } from '@marco-polo/core';
 import { OUTLINE_CASING, POOL_OUTLINE } from './outline.js';
-import { EM_PX, ICON_PADDING, keepoutImages, levelAnchors, poolBox, TEXT_PADDING, type LabelSize } from './labelPlace.js';
+import {
+  anchorsInView,
+  EM_PX,
+  ICON_PADDING,
+  keepoutImages,
+  levelAnchors,
+  poolBox,
+  TEXT_PADDING,
+  type AnchorList,
+  type LabelSize,
+  type PoolBox,
+} from './labelPlace.js';
+import { occluderRects } from './padding.js';
 
 export const MARKER_SOURCE = 'det-points';
 export const MARKER_DOT = 'det-dot';
@@ -226,7 +238,17 @@ export class DetectionMarkers {
     map.on('click', MARKER_DOT, this.onClick);
     map.on('mouseenter', MARKER_DOT, this.onEnter);
     map.on('mouseleave', MARKER_DOT, this.onLeave);
+    map.on('moveend', this.fitView);
+    map.on('resize', this.fitView);
   }
+
+  /** What the last sync laid out, kept so a move can recheck the numbers against the edge. */
+  private list: RankedDetection[] = [];
+  private boxes: PoolBox[] = [];
+  private sizes: { small: LabelSize[]; full: LabelSize[] } = { small: [], full: [] };
+  private anchors: AnchorList[][] = [];
+  private properties: Record<string, unknown>[] = [];
+  private shownKey = '';
 
   private onSelect: (id: string) => void;
 
@@ -266,38 +288,79 @@ export class DetectionMarkers {
     const small = list.map((d) => measureLabel('halo', String(d.rank)));
     const full = list.map((d, i) => measureLabel(styles[i], String(d.rank)));
     const anchors = levels.map((z) => levelAnchors(boxes, z < BOX_FROM_ZOOM ? small : full, z));
+    this.list = list;
+    this.boxes = boxes;
+    this.sizes = { small, full };
+    this.anchors = anchors;
+    this.properties = list.map((d, i) => {
+      const style = styles[i];
+      const b = boxes[i];
+      const properties: Record<string, unknown> = {
+        id: d.id,
+        rank: d.rank,
+        kind: d.kind,
+        style,
+        label: labelImageId(style, d.rank),
+        small: labelImageId('halo', d.rank),
+        ko: b.image,
+        ks: b.size0,
+        ext: b.extent0,
+      };
+      levels.forEach((z, k) => {
+        properties[`a${z}`] = anchors[k][i];
+      });
+      return properties;
+    });
+    this.shownKey = '';
+    this.fitView();
+  }
+
+  /**
+   * Keeps every number of the current zoom level inside the map: the sides
+   * where it would cross the edge of the view, under the frame, or sit under
+   * a panel are dropped for the pools in or near the view (anchorsInView).
+   * Runs after each move, and sets the data only when a list changed.
+   */
+  private fitView = (): void => {
+    const list = this.list;
+    const level = Math.min(RANK_LEVEL_MAX, Math.floor(this.map.getZoom()));
+    const k = levels.indexOf(level);
+    const changed: [number, AnchorList][] = [];
+    if (k >= 0 && list.length) {
+      const c = this.map.getContainer();
+      const view = { left: 0, top: 0, right: c.clientWidth, bottom: c.clientHeight };
+      const panels = occluderRects(c);
+      const labels = level < BOX_FROM_ZOOM ? this.sizes.small : this.sizes.full;
+      const near = 120;
+      list.forEach((d, i) => {
+        const base = this.anchors[k][i];
+        const at = this.map.project([d.center.lon, d.center.lat]);
+        if (at.x < -near || at.y < -near || at.x > view.right + near || at.y > view.bottom + near) return;
+        const fit = anchorsInView(base, at, this.boxes[i], labels[i], level, view, panels);
+        if (fit.length !== base.length) changed.push([i, fit]);
+      });
+    }
+    const key = `${level}|${list.length}|${JSON.stringify(changed)}`;
+    if (key === this.shownKey) return;
+    this.shownKey = key;
+    const props = this.properties.map((p) => p);
+    for (const [i, fit] of changed) props[i] = { ...props[i], [`a${level}`]: fit };
     (this.map.getSource(MARKER_SOURCE) as maplibregl.GeoJSONSource | undefined)?.setData({
       type: 'FeatureCollection',
-      features: list.map((d, i) => {
-        const style = styles[i];
-        const b = boxes[i];
-        const properties: Record<string, unknown> = {
-          id: d.id,
-          rank: d.rank,
-          kind: d.kind,
-          style,
-          label: labelImageId(style, d.rank),
-          small: labelImageId('halo', d.rank),
-          ko: b.image,
-          ks: b.size0,
-          ext: b.extent0,
-        };
-        levels.forEach((z, k) => {
-          properties[`a${z}`] = anchors[k][i];
-        });
-        return {
-          type: 'Feature',
-          properties,
-          geometry: { type: 'Point', coordinates: [d.center.lon, d.center.lat] },
-        };
-      }),
+      features: list.map((d, i) => ({
+        type: 'Feature',
+        properties: props[i],
+        geometry: { type: 'Point', coordinates: [d.center.lon, d.center.lat] },
+      })),
     });
-  }
+  };
 
   clear(): void {
     this.map.setMissingStyleImageResolver(null);
     this.map.off('click', MARKER_DOT, this.onClick);
     this.map.off('mouseenter', MARKER_DOT, this.onEnter);
     this.map.off('mouseleave', MARKER_DOT, this.onLeave);
+    this.map.off('moveend', this.fitView);
+    this.map.off('resize', this.fitView);
   }
 }

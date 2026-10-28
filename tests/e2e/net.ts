@@ -5,8 +5,8 @@ import { test as base, type BrowserContext, type Route } from '@playwright/test'
  * Network for the tests. Every request to a host other than the preview
  * server is routed here:
  * - imagery URLs listed in the open fixture manifest get the fixture bytes;
- * - the OpenFreeMap TileJSON gets a document with no layers, its tiles and
- *   glyphs get 204, so the map loads without labels;
+ * - the OpenFreeMap TileJSON gets a document with no layers, its tiles
+ *   glyphs come from the preview server, so the map loads without labels;
  * - Nominatim gets an empty result list;
  * - anything else (imagery outside the fixture, capture date lookups) gets
  *   204, which the app reads as "no imagery here".

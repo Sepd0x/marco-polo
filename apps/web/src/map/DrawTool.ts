@@ -1,5 +1,6 @@
 import * as maplibregl from 'maplibre-gl';
 import { ringAreaM2, type Ring } from '@marco-polo/core';
+import { wrapRing } from '../lib/permalink.js';
 import { emit } from '../lib/bus.js';
 
 type Mode = 'rect' | 'polygon' | null;
@@ -30,7 +31,11 @@ export class DrawTool {
     onDraftChange: (active: boolean) => void = () => {},
   ) {
     this.map = map;
-    this.onCommit = onCommit;
+    // Committed on the main world copy: drawn past the antimeridian, the ring would plan no tile.
+    this.onCommit = (ring) => {
+      const wrapped = wrapRing(ring);
+      if (wrapped) onCommit(wrapped);
+    };
     this.onDraftChange = onDraftChange;
 
     map.on('mousedown', this.onMouseDown);

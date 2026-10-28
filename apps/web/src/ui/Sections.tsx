@@ -356,8 +356,14 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   ].filter(Boolean);
   const tilesNote = tileParts.length ? tileParts.join(', ') : 'none missing';
 
+  // Every tile failed (offline, say): nothing was read, and the summary does not call it complete.
+  const failed = !stopped && stats.tilesTotal > 0 && stats.tilesFailed > 0 && tiles.ok <= 0;
   // A stopped scan counts the ground of the tiles it read, out of the whole area.
-  const scannedText = stopped ? `${formatLandArea(stats.scannedAreaM2)} of ${formatLandArea(landArea)}` : formatLandArea(landArea);
+  const scannedText = failed
+    ? `none of ${formatLandArea(landArea)}`
+    : stopped
+      ? `${formatLandArea(stats.scannedAreaM2)} of ${formatLandArea(landArea)}`
+      : formatLandArea(landArea);
 
   let when: string | null = null;
   if (finishedAt != null) {
@@ -375,7 +381,7 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
   return (
     <section className="sec summary" aria-labelledby="sum-h">
       <div className="sec-h">
-        <h2 id="sum-h">{stopped ? 'Scan stopped' : 'Scan complete'}</h2>
+        <h2 id="sum-h">{stopped ? 'Scan stopped' : failed ? 'Scan failed' : 'Scan complete'}</h2>
         {phone && meta && <span className="meta-inline trunc">{meta}</span>}
         <span className="grow" />
         <button className="btn small" onClick={resetScan}>
@@ -407,7 +413,7 @@ export function SummarySection({ phone = false }: { phone?: boolean }) {
               </div>
             </dl>
           </div>
-          {(below > 0 || !stopped) && (
+          {(below > 0 || (!stopped && !failed)) && (
             <p className="more">
               {below > 0 ? (
                 <>
@@ -576,7 +582,9 @@ export function ListSection({ limit, phone = false }: { limit?: number; phone?: 
               ? `No pools at or above ${formatScore(minScore)}.`
               : tiles.stopped
                 ? 'No pools in the part scanned.'
-                : 'No pools in this area.'}
+                : tiles.failed > 0 && tiles.ok <= 0
+                  ? 'No tile could be read, so there are no pools to list.'
+                  : 'No pools in this area.'}
         </p>
       )}
       <PoolList pools={list} newest={newest} label="Pools" limit={limit} />

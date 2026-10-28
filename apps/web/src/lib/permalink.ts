@@ -58,6 +58,22 @@ function simple(ring: Ring): boolean {
   return true;
 }
 
+/**
+ * A ring brought onto the world copy at -180 to 180. MapLibre gives
+ * longitudes past 180 once the camera has crossed the antimeridian (Japan to
+ * Hawaii), and the tile grid clamps them, so such a ring would plan no tile.
+ * The whole ring moves by whole turns, its middle onto the main copy; a ring
+ * that still crosses 180 is not drawable here, so null.
+ */
+export function wrapRing(ring: Ring): Ring | null {
+  if (!ring.length) return null;
+  const box = ringBBox(ring);
+  const turns = Math.round((box.west + box.east) / 2 / 360);
+  const out: Ring = ring.map(([lon, lat]) => [turns ? lon - turns * 360 : lon, lat]);
+  for (const [lon] of out) if (!(Math.abs(lon) <= 180)) return null;
+  return out;
+}
+
 /** A ring from untrusted JSON, or null when anything about it is off. */
 export function validRing(raw: unknown): Ring | null {
   if (!Array.isArray(raw)) return null;
@@ -67,7 +83,8 @@ export function validRing(raw: unknown): Ring | null {
     const [lon, lat] = c;
     if (typeof lon !== 'number' || typeof lat !== 'number') return null;
     if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
-    if (Math.abs(lon) > 180 || Math.abs(lat) > MAX_LAT) return null;
+    // Longitudes from a world copy are taken and wrapped below.
+    if (Math.abs(lon) > 540 || Math.abs(lat) > MAX_LAT) return null;
     pts.push([lon, lat]);
   }
   // A closing point repeating the first is dropped.
@@ -76,6 +93,9 @@ export function validRing(raw: unknown): Ring | null {
     if (a[0] === b[0] && a[1] === b[1]) pts.pop();
   }
   if (pts.length < 3 || pts.length > MAX_POINTS) return null;
+  const wrapped = wrapRing(pts);
+  if (!wrapped) return null;
+  pts.splice(0, pts.length, ...wrapped);
   const box = ringBBox(pts);
   // Rings across the antimeridian are not drawable here.
   if (box.east - box.west > 180) return null;
@@ -127,26 +147,37 @@ export function writePermalink(ring: Ring | null, source: string | null = null):
  * in step with the drawn area. Returns a function that stops both.
  */
 export function bindPermalink(): () => void {
-  const shared = decodePermalink(window.location.hash);
-  let offReady: (() => void) | null = null;
-  let applied = false;
-  if (shared) {
-    offReady = on('mapready', () => {
-      if (applied) return;
-      applied = true;
-      const s = useStore.getState();
-      if (s.phase === 'scanning' || s.phase === 'paused') return;
-      // The map fits itself to a new area.
-      s.setArea(shared.ring, null, { source: shared.source });
-    });
-  }
+  let pending = decodePermalink(window.location.hash);
+  let ready = false;
+  const apply = () => {
+    const shared = pending;
+    pending = null;
+    if (!shared) return;
+    const s = useStore.getState();
+    if (s.phase === 'scanning' || s.phase === 'paused') return;
+    if (JSON.stringify(s.area) === JSON.stringify(shared.ring) && (s.areaSource ?? null) === (shared.source ?? null)) return;
+    // The map fits itself to a new area.
+    s.setArea(shared.ring, null, { source: shared.source });
+  };
+  const offReady = on('mapready', () => {
+    if (ready) return;
+    ready = true;
+    apply();
+  });
+  // A link pasted into the address bar of an open tab only changes the hash.
+  const onHash = () => {
+    pending = decodePermalink(window.location.hash);
+    if (ready) apply();
+  };
+  window.addEventListener('hashchange', onHash);
   const offArea = useStore.subscribe(
     (s) => [s.area, s.areaSource] as const,
     ([area, source]) => writePermalink(area, source),
     { equalityFn: (a, b) => a[0] === b[0] && a[1] === b[1] },
   );
   return () => {
-    offReady?.();
+    offReady();
+    window.removeEventListener('hashchange', onHash);
     offArea();
   };
 }

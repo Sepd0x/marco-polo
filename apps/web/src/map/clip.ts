@@ -105,22 +105,53 @@ function crossesInterior(x1: number, y1: number, x2: number, y2: number, b: BBox
   return mx > b.west && mx < b.east && my > b.south && my < b.north && t1 - t0 > 1e-12;
 }
 
+type CellSet = { zoom: number; keys: Set<string> };
+
+/** Per cell set, per tile zoom: the cells under each tile, as offsets in the tile. Built once, from the cells. */
+const cellIndex = new WeakMap<CellSet, Map<number, Map<string, [number, number][]>>>();
+
+/**
+ * The cells of `cells` under a tile above their zoom, as [column, row] inside
+ * the tile. Grouped from the cell set itself, once per tile zoom, so a tile
+ * far out costs a lookup and not a walk over the 4^(cell zoom - z) cells
+ * under it (which froze the page at zoom 7 for an area split between two
+ * sources).
+ */
+export function cellsUnder(tile: TileCoord, cells: CellSet): [number, number][] {
+  const s = cells.zoom - tile.z;
+  if (s <= 0) return [];
+  let byZoom = cellIndex.get(cells);
+  if (!byZoom) {
+    byZoom = new Map();
+    cellIndex.set(cells, byZoom);
+  }
+  let index = byZoom.get(tile.z);
+  if (!index) {
+    index = new Map();
+    for (const k of cells.keys) {
+      const comma = k.indexOf(',');
+      const x = Number(k.slice(0, comma));
+      const y = Number(k.slice(comma + 1));
+      const key = `${Math.floor(x / 2 ** s)},${Math.floor(y / 2 ** s)}`;
+      const list = index.get(key);
+      const at: [number, number] = [x - Math.floor(x / 2 ** s) * 2 ** s, y - Math.floor(y / 2 ** s) * 2 ** s];
+      if (list) list.push(at);
+      else index.set(key, [at]);
+    }
+    byZoom.set(tile.z, index);
+  }
+  return index.get(`${tile.x},${tile.y}`) ?? [];
+}
+
 /** Where a tile lies against a set of grid cells. */
-export function cellRelation(tile: TileCoord, cells: { zoom: number; keys: Set<string> }): Relation {
+export function cellRelation(tile: TileCoord, cells: CellSet): Relation {
   if (tile.z >= cells.zoom) {
     const s = tile.z - cells.zoom;
     return cells.keys.has(`${tile.x >> s},${tile.y >> s}`) ? 'inside' : 'outside';
   }
-  const s = cells.zoom - tile.z;
-  const x0 = tile.x << s;
-  const y0 = tile.y << s;
-  const n = 1 << s;
-  let hit = 0;
-  for (let y = y0; y < y0 + n; y++) {
-    for (let x = x0; x < x0 + n; x++) if (cells.keys.has(`${x},${y}`)) hit++;
-  }
+  const hit = cellsUnder(tile, cells).length;
   if (hit === 0) return 'outside';
-  return hit === n * n ? 'inside' : 'partial';
+  return hit === 4 ** (cells.zoom - tile.z) ? 'inside' : 'partial';
 }
 
 /** Where a tile lies against a region. */
@@ -257,14 +288,8 @@ function clipTo(ctx: OffscreenCanvasRenderingContext2D, tile: TileCoord, region:
   ctx.clip();
   const cells = region.cells;
   if (!cells || tile.z >= cells.zoom) return;
-  const s = cells.zoom - tile.z;
-  const n = 1 << s;
-  const side = size / n;
+  const side = size / 2 ** (cells.zoom - tile.z);
   ctx.beginPath();
-  for (let j = 0; j < n; j++) {
-    for (let i = 0; i < n; i++) {
-      if (cells.keys.has(`${(tile.x << s) + i},${(tile.y << s) + j}`)) ctx.rect(i * side, j * side, side, side);
-    }
-  }
+  for (const [i, j] of cellsUnder(tile, cells)) ctx.rect(i * side, j * side, side, side);
   ctx.clip();
 }

@@ -27,7 +27,7 @@ PW_CHROMIUM_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome npm run e2e
 No test uses the network. Every request to a host other than the preview server goes through `context.route`:
 
 - Imagery requests whose URL is listed in `packages/eval/fixtures/open/manifest.json` get the bytes of that tile's `file`. The URLs there are the exact requests the app makes, so the match is on the full URL.
-- The OpenFreeMap TileJSON gets a document with the label layers and no data; label tiles and glyphs get 204.
+- The OpenFreeMap TileJSON gets a document with the label layers and no data; label tiles get 204. Glyphs are the app's own files, served by the preview server.
 - Nominatim gets an empty list.
 - Everything else, such as imagery outside the fixture or capture date lookups, gets 204, which the app reads as no imagery.
 

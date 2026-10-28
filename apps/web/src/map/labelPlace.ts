@@ -208,3 +208,52 @@ export function levelAnchors(pools: PoolBox[], labels: LabelSize[], level: numbe
     return out.length ? out : HIDDEN;
   });
 }
+
+/** A screen rectangle in px, map container coordinates. */
+export interface Rect {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+}
+
+/** Px a number keeps from the neat line of the frame, so the line never runs through it. */
+export const EDGE_INSET = 3;
+
+/**
+ * The anchors of `list` whose number lies wholly inside the view, EDGE_INSET
+ * clear of its edge, and off every panel over the map. MapLibre draws a
+ * number that crosses the edge cut in half, under the frame; this keeps only
+ * the sides where it reads whole. With no such side the number is hidden
+ * until the map moves. `at` is the pool centre on screen, `level` the zoom
+ * level the list belongs to (the offsets hold the boxes of level + 1).
+ */
+export function anchorsInView(
+  list: AnchorList,
+  at: { x: number; y: number },
+  pool: PoolBox,
+  label: LabelSize,
+  level: number,
+  view: Rect,
+  panels: readonly Rect[] = [],
+): AnchorList {
+  if (list[0] === HIDDEN[0]) return list;
+  const boxScale = 2 ** (level + 1);
+  const out: AnchorList = [];
+  for (let k = 0; k + 1 < list.length; k += 2) {
+    const anchor = list[k] as Anchor;
+    const g = anchorGeometry(anchor, pool.hw * boxScale, pool.hh * boxScale, label);
+    const x = at.x + g.dx;
+    const y = at.y + g.dy;
+    const r = { left: x - label.width / 2, right: x + label.width / 2, top: y - label.height / 2, bottom: y + label.height / 2 };
+    const inside =
+      r.left >= view.left + EDGE_INSET &&
+      r.right <= view.right - EDGE_INSET &&
+      r.top >= view.top + EDGE_INSET &&
+      r.bottom <= view.bottom - EDGE_INSET;
+    if (!inside) continue;
+    if (panels.some((p) => r.left < p.right && r.right > p.left && r.top < p.bottom && r.bottom > p.top)) continue;
+    out.push(anchor, list[k + 1]);
+  }
+  return out.length ? out : HIDDEN;
+}
