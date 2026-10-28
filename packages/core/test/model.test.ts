@@ -114,4 +114,18 @@ describe.skipIf(!existsSync(MODEL) || !existsSync(PARITY))('shipped model', () =
     expect(ref.rows.length).toBeGreaterThanOrEqual(50);
     expect(worst).toBeLessThanOrEqual(1e-5);
   });
+
+  it('was never trained or calibrated on Esri imagery, and names the Esri threshold', () => {
+    const { model } = load();
+    // Esri's terms forbid using its data to train systems.
+    expect(model.calibration.esri).toBeUndefined();
+    expect(model.thresholds.esri).toBe(model.thresholds.default);
+    const cal = model.meta.calibration as { zones: string[] };
+    expect(cal.zones).not.toContain('scottsdale');
+    expect(cal.zones).not.toContain('arcadia');
+    expect(cal.zones.some((z) => z.endsWith('-esri'))).toBe(false);
+    expect(String(model.meta.licence)).not.toMatch(/esri/i);
+    expect(defaultThreshold(model, 'esri-world-imagery')).toBe(model.thresholds.default);
+  });
 });
+
