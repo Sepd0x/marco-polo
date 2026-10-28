@@ -2,6 +2,7 @@
  * Training data, step 1: labels and candidates for every training window.
  *
  *   npx tsx tools/train/prepare.ts [--recipe tools/train/recipe.json] [--work <dir>] [--cache <dir>]
+ *       [--shard i/n]   (n processes side by side, then one run without --shard)
  *
  * A training window is one of the 10 windows of a zone reviewed blind for
  * the OSM recall check (packages/eval/labels/review/<zone>/recall.json).
@@ -165,6 +166,10 @@ async function main() {
   const work = resolve(arg('work', 'C:/dev/mp-research/detect-v2/train-work'));
   const cache = arg('cache', 'C:/dev/mp-cache/train');
   const recipe = JSON.parse(readFileSync(recipePath, 'utf8')) as Recipe;
+  // --shard i/n: this process computes every n-th window only (several run side by side);
+  // a last run without --shard finds every window done and writes prepared.json.
+  const [si, sn] = arg('shard', '0/1').split('/').map(Number);
+  const mine = (i: number) => i % sn === si;
   mkdirSync(work, { recursive: true });
   const augmentFile = join(work, 'augment.json');
   writeFileSync(augmentFile, JSON.stringify(recipe.augment, null, 1));
@@ -190,7 +195,8 @@ async function main() {
     writeFileSync(labelsFile, JSON.stringify({ type: 'FeatureCollection', attribution: '© OpenStreetMap contributors, ODbL 1.0', features }));
     writeFileSync(join(zdir, 'windows.json'), JSON.stringify({ zone: z.id, source: z.source, windows }, null, 1));
     console.log(`${z.id}: ${windows.length} windows, labels ${JSON.stringify(counts)}`);
-    for (const w of windows) {
+    for (const [wi, w] of windows.entries()) {
+      if (!mine(wi)) continue;
       for (let copy = 0; copy < recipe.copies; copy++) {
         const out = join(zdir, `${w.id}-c${copy}`);
         if (existsSync(`${out}.meta.json`)) {
@@ -226,7 +232,8 @@ async function main() {
     const cw = courtWindows(allCourts.filter((c) => c.properties.zone === z.id), windows, osmShiftM, recipe.courts!.windowPx);
     writeFileSync(join(zdir, 'courts.json'), JSON.stringify({ zone: z.id, source: z.source, windows: cw.windows, courts: cw.courts.map((c) => c.properties.id) }, null, 1));
     console.log(`${z.id}: ${cw.windows.length} court windows, ${cw.courts.filter((c) => c.properties.kind !== 'pool').length} pitches, ${cw.courts.filter((c) => c.properties.kind === 'pool').length} pools`);
-    for (const w of cw.windows) {
+    for (const [wi, w] of cw.windows.entries()) {
+      if (!mine(wi)) continue;
       for (let copy = 0; copy < recipe.copies; copy++) {
         const out = join(zdir, `${w.id}-c${copy}`);
         if (existsSync(`${out}.meta.json`)) {
@@ -249,6 +256,7 @@ async function main() {
       }
     }
   }
+  if (sn > 1) return;
   writeFileSync(join(work, 'prepared.json'), JSON.stringify({ recipe: recipePath, recipeSha256: createHash('sha256').update(readFileSync(recipePath)).digest('hex'), features: FEATURE_NAMES, files: manifest }, null, 1));
 }
 
