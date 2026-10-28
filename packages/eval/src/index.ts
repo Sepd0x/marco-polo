@@ -25,6 +25,7 @@ import { DETECTORS } from './detectors.js';
 import { drawStatus, drawStratum, rejectAfterReview } from './drawzones.js';
 import { diagnoseMisses } from './diagnose.js';
 import { evaluateZone, type ZoneResult } from './evaluate.js';
+import { largeImportCommand } from './large.js';
 import { checkFrozen, fileSha256, labelsHash, readFreeze, relabel, sha256, writeFreeze, zoneLabelFiles } from './freeze.js';
 import { writeGallery } from './gallery.js';
 import { computeTargets, detectorHash, logTestRun, readTestRuns, runGate, type ReportFile, type TargetsFile } from './gate.js';
@@ -65,6 +66,7 @@ interface Opts {
   offline: boolean;
   review?: string;
   relabel?: string;
+  file?: string;
   confirmTest?: string;
   report?: string;
   baseline?: string;
@@ -139,6 +141,7 @@ function parse(argv: string[]): Opts {
       case '--pools': o.pools = Number(v()); break;
       case '--dir': o.dir = resolve(v()); break;
       case '--write': o.write = true; break;
+      case '--file': o.file = resolve(v()); break;
       case '-h':
       case '--help':
         help();
@@ -161,6 +164,7 @@ commands:
   labels       fetch OSM labels for the areas from Overpass into packages/eval/labels/
   review       render numbered review windows of one area with candidates (phase 0 method)
   extra        turn a review file into labels/<area>.extra.geojson
+  large-import add hand outlines of pools of 400 m² or more to DEV and TRAIN zones (--file, dry run unless --write)
   freeze       write labels.sha256 for zones that have never been frozen
   zones        list | check | draw --stratum <id> | reject --stratum <id> --pools <n> | status | candidates (rebuild the list, audit only)
                draw, reject and status follow rules v2 (zones/test-candidates-v2.json)
@@ -436,6 +440,10 @@ async function main() {
     case 'review': {
       if (!o.zone) throw new Error('review needs --zone');
       return renderReview(o.zone, tileSource(o, 'esri'), o.out, process.env.REVIEW_GATE === 'blue' ? 'blue' : 'loose');
+    }
+    case 'large-import': {
+      if (!o.file) throw new Error('large-import needs --file <outlines.geojson>');
+      return largeImportCommand(o.file, LABELS_DIR, !!o.write);
     }
     case 'extra': {
       if (!o.zone || !o.review) throw new Error('extra needs --zone and --review');
