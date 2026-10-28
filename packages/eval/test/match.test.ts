@@ -4,6 +4,7 @@ import { dedupeLabels, featureToLabel } from '../src/labels.js';
 import { matchDetections, scopedCounts } from '../src/match.js';
 import { stitchRings } from '../src/overpass.js';
 import { colourFamily, failedRules } from '../src/diagnose.js';
+import { LARGE_POOL_M2, largePoolCounts } from '../src/evaluate.js';
 import type { EvalDetection, Label } from '../src/types.js';
 
 // Small boxes near Vilamoura. Here 1e-4° is about 11 m along a meridian and about 9 m along a parallel.
@@ -217,5 +218,19 @@ describe('miss diagnosis rules', () => {
     expect(colourFamily('green over blue')).toBe('turquoise-green water (green above blue)');
     expect(colourFamily('hue too blue + too pale')).toBe('deep blue water (hue above the band)');
     expect(colourFamily('too pale')).toBe('pale water (low saturation)');
+  });
+});
+
+describe('pools of 400 m² or more', () => {
+  it('counts outline labels from 400 m² and the ones hit, never points or ignores', () => {
+    // 1e-4° x 1e-4° is about 11 m x 9 m here: 4e-4 x 2e-4 is about 790 m², 1e-4 x 1e-4 about 99 m².
+    const big = rectLabel('big', 0, 0, 4e-4, 2e-4);
+    const big2 = rectLabel('big2', 1e-3, 0, 4e-4, 2e-4);
+    const small = rectLabel('small', 2e-3, 0, 1e-4, 1e-4);
+    const covered = rectLabel('covered', 3e-3, 0, 4e-4, 2e-4, 'ignore');
+    const point = featureToLabel({ type: 'Feature', geometry: { type: 'Point', coordinates: [LON, LAT] }, properties: { id: 'pt', source: 'osm', role: 'pool' } });
+    expect(big.areaM2).toBeGreaterThan(LARGE_POOL_M2);
+    expect(small.areaM2).toBeLessThan(LARGE_POOL_M2);
+    expect(largePoolCounts([big, big2, small, covered, point], new Set(['big', 'small']))).toEqual({ labels: 2, hits: 1 });
   });
 });
