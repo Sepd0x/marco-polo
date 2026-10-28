@@ -8,6 +8,7 @@ fixed before measuring: p95 at most 150 ms per 512 px request with its halo,
 | date | commit | browser | CPU | 512 px p50 / p95 | 256 px p50 / p95 | result |
 |---|---|---|---|--:|--:|---|
 | 2026-10-10 | f4871e8 | Chromium 141, headless | Xeon 2.1 GHz, 4 cores | 163.8 / 236.7 ms | 35.3 / 57.1 ms | both above target |
+| 2026-10-28 | e7b2f13 | Chromium 156, headless | AMD Ryzen AI 9 365, 10 cores | 73.3 / 106.3 ms | 16.3 / 25.7 ms | both within target |
 
 v2 misses both targets on this machine. The scan does not wait on it at the
 default rate: the app runs 2 to 4 workers (cores minus one), so 3 workers at
