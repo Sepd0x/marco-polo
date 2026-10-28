@@ -443,6 +443,11 @@ export class ScanController {
         if (n) count(n);
       }
     }
+    // Probe answers serve the neighbours that ask before their own turn.
+    for (const [url, got] of r.probed) {
+      const e = r.shared.get(url);
+      if (e) e.bytes = Promise.resolve(got);
+    }
   }
 
   /**
@@ -476,6 +481,22 @@ export class ScanController {
     const bytes = e.bytes;
     if (--e.uses <= 0) r.shared.delete(req.url);
     return bytes;
+  }
+
+  /** Give back a use of the halo table without fetching. */
+  private giveBack(r: PartRun, url: string): void {
+    const e = r.shared.get(url);
+    if (!e) return;
+    if (--e.uses <= 0) r.shared.delete(url);
+  }
+
+  /** The uses a centre tile holds on its eight neighbours, given back when it will not ask for them. */
+  private giveBackNeighbours(r: PartRun, tile: TileCoord): void {
+    if (this.halo === 0 || r.part.provider.kind !== 'xyz') return;
+    for (const [dx, dy] of NEIGHBOUR_OFFSETS) {
+      const n = neighbourTile(tile, dx, dy);
+      if (n) this.giveBack(r, tileRequest(r.part.provider, n).url);
+    }
   }
 
   private async neighbours(r: PartRun, tile: TileCoord): Promise<(ArrayBuffer | null)[] | undefined> {
@@ -513,6 +534,8 @@ export class ScanController {
       this.inflight.add(p);
     }
     await this.settleInflight();
+    // Whatever is left in the halo table belongs to tiles that are not coming.
+    r.shared.clear();
     if (!this.alive()) return;
     this.publish(r, r.merger.finalize());
     this.update(r, { status: 'done' });
@@ -525,14 +548,18 @@ export class ScanController {
     const tile = scanTile.tile;
     let outcome: TileOutcome = 'done';
     let events: MergerEvent[] = [];
+    // Uses this tile holds on its neighbours in the halo table until it asks for them.
+    let holdsNeighbours = true;
     try {
       const req = tileRequest(provider, tile, this.wmsHalo(provider));
       const probed = r.probed.get(req.url);
       r.probed.delete(req.url);
+      if (probed) this.giveBack(r, req.url);
       const got = probed ?? (await this.use(r, req));
       if (got.status === 404 || got.status === 204) {
         outcome = 'nocoverage';
       } else {
+        holdsNeighbours = false;
         const neighbours = await this.neighbours(r, tile);
         const res = await this.work(
           {
@@ -557,6 +584,8 @@ export class ScanController {
       if (err instanceof ScanCancelled || isAbort(err) || !this.alive()) return;
       outcome = 'failed';
       events = [];
+    } finally {
+      if (holdsNeighbours) this.giveBackNeighbours(r, tile);
     }
     if (!this.alive()) return;
     if (outcome === 'failed') r.failed.push(scanTile);

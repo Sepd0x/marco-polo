@@ -167,6 +167,32 @@ describe('scan controller', () => {
     expect(s.parts[0].tilesNoCoverage).toBe(2);
   });
 
+  it('lets go of every halo tile, and fetches each tile once, with probes, 404s and failures in the part', async () => {
+    const r = rig({ halo: 48, detectorId: 'v2-test', latencyMs: 5, workMs: 1 });
+    const plan = splitPlanBySource(US_AREA).parts[0].plan.tiles;
+    const missing = new Set(plan.filter((_, i) => i % 4 === 1).map((t) => tileRequest(ESRI_WORLD_IMAGERY, t.tile).url));
+    const broken = tileRequest(ESRI_WORLD_IMAGERY, plan[2].tile).url;
+    r.net.respond = (url) => (missing.has(url) ? { status: 404 } : url === broken ? { status: 500 } : { status: 200 });
+    const c = new ScanController(request(), r.deps);
+    // The halo table after each tile: what is left must be needed by a tile still to come.
+    const sizes: number[] = [];
+    const shared = () => (c as unknown as { runs: { shared: Map<string, unknown> }[] }).runs[0].shared;
+    const unsub = useStore.subscribe((s) => s.stats.tilesDone, () => sizes.push(shared().size));
+    const done = start(c);
+    await vi.advanceTimersByTimeAsync(600_000);
+    await done;
+    unsub();
+    expect(useStore.getState().stats.tilesDone).toBe(plan.length);
+    expect(useStore.getState().stats.tilesNoCoverage).toBe(missing.size);
+    expect(shared().size).toBe(0);
+    // With the last tile in flight, only its own neighbours may still be held.
+    expect(sizes[sizes.length - 2]).toBeLessThanOrEqual(9);
+    // A probed tile is not asked for again as a neighbour (the broken one is retried, by probe and by scan).
+    const perUrl = new Map<string, number>();
+    for (const call of tileCalls(r.net)) perUrl.set(call.url, (perUrl.get(call.url) ?? 0) + 1);
+    for (const [url, n] of perUrl) if (url !== broken) expect(n, url).toBe(1);
+  });
+
   it('lists failed tiles and scans only those again on retry', async () => {
     const r = rig({ fragments: () => [] });
     const plan = splitPlanBySource(US_AREA).parts[0].plan.tiles;
