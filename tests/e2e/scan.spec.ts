@@ -68,3 +68,29 @@ test('CSV and GeoJSON exports hold one entry per pool', async ({ page }) => {
   expect(lines).toHaveLength(n + 1);
   for (const line of lines.slice(1)) expect(line.endsWith(`,${doc.attribution[0]}`)).toBe(true);
 });
+
+test('an offline scan fails within seconds, says so aloud, and finishes once the connection is back', async ({ page, context }) => {
+  await ui.openArea(page);
+  // Routed requests never reach the emulated network, so cut them off here too.
+  const cut = (url: URL) => url.hostname !== 'localhost';
+  const refuse = (route: { abort(reason: string): Promise<void> }) => route.abort('internetdisconnected');
+  await context.route(cut, refuse);
+  await context.setOffline(true);
+  const started = Date.now();
+  await ui.startScan(page);
+  const failed = page.getByRole('region', { name: 'Scan failed' });
+  await expect(failed).toBeVisible({ timeout: 10_000 });
+  expect(Date.now() - started).toBeLessThan(10_000);
+  await expect(failed.getByRole('alert')).toContainText('offline');
+  await expect(failed.getByRole('button', { name: 'Retry failed' })).toBeVisible();
+  // The screen reader hears the failure, not "Scan complete".
+  const spoken = page.locator('.scan-announcer');
+  await expect(spoken).toHaveText(/^Scan failed\. Your device is offline/);
+
+  // Back online: the failed tiles are scanned again without a click.
+  await context.unroute(cut, refuse);
+  await context.setOffline(false);
+  await ui.waitForResult(page);
+  await expect(spoken).toHaveText(/^Scan complete/);
+  await expect(ui.noTilesMissing(page)).toBeVisible();
+});
